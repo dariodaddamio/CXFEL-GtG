@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>DAQ architecture proposal &#8212; CXFEL  documentation</title>
+    <title>DAQ Architecture Proposal &#8212; CXFEL  documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
     <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
@@ -36,19 +36,10 @@
           <div class="body" role="main">
             
   <section id="daq-architecture-proposal">
-<h1>DAQ architecture proposal<a class="headerlink" href="#daq-architecture-proposal" title="Link to this heading">¶</a></h1>
+<h1>DAQ Architecture Proposal<a class="headerlink" href="#daq-architecture-proposal" title="Link to this heading">¶</a></h1>
 <p>The original architecture proposal for the CXFEL timing and DAQ system describes how a
 GPS-disciplined atomic clock provides a global reference, and how the local timing hardware
 derives clocks and event streams from it.</p>
-<section id="key-concepts">
-<h2>Key concepts<a class="headerlink" href="#key-concepts" title="Link to this heading">¶</a></h2>
-<ul class="simple">
-<li><p>A GPS receiver and atomic reference generate a stable <strong>1 pulse-per-second (1 PPS)</strong> signal.</p></li>
-<li><p>Local timing hardware uses that 1 PPS to synthesize higher-frequency clocks while staying
-locked to the global reference.</p></li>
-<li><p>The accelerator’s <strong>1 kHz repetition rate</strong> is represented as an event pattern on this timing
-infrastructure, so EVRs can convert events into precise local triggers, gates, and other actions.</p></li>
-</ul>
 <object data="_static/pdfs/ASUTimingAndDAQArchitectureR1.pdf"
         type="application/pdf"
         width="100%"
@@ -60,7 +51,6 @@ infrastructure, so EVRs can convert events into precise local triggers, gates, a
     <a href="_static/pdfs/ASUTimingAndDAQArchitectureR1.pdf">download the PDF directly</a>.
   </p>
 </object></section>
-</section>
 
 
           </div>
@@ -90,10 +80,7 @@ infrastructure, so EVRs can convert events into precise local triggers, gates, a
 <script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <p class="caption" role="heading"><span class="caption-text">Guide to Resources</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">DAQ architecture proposal</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#key-concepts">Key concepts</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DAQ Architecture Proposal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="osprey/index.html">Osprey-Provided</a></li>
 <li class="toctree-l1"><a class="reference internal" href="internal/index.html">Internal Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cs_studio/index.html">CS-Studio GUI</a></li>

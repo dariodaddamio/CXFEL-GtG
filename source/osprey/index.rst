@@ -6,7 +6,6 @@ system and related DAQ hardware/firmware.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Osprey
 
    quartz_daq_repo
    quickstart_guide

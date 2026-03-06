@@ -1,4 +1,4 @@
-CS-Studio tabs
+Navigating the GUI
 ==============
 
 After boot, the tabs we care about most for DAQ work are:
