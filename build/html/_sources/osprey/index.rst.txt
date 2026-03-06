@@ -1,0 +1,14 @@
+Osprey-Provided
+=============================
+
+This section links to the consultant/vendor documentation and repositories used for the EVG/EVR timing
+system and related DAQ hardware/firmware.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Osprey
+
+   quartz_daq_repo
+   quickstart_guide
+   atf_previewer
+
