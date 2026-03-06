@@ -1,4 +1,4 @@
 Quickstart Guide
 ================
 - `Quickstart Guide (Quartz DAQ) <https://github.com/osprey-dcs/quartz-daq-250-24/blob/master/documentation/quick-start.md>`_
-   - This is the centralized repository that provides the artifacts and documentation related to building, wiring, and using the hardware. 
+
