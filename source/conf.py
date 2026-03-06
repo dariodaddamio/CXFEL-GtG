@@ -42,6 +42,9 @@ html_css_files = ['custom.css']
 html_theme_options = {
     # Show hidden toctree entries in the sidebar (we keep toctrees hidden on pages).
     "globaltoc_includehidden": True,
+    # Do NOT auto-collapse other branches; keep the full tree visible so
+    # dropdowns are always available.
+    "sidebar_collapse": False,
 }
 
 # Add a tiny sidebar script to collapse/expand nested nav items.

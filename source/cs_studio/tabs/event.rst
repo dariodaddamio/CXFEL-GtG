@@ -1,4 +1,4 @@
-Event tab
+Event Tab
 =========
 
 At the top of this section, we can see: ``Accel``, ``Hutch``, and ``Devel``. We will be focusing on
@@ -12,9 +12,9 @@ buttons, each of these opens a GUI for managing channels.
 
 The DG645 screen is essentially the front panel of the physical device, but in digital form. It
 consists of several tabs that correspond to specific behaviors, which can be found in more detail
-in the official manual.
+in the `official manual <https://www.thinksrs.com/downloads/pdfs/manuals/DG645m.pdf>`_.
 
-Quartz Board
+Quartz Board  
 ------------
 
 On the right column, a crucial button is ``Quartz #1``. This is the main area to access
