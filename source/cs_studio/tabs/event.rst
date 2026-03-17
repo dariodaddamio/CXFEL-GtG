@@ -34,5 +34,8 @@ Then in the ATF previewer: **File → Open** and paste that path.
 
    Acq. Recording Control tab (Last Completed File).
 
-See also :doc:`/osprey/atf_previewer`.
+See also:
+
+- :doc:`/osprey/atf_previewer`
+- :doc:`/osprey/quartz_firmware`
 

@@ -1,0 +1,1913 @@
+ASU CXFEL EVGEVR System Integration with LLRF and Beamline Detector Systems-20241120_174312-Meeting Recording
+
+November 20, 2024, 4:29PM
+
+1h 14m 5s
+
+
+bob   0:34
+Can you hear me?
+
+
+Mark Holl   0:36
+But yes, we can.
+
+
+bob   0:39
+Morning.
+
+
+Mark Holl   0:40
+Morning.
+
+
+bob   0:43
+Eric, we can't hear you.
+I see you're trying to talk though.
+
+
+Eric Norum   0:48
+I know I'm not. Hello.
+
+
+bob   0:49
+There you are, OK.
+You go.
+
+
+Eric Norum   1:01
+In silly.
+
+
+bob   1:02
+Yeah.
+You're up.
+Can't hear you.
+
+
+Jukka Pietarinen   1:15
+Hey, my microphone is off.
+
+
+bob   1:16
+There we go.
+Diego.
+
+
+Thomas W. Miller. PE   1:32
+Hey, good morning.
+
+
+bob   1:43
+Morning, Sabine.
+
+
+Sabine   1:48
+Just makes it hard.
+I know the controls are moved to the top of the screen compared to usual.
+
+
+bob   2:16
+Hey, Steve.
+
+
+Mark Holl   2:20
+Wait a couple minutes.
+
+
+Stephen Jachim   2:21
+But.
+
+
+Mark Holl   3:34
+I'm adding you to an e-mail right now, Aaron.
+That is associated with communications with Dectress and Diego in particular, and osprey and of course Sabine and Rick and Tom. If they're here. I'm also going to add Sam title bomb, because all of us, all of those teams have 2D detector integrations.
+So I'm sending it now because Zach Brown will not be able to make the meeting, but he opens the door then for.
+Communication with dectress for detector integration questions you know, and as you pointed out, he forgets.
+We have an Eiger 4 instead of an Eiger 2, but as you you point out, I believe Diego. Are you here Diego?
+
+
+Diego Omitto   4:21
+Yes, I'm here.
+
+
+Mark Holl   4:22
+Yeah. So he points out.
+You'll you'll see this e-mail.
+I'm punching the button on it right now.
+The.
+You you mentioned there's firmware upgrades and many things since we got the very first, you know, really one of the the first tiger for him or.
+And things that will need to be done so.
+But he did get back to us. And so that's a very positive indicator that, you know, essentially at least he took the time to respond and then Diego and as appropriate as it gets broken down in this meeting, he can reach out and then start an active P/E.
+To peer discussion for the information that's needed for us to be able to achieve the objective and the objective here for what we're talking about today is going to be to integrate them line systems.
+For the CXFEL beam lines OK with an event generator event receiver system.
+To press out the highest time fidelity we can achieve for both systems and also to be able to integrate this in with Epic Seven and then and be able to immediately engage.
+The prototype for the low level RF FPGA system that's being developed under the direct super electrical engineering supervision of Steve Jackham with the FPGA expertise of Thomas Miller of TCB engineers.
+And then also the EVGEVR integration component brought together then by Osprey under leadership of Bob and coordination of above bellacio.
+So that's the first part of the meeting. The second part of the meeting is to take a look at again. Osprey leading the systems integration effort for achieving.
+High fidelity.
+Time integrate timestamp integration with all of our 2D detectors and then of course the simple things like you know, just digital.
+Status, bids and 1D arrays and other things that are much more simple. So with that, with that rough integration, we have two different groups of three different groups of people here. As mentioned, we have Osprey and the full team of engineers on that side to achieve that.
+They are fully engaged and we have full, full contractual engagement with them for their their part in this to achieve success.
+The second team we have is Steve Jackhamm and Tom Miller.
+And they're doing the low level Rs system for CXFPL.
+And then we'll do that first, get everything working and potentially maybe upgrade the cxls someday.
+And then the third team here is going to be the ASU team for really.
+All the data that gets collected in the experimental hutches, except you know interdependently, but separately from the.
+From the electronic accelerator, everything tied together by time.
+Course. And that's why this is so important.
+So with that, Bob is a quick overview.
+Can you take it away and then engage your agenda that you put up?
+
+
+bob   7:32
+Put up an agenda that was good of me.
+I don't it in front of me, I'm afraid.
+
+
+Mark Holl   7:38
+Do you want me to put it up?
+
+
+bob   7:39
+Give me a SEC. Would you please? Thank you.
+
+
+Mark Holl   7:39
+I I certainly can.
+Yeah, let me let me pull that up.
+Let's go ahead and see if I can share this, OK.
+Let me just put this up.
+And then we'll go ahead and just bring this.
+Up to make it much, much larger.
+
+
+Stephen Jachim   7:58
+No.
+
+
+Mark Holl   8:02
+That's less than ideal.
+Let me just do one thing here.
+I do not know why it makes these things and decides to double space everything, but I'll fix it quickly.
+Contact attendees reply to all and then we can take some notes perhaps.
+And then I will be able to select everything.
+And then go in here, go to paragraph and I do not know why it does this, but it does.
+Collapse it back down, make it readable.
+And why not look up?
+And then we can go ahead and bring this up. So this is the agenda that you'd put together, Bob, and so.
+I'm going to.
+Yeah, I'm gonna silence myself and then allow you to start engaging the agenda.
+
+
+bob   9:11
+OK.
+So we started with a low level interface here a little of RF.
+So Michael is working on the protocol to present that and give you a a document about what we expect to to be on the TCP IP communication. And on the streaming. Tom.
+Tom, I assume you haven't seen that yet, is that correct?
+
+
+Thomas W. Miller. PE   9:38
+That is correct.
+
+
+bob   9:38
+OK.
+OK.
+So we'll get that to you within the next several days, two or three.
+And the next thing I had up was Tom.
+Did you?
+Did you how? How are things going with the performance measurements?
+
+
+Thomas W. Miller. PE   9:55
+I'm good.
+I.
+I don't know how.
+How far we should delve into it?
+But the the short answer is is that I am currently.
+Acquiring all samples from 1 peer group in real time and parameterizing them.
+And I'm finding that I have no difficulty in keeping up with the data stream.
+Steve and I had a discussion yesterday where we believe the next step is to aggregate both systems together and run the software with the full complement of 12 iqd.
+To do a final verification.
+But my gut tells me at this point Bob, that it it's it's achievable within the RT chassis.
+
+
+bob   10:46
+Great. And and did you go all the way out to UDP stream?
+
+
+Thomas W. Miller. PE   10:50
+Right.
+
+
+bob   10:50
+Are you looking on the other side of that?
+
+
+Thomas W. Miller. PE   10:52
+No. So that's the next step is I didn't wanna implement Audp stream and then, you know have it not be.
+Even in the right ballpark of what the team is looking for. So what I'm hoping is, is to get at least a straw man protocol that we all agree on, and then go ahead and implement it. And.
+
+
+bob   11:05
+The call looks like.
+
+
+Thomas W. Miller. PE   11:16
+The UDP transmitter and then decide as a group how we wanna do the listener, whether or not that's just, you know, doing something crued and rudimentary to get started or.
+What have you?
+But I concur that that's the next step is to actually put UDP in the loop and and verify that we can do end to end.
+
+
+Eric Norum   11:31
+OK.
+
+
+bob   11:36
+So that's waiting for our protocol definition and I'll get that to you.
+I'll connect with Michael today and hopefully we'll get it to you by the end of today.
+
+
+Thomas W. Miller. PE   11:45
+Right.
+
+
+bob   11:46
+K.
+The the other thing, OK.
+
+
+Thomas W. Miller. PE   11:47
+And then, sorry to close out on that.
+So are you also developing a listener?
+
+
+bob   11:53
+Yes. Yeah, of course.
+
+
+Thomas W. Miller. PE   11:55
+I mean in, in the sense you know, so in the short term, in order to to facilitate testing, I'm assuming that that is not going to be the case or are you going to develop a a short term listener that that conforms to the protocol?
+
+
+bob   12:06
+I think we can.
+I think we can put something out in pretty, pretty short order to put it on the other side and listen. So you can measure it all there.
+
+
+Thomas W. Miller. PE   12:14
+I think that would be.
+That would be awesome.
+OK, good.
+Thank you for that clarification.
+
+
+bob   12:18
+We might not do much with it, but we can listen to it, yeah.
+
+
+Thomas W. Miller. PE   12:21
+Yeah, exactly.
+And that's the point, right?
+Can I stuff that pipe and keep up with it, right?
+
+
+Stephen Jachim   12:27
+Tom, do you? Do you think it's worthwhile to take 5 minutes and just touch on a couple of things we talked about yesterday from your presentation?
+
+
+Henrik Loos   12:33
+Run.
+
+
+Thomas W. Miller. PE   12:35
+Could I?
+Didn't I didn't know if that was this was the right time to do that.
+
+
+Stephen Jachim   12:39
+No, I think it's it's worth 5 minutes of people's time to see.
+
+
+Thomas W. Miller. PE   12:42
+OK.
+Alright, good.
+Let me switch over to that machine.
+
+
+Henrik Loos   12:47
+AME.
+
+
+Alex Gardeck   12:48
+Mark, you're on mute.
+
+
+Mark Holl   12:51
+Yeah, so definitely worthwhile.
+I've stopped sharing so, but as things come up, if people wanna put things up to start tying dots together, let's go and do that.
+
+
+Thomas W. Miller. PE   13:05
+Waiting for teams to come up in a couple more seconds.
+Here it comes and I'm gonna add this device.
+Alright, I'm in and here's my screen.
+Alright, let me know when you can see my screen.
+OK. So Bob, in in company we we discussed some previous iterations of this scheme in the last meeting that we had.
+I've since refined it a bit and kind of captured.
+Some of the details and actually have gone through and coded it. So for everyone's who hasn't seen this before, there's basically 3 sections to this.
+There's there's code that runs in the FPGA.
+There's code that runs on the Linux realtime controller that's in the.
+Or sorry in the PXI chassis. And then there's osprey. You know, or or essentially lab wide code if you will, that that are the consumers of the data that's produced.
+Above in the diagram.
+So down here at the bottom, we kind of have two pipes going into it.
+We have a scatter pipe that'll allow us to do configuration and monitor, you know, status and things like that.
+And we have.
+A.
+An acquisition pipe, which we're envisioning to be UDP.
+And there'll be some box hanging out at the end of the UDP pipe that does parse and aggregate and serves all of the the data consumers.
+At the top of the diagram is an iqd, an actual IQDFPGA card that resides in the chassis.
+As I mentioned, there's six of them.
+Each card has 480CS.
+And there's some control mechanism to.
+For triggering and and configuration and things like that out of that comes a single data stream.
+That data stream.
+Is 4 by U 64 interleaved?
+So there's AU 64 for each ADC channel and it's bit packed according to my little diagram here. But essentially you have I and Q samples.
+Some information about sequencing and.
+The source that the data came from.
+All six iqd cards.
+Instantiate a FIFO to the real time and the real time.
+Subscribes to all six of those those Fifos and does a double buffering scheme.
+To make the samples available to.
+An intermediate layer that will parameterize and interleave them according to our data scheme.
+Currently the it's straight up interleaving I send you know all 48 channels first sample then all 48 channels, second sample and so on.
+In the end, the peer group data stream that comes out of this, you know, goes into the UDP formatter is.
+Going to be 48 channels organized AS24U60 fours.
+And so that's, that's the kind of overview.
+Any questions that I can answer before we look at the code?
+So the code itself, I actually have it running here. There is a a host application that is doing all of the SCADA.
+That's essentially what all of this is, is.
+You know, chassis health on the left, iqd in the OR.
+Sorry iqg in the middle and iqd on the right.
+You know, status on the top and configuration on the bottom for the iqd iqg.
+It is real time interactive so.
+We can operate the chassis from the monitor connected to the PXI.
+As well as you know, eventually implement all our epics interfaces.
+There's a a background process that's actually doing all of the.
+Acquisition in and.
+Parameterization so it's on a completely separate thread and what we can see here is, is that I don't know if you can see my cursor, but in the top middle of the of the panel on the right you have a real time display of the data stream that.
+Coming across.
+From the six iqg cards in my chassis.
+There's a record counter here.
+I'm currently triggering at a kilohertz and pulling in 400 samples every for every trigger so you can see that you know the the thousands.
+Decimal place of the records counter is running at about a Hertz.
+The graph in the middle is pulling every one thousandth record and parameterizing it into floating point.
+And display you know both in time and amplitude and displaying it as floating point numbers.
+And so you can see that progress occurring here. I can clear the graph and we'll see it immediately refreshes it.
+So we know a new sample came in.
+It's double buffered so we can see on the right the buffer fill states, and you know they're they're graduated essentially based on instantiation order.
+Not sure how much else I can say about this.
+Any questions or comments?
+
+
+Stephen Jachim   19:27
+I think that's pretty good.
+A good overview.
+
+
+Thomas W. Miller. PE   19:30
+Alright, good.
+So there's an overview of of where we're at with the low level RF software.
+
+
+bob   19:39
+Henrik, the next question I had in the agenda was to you.
+We were looking at the at clarifications in the data acquisition requirements.
+
+
+Mark Holl   20:00
+So is that a?
+Is that to Henrik?
+
+
+bob   20:02
+Yes.
+
+
+Mark Holl   20:03
+Yeah. So, Henrik, you you asked me if I could apply some encouragement to bill to get back, but I think that we don't have input from bill yet on that.
+And so we'll keep working to get that.
+
+
+bob   20:17
+OK.
+
+
+Mark Holl   20:18
+Henrik has taken the initiative. I'll just say.
+And I've seen on the CC for him to present the questions, but we don't have the responses back from Bill yet.
+I will mention that we had this meeting and that it it is a bottleneck that we have to have that information. I'll mention that to Bill.
+
+
+Alex Gardeck   20:39
+If you're trying to talk, you're unmute.
+
+
+bob   20:39
+We got full.
+We got the full throughputs, so we should be OK, right?
+I mean, we're able to get everything that we thought we would want, so maybe it's not so critical anymore.
+
+
+Mark Holl   20:49
+Oh, OK. Well, can you comment on that?
+Steven and Tom Miller.
+
+
+Alex Gardeck   20:55
+Mark, it looks like Henrik is trying to talk right now. He's just on mute.
+
+
+Mark Holl   20:59
+OK.
+Henrik, can you speak on mute?
+
+
+Henrik Loos   21:05
+OK, kid. OK.
+I'm unmuted now.
+I think we should just go forward.
+Trying to get the full data rate and if it's not feasible then we have to see what what we have to do scope.
+
+
+Stephen Jachim   21:24
+Yeah, I think what Tom just showed is that he can pull in the data from half of the system.
+He only has half of it installed in his Pixie chassis.
+I've got the other half here at ASU.
+So we have.
+
+
+Henrik Loos   21:36
+Love one another, love.
+
+
+Stephen Jachim   21:36
+We we have one more hurdle to to jump across and that is to combine both systems into one chassis and make sure that everything still hangs together.
+
+
+Henrik Loos   21:45
+I see.
+
+
+Stephen Jachim   21:47
+Tommy may want to comment on that a little bit.
+
+
+Henrik Loos   21:51
+But we definitely know that half the rate is workable.
+If it gets into the Pixie chassis then it we should also be able to push it out via UDP.
+
+
+Stephen Jachim   22:03
+Yep.
+
+
+Mark Holl   22:05
+At 1 Hertz.
+But is that at one kilohertz? It's updating?
+
+
+Henrik Loos   22:08
+I thought it was.
+
+
+Thomas W. Miller. PE   22:08
+I'm working at one kilohertz, currently, one kilohertz, 400 samples. I've designed the system to go up to 1000 samples per trigger, and that will be kind of, you know, the stress testing, if you will, once we get a UDP end to end is to is to.
+
+
+Mark Holl   22:10
+One karat.
+
+
+Thomas W. Miller. PE   22:27
+Run it up to the 1000 samples per record and really stress it with 12 cards and that will give us a really.
+I think a definitive answer.
+
+
+Mark Holl   22:37
+An intermediate would run in A2 kilohertz.
+I mean, it's a stupid question.
+Perhaps be a reasonable tester something.
+
+
+Thomas W. Miller. PE   22:45
+And I'd prefer not to increase the trigger rate because the that.
+Changes the granularity of the ingestion rate as opposed to changing the number of samples, which just changes the size of the ingestion, right?
+So there's a there's a. There's a critical.
+It's very important that we understand and limit or understand and specify the trigger range that we want to operate over, and currently my understanding is the maximum trigger rate is one kilohertz. Is that?
+The case.
+
+
+Mark Holl   23:19
+That's the case.
+Sam, you have a question?
+
+
+Thomas W. Miller. PE   23:20
+Yeah.
+
+
+Samuel Teitelbaum   23:22
+Yeah. So maybe this isn't, you know, maybe this is not an issue with.
+This is Pixie chassis specific, but it sounds like what you're saying is that you know 10,000 samples per 10,000 samples per channel per shot is kind or 1000 samples per channel per shot is kind of what you're looking at for the bandwidth that this thing.
+Can do.
+
+
+Mark Holl   23:46
+Kevin Sam, this is completely for the low level RF system on this Pixie, Jessie.
+
+
+Samuel Teitelbaum   23:51
+OK, OK. I was wondering because I I think for for user experiments on a DAC, we're probably gonna want more samples than that.
+
+
+Stephen Jachim   23:58
+Yeah, this is.
+
+
+Mark Holl   23:58
+Yeah, it's, it's.
+
+
+Stephen Jachim   23:59
+This is strictly driven by the RF pulse length, OK.
+
+
+Mark Holl   24:02
+The first.
+The first part of the meeting we're gonna deal with the agenda. That is just the low RF part and then we will talk about these general discussion topics.
+But to your point or your question, Sam, this is exclusively to the FPGA low level RF system currently.
+So I mean I guess.
+When when did you have that planned? Tom and Steve about this pull up stress test? What would that?
+
+
+Stephen Jachim   24:35
+No, we talked about it.
+We talked about it yesterday.
+We haven't set a date, but we should do it soon either.
+He'll come here or I'll go there and we'll combine our systems and and run it so.
+Tom.
+
+
+Thomas W. Miller. PE   24:46
+I would if I can interrupt, I would suggest that that one of the prerequisites to that is is having a UDP working on 1/2 system right? And so getting the protocol and a listener and getting my writer working. There's there's a little bit of work to go.
+
+
+Stephen Jachim   24:48
+Yep.
+
+
+Henrik Loos   24:51
+Replay.
+
+
+bob   24:56
+Yeah, I I agree.
+
+
+Thomas W. Miller. PE   25:04
+Here, but I certainly mark see that happening, you know, subject to the aforementioned development before the end of the year.
+
+
+Mark Holl   25:12
+OK, if it happens any time in that error bar around that, that would be great.
+
+
+Thomas W. Miller. PE   25:18
+Mm hmm. Yeah, it's a question, you know, to Henrik's point.
+And it's a question we need to answer definitively sooner than later so that we can move on with the decision in mind, right.
+
+
+Stephen Jachim   25:27
+Put it on the shelf and move on. Yep, right.
+
+
+Mark Holl   25:30
+That sounds good.
+Are there more low level RF specific topics that you all want to address with Bob and Osprey?
+
+
+Henrik Loos   25:40
+What about the EVP integration?
+
+
+Thomas W. Miller. PE   25:43
+Yeah.
+
+
+bob   25:46
+So. So that'll come from Michael. And we'll have a smaller meeting about that when we have the protocol to you and getting the UDP reader and, you know, we'll put a schedule together for that. And I think before the end of the year is is right.
+
+
+Thomas W. Miller. PE   26:00
+OK. My, I guess maybe along those lines you know of Henrik's suggestion is is is I've been seeing a lot of.
+E-mail traffic from yuca around.
+Questions about, you know.
+Clock sources and stability and things like that.
+Should we have a a short discussion to address any questions or concerns in that area?
+
+
+bob   26:33
+So the evg is the source of T0, right?
+The event generator and understanding how it synchronizes with the RF and what the jitter that's tolerable to all the diagnostics I think is what's on the next the next topic.
+
+
+Thomas W. Miller. PE   26:47
+Got it.
+
+
+bob   26:49
+So if you wanna if if you want us to start with you can and Eric kind of digging into what's needed or if the instrumentation people talked about it.
+
+
+Thomas W. Miller. PE   26:50
+I'll table that.
+
+
+Mark Holl   27:13
+I think you've got the.
+You've got the mic, Bob.
+
+
+bob   27:18
+My mic is now on.
+You hear me?
+You hear me barking?
+
+
+Thomas W. Miller. PE   27:20
+Yes.
+
+
+Mark Holl   27:23
+Yeah, I know. That's yeah. So.
+
+
+bob   27:23
+So.
+So Yuka is that can can you can you start.
+Or Eric start the clarifications. We need to understand how the RF reference gets integrated with everything else and.
+
+
+Jukka Pietarinen   27:38
+Yeah, I I can start.
+
+
+bob   27:40
+Thank you.
+
+
+Jukka Pietarinen   27:41
+My my question I I send an e-mail to both Tom and Steve about how the where the mass oscillator of the of the whole system is.
+What kind of frequencies does it produce?
+Steve said that the RF is 9300 megahertz.
+The RF frequency and is this an exact frequency or is it tune Sara how?
+
+
+Stephen Jachim   28:08
+No, let me let me explain.
+We have a a synchronous generation system that is slaved to 10 megahertz via GPS.
+
+
+Jukka Pietarinen   28:14
+Hmm.
+
+
+Stephen Jachim   28:18
+So it's it's just.
+
+
+Jukka Pietarinen   28:20
+Yeah. OK.
+
+
+Stephen Jachim   28:23
+And it's a frequency synthesized.
+So we have harmonically related outputs 23/25/60.
+67 something and then 9300 megahertz.
+And then there's also a sub harmonic of 2325 which is.
+72.65625 megahertz.
+But everything is is synchronous with synchronously generated in congruence with the 10 megahertz reference.
+
+
+bob   28:58
+Yuka, how would we integrate that with the evg?
+
+
+Jukka Pietarinen   29:04
+Yeah, the best operation frequency for the EVG would be between 50 megahertz and 100.
+66 megahertz.
+So 100 megahertz would be quite optimal.
+I don't know if that's possible if the if the is the one kilohertz trigger.
+Synchronous to do 10 megahertz, I guess that was the case.
+
+
+Stephen Jachim   29:27
+Right now on Cxls it is not.
+It could be, but it's it's, it's.
+
+
+Jukka Pietarinen   29:31
+Yeah.
+
+
+Mark Holl   29:35
+Let's focus on Cxfel, Steve.
+
+
+Stephen Jachim   29:38
+Yeah, I'm just.
+I'm just explaining that that on cxfel the intent is that it will be synchronous.
+Trigger will be synchronous with the with the RF.
+
+
+bob   29:50
+The kilohertz trigger is that coming from the evg?
+
+
+Stephen Jachim   29:57
+I don't know. I assume so.
+
+
+bob   29:59
+Yeah, that's what I assume as well.
+So we would, we would take your RF signal and generate.
+Somehow synchronous with your with your RF.
+
+
+Stephen Jachim   30:09
+Huh.
+And we need more than than one trigger. Just to be clear for the low level RF chassis and the rest of the R system, we need 6 triggers. They're grouped into two peer groups, so we need one for acquisition of signals, one for generation of the RF P.
+And then third one as a gate.
+It's a final gate on the RF.
+Which is obviously synchronous with the others, but less stringent.
+
+
+Jukka Pietarinen   30:44
+Do you have any kind of timing diagram of the whole system?
+
+
+Stephen Jachim   30:50
+Not per southeast.
+
+
+Mark Holl   30:56
+But if in the course of this project if it's necessary.
+Then I would ask you could to specify in a RFI request for information and so send it back to the team. For example, if you have needs that are not being you know met in terms of executing your work, then I would request Capital R, Capital F Capital.
+I.
+Colon and then send the request to this e-mail list and then we'll get it parsed out and we'll we're gonna have to communicate in getting our documentation.
+In order and so if it can't be done really without this level of interconnect diagram and with timing diagrams, then say what's necessary in coordination with Bob and peer-to-peer communication, and then let's start getting our documentation in order, because I I recognize the need for these.
+Things. It's just that in an academic environment we we have to work hard to actually get these things done.
+
+
+bob   31:56
+We have all this very tight and coordinated timing with the RF. Did the diagnostics have any such requirements?
+Have a one kilohertz trigger that will be synchronized with the RF.
+Is it adequate for triggering any of the detectors or diagnostics that are under consideration right now?
+
+
+Mark Holl   32:19
+So from what I've heard, OK, and what I understand about the EVGVR system at LCLS.
+Basically, your event receiver should be able to receive the event and then from that event signal generate time delays for each of the different triggers that may be used. And if we keep if we maintain synchronization for each event pulse, in some cases we may need to act.
+Triggers a camera, for example.
+For the next pulse right in the pre from the previous pulse.
+For the next pulse that's coming so that the integration time frame overlaps appropriately. So you Yep, a pre trigger.
+
+
+Stephen Jachim   33:00
+Pre trigger no.
+
+
+Mark Holl   33:03
+Now, do you have these?
+
+
+bob   33:03
+Right.
+
+
+Mark Holl   33:05
+The expectation is that that type of flexibility would be available.
+
+
+bob   33:09
+Yes, and it we need to know what the count of those are in the distribution.
+
+
+Mark Holl   33:10
+The.
+
+
+bob   33:14
+But one of the other things we need to know is right now the accuracy of the event receiver is 8 nanoseconds.
+Do we need to go lower than that?
+There is a.
+
+
+Mark Holl   33:25
+This is where I really.
+
+
+bob   33:26
+There's a version that goes down the two nanoseconds.
+
+
+Mark Holl   33:30
+I really need to hear from Rick Kirian and Sabina in terms of.
+Pump, probe, experimentation and time delay experimentation on the cxls because we will use a version of this and make it work within some time resolution for both.
+But then for Cxfel as well Aaron as well.
+What is your time resolution needed for the beam synchronous signals?
+
+
+Rick Kirian   34:00
+I don't know if I have the full answer to this.
+Sam would be another person who definitely knows.
+
+
+Mark Holl   34:04
+Yes, yes, of course.
+
+
+Rick Kirian   34:07
+In our cases, so at the ultrafast time scales, the time delays are measured through a a time tool, which is it's, you know, I got a motion stage and a spectrometer and stuff like that.
+So that's not like it's not a DAC that's doing the timing really.
+And then there's for longer time scales.
+There's like a a delay generator setting that we turned the knob on through software.
+So it's it's probably like one of those Dgs 6480 fives or something.
+So we just know the setting that we plug into that delay generator and.
+
+
+bob   34:40
+What's the range of settings you have right now for that?
+
+
+Rick Kirian   34:44
+So I don't know the step size in that, but it goes from we go from minus time delays where we have basically the X-rays, X-rays 1st and then the optical laser. That's where our like sort of back dark dark signals quote UN quote and then we.
+Go forward until.
+Our range goes all the way into like microseconds or milliseconds.
+Down. Down.
+
+
+Henrik Loos   35:06
+What's the accuracy of the DG530 fives?
+
+
+Mark Holl   35:10
+It's 45, but yeah.
+
+
+Henrik Loos   35:11
+6:45 for time delays.
+
+
+Rick Kirian   35:14
+I'm sorry. Can you say that again?
+
+
+Henrik Loos   35:15
+What does the trigger accuracy for the jitter on the time delay of the DG645?
+
+
+Rick Kirian   35:24
+I don't know.
+I know they have different options, but I didn't build the system itself at the LCLS.
+
+
+Samuel Teitelbaum   35:29
+Yeah, I can answer that.
+So the DG640 fives.
+The accuracy of the time delay depends on the maximum delay you put in.
+So if you put in a millisecond delay, you get a nanosecond of jitter.
+You only put it in a nanosecond of delay.
+You get maybe a couple 100 picoseconds of jitter.
+I think it it bottoms out at sort of a couple 100 picoseconds sort of you know gigahertz kind of accuracies.
+And if you put in seconds of delay, then it sort of has, you know, nanoseconds or 10s of nanoseconds of accuracy.
+So typically in our system, you know.
+
+
+bob   35:59
+Is the is the hundreds of picoseconds adequate?
+Is that is that the best you need?
+
+
+Samuel Teitelbaum   36:07
+I mean.
+So.
+There is one application I can think of where you do need where you want quite accurate timing.
+But I don't think that's something that we necessarily need to do through the DAC and it's not something that Ed LCLS would typically be done through the DAC, which is using an oscilloscope to find using a high bandwidth oscilloscope to find course timing between a laser and an.
+X-ray pulse.
+So you just have a photodiod and your trigger jitter basically will set the time will actually set the time resolution if the trigger jitter is bad enough.
+And so you want sub nanosecond trigger jitter for that application, but it doesn't need to be done through an evguver.
+
+
+Rick Kirian   36:50
+I think that's what I was gonna say as well, Sam.
+That's the evg.
+
+
+Samuel Teitelbaum   36:53
+Yeah.
+
+
+Rick Kirian   36:53
+The Evg is not the thing that's timing us at least like sub nanosecond. Whatever picosecond time scales, there's some other hardware that I mean, like when they're trying to find over the scope, right.
+
+
+Samuel Teitelbaum   36:59
+Yeah.
+I can.
+I can also.
+
+
+Rick Kirian   37:04
+And we're reading out the trace of the scope like a photo diode. Never.
+
+
+Samuel Teitelbaum   37:06
+Yeah. Yeah, exactly.
+I mean it it it could be nice to do that through a DAC.
+But then again, you'd need a DAC with like 15 with like few gigahertz bandwidth and there's.
+We can just use in oscilloscope.
+
+
+Henrik Loos   37:24
+So to kind of replace the use the evgs the the EV Rs in place of the DG640 fives, which would be much more convenient.
+Then I guess we should aim for the the two nanoseconds rather than the 8 nanoseconds.
+
+
+Eric Norum   37:44
+Yuka, isn't there a A? A very fine programmable delay option on the event receivers?
+
+
+Jukka Pietarinen   37:51
+Yes, yes, yes, we we have some boss that can do.
+Do 1 thousandths of event clock cycle delay steps, so it's it.
+
+
+Eric Norum   38:01
+Yeah. You're, you're, you're down to the the the people.
+
+
+Jukka Pietarinen   38:02
+It goes it goes down to.
+Maybe 3-4 picoseconds steps?
+
+
+Mark Holl   38:08
+Yes, this is the one we need to be looking at.
+
+
+Henrik Loos   38:11
+Yep.
+
+
+Jukka Pietarinen   38:12
+But there are not many channels on each card, so that that's limited.
+
+
+Mark Holl   38:15
+So what?
+
+
+Eric Norum   38:15
+Brought me download 8645 either.
+
+
+Mark Holl   38:16
+What is not is. I'm sorry, but I'm sorry, but what does not many mean?
+
+
+Jukka Pietarinen   38:21
+There are not many channels on one one modules. It depends on the card. There may be two, two or four of these outputs on one EVR.
+
+
+Mark Holl   38:31
+Yeah, but if we need to actually buy more of the EV Rs, then that's just another fiber. You know, from the fiber fan out, so.
+
+
+Jukka Pietarinen   38:40
+Yeah, yeah, yeah.
+
+
+Mark Holl   38:40
+Yeah.
+
+
+Henrik Loos   38:41
+Yeah. And for devices that don't need that high resolution that can tolerate a larger jitter like, I don't know, just cameras. Then we can go with the Corsa ones.
+
+
+Mark Holl   38:54
+Yeah. So we we can have then we should develop two flavors of these things and then we'll have, you know, different cost points and different a different ordering list of when we bought, when we start procuring and then preparing for deployments.
+
+
+Jukka Pietarinen   38:54
+Yeah.
+
+
+Henrik Loos   38:59
+Play.
+
+
+Mark Holl   39:11
+But we have to pursue both and go down to the finest resolution. Understand what that means in terms of capabilities.
+Cost benefit, but we're going to.
+We will be ordering some of each and as many as we need for with spares.
+
+
+Samuel Teitelbaum   39:26
+There's also the the point that I'd like to make if the option for.
+If the option for having a high resolution trigger evg becomes too expensive.
+With some DAT cards, you can provide a pair of triggers and have the DAC.
+Arm on one and trigger on the 2nd and so that way the evg is still providing a trigger with low resolution and you wait and then you have a very precise trigger that actually starts the digitizer acquisition.
+
+
+Mark Holl   40:03
+These are we're cobbling things together at this point, though, aren't.
+
+
+Henrik Loos   40:07
+Yeah, yeah.
+
+
+Mark Holl   40:08
+And so I'd really rather first understand the cost.
+I mean, I do have.
+I have funds.
+You know, it's, of course everything is finite, but let's first understand our cost points.
+
+
+Samuel Teitelbaum   40:14
+Yep.
+
+
+Henrik Loos   40:18
+And also I'll be talking about accuracy or resolution.
+
+
+Samuel Teitelbaum   40:25
+Accuracy.
+Or precision precision I guess.
+
+
+Henrik Loos   40:27
+OK.
+Decision, yeah.
+
+
+Samuel Teitelbaum   40:29
+Care If there's an offset.
+I I just wanted.
+I wanted to make this point because.
+You know, I think like Rick said, 99% of the applications that we have, you know, nanosecond delays are fine for the soft X-ray cameras.
+You can.
+The acquisition time is the the acquisition window of the camera is actually closer to hundreds of to 10s of microseconds, maybe even hundreds of microseconds, because it's a CMOS.
+So it reads outline by line.
+
+
+Henrik Loos   41:00
+Yeah.
+
+
+Samuel Teitelbaum   41:01
+And so having nanoseconds of trigger jitter is gonna be pretty irrelevant.
+
+
+Henrik Loos   41:07
+Yes.
+
+
+Mark Holl   41:07
+Yeah, that's that's why we'll, of course want to have.
+We will be buying some of each.
+We have to develop both pathways.
+Probably more of you know one than the other, but we'll we'll be able to do that once we understand what the performance characteristics, what the options are.
+
+
+bob   41:29
+So I think that Yuka and Eric and I can talk more about this.
+We understand you're you're looking for the best that that we can do and different price points for less accurate and more jitter.
+So. So that's understood.
+I think in a smaller group, one other one other question is how the low level RF. It has its own accurate timestamps.
+We have to know how to put time, how to it has its own accurate triggers.
+We need to put time stamps on the data.
+So that it's coherent and how coherent that has to be with other data in the system is important within itself.
+It's, you know, it's consistent how, how accurate does that have to be with timestamps of all the diagnostics? Do we care?
+
+
+Henrik Loos   42:16
+Everything else? Well, for one beam pulse, everything has to have the same tag on it.
+
+
+bob   42:22
+Right.
+
+
+Henrik Loos   42:23
+I think that's without a question.
+
+
+bob   42:25
+Yeah, but that's easy, right?
+That's that's kilohertz.
+
+
+Henrik Loos   42:28
+Yeah.
+
+
+bob   42:29
+Yeah. The question is the fine part of the timestamp down to the down to the sub nanoseconds.
+Does anybody do any other devices other than the low level RF need to be self consistent?
+There at that at the sub nanosecond level.
+
+
+Mark Holl   42:49
+If I understand what you're saying, we're going to have beam pulses that are going to be coming out and will have multiple diagnostics that will have different sampling rates and so forth for the electron accelerator. Then we're going to have laser systems where we're going to be SY.
+Into the laser systems where there could be multiple diagnostics, those systems tied into, for example, the synchronization systems that they have.
+Or what?
+Probably the ultimate fidelity that can be produced.
+And then there will be other, probably gag based diagnostics that are cameras that again as Sam was pointing out.
+Really, because they're limited by the speed of the readout technology, you know, probably won't matter because you'll have an integration time frame that's an overlap.
+So if I've said anything wrong, please correct me. Sam and Sabine and Rick, but I'm not sure how to.
+We may not even know right now on some of these questions.
+We just need to build.
+
+
+bob   43:50
+So, but just so everybody knows that, that's the question, right?
+If they do need it, we should.
+We should look at those case by case.
+It's gonna be important.
+
+
+Mark Holl   43:59
+But then.
+But then the fiber fan out should actually make everything receiving that capability.
+That timestamp.
+It should synchronize then all of the triggers that are going out from that.
+And so we're counting on that because, you know, even for our small little beamline, I'd want all the fibers to be the same length.
+I don't even want to approximate beyond that.
+You know, you know so that every every launch and every receipt, essentially, we don't have arbitrary delays that are going to be out there, even if they're small.
+Just want to retire them.
+
+
+Henrik Loos   44:30
+I don't I I don't think that's an issue.
+You you just have to time the the device.
+So that you know that on which beam pulse you are.
+
+
+bob   44:42
+Luca, can you speak to the jitter on the between the Evgs and the EV Rs in a distributed network?
+
+
+Jukka Pietarinen   44:49
+Yeah, it is a jitter level. Depends on the number of fan outs, but it it is in the range of five to 10 picosecond RMS.
+
+
+bob   45:00
+And that's regardless of the length of the fiber.
+
+
+Jukka Pietarinen   45:03
+Yeah, the fiber length does not matter, but we also have a delay compensation of the fiber.
+
+
+Henrik Loos   45:06
+AME.
+
+
+Jukka Pietarinen   45:09
+We can.
+We can adjust the the fibers do not need to be the same up to the same length, so we can adjust for the adjust for the fibre length and also temperature drift.
+
+
+Mark Holl   45:16
+OK.
+Good. OK, good.
+Totally for the larger facilities where I guess that it makes a difference.
+
+
+Jukka Pietarinen   45:27
+Yeah. Yeah, of course. Yeah.
+
+
+bob   45:32
+So most of the the point of this section was to to understand the jitter issues so that anybody who has things that we care about in the sub 10 picosecond range, we become aware of them and address them however we can.
+The other piece of the time, this timing section was meant to talk about.
+The detectors that are streaming images off, but all they get is a trigger, right?
+So from the timing system, the dectris for instance will get a trigger to start.
+Acquiring data and it's going to stream these detector frames out from the dectris detector, and we need to know, did we get everyone?
+So how long are we going to be expecting it to send them out at a kilohertz? And what do we get from dectris that that gives us some indication that nothing was dropped, either coming through their system?
+Or into the software that we're that we have on the other side of the zero MQ.
+
+
+Mark Holl   46:37
+Sabina and Rick on one hand and then a direct question to probably dectris through Zac Brown and he can connect you on the other side.
+But Samina Rick, can you speak to that?
+
+
+Rick Kirian   46:50
+I think there's cases where you wanna record for fairly long periods continuously at a kilohertz.
+And we we usually give runs of several minutes and then we might break and change a parameter next run.
+
+
+Mark Holl   47:03
+But I mean, for beam times, ultimately you're going to be running for, I mean runs at cxi, you know, what do the beamline scientists do?
+
+
+Rick Kirian   47:05
+Yes, everything else.
+
+
+Mark Holl   47:13
+They start a new run every 20 minutes and then just compartmentalize.
+Or what is it?
+
+
+Rick Kirian   47:18
+5 minutes. But yeah, I mean it's basically continuous though. I mean, it's normally about 5 minutes between runs, but it's more about the size of the data and convenience for analysis and stuff.
+
+
+Mark Holl   47:22
+So.
+
+
+Rick Kirian   47:27
+But it's.
+
+
+Henrik Loos   47:27
+Is there any tagging of the images?
+That you know that you are synchronized.
+Does each image get a timestamp incorporated or do you like make blank frames once in a while that are synchronized with the accelerator?
+Or how do you do that?
+
+
+Rick Kirian   47:44
+Yeah. So that's that's a question I can't answer because like as an analyst, I basically use their interface which is called psnn to grab images and with those images we get the the evgr or the evg stuff where we can say is event 41 tied to this image.
+
+
+Henrik Loos   47:51
+Yeah.
+
+
+Rick Kirian   47:58
+Like laser on laser off, that kind of stuff. I don't know what.
+
+
+Henrik Loos   48:00
+What does the what does the what does that meeting happen between? Yeah.
+
+
+Mark Holl   48:00
+You're you're actually.
+Oh, wait, wait. Henrik. Eric, just to be clear, I brick is talking about what he gets at LCLS right now.
+
+
+Rick Kirian   48:11
+But user as a user, yeah.
+
+
+Mark Holl   48:13
+Yeah as a user.
+And so he's describing what we want, not what we get from dectris.
+Dectris is much more limited in what you get, and so that's going to be a a detailed in the weeds question for you know, you know, right now you, you guys have interfaced and been using the dectris for about a year or something or longer and and bas.
+You have streaming so that you can do this, but you don't have any you know event.
+Specific time tagging per southeast.
+Unless you.
+Unless you just get single image.
+For example, which is too slow when you're using zmq. This is. This is the trick.
+You asked the right questions, Henrik that have been the logical sort of hack that we've been discussing is could you put a blank frame in there occasionally as just an index and then do a checksum if you will, on this kind of thing. But none of this has.
+
+
+Henrik Loos   48:54
+No.
+
+
+Mark Holl   49:08
+Worked out and so this is. This is where we're at the interface now between people using the camera.
+The need to work with dectris and Osprey needing to figure out a strategy for lossless.
+And if you do lose frames, I flag it and tag it because they have to be thrown away because you can't either you choose to keep them or you throw them away.
+
+
+bob   49:29
+So Diego was saying in one of the earlier versions we would get a timestamp.
+That that was accurate down to a millisecond, so you could see where you might get the same millisecond timestamp on two images back-to-back, but at least we would have a count of the number of frames we got over a longer period of time would give us.
+
+
+Rick Kirian   49:42
+Yeah, they're.
+
+
+Mark Holl   49:54
+See what you're doing?
+You know things down into A1 millisecond blocks or something.
+
+
+bob   49:55
+Would give us some indication.
+Yeah, but that was, you know, that was an older detector and we do not have the documentation yet on what's coming across the zero MQ pipe in this dectris 4 detector.
+
+
+Mark Holl   50:13
+Well, so I so I I'll establish a project folder for this thing and I'll put everything that we have from Dectus currently, but that should not in any way at this meeting is very importantly.
+Constructed to enable peer-to-peer questions for RF is request for information from Rick, from Sabine back to you and then from you know Diego to potentially take the lead.
+Diego, you've got years of experience working with dectris and multiple different detectors, and you're an expert on area detector.
+And so the goal would be.
+To the goal would be to reach out and directly to Zack Brown, and then to immediately, then drill into dectris on our behalf and just be transparent about it.
+But but drill in that's that's why.
+That's why that's your role.
+I guess in my part you have others, but that that's your.
+
+
+Diego Omitto   51:11
+Yeah, Todd, for sure.
+I'll do that after I take a look at the documentation that you have because like Bob mentioned, the the version that I use at the BNL was an older version and they constantly changed the APIs and add or remove things.
+So I wanna see what's available and figure out what can we do with what's available and if what is there does not help you, then I'll reach out to doctor and see if they can maybe provide a firmware up.
+Something else?
+
+
+Mark Holl   51:43
+So I'm gonna after this meeting, I'm gonna make available to all the persons on this meeting. You know, a a Dropbox share that is going to have things that I shared.
+Where we originally commissioned the dectris, when we recommissioned it about a year and some time ago and you'll have all the information that we have now, it may be inadequate to the level that you need to engage with dektris because.
+You have previously suggested that we may need to do a firmware upgrade and frankly.
+Our dectress after being here for three years or whatever it is.
+We may need to upgrade the firmware and we may need to figure out how we're gonna recalibrate it because all our calibrations may not really be what we need anyway.
+So first get it working. Then figure out how we're gonna calibrate it.
+We've got to take these images.
+So is my thought on it at least?
+I mean, I'm prepared to be overruled, but this is my logical breakdown on it.
+We may. We need to recalibrate on our detector.
+From what was done many years ago, before we have any photons.
+Once we get photons, we may need to recalibrate.
+So if we can get the time tagging part working, the recalibration is something that can be done.
+It's just a question of effort.
+
+
+bob   53:11
+So I know there's a lot more written in these notes.
+It was because I was kind of everything that was on my mind at the moment and I think we've dug into just about all of them. Except do we have a list of all the known diagnostics that we hope to be collecting data from?
+
+
+Mark Holl   53:28
+No, the best that we have right now.
+We don't, although.
+
+
+bob   53:34
+We've identified the Andor and the Dectris.
+
+
+Mark Holl   53:37
+Well, we got the Andor and the dectris. Erin, you're looking into one more camera, but we have a phantom camera that we think is going to be useful for the cvmi.
+And then there's going to be probably a lot of, you know, even discrete detectors out there that provide analog input or analog outputs that will have to digitize and.
+
+
+Henrik Loos   53:51
+Play.
+
+
+Mark Holl   54:00
+But as far as a comprehensive diagnostic treatment, all our diagnostics right now are really just their YAG screens with cameras. Those won't have high resolution, but we, we we are going to have to increase in our sophistication.
+
+
+Henrik Loos   54:01
+Is this?
+
+
+Mark Holl   54:14
+So you have a lot of experience integrating beam lines and for example, even at LCLS.
+So just imagine us as implementing the diagnostic types that would be at an XFL.
+OK, we're gonna have to do things like that.
+We have consultants that I've had preliminary discussions that we need to expand into the group, but our diagnostics are gonna have to emerge.
+You know, over time.
+And we have to adapt by deploying another evg if we need it, and then reintegrate the detectors as we go. We do have a couple more cameras coming.
+We got the fandom for the cbmi.
+We also have most likely and then we also have.
+Other 2D detectors that will be coming for spectroscopy applications and so we will need to, once we get through the 1st prototypes.
+My hope is and tell me if this is a vain hope, but my hope is that with the lessons learned, integrating yet another detector is going to be something that we can we can handle faster and better.
+
+
+bob   55:31
+Sounds like a good goal.
+
+
+Mark Holl   55:33
+But to get up to the first prototypes with the cameras we have in hand, that's gonna be we got the dectris, we got the Endor, we probably are gonna get the Phantom, which has a rapid delivery time.
+Those would be the three 2D detectors that have you know, and they they each have their own little quirks.
+And then of course the low level RF and if we focus on four things for now, getting the digital and the analog and 1D stuff.
+Easy, you know by comparison.
+So let's let's come back to that.
+But let's tackle the things that really are showstopper's for us right now.
+
+
+bob   56:11
+And I thought we've covered the entire agenda for me. I think the next items are for for us to get the protocol for UDP and a schedule for having a server to read the UDP out of the low level RF.
+
+
+Henrik Loos   56:23
+Oh.
+
+
+bob   56:26
+And then to study the Dectris API and what we owe you back, and I think should be in relatively short order is at least the Evg fan out and EVR architecture and specifications.
+And costs for each granularity of time.
+
+
+Mark Holl   56:46
+Yes, that's that.
+And Sammy, have your hand up please.
+
+
+Samuel Teitelbaum   56:49
+Yeah. So with respect to diagnostics and stuff like that.
+I think that we can try to bundle a lot of our diagnostics from the perspective of the evg AVR into essentially a thing that goes into a digitizer, right?
+
+
+Henrik Loos   57:04
+AME.
+
+
+Samuel Teitelbaum   57:05
+So you have some sort of some sort of, you know, digitizer or something that is gonna have some number of channels that need to be read out. And you know each channel from some, let's say 1632 channel DAX system is.
+Read out a kilohertz and time stamped and that'll that'll include you know diodes that measure X-ray intensity. It'll include.
+You know lionskin.
+Some kinds of lionscan cameras.
+It'll include current sensors if we want to measure photocurrent. Things like this.
+And and that should be a good way to, you know, make various flexible diagnostics.
+
+
+Henrik Loos   57:44
+Run.
+
+
+Samuel Teitelbaum   57:48
+Make the specifics of a diagnostic somewhat agnostic.
+Because it's all subsumed in the deck.
+
+
+Mark Holl   57:52
+Yeah.
+Yeah, but it's probably, yeah, go ahead.
+
+
+Samuel Teitelbaum   57:55
+The other, yeah.
+The other point I wanted to make about the drop shots is I would prefer not to throw drop shots away.
+So what LCLS does is they basically tag the individual data with a a damaged tag.
+So you get. Let's say you miss a shot on a camera.
+You get the rest of the information from all the other diagnostics for that shot. You just don't get that camera.
+And the advantage is that if you take a run and let's say the camera is turned off or the camera is not receiving triggers at all.
+But that camera was, let's say, secondary to the.
+Experiment. You still get some information out.
+And you can sometimes try to use that information to figure out why certain things are happening.
+Why certain?
+A certain camera's not working well.
+And it also I think equally importantly.
+Whatever. Whatever algorithms you have that are processing your data.
+Are going to expect every single trigger to show up, and so you're not gonna be confused when like your algorithm sees that you, you missed, you know, 5 seconds of data in there.
+You weren't expecting to.
+
+
+Mark Holl   59:04
+We're not gonna throw anything away, but we'll just tag it as potentially damaged.
+Yep. Rick. Yeah, Rick.
+
+
+Samuel Teitelbaum   59:08
+Yeah, yeah, yeah.
+
+
+Rick Kirian   59:12
+I was just adding to what Sam was mentioning. If we have like digitizers that are giving us like 1D traces for each shot, it's really important for us to not have like gaps in those the samplings because we've done like two beam times where we were using.
+Their digitizers, but they record for like say 7 milliseconds when the full time span is 8.3 milliseconds between shots.
+So a small note, but it's important to us 'cause we have to do like annoying workarounds to deal with that.
+
+
+Mark Holl   59:39
+And so, Bob, you you had mentioned to me earlier that some of the evrs you know also have powerful FPGA digitizers that are capable of these things.
+So you know, we want to know about that because it could be tiny resolution for trigger generation. But then if off to the side, the FPGA can be you know something that we can learn to program or develop a user interface for, then that would be ideal because.
+Then.
+The idea is that we can actually.
+Deal with all the data types that Sam and Rick are mentioning here. So.
+
+
+bob   1:00:14
+What are the what are the sample frequencies of those Adcs?
+1D.
+
+
+Rick Kirian   1:00:20
+The ones I'm thinking of are the ones I'm thinking of work pretty slow.
+
+
+bob   1:00:21
+Yes, Sir.
+
+
+Rick Kirian   1:00:23
+They're like 10 kilohertz.
+
+
+bob   1:00:25
+OK.
+So for anything up to 9 megahertz we have, we have Fpgas that have embedded EV Rs in EM and digitizers.
+
+
+Mark Holl   1:00:40
+Yeah. And so the one thing that I was just going to say is that.
+We'll we'll want to have that.
+That capability and so just put it on the list of menu cost performance breakdown, so that we have appropriate we can right size it and have spares so that we can understand what we can order and have on the shelf. You know as we evolve.
+
+
+bob   1:01:05
+Yeah, can do.
+
+
+Mark Holl   1:01:08
+And and then the other thing is, Bob, we talked about, I'm, I'm standing, you know, of course I need to see the numbers and figure it out, but I stand ready to be able to deploy to your team and duplicate onsite.
+You know what?
+We have what we need in terms of servers or in terms of test bed stations and so forth. However, on some things, you know, like for example the dectris, it's gonna need to stay here.
+It's just it has facility requirements that are extensive.
+It has to have a chiller.
+It has to have a number of things.
+It has to have a nitrogen bleed through and so forth, and when it's in atmosphere and so, you know, we'll, we'll get to anybody who needs it.
+ASU affiliate status so that they can come in and access the detector and if you need to develop a server on your site and then we need to download it here and interface it with the detector and hook up a trigger to the detector. We have all those.
+Capabilities.
+So the main thing is I'm ready to buy servers.
+I'm ready to buy hardware.
+For prototyping, you know, even if it's not exactly the configuration we would eventually by if it's. If it does all the subset of functions and we can get going on prototyping, that's that's also a schematic I'd like to see as you break down how you can do develop.
+In a distributed remote integrated manner with US and and that's kind of like different different slides for different configurations to attack.
+The different detectors.
+And then then we'll buy what's needed and ship it to you. And then, yeah.
+
+
+bob   1:02:49
+Yeah. Look, Mark, this, this meeting was really important for me to understand what our specs were on the event generator and event receivers.
+And I I can get the rest of that to you. Yeah, in a week.
+
+
+Mark Holl   1:03:01
+And Rick, you have your hand up still.
+
+
+bob   1:03:01
+At least the 1st order.
+
+
+Mark Holl   1:03:04
+Your Rick's your hands still up, Rick, I mean.
+
+
+Rick Kirian   1:03:06
+Yeah, not intentional. I just didn't, didn't.
+
+
+Mark Holl   1:03:07
+OK.
+All right. I guess it's you're stuck. OK.
+
+
+Rick Kirian   1:03:12
+I don't how to meet.
+
+
+Mark Holl   1:03:13
+There you go. OK.
+Now it's back. All right, at any rate.
+So are there any questions from anybody else here?
+Otherwise we've we've gone through the agenda now separately, I think that we have our our plate full right now in the future, Thorsten and in particular.
+Oliver, you know, we'll come back to, you know, integrating the Cam with the Cobalt software and we'll come back to integrating.
+As additional items, as this team evolves, we will come back to that.
+We will come back to the spec phobias and being able to integrate that, but I'd like to keep us focused on getting started on these four primary objectives.
+Well, really it's the low level RF and then potentially 3 cameras.
+Let's get started and make progress on those parallel threads.
+And then we'll come back to integrating in the other, the other systems after we get a foothold on these these primary targets.
+Does that sound?
+Pardon, bub.
+
+
+bob   1:04:20
+Sounds great.
+Sounds exactly like what I've been taken away.
+
+
+Mark Holl   1:04:21
+OK.
+
+
+bob   1:04:23
+I do have one other one other question and this really is not pressing except for we're doing some development for a small grant for doing data management for machine learning and we're looking for sites to to to at least bounce off what we're doing or try try out.
+What we put together.
+Is ASU, are you guys interested in that at all?
+We have a.
+49 page specification and if you want to read it.
+
+
+Mark Holl   1:04:56
+We definitely do and it will be Sabina and her group that is going to be most, you know, taking the lead on that.
+But I think that I would say we definitely want to read it, but it will be, it will be evaluating it most closely.
+
+
+bob   1:05:13
+What's pressing about it? Sabine, is that we were going for a third level of funding to tailor it to users.
+So if you could look at it and tell me if you have any interest at all, it would help us with the the proposal we're writing for the third, third round.
+
+
+Sabine   1:05:29
+Yeah, that would be great if you just send it to me, then I'll. I'll read through it.
+
+
+bob   1:05:32
+OK.
+Thank you.
+
+
+Mark Holl   1:05:33
+Yep. So and so.
+Send it around so we all get it.
+And then, you know, Sabina will have the response.
+But we can all be aware of what's going on.
+
+
+bob   1:05:44
+Thank you.
+Is there anybody else?
+There's a hand up.
+
+
+Mark Holl   1:05:47
+Yeah, that's Aaron, please.
+
+
+Aaron LaForge   1:05:49
+Yeah, I mean, I was just gonna say for the, I mean for sort of implementing the the spec system or row and tech. I mean it goes a long way if I mean both are just gonna be operating using TDC. So digitized signals and just the the more.
+We're able to sort of incorporate those in the systems.
+We'll go a long way towards if you wanna integrate whatever operations that specs uses or what row and tech uses as well. So essentially.
+It's just gonna be a lot of digitized signals.
+
+
+Mark Holl   1:06:19
+Yeah. So, Erin, what I'd ask you to do, if you would, if you'd take on the challenge, is to get a specification written for what are what are the list of channels that need to be digitized.
+What's the digitization rate?
+What's the dynamic range of the signals, you know?
+Is it zero to 10 -, 10 to 10?
+You know, let's get the specs on what signals need to be digitized and then what manner. And then that way we can actually then get it to Bob and so.
+
+
+Aaron LaForge   1:06:42
+Yep.
+
+
+Mark Holl   1:06:48
+And then get it to Bob for both systems, OK.
+Because that'll allow us to then right size and then with headspace, right?
+I mean Nyquist criterion view what it is.
+You know, let's go ahead and have Bob then say look, this is perfectly suited for what?
+You're here and also the channel counts because as you request more and more resolution, typically you're going to lose channel count.
+And so let's let's find out what the total channel counts are for those things to be able to do that.
+
+
+bob   1:07:23
+I'll write up notes and send them out.
+They're meant to be a first draft.
+Anybody wants to make corrections additions please do.
+
+
+Mark Holl   1:07:32
+Perfect. Any other brick your hands up again?
+But is that an intentional?
+
+
+Rick Kirian   1:07:37
+I didn't mean to, but I do have a question.
+So all all of the discussion up to this point that I see it like is taking all of the analog signals into basically memory on computers, right?
+But there's like an intermediate step between like having it in memory and then going to disk or streaming it to in some format that you know the analysis team can make use of it.
+Like what is what happens in that intermediate step?
+Or when does that discussion start?
+Or how do we go?
+
+
+bob   1:08:05
+I started.
+I started it with that question about looking over what we sent with machine learning data platform.
+But yeah, if you have something else, I'd like to hear about it.
+What are they doing at LCLS on the beamline?
+
+
+Rick Kirian   1:08:19
+I mean, I I just know from a user's perspective we they give us a package called psna.
+It's Python.
+It's very easy for data analysts to pick up to get what they need.
+
+
+bob   1:08:28
+Yeah.
+
+
+Rick Kirian   1:08:30
+I need this detector.
+I need to know if the laser's on.
+I want this trace along with it, that kind of stuff.
+There's a bunch of stuff that's happening between, you know.
+
+
+bob   1:08:39
+Team there that manages the the data collaboration and.
+
+
+Rick Kirian   1:08:44
+Yeah, yeah, maybe crystal grade would be a person to talk to.
+
+
+Mark Holl   1:08:49
+Is it that I forgot his name is last name is has an A that starts it off?
+
+
+Rick Kirian   1:08:54
+One day I'm used to.
+
+
+Mark Holl   1:08:55
+But yeah, I'm Adele. Yeah.
+
+
+Rick Kirian   1:08:56
+I don't know.
+
+
+bob   1:08:57
+Amadeo's still running that group.
+
+
+Rick Kirian   1:08:59
+I don't know if he is, but that's the person I knew from years ago.
+
+
+Mark Holl   1:09:02
+You're H in, bub.
+I mean, you have already connections. That's what I I found very attractive when I originally launched us down this path.
+Because you've got prototypes, they're one of your prototypes for for prototype locations for the machine learning application.
+
+
+bob   1:09:19
+Yeah, yeah. That we're working with.
+Oh God. What's name?
+Yeah, it's not coming to me right now, but yes, she's machine learning person.
+
+
+Mark Holl   1:09:28
+Yep. Can you reach in and then?
+
+
+bob   1:09:30
+Yeah, I'll reach out to her and ask her what they're doing there, but she's more on the accelerator side.
+I was wondering if the detector side was different like Amadeo's team lived on the detector data acquisition beamline side and the I I do know them yeah.
+
+
+Mark Holl   1:09:42
+But you know him?
+Yeah. Can you reach out to him and just reach in for the types of information for what this team uses?
+They work well.
+
+
+bob   1:09:53
+I will.
+
+
+Mark Holl   1:09:53
+It's it's still, it's still cxi, you know that you work out and also then the rig spectrometer, I believe Sam you use and so isn't that right or?
+
+
+bob   1:09:53
+I'll. I'll. I'll get into that and see.
+
+
+Samuel Teitelbaum   1:10:04
+I've I've never used Rick's. I I usually go to xpp.
+Zilka Nelson is the, or at least for a lot of my time there, I think she's been promoted, but she was the the data systems expert for that. For that end station.
+
+
+Mark Holl   1:10:20
+And so if you can.
+
+
+Sabine   1:10:20
+So for for Cxi and MFXI believe it's Yana fire.
+Who's the data manage person there?
+
+
+Mark Holl   1:10:26
+Oh yeah, there, there.
+Yeah. So, Bob, everybody here is pretty tapped.
+And so if you can reach in and start reconstructing cause in the most general sense, there are papers out there for the data analysis and I'll forward them to you.
+I've actually cataloged them over the years and because obviously they stream in a in a parallel sense to get all the data OK off the C-SPAN and other detectors, and then they have time tagging, metadata reconstruction, and then they they reformat it. Then of course.
+Into packages that **** on a can actually then interrogate at the highest level, and so I'll send you these papers so that you have at least, you know, the ones that I pulled together. And you can just flip through them and see what there is that's useful. We.
+Trying to right size that type of data analysis even for the fast feedback. And right now we're actually constructing.
+A very rapid 500 terabyte local storage OK with dual network ports going into it to the best performing server we can possibly get and I'm gonna provide that to the online data analysis team.
+You know, so that they can actually do their real time analysis.
+But we have to figure out ultimately how we get all this data streamed off the detector control unit.
+And the equivalence for other detectors and then tag it. And if we need to parallelize fine. OK.
+But we have to reconstruct until coherent time sequence of images each one with the metadata package at the top, that tells all the the things that you're doing, because I know what you're doing, right? But but in some cases we may not want the whole package that you.
+Doing OK, we have to figure out what's right sized and that'll be determined by Rick.
+And Sam and folks here to right size it for our application, right, because the scope of this project right now is to collect the data and make sure that it's identifiable. OK.
+And then if we go beyond that, it's increased scope beyond what we are attacking to start.
+
+
+Henrik Loos   1:12:36
+Yeah.
+
+
+Mark Holl   1:12:37
+But we're interested.
+I mean, but we don't know yet.
+If it's within scope, OK, right.
+
+
+bob   1:12:41
+Same here.
+OK. Is there any other questions, comments.
+
+
+Mark Holl   1:12:49
+Anybody.
+
+
+bob   1:12:53
+My intention from the notes is to capture the things that we've made clear in specifications.
+What action items there are to be done and the things we need to know next?
+So again, if you see anything missing, please comment and and we'll build up the notes to be complete for everybody.
+
+
+Mark Holl   1:13:11
+And I'm I'm I'm advocating for full transparency. Unless it becomes cumbersome.
+But it's pretty cheap to just CC, you know, just reply all on communications.
+We'll watch the heartbeat go by and we'll all learn together, OK?
+
+
+bob   1:13:29
+Impacts all y'all having to read it.
+
+
+Mark Holl   1:13:32
+Well, but yeah, we're all.
+
+
+bob   1:13:33
+No, no, I will send it all and anybody doesn't want to read it can ignore it, but.
+
+
+Mark Holl   1:13:36
+In. Yeah, we're we're interested in different ways, and it doesn't take a second to go.
+
+
+bob   1:13:39
+Yeah.
+
+
+Mark Holl   1:13:40
+I kinda get the gist, but I'm not gonna spend an hour on it.
+
+
+bob   1:13:44
+Yeah. OK.
+
+
+Mark Holl   1:13:44
+OK.
+Very good.
+
+
+bob   1:13:47
+Thanks everybody, mark.
+
+
+Mark Holl   1:13:48
+OK. With that then, if last chance and then we'll close the meeting, get to work, all right.
+Thanks everyone.
+
+
+Thomas W. Miller. PE   1:13:58
+Thanks everyone.
+Have a great day.
+
+
+Henrik Loos   1:14:01
+Right.
+
+
+Mark Holl stopped transcription

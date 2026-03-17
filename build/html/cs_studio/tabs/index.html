@@ -16,7 +16,6 @@
     <script src="../../_static/nav.js?v=bd2c5f3e"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Global Tab" href="global.html" />
     <link rel="prev" title="Standard Boot Procedure" href="../boot_procedure.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
@@ -38,13 +37,17 @@
   <section id="navigating-the-gui">
 <h1>Navigating the GUI<a class="headerlink" href="#navigating-the-gui" title="Link to this heading">¶</a></h1>
 <p>After boot, the tabs we care about most for DAQ work are:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="global.html">Global Tab</a></li>
-<li class="toctree-l1"><a class="reference internal" href="event.html">Event Tab</a></li>
-<li class="toctree-l1"><a class="reference internal" href="network.html">Network Tab</a></li>
+<ul class="simple">
+<li><dl class="simple">
+<dt><a class="reference internal" href="global.html"><span class="doc">Global Tab</span></a></dt><dd><ul>
+<li><p>This tab has general directories for global opasderations. For the DAQ system, the main entry is theasdn</p></li>
 </ul>
-</div>
+</dd>
+</dl>
+</li>
+<li><p><a class="reference internal" href="event.html"><span class="doc">Event Tab</span></a></p></li>
+<li><p><a class="reference internal" href="network.html"><span class="doc">Network Tab</span></a></p></li>
+</ul>
 </section>
 
 
@@ -78,19 +81,30 @@
 <li class="toctree-l1"><a class="reference internal" href="../../daq_architecture_pdf.html">DAQ Architecture Proposal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../osprey/index.html">Osprey-Provided</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../osprey/quartz_daq_repo.html">Quartz DAQ repo (main)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../osprey/quartz_workflows.html">Quartz EVG/EVR (Testbed) workflows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../osprey/quartz_workflows.html#scope-assumptions">Scope / assumptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../osprey/quartz_workflows.html#networking-essentials-netmask-gateway">Networking essentials (netmask + gateway)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../osprey/quartz_workflows.html#ntp-setting-evg-vs-evr-behavior">NTP setting: EVG vs EVR behavior</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../osprey/quartz_workflows.html#pps-pulse-per-second-signal-expectations">PPS (pulse-per-second) signal expectations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../osprey/quartz_workflows.html#usb-serial-ports-what-each-one-is-for">USB serial ports (what each one is for)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../osprey/quartz_workflows.html#boot-images-phoebus-indicators-and-normal-behavior">Boot images, Phoebus indicators, and normal behavior</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../osprey/quartz_workflows.html#flashing-and-verifying-firmware-with-alluvium">Flashing and verifying firmware with Alluvium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../osprey/quartz_workflows.html#spanning-tree-switch-delay-symptoms">Spanning-tree / switch delay symptoms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../osprey/quartz_workflows.html#analog-input-test-dg645-quartz-adc">Analog input test (DG645 → Quartz ADC)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../osprey/quartz_workflows.html#coordinated-acquisition-atf-previewer-2-chassis">Coordinated acquisition + ATF previewer (2+ chassis)</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../osprey/quickstart_guide.html">Quickstart Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../osprey/atf_previewer.html">ATF previewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../osprey/atf_previewer.html">ATF previewer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../osprey/atf_previewer.html#notes-and-gotchas">Notes and gotchas</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../internal/index.html">Internal Documentation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">CS-Studio GUI</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../boot_procedure.html">Standard Boot Procedure</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Navigating the GUI</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="global.html">Global Tab</a></li>
-<li class="toctree-l3"><a class="reference internal" href="event.html">Event Tab</a></li>
-<li class="toctree-l3"><a class="reference internal" href="network.html">Network Tab</a></li>
-</ul>
-</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Navigating the GUI</a></li>
 </ul>
 </li>
 </ul>
@@ -101,7 +115,6 @@
   <li><a href="../../index.html">Documentation overview</a><ul>
   <li><a href="../index.html">CS-Studio GUI</a><ul>
       <li>Previous: <a href="../boot_procedure.html" title="previous chapter">Standard Boot Procedure</a></li>
-      <li>Next: <a href="global.html" title="next chapter">Global Tab</a></li>
   </ul></li>
   </ul></li>
 </ul>

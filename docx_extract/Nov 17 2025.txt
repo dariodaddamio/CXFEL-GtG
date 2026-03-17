@@ -1,0 +1,2617 @@
+CXFEL EVGEVR Testbed-20251117_223607UTC-Meeting Recording
+
+November 17, 2025, 8:56PM
+
+1h 39m 19s
+
+
+   1:59
+Hi, Michael.
+Hello again, Mark.
+
+
+Mark Holl   2:04
+Yeah, so we did Alex successfully. He's gonna join here.
+Oh boy, boy, you're whatever kind of.
+Microphone you have, Alex. It picks up all the noise.
+That's it's too bad. I wish there was a better way. Um, the um.
+Anyway, Alex, uh.
+Got the pulse per second from the FSM 40 integrated one pulse per second and I believe what did you set it to 40% duty cycle Alex?
+
+
+Michael Davidsaver   2:48
+You you are now muted.
+
+
+Mark Holl   2:49
+Yeah, you're. Yeah, you're. We can't hear you now.
+
+
+Alex Gardeck   2:52
+Right now it's at 25%. I just want to get what Michael wanted us to send it to, and right now it's still connected to the scope.
+
+
+Mark Holl   3:00
+Yeah, so 25.
+
+
+Michael Davidsaver   3:01
+It doesn't matter all that much, so if 25% is within spec.
+
+
+Mark Holl   3:04
+Yeah, because it had to be less than 50 according to what you said last time, correct?
+
+
+Michael Davidsaver   3:09
+Yes, like greater than 8 nanoseconds, less than half a second. So it's a pretty wide range.
+
+
+Mark Holl   3:18
+Yeah. And so, yeah. So hopefully we'll get Henrik here. Let me, let me go ahead and.
+Text him just to remind him in case he got lost or something.
+
+
+Alex Gardeck   3:35
+And Michael, we just need the pulse. It doesn't necessarily have to be in phase at this point.
+Correct.
+We also, as we get into things, we do have the 4th chassis connected and installed.
+
+
+Mark Holl   3:58
+Mhm.
+Yeah, we took, we took the chassis that was over on the.
+
+
+Michael Davidsaver   3:59
+OK.
+
+
+Mark Holl   4:05
+We'll level RF testbed and brought it over here because we need to boot it up and just make sure that it's working. Hey, Eric, are you gonna join the meeting?
+Oh, yeah, OK, right.
+We have a beautiful view of several kilometers of Heliax.
+Yeah.
+
+
+Michael Davidsaver   4:47
+Yes.
+Is this the the large diameter stuff that lights like bending pipe?
+
+
+Mark Holl   4:57
+No, you know in fact they made some real advances and so you get just the same even get better thermal stability for some of the stuff and not that much loss for even some of the flexible quarter inch stuff when you look at the thermal stability curves and but some of the stuff is thicker if we're transmitting some of the you know.
+The higher frequencies, yeah.
+Just to get the losses down.
+
+
+Michael Davidsaver   5:22
+OK. March of progress. All right.
+
+
+Mark Holl   5:24
+Yeah, I mean, if you if you're curious, just send me a note and I'll share what what we learned.
+
+
+Michael Davidsaver   5:30
+Well, at this point that's basically that. That's enough knowing that it's not something to just be avoided because of mechanical reasons. That's all I need here at the moment.
+
+
+Mark Holl   5:38
+Well, I mean we did put through some of the, you know, 3/8 inch thick, even half inch thick stuff in the last build, but we found in some cases that it really with some of the newer specs it didn't have superior thermal stability and or.
+On.
+
+
+Michael Davidsaver   5:58
+Mhm.
+
+
+Mark Holl   5:58
+So yeah, it was something we could make our lives a little bit easier, except for some very selected frequencies that we had to put out there, so.
+
+
+Michael Davidsaver   6:08
+I guess the lesson there is read the data sheet.
+
+
+Mark Holl   6:13
+Yeah. And yeah, if you're curious, just ask. I mean, I'm happy to share the summary of it.
+
+
+Michael Davidsaver   6:21
+Yeah, OK. I mean, if it's easy enough, then sure, yeah. I mean, I will probably bump into somebody who will be interested in it at some point in the next six months or so.
+
+
+Mark Holl   6:29
+Sure. Yeah, I'll send it across. You know, it's a it's a nice, nice thing to have a little bit of, you know, the fusion going on.
+
+
+Michael Davidsaver   6:30
+Thank.
+Mhm.
+
+
+Mark Holl   6:49
+Yeah, we've been training up an undergraduate on SolidWorks Electrical Professional, you know, for a few weeks. He's got probably a few weeks more. And then he also did the Community College class on connectorization and he's going to be a primary person when we.
+Very soon now start to implement our cable farm.
+
+
+Alex Gardeck   7:26
+So one preliminary check Dario and I just did and we'll get into it with Henrik. Maybe he did something, but right now 193 is the only one that we've been able to ping, which is the third one.
+192 we had gotten working in the last meeting, but I'm not getting a ping response from it.
+
+
+Michael Davidsaver   7:47
+Mhm.
+
+
+Alex Gardeck   7:51
+I. I
+
+
+Michael Davidsaver   7:51
+OK, I guess just answering the the the the usual basic questions that still plugged in, Ethernet's still plugged in and it's powered on.
+
+
+Alex Gardeck   7:58
+Yep.
+
+
+Michael Davidsaver   8:00
+OK, then it's it's probably not responding as you as you're trying to ping it.
+Which may mean that it's running the application firmware.
+
+
+Alex Gardeck   8:05
+Yes. Uh, OK. So when it's actively running the application firmware, it then is not reachable over the network.
+
+
+Michael Davidsaver   8:14
+No, the well, it's it's reachable. It just doesn't respond to ICMP pings.
+
+
+Alex Gardeck   8:19
+Uh, OK.
+
+
+Michael Davidsaver   8:22
+It will still it will respond to the the the application protocol used as well as the debug console script.
+
+
+Alex Gardeck   8:29
+OK.
+
+
+Michael Davidsaver   8:33
+Actually, are you able to run the same OPI screens that Henrik showed last time?
+
+
+Alex Gardeck   8:40
+Should be able to.
+
+
+Mark Holl   8:46
+So Alex, are we are we able in some fashion here to get get Dario's? I mean, I leave it to your judgment, but get Dario's hands on the keyboard at some point.
+Alex.
+Yeah. OK. Excellent. Thank you.
+
+
+Alex Gardeck   9:02
+Yes.
+Because of how loud we are with the background here, it might be better for Henrik to still drive for this one, but then we can follow along with a real VNC.
+
+
+Mark Holl   9:18
+It's just strange how it's you have some sort of adaptive thing going on where when you're not talking, it's really loud. When you are talking, the background's quiet. It's it's a strange thing.
+
+
+Alex Gardeck   9:35
+Yeah, we're just using the webcam speaker, but the chassis are a little loud. The 2U chassis is right next to it.
+
+
+Mark Holl   9:41
+Oh, OK.
+Alright.
+
+
+Michael Davidsaver   9:44
+I I believe we call this automatic game control and it's usually seen as a feature.
+
+
+Mark Holl   9:51
+Mhm, yeah.
+Yeah.
+OK.
+
+
+Michael Davidsaver   10:02
+I was gonna offer to try to drive, but it looks like my connection to the ASU network is very high latency at this point for whatever random reason.
+
+
+Mark Holl   10:11
+Yeah, that's not good.
+
+
+Michael Davidsaver   10:17
+This is often why when I'm working remotely on others, you know, customer systems, I, you know, do go off hours.
+
+
+Mark Holl   10:24
+Now I understand.
+But it's.
+
+
+Michael Davidsaver   10:28
+But yes, there's.
+
+
+Mark Holl   10:30
+That's strange 'cause, yeah.
+And so what?
+
+
+Michael Davidsaver   10:37
+It's the the Internet. We can just say that.
+
+
+Mark Holl   10:42
+Henrik, are you with us?
+
+
+Henrik Loos   10:45
+I'm with us. I'm. I'm sorry with us with you.
+
+
+Mark Holl   10:48
+OK. OK. So, so OK. So the the idea here is to the to the. So, yeah, so for the extent possible, it would be wonderful if we can start to get Dario touching the keys and being more actively involved in, yeah, in doing things, yeah.
+
+
+Henrik Loos   10:52
+So about good evening.
+Yes.
+
+
+Mark Holl   11:06
+OK.
+
+
+Henrik Loos   11:14
+I see you both in the lab.
+
+
+Mark Holl   11:16
+Yeah. So both Alex and Daria are in the lab. Pulse per second has been put in place and Alex did that. And so from here I'm going to step back and let you guys continue on from where we were last Friday where we needed for that to be true.
+
+
+Henrik Loos   11:17
+Mm.
+
+
+Mark Holl   11:35
+In order to take steps forward.
+Alex, you're you're muted.
+
+
+Alex Gardeck   11:43
+Yeah, Henrik, what I'm thinking to start is we now just installed the 4th chassis into the test rack. So kind of a nice summary from last week would be then doing the initial steps of getting the IP address, not mask.
+
+
+Henrik Loos   11:49
+Mhm, Yeah.
+
+
+Alex Gardeck   12:00
+And Gateway configured on this 4th chassis to see its behavior.
+
+
+Henrik Loos   12:05
+Yeah.
+
+
+Alex Gardeck   12:07
+OK, so I'm going to go ahead and plug the USB into this 4th chassis right now.
+Do you want to share your screen, Henrik?
+Or or do you want us to kind of try and drive today?
+
+
+Mark Holl   12:58
+Yeah.
+
+
+Henrik Loos   13:04
+Um.
+Well, maybe you should drive this.
+
+
+Alex Gardeck   13:23
+OK, can you see the screen?
+
+
+Henrik Loos   13:27
+Uh.
+Yes, I can see the screen.
+
+
+Michael Davidsaver   13:29
+2.
+Yeah, be aware for for me that the font's a little small, but I can I can read it.
+
+
+Henrik Loos   13:45
+Yeah, bigger. Yeah, bigger would be better for me too.
+
+
+Michael Davidsaver   13:52
+Yeah, I guess let's wait to the the VNC viewer. That might be easier to scale that.
+
+
+Alex Gardeck   14:04
+How's that looking?
+
+
+Michael Davidsaver   14:07
+That is readable, yes.
+
+
+Henrik Loos   14:07
+I'm saying I need to get.
+OK, yeah, I can read that, yeah.
+Oops.
+
+
+Alex Gardeck   14:56
+So this is just going to the.
+Here.
+And so it is.
+Where is it?
+
+
+Henrik Loos   15:11
+Oh, I'm sorry, I have not made a standalone IOC yet for this, so it's the IOC that's in the epic's modules.
+
+
+Alex Gardeck   15:21
+OK, that's good to know.
+
+
+Henrik Loos   15:23
+Yeah.
+And that's the ATF.
+Yeah.
+
+
+Alex Gardeck   15:38
+And then is the second window launch from this as well?
+From this location or where do I need to go to get to the alluvium?
+
+
+Henrik Loos   15:47
+Oh.
+The oh, that's in. Yeah, you have to go into the Alluvium module.
+OK.
+
+
+Mark Holl   16:28
+Hey, Alex, big small question here.
+Of all these, can you hear me?
+
+
+Michael Davidsaver   16:38
+Yes, I can hear you.
+
+
+Mark Holl   16:39
+Yeah, Alex. Yeah. So what point can Dario, um, can you guide Dario rather?
+
+
+Alex Gardeck   16:39
+Yes, I can hear you.
+Yeah, I think. I think he can start going now. I just wanted to get him in the file paths.
+
+
+Mark Holl   16:50
+OK, yeah, good.
+
+
+Henrik Loos   17:09
+Yeah, I wrote up some instructions that are on the.
+Um.
+CXLS home page, uh, home screen.
+
+
+Alex Gardeck   17:27
+On the CX well Phoebus home screen or the CXLS?
+
+
+Mark Holl   17:30
+Yeah, CX.
+
+
+Henrik Loos   17:31
+The CXLS, the CXL version doesn't, does not for that particular thing, doesn't exist yet.
+
+
+Alex Gardeck   17:39
+OK.
+
+
+Mark Holl   17:41
+Oh.
+
+
+Alex Gardeck   17:47
+Where am I going?
+
+
+Henrik Loos   17:49
+Um.
+Oh, um.
+You could do a file open.
+And go to other locations.
+Computer.
+User.
+Local.
+CXLS. Oh, sorry. Yeah, CXLS. User local CXLS. Yeah, and then CSSCXLS.
+and then main global OPI ohh main global Bob okay
+And then uh, system manual.
+And then if you go to on the left, uh, installation procedures.
+Installation of additional control system server features.
+And.
+Need some rewrite, some reorganization and so the first thing is the NTP client service setup that I put on there and then if you Scroll down there is something about the quartz chassis, yeah.
+And the first part that's uh for the Uh Epix installation and then if you scroll further down.
+There's a quad chassis setup, a serial connection via USB, then the debug console via USB to the firmware and what different commands can be used there. So the first thing.
+OK.
+OK.
+So what's the status of the new board or the new chassis?
+
+
+Alex Gardeck   20:26
+Blank slate.
+
+
+Henrik Loos   20:30
+Blank slate. OK, so in that case, um, we'll first have to set up the IP address.
+So we need uh, so is the USB cable connected to it?
+
+
+Alex Gardeck   20:43
+Yes.
+
+
+Henrik Loos   21:00
+OK, so.
+So now the first thing is to connect to the what's that the MMC console?
+
+
+Alex Gardeck   21:14
+So the alluvium or the from the IOC shell first?
+
+
+Henrik Loos   21:20
+Since we don't have the IP address set up yet, the first things have to be done with the USB cable and that doesn't need any any IOC or Luvium software.
+
+
+Michael Davidsaver   21:38
+I think I saw it in the right hand side if you do a search for this cereal.
+
+
+Henrik Loos   21:39
+So and that's.
+Um, it's it's down in the instructions if you go to the.
+Yeah, further, yeah, I need to resort this into an actual procedure. Yeah, there's the yeah, that's the first thing.
+
+
+Alex Gardeck   22:04
+And I can just do it in here.
+
+
+Henrik Loos   22:07
+Yeah, based. Yeah.
+
+
+Michael Davidsaver   22:08
+You want to get rid of that dollar sign at the beginning.
+
+
+Henrik Loos   22:12
+Oh yeah, sorry.
+
+
+Michael Davidsaver   22:19
+No, no, no, no. It's no need for apologies. Just making the maybe worth making the point to folks who are not familiar with Linux. The convention is when you're showing examples of commands to put a dollar sign in front of it if it's to, you know, expected to be an unprivileged command and a hash if it's expected to be a privileged command.
+
+
+Henrik Loos   22:31
+Mhm.
+Yeah.
+Yeah.
+OK.
+
+
+Michael Davidsaver   22:47
+Here we go.
+
+
+Henrik Loos   22:48
+Now you can type question mark that gives you uh all the commands.
+And the one we need is the the one that's listed below as an example to set the IP address, the M command.
+Ye OK success.
+And that will.
+Reboot it and we'll show you that the IP address was.
+Um, acknowledge there.
+
+
+Alex Gardeck   23:29
+How do I exit out of this so I can run?
+
+
+Henrik Loos   23:32
+Oh, I should put at that too. Exit out with control right bracket, right square bracket.
+
+
+Alex Gardeck   23:38
+7.
+OK, and now I can just continue running the other commands.
+
+
+Michael Davidsaver   23:44
+Actually, as a request, I mean, it's good to know that, but could you just leave that running while we go along?
+
+
+Henrik Loos   23:49
+OK.
+
+
+Alex Gardeck   23:52
+Yes.
+
+
+Michael Davidsaver   23:54
+Yes.
+
+
+Henrik Loos   23:54
+Yep.
+OK now.
+
+
+Michael Davidsaver   23:58
+Just keep a a third terminal.
+
+
+Alex Gardeck   23:58
+OK.
+
+
+Henrik Loos   24:00
+OK, now OK.
+
+
+Alex Gardeck   24:10
+Now this command.
+
+
+Henrik Loos   24:17
+Yes.
+OK.
+Yeah, now we need to go to the OK, first we should try if we can ping if that was successful.
+
+
+Michael Davidsaver   24:45
+And again, don't don't panic since this is the first time.
+
+
+Henrik Loos   24:48
+Yeah, it it'll take a while because of the network switch settings.
+
+
+Michael Davidsaver   25:05
+Although I think it should might be worth checking the Ethernet the Ethernet connection.
+
+
+Henrik Loos   25:11
+Yeah. Oh yeah, Ethernet. Yeah, we do need an Ethernet cable.
+
+
+Alex Gardeck   25:18
+Yeah, it should be connected. Alex is checking, checking now.
+
+
+Henrik Loos   25:20
+Mm.
+
+
+Alex Gardeck   25:51
+Is there a reason why it's switching from 194 to 59 here?
+
+
+Michael Davidsaver   25:59
+That yes, because it's saying the the when it says from the dot for that is because it's getting a it's trying to execute a ping, but it's getting back a message from. In this case I think that's probably the the IP of this host saying the destination is unreachable.
+Which actually that's a good point. I mean that that's, yeah, that's correct. That was how we did the other ones the other day and that was 191 and 193.
+
+
+Henrik Loos   26:27
+Mm-hmm. Those worked. I mean, I guess it's on a different subnet. Oh, there we go. OK, so it just took a long time.
+
+
+Michael Davidsaver   26:32
+Oh, no, there we go.
+
+
+Alex Gardeck   26:35
+Yeah, we unplugged it and replugged it a few times. No. So the yeah, that the cable that we ran was initially provisioned for an extra DG645. So we used that extra cable we had, but the DG645 needs a a special.
+
+
+Henrik Loos   26:39
+Oh.
+
+
+Alex Gardeck   26:55
+Configuration on the switch, so I moved it over to one of our standard ones and then it started coming online.
+
+
+Michael Davidsaver   27:03
+Oh, OK.
+
+
+Henrik Loos   27:03
+Oh.
+
+
+Alex Gardeck   27:10
+So now I can continue with the with this command.
+
+
+Michael Davidsaver   27:19
+Yes, I mean that's a good. We can just keep that again. If you just have that third terminal, just have that running, just keep it running.
+
+
+Henrik Loos   27:25
+You you stop sharing your screen.
+
+
+Michael Davidsaver   27:28
+I I can still see it.
+
+
+Henrik Loos   27:33
+I.
+
+
+Mark Holl   27:35
+I I see it as well.
+
+
+Michael Davidsaver   27:35
+Uh, let's see.
+
+
+Henrik Loos   27:38
+What?
+I don't see the computer screen anymore.
+
+
+Mark Holl   27:42
+Hmm.
+
+
+Michael Davidsaver   27:43
+Are you seeing video images or?
+
+
+Henrik Loos   27:45
+Yeah, yeah, I don't see the screen anymore. It's like went out of out of sharing.
+
+
+Mark Holl   27:51
+Oh.
+
+
+Michael Davidsaver   27:53
+Well, we can try stopping and starting again. That might O it to the front.
+
+
+Henrik Loos   27:58
+Yeah, maybe I lost it.
+It's teams.
+
+
+Mark Holl   28:05
+I see it.
+
+
+Alex Gardeck   28:05
+I stopped and started again. Is it? Is it fixed?
+
+
+Henrik Loos   28:05
+Oh, OK, I see it again. It's bad.
+OK.
+
+
+Michael Davidsaver   28:11
+I I can still see it. I can see it again.
+
+
+Henrik Loos   28:12
+Yeah, OK.
+
+
+Mark Holl   28:13
+I can see it again.
+Is it on that panel? Did you click like for example a person or something on the top panel?
+
+
+Henrik Loos   28:23
+I didn't click on anything, it just did it by itself.
+
+
+Mark Holl   28:27
+Oh, oh.
+Mhm.
+
+
+Henrik Loos   28:34
+OK, so.
+I guess now we can look at. OK, now we should get the.
+Um, the debug console running.
+
+
+Michael Davidsaver   28:48
+I think that there's a misstep here which is telling the the bootloader firmware to launch the application firmware so that the simple way to do that from the command line would involve the Illumium tool.
+
+
+Henrik Loos   29:00
+Yeah.
+
+
+Michael Davidsaver   29:02
+Actually, if you go ahead and start up the the terminal for the application firmware, you should see a bunch of garbage being printed.
+
+
+Henrik Loos   29:11
+Yeah.
+
+
+Alex Gardeck   29:13
+And it's this right here.
+
+
+Michael Davidsaver   29:18
+Correct.
+
+
+Henrik Loos   29:26
+OK. Yeah.
+
+
+Michael Davidsaver   29:40
+All right. And just leave it there and then I guess switch over. Uh, you found it. OK.
+
+
+Henrik Loos   29:45
+OK.
+Oh, what's that? Oh, you're not getting back slashes or or forward slash. You're getting different characters.
+
+
+Michael Davidsaver   29:55
+Yeah, well, it's it's the the baud rate's wrong, so it it it's undetermined behavior exactly what it's gonna decode.
+
+
+Henrik Loos   30:01
+Uh, OK.
+
+
+Alex Gardeck   30:07
+So now what do I run into Alluvium?
+
+
+Henrik Loos   30:12
+No, that's further down. It's the.
+
+
+Michael Davidsaver   30:18
+Those three commands that were just, uh, the command line communicate with the chassis that ones that go.
+It's in the middle right of your screen at the moment.
+
+
+Alex Gardeck   30:29
+These three OK.
+
+
+Michael Davidsaver   30:30
+Yes, and you'll change the IP address, of course.
+
+
+Henrik Loos   30:33
+Yeah.
+It.
+And now we should look at the Yep.
+Uh, OK, that looks good.
+
+
+Michael Davidsaver   30:59
+All right, there we go.
+
+
+Alex Gardeck   31:09
+And now I'm running these three, right?
+
+
+Michael Davidsaver   31:13
+Not in that order, though. Be careful.
+
+
+Alex Gardeck   31:16
+What is the correct order?
+
+
+Michael Davidsaver   31:19
+The order is NTP in gateway and then boot.
+
+
+Alex Gardeck   31:24
+OK.
+
+
+Henrik Loos   31:25
+Oh yeah, I need to switch that.
+Well, you could do it. Then you have to do the boot again after the gateway.
+
+
+Michael Davidsaver   31:38
+Well, it would be more complicated because you'd have to, you know, you'd have to go through the alluvium again.
+
+
+Henrik Loos   31:39
+And the, yeah, yeah.
+
+
+Alex Gardeck   31:50
+Yeah, and then maybe Henrik, you can do 139 dot X .1 when you edit your notes.
+You can highlight.
+
+
+Henrik Loos   32:05
+But so I was editing something.
+
+
+Alex Gardeck   32:10
+Uh, this highlighted part here should be a four for me, right? So.
+
+
+Henrik Loos   32:14
+OK, can you hit F5 on the Firefox display?
+
+
+Alex Gardeck   32:21
+And.
+
+
+Henrik Loos   32:24
+Ah, all right.
+Yeah.
+
+
+Michael Davidsaver   32:29
+In real time.
+
+
+Henrik Loos   32:31
+Mhm.
+
+
+Mark Holl   32:38
+Ed's, I think both of your questions went right by.
+Henrik 13910.139.4.1 is but and you guys want to have it X.1 or something.
+
+
+Alex Gardeck   32:51
+OK.
+Yeah.
+Yeah, or for this case we can leave it as 4.1 because if it's dot 0.1 then you'll have to have a slash 24 for the proper net mask.
+
+
+Henrik Loos   33:10
+Yeah, if it only, yeah, if since this spans 512 IP addresses, we need the 23.
+
+
+Mark Holl   33:19
+Right, but it should be 4.1 instead of 1.1.
+
+
+Henrik Loos   33:25
+Yeah, it should be for the dot one. Yeah. Oh, it's in the.
+
+
+Mark Holl   33:25
+Is what I'm hearing.
+
+
+Henrik Loos   33:31
+I'm sorry, I you were talking about the documentation.
+
+
+Mark Holl   33:35
+Yeah.
+
+
+Henrik Loos   33:45
+OK, it's fixed.
+
+
+Alex Gardeck   33:46
+Do we need to do the status and clear again or can we go right to reboot?
+
+
+Michael Davidsaver   33:53
+You can go right to reboot, but it just as a matter of habit, just do do the clear every time.
+
+
+Henrik Loos   33:56
+Yeah, we.
+Yeah.
+
+
+Michael Davidsaver   34:01
+If nothing else, it's a communications check because the reboot command does not actually get a reply, so there's no confirmation that it actually talked to anything.
+
+
+Henrik Loos   34:01
+Yeah.
+Right. Yeah.
+Yes.
+
+
+Michael Davidsaver   34:16
+OK.
+
+
+Alex Gardeck   34:25
+OK, looks like it's it's good.
+
+
+Michael Davidsaver   34:28
+It does.
+
+
+Alex Gardeck   34:32
+So what comes next?
+
+
+Michael Davidsaver   34:38
+Well, I mean, I guess we can confirm that it can communicate with the IOC, which is I I high confidence that it will.
+But then I'd like there's the two topics I have for today, one of which I think is the more important one, which is getting the second chassis set up as an event generator.
+
+
+Henrik Loos   34:56
+Mhm.
+
+
+Michael Davidsaver   34:59
+And then if we can push through that, getting the other two chassis set up as secondary nodes, and then you know, giving you a working system of three chassis. And then if there is time available to, I have a couple more bits of troubleshooting to do with the first chassis.
+
+
+Henrik Loos   35:14
+Yeah, sounds good.
+
+
+Alex Gardeck   35:18
+So what is the command to just quickly check what the communication?
+
+
+Michael Davidsaver   35:27
+Uh, let's see. Is it mentioned in there at all? So this is.
+OK, it's yeah, right. So it's in a different. Oh, actually, I noticed that. Oh, actually, Henrik, the the screen right now at the top there's a typo. It's S8STF instead of ATF.
+
+
+Henrik Loos   35:44
+Oh, it should be an A, yeah.
+
+
+Michael Davidsaver   35:54
+See if you just sit on here.
+
+
+Henrik Loos   36:03
+Tell that again.
+Oh.
+OK, it's fixed.
+
+
+Michael Davidsaver   36:44
+Did you have anything? I I forget whether I talked you through the uh.
+Lea command line tool.
+Did I mention that the other day?
+
+
+Henrik Loos   37:00
+The the console Pi program.
+
+
+Michael Davidsaver   37:06
+This is different. Well, there's two ways. There's two ways to verify communication. You can go through the the console script, yes, that's certainly one way. There's also a command line tool which speaks the same protocol as the IOC.
+
+
+Henrik Loos   37:12
+Mhm.
+Is it the the feet core, the LEED thing?
+
+
+Michael Davidsaver   37:22
+Yes.
+And it it it works. I was able to check it, but yeah, we can add add that. That's probably worth the I mention.
+
+
+Henrik Loos   37:26
+Yeah.
+Are you you you meant? Yeah, I remember you mentioned that.
+
+
+Michael Davidsaver   37:37
+I will put the command I just tyed in the directory.
+
+
+Henrik Loos   37:40
+Uh, that doesn't need that. That does not need.
+
+
+Alex Gardeck   37:44
+Doesn't need.
+
+
+Henrik Loos   37:44
+Oh, you need. Do you need pseudo for this? Do you need?
+It's that you should. I don't think you need.
+Good.
+
+
+Alex Gardeck   37:56
+Well, what's the exit over just control X? Do we not want to change this?
+OK.
+I'm just checking to see if we need.
+So we don't need to be pseudo to change the IP address.
+Henrik.
+
+
+Henrik Loos   38:18
+Um, they.
+They're all readable by the development group, so you don't need pseudo on the CX spell def account.
+
+
+Alex Gardeck   38:28
+But we not read. We need to change the IP address to see if this one boots.
+
+
+Michael Davidsaver   38:35
+It looks like you have permission to me 'cause it it's group. The group owner is Devel. It's writable by group.
+
+
+Henrik Loos   38:37
+Yeah, yeah.
+Yeah, you can. Yeah, it would. Yeah, you can write it. It would have told you.
+
+
+Michael Davidsaver   38:42
+I mean just to say when you start up Nano on a read-only file at the bottom it will say you know no permission.
+
+
+Henrik Loos   38:49
+I get a red bar there.
+OK.
+No.
+Why is it doing that?
+Hmm.
+
+
+Alex Gardeck   39:52
+Henrik, where is the gooey for the quartz board now? So he's not.
+
+
+Henrik Loos   39:55
+And the event and the event.
+
+
+Alex Gardeck   40:02
+2.
+Thank you.
+And then is it the ADC status?
+
+
+Henrik Loos   40:10
+ADC State, yeah.
+And then you can click on the O1 on the left.
+This this month.
+
+
+Alex Gardeck   40:33
+Does that seem right?
+
+
+Michael Davidsaver   40:38
+For where we are at the moment, yes. Which is to say there's no fibers plugged in, so you're seeing no RF power, no links active.
+
+
+Henrik Loos   40:41
+Mhm.
+
+
+Michael Davidsaver   40:48
+And all the temperatures and voltages are within spec.
+
+
+Henrik Loos   40:51
+Mhm.
+
+
+Alex Gardeck   40:53
+So now do we want to reset the IP address back to 192 and try and see if we can connect the PPS pulse?
+
+
+Henrik Loos   41:05
+Yep.
+OK, so this has the fiber plugged in.
+
+
+Michael Davidsaver   42:23
+Mhm.
+
+
+Alex Gardeck   42:27
+OK. So right now we've got it at 1 Hertz, 25%. So we're going to go ahead and plug it into the PPS TTL.
+OK, and that is now plugged in.
+
+
+Michael Davidsaver   43:02
+Yep, and the status is updating accordingly.
+It looks like you have a.
+
+
+Alex Gardeck   43:09
+Where should we be seeing that?
+
+
+Michael Davidsaver   43:12
+Oh, in the let's do in this PPS source.
+
+
+Alex Gardeck   43:17
+Me.
+
+
+Michael Davidsaver   43:18
+In sort of the toward the bottom of this, the OK, you found it there, yeah, and it's it's now saying PPS through FMC, which is what it should say.
+OK then I think the next thing to do is so actually what's what's what's the status of an NTP server reachable from this subnet?
+
+
+Henrik Loos   43:42
+It's working. I tried it on another computer.
+So all you have to do is type. We'll need to go back to the.
+
+
+Michael Davidsaver   43:52
+OK.
+But we need to move the USB cable to the appropriate chassis.
+
+
+Henrik Loos   43:59
+Yes.
+
+
+Alex Gardeck   44:01
+So we're moving the USB to chassis 2.
+
+
+Michael Davidsaver   44:08
+Correct.
+
+
+Alex Gardeck   44:30
+And this is the instance where you use the USB to correct for this one.
+
+
+Michael Davidsaver   44:39
+Yes, I I'd ask you to restart both of the the terminals with the the serial consoles though.
+
+
+Henrik Loos   44:46
+We could also use the console pi script.
+We don't need the USB cable for this, do we?
+
+
+Michael Davidsaver   44:57
+I was hoping to have that running. It just it occurred to me that is there's some additional and it's not directly relevant for this, but there's some additional information which gets printed out to the MMC console.
+
+
+Henrik Loos   45:08
+OK.
+
+
+Michael Davidsaver   45:10
+When we get to the point of troubleshooting the first chassis, we're going to be looking there. I I really should have been looking at that last time because it actually prints a couple of lines each time the FPGA resets.
+
+
+Henrik Loos   45:14
+Yeah, yeah.
+
+
+Alex Gardeck   45:23
+So what am I booting up right now in this one right here?
+
+
+Michael Davidsaver   45:27
+Up arrow returned.
+Yes.
+
+
+Alex Gardeck   45:36
+49 at 94 destination.
+
+
+Michael Davidsaver   45:45
+And if you could do that in the other terminal that had the serial console as well.
+You had it a moment ago. It's one down, one in the stack. That's it.
+
+
+Alex Gardeck   46:28
+Play now.
+
+
+Michael Davidsaver   46:33
+OK, and if you go to the I guess to be 33 windows down.
+And ress return a couple times.
+OK, we're there. So now we're going to issue the NTP command with the actual IP address of the NTP server, which Heinrich will have to tell you.
+
+
+Henrik Loos   46:53
+Yeah, yeah, it's it's 10139.4.59.
+
+
+Alex Gardeck   47:02
+This is good.
+
+
+Henrik Loos   47:03
+Yep.
+Yes.
+And now we do we need to boot.
+
+
+Michael Davidsaver   47:16
+Yes.
+
+
+Alex Gardeck   47:16
+Yes.
+
+
+Michael Davidsaver   47:24
+OK, and now it will be necessary to sell in some way reboot it back to the application firmware.
+
+
+Alex Gardeck   47:35
+With with this.
+
+
+Michael Davidsaver   47:36
+Yes, I believe this will be IP addresses to 92.
+
+
+Alex Gardeck   47:41
+Yeah.
+
+
+Michael Davidsaver   47:51
+And if you could switch back to that terminal, there we go.
+Let's see what it has to say.
+
+
+Henrik Loos   47:55
+Mhm.
+
+
+Michael Davidsaver   47:59
+All right, we go.
+OK, got a reply from the NT server. That's good.
+
+
+Henrik Loos   48:06
+And the be one trip time. Nice.
+
+
+Alex Gardeck   48:13
+4 seconds.
+
+
+Henrik Loos   48:14
+Why is it 4 gazillion microseconds on trip time?
+
+
+Michael Davidsaver   48:14
+OK.
+Well, that that's the present time it it's showing you that that this time in current time in seconds and nanoseconds.
+
+
+Henrik Loos   48:26
+Oh.
+
+
+Michael Davidsaver   48:33
+OK. And I could, could you switch back over to the Phoebus screen now?
+Oh, there we go. OK, and this looks a lot happier.
+In fact, this looks like it's.
+It looks like it's all happy.
+
+
+Henrik Loos   49:01
+Oh, a lot of red is gone.
+
+
+Michael Davidsaver   49:03
+Yes.
+Yeah, the just say that the purple boxes in the middle of the screen that are you might be looking at, those are related to a firmware feature which you don't have the latest update with that yet. All it's doing is there's a couple of temperature and there's a fan and temperature controller on the marble board that's not currently being read out.
+
+
+Henrik Loos   49:10
+Mhm.
+Uh.
+Up.
+
+
+Michael Davidsaver   49:29
+OK, so if you go back to the stat tab.
+Same window.
+OK, this looks all right. This is all happy. So actually at the very top of this screen there is a button that says ADC acquire, enable, disable. So if you press enable.
+OK.
+And now if you go back to the main tab.
+And do chassis cope.
+And you've got noise.
+
+
+Henrik Loos   50:15
+Hey, nice.
+
+
+Michael Davidsaver   50:18
+So actually if you Scroll down a little bit you will see there's a button that says FFT enable and if you switch that to run.
+OK, this is.
+All right, you you've got a nice reasonably clean environment. I was expecting to see some 60 Hertz there and it's not. I mean with the just to say with the with the, I'm assuming the inputs are open, so you're effectively just got a a set of 32 little antennas on the front of the chassis.
+
+
+Henrik Loos   50:40
+The 60 Hertz.
+I think they did a good job with the 60 Hertz suppression in the grounding design.
+Of the lab.
+
+
+Michael Davidsaver   51:00
+Yeah, good deal.
+
+
+Henrik Loos   51:08
+What are those peaks at the?
+At 50 kHz.
+
+
+Michael Davidsaver   51:15
+Oh, let's see. I think. Yeah, right. So the toolbar that's across the top of the FFT plot, the 4th button from left, it looks like a pair of crosshairs if you click on that.
+You will in fact get a air of crosshairs.
+That's like 40 kHz.
+Yeah, that's just as the alio multiple too, probably.
+Well, I yeah, I would propose that we don't necessarily get the.
+Distracted by this at the moment, but I believe in the set of equipment we sent to you there should be a pair of cables which are a PB37 on one end and a single BNC on the other.
+
+
+Mark Holl   52:19
+Actually, we received a chassis and a Walworth and that's all we received. But Alex, yeah, that's all we received. But Alex, we bought some of those cables. Where do we stand with that?
+
+
+Michael Davidsaver   52:27
+That's all OK.
+
+
+Alex Gardeck   52:33
+Yep, we we have the cables and we have the DB37 breakout boards.
+So I can take a quick tour of the setup.
+
+
+Mark Holl   52:46
+My concern right now is that some folks said they had a hard stop at 3:00 PM.
+
+
+Michael Davidsaver   52:53
+Yeah, as I said, I didn't want to get distracted by that, but just what I was gonna do is if we you should see those noise peaks disappear if the input's actually connected to something and the simple the cable we sent you or we should have sent you. And if we didn't, that's on us. I will see about getting those.
+
+
+Mark Holl   52:53
+Is that not?
+Uh huh.
+
+
+   53:03
+Oh.
+
+
+Michael Davidsaver   53:10
+Are they're intended for calibration. So they have a single BNC for injecting a signal into a group of 16 channels. And the simple thing you can do is connect that up and put a like a short circuit cap or a 50 ohm termination cap on that and then you effectively you know.
+
+
+Henrik Loos   53:26
+Mhm.
+
+
+Michael Davidsaver   53:27
+Short circuit all the input so that should remove all external noise.
+
+
+Henrik Loos   53:29
+Oh, OK.
+
+
+Mark Holl   53:31
+Yes, thank you. That would be good. I guess we have four of those coming because we we received none of that.
+
+
+Henrik Loos   53:34
+Yeah.
+
+
+Michael Davidsaver   53:37
+Yeah, well, let's just say our our our policy should be that we're going to send a pair for each customer so that you can do calibrations. The the the the idea is that this isn't really useful as a regular deployment, it's just it's for calibration.
+
+
+Mark Holl   53:43
+OK.
+Yeah, that's fine. Yeah. But we don't have that. So, yeah.
+Alex, I think you're trying to talk.
+
+
+Alex Gardeck   54:00
+As a last step, do we want to try and dongle the 192 to the 193 potentially?
+
+
+Michael Davidsaver   54:00
+OK.
+Yes, I was going to suggest that in this there's two steps to this. Yeah, actually really only there's actually two steps to this is the one is connecting the fibers and the other is going to be starting two more IO CS.
+And the fiber connections, if it I think from the my documentation it would be moderately clear, but it'll be connecting from.
+It'll be for the if you have things hooked up to one and four, so it'll be hooking up on the first chassis or I got for the second chassis ports five and six, so the the 2nd and the 3rd in the fan out group to port one EVR port on the two chassis below.
+
+
+Alex Gardeck   55:08
+When you said five and six, you're saying including like the EVR on the far left, right?
+
+
+Michael Davidsaver   55:15
+Yes, it it it'll be of of the total 8 LC connectors, it'll be 5 and six within the fan out group. It'll be or the group of six channels which are the which are labeled as fan or EVF output. It'll be the the the 2nd and the 3rd.
+
+
+Alex Gardeck   55:17
+2.
+OK, yeah, it says the EVFL underneath.
+
+
+Michael Davidsaver   55:36
+Yes, I mean it's worth saying all the all those EVF outputs are identical, so it doesn't matter which one you hook up to which.
+
+
+Alex Gardeck   56:11
+Michael, we then essentially plug it into three on this, the additional chassis, the 1st.
+
+
+Michael Davidsaver   56:20
+No EVR. So the first one, the very most to the left.
+
+
+Alex Gardeck   56:22
+EVRN.
+3.
+Oh, EVR.
+Now we've got that connected.
+4 1/2 there in the bowl.
+And.
+Yeah, both of those are connected now.
+
+
+Henrik Loos   58:22
+What did you connect? You connected port three on the EVG through port one of some other chassis.
+
+
+Alex Gardeck   58:31
+Yeah, we connected these two here to the EVR here and the EVR here.
+
+
+Michael Davidsaver   58:32
+Oh.
+Yep, that looks correct.
+
+
+Henrik Loos   58:45
+And then you you put another fibre to go to get back from the other chassis to the EBG.
+
+
+Alex Gardeck   58:54
+The second chassis from the top is the EVG.
+This one.
+We got the jumper, then the two fibers. This one right here comes down into the 193 box and then this cable here goes into the 194.
+
+
+Henrik Loos   59:22
+Mhm.
+
+
+Alex Gardeck   59:57
+So now is it just a copy of the IOC or are these?
+
+
+Michael Davidsaver   1:00:04
+No, the the difference will be that. OK, hang on a second. Let me get back to that directory.
+So if you look at the examples that are provided, the node 01 through 08, the the one you started with is is a started as a copy of node one, which is exactly what should be done. So for the others you'll start with copies of node 2.
+
+
+Henrik Loos   1:00:25
+Mhm.
+Yep.
+
+
+Michael Davidsaver   1:00:33
+2.
+
+
+Henrik Loos   1:00:45
+Oh.
+They are quite different.
+
+
+Michael Davidsaver   1:00:50
+Yes, well, if you most of the two through 8 mostly include that node **.
+
+
+Henrik Loos   1:00:56
+Yeah.
+
+
+Michael Davidsaver   1:00:58
+because it's very little boilerplate difference between the two.
+
+
+Henrik Loos   1:01:04
+Oh, the OK, I see.
+OK, let's make a copy for this. Let's not edit this file.
+
+
+Alex Gardeck   1:01:21
+That is already the copy. They copied the note too.
+
+
+Henrik Loos   1:01:24
+Oh, I see. I see. Never mind. Never mind.
+
+
+Alex Gardeck   1:01:28
+So I'm changing this I now.
+
+
+Henrik Loos   1:01:32
+Yeah.
+
+
+Alex Gardeck   1:01:34
+So that should be 193.
+That was good.
+
+
+Michael Davidsaver   1:01:53
+Permission denied.
+
+
+Alex Gardeck   1:01:53
+As soon as you do.
+
+
+Michael Davidsaver   1:01:54
+Oh, one second.
+
+
+Henrik Loos   1:02:09
+Oh, it was done with pseudo. The copy was done with pseudo.
+One second.
+
+
+Alex Gardeck   1:02:19
+Should I delete the OK?
+
+
+Henrik Loos   1:02:20
+No, it's just wait.
+
+
+Michael Davidsaver   1:02:33
+Oh OK, so you see the lack of the W in the second group. There is the right permission for the group and and the file owner is set to root instead of IOC admin.
+Well, Henrik, are you? Are you you fixing this or do we want to talk them through?
+
+
+Henrik Loos   1:02:52
+I'm. I'm fixing it. I'm. I'm. Oh, well.
+
+
+Michael Davidsaver   1:02:55
+Is it? Is it worth letting them fix it?
+
+
+Henrik Loos   1:02:58
+Well, I think they know how to do that. Well, well, OK, I'll let them fix it.
+
+
+Michael Davidsaver   1:03:09
+Yeah, I know we're we're right up 2:00, though. There's education and there's not being late for whatever's next.
+
+
+Henrik Loos   1:03:11
+Oh.
+
+
+Alex Gardeck   1:03:12
+OK.
+
+
+Henrik Loos   1:03:14
+OK.
+
+
+Alex Gardeck   1:03:15
+It looks like it's done, Henry. It looks like you did it.
+
+
+Henrik Loos   1:03:18
+Well, I didn't do it.
+
+
+Michael Davidsaver   1:03:19
+No, it it's it's not. Well, the owner file owner was changed. However, the permissions have not.
+
+
+Alex Gardeck   1:03:19
+Oh.
+Cancel.
+
+
+Henrik Loos   1:03:23
+Yeah, that I do. No, I I fixed the uh.
+Oh, I'm sorry, that was wrong.
+
+
+Michael Davidsaver   1:03:34
+So there's the CH own and then there's the CH mod and there. OK, now the now the CH mod has been done as well.
+
+
+Henrik Loos   1:03:39
+OK.
+Yeah.
+
+
+Mark Holl   1:03:49
+OK, Michael, we're gonna, we're gonna let you go so you can stay on time and we'll we'll do what we can and then.
+
+
+Michael Davidsaver   1:03:56
+Yeah, I I'm fine with staying around for another few minutes. I I don't have a a hard deadline, but I thought somebody else did.
+
+
+Henrik Loos   1:03:59
+OK. Oh, all right. Thanks.
+
+
+Mark Holl   1:04:00
+Oh, oh, OK. Well, if you're fine, let's. No, no, no, it was you, I thought. Well, great, then. Let's keep going then.
+
+
+Alex Gardeck   1:04:10
+It's not the one thing is Henrik is we won't do you want to do a a local running of this for now or because we don't have a system service set up Henrik for these ones.
+
+
+Henrik Loos   1:04:22
+Oh well, I could walk you through it. Should be fairly quick, but you can run it locally for now.
+
+
+Alex Gardeck   1:04:34
+I will delete that and smash.
+
+
+Henrik Loos   1:04:35
+Yep.
+
+
+Michael Davidsaver   1:04:38
+Is this the correct account that should be running that?
+
+
+Alex Gardeck   1:04:39
+Ma'am.
+
+
+Henrik Loos   1:04:44
+Um.
+
+
+Alex Gardeck   1:04:45
+Oh no, you started to do.
+
+
+Henrik Loos   1:04:46
+It's it's fine for testing right now.
+
+
+Alex Gardeck   1:04:50
+That means to this guy.
+
+
+Henrik Loos   1:04:53
+Yeah.
+
+
+Michael Davidsaver   1:05:02
+OK, yeah, I mean it's it's getting a bunch of permission errors unable to write because the the it's not running as the the proper user, but that that's fine.
+
+
+Henrik Loos   1:05:09
+Oh, right. OK. Um.
+
+
+Alex Gardeck   1:05:15
+Here, Henrik, do you just want to drive Henrik from here? You want to take over driving? Are you set up to drive?
+
+
+Michael Davidsaver   1:05:16
+I mean if you if you switch back to the the.
+
+
+Henrik Loos   1:05:23
+I'm set up to drive.
+
+
+Alex Gardeck   1:05:26
+OK. For the sake of expediency, we'll let you drive and we'll just follow along. But we do want to see what you're doing to do it so you can stop your share.
+
+
+Henrik Loos   1:05:33
+Yeah.
+
+
+Mark Holl   1:05:45
+Yeah. So Henrik, you'll need to share, of course.
+
+
+Henrik Loos   1:05:58
+OK, you could be able to see the screen.
+
+
+Alex Gardeck   1:06:03
+Yes.
+
+
+Michael Davidsaver   1:06:03
+I can.
+
+
+Henrik Loos   1:06:07
+Yeah, I'm right now making another.
+
+
+Michael Davidsaver   1:06:09
+And.
+I'm not sure you actually need to do that by the way. I think the if you go back to the the.
+
+
+Henrik Loos   1:06:14
+Oh, oh, right. It shows all the nodes, right? I don't need that. Thank you.
+
+
+Michael Davidsaver   1:06:20
+Yeah.
+I mean, you may choose to it. It's it's just as things are set up now, it's not necessary.
+
+
+Henrik Loos   1:06:27
+Yeah.
+You'll be done.
+However, I'm gonna add.
+
+
+Alex Gardeck   1:06:37
+In the network tab, we will want a tab for the separate IOC though, right?
+
+
+Henrik Loos   1:06:41
+Yeah, that that I'm going to put in there now.
+What's it doing now?
+Somehow the.
+Delete key doesn't work coffee.
+
+
+Michael Davidsaver   1:07:07
+Thank Kai Casimir for that. He doesn't like the delete key, the feature.
+
+
+Henrik Loos   1:07:13
+Yeah.
+It.
+
+
+Michael Davidsaver   1:07:16
+It it it's the the author of the the the Bebus tool.
+
+
+Henrik Loos   1:07:20
+Oh well, this is actually. This is actually CSS. Um.
+
+
+Michael Davidsaver   1:07:22
+It was a deliberate decision.
+
+
+Henrik Loos   1:07:30
+Just a minute.
+
+
+Michael Davidsaver   1:07:31
+You know, I I recognize it. Yeah, I've been using it for many, many, many, many years.
+
+
+Henrik Loos   1:07:35
+Yeah, I don't like the Phoebus with the the the display editor, the editing of the files. I don't like it. So I'm I'm doing everything as OPI files and then convert them.
+OK, so we should be all set up for this.
+
+
+Michael Davidsaver   1:08:04
+Wanna just make the third one while you're here?
+
+
+Henrik Loos   1:08:06
+Oh, right.
+
+
+Michael Davidsaver   1:08:13
+For that matter, just the 3rd and the 4th, and we can make at least placeholders.
+
+
+Henrik Loos   1:08:15
+Yeah.
+
+
+Alex Gardeck   1:08:16
+Yeah, Henrik, you want us to create the CXL 03 while you're doing this?
+
+
+Henrik Loos   1:08:19
+Yes.
+Yeah.
+
+
+Alex Gardeck   1:08:26
+OK, so then now I'll come back.
+
+
+Henrik Loos   1:09:00
+OK.
+OK, for IO CS we have the displace.
+Now the second thing to do is create the service units.
+And so we need to, uh, make copies of the.
+Service.
+On to.
+We.
+Or.
+And of course.
+
+
+Alex Gardeck   1:11:39
+We made the CX fellow 3 and CX fellow 4 with the proper.
+Permissions and user.
+
+
+Henrik Loos   1:11:47
+OK.
+Could run this as a template actually.
+I had set that up properly.
+
+
+Michael Davidsaver   1:12:08
+I was just thinking about using line continuations.
+
+
+Henrik Loos   1:12:12
+The line continuations.
+
+
+Michael Davidsaver   1:12:15
+Yeah, you can. You can split that up across multiple lines so it's not, uh, so hard to edit.
+
+
+Henrik Loos   1:12:20
+Oh, how do I do that?
+
+
+Michael Davidsaver   1:12:24
+It's just it's the the was it the the slash it it's like with like Python or other languages which do continuation with the marker at the in the last.
+
+
+Henrik Loos   1:12:34
+Oh, in the yeah, that's, yeah.
+
+
+Michael Davidsaver   1:12:38
+Yeah, I mean that not suggesting you necessarily stop and do that now. Just yeah, that it's just watching you that that's it seems like an obvious.
+
+
+Henrik Loos   1:12:42
+Yeah.
+
+
+Michael Davidsaver   1:12:47
+Way to avoid some human error.
+
+
+Henrik Loos   1:12:50
+Yeah, I you know, I'm actually, I know I can do this in system thief in service files.
+
+
+Michael Davidsaver   1:12:58
+Yeah, as well. Well, actually, you couldn't do the arithmetic for the port number.
+That would be a limitation.
+
+
+Henrik Loos   1:13:07
+Yeah.
+Thing.
+Forgot something, yeah.
+Hey, squeeze, squeeze me.
+OK, all right, so now this is done. Now we need to.
+Add these to the the system service management thing.
+OK, there's number one.
+Let's not run the 4th 1:00.
+Hey.
+Now we create.
+The.
+Input file for the system service IOC and finally we need to edit the.
+I fix the address list.
+Actually not an EVGM here like this.
+Oh, oh.
+
+
+Michael Davidsaver   1:15:26
+Oh, you're using individual port numbers.
+
+
+Henrik Loos   1:15:32
+Yeah, for historical reasons I got tired of the error messages and also originally we had when we started all this firewalls were up and I had to add the random port numbers to the.
+
+
+Michael Davidsaver   1:15:35
+Goodness.
+
+
+Henrik Loos   1:15:49
+Firewall allowed list and.
+But and I'm still using them so that I have individual port numbers for the telnet ports to the IOC consoles.
+I guess there. I guess there's a better system for this.
+
+
+Michael Davidsaver   1:16:16
+Uh, yes.
+
+
+Henrik Loos   1:16:17
+Yeah, please tell me about it.
+It's not too troublesome.
+
+
+Michael Davidsaver   1:16:28
+Well, the larger your system gets, the more tedious that's going to get.
+
+
+Henrik Loos   1:16:32
+Yep. Well.
+OK, that should be.
+OK, now I need to see.
+Good brother.
+From a gateway by now, that would make things easier.
+
+
+Michael Davidsaver   1:17:00
+Yeah, I was gonna ask about that because it would be what I tend to do for remote access is prefer running the the UI locally and then do SSH forwarding to a gateway or you know, getting into the system.
+
+
+Henrik Loos   1:17:15
+Oh.
+I'm running it from wherever and then it makes a telnet connection. It makes an SSH connection with telnet to wherever the IOC is running.
+OK, so we have our new IOCS here.
+Oh, why are they? Why are they already running?
+
+
+Michael Davidsaver   1:17:39
+Oh, I think it's ordering. There's. Oh, there we go. Yeah. OK, Quartz board dev one through 4. All right.
+
+
+Henrik Loos   1:17:49
+Oh, these are camera. Oh, there they are. They're not running. It just moved.
+
+
+Michael Davidsaver   1:17:53
+Sorting issue.
+
+
+Henrik Loos   1:17:56
+Yeah, OK, so install.
+Enable.
+Oh, we cannot run it yet. We need to add the ports into the command files.
+
+
+Michael Davidsaver   1:18:42
+These systems have a firewall on them.
+
+
+Henrik Loos   1:18:45
+No, no, we disabled it.
+Yeah.
+The thing is, I use the same and use the same port numbering scheme for the IO CS also as the port numbering scheme for the Uh telnet ports.
+
+
+Michael Davidsaver   1:19:05
+Uh, OK, so proxer won't start properly.
+
+
+Henrik Loos   1:19:09
+Yeah. And so it's just the, it's just the first digit, the the IOC ports on the 50,000 range and the telnet ports on the 20,000 range.
+But the following 4 digits are the same.
+OK, now we should be able to start them.
+Uh, works.
+I broken this stuff for Rocky Linux 8, the system D the system control results and returns and then Rocky Linux 9 the syntax must have changed.
+OK.
+So now we should see.
+The other notes, hopefully.
+No, we don't. Oh, because I need to.
+
+
+   1:21:51
+Uh.
+
+
+Michael Davidsaver   1:22:15
+But yeah, there there's there's much better ways to avoid this.
+
+
+Henrik Loos   1:22:19
+Well, usually I run all these IO CS through a gateway on the IOC host computer.
+On the standard Epix port, Epix server port and then the clients don't need to get a new address list, just the gateway to be restarted.
+
+
+Michael Davidsaver   1:22:40
+Even so, I mean just when you managing an address list with this many one entry for every IOC instance is gonna get that when you get to 100 IOCS that's gonna be quite difficult.
+
+
+Henrik Loos   1:22:54
+Well.
+I have scripts that generate these. Uh.
+Lists. OK, so now we have the.
+Oh, let's see.
+Uh, OK.
+
+
+Michael Davidsaver   1:23:09
+Uh, OK, well, one of them. OK, one of them needs to boot.
+
+
+Henrik Loos   1:23:13
+Yep.
+
+
+Michael Davidsaver   1:23:19
+You want to go tell the second one to boot, which you you can do that through Phoebus as well.
+
+
+Henrik Loos   1:23:25
+But um.
+
+
+Alex Gardeck   1:23:25
+That's the 193.
+
+
+Henrik Loos   1:23:28
+Yeah, that's firmware boot control.
+Boot up.
+
+
+Michael Davidsaver   1:23:34
+Yeah, and when you're happy that things are are working and everything is configured correctly, that second column there that says auto boot to app, you can just you can check that.
+
+
+Henrik Loos   1:23:41
+Mhm.
+Uh.
+
+
+Michael Davidsaver   1:23:46
+And then this will happen automatically when the IOC starts up or well, anytime that the IOC detects that the bootloader firmware is running, it'll automatically boot. Yeah, you might want to leave that alone just for the moment, but ultimately that's going to be the end state.
+
+
+Henrik Loos   1:23:52
+Yeah.
+Uh.
+OK, yeah.
+Mhm.
+
+
+Michael Davidsaver   1:24:03
+And it looks like we have 234.
+Well, this looks happy.
+
+
+Alex Gardeck   1:24:22
+So now if we look at the one that we're using as the EVG, should we see power on the fiber readouts for that as well for it talking to the EV Rs?
+
+
+Michael Davidsaver   1:24:33
+Yes.
+
+
+Alex Gardeck   1:24:43
+Yeah.
+
+
+Michael Davidsaver   1:24:43
+Actually, can you expand out or widen the the status window? Yeah, it was made for a a customer that had sort of super wide screens.
+
+
+Henrik Loos   1:24:46
+Yeah.
+Yeah.
+Oh, why is it not getting whiter? Oh.
+Yeah, this is just the laptop screen here.
+
+
+Michael Davidsaver   1:25:05
+Yep, I my my 13 inch laptop. I have a similar situation.
+
+
+Henrik Loos   1:25:09
+Mm-hmm.
+
+
+Michael Davidsaver   1:25:12
+OK.
+And it's alright. So along the top there is a to the right of the start stop acquisition. There's a button that says global align.
+
+
+Henrik Loos   1:25:22
+Mhm.
+
+
+Michael Davidsaver   1:25:24
+Let me click that.
+Why is that column showing?
+Thing is not quite right here.
+So to the the the column that's that's headed the BRDY status is showing.
+Invalids for that those two when it should not.
+
+
+Henrik Loos   1:26:00
+Oh, the.
+
+
+Michael Davidsaver   1:26:01
+Yeah, at least. Am I seeing the purple border on those correctly? It's a little hard to tell for me. Anyway, I I see it for those the next two over.
+
+
+Henrik Loos   1:26:02
+Mhm.
+Yeah, that that purple. Yeah, there are purple borders on the.
+Um, what this says spread.
+
+
+Michael Davidsaver   1:26:14
+Oh, right, 'cause it it's because the address list stuff. All right, so OK, it.
+
+
+Henrik Loos   1:26:22
+Oh, the RCS cannot talk to each other.
+
+
+Michael Davidsaver   1:26:25
+Yes, the the the first IOC wants to talk to the or the the 2nd and the third want to talk to the first to compare their phase align or their their sample clock alignment. So what you see what you're seeing here is the the DRDY status.
+
+
+Henrik Loos   1:26:32
+Yeah.
+
+
+Michael Davidsaver   1:26:41
+That's data ready in the in the the speak from the we just took that from the ADC chip. So that first column that says aligned, that is the local status between all of the channels within one chassis. So they they're all green, which is good. They should always be green.
+
+
+Henrik Loos   1:26:55
+Yeah.
+
+
+Michael Davidsaver   1:26:58
+Be the second column there which says In Sync for the one and then spread for the second. That's saying that the the the first chassis, which is the generator, is In Sync with itself. It always will be, but the second two do not think that they're In Sync with the 1st and that in this case that's just because they can't connect to the status.
+
+
+Henrik Loos   1:27:00
+One. Yeah. Mm-hmm. Yeah.
+Mhm.
+OK, let me check something because the IOC should all get the same address list and be able to talk to each other.
+What? Oh, OK.
+It's a Rocky Linux 9 thing. Um, on Rocky Linux 8, the IOCS, they all get the environment set.
+With the full address list.
+On Rocky Linux 9 this system control.
+Um.
+Somehow says that there's a permission issue with reading the file that has the epics that has the address list in it. I haven't figured out that problem yet.
+
+
+Michael Davidsaver   1:28:15
+Oh.
+Oh, so so system D does not like reading permission or reading a for system services to read environment from. It's probably, yeah, probably wants to check that the ownership that it's not like world writable or something.
+
+
+Henrik Loos   1:28:34
+However, the file is owned by the same account that runs the the IOC.
+But it's on the the file is on the net. The file is on the network location.
+
+
+Michael Davidsaver   1:28:43
+Yeah, but I think it's.
+Yeah, well, you can't tell that. Yeah, it's it's probably because it's being parsed before the change in permissions. So that yeah, I the short version is I can see easily see this being a thing. So yeah, I I.
+
+
+Henrik Loos   1:28:50
+Yeah.
+Hmm.
+Yeah, and it worked on on version 8, but not on version 9.
+
+
+Michael Davidsaver   1:29:05
+Yeah, it got stricter.
+
+
+Henrik Loos   1:29:08
+OK, let me try something.
+
+
+Michael Davidsaver   1:29:09
+But anyway, we we we don't have to try to fix this right now.
+
+
+Henrik Loos   1:29:12
+Well, it's easy. We can run the IOC locally.
+
+
+Michael Davidsaver   1:29:16
+No, it's it's OK Hun. We we could just all I we're we're just about done all I was or at least with this phase anyway all I was gonna do have you do is toggle the ADC acquire from back to disable and then re-enable because when you do that.
+
+
+Henrik Loos   1:29:20
+Oh, OK. OK. OK.
+
+
+Michael Davidsaver   1:29:35
+Let's back back in the CS studio.
+I think you didn't actually tell it. Oh, there we go. Yes.
+Yeah, it's just to state the obvious. You should. There we go. Yeah, right.
+
+
+Henrik Loos   1:29:54
+Oh, OK, OK, that's OK. Now it works alright.
+
+
+Michael Davidsaver   1:29:59
+All right.
+
+
+Henrik Loos   1:30:11
+OK, so.
+Anything else?
+
+
+Michael Davidsaver   1:30:17
+Yes, back to the CS Studio screen. You'll see that on the the there's the first group of green indicators from the left. There is a column where they currently one of them says run and the other say idle.
+
+
+Alex Gardeck   1:30:21
+This.
+
+
+Henrik Loos   1:30:32
+Yep.
+
+
+Michael Davidsaver   1:30:32
+And that's because the that the control that's just above that for enable, disable. What that's actually doing is that's actually when you do enable or disable, you're actually sending a timing event. There's a the court system has an event for start acquisition and an event for stop acquisition. So if you do disable and then.
+
+
+Henrik Loos   1:30:48
+Yeah.
+
+
+Michael Davidsaver   1:30:52
+Enable again.
+Now they're all gonna run.
+
+
+Henrik Loos   1:30:56
+OK.
+
+
+Michael Davidsaver   1:30:57
+And the other thing I'll note is you can see that column there where it says packet drops that is we should be. I think I think we you and I talked briefly about the advisability of trying to get a RT Linux kernel running on here and.
+Part of the reason for that is actually the really the the driving reason for that. My recommendation there was at the 250K sample rate. There is a possibility of packet drops, just it seems to be significantly reduced with the RT kernel.
+Because that means that puts the packet processing at a a significantly higher priority than the other OS operations.
+
+
+Henrik Loos   1:31:35
+Mhm.
+
+
+Alex Gardeck   1:31:43
+And that'll be on the server that runs the IOC.
+
+
+Michael Davidsaver   1:31:47
+Correct. Yes, it's the the one that's receiving the packet streams from the the quartz chassis.
+
+
+Alex Gardeck   1:31:54
+So Henrik, do you envision just one IOC server solely being used for EVGEVR?
+
+
+Henrik Loos   1:32:05
+Um.
+This might be, yes, could be likely depending on what what the data rates are.
+Well, well, based on what Michael says, yeah, definitely, yeah.
+
+
+Michael Davidsaver   1:32:22
+I mean, right now with three of these chassis, each one is, uh, pushing out 25 megabytes per second.
+
+
+Henrik Loos   1:32:23
+Yeah.
+Yeah, right.
+
+
+Michael Davidsaver   1:32:29
+At the higher at this the highest rate.
+
+
+Henrik Loos   1:32:30
+Mhm, yeah.
+
+
+Michael Davidsaver   1:32:33
+I mean you could see that column that says net RX rate, that's a packet rate.
+That's basically only multiply that by something a little bit less than 1500.
+
+
+Henrik Loos   1:32:45
+Mm-hmm.
+
+
+Alex Gardeck   1:32:46
+So one last thing, can we see where we see the power readout for the fiber going from the EVG to the two EVRS?
+I think it would be on one, right?
+I think it would be on one, right?
+
+
+Michael Davidsaver   1:33:00
+Well, it's all all three of them. You can check the cross check it to make sure that it makes sense to you.
+
+
+Henrik Loos   1:33:08
+Yeah.
+Yeah, I I I have to get going.
+
+
+Michael Davidsaver   1:33:14
+Yep, there we go. Yeah, you see fiber power now on one if you Scroll down to the bottom again.
+
+
+Henrik Loos   1:33:18
+Yeah. Oh, OK.
+
+
+Michael Davidsaver   1:33:22
+Again, there's four ports that are showing optical received optical power now.
+
+
+Alex Gardeck   1:33:30
+Awesome. That all looks right then.
+
+
+Henrik Loos   1:33:32
+OK. Uh, all right.
+
+
+Alex Gardeck   1:33:40
+I think that was a very productive meeting and we got quite a bit done and it was good to get Dario in the driver's seat for quite a bit. So thank you guys for your patience as we navigated some audio issues and just coming up to speed so.
+
+
+Henrik Loos   1:33:48
+Yep.
+
+
+Alex Gardeck   1:33:57
+I think this was a good meeting.
+
+
+Henrik Loos   1:33:58
+Yeah, alright.
+
+
+Michael Davidsaver   1:34:00
+Oh, I I didn't notice the the the the hum went away at some point. Did you guys figure out the microphone gain?
+
+
+Henrik Loos   1:34:05
+But.
+
+
+Alex Gardeck   1:34:05
+Yeah, we I just changed the setting to add noise suppression and that should fix it.
+
+
+Michael Davidsaver   1:34:09
+Oh, there you go.
+
+
+Alex Gardeck   1:34:13
+And so I guess then our next meeting we'll spend some time trying to look back into the 191 board.
+
+
+Michael Davidsaver   1:34:21
+Yes, yeah, I would like to find out. Let me just just to prepare you what I what I think the next step I'm gonna have you test is I realized or remembered after the fact that the the USB presents 4 virtual serial ports and so far we've been dealing with the 3rd and the 4th one.
+
+
+Henrik Loos   1:34:21
+Yeah.
+
+
+Michael Davidsaver   1:34:40
+That's because those are the ones which are actually serial ports. The first one actually gives you a backdoor into the JTAG chain for talking to the FPGA chip directly. So what we're going to do next time is go through the process of loading the bit file directly into the FPGA RAM, which will completely bypass anything.
+about the flagship.
+So if that doesn't work, then there's probably something. It must be something wrong with the FPGA chip itself.
+
+
+Henrik Loos   1:35:10
+OK.
+
+
+Michael Davidsaver   1:35:11
+No.
+I guess do we have, do we want to pick a time or a date, you know, date and time to reconvene then do I have? Where's my calendar?
+Let's see tomorrow's.
+Made busy.
+
+
+Henrik Loos   1:35:31
+Well, I'm, I'm, I'm busy with the for the rest of the week.
+
+
+Michael Davidsaver   1:35:37
+OK, then that's a uh.
+
+
+Henrik Loos   1:35:37
+With.
+
+
+Alex Gardeck   1:35:42
+Mark, do you want to get in on scheduling conversation?
+I'm not sure if he's he might be in another meeting right now.
+
+
+Michael Davidsaver   1:35:53
+Yeah, that's OK.
+Yeah, well, if we, I mean if if we, I mean it seems like you have something that works, so it's might be worth actually can we go back to the the main screen and and look at the the the chassis scope to just see that you're getting some sensible signal from the the 2nd 2 chassis?
+If you click on the second chassis.
+
+
+Henrik Loos   1:36:22
+Yeah.
+Oh, that one isn't.
+Doesn't left the address list that does OK.
+
+
+Michael Davidsaver   1:36:34
+Yeah.
+OK. Then in terms of like basic communications, it looks like we're doing good for three out of four.
+Now the other thing I'll point out here is you'll if you Scroll down a bit further.
+There is calibration, which is right now that that slope and offset for the ADC to volts is set to 1 and 0, which will have to get you proper calibration numbers.
+
+
+Henrik Loos   1:37:02
+OK.
+
+
+Alex Gardeck   1:37:11
+And just to confirm, we're gonna keep all the chassis powered up and in this configuration between meetings.
+
+
+Michael Davidsaver   1:37:19
+Yep, that's just fine with that. I mean, these things are designed to run 24/7.
+
+
+Henrik Loos   1:37:22
+Yeah. Well, there's going to definitely be one, yes.
+
+
+Alex Gardeck   1:37:23
+Right.
+Alright.
+Well, I think we break for now and then I'll circle back with Mark and I think he'll probably engage a scheduling conversation over e-mail. I think he's just tied up in another meeting right now. Oh, there he is.
+
+
+Henrik Loos   1:37:37
+OK.
+
+
+Mark Holl   1:37:42
+I'm back now. I got called down to coordinate with Bill and some wiring stuff on the.
+
+
+Michael Davidsaver   1:37:43
+Oh.
+
+
+Mark Holl   1:37:51
+The taller rack. So where we at?
+
+
+Alex Gardeck   1:37:55
+Uh, just looking at scheduling at our next meeting.
+
+
+Mark Holl   1:37:59
+Yeah, so let's do that. Let's take a look.
+
+
+Henrik Loos   1:38:01
+I I I really gotta go.
+
+
+Alex Gardeck   1:38:04
+Yeah, and Henrik, you're not available the rest of this week. You made that clear.
+
+
+Mark Holl   1:38:04
+OK, alright.
+
+
+Henrik Loos   1:38:08
+Yeah, yeah.
+
+
+Mark Holl   1:38:09
+OK, so you're not you're not available this week. And then I'll I'll send out a e-mail for availability to engage either first half of next week or otherwise it has to wait till after Thanksgiving. But let's try to actually look at next the first half of next week.
+OK.
+
+
+Alex Gardeck   1:38:28
+All right. Thank you.
+
+
+Michael Davidsaver   1:38:28
+All right.
+
+
+Henrik Loos   1:38:29
+All right, see you.
+
+
+Mark Holl   1:38:31
+Bye.
+
+
+Michael Davidsaver   1:38:31
+Yes.
+
+
+Mark Holl stopped transcription

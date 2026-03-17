@@ -8,6 +8,8 @@ system and related DAQ hardware/firmware.
    :maxdepth: 1
 
    quartz_daq_repo
+   quartz_firmware
    quickstart_guide
    atf_previewer
+   meeting_notes
 

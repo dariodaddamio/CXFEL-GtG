@@ -3,7 +3,7 @@ Standard Boot Procedure
 
 1. Connect to FortiClient, and RealVNC.
 2. Open a terminal on your machine.
-3. Start the GUI:
+3. Start the GUI (Phoebus / CS-Studio):
 
    - Run: ``phoebus.sh``
 

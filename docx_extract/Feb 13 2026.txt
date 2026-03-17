@@ -1,0 +1,2816 @@
+CXFEL EVGEVR System Integration and Deployment-20260213_185941UTC-Meeting Recording
+
+February 13, 2026, 6:59PM
+
+1h 25m 3s
+
+
+Alex Gardeck   0:16
+Can you hear me OK?
+
+
+Dario   0:19
+Yeah.
+
+
+Mark Holl   0:57
+OK.
+
+
+Alex Gardeck   1:10
+So Mark, I did get an e-mail from the Newport sales engineer that let it let me know that it was a nylon tip.
+
+
+Dario   1:18
+Mhm.
+
+
+Alex Gardeck   1:20
+As we expected.
+
+
+Mark Holl   1:21
+On all of the amounts.
+
+
+Alex Gardeck   1:25
+Yep.
+
+
+Mark Holl   1:26
+OK. Yeah, not as we expected.
+
+
+Alex Gardeck   1:30
+And it's Imperial. It's not the metric. It is Imperial 256.
+
+
+Mark Holl   1:34
+OK. And the order you just requested?
+
+
+Alex Gardeck   1:37
+It has it.
+
+
+Mark Holl   1:39
+Uh yeah, but I the one you sent today, I just pushed that through as well.
+
+
+Alex Gardeck   1:44
+Uh, OK, Yep. That way we can use the torque wrench.
+
+
+Mark Holl   1:50
+Great. OK, so it sounds like we're good to go for Monday.
+That sounds great.
+Diego here and.
+Michael's here.
+OK, well, you guys are you guys. I was not here last week, so you guys will know where to pick up from here. Um.
+
+
+Michael Davidsaver   2:17
+Yes.
+
+
+Mark Holl   2:26
+AG laptop Who is AG laptop?
+
+
+Alex Gardeck   2:30
+That's me.
+
+
+Mark Holl   2:31
+OK, Alex. Um.
+Yeah, so I.
+Yes, Michael, since I'm here, the notion of 7 to 8 weeks out for the firmware is, I guess, where we stand.
+
+
+Michael Davidsaver   2:53
+For the firmware, for the firmware, for the quartz chassis, yes, I I get just repeat for the EVT chassis, we're gonna be delivering sooner than that.
+
+
+Mark Holl   3:01
+OK. And then that's actually OK. Well, then we'll be able to bring those up and that'll be work that we can do. OK. Well, you guys had an agenda, so I'm gonna listen in as you guys pick up where you left off and then maybe somebody can give a brief.
+
+
+Michael Davidsaver   3:08
+Yes.
+
+
+Mark Holl   3:19
+I just giving a brief summary of what was achieved last week, Alex or whomever and and then what essentially the goals would be for today so that we can keep some forward momentum on this.
+
+
+Alex Gardeck   3:34
+Yeah, so last week we were able to connect outputs, trigger outputs from a DG645 to both the EVG.
+And one of our other EV Rs and then we were able to then open up the Phoebus Epic's interface and then be able to see those signals coming in. We were about to be doing some more things with it, but we needed a, I believe it was a Python.
+Build for some extra modules that are used for getting additional information and that was as we were wrapping up the meeting and it was assigned to Henrik to look into implementing that.
+The server, the dot 4.59 server, and that's where we were planning on picking up. And Henrik was taking responsibility for that to also serve as a check for Michael's documentation to make sure that it got installed properly.
+
+
+Mark Holl   4:42
+K and Dario, did you follow up with and watch? Did Henrik do it? Have you had a chance to test it?
+
+
+Dario   4:51
+The Python package.
+
+
+Mark Holl   4:53
+Yeah.
+
+
+Dario   4:55
+Um, no.
+
+
+Mark Holl   4:57
+No, no, Henrik didn't do it or and or no, you haven't had a chance to follow up.
+
+
+Dario   4:58
+OK.
+Oh, I have not talked to Henrik, so I'm not sure if he has worked on it or has got that done.
+
+
+Mark Holl   5:10
+All right, I'm gonna try to call him right now.
+And see what's going on.
+Hey Henrik, this is we have EVGEVR meeting. Are you going to join?
+OK, alright, 'cause you're you're your name came up as somebody who was going to install Python and get all that done. Yeah, OK, OK, so you're here now. OK.
+
+
+Henrik Loos   5:50
+Yep. Yeah, I can hear you.
+
+
+Alex Gardeck   5:51
+Oh, he's in.
+
+
+Mark Holl   5:58
+OK, so Yep. Hi, Henrik. Yeah, so we can hear you through the.
+
+
+Henrik Loos   6:06
+Can you hear me? Good. Sorry about the delay.
+
+
+Mark Holl   6:07
+At team session. Yeah. OK, well, and so I guess you can give an update. Alex informed that there was a need for Python and you were gonna take that on. Maybe you could summarize what you took on and where we're at.
+Or maybe Alex, you can you can repeat what you think Henrik to do.
+
+
+Alex Gardeck   6:30
+Yeah, it was a. It was a package that.
+We were gonna be that you were gonna be installing for getting additional debug information.
+
+
+Henrik Loos   6:43
+Yeah.
+It was the it's to get the.
+Acquisition.
+As correlated files from the different chassis and channels because the live view that we see on the epics display on the Phoebus display, that's just for one channel and the there's a Python process that can.
+Coordinate the acquisition from all the different chassis and channels and then write data files for it. And So what I've done was.
+The acquisition engine and previewer app has a on the GitHub pages from Osprey. There's a installation instructions to.
+They need four things need to be installed. The ATF engine, that's the these are the Python files that do the acquisition. Then an ATF previewer. That's a GUI that allows you to view the data files.
+And then some more scripts that I'm not sure what they're for. So anyway, I installed all of this and installed the necessary requisites.
+And uh and Python modules.
+And build the previewer that's working and I build the ATF engine Python module and I.
+Set up a system process that is running right now that is supposed to do all of this. So maybe I.
+
+
+Mark Holl   8:52
+Yeah. So I think it's really important unless I'm off base here that you now that of course you've, you know, figured out a pathway, I think it would be pretty important to bring Dario through that pathway so he understands it.
+
+
+Henrik Loos   9:04
+Yeah.
+
+
+Mark Holl   9:07
+And Dario, I mean, I I would say that it's you really should do everything you can to learn this, you know, and and understand it to the point where you can do it yourself if you need to, OK.
+Anyway, um, you see, so you say you you you did all that and it works.
+
+
+Henrik Loos   9:27
+So I'm saying must.
+Well, I don't. I don't know if it works. Let me.
+One second. Um.
+One second. Sorry.
+OK, so these are the instructions on on the you see you see must be in the acquisition engine and previewer app.
+
+
+Michael Davidsaver   10:07
+I do.
+
+
+Henrik Loos   10:09
+Yeah.
+Oh, hi Michael. So I followed all these steps with some modifications. I didn't install a virtual environment and I found the respective Rocky Linux.
+Repository.
+Um packages?
+And then I did the installed all these four GitHub repositories. I built the ATF engine and installed Cmake and made the ATF previewer.
+And I uh.
+Did the ATF engine system process.
+Oh, I got.
+I'm.
+I'm in the wrong terminal there.
+OK, so there's the active process for the.
+ATF.
+
+
+Michael Davidsaver   11:39
+Did you adjust the number of chassis?
+
+
+Henrik Loos   11:42
+Yeah, um.
+
+
+Michael Davidsaver   11:44
+OK.
+
+
+Henrik Loos   11:53
+I have in there 4 chassis of the prefix as MDAS and I made a data folder here and.
+
+
+Michael Davidsaver   11:54
+All right.
+And that directory can be written by the IOC admin user.
+
+
+Henrik Loos   12:09
+It should be writable. That's where all the IO CS write data to.
+
+
+Michael Davidsaver   12:15
+Yeah, right. OK, good. Yes, because this directory will need to be writable both by this ATF engine process and by the individual IOCS.
+
+
+Henrik Loos   12:16
+Yeah, yeah.
+Yeah, yeah.
+
+
+Alex Gardeck   12:27
+And that total number of chassis is including the EVG, correct?
+
+
+Michael Davidsaver   12:33
+Correct.
+
+
+Henrik Loos   12:35
+Oh, maybe it's not. Well, it's wheel. It's group ridable by wheel.
+I could change the uh.
+
+
+Michael Davidsaver   12:46
+But we're gonna try it and we'll find out if it's not writable, there'll be errors.
+
+
+Henrik Loos   12:51
+Yeah, yeah, so.
+
+
+Michael Davidsaver   12:55
+I mean, if you wanted to, sorry, you know what to do.
+
+
+Henrik Loos   13:14
+OK, well now it's definitely owned by IOC admin. OK, so.
+Yeah, there there's nothing in this folder.
+
+
+Michael Davidsaver   13:28
+That's a perfectly reasonable place to start.
+
+
+Henrik Loos   13:31
+OK.
+
+
+Michael Davidsaver   13:44
+All right, so I guess to pick up where we left off then last week.
+
+
+Henrik Loos   13:50
+Yeah.
+
+
+Michael Davidsaver   13:51
+Did you put that Phoebus the left hand side Phoebus display into the the foreground?
+And Scroll down. I'd I'd like to make sure that one of the channel, at least one channel is enabled. I think that's where we left it. Yes. So what I'm looking at here is in the bottom section where they're showing the per channel metadata. There's a little indicator. This is a there's a green indicator, bright green indicator that says yes.
+
+
+Henrik Loos   14:02
+This one, yeah.
+
+
+Michael Davidsaver   14:19
+And that means this channel has been marked for recording and I'd like you to also if under that the next the next entry down.
+
+
+Henrik Loos   14:19
+This one, yeah.
+OK.
+
+
+Michael Davidsaver   14:29
+Just below that green indicator there's a blue text box and this this is just an arbitrary name string you can give to the channels. You just put it like test channel or something.
+
+
+Henrik Loos   14:33
+Oh, the one that's.
+OK.
+
+
+Michael Davidsaver   14:41
+I'm I'm pointing this out because this is the metadata that we get recorded with the in the data files.
+
+
+Henrik Loos   14:48
+Uh.
+
+
+Michael Davidsaver   14:49
+And you have to ress return.
+
+
+Henrik Loos   14:54
+It's in there.
+
+
+Michael Davidsaver   14:55
+OK.
+
+
+Henrik Loos   14:56
+Yeah.
+And line 5.
+
+
+Michael Davidsaver   14:59
+And actually also if you yeah well that's that has to do with the the currently what the the primary data format that the the the process spits out is this called a UTF of.
+
+
+Henrik Loos   15:13
+I mean a a UFF file, yeah.
+
+
+Michael Davidsaver   15:14
+Sorry, yeah, you UFF 58B and that's I couldn't think of a better description for there. There's five lines in the arbitrary text data in the header. Well, semi arbitrary text data.
+
+
+Henrik Loos   15:19
+Yeah.
+Yeah.
+Oh, I see. Yeah.
+
+
+Michael Davidsaver   15:30
+And the the first four are specified and line 5 is not specified. So it it's just a string which is appears in line five of this output data file. It can be anything or it can be empty.
+
+
+Henrik Loos   15:33
+Mm-hmm.
+OK.
+
+
+Alex Gardeck   15:45
+And then just to reprise what we learned last week from Michael, which was that for the DB1DB35 connector, the first channel on that one is actually channel 17.
+And the first overall channel is on the DB2DB35 connector on the front panel of the chassis. So that's why this is showing up as 17 because this is on the EVG.
+
+
+Henrik Loos   16:08
+Mhm.
+
+
+Michael Davidsaver   16:18
+And again the the whole response node and type is just metadata that will appear in the these UFF 58 yeah the UFF files.
+
+
+Henrik Loos   16:24
+Yeah, now these files are for like from the this file format is I looked it up and it was even marked as. Is this really? Does this have not notoriety still? It's from the 1960s and used for CAD program data exchange.
+I've never heard of it before.
+
+
+Michael Davidsaver   16:44
+Yeah, I'm I'm told it's still used. Well, neither had I. I mean, I've I've encountered a number of quote UN quote universal file formats in my career though, and this I put this down as just another one. But the the original customer for this was a NASA test facility.
+
+
+Henrik Loos   16:47
+Mhm.
+Yeah.
+Yeah.
+Yeah.
+Yeah.
+
+
+Michael Davidsaver   16:59
+And apparently the mechanical testing world, or at least the the mechanical testing world of this facility still uses that exclusively as their interchange format.
+
+
+Henrik Loos   17:03
+Mhm.
+Yeah.
+
+
+Michael Davidsaver   17:14
+And actually just just for reference the that third or the 4th git repository that was in the instructions which you probably you I had you downloaded but I didn't have you do anything with it. That includes scripts for manipulating these UFF files.
+
+
+Henrik Loos   17:24
+Yeah.
+I think I'll the quote scripts. Yeah, I looked. I looked at the content there. Yeah, that's OK.
+And what's the quartz config loader? Since there I didn't.
+
+
+Michael Davidsaver   17:39
+That you yeah, you may or may not wind up using that. That was a it's a it's basically it's a batch system for writing that metadata which I just had you put in. This is a a batch process for writing it all from a a CSV file.
+
+
+Henrik Loos   17:49
+Mm-hmm. Yeah.
+Uh, OK.
+
+
+Michael Davidsaver   17:55
+Which you know if if these these the again the original customer was changing these frequently, they would basically go get a a piece that they were going to test and they would plaster it with sensors and wire in the sensors and have a big table of what what was connected to what.
+
+
+Henrik Loos   17:59
+Yeah.
+Yeah.
+Mm-hmm. So one question is there's there's autosave on this. So these are all all these settings are PV, so you could just load different autosave files.
+
+
+Michael Davidsaver   18:10
+Have you?
+Yes.
+That's quite correct. You could also use save, restore. It's this OK be the save restore service. So this was just that their particular process involved this CSV file and so we we you know did this to support it, but it's it's use is optional. It's reading in a CSV file and writing PVS. No magic there.
+
+
+Henrik Loos   18:20
+Instead.
+Yeah, Save the store. Yeah, yeah.
+Mhm.
+Oh.
+OK.
+
+
+Michael Davidsaver   18:46
+OK, so when you're ready, let us go to the acquisition control screen.
+
+
+Henrik Loos   18:52
+One second.
+
+
+Michael Davidsaver   18:53
+E.
+
+
+Henrik Loos   19:12
+OK, so sorry, what now?
+
+
+Michael Davidsaver   19:16
+O if you go to the main tab.
+
+
+Henrik Loos   19:19
+OK.
+
+
+Michael Davidsaver   19:21
+And do acquisition and recording the the first column, third row and do control.
+OK. And now on the right hand side, actually, could you make this window a bit bigger so that they get rid of the scroll bars on the right at least?
+
+
+Henrik Loos   19:35
+Oh, sure. Yeah. And you can see, see everything here. Yeah.
+
+
+Michael Davidsaver   19:40
+Yeah. OK. So, all right. So I think the way things are set up now in the upper right-hand corner, the acquisition process is is set up to require that three chassis, 1-2 and three are active. I think you probably can do the just make that F instead of seven to make them all.
+
+
+Henrik Loos   19:50
+Yeah.
+Oh, right.
+This address you cannot click on this address status, yeah.
+Yeah.
+
+
+Michael Davidsaver   20:11
+Because if you have a chassis that's out of service for some reason and you want to record anyway, that's how you mask out and mask it out entirely.
+
+
+Henrik Loos   20:14
+Uh, OK.
+But yeah.
+
+
+Michael Davidsaver   20:22
+OK, so.
+So I guess going over all the way to the left-hand side again, so that you see in this case you have 4 chassis, so only 123 and four are active. The so the I mean there's the chassis number column, the the next column in use that's telling you that there is at least one channel active for all four chassis.
+
+
+Henrik Loos   20:40
+Mm-hmm.
+Yeah, this is a yeah this in this in use column that's different from the from the one where we just changed the the number.
+
+
+Michael Davidsaver   20:47
+Which I think is reasonable.
+Correct. Yeah. I mean effectively for the acquisition process to begin to be considered ready, the the the all in use chassis have to be ready or all the all the chassis which are required to be ready and are in use have to be online.
+
+
+Henrik Loos   21:10
+Uh, that's a global use and these PVS are per chassis, OK.
+
+
+Michael Davidsaver   21:15
+Yeah, well the the the upper right hand corner, that's a bit mask which is selecting which chassis need to be ready. So for example, if it was just one, then only chassis number one would have to be online.
+
+
+Henrik Loos   21:22
+OK.
+Yeah.
+
+
+Michael Davidsaver   21:31
+OK, so if we down toward the bottom middle, there's a run description field. I would just put something really creative in there like test or demo.
+
+
+Henrik Loos   21:37
+Mhm.
+
+
+Michael Davidsaver   21:43
+So this this is a name which is going to appear in data file names. So it means spaces may. Well it it'll work just fine, but spaces well spaces here will mean spaces in file names.
+
+
+Henrik Loos   21:54
+Mm-hmm. OK.
+
+
+Michael Davidsaver   21:59
+So if you do want to proceed, then the basic process afterwards you'll see up above there it says system ready question mark and it says it's ready. It says can start and it's not ready. So the reason for this kind of cumbersome step I'm about to walk you through is that the way the coordinated acquisition.
+Works is that this system uses timing events to tell that the chassis is to start streaming and stop streaming on the same sample. So the process is to disable acquisition. So on the blue button toward the top there it says enable disable.
+
+
+Henrik Loos   22:28
+Mhm.
+
+
+Michael Davidsaver   22:36
+Table acquisition. Now it'll say can start and then when you click start it's going to mandate. Actually it'll it'll arm everything, set up the files, you know the data file locations and set up recording.
+
+
+Henrik Loos   22:38
+Oh, and then it's OK.
+
+
+Michael Davidsaver   22:52
+And then send the timing event which will start the mall recording on the same sample or same clock tick.
+
+
+Henrik Loos   22:57
+Yeah, why are these PB access? Why are these PB access things not just?
+
+
+Michael Davidsaver   22:58
+So when you go ahead.
+The the ATF engine process is, as you know now, it's not not a regular IOC, it's just a Python server, but it's only a PV access server.
+
+
+Henrik Loos   23:11
+Yeah.
+Got it. OK.
+
+
+Michael Davidsaver   23:15
+So the PVA colon slash slash is there because I want these screens to work even if you have your default protocol set to channel access.
+
+
+Henrik Loos   23:22
+Yeah, so those PVA things actually don't talk to the the master chassis IOC that talk to the Python script, OK.
+
+
+Michael Davidsaver   23:31
+Correct. Yeah.
+So when you in a moment here, you're gonna click start and I I just wanna prime you for what what's going to happen. If things succeed, you'll see on the left hand side one of the other columns. There's this file rate and file size. If things are working, then those file sizes will start to increase fairly well.
+Fairly rapidly because you're set to the 250K samples, so each chassis is going to record at about 25 megabytes a second.
+
+
+Henrik Loos   23:55
+Yeah.
+OK. Ohh We'll never need that, yeah.
+
+
+Michael Davidsaver   24:00
+And yeah, if you you could just also set the sample rate down. Yeah, why it's it's it's. That's why I prime it for you, because yeah, they could fill up your storage fairly quickly if you're not careful.
+
+
+Henrik Loos   24:11
+Yeah.
+
+
+Michael Davidsaver   24:13
+Yeah, that certainly won't.
+
+
+Henrik Loos   24:15
+OK.
+
+
+Michael Davidsaver   24:19
+So if you want to go ahead, click start.
+And it says acquire. And yes, since it's the 1K, this is gonna be what's 11200 and 50th the the speed.
+
+
+Henrik Loos   24:33
+Uh, my service is increasing, increasing.
+
+
+Michael Davidsaver   24:37
+Yes.
+
+
+Henrik Loos   24:40
+And there's a folder now, OK.
+
+
+Michael Davidsaver   24:43
+Yeah, the the data is organized. The the data files are created by a date stamp. So there's your year, month and then the full run.
+
+
+Henrik Loos   24:49
+Yeah.
+Yeah, month, but not day. OK, yeah.
+
+
+Michael Davidsaver   24:53
+And there's a number of files and not day.
+And then if you look into that, uh, go ahead.
+
+
+Henrik Loos   24:58
+And the and and the run description makes the file name.
+
+
+Michael Davidsaver   25:03
+Yes.
+
+
+Henrik Loos   25:04
+So better not to put spaces in there. It makes things cumbersome.
+
+
+Michael Davidsaver   25:08
+Uh, please don't change your chest now.
+
+
+Henrik Loos   25:12
+Yeah.
+
+
+Michael Davidsaver   25:13
+I'm I'm pretty sure that won't have any effect, but let let's let's stop the acquisition before we make before we change that.
+
+
+Henrik Loos   25:20
+Yeah.
+And oh, and then there are files in that folder. OK.
+
+
+Michael Davidsaver   25:25
+Yes, and in here while the acquisition is in process, you're going to see four DAT files, one for each or well, one DAT file for each chassis that's recording and also this HDR file, which is a Jason file containing metadata about the run.
+
+
+Henrik Loos   25:28
+Yeah.
+Yeah.
+OK.
+Uh, OK.
+
+
+Michael Davidsaver   26:06
+What you're looking at now, because the acquisition is in process, this is incomplete metadata because it doesn't, you know, it doesn't know start and end date because it did run hasn't stopped yet.
+
+
+Henrik Loos   26:14
+Mm-hmm.
+Yeah.
+
+
+Michael Davidsaver   26:18
+But when you actually do the stop, the last part of the process will be to write out a final metadata file or metadata file with the the complete information.
+
+
+Henrik Loos   26:28
+And that that's on it so long because it has from all the chassis, all the channels, the metadata, OK.
+
+
+Michael Davidsaver   26:34
+Yes.
+
+
+Henrik Loos   26:43
+Oh, and the also OK and and the they're all enumerated, so there should be like what?
+
+
+Michael Davidsaver   26:56
+But it's 4 * 32.
+
+
+Henrik Loos   26:58
+Yeah, on the 28, OK.
+
+
+Michael Davidsaver   27:06
+OK, if we want to stop this acquisition now.
+
+
+Henrik Loos   27:07
+Alright, so this.
+OK, so.
+
+
+Michael Davidsaver   27:13
+OK. And you'll see that last message shows still stopping and it'll take a minute to and then it does this post processing step, which is what actually it's. OK, there we go and we're done. So successful acquisition, yay.
+
+
+Henrik Loos   27:24
+Mhm.
+Oh.
+
+
+Michael Davidsaver   27:28
+But if you Scroll down on that screen, there should be, but it looks like you have a little older version of this screen.
+
+
+Henrik Loos   27:36
+Oh, I do.
+
+
+Michael Davidsaver   27:37
+Yeah, well, there's a an error dialogue that, yeah, I mean like, well, the first thing to note at the very bottom there now that's showing the the complete header file that was just run that was just completed. So you could potentially copy that into the previewer.
+
+
+Henrik Loos   27:48
+OK. Yeah. OK.
+Yeah. Ah.
+
+
+Michael Davidsaver   27:57
+But you probably want to select all.
+'Cause it looks like it didn't.
+
+
+Henrik Loos   28:04
+Oh, I'm sorry. Uh, that's there.
+Copy.
+Oh, this value that should that might be numeric.
+
+
+Michael Davidsaver   28:13
+I think you want just just like probably just highlight it and control CI don't think you need to want to bother with the that menu.
+
+
+Henrik Loos   28:21
+Oh, yeah.
+
+
+Michael Davidsaver   28:31
+And so the next thing to do is to start up the previewer applications.
+I believe here it'll it's under build.
+
+
+Henrik Loos   28:41
+Oh, it's in. It's in build, right? Yeah.
+Viewer, right?
+
+
+Michael Davidsaver   28:49
+You're you're of course free to relocate it or link or do some links or whatever you like afterwards, but this is where it starts.
+
+
+Henrik Loos   28:58
+OK.
+
+
+Michael Davidsaver   28:59
+Now if you go to file and open.
+
+
+Henrik Loos   29:03
+Um.
+
+
+Michael Davidsaver   29:04
+And now paste in the.
+
+
+Henrik Loos   29:05
+Uh.
+
+
+Michael Davidsaver   29:15
+OK, and it doesn't look like anything is. If you have eagle eyes, you'll notice that along the top the acquisition ID has gone from undefined to now showing the the metadata for this run and if you select from the signal drop down.
+
+
+Henrik Loos   29:24
+Yeah.
+Uh.
+
+
+Michael Davidsaver   29:29
+And oh, that's right. Oh, we got it because you don't have the metadata, right? If you Scroll down, you should see one of the channels where I had you put the metadata should actually show something. Yeah, I'm sorry, this is reminding me that there is a an active issue if you leave the description blank.
+
+
+Henrik Loos   29:30
+Oh.
+OK.
+I just found it. OK, there's our.
+Signal.
+
+
+Michael Davidsaver   29:50
+Yeah, well, it's looking crazy because you're seeing a decimated because you zoomed out for such a long period. You've got a like a 1 kHz signal and you're looking at it over a couple minutes, so it's very badly aliased, but if you.
+
+
+Henrik Loos   29:59
+Yeah.
+Oh, right. We're not seeing the on off anymore because I reduced the sample rate, right?
+
+
+Michael Davidsaver   30:09
+So if you oh, that's a good point. Also, yeah, it's also bits. Yeah, it's badly under sampled and aliased as well.
+
+
+Henrik Loos   30:13
+Yeah, yeah, we only see the, yeah, we only see the on voltage.
+
+
+Michael Davidsaver   30:20
+Yeah, and with a little bit of fun of the fact that the sample clock and the the the output clock are processing.
+
+
+Henrik Loos   30:29
+Oh, that's yeah, it's let me zoom in. Wow, that's a lot of data.
+
+
+Michael Davidsaver   30:41
+But anyway, so yeah, this this is showing you the the complete data file. You you can this look, you can look at it one sample or one channel at a time here.
+
+
+Henrik Loos   30:49
+Yeah.
+
+
+Michael Davidsaver   30:50
+But because the the idea of this in the original application was they wanted to be have a way to sort of after they do their experiment to just do a quick review of some channels to make sure that there was, you know, sane data or if there was something weird that happened on one channel to be able to look at it.
+
+
+Henrik Loos   30:57
+Hmm.
+Yeah.
+
+
+Michael Davidsaver   31:08
+And also if you go to the help menu.
+There is a, you know, shortcuts that that select that first option. It's the the the cheat sheet for the hotkeys for navigating.
+
+
+Henrik Loos   31:23
+OK, Yep.
+
+
+Michael Davidsaver   31:28
+Which is you don't have to spend any time on this now, just just pointing out that it's there.
+
+
+Henrik Loos   31:32
+No, yeah, OK.
+
+
+Michael Davidsaver   31:40
+O that is the essence of the process.
+
+
+Alex Gardeck   31:47
+So if we add the metadata to channel one on the second chassis, that's the other one that we've got hooked up to a DG, then we should be able that will once we add the metadata and do another run then that channel.
+
+
+Michael Davidsaver   32:01
+Hmm.
+
+
+Alex Gardeck   32:07
+Should show up in the drop down once we reload the file that is.
+
+
+Michael Davidsaver   32:10
+Yes.
+Yeah, and it also might be worth going and disabling the channels that you're not using, so then you don't have all those extra unused placeholders showing up.
+
+
+Henrik Loos   32:20
+Oh yeah.
+
+
+Michael Davidsaver   32:23
+It's just for for reasons of convenience. When you start up the IO CS, every channel is enabled to start with, but I can see that's well, it's helpful to start with, but maybe not once you're actually trying to do acquisitions.
+
+
+Henrik Loos   32:23
+And.
+So that's the that's how you disable the channel.
+
+
+Michael Davidsaver   32:40
+Yes.
+Yes.
+
+
+Alex Gardeck   32:47
+Can you? So like in a case like right now where we're only using two channels, is there a way to just disable all of them and re-enable the ones we want just so that we don't have to then go through and click through?
+Lord knows however many.
+
+
+Michael Davidsaver   33:02
+Well, I mean, I I usually do that. Well, I guess 128. Yeah, well, I usually do this with a a shell script loop and CA put.
+
+
+Alex Gardeck   33:07
+Yes.
+
+
+Henrik Loos   33:09
+That's good. Yeah. Yeah.
+
+
+Alex Gardeck   33:10
+Mm.
+Gotcha.
+
+
+Michael Davidsaver   33:15
+In the uh.
+Nomenclature for the PV's is pretty simple. It's just to be the first part of that's a chassis and then the channel.
+
+
+Henrik Loos   33:20
+Yeah, just have to iterate.
+Yeah, that's very simple.
+So is this? Are these things saved in auto safe?
+
+
+Michael Davidsaver   33:37
+They are, yes.
+
+
+Henrik Loos   33:38
+Yeah. OK, so.
+
+
+Mark Holl   33:39
+Yeah, so I'm gonna, I'm gonna ask you a question here, Dario. I'm this is certainly something I'm gonna have to catch up to with some some help eventually. But are you following all this or are you just silently being silent? Do you have questions? If you have them, you should be asking them.
+
+
+Michael Davidsaver   33:57
+Yeah, I'm following.
+
+
+Mark Holl   33:59
+OK, as far as the PVS.
+OK. And then for example, when you disabled something, what did you do? I didn't see what you did.
+
+
+Henrik Loos   34:10
+I didn't disable anything yet.
+
+
+Mark Holl   34:12
+Oh, somebody said. So this is how you disable it. How do you disable it?
+
+
+Henrik Loos   34:17
+Well.
+We could, uh, we could let, um, uh, Dario run this.
+
+
+Mark Holl   34:23
+Mhm.
+
+
+Dario   34:27
+Yeah, I I think you pointed two ways out. One is through that button that said yes, you can just hit that and they'll it'll show no.
+
+
+Henrik Loos   34:35
+Yeah, if we go, yeah, if we go to another channel here, we'll do.
+
+
+Mark Holl   34:39
+You hit yes to disable something.
+
+
+Henrik Loos   34:42
+No, it says right. Right now it says yes, which means it's disabled and when the IOC starts up with no memory of the past, then it is by default this PV is enabled. So if I now I disable the channel.
+
+
+Dario   34:43
+No.
+
+
+Mark Holl   34:59
+And no means what? Yes means enabled.
+
+
+Henrik Loos   35:03
+Yeah.
+
+
+Mark Holl   35:05
+OK.
+
+
+Henrik Loos   35:06
+It's it's the PV that's called use. So if that's no, then don't use, and if it's yes, then do use it.
+
+
+Dario   35:18
+And if you.
+
+
+Alex Gardeck   35:18
+And I'm assuming writing zero is disabled and writing one is enabled.
+
+
+Henrik Loos   35:23
+Yeah.
+
+
+Michael Davidsaver   35:24
+Well, you you can also write the string. I mean it it's an channel access enumerated TV. But yeah, I believe zero is no. I mean it's with these things that you're better off writing the string if that way you can't get mixed up on the off chance that somebody does change it, although in this case it will not change.
+
+
+Alex Gardeck   35:25
+Yep.
+Yep.
+
+
+Henrik Loos   35:27
+Yeah.
+Yeah.
+
+
+Alex Gardeck   35:30
+OK.
+OK.
+
+
+Mark Holl   35:42
+You mean write the string meaning yes or no?
+
+
+Henrik Loos   35:46
+Yep.
+
+
+Michael Davidsaver   35:46
+Yeah, correct. Yes, because then the lookup will be done each time.
+
+
+Henrik Loos   35:47
+Yeah, I dealt with it at Slack. There were certain screens that were inserted with a logical one and others were inserted with a logical 0. It was quite infuriating.
+
+
+Alex Gardeck   35:51
+Asleep.
+That.
+
+
+Michael Davidsaver   35:59
+Right, because yes.
+
+
+Alex Gardeck   36:01
+Mhm.
+So that's good to know that when we're writing our scripts, and I think that would be something that Dari would be able to execute, is that we want to use the strings and not numbers.
+
+
+Henrik Loos   36:20
+Well, it's fine. It's either way if you know what what it means.
+
+
+Alex Gardeck   36:25
+Mhm.
+
+
+Michael Davidsaver   36:27
+Anyway, if if you'd like, I've pasted into the chat a long incantation, which should you know, and I I I just did what I told you not to do, which is use the number.
+
+
+Alex Gardeck   36:33
+Yeah.
+
+
+Henrik Loos   36:33
+Yeah.
+But I mean the PV is called use, so if you set it to 0 should mean not use.
+
+
+Alex Gardeck   36:46
+Mhm.
+
+
+Michael Davidsaver   36:46
+Yeah.
+
+
+Henrik Loos   36:47
+But never know.
+
+
+Michael Davidsaver   36:48
+In this case it does. But yeah, you you can never necessarily predict what various IOC engineers have.
+
+
+Alex Gardeck   37:02
+And then, Henrik, are you planning on making a button that'll launch that graphical viewer through Phoebus? That way it doesn't have to be launched from the command line.
+
+
+Mark Holl   37:10
+Oh.
+
+
+Henrik Loos   37:10
+Um, yes, that's simple enough to add, yeah.
+
+
+Alex Gardeck   37:14
+Yeah, I think that would be useful. And I think for now, maybe maybe Dario, if you want to drive and set up the metadata data for the EVR chassis, that Channel #1, and then just go through the same process to see that we can see it come on.
+
+
+Henrik Loos   37:16
+That's a good idea.
+
+
+Alex Gardeck   37:37
+I don't know if Henrik has to stop sharing for you to be able to share. Oh, there it goes.
+
+
+Mark Holl   37:42
+Uh, OK.
+
+
+Dario   37:42
+Are you able to see my screen?
+
+
+Mark Holl   37:45
+Yeah, what? No, but what? What incantation? I mean, where? Where does that incantation? Is that a command line?
+
+
+Henrik Loos   37:54
+Of the previewer.
+
+
+Mark Holl   37:55
+Now Michael put into the chat.
+Where does that go? Is that? Is that a Python? You know what? What is that?
+
+
+Michael Davidsaver   38:05
+That is, it's a a bit of the Bourne Shell script.
+
+
+Henrik Loos   38:09
+To pass self, yeah.
+
+
+Mark Holl   38:12
+It's bash. What is it?
+
+
+Henrik Loos   38:13
+Yeah.
+
+
+Michael Davidsaver   38:15
+It's it's the the semicolons would normally be the line breaks, but yeah, you would as you can. If you have spaces on either side, you can use the semi colon.
+
+
+Mark Holl   38:26
+And so this would be. You could do this at the command line, of course.
+
+
+Michael Davidsaver   38:29
+Yeah, this is in some way, and I think this was mainly going to be a one time thing, I suspect.
+
+
+Henrik Loos   38:29
+Yeah.
+
+
+Michael Davidsaver   38:36
+Well, you're you're gonna get awful tired of having to do this. Depending on how often you actually change your channel setup, you may not be doing this very much at all. But if you are rewriting channel metadata frequently, then I would suggest investigating either the autosave or, I'm sorry, service or service.
+
+
+Henrik Loos   38:51
+Yeah.
+
+
+Michael Davidsaver   38:52
+Or the the quartz config loader.
+
+
+Henrik Loos   38:54
+Yeah.
+
+
+Alex Gardeck   39:01
+Yeah 'cause then if you have the save restore once, you've done it once.
+
+
+Michael Davidsaver   39:07
+Yep, it'll remember.
+
+
+Henrik Loos   39:07
+Yeah, yeah, it's been on my queue to set up the safest store service for a while. I haven't gotten to it yet, which could also be used for all the other accelerator settings like magnet settings, et cetera.
+
+
+Alex Gardeck   39:09
+Yeah.
+
+
+Michael Davidsaver   39:21
+Oh yes, I I would definitely recommend as someone who spent time in a control room, yes, having the the safe restore service and I initially when I heard about it, didn't necessarily see the point. But yeah, after some time, yes.
+
+
+Henrik Loos   39:33
+Yeah, that was vital and essential. Uh, any accelerator I've been napped.
+
+
+Dario   39:51
+Alex, what was it that you wanted me to to run through?
+
+
+Alex Gardeck   39:55
+To essentially set up the metadata for the EVR channel, which is channel one, I believe on chassis #2. So essentially just going through that exact same process that Henrik did, but for the second chassis.
+
+
+Henrik Loos   40:08
+Yeah.
+
+
+Mark Holl   40:12
+OK. So while you're doing that, maybe you could enumerate what you're doing, why you're doing it?
+I mean, I mean, speak it. I'd like to hear what we're doing and why we're doing it. Is there any kind of like?
+
+
+Dario   40:20
+OK.
+
+
+Mark Holl   40:28
+Um.
+Schematic of these files that we're fetching. That's the one thing about this. Are you crystal clear on what's going on here, Alex? You probably are, but.
+
+
+Alex Gardeck   40:41
+I've got a pretty good understanding.
+
+
+Dario   40:46
+How do I get to the second chassis for again from main?
+
+
+Alex Gardeck   40:50
+Only a sliver. You're only showing the the teams meeting right now on your screen.
+
+
+Dario   40:55
+Oh, sorry.
+There we go. Should be able to now.
+Do you see my screen?
+
+
+Michael Davidsaver   41:14
+Yes.
+
+
+Dario   41:15
+OK, how do I get?
+
+
+Michael Davidsaver   41:16
+I mean, I I believe I do anyway.
+
+
+Alex Gardeck   41:18
+Yes.
+
+
+Dario   41:18
+I'm just on the port's main screen.
+
+
+Henrik Loos   41:20
+Yeah.
+I'm keeping notes, so I'll I'll add this to the documentation website.
+
+
+Dario   41:31
+OK, so to get to the second chassis from here, where do I go?
+
+
+Michael Davidsaver   41:40
+The third tab at the top there that starts with acquisition of 117. So if you scroll up on the far left hand side at that first column is the chassis selection.
+
+
+Dario   41:47
+Oh, try.
+OK.
+
+
+Michael Davidsaver   41:53
+I I should say you you guys are are are free to edit this screen to delete all the the the 1st 4 chassis.
+
+
+Henrik Loos   42:01
+Oh yeah, we need don't need all of that.
+
+
+Dario   42:11
+And OK, so I have just to say out loud what I'm doing for Mark as well as myself here the the number is what indicates what what channel is active and this one is at like 2 million. So that one is the one we are looking for.
+So then.
+It is already on. This is the.
+Oh, what was this value here?
+For the metadata representative of.
+
+
+Henrik Loos   42:45
+That's the what we want to call that channel.
+
+
+Dario   42:49
+OK.
+
+
+Michael Davidsaver   43:16
+You have to press return for it to accept.
+
+
+Dario   43:19
+OK.
+Yeah. And then for testing purposes, I guess we can put.
+Something for line 5.
+
+
+Michael Davidsaver   43:27
+Yeah, or or nothing. I mean, you don't have to put anything.
+
+
+Dario   43:31
+Just to see I guess uh something show up and then.
+Do for now, these don't have much meaning, correct?
+
+
+Michael Davidsaver   43:43
+Correct. Yeah, you can just leave them all as is.
+
+
+Dario   43:46
+OK.
+So now this is set up for this one.
+
+
+Michael Davidsaver   43:57
+Yeah, I was gonna ask you, did somebody go and run the incantation I provided to disable all of the other channels? Because this this will be much simpler to look at the data if there's just the two channels active.
+
+
+Henrik Loos   44:09
+Yeah.
+
+
+Dario   44:13
+Henrik, are you doing that?
+
+
+Henrik Loos   44:13
+I'll I'll be doing that. Um.
+
+
+Dario   44:16
+OK.
+
+
+Mark Holl   44:16
+Well, why don't Daria do it?
+
+
+Henrik Loos   44:20
+Oh, never.
+That that value should be actually.
+
+
+Dario   44:25
+Can I run it from anywhere in this?
+
+
+Henrik Loos   44:28
+Yeah, um.
+
+
+Michael Davidsaver   44:28
+As long as the CA put command is available, yes.
+
+
+Henrik Loos   44:31
+Yeah.
+
+
+Michael Davidsaver   44:38
+And I apologize for your not being able to copy paste this.
+
+
+Mark Holl   44:39
+OK.
+No, you can't.
+
+
+Dario   44:45
+Well, I'm inside the.
+
+
+Mark Holl   44:47
+Oh.
+
+
+Dario   44:48
+The different VM so.
+
+
+Mark Holl   44:55
+Can you read this in human language? Just read it up. What's actually going on here?
+
+
+Michael Davidsaver   45:01
+It's a nested loop. The first it. The outer loop is over one to four. The inner loop is over 1 to 32.
+
+
+Henrik Loos   45:09
+The zero's padded.
+
+
+Mark Holl   45:09
+OK.
+
+
+Michael Davidsaver   45:11
+That yes, that's what the that's what the dash W for the sequence is doing. So for the first case, because there it that it's not smart enough to pad arbitrarily, that's why I have the $0.00 a, but for the the one that's 32, the dash W will zero pad it.
+
+
+Henrik Loos   45:14
+OK.
+Yeah.
+Yeah.
+We.
+
+
+Michael Davidsaver   45:30
+And just as a note, because the incantation, when I'm writing these long incantations, I tend to put like echo. So that's why it says in the middle it says do echo CA put. So it will not actually do anything. It'll just print out the commands. No, no, please don't, no, no, no, no, stop. Don't. I absolutely want you to have that echo. That's what I'm about to say.
+
+
+Henrik Loos   45:48
+It.
+
+
+Michael Davidsaver   45:48
+So the the the first time, so you can see what the effect would be without actually doing anything. Put the echo in there. So now if you execute you should see a a long list of prints.
+
+
+Henrik Loos   45:52
+Mm-hmm.
+
+
+Mark Holl   45:53
+OK.
+
+
+Henrik Loos   45:54
+Yeah.
+
+
+Dario   45:56
+Alright.
+
+
+Henrik Loos   45:57
+That's the.
+Yeah, that's a very useful thing for scripts that can do lots of havoc.
+
+
+Michael Davidsaver   46:04
+Yes, it's a very good habit to get into to. It's it's. This is the computer equivalent of measure twice, cut once.
+
+
+Dario   46:06
+OK.
+
+
+Henrik Loos   46:15
+Of of of what? Of.
+
+
+Dario   46:15
+And so these are all zeros because they're all active, correct?
+Or this one set them. Yeah, this one set them to be 0 to be an active sign, but.
+
+
+Michael Davidsaver   46:20
+But we want them to be inactive.
+
+
+Alex Gardeck   46:21
+Inactive.
+
+
+Michael Davidsaver   46:26
+And so if you want to replace that zero with no capital N lowercase O, you can do that as well. I mean that's what I was advising you to do. So I suppose we should.
+
+
+Dario   46:34
+OK.
+
+
+Michael Davidsaver   46:35
+You can see the only difference is that that and it looks to me like I've got the correct incantation here. So I think at this point you can copy remove the echo and then the next time you run it, it'll be for the do. You need to have that the do is necessary.
+
+
+Dario   46:50
+Bye.
+
+
+Alex Gardeck   46:52
+And then we could just do do CA get to then get all the values right with the same script.
+
+
+Michael Davidsaver   46:58
+Correct. Yeah.
+
+
+Alex Gardeck   47:00
+Which that might be worth.
+
+
+Michael Davidsaver   47:04
+Or unless I did I did I get it wrong?
+
+
+Henrik Loos   47:11
+It seems to be fine.
+
+
+Michael Davidsaver   47:17
+Oh, is this again the CA adder list maybe?
+
+
+Henrik Loos   47:28
+Oh.
+Didn't work.
+
+
+Michael Davidsaver   47:47
+Make sure looks to me like that it's the correct address.
+If a reference Dario if you if you suspect there's a typo like this, what you can do is if you copy one of those PV names into the clipboard and go into Phoebus.
+And then do do you know how to navigate to the probe tool?
+
+
+Dario   48:12
+Uh, no.
+
+
+Michael Davidsaver   48:14
+OK, so if you just right click on just anyone of those widgets on that screen.
+
+
+Henrik Loos   48:19
+Oh, I can't find this PDE though.
+
+
+Michael Davidsaver   48:23
+Yeah, OK, then maybe there's a typo there. If you do probe from that menu and now you can replace the PV name there with the one you actually want. But I I I must have typoed something it didn't at the very top of the screen says PV name.
+
+
+Dario   48:36
+On.
+
+
+Henrik Loos   48:37
+Oh, it's supposed to be channel 09. Uh, channel something. There has to be ACH in there.
+
+
+Michael Davidsaver   48:48
+Uh, OK, there we go, right?
+
+
+Henrik Loos   48:49
+Yeah.
+
+
+Dario   48:51
+Is there a way to check from this screen?
+
+
+Alex Gardeck   48:54
+If you hover over the yes, it should show the PV.
+
+
+Henrik Loos   49:00
+Yeah, you can right click and copy PV to Click to clipboard and paste it somewhere. Oh, it says it right there, yeah.
+
+
+Alex Gardeck   49:00
+Yeah.
+
+
+Michael Davidsaver   49:00
+Uh, yeah, there we go.
+
+
+Dario   49:01
+OK.
+
+
+Alex Gardeck   49:06
+Yeah.
+
+
+Dario   49:06
+So.
+
+
+Michael Davidsaver   49:07
+Yeah. OK. So it's capital C, lowercase H in front of the second number.
+
+
+Henrik Loos   49:08
+Uh.
+
+
+Michael Davidsaver   49:13
+After SA colon. Nope, Nope, Nope, not there. SA colon B capital C lowercase H yes.
+I think that looks better.
+
+
+Henrik Loos   49:27
+That's good and that worked.
+
+
+Michael Davidsaver   49:30
+Well, no, yeah, that was still the the just testing.
+
+
+Henrik Loos   49:32
+Oh, that was with Echo.
+OK.
+
+
+Michael Davidsaver   49:39
+OK.
+
+
+Alex Gardeck   49:39
+So that's it changing it. That's why you see the no, yes, no, yes or yes, no, technically, yeah.
+
+
+Henrik Loos   49:42
+Yep, Yep, Yep. And it's on the Feebus display. It says no, not on the channel I'm looking at.
+
+
+Dario   49:42
+OK.
+
+
+Michael Davidsaver   49:43
+Yeah, showing old, old and new.
+OK, so now we go back by hand and enable the two you care about.
+
+
+Alex Gardeck   49:51
+So then if we.
+One last thing that we can do is then we could do Dario on the terminal.
+
+
+Michael Davidsaver   49:56
+But through through Phoebus.
+
+
+Dario   50:02
+Yeah, the car get.
+
+
+Alex Gardeck   50:03
+Is if we if we.
+On the echo one first, just to make sure we do it right, we can do California get and then delete the now after the dot use.
+And then you can hit that.
+And then this would be a way for us to then check the status of all the channels.
+
+
+Henrik Loos   50:30
+Actually what might be good is to on the chassis channel overview where you pick a channel.
+Yep.
+Yeah, on this display just I could add a column that will display the on off status.
+Then you see it for all the. Then you see it for all the channels of one chassis. See how it shows the the channel description that test channel #1 chassis? Yeah, and there could be another column that says if it's on or off.
+
+
+Dario   51:03
+Yeah.
+OK, sounds good.
+
+
+Alex Gardeck   51:08
+Yep.
+
+
+Henrik Loos   51:09
+Yep.
+
+
+Dario   51:11
+Now I can just turn this to yes.
+And that's the one, the only one we want, correct?
+
+
+Michael Davidsaver   51:17
+I believe we want this the first chassis channel 16 as well.
+
+
+Alex Gardeck   51:23
+17 I believe.
+
+
+Dario   51:25
+Yeah.
+
+
+Michael Davidsaver   51:25
+Uh, sorry, 17. Yes. Well, it's the one. It's the one with the label. There we go. All right.
+
+
+Henrik Loos   51:28
+Yeah.
+
+
+Dario   51:30
+OK.
+OK, now is there anything else I need to do on this screen?
+
+
+Michael Davidsaver   51:43
+I don't believe so, no.
+Now if we go back, have you go back to the main screen to do the acquisition and recording control.
+She do we want to change the sample rates instead to have it be something more meaningful? Because I mean ultimately you guys want to verify the phase relationship, so we'd need.
+
+
+Henrik Loos   52:02
+Oh.
+Yeah.
+Oh, that's a good idea.
+About 25 kH.
+
+
+Dario   52:10
+What's that?
+
+
+Michael Davidsaver   52:12
+If a 5 or 25 would certainly do it.
+
+
+Dario   52:13
+OK.
+
+
+Henrik Loos   52:14
+Yep.
+
+
+Michael Davidsaver   52:16
+Actually also if you can you make this window a bit wider?
+
+
+Dario   52:20
+Yes.
+
+
+Michael Davidsaver   52:25
+I show you here was was hoping to get the the if you scroll over to the left.
+So in this case you see that that first in use column is now showing that only one and two are lit up because there are no channels set on chassis 3 and four.
+
+
+Henrik Loos   52:43
+Uh.
+
+
+Dario   52:45
+OK.
+So then I would need to change this to.
+
+
+Michael Davidsaver   52:48
+Oh no, no. You can leave that there. So that this the that's that mask is only there if there's an error. So for example one of the chassis was offline, it would say and it was it was required but offline then it would say system not ready.
+
+
+Dario   52:56
+OK.
+OK.
+
+
+Alex Gardeck   53:08
+And then we want to get on. Yep, getting rid of the spaces good.
+Yeah.
+
+
+Dario   53:18
+And then I can just hit start now because both of these say ready.
+
+
+Michael Davidsaver   53:23
+You got it.
+OK, it says acquiring.
+
+
+Henrik Loos   53:30
+Mm-hmm.
+
+
+Michael Davidsaver   53:32
+I guess you can stop at any time now. It's just.
+
+
+Dario   53:36
+Yeah, just so they don't get too busy.
+Preview.
+
+
+Michael Davidsaver   53:44
+But you can go back. After you do stop, you need to watch down below. There's the last message. OK, last message success.
+It is. It is possible that that process can fail.
+
+
+Dario   53:57
+OK to see.
+
+
+Alex Gardeck   54:09
+And then yeah, Henrik, if you can help guide to the previewer.
+
+
+Henrik Loos   54:09
+Oh.
+The the previewer is in a different the previewer is go up one directory and then to ATF previewer.
+Yeah, and then build.
+
+
+Alex Gardeck   54:22
+OK.
+
+
+Henrik Loos   54:28
+And then just uh.
+Oh, uh, viewer. Um, just start at the beginning.
+Go all the way. OK, yeah, no, no, yeah, build and now dot slash viewer.
+OK.
+Then go to file open, yeah.
+
+
+Alex Gardeck   54:57
+And this is where that trick that uh Michael was mentioning can be useful of you can grab the file path.
+
+
+Dario   55:01
+Yeah, Henrik had a a spot to paste it in. I'm not sure why I don't have that.
+
+
+Henrik Loos   55:03
+Except it looks.
+Uh, go cancel this and do it.
+
+
+Michael Davidsaver   55:07
+If if you just paste.
+
+
+Dario   55:11
+Sorry.
+
+
+Michael Davidsaver   55:12
+To control V.
+
+
+Henrik Loos   55:13
+Oh, just control V Uh, OK.
+
+
+Michael Davidsaver   55:18
+And ress return.
+
+
+Alex Gardeck   55:22
+That was the old file that was.
+
+
+Michael Davidsaver   55:22
+Oh, it looks like. Oh, actually, hang on a second. That looks like the no, no, that that's the wrong one.
+
+
+Henrik Loos   55:28
+Uh, that's the wrong one.
+
+
+Michael Davidsaver   55:35
+Open paste.
+
+
+Henrik Loos   55:39
+Uh, that's correct.
+
+
+Michael Davidsaver   55:39
+That's run two. Oh, press return.
+There we go. Yeah, because before you had pasted in text in, but you'd not pressed return. So when you clicked open, it was using the old path.
+
+
+Henrik Loos   55:46
+Yeah.
+Uh.
+
+
+Dario   55:51
+OK.
+I see.
+
+
+Henrik Loos   55:53
+Oh.
+
+
+Alex Gardeck   55:54
+Sh.
+
+
+Henrik Loos   55:55
+And now we only have two channels. Nice.
+
+
+Dario   55:55
+So.
+
+
+Michael Davidsaver   55:56
+Here we go. Yeah.
+
+
+Alex Gardeck   55:58
+Nice.
+And we got our off now.
+
+
+Michael Davidsaver   56:05
+Yeah, and I would suggest zoom in on, uh, just one of these channels.
+You probably want just just in time. The idea would be to to see a couple periods of the square wave.
+You're OK, you're also zooming in in voltage. Could you go to the the help menu?
+
+
+Dario   56:28
+No.
+
+
+Michael Davidsaver   56:31
+So what we want to try to do is I guess to start with the zoom all the way out.
+
+
+Dario   56:32
+Is there a?
+
+
+Michael Davidsaver   56:39
+Which, let's see, remind myself here what this is.
+What is the reset?
+Oh, actually, if you are at this point, if you just go and and switch to the other channel and then back again.
+
+
+Dario   57:05
+Or.
+
+
+Michael Davidsaver   57:06
+Yeah, right. So that this is where if you were to, I guess, close the shortcuts window for the time being.
+There is a actually I'm sorry, there there's a way to lock the zoom when you're changing channels, but.
+That is not done at the moment.
+So if you just select from the top, very top to the very bottom the the thinnest slice you can.
+
+
+Dario   57:38
+There we go.
+
+
+Michael Davidsaver   57:39
+There we go. All right. So now at the top there's a button that says locked time scale.
+OK, now if you go switch to the other channel.
+And it's a little bit annoying because the that the scale on the left hand side changed, but if you look at the where the phase is for the very first sample is just before the flat top.
+And if you now switch to the other channel again.
+You'll see it starts again at the phase just before the the flat top one.
+
+
+Dario   58:15
+Right.
+
+
+Michael Davidsaver   58:19
+Which I believe is a demonstration that the the the two chassis are sampling with the same phase.
+
+
+Alex Gardeck   58:28
+Nice.
+
+
+Mark Holl   58:34
+OK. So we're looking at one channel at a time, right?
+
+
+Michael Davidsaver   58:39
+Correct, yes.
+
+
+Dario   58:40
+Yes.
+
+
+Mark Holl   58:43
+OK, that's.
+
+
+Alex Gardeck   58:43
+And now our dropdown only has our active channels.
+
+
+Mark Holl   58:52
+There's only one channel. There's two channels.
+
+
+Alex Gardeck   58:53
+22 channels, one on the EVG and one on the second EVR.
+
+
+Mark Holl   58:56
+Yes.
+So one's on channel 33.
+
+
+Dario   59:05
+Um, no, it should be channel.
+
+
+Michael Davidsaver   59:06
+They they mark the the essential point. Sorry, go ahead.
+
+
+Dario   59:11
+That's Chassis 2 channel 1.
+
+
+Henrik Loos   59:16
+I'm back. My Internet was out for a few minutes.
+
+
+Mark Holl   59:24
+What's 33 mean?
+
+
+Michael Davidsaver   59:28
+In the overall channel index list that it's 33, which in that this would be when numbered from 1 to 128.
+
+
+Mark Holl   59:28
+Yeah.
+
+
+Michael Davidsaver   59:37
+Which is just four 4 * 32. So 4 chassis, 32 channels each in the global configuration. These are channel 17 and 33.
+
+
+Mark Holl   1:00:08
+OK.
+
+
+Alex Gardeck   1:00:11
+Well, we're at 1:00 now, so I think.
+Think.
+This was good progress, getting everything tested, verified.
+
+
+Henrik Loos   1:00:23
+Definitely, yeah. I'm glad everything worked. I had to, Michael. I had to. I had to fight with the I notify Python module.
+
+
+Alex Gardeck   1:00:26
+And then Henrik, I think.
+
+
+Mark Holl   1:00:27
+Here.
+
+
+Michael Davidsaver   1:00:34
+Yeah, I know it. It's it's. I hadn't realized that I that was gonna be such a tricky thing on the the Red Hat systems.
+
+
+Henrik Loos   1:00:44
+Yeah, and I OK, well then I found oh, there's a there's a package Rocky Linux package Python dash inotify. But that was not the one that had to be involved with Pyinotify within Python and it's different from the inotify package.
+So I finally installed this and then it was working.
+
+
+Mark Holl   1:01:05
+Oh, so what's the take away on this? What's the problem? What's the take away, Dario? Do you understand what's going on, Dario?
+
+
+Alex Gardeck   1:01:06
+Yes.
+
+
+Henrik Loos   1:01:09
+It's solved. It's just.
+
+
+Mark Holl   1:01:13
+I mean, catch us up.
+
+
+Dario   1:01:16
+There's no problem. So right now we just set up the the metadata correctly. We tested it on the 1st and 2nd chassis and we successfully see the channels that we want and it looks that they are.
+Ace align so.
+
+
+Mark Holl   1:01:36
+And you determine their phase align because you lock the time scale.
+
+
+Dario   1:01:40
+Yeah, by locking the timescale, we can compare the two channels properly since we're looking at the same exact point in time.
+
+
+Mark Holl   1:01:50
+And then?
+
+
+Dario   1:01:50
+And just by looking at the two graphs.
+
+
+Mark Holl   1:01:52
+Uh huh. And then Henrik, you were talking about I notify and all that. What's going on?
+
+
+Henrik Loos   1:01:57
+I was. I was talking about my struggles to build the software, yeah.
+
+
+Mark Holl   1:02:02
+Uh huh. And what? What was the problem?
+
+
+Henrik Loos   1:02:05
+Just Python in general. My lack of Python expertise.
+
+
+Mark Holl   1:02:16
+Well, is only, you know you have I OK, so I, you know, so is what is it captured in your notes? I mean, we're gonna have to do this again, right?
+
+
+Henrik Loos   1:02:22
+OK.
+No.
+
+
+Mark Holl   1:02:27
+Where are we?
+
+
+Henrik Loos   1:02:29
+Well, it's well, I have. I have written down what needed to be done. I have documented installations steps so it's it's all solved.
+
+
+Mark Holl   1:02:34
+OK.
+And there's nothing here to be learned.
+Well, you mean the the point is that is it just that this was?
+
+
+Henrik Loos   1:02:49
+It's just finding the but it's translating the Debian Linux installation into Rocky Linux installations. So now that this is done, it's done. It's just that.
+
+
+Mark Holl   1:03:01
+And are we gonna have to, are we gonna have to do that on right now? What is? Is this done on every machine or what?
+
+
+Henrik Loos   1:03:07
+Well, it's only done on the machine where the the Python data acquisition module is running.
+
+
+Mark Holl   1:03:16
+And currently is that the event generator machine?
+
+
+Henrik Loos   1:03:19
+Yeah, it's the one that we've been working on where the quartz IO CS are running.
+
+
+Mark Holl   1:03:26
+Q.
+
+
+Alex Gardeck   1:03:26
+The dot 4.59 server that is, it's not on the chassis.
+
+
+Mark Holl   1:03:29
+OK, so it's, it's, it's on the server, OK. And so we have the one server and then and then what's gonna happen Michael, when we make a transition to?
+
+
+Henrik Loos   1:03:35
+Yeah.
+
+
+Mark Holl   1:03:43
+The, you know, the digital chassis, because by all rights, those shouldn't those be the ones that, um, really are the event generators and the event receivers?
+Aren't they more accurate, for example? And how did the digital chassis interact with the these quartz chassis?
+
+
+Henrik Loos   1:03:55
+Yeah.
+
+
+Michael Davidsaver   1:04:06
+You'll have to pick one one and only one of the devices to be the event generator. And yes, it will likely be one of the OR my recommendation will be one of the the the EVT chassis.
+
+
+Mark Holl   1:04:18
+The digital jazzes that we're gonna get, right? Yeah. OK. Because they're much they're they have a finer time resolution, right?
+
+
+Michael Davidsaver   1:04:19
+And as I was saying.
+Yes.
+Well,
+They're, I mean, they're very different. I mean, they're different functions. The the the quartz chassis are primarily ADCS digitizers, but they know their their primary function is, you know, the 32 analog inputs, whereas the EVT chassis are primarily, you know, digital pulse generators.
+So their primary IO oints are just digital insurance and outs.
+
+
+Mark Holl   1:04:46
+Uh huh. And then.
+Right. And then and they have each one of the digital outputs has can be independently trigger delays for the digital output can be set independently for up to what 7 channels of I guess or something or how how?
+
+
+Michael Davidsaver   1:05:04
+But it's just for the ones that are configured 88 physical channels. If you use one as an event generator, then one of the input channels is becomes fixed function for the the the pulse per second. But yeah, eight channels.
+
+
+Mark Holl   1:05:16
+Eight channels. And so each one of the the new digital chassis will have up to 8 triggers outputs. OK. And then we would use the quartz. So the reason I'm priming this is that at the end of the day, when we get those other chassis, we're gonna do everything we've done.
+
+
+Michael Davidsaver   1:05:23
+Yes.
+
+
+Mark Holl   1:05:35
+So far for the event generator, we're going to do it again and we're going to take the event generator that we have chassis right now. We're going to turn it just into another basically analog sampling chassis.
+And that's how we should view this, right?
+
+
+Michael Davidsaver   1:05:52
+Well, I mean this is what's, you know, to be discussed whether you want to use these as one system or two, frankly, because I mean you have options and I'm I'm not sure how you want to set up your lab.
+
+
+Mark Holl   1:06:00
+Yeah, well, I mean, we could, we could bust them up into one system or two. You mean for the two beam lines, right?
+
+
+Michael Davidsaver   1:06:06
+Well, I'm not sure what I mean that that's my point. I I don't have enough information to to tell you how to deploy this.
+
+
+Mark Holl   1:06:12
+OK, I understand. And then if we had and and so I'm just reaching for you know the rules of the game on on how to put this together and I apologize. I've done all my homework but the.
+But in principle, we could have if we, since we do have two beam lines, the compact X-ray light source and the CXFEL, we could and we're getting eight of the, as I recall of the digital chassis. What what did you call them? You call them something different? What do you call them?
+
+
+Michael Davidsaver   1:06:42
+Mhm.
+EVT. That's the product name where we're settling on.
+
+
+Mark Holl   1:06:46
+EBT.
+OK, EBT. OK, we're gonna get eight of the EBT chassis. Then we could, you know, divide those into sets of four and then we could divide, you know, the and we can mix and match however we like. And so configuring these things might be something that will.
+We'll definitely be putting some time into now. Is there anything we can know?
+I think you were saying, well, let's just refresh. I'm not gonna guess. When are we gonna get the EBT chassis and the firmware for them?
+
+
+Michael Davidsaver   1:07:23
+The what I can the the number I can give you now is it's it's a little bit a couple weeks is the best I can give you at the moment because the the final hardware pieces are in production. We were actually expecting them back this week, but we had because of the the issues we found last week we had asked the manufacturer to make a change.
+
+
+Mark Holl   1:07:29
+Oh.
+2.
+
+
+Michael Davidsaver   1:07:39
+And that slowed things up a couple days.
+
+
+Mark Holl   1:07:39
+Uh.
+Sure, sure. Yeah, good, good. I mean, that's great. We're getting close to a couple weeks. And so even if we got them, you know, 2-3 weeks, 4 weeks from now or whatever, when we get those, we'll get them with the firmware, which means.
+
+
+Michael Davidsaver   1:07:45
+OK.
+
+
+Mark Holl   1:07:55
+At the highest level, that means, well, let me see.
+
+
+Michael Davidsaver   1:07:59
+Well, it means you'll be able to to trigger devices which need a TTL input as a trigger.
+
+
+Mark Holl   1:08:04
+And we'll be able to establish now event codes, and then we'll be able to then have, you know, the event receivers, be able to interpret those event codes and decode them, assign them to different trigger channels, assign them different delays and all that stuff, right?
+
+
+Michael Davidsaver   1:08:21
+Yes.
+
+
+Mark Holl   1:08:23
+Yeah. So we're about two weeks away from that. And so that's that's gonna be key because then what we'll do is we'll we'll pretty much.
+Probably.
+We might even put a new rack out there for these. I mean, how much we don't? Are these still these are how many 3U or two U units?
+
+
+Michael Davidsaver   1:08:43
+Two, they're physically almost identical to the quartz chassis with different connectors.
+
+
+Mark Holl   1:08:48
+OK. Yeah, because that's, yeah, I mean, obviously, Alex, it's not last on you or anyone, Henrik and Dario, you know, this is where it starts to get useful for us, right? Because we can actually then determine what we want to do with this thing.
+So that'll be good. And is there anything about the?
+Do we have everything we need to know about the firmware and how we're gonna talk to it at this point in time? Is there anything we should be studying or preparing in order, you know it or is there a user manual or or is it still just the documentation we have so far? I'm I'm just.
+Under I'm reaching here so.
+
+
+Michael Davidsaver   1:09:29
+Well the the documentation you have so far, I mean the the court specific parts of it are not relevant. The the parts which are the build instructions will be very similar in terms of preparing for the the software. I mean there there is no additional dependencies so that the you know Heinrich, the work you've done already should be sufficient you'll be getting.
+One more git repository with the IOC for the EVT chassis.
+
+
+Henrik Loos   1:09:48
+OK.
+Yep.
+OK.
+
+
+Mark Holl   1:09:56
+OK. And and then for us, you know, you sent us some information a while back, you know, where, you know, we were looking at what was being done for what? What beam line was it out? Was it? I'm sorry, I'm help my mind here.
+
+
+Alex Gardeck   1:10:16
+OK.
+OK.
+
+
+Mark Holl   1:10:16
+Or what was it?
+
+
+Michael Davidsaver   1:10:21
+I'm trying to remember though this this was probably the the documentation I sent you for the light source to NSLS 2.
+
+
+Henrik Loos   1:10:26
+Oh yeah, it was. It was another NSLS 2.
+
+
+Mark Holl   1:10:27
+Yeah, NSL.
+Right, right. Yeah. And then and for that, of course, they, they're doing much, much more than we would at least want to do, you know, to start with. But um, OK. And so is that still an interesting template?
+
+
+Michael Davidsaver   1:10:31
+Yes.
+
+
+Mark Holl   1:10:45
+For how we would think about the different classes of activities we, I mean obviously we're gonna trigger cameras, we could trigger whatever we want, but and then coming back to Henrik's question from probably 2 weeks ago.
+Only with the quartz chassis do we have the ability to automatically attach the the event, the the event code or the universal timestamp or.
+Whatever comes along, um, to the data that happens automatically 'cause it's in the cords chassis, right?
+
+
+Alex Gardeck   1:11:23
+Sort of.
+
+
+Michael Davidsaver   1:11:24
+Yes.
+
+
+Mark Holl   1:11:26
+But but then I want to come back to you. Sorry, please go ahead.
+
+
+Michael Davidsaver   1:11:26
+Well, it it it it it happens. Yeah. So the the the the way that process works is because the sports chassis are you are actually driving their EDCS from a clock which is recovered over the timing link every every tick of that clock has an absolute time.
+
+
+Mark Holl   1:11:30
+So.
+
+
+Michael Davidsaver   1:11:45
+Time associated with it and so that that at the very lowest level in the device firmware, when it gets a data point, it has a time associated with that as well. And then the the the rest is just a question of preserving it as it goes over the network into the IOC and then from there into the data files.
+
+
+Henrik Loos   1:11:47
+Yep.
+Is that yeah?
+The IO, the IOC, the IOC gets the time stamp with the samples.
+
+
+Michael Davidsaver   1:12:05
+Yes.
+
+
+Henrik Loos   1:12:06
+OK.
+
+
+Mark Holl   1:12:07
+As a what? A waveform or what? An FXPB? That's a waveform.
+
+
+Henrik Loos   1:12:10
+That's what's. It's part of the, it's part of the protocol.
+
+
+Mark Holl   1:12:16
+OK, I'm sorry. Help me with my protocol. Stupid protocol. Stupid me.
+
+
+Henrik Loos   1:12:21
+Well, the the the the TCP, whatever the the Ethernet packages will contain both the data and the timestamp from the chassis.
+
+
+Mark Holl   1:12:32
+Uh huh. And that's because you requested it as a PV. That's a that's a wait.
+
+
+Henrik Loos   1:12:36
+And then the and then the IOC knows what to do with with this and and presents and attaches the correct timestamp to the data.
+
+
+Mark Holl   1:12:47
+And is that in? Is that the metadata? Is all that kind of stuffed into the PV from the metadata and such?
+
+
+Henrik Loos   1:12:54
+Yeah.
+
+
+Mark Holl   1:12:55
+OK.
+
+
+Henrik Loos   1:12:55
+Yeah, every every PV has a timestamp and the question is what the timestamp source is. The default is to take whatever the computer clock has.
+But it can also be, yeah.
+
+
+Mark Holl   1:13:04
+Oh, go ahead, please.
+
+
+Michael Davidsaver   1:13:06
+Right it it it should be said that the the the most relevant time is the one that goes into the data files because then it it's you know the the starts and stops are coordinated as well.
+
+
+Henrik Loos   1:13:13
+Yeah.
+
+
+Mark Holl   1:13:17
+OK, OK. So you know where I'm going with this and that's why Diego's here. Diego, how are we gonna deal with cameras and how are we gonna deal with other devices that are data acquisition 'cause they're just like 1 dimensional cameras, they're like 1 bit cameras.
+
+
+Henrik Loos   1:13:17
+Yeah.
+
+
+Mark Holl   1:13:33
+I mean any other data. So how are we gonna, how are we gonna timestamp that stuff? And not both Diego and Michael, how are we gonna, how are we gonna tackle that? I mean, obviously there's been ad hoc things that blank frames, whatever, but we have to be.
+While we have dead air, I mean, I know we're all busy for sure doing full days of stuff. But what I'm gonna do, Diego, with the Eiger, for example, because I don't want to go to the, I don't even want to talk with, you know, I mean, if they start probing you for data, you can.
+Talk to whoever you want to. But the problem is I don't want to set false expectations, right? I don't want to get ahead of ourselves, right? I'd like to have a solution. And since you're completely, well, you and Henrik both are helping the other team and I watch it every day.
+When Hao sends you the questions or a deal sends you a question or something. So thank you so much for that support. But I mean at the end of the day that's why you're here and we you did some schematics and some architectural layouts as to how we would deal with this.
+With the Eiger now very soon we're going to have the EVT, I think it is chassis that we would use for this sort of thing and we would need to then take those timestamps and be able to then give an.
+I'm sorry, Henrik.
+
+
+Michael Davidsaver   1:14:55
+Henrik is waving.
+
+
+Henrik Loos   1:14:56
+I'm sorry to interrupt you and as interesting as this discussion is right, it will for me have to be at another time because I really have to go. Sorry, bye.
+
+
+Mark Holl   1:15:06
+OK, alright, alright, Diego. So anyway, we're gonna keep going. So, Diego, how how are we gonna deal with this?
+
+
+Diego Omitto   1:15:17
+Yes, I think we're still pretty far from having that functionality, Mike, but the but the I guess the good news is once we do have one, it applies to all your cameras, not just the Eiger, but.
+We need to to figure out a way to collect those timestamps and then to attach to each detector frame. And that doesn't matter if it's the Eiger or a camera, right?
+
+
+Mark Holl   1:15:42
+Uh huh. Great.
+
+
+Diego Omitto   1:15:45
+I I have not seen the details of the EVT that Michael has mentioned yet, so I need to talk to him, but.
+Michael, how? What's the plan to do of the timestamps from the EBT?
+
+
+Michael Davidsaver   1:16:00
+Well, I mean the the timing system, the timing receiver has a timestamp associated with the arrival of every event code. So my plan was to make that available. So when you configure the channel you would select you know trigger channel 5 on event code 100.
+
+
+Diego Omitto   1:16:09
+Mhm.
+
+
+Michael Davidsaver   1:16:18
+And with you know with a local added delay in width and you could we should also be able to get the the timestamp associated with the arrival of event code 100.
+Now the complicated part is going to be arranging it so that the the data somewhere in this process you have to wait for the frame and you have to wait for the time stamp to arrive. And yeah, it has to wait for both of them to arrive.
+And that's the part where without the you, you and I would have to discuss the details of how the AD, I guess assuming this is area detector acquisition process is going to make sure that these two arrive and how to wait for the timestamp because that that that's.
+
+
+Diego Omitto   1:16:57
+Correct.
+
+
+Michael Davidsaver   1:17:02
+Often been the problem in the epics world is it's it's.
+So there's some old built-in assumptions that timestamps are available immediately, and with the event timing system and an Ethernet attached event receiver, that's not true anymore.
+
+
+Diego Omitto   1:17:19
+One option would be to capture all all your timestamps and then once the you know the whole frame is complete or the series is complete then you apply the the the time to each one.
+
+
+Michael Davidsaver   1:17:33
+Mhm.
+
+
+Diego Omitto   1:17:33
+You won't. You have a buffer of sorts or a circle or a buffer, you know.
+
+
+Mark Holl   1:17:38
+With blank frames or some checksum or something, right? Something in there to check.
+
+
+Diego Omitto   1:17:43
+So yeah.
+
+
+Mark Holl   1:17:45
+And then if you're off you, then you you it's the circular buffer. I suppose you guys are the experts, but I suppose that you would, you know, be able to, you know, set you know the the buffer size so that the lost data and then you could buffer things in chunks.
+And then reassemble later so that you would at most lose the buffer ring size or something.
+
+
+Diego Omitto   1:18:09
+Yeah.
+
+
+Mark Holl   1:18:09
+Because if you are missing something and your checksum doesn't match, then you got to throw the whole packet away because you don't know how to realign.
+
+
+Michael Davidsaver   1:18:10
+What?
+Well, Mark, in this case I did get off by one is and the checksum isn't really relevant. It's but off by one is definitely the. That's definitely the most likely failure mode.
+
+
+Mark Holl   1:18:22
+Well, OK, it's not. It's not a checksum. Fine. Yeah, it's it's not. It's it's not a checksum. It's basically how many, how many images do you have that you're expecting to have?
+
+
+Diego Omitto   1:18:31
+Yeah.
+
+
+Michael Davidsaver   1:18:32
+Yeah, and this is where the there is.
+
+
+Mark Holl   1:18:34
+And so that's that's the that's the sum I was looking for. If you're supposed to have 20 and you only have 19, that those 19 are.
+
+
+Michael Davidsaver   1:18:42
+But it it's not even that because there you could be off by one. So you you know if you have 19, is it the correct 19 or did you get an extra one at the beginning and you missed the one at the end? No.
+
+
+Mark Holl   1:18:42
+Possibly useless because.
+That's why I'm saying you lose them all.
+
+
+Michael Davidsaver   1:18:56
+Well, you wouldn't necessarily lose them all because the the camera is also giving you there's it's not. This isn't just a case if you have you know pixels in one timestamp. There are several timestamps because the detector itself will give you a readout time which can be used to cross check and and sanity check of the timestamp from the timing receiver.
+
+
+Mark Holl   1:19:14
+Huh. That's that's true.
+
+
+Michael Davidsaver   1:19:15
+Because when you know when all is well, there should be a fixed phase relationship between these two are well within the accuracy of your system clocks.
+
+
+Mark Holl   1:19:23
+Yeah, so I'm you can tell I'm just being a cheerful protagonist, hopefully cheerful. But you know, I.
+
+
+Michael Davidsaver   1:19:28
+No, I mean this is the hard part of the process.
+
+
+Mark Holl   1:19:31
+Yeah, I want the main thing here is I want us thinking about it and I and I'd like it. I'd like to encourage Diego in particular to lead the process of.
+You know, we can talk about architectures until the cows come home or something. I never understood that. But but you know, ultimately we need to have something to try that we feel is our best shot, our best minimal viable product that will work.
+
+
+Diego Omitto   1:20:01
+OK.
+
+
+Mark Holl   1:20:01
+That has, you know, appropriate dials and stuff because, you know, I've been certainly defending Osprey for what it's worth. Not that you need my defense, but in this camp here, I've I've fended off the villagers with burning torches and pitchforks saying where's our EVG?
+We are, you know, and and so now that we're gonna have it, I would really love to have, you know, a silent mode, if you will, where we can get this working and then step forward into.
+The Eiger team with Sabine and stuff with something that they could try as a, you know, an agile attempt to a light version of an agile attempt where we give them, for example, one EBT which is configured as an EVG.
+For the CXLS where they're using the Eiger and then another EBT that's configured as an event receiver which would be doing the triggering and then just have that minimum test bed or rack that I can put together for them with a server and that and that and get them.
+Configured with that so that then they can play with it. And then all of a sudden when that happens, Diego, you're gonna no doubt be inundated with work to make it work, right? OK, so I'd like to have a silent mode first before so that we have something that.
+
+
+Diego Omitto   1:21:20
+A request, yeah.
+
+
+Mark Holl   1:21:28
+Isn't that we don't deploy a product that instantly just frustrates people, but that we actually test it where we have cameras like for example we have the Mako G507B camera.
+
+
+Diego Omitto   1:21:32
+Mhm.
+OK.
+
+
+Mark Holl   1:21:44
+That we can use as a proxy and we have the ability to trigger it OK and use it in triggered mode and then use it with, you know, area detector and then get all that working with just this simple Gigabit.
+
+
+Diego Omitto   1:21:54
+Everything.
+
+
+Mark Holl   1:22:00
+Camera and then you know that's triggerable and we've tested the trigger and we know it works. We know how to do it. Um, movie deals, high risk cable and all that stuff. But you know, you see how I was going with this. So at the end of this meeting, you know we're gonna wrap it up now, but I didn't want to leave this meeting without actually.
+
+
+Diego Omitto   1:22:13
+Mhm.
+
+
+Mark Holl   1:22:20
+Being a cheerful protagonist and saying that please start thinking about this, please put time into it. Please figure something out that we can test on the when we have these things in a couple of weeks ish so that we're testing it out, getting everything working at least with the.
+
+
+Diego Omitto   1:22:33
+Mhm.
+
+
+Mark Holl   1:22:39
+Well behaved, you know, baby camera before we go to the Eiger.
+
+
+Diego Omitto   1:22:42
+Do we have that camera installed right now, Mark? Yeah.
+
+
+Mark Holl   1:22:45
+Yeah, I got a test bed with the Eiger. I got a test bed with the high rose cables we've got. That's why we have the DG640 fives, but that was just a proxy to be able to trigger. We've tested the triggering and so we'll get that. We have it set up on our beam line right now for the triggering, but we'll get when we have those things, we'll wire.
+
+
+Diego Omitto   1:22:55
+OK.
+Mhm.
+
+
+Mark Holl   1:23:05
+And we'll wire it in. We'll be talking about the channel on the EVT configured as an EVG and then we'll get all that wired so that you know you and we've got 4 cameras actually. So on the test bed right now with you know lenses and.
+
+
+Diego Omitto   1:23:10
+Mhm.
+OK.
+
+
+Mark Holl   1:23:23
+Yeah, you can see it, right? See it there. Yeah. So we've got four cameras right now with a looking at targets and stuff. And so and then we were also going to, we're also gonna set up LEDs so that we can trigger an LED and then.
+
+
+Diego Omitto   1:23:26
+Mhm.
+
+
+Mark Holl   1:23:41
+Have that have a certain pulse length and then be able to, for example, would probably put a trigger into a DG645 to give us a pulse or whatever. We can set it up in different ways, but the idea was to test the LED kind of being like a beam pulse and then you know the camera being like picking up the, you know, the signal or something.
+
+
+Diego Omitto   1:24:01
+Mhm.
+
+
+Mark Holl   1:24:01
+You know, and so the test bed is both to trigger the stimulus, which would be the LED, and then the recovery of that where we have an integration time that overlaps the stimulus and such. So.
+
+
+Diego Omitto   1:24:14
+OK.
+
+
+Mark Holl   1:24:16
+Anyway, that's coming real soon and so we're gonna we're gonna be wiring that up, testing the triggering, getting getting it working on the test bed because we first did it on the beamline and then that's coming though, so if you can.
+Yeah, um.
+The pencil to paper and be ready for that. That's coming with and then work it, work some things out with Michael as to how we're gonna do this. Then we won't. Then when we have the event generated, we can be prepared.
+
+
+Diego Omitto   1:24:41
+Mhm.
+
+
+Mark Holl   1:24:49
+It.
+
+
+Diego Omitto   1:24:51
+Sounds good.
+
+
+Mark Holl   1:24:52
+All right. Thanks, Michael. Always great to hear experts talk.
+
+
+Dario   1:24:59
+Thank you.
+
+
+Mark Holl   1:24:59
+OK.
+
+
+Diego Omitto   1:24:59
+Hey, guys.
+
+
+Mark Holl stopped transcription

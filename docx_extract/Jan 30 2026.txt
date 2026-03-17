@@ -1,0 +1,2857 @@
+CXFEL EVGEVR System Integration and Deployment-20260130_185725UTC-Meeting Recording
+
+January 30, 2026, 6:57PM
+
+1h 53m 54s
+
+
+Mark Holl   0:09
+OK, let's see what we got here. Can you hear me?
+
+
+Alex Gardeck   0:14
+I can hear you. Can you hear me?
+
+
+Mark Holl   0:15
+I can.
+It is uh.
+Dario down there with you.
+
+
+Alex Gardeck   0:28
+Yeah, Dario is at the bunch. I'm in the control room and then I'll be able to provide any local support from here.
+
+
+Mark Holl   0:36
+Great. That's fantastic.
+A bit.
+
+
+Alex Gardeck   0:49
+We log into the teams and extend those so you log in on your.
+
+
+Mark Holl   0:51
+No, wait a minute. Michael Davidsaver was also.
+Michael, wait a minute.
+Um, gosh.
+Let's find him.
+Um.
+Oh, my phone.
+
+
+Alex Gardeck   3:33
+Can you hear astario?
+
+
+   3:37
+Yeah, it's work. Hi.
+
+
+Dario   3:38
+Yes, can you hear me?
+
+
+Mark Holl   3:40
+Yes, sorry, I I did. I'm still in a previous meeting. Oh, thank you very much. Bye, bye.
+
+
+Alex Gardeck   3:43
+I'll close that curtain so we don't get.
+
+
+Mark Holl   3:53
+Yeah, so I just spoke with Michael and he's tied in a previous meeting, but he'll join us in a few moments.
+I'm gonna call Henrik. Is Diego coming on? That's good.
+Let me call Henrik.
+Hi, Henrik. It's, uh, it's meeting time.
+OK, very good. OK, bye. Bye.
+It's working his way in and Michael is working on.
+And it out of a meeting.
+Then we can get this Sprint started. And there's Michael.
+And let's see. I'll show my face. Let's see what we've got here. OK, good.
+
+
+Michael Davidsaver   5:30
+Oh, yes, sorry, sorry, Mark. I had another meeting that was running long.
+
+
+Mark Holl   5:32
+Oh.
+I understand. Yeah, Henrik is just about here as well. He's trained as well. But just in high level overview, we're now reattaching now on the other side of the new year. And I think since that time it's been about two months, 2 1/2 months, two months that has passed.
+And and Michael, you've got new firmware that oh, here we got Henrik good. Alright, so this is the whole group now.
+
+
+Michael Davidsaver   5:55
+Pretty close, yeah.
+
+
+Mark Holl   6:09
+No, there's um.
+Henrik, you're here. Good. Yeah. Can everybody hear me clearly? Apparently I've had a mic problem. Is it clear now?
+
+
+Henrik Loos   6:13
+Yep, I'm here. Can you hear me?
+
+
+Michael Davidsaver   6:20
+Find me.
+
+
+Mark Holl   6:22
+Mm-hmm. OK, so our objectives today are really to get #1 to get the new firmware installed and to get an orientation from Michael on how to begin to understand and use that new firmware so that we can start with the simplest.
+Event code and then have the appropriate reference material, whatever exists now, and then know what is coming to make it even better. Um, so that we can, um, write event codes, learn to take our first steps with the event generator.
+And then to take our first steps with an event receiver to do even the simplest things, let's call it test event and then have an event receiver out there ready to get that event code. And that event code would then, for example, talk to a DG645 and potentially.
+Cause it to trigger after a delay, let's say something as simple as that would be a huge step forward in my opinion. I'm open to any other suggestions. We're going to move forward to cameras. We are going to move forward where we've already demonstrated triggering of cameras this week and so we'll set that up and so forth.
+Now I'm using triggers coming out of the event generator out of the event receiver. That's number one. Number two is we've got one of our currently received marble chassis that that never worked properly.
+And so we need to figure out what to do with that. Hello.
+Good. But I'm in a meeting, so I wanted to just I saw it was from Pittsburgh, so I I I picked up. I got the quote, I got the quote and I'm I'm working on it. OK, thanks. Bye. And so so we need to, we need to resolve that. We either need to get it fixed, shipped back. We need to figure out what to do.
+The third thing is hopefully an update from Michael on maybe he knows something that's new in the work with Bob on the remainder of our event EVGS and EVRS that are the digital new high resolution ones.
+And so anyway, with that, I'm going to kind of hand it over to Michael to start guiding us down the road here back into, you know, talking to the machines, getting something going and achieving these three.
+Discussion topics, action items.
+
+
+Michael Davidsaver   8:51
+OK. I guess, yeah, I guess last one first, I think we're currently in final assembly and testing on those chassis.
+
+
+Mark Holl   8:58
+Great.
+And then firmware update it. It now exists, right? It's it's at least in a in a usable form, right? And then it's gonna get better. Or what's the situation?
+
+
+Michael Davidsaver   9:12
+I I guess which which which firmware for which chassis? I mean I'm my my mind today is actually full of the the timing receiver chassis firmware that that's what I've been working on for the last couple days. But are you referring to the quartz chassis firmware as well? To be honest, I'd have to go back and refresh my memory.
+
+
+Mark Holl   9:26
+Yeah, I mean, and that's why we're that's why we're here. I mean, that's Oh yeah. So we're here right now because all we have are the quartz chassis, which we can ostensibly configure it as event generators and event receivers. That's that's why we're here today. And before we left last time, you said you needed.
+
+
+Michael Davidsaver   9:35
+Yes.
+
+
+Mark Holl   9:45
+The month of December to write the firmware. Now it's been the month of December, month of January. Do we have the firmware that makes these chassis usable for us?
+
+
+Michael Davidsaver   9:57
+To be honest, you've caught me flat-footed. I was. I was prepared to discuss that the one in topics one and three.
+Am I getting that right? So this what this I I was expecting us to resume troubleshooting the the remaining marble chassis.
+
+
+Mark Holl   10:04
+Oh.
+Well, let's do that at least for sure. But then I don't want to. I didn't mean to catch you flat-footed, but you know, when we did leave off, we did discuss.
+
+
+Michael Davidsaver   10:21
+Yes, I I I understand it and I and I agree with you. That's my memory as well. It's just I I have to it's like you said, it's been almost two months and that fell out of my mind.
+
+
+Mark Holl   10:28
+All right, well, then let's just get started with what we can do. OK. And so let's, let's pick up on diagnosing the first. Why don't you lead into what you remember of the things we need to do and then let's just make progress.
+
+
+Michael Davidsaver   10:45
+Yeah, I think that where we left things off is there was I was asking for one more test of the the marble chassis that was misbehaving to see if we could figure out why it wasn't.
+Booting U correctly.
+And if we can get through that and it, well, I guess either if either we're going to get it working or we're not going to get it working and then if we can't get it working, you're going to ship it.
+
+
+Mark Holl   11:10
+Let's do that.
+
+
+Michael Davidsaver   11:15
+OK, so I guess this is Dario, you look like you're in the the room with those chassis now and I guess if if refreshing my memory. So I guess we'll need to get the USB console from the misbehaving chassis connected.
+If it is not already.
+
+
+Alex Gardeck   11:36
+Yep.
+
+
+Mark Holl   11:41
+Yeah, and to the extent you can use your phone as a separate, you know, ability to show us the things that you're doing will, it will be recorded it.
+
+
+Michael Davidsaver   11:58
+Ah, there we go. All right, I see blue boxes.
+
+
+Henrik Loos   12:01
+Mhm.
+
+
+Mark Holl   12:02
+And then obviously narrate does you do so well, Alex, as you are doing things.
+
+
+Alex Gardeck   12:13
+OK, so Dario just went ahead and swapped it. The first chassis, which is the Dash 1018, which is what was the one having issues.
+So that's now connected.
+
+
+Michael Davidsaver   12:29
+OK.
+
+
+Alex Gardeck   12:34
+On the server.
+And it shows it's been connected.
+
+
+Michael Davidsaver   12:41
+OK, then I guess the other request would be to simultaneously start up and connect to the server guard. So when you connect the USB, you get the four virtual serial ports and it was asked you to to simultaneously monitor the.
+3rd and 4th of those.
+The the the the oh Linux OS numbering will depend on what other USB devices you might have connected and I don't remember if there was an off by one or not.
+And this will be with the uh the baud rate uh one.
+
+
+Dario   13:18
+Do you see my screen?
+
+
+Michael Davidsaver   13:18
+I would.
+Yes, I see a I guess. What's the host name there? G29G144.
+
+
+Dario   13:32
+This is just a a fresh one. I don't think there's any saved terminals. Uh.
+What exactly are the commands?
+
+
+Michael Davidsaver   13:42
+OK, do you have the the links I'd sent previously to the the sports documentation?
+This will be the this. It's the Pycereal thing, so it'll be like Python 3 dash M serial. But I believe that we established that you had an older version of Pycereal and you also needed to have like a dot mini term or something like that.
+It updated the documentation so that I wouldn't have to remember that extra incantation. Let me find it myself.
+
+
+Alex Gardeck   14:23
+Michael, is this the correct location for Dario to be looking through? It's this document that he's showing, correct?
+
+
+Michael Davidsaver   14:30
+Uh, in fact, yes, it's right there in the middle of the page.
+A tools dot mini term even all right.
+Yeah, I mean I was, I was. This is also in the the Osprey documentation I guess for reference. If you probably, I think if you can reserve me, you have it linked from your pages, but if you don't, this is the page I was thinking of as well.
+
+
+Dario   14:58
+Yeah, I'm just using this one because it's inside the VM and it's it's easier to copy and paste.
+
+
+Michael Davidsaver   15:03
+Yep, understood.
+And it would be worth verifying that how many of these TTY USB device files are existing on this server. 3 is not always a hard and fast number depending on whether the other USB devices you may have on there.
+
+
+Dario   15:33
+How can I check that?
+
+
+Michael Davidsaver   15:36
+It's LS and then dev DTY USB star.
+
+
+Dario   15:40
+Yes.
+
+
+Michael Davidsaver   15:44
+With a leading slash the the path when you see the path there they when the leading slash is absolute path.
+
+
+Dario   15:58
+What else?
+
+
+Michael Davidsaver   15:59
+It's a TTYUSB dev slash, so exactly the path as you see it on the web page there, except replace the number three with a star. So the USB needs to be capitalized.
+OK, there are in fact only three, so in this case we want to monitor two and three.
+
+
+Alex Gardeck   16:33
+And then Dario, on that computer, there's a notepad that's open that has the password so that you can copy and paste.
+
+
+Dario   16:38
+Yeah, I'm I OK. Yeah, I have the password, so it's fine.
+
+
+Alex Gardeck   16:44
+OK.
+
+
+Dario   16:51
+Right, so three. So I need to run this again in a different.
+
+
+Michael Davidsaver   16:58
+Yes, with two instead of three.
+OK, this is expected. Just ignore that.
+All right, now also, do you still have the the bit file I sent last time?
+
+
+Dario   17:29
+Not sure I recall that.
+
+
+Michael Davidsaver   17:33
+This was.
+Yeah, I will find link for it.
+Yeah, so the file name would be uh like I'll I'll paste both the file name and then the full URL next.
+
+
+Dario   18:21
+I need to get this in the VM here.
+
+
+Michael Davidsaver   18:26
+Yes.
+Yeah, I think it may already be in there somewhere, but yeah, if you can't find it, you'll have to move it in again.
+And you will also and this this I don't remember whether I had you download. There's one other file you will need and we'll get to the URL of the git repository which contains it.
+Don't recall.
+
+
+Alex Gardeck   19:43
+Henrik, do you know if this is already on the computer?
+And if so, where?
+
+
+Henrik Loos   19:49
+I'm still struggling to find the e-mail that has the password to the CX file computers on it.
+I can't do anything right now. I'm sorry.
+
+
+Alex Gardeck   20:05
+I'll put it in the chat right now.
+
+
+Henrik Loos   20:07
+OK. Thank you.
+
+
+Michael Davidsaver   20:15
+All right, so to get there's one more file which which we could get the the entire git repository which contains it. You could just clone the repository I've just pasted in there, or I will also put in the direct link to the single file.
+I think if you just do git clone, if you can directly reach the Internet, then just doing a git clone of that whole repository is the fastest way to do this.
+
+
+Dario   21:00
+Do we need everything or just this file?
+
+
+Michael Davidsaver   21:03
+We need just this file O if you would do the click the raw button or the download buttons.
+
+
+Henrik Loos   21:10
+Ah, OK. Thank you.
+I had the hash and the at switched.
+
+
+Alex Gardeck   21:19
+Got you.
+OK.
+
+
+Dario   21:27
+So just these two are are needed.
+
+
+Michael Davidsaver   21:30
+Yes.
+
+
+Dario   21:34
+No.
+
+
+Michael Davidsaver   21:35
+Because I believe where we'd left things off is I was pretty much convinced that the correct bit file was being written to the flash, but I was going to try to directly load the the bit file to the FPGA without having to go through the flash loading procedure and if that doesn't work.
+Then I will be out of ideas.
+
+
+Dario   22:02
+How do we do that?
+
+
+Michael Davidsaver   22:04
+I there's like the the incantation in long form is in the.
+Osprey document I linked earlier, but I'm going to give you the shorter forms.
+That's my reason.
+OK, so this is going to be a longish incantation, and the precise location of the quotes are important.
+And you will run this from the directory which contains both of those files. So it looks like you'll have. You should switch to downloads first.
+And yeah, it looks.
+
+
+Dario   23:24
+Is the zero? Is there a space between the zero and the load?
+
+
+Henrik Loos   23:27
+Yes.
+
+
+Michael Davidsaver   23:50
+Let me look at that, I think.
+Correct.
+Oh, and apparently I didn't have you install open OCD last time. That is. It's just a an app package for that. Oh.
+
+
+Dario   24:22
+This is the correct command.
+
+
+Henrik Loos   24:26
+Um, no, that that won't work.
+
+
+Michael Davidsaver   24:27
+Yes.
+
+
+Dario   24:30
+Do we need pseudo or or no?
+
+
+Henrik Loos   24:32
+It has to be DNF pseudo DNF.
+Install.
+
+
+Michael Davidsaver   24:38
+Oh, I sorry, my mistake. I thought it was Ubuntu.
+
+
+Dario   24:49
+Like this 100.
+
+
+Henrik Loos   24:52
+Yep, if it knows it.
+
+
+Michael Davidsaver   25:03
+Well, that's annoying.
+You have the EAL repositories on here as well.
+
+
+Dario   25:23
+Um, one second.
+
+
+Henrik Loos   25:28
+The the the extra packages for Linux, they should be on there.
+
+
+Michael Davidsaver   25:33
+Yes, yeah, that's right. You get EE PEL, so extra package for Enterprise Linux.
+
+
+Henrik Loos   25:35
+Yeah.
+
+
+Michael Davidsaver   25:39
+I thought they had open OCD.
+
+
+Henrik Loos   25:45
+Install Apple releases this that was done early on.
+
+
+Alex Gardeck   25:59
+Do you need to do the enabled CRB that says that's the first thing that needs to be done on a Google search and then the EPEL release after that?
+
+
+Henrik Loos   26:12
+Um, that should have been done to the CRCRD.
+Dang, all this stuff falls out of my brain if I haven't done it for more than two weeks.
+
+
+Michael Davidsaver   26:36
+And are you are you guys using a like this enterprise Linux equivalent of nine or 10?
+
+
+Henrik Loos   26:43
+It's Rocket Linux 9 and it's the bare minimum install.
+
+
+Michael Davidsaver   26:45
+Nine. OK.
+Yep, understood.
+Trying to find the listing for what is in. Oh OK, that's that's annoying. They do not have it.
+OK.
+
+
+Henrik Loos   27:05
+The what?
+
+
+Michael Davidsaver   27:08
+That's.
+
+
+Henrik Loos   27:08
+What do we need? We need.
+Open OCD.
+
+
+Michael Davidsaver   27:16
+Yeah, we need the.
+Yes.
+
+
+Alex Gardeck   27:19
+Yeah.
+This is uh. I'm not sure if my screen is actually sharing or not. Um.
+But this is what just popped up was first enable that, then have this and then it looks like we should be able to do it like that.
+
+
+Michael Davidsaver   27:37
+Well, I think perhaps not, but.
+But if it were in the EPEEL repository that those instructions would work, but it does not appear that this is the case.
+
+
+Alex Gardeck   27:47
+Hmm.
+Uh.
+
+
+Michael Davidsaver   27:55
+I'm just looking at the build dependencies for it to see if there's anything.
+Usual.
+
+
+Alex Gardeck   28:05
+I think you might need to reshare Dario.
+
+
+Henrik Loos   28:36
+Yeah, CRB is enabled. We have upstream Bezos, CRB, Apple, Apple, Cisco, Extras.
+
+
+Dario   28:40
+Yeah.
+
+
+Henrik Loos   29:10
+Well, the AI tells me that. Um.
+It's in the Rocky Linux repositories.
+
+
+Michael Davidsaver   29:21
+Yeah, it's it's not an unusual package to have, but I mean if it's not finding it, I guess the other thing you could try to do is maybe the package name is slightly different somehow. There's the is it DNF provides?
+
+
+Henrik Loos   29:25
+Yeah.
+
+
+Michael Davidsaver   29:38
+You can help me, might help me out here, Henrik. I don't think that's the command.
+
+
+Henrik Loos   29:40
+Yeah, that um, it's checking. It's um, I'm doing right now. It's checking. It's probably named something.
+It's probably open OCD something, something, something. Um, no matches found wild card.
+
+
+Michael Davidsaver   30:06
+OK, I'm just making a quick check to see what is actually involved in just building it locally.
+
+
+Henrik Loos   30:06
+No matches found.
+
+
+Dario   30:54
+Should we try installing it? Open OCD through the git clone?
+
+
+Michael Davidsaver   31:02
+That's what I'm attempting to do at the moment, and it's.
+
+
+Dario   31:06
+OK.
+
+
+Michael Davidsaver   31:07
+Last chance to see how complicated that's going to be for you.
+And it looks like there's at least one complication, which is it wants the TCL interpreter or a specific TCL interpreter.
+
+
+   31:16
+The piece.
+
+
+Henrik Loos   31:22
+But what interpreter PCRE or?
+
+
+Michael Davidsaver   31:26
+No, the the TCL, the tickles.
+And it looks like they want a specific. Actually it looks like they have it bundled, but it's not using the bundled version somehow.
+Ah, there we go. Internal. All right.
+It is compiling, so while that is going on, I'm going to ask you to run.
+The clone I just put into the chat and the recursive is important.
+
+
+Henrik Loos   34:07
+Mhm.
+
+
+Michael Davidsaver   34:19
+All right.
+Dependencies that it need build dependencies, it needs make, it needs libtool, it needs package config.
+
+
+Dario   34:32
+Yep.
+
+
+Michael Davidsaver   34:32
+In addition to just the regular compiler.
+
+
+Dario   34:43
+Should have all of those correct.
+
+
+Michael Davidsaver   34:48
+Well it's it's worth checking. I mean if you just type in PKPKG and hit tab, we will find out if it's got package config. PK is abbreviation of package, so PKG and hit tab.
+
+
+Henrik Loos   35:02
+The libtool is installed.
+
+
+Michael Davidsaver   35:07
+OK, Henry can check.
+
+
+Dario   35:12
+What does the recursive argument do?
+
+
+Michael Davidsaver   35:17
+This git repository references other git repositories and the recursive means that it will automatically check those recursively referenced ones out as well, which is why it's that there's you've seen it it repeated that gets out and toward the end of the the git blown output it's a submodule path.
+
+
+Henrik Loos   35:21
+Uh, is it?
+But.
+Yep.
+
+
+Michael Davidsaver   35:34
+Mentioned twice and one of them is this MTCL which yeah.
+Be done making yet. OK, there we go. Yeah. Finished compiling. All right, that's good.
+History here so that.
+
+
+Henrik Loos   36:08
+What to do just make?
+
+
+Michael Davidsaver   36:11
+Uh, not just make. No, there's an auto. It's an auto tools thing. So think.
+
+
+Henrik Loos   36:19
+I did. I didn't see how you how you compiled it.
+
+
+Michael Davidsaver   36:19
+Ace this in here.
+Yes, I know I I was just doing that in another terminal, but the the commands I ran are now in the in the chat and there are it's 4 lines mentioned there. The the third one's a long one.
+
+
+Henrik Loos   36:30
+Oh, OK.
+Mhm.
+
+
+Michael Davidsaver   36:37
+That is happening. Let me see if there's anything special we have to do to.
+
+
+Henrik Loos   36:54
+Oh, just found your. I just found the commands to install it at the building.
+
+
+Michael Davidsaver   37:06
+Let's see if this succeeds, because if any step's gonna fail, it'll be the configure step.
+Uh, OK, looks like that's that worked.
+OK, it looks like that's.
+It should work.
+
+
+Alex Gardeck   38:33
+And So what is it that this open OCD module does or enables?
+
+
+Michael Davidsaver   38:38
+OK, the the the part of the the name OCD is open chip debugger or on chip debugger. So what is in this particular case what it's going to do is the the one of the four virtual serial ports that the marble board presents is not actually a serial port, it's actually a JTAG interface which is.
+The the the sort of low level chip configuration bus. So what we are going to do with this command here, which actually before you run that you're going to need to do one more make install.
+I didn't include that in my previous instructions because I was still running it to see that it works and it does.
+You do make install.
+For completeness, let me paste that last step in here and then actually after you've done make install then the executable will appear under as a relative path dot slash user bin open OCD and with that executable name you will then pass in the actually we're going to have to.
+It would it would be simplest actually if you copy the two files that we need the the marble dot CFG and the bit file to to this directory.
+And that that's just to avoid having to have, uh, relative paths.
+And making that long incantation even longer.
+OK, yeah, you you done. You did the make install once. You don't need to do it again.
+So the next the last step is the the executable open OCD will be present under the relative path. So if you go to the move your cursor to the beginning of this line.
+And prepend the dot slash user slash bin slash.
+That should be it. Execute.
+Well, did they? Did you not do make install?
+
+
+Alex Gardeck   41:03
+Need a space after Ben.
+I think, right?
+
+
+Michael Davidsaver   41:10
+No.
+
+
+Alex Gardeck   41:10
+Hello.
+
+
+Michael Davidsaver   41:11
+If you did make install then you should see a.
+Oh oh, did I not give you? I did this.
+OK, well it it should be there now.
+All right and.
+Let's see.
+
+
+Henrik Loos   41:34
+Where's the old nose that you're supposed to be?
+
+
+Michael Davidsaver   41:35
+Like.
+I the the configure step I had in do set the install prefix to under the current directory.
+That's why it shows up as dot slash user. I didn't want to have to deal with trying to do a sudo or user local or anything like that.
+
+
+Henrik Loos   41:52
+Yeah.
+
+
+Michael Davidsaver   41:54
+But now that you've executed that, can you switch to the other two terminals? Because we should see.
+There we go.
+And that looks like it's hay.
+So Henrik, can you start up an IOC to see if you can talk to? I guess that's the the about 191. Is that still the correct IP address?
+
+
+Henrik Loos   42:23
+Um, one second.
+
+
+Alex Gardeck   42:24
+Yes.
+
+
+Henrik Loos   42:31
+Uh.
+
+
+Alex Gardeck   42:59
+It still is not pingable.
+
+
+Michael Davidsaver   43:02
+That that's understood. It's the the application. This is one of the annoyances we have that the the bootloader firmware responds to ICMP to ping, but the application firmware does not.
+
+
+Alex Gardeck   43:04
+Mhm.
+Hmm.
+
+
+Henrik Loos   43:16
+Um.
+
+
+Michael Davidsaver   43:18
+So this is where if you have the the the console, the application console script which is in the ATF ECQ IOC repository, you can talk to it and see the same terminal that is now being shown.
+
+
+Alex Gardeck   43:32
+Yeah, Diego, if you open up the CS Studio window, you should be able to access it.
+
+
+Henrik Loos   43:32
+Have I?
+Up.
+Um, back to the.
+
+
+Alex Gardeck   43:39
+If you go to a event.
+
+
+Henrik Loos   43:43
+There are three IO CS running for the three boards that are working and there is a fourth one.
+That's stopped right now, and that should be um.
+The one we need to activate.
+Yeah, it's and we should be on 191.
+
+
+Alex Gardeck   44:23
+Yep.
+
+
+Henrik Loos   44:25
+OK, that IOC is set up properly. I'm gonna start it.
+
+
+Alex Gardeck   44:37
+And then Dario, it's that window that's open at the bottom of your screen, the CS Studio. If you click on that, that's Phoebus. Yeah, right there. And then if you go to the event on the left side.
+And then it's the quartz #1.
+
+
+Michael Davidsaver   45:01
+I think ADC status would be a good next uh.
+The left hand side second button from the top on that that CS studio screen.
+Oh, I see.
+Only see one.
+
+
+Alex Gardeck   45:21
+So.
+
+
+Michael Davidsaver   45:24
+Actually, if if he.
+
+
+Henrik Loos   45:24
+It's not looking so happy so far.
+
+
+Michael Davidsaver   45:27
+Can you go back to the main tab?
+And do FPGA boot control, so second column, third row.
+OK, then that's alright. So one IOC running with at least it's with these prefixes and talking 192.
+Well, actually, hang on, can you switch back to that that terminal? It is. It says started showing some bad signs there. That's.
+OK.
+That is not healthy.
+Again, I I guess just to ask the obvious question, is there is the Ethernet connected to it still?
+
+
+Dario   46:40
+Yes.
+
+
+Michael Davidsaver   46:42
+OK.
+I thought as much but just want to ask.
+All right, so the getting the IOC running, it's probably not going to respond 'cause that if it if it's showing that error, then there's something wrong with the Ethernet interface.
+
+
+Alex Gardeck   47:03
+Do you wanna try power cycling all the chassis?
+Because I think they've been running continuously since our last meeting.
+
+
+Michael Davidsaver   47:13
+That's, I I mean, it's not gonna change anything else. I mean, certainly there's no reason to do anything for any of the other chassis for this one. I mean, if if we did reset it, we would have to then go repeat the open OCD incantation.
+But I mean, when you run the open OCD incantation, that does reset the FPGA, which is almost all of the state in that chassis.
+OK, well, actually that that's helpful. No, because that tells me art. So it's it. There's nothing to warm up. It's yeah, it's as warm as it's gonna get. So, all right.
+Well, this is different behavior than what I recall from December.
+
+
+Henrik Loos   48:10
+Well, we we didn't use the the OCD tool back then.
+
+
+Michael Davidsaver   48:15
+Correct. I mean that how you load the bit file shouldn't make a difference.
+
+
+Henrik Loos   48:23
+So what? So with the open OCD tool, you loaded the the boot firmware and you?
+
+
+Michael Davidsaver   48:30
+This was the application firmware.
+
+
+Henrik Loos   48:32
+Yeah.
+Application firmware. I remember that's that goes back to when I was playing with it and installed this and then it probably it's never worked since.
+As I I remember installing that file.
+
+
+Michael Davidsaver   48:52
+Mhm.
+Well, you see, it would be useful to confirm that the network communication is really not working, but that this certainly does not look promising now.
+And this could be like the IOC. If starting up the IOC is gonna take a while then that we could also use the the console script.
+Which I say is in the same repository as the IOC files.
+
+
+Dario   49:31
+Does this information help at all?
+
+
+Michael Davidsaver   49:35
+That's way too small for me to read. How can I make that bigger?
+
+
+Dario   49:38
+Uh.
+
+
+Michael Davidsaver   49:46
+I don't think so, no.
+
+
+Dario   49:49
+OK.
+
+
+Michael Davidsaver   49:52
+That looked like that was just having to do with when you attach the USB device.
+
+
+Alex Gardeck   50:19
+I do see that the gateway is wrong.
+The gateway should be dot 4.1.
+
+
+Henrik Loos   50:30
+Oh, the the net. The net mask is wrong too.
+
+
+Alex Gardeck   50:33
+Yeah, that mask is wrong too. Yep.
+
+
+Henrik Loos   50:35
+Yeah.
+
+
+Michael Davidsaver   50:37
+All right, we should, we should, we should correct that.
+
+
+Henrik Loos   50:38
+Were we ever able to change that?
+
+
+Michael Davidsaver   50:45
+Well that that's gonna be the question. If you switch to the serial console and if you would do it through that console, the question is, is it responsive? So type in L, just press the letter L and then return.
+
+
+Henrik Loos   50:48
+Yeah, I need to go back there.
+
+
+Michael Davidsaver   50:59
+OK, it's responsive. You should be able to change the gateway and that mask here. I believe you had instructions for that already, so I won't try to adlib.
+
+
+Dario   51:15
+Which tab was that in, Andrew?
+
+
+Henrik Loos   51:19
+Uh, it's the bottom one there. Yeah, the the bottom one. That's the one.
+Yeah.
+And it's at the bottom there.
+
+
+Michael Davidsaver   51:38
+I think he just passed it.
+It's a a stop. So yeah, it's the yeah, the NTP and GW.
+
+
+Henrik Loos   51:44
+Yeah.
+Actually, um, the one we have an NTP server.
+
+
+Michael Davidsaver   52:00
+This is not being set up. You only want that if it's being set up as an event generator.
+
+
+Henrik Loos   52:04
+Oh, right, yeah, never mind, yeah.
+
+
+Michael Davidsaver   52:06
+And it needs the pulse per second signal for that to be of use.
+
+
+Henrik Loos   52:10
+Yeah.
+
+
+Dario   52:13
+Do I need to change a number here? I forget or is it the same?
+
+
+Henrik Loos   52:17
+No, that looks that's good.
+
+
+Alex Gardeck   52:23
+Yep, that looks good now.
+
+
+Michael Davidsaver   52:30
+OK, uh.
+All right, and once you do this, you're going to have to go back and repeat the Oen OCD command.
+
+
+Alex Gardeck   52:42
+I'm getting a pain.
+
+
+Henrik Loos   52:44
+helping it now.
+
+
+Michael Davidsaver   52:44
+Yeah, you will get a ping response now because the the bootloader.
+
+
+Alex Gardeck   52:45
+Yeah, I'm getting ping response now. Yep, I got a ping response.
+
+
+Michael Davidsaver   52:48
+All right, so the bootloader firmware is responding. All right, that's cables connected. That's good.
+
+
+Henrik Loos   52:52
+Um, I'm not getting the ping.
+
+
+Michael Davidsaver   52:56
+It's it's it's just stopped right now because the application firmware has booted again and so now we have the yeah.
+
+
+Henrik Loos   53:00
+Oh, I'm a too late. OK.
+
+
+Michael Davidsaver   53:05
+But you should be able to run an IOC or the console script to see if we can communicate with it.
+
+
+Henrik Loos   53:12
+It looks better now. The boot control says active image is the application image.
+
+
+Michael Davidsaver   53:20
+Oh, we have the IOC running.
+
+
+Henrik Loos   53:22
+Yeah, the IOC is running that the IOC has been running the whole time and it's probably need to lock or do something that a few errors.
+
+
+Michael Davidsaver   53:31
+Henrik, can you see the the actually Dario, could you go back there and yeah, is there a reason we're not seeing the IOC status on the screen that Dario's looking at?
+
+
+Henrik Loos   53:44
+That's weird. He's seeing different things than I'm seeing.
+
+
+Alex Gardeck   53:52
+Maybe do an F5 Dario?
+
+
+Henrik Loos   53:57
+But he should also see the other three.
+
+
+Alex Gardeck   54:00
+Yeah.
+
+
+Henrik Loos   54:00
+Um.
+I'm a bit confused right now, Dario.
+
+
+Michael Davidsaver   54:06
+Is this perhaps an address list thing?
+
+
+Henrik Loos   54:10
+I'm just I'm I'm logged in as CX spell dev on the dot 59 computer.
+
+
+Mark Holl   54:17
+Yeah, but yeah, I got a question here. Um, can you go to where it has the uh IP address on the other tab you were just looking at?
+
+
+Henrik Loos   54:19
+Mm-hmm.
+
+
+Michael Davidsaver   54:26
+Yeah, boot.
+
+
+Mark Holl   54:26
+Boot tab that yeah, that's got 192. I thought we were on 191.
+
+
+Henrik Loos   54:30
+No and not 192 is was the first working one. That's the 192 is the master that's the that functions as the EVG and the other three, there were two more that were running as slaves and.
+The 191 is now the third slave or the the number four in total.
+
+
+Mark Holl   54:50
+Uh huh. So I'm just wondering. I don't see 191 here.
+
+
+Henrik Loos   54:55
+I don't see the other two either. There should be on my display. There are four ones. This doesn't make any sense to me, so.
+How did you start this feebus display?
+
+
+Mark Holl   55:11
+Um through.
+
+
+Alex Gardeck   55:15
+I think it's been running for a while.
+
+
+Dario   55:16
+All right, I was just.
+
+
+Alex Gardeck   55:20
+I think that one's been open, so maybe try killing it and reopening it.
+
+
+Henrik Loos   55:21
+Oh, maybe.
+Yeah, yeah, kill it.
+And the uh.
+
+
+Dario   55:37
+There we go.
+
+
+Alex Gardeck   55:38
+Yep.
+
+
+Henrik Loos   55:38
+Uh, now it looks good.
+There might have been an update on the oh, I know what happened.
+It's the, uh, address list.
+I fixed the address list, but it required a Phoebus re restart.
+OK, uh, now, now, now we're now we're only seeing the same.
+
+
+Alex Gardeck   56:03
+Mhm.
+
+
+Michael Davidsaver   56:05
+OK, do we have fiber connected to this one?
+I think it would be if you're using the second chassis as the event generator, then you would want to use one of the rightmost fibers on there to the number one on the first chassis. And if you point your camera at it, I can.
+
+
+Dario   56:11
+It is.
+
+
+Michael Davidsaver   56:27
+Maybe squint and tell. Yeah, I see. OK, so on the second chassis down you have 135 or 1345 connected. So if you connect number six on the 2nd and number one on the 1st.
+Yeah, you may have gotten my numbers mixed up a little bit there, but yes.
+No. On the first one you number one is the far to the far left. It should be labeled EVR in.
+That looks and if you are now back back on the Phoebus screen, if you go to the 4th row on the left hand side, there's the button that says 04 and if you click on that, that will give you a submenu collect system monitor or Sys Mon.
+Oh, actually, no, there we go. I was slightly impatient, but it's take a little bit of time to for the PLL to lock up. I I could you go back there again. I there was there's more information on there I was gonna look at as well.
+Alright.
+OK, it's still.
+Hasn't settled, but let's wait a few more moments here for it to do so. So both the fans are turning.
+
+
+Dario   58:37
+What are we looking for on this page?
+
+
+Michael Davidsaver   58:40
+But the the the short of it is to have that uh red uh.
+Well, actually that's right. That's not gonna go away until you do the global align. Sorry. So that that's maybe understood. All right, so that this.
+Looks healthy. So if you go back to the stats screen and at the top go to a global align. So top above the table right hand side.
+OK. And we should be happy now. All right, we are happy. So if you scroll a little bit over to the.
+
+
+Henrik Loos   59:14
+No.
+Oh.
+
+
+Michael Davidsaver   59:18
+Left and tell it to start sampling. That'll be the ADC acquire switch to enable.
+
+
+Henrik Loos   59:21
+What just happened?
+
+
+Michael Davidsaver   59:29
+OK, and if you go back to the main screen and choose chassis scope, which should be right hand column first row and choose chassis 4.
+
+
+Henrik Loos   59:44
+Looks good.
+
+
+Michael Davidsaver   59:44
+OK, you're sampling. All right. Well, interesting. All right. So when we load it into RAM, well, that that's what we're going to have to double back and and try to and see.
+
+
+Henrik Loos   59:51
+So why is everything working now?
+
+
+Michael Davidsaver   59:58
+Because yeah, the the the difference this time, well, aside from having two months of time that we're gonna have to go back and repeat the normal boot process and see that it well, just basically see what happens.
+
+
+Henrik Loos   1:00:03
+Hmm.
+
+
+Michael Davidsaver   1:00:16
+Yeah, this looks healthy at the moment, aside from the fact that we did the abnormal boot procedure.
+
+
+Dario   1:00:24
+Do we have, do we have to run this open OCD every time or?
+
+
+Michael Davidsaver   1:00:29
+No, if you do, that's a problem.
+
+
+   1:00:30
+Hopefully not.
+
+
+Michael Davidsaver   1:00:33
+No, that that that's not this, but this this was a troubleshooting procedure to try to find out if there was something strange about the normal boot process and the answer is perhaps there is. So now what I'm gonna have you do is to do a reboot of the chassis.
+
+
+Dario   1:00:40
+OK.
+
+
+Michael Davidsaver   1:00:49
+And then we'll try to do the normal boot process to see what happens.
+And so now if you go to the Phoebus screen, so we're not, we're gonna leave the open OCD stuff for a while to go to the boot tab.
+And then do boot a on the 4th row.
+Well, that's weird.
+Alright, so it's back in the bootloader.
+All right, well, so this does leave us back where we were, which is it's not booting from the flash chip.
+We can load it. You'd load the bit file directly into the FPGA RAM.
+It's strange because we ran the verify on the the flash chip a number of times and it passed every time.
+But yeah, there there must be something amiss with the flash chip.
+Well, you tell you what. Let's repeat the verify process one last time, just to for completeness. But yeah, if it.
+It'll continue to behave as it is, then we're gonna have to have you ship it back.
+
+
+Dario   1:02:18
+What's the verification process?
+
+
+Michael Davidsaver   1:02:20
+And so this is just you might as well just leave this terminal open and switch to a new one.
+And we're going to this is where, let's see. Yes, in in your notes, this would be the like here it's a alluvium.
+That would be the keyword to look for.
+Yes, there we go. That's the one.
+And you'll need to be in the directory containing that program.
+Which I don't remember where that was. Heinrich, do you remember it? It's where it's the Alluvium 'cause that's a separate git repository that's been checked out somewhere.
+
+
+Henrik Loos   1:03:09
+Yeah.
+Yeah, it's in the base epic slash. It's it's in the modules folder where everything else is area detector and the ATF acquisition IOC. There's also an alluvium.
+Folder and it's in there.
+
+
+Alex Gardeck   1:03:40
+So CD and then slash USR local.
+
+
+Henrik Loos   1:03:47
+Yeah, user local epics. No CX file. So yeah, C CX file epics 7 tab. No epic slash 7 tab. Yeah yeah.
+
+
+Alex Gardeck   1:03:47
+CX file or.
+Dash, yeah.
+
+
+Henrik Loos   1:04:02
+And then CD modules alluvium.
+
+
+Dario   1:04:12
+Oh yeah, it's right there.
+
+
+Henrik Loos   1:04:15
+It's their alluvium.
+No, you have to. You have to CD into Alluvium first.
+OK, now it should work. Yep.
+
+
+Michael Davidsaver   1:04:49
+And do not run the next step. Do not run that. So what instead what we're going to do instead of reboot, we're going to do verify.
+We're going to do verify app and then the the bit file name, so it should probably be like dot dot slash download.
+Like with a capital B.
+
+
+Henrik Loos   1:05:19
+Uh.
+
+
+Michael Davidsaver   1:05:20
+Oh, I'm sorry, notice it would be tilt to like tilde slash download with a capital D.
+
+
+Henrik Loos   1:05:22
+Tilde tilde slash download, yeah.
+And the bit file. Well, I I copied bit files into the Illumium folder that.
+
+
+Michael Davidsaver   1:05:29
+And then like a queue.
+Uh, OK, so it's they're here as well. All right.
+
+
+Henrik Loos   1:05:38
+Yeah.
+
+
+Dario   1:05:38
+Like this?
+
+
+Michael Davidsaver   1:05:40
+Yes, I believe that should should do it. All right, that's clearly not.
+Huh.
+We can just hit control C at this point. There's no reason to keep staring at this.
+No, I go up and repeat the the the the clear step. I'll have to clear the air status.
+Well, all right, I guess let's do.
+
+
+Henrik Loos   1:06:13
+What did we learn from the verify step?
+
+
+Michael Davidsaver   1:06:16
+That's not the bit file that's loaded on there at the moment, so I'm what I'm gonna have him do is program on that bit file again 'cause I I'm.
+I know there were two different versions we were testing before and frankly I don't remember which one we left on there.
+
+
+Henrik Loos   1:06:32
+Um.
+
+
+Michael Davidsaver   1:06:33
+So that.
+And I would like you guys to use the latest and I mean which is the one we just had loaded directly into the FPGA RAM so we know it works.
+
+
+Henrik Loos   1:06:44
+I think we used the one from May.
+Is that?
+
+
+Michael Davidsaver   1:06:49
+Yeah, but that that that would potentially track. Yeah, let's let's do it up arrow a couple times and instead of verify do program.
+
+
+Henrik Loos   1:06:54
+Yeah.
+
+
+Michael Davidsaver   1:07:08
+And execute.
+
+
+Dario   1:07:14
+So this is writing the that dot bit file onto it, replacing what was there.
+
+
+Michael Davidsaver   1:07:20
+Yes.
+
+
+Dario   1:07:25
+But if we were to get other chassis that have the same issue, we can just do this with this specific file and then it will be fine.
+
+
+Michael Davidsaver   1:07:37
+Well, considering I, I, I don't know what this specific issue is that that's where that's the problem at the moment.
+
+
+Mark Holl   1:07:44
+Yeah.
+
+
+Michael Davidsaver   1:07:44
+Is what it's looking like? Is there some problem with the early startup that's somehow specific to the application firmware? Because I mean that the bootloader firmware reads itself from that same flash chip.
+And the fact that the flash chip read but verify process reads it back.
+
+
+Dario   1:07:58
+But.
+
+
+Michael Davidsaver   1:08:04
+So if it was like a bad sector, go ahead.
+
+
+Dario   1:08:04
+What were the what were the mismatch? What did the mismatch mean when we ran that verify?
+
+
+Michael Davidsaver   1:08:13
+That well, that was just right away that was that was telling us that probably just it was a the different bit file had been written. So there was a potentially legitimate difference.
+So what would?
+
+
+Alex Gardeck   1:08:25
+Oh, and then did we remember to save the?
+Does it automatically save the gateway and NTP?
+Or was there OK?
+
+
+Michael Davidsaver   1:08:35
+Yes.
+
+
+Dario   1:08:35
+Yes.
+
+
+Michael Davidsaver   1:08:40
+If it actually gets far enough to boot up, we'll we'll see that printed on the console. All right, so that what's what happens here that when you do the program, it actually does an erase program and then automatically does a verify every time. I mean, you can repeat the verify step and it should pass again now.
+I'm gonna be awfully surprised if it behaves differently this time if we reset it, but it's not possible.
+OK, if you could please go back to Phoebus and have it do the boot app.
+Well, calling me confused.
+This is not the behavior I recall. I mean, I I know we wrote on this exact bit file.
+
+
+Dario   1:09:54
+Let's just.
+
+
+Henrik Loos   1:10:00
+Yep.
+
+
+Michael Davidsaver   1:10:05
+Well, unless that was somehow not that exact bit file, because this was a different.
+
+
+Henrik Loos   1:10:08
+Well, maybe it was the maybe it was the bit. I think it was the bit file in the Illuvium folder which is supposed to be identical. It's the same file, but maybe they are not identical.
+
+
+Michael Davidsaver   1:10:17
+Yeah, well, let's verify that somehow.
+Because yeah, the the Lufium tool does not validate the bit stream itself, it's just it's comparing what's in the flash to what's on disk.
+
+
+Alex Gardeck   1:10:30
+And then the obvious question is, do we need to go back and load this bit file onto the other chassis?
+
+
+Henrik Loos   1:10:41
+They differ.
+
+
+Michael Davidsaver   1:10:41
+Let's figure. Let's try this. Let's try to figure out. Oh, they oh, they differ ****.
+
+
+Henrik Loos   1:10:45
+I I just did a difference.
+Between the one in the Illuvium folder and the identical file in the download folder and it says the binary files differ.
+
+
+Michael Davidsaver   1:10:49
+And they they have the same.
+Well, ****.
+
+
+Henrik Loos   1:11:02
+Yeah.
+
+
+Michael Davidsaver   1:11:03
+That's that'll do it.
+
+
+Henrik Loos   1:11:05
+And I got that. I got that binary file from the Osprey GitHub.
+
+
+Michael Davidsaver   1:11:13
+Yeah, I'm pretty sure that's where Dario just downloaded it again and I guess it's.
+
+
+Henrik Loos   1:11:15
+Yes.
+
+
+Michael Davidsaver   1:11:19
+Are the sizes similar? I mean, is it like a truncation thing?
+
+
+Henrik Loos   1:11:34
+Oh.
+They are very different.
+The one I downloaded in the Alluvium folder is.
+
+
+Michael Davidsaver   1:11:43
+OK.
+
+
+Alex Gardeck   1:11:46
+Henrik, can you share your screen so that we can see?
+
+
+Henrik Loos   1:11:51
+Oh, sure.
+
+
+Dario   1:12:03
+We can see here there are different sizes.
+
+
+Michael Davidsaver   1:12:04
+Oh yeah, wow.
+
+
+Henrik Loos   1:12:08
+Um, can you see my screen now? Yeah.
+That's the it's 3.8 megabytes, the one in the downloads folder and the one I was using is only 186 kilobytes.
+
+
+Michael Davidsaver   1:12:27
+Yep. OK, that's that's definitely not right.
+
+
+Henrik Loos   1:12:30
+Well, that explains everything. Well, it does not. Well, however, it does not explain what what the. It does not explain what we tried after this didn't work. We tried the file from May.
+
+
+Michael Davidsaver   1:12:35
+Yeah, how did it happen?
+
+
+Alex Gardeck   1:12:36
+Thank you.
+
+
+Michael Davidsaver   1:12:42
+Yeah, well, did it also get truncated?
+
+
+Henrik Loos   1:12:43
+But that might also have been through Ford. That might also have been through Ford.
+
+
+Michael Davidsaver   1:12:47
+Yeah, that's.
+
+
+Henrik Loos   1:12:49
+The May file is the same as also forward.
+
+
+Mark Holl   1:12:56
+Yeah, does that the the?
+
+
+Henrik Loos   1:12:57
+So both bit files we tried were wrong.
+
+
+Mark Holl   1:13:00
+Yeah. So does that mean that we have to, you have to reload all the firmware to all the different?
+
+
+Henrik Loos   1:13:01
+OK.
+No, no, no Mark. I did something maybe not stupid. I just followed instructions and was curious and downloaded a bit file onto the first quartz chassis when I started working on it.
+
+
+Michael Davidsaver   1:13:14
+Yeah.
+
+
+Mark Holl   1:13:21
+Home.
+
+
+Henrik Loos   1:13:21
+But apparently the bit file I got or both bit files I got were not the correct size.
+
+
+Mark Holl   1:13:28
+OK, but the but the other chassis have the right one.
+
+
+Henrik Loos   1:13:29
+Yeah, but the but the the other the other three chassis that were working right out-of-the-box. I never we never touched the bit file in the FPGA, so they had the correct ones and were working.
+
+
+Mark Holl   1:13:38
+Oh, so it's probably it's it's probably the right one.
+OK, that's it. Thanks.
+
+
+Alex Gardeck   1:13:46
+But do we still want to get them on the latest bit file or they do have the August 1?
+
+
+Michael Davidsaver   1:13:53
+They they may. I think they may have the May one and the the only the feature wise. The only difference is that the the August firmware adds read back of the fan status.
+
+
+Mark Holl   1:14:03
+Well, let's get him updated. I would say that if, if.
+
+
+Michael Davidsaver   1:14:06
+Yeah.
+
+
+Henrik Loos   1:14:07
+Yeah.
+
+
+Michael Davidsaver   1:14:07
+I mean, when you have a the the right bit file, it's a straightforward process. It's it's basically what we've just done here with the Illuvium tool.
+
+
+Henrik Loos   1:14:14
+Yeah.
+
+
+Michael Davidsaver   1:14:17
+But yeah, well, all right, that's OK. Well, I that's it's, I guess it's good that we did.
+It's one more troubleshooting session. I'm just trying to I'll.
+
+
+Dario   1:14:26
+Sir.
+So should I run this the program one with the different IP addresses for all of them?
+
+
+Michael Davidsaver   1:14:36
+Before you do that, you'd have to boot them all back to the the bootloader firmware, which you can do from the boot tab.
+So in Phoebus if you switch to the boot tab.
+
+
+Alex Gardeck   1:14:56
+Oh, Dario, if you can go back to sharing, I think we're still looking at Henrik.
+
+
+Dario   1:14:56
+Yeah, I hit the.
+
+
+Alex Gardeck   1:15:00
+Oh, I'm sorry.
+
+
+Michael Davidsaver   1:15:00
+Oh, are we? Oh.
+That's why. That's why the screen's not moving. All right, never mind.
+
+
+Dario   1:15:08
+OK, I've got those moved up.
+
+
+Michael Davidsaver   1:15:10
+Yeah, on the if you scroll a little bit more to the right, you'll see there's another row of buttons, one of which is the boot gold. If you click on that, that'll tell the application image to boot back into the firmware or the bootloader firmware, which is.
+yeah I think you got one more to do.
+
+
+Alex Gardeck   1:15:28
+And is that order independent or should you do the EVG first?
+
+
+Michael Davidsaver   1:15:33
+The order for booting back to the bootloader image order makes no difference. I mean obviously once you reset the the event generator, all the rest of them are going to lose the timing link which is no longer being sent. So that that that's the only real ordering for that that step.
+Yeah, otherwise you should be able to reboot these chassis in any sort of order you like. It's just the for the quartz digitizer functionality. Once you have everything up and running, you have to issue that global line.
+
+
+Dario   1:15:57
+2.
+
+
+Alex Gardeck   1:15:59
+2.
+Oh.
+
+
+Michael Davidsaver   1:16:04
+Actually, you know what? It might be better that the way to do this may be to try to avoid typos if you for the ones which has already been updated 191 if you go back to Phoebus and tell that to boot app.
+And then now go, yeah, go ahead and do the next one.
+And then that's I got just to just do the uh aluvium to actually program the next one.
+
+
+Dario   1:16:28
+That's good.
+
+
+Michael Davidsaver   1:16:40
+And then once this one completes and shows the match, then go and tell it to boot app and then proceed to program the next one. Yeah, OK, obviously. Yeah, once that one's back on, then we'll see that it starts up correctly.
+
+
+Alex Gardeck   1:16:45
+Yeah, and this is the EVG.
+
+
+Dario   1:16:50
+Should.
+You said the program command also runs verify, right?
+
+
+Michael Davidsaver   1:16:59
+Yes.
+For just this reason, I wanted to make sure that when you program the flash chip, you know that it's actually succeeded.
+Oh, it reads back every byte.
+
+
+Henrik Loos   1:17:12
+So with all this verified, we didn't get a notice that this was a truncated file.
+
+
+Michael Davidsaver   1:17:19
+Yeah, well I mean I would like to try if you if if you can compare the binary files somehow and just see that it was a simple truncation because I would kind of like to know because I I I want to try to add some sanity checks to prevent this from coming up again.
+
+
+Henrik Loos   1:17:34
+Yeah, I'm I'm. I'm trying to remember how I got these files. I think I did AW get or something.
+
+
+Michael Davidsaver   1:17:40
+Oh, you know, I did. Maybe you should just do a check to see that this isn't like HTML output or something. I thought. I thought I did have you guys check the the content of that file, but maybe I was remiss and didn't.
+
+
+Henrik Loos   1:17:59
+Oh, duh, you're right. It's not a binary file. It's a.
+My bad.
+It's an HTML.
+
+
+Dario   1:18:19
+So now I I boot a the one I just did.
+
+
+Michael Davidsaver   1:18:24
+Yes.
+
+
+Dario   1:18:29
+And then run the next one.
+
+
+Michael Davidsaver   1:18:32
+Yes.
+I think you need to do the the the reset, the clear clear command in Alluvium.
+
+
+Dario   1:18:47
+Alright.
+
+
+Michael Davidsaver   1:18:51
+You probably should have needed to do that for the first one as well, but I guess not.
+Does you have to change the IP address? This is why I was having you reboot them in sequence, because that way it'll be, you know, obvious if you get the wrong IP address, which is really easy to do.
+Hang on, that's it's yeah, there we go.
+
+
+Alex Gardeck   1:19:11
+Oh, you're just redoing all of them now?
+
+
+Michael Davidsaver   1:19:15
+Yeah.
+Actually, Henrik, can you check to see that the the first two have started up properly?
+We'll try to be a little parallel here.
+
+
+Henrik Loos   1:19:25
+Uh, the first one is running fine, the the EV EVG is running fine and the.
+
+
+Michael Davidsaver   1:19:28
+But yeah.
+Hey, Dario, proceed. Please proceed with the programming step.
+OK, it's in.
+
+
+Alex Gardeck   1:19:52
+And then Dario, you haven't done the clear on the 194 yet, correct?
+
+
+Dario   1:19:58
+Yeah.
+
+
+Henrik Loos   1:21:07
+I just put in the chat.
+But I did.
+
+
+Michael Davidsaver   1:21:14
+Yeah.
+Github.com strikes again.
+There is a way to have download those files directly, but it's not the obvious one.
+See here, I think it's like uh.
+
+
+Henrik Loos   1:21:38
+Yeah, I.
+
+
+Michael Davidsaver   1:21:38
+Oh, it's JavaScript. I keep JavaScript.
+
+
+Henrik Loos   1:21:42
+It worked for like other things like um.
+RGZ files and like any kind of software packages, I just did the same for this bit file. I didn't think any of it.
+But apparently it gave me an HTML document and uh, not a bit file.
+
+
+Michael Davidsaver   1:21:58
+You know, I think that that you.
+Yes, yeah, the the URL I just pasted in there. I I if you if you follow the URL that you did, that takes you to a page where there's I think a button that says raw and that's the one if I think this is the URL that I pasted in there that you actually could download directly. I think the keyword is in there is raw.
+
+
+Henrik Loos   1:22:10
+Mhm.
+Uh.
+As a download raw file, yeah.
+
+
+Michael Davidsaver   1:22:44
+OK, and actually it looks like the second one or 193 has not rebooted.
+That's the event generator one, isn't it?
+
+
+Henrik Loos   1:22:57
+Hmm.
+
+
+Alex Gardeck   1:23:00
+No 192.
+
+
+Henrik Loos   1:23:00
+That's not the. That's not the event generator. That's us.
+That's a receiver.
+
+
+Michael Davidsaver   1:23:14
+You you you you'd have to switch the the the USB cable over to see anything there.
+Hm.
+OK, and then press L and return.
+OK.
+
+
+Alex Gardeck   1:24:31
+Well, that's the wrong one. Third one down.
+That's the second one down. That's the EVG.
+
+
+Henrik Loos   1:24:40
+I was the.
+
+
+Mark Holl   1:24:49
+It's 192, right, Alex?
+
+
+Alex Gardeck   1:24:52
+Yeah, that was so and they're they're in that rack in order. So top to bottom it's 91 to 94.
+
+
+Henrik Loos   1:24:53
+Yeah.
+
+
+Michael Davidsaver   1:25:06
+Oh, all right and.
+Oh, hello.
+That's.
+Interesting. Could you copy that output? And I'm gonna ask you to send that to me in an e-mail.
+After you send this, it's just gonna ask you to reset the chassis once.
+But yeah, please paste it in the e-mail before you lose the output. Please finish the e-mail first.
+
+
+Dario   1:26:47
+What's the, uh, address for that? OK.
+
+
+Michael Davidsaver   1:26:48
+Second one down.
+Will do. Thank you.
+
+
+Dario   1:27:05
+Yeah.
+
+
+Michael Davidsaver   1:27:07
+Right, yeah. Now if you power cycle that chassis, because there's no way to reset, tell the microcontroller to reset remotely.
+
+
+Alex Gardeck   1:27:19
+Yeah.
+
+
+Dario   1:27:30
+Sorry, reset. Uh.
+
+
+Michael Davidsaver   1:27:31
+Now you you're gonna have to power cycle that chassis.
+
+
+Alex Gardeck   1:27:32
+This is.
+
+
+Dario   1:27:35
+I'm doing it.
+
+
+Alex Gardeck   1:27:37
+I'm doing it right now. Yeah.
+
+
+Michael Davidsaver   1:27:37
+So phys physical switch. OK, all right, yeah, Dario, in the meantime, if you just switch back to that terminal, it had the the console that's and just Scroll all the way down.
+
+
+Dario   1:27:39
+Yeah.
+
+
+Michael Davidsaver   1:27:53
+Yeah, there we go. All right. So now if you go now go to Phoebus and tell it to boot app.
+
+
+Dario   1:28:13
+There we go.
+
+
+Michael Davidsaver   1:28:15
+OK.
+All right.
+I will have to follow up on that. I think I have seen this exactly one time before where the the management microcontroller locks up.
+So I do not know what causes it at this point, other than it's probably the fact that we're doing abnormal things and fussing around with it.
+
+
+Alex Gardeck   1:28:45
+But this did properly install the new bit file, right? That was complete.
+
+
+Michael Davidsaver   1:28:50
+Well, let's go and verify. But yeah, I I OK, it looks like it's connected up and let's go back to Phoebus.
+And stat tab.
+And OK, so someone Henrik, did you issue global align already?
+Oh, no, no, no. You got issue global line. Sorry, one column.
+
+
+Henrik Loos   1:29:08
+Nope.
+
+
+Michael Davidsaver   1:29:15
+And you'll now have to toggle the sampling to disable and then back to enable ADC acquire.
+
+
+Henrik Loos   1:29:23
+OK, I just did global align.
+
+
+Alex Gardeck   1:29:25
+Oh, I think Dario is doing it.
+
+
+Michael Davidsaver   1:29:28
+Well.
+
+
+Henrik Loos   1:29:30
+Oh.
+
+
+Michael Davidsaver   1:29:31
+Yeah, it it it's fine. It it it'll well, it'll it'll if you're actually taking data. Yeah, if if you're actually taking data, it would glitch. But yeah, let's let's coordinate.
+
+
+Mark Holl   1:29:33
+Yeah, but let's have one person. Let's have one person.
+
+
+Henrik Loos   1:29:40
+Oh, they all look good now.
+
+
+Mark Holl   1:29:42
+Let's slow down just a little bit.
+
+
+Michael Davidsaver   1:29:43
+Yes.
+
+
+Mark Holl   1:29:45
+So that Dario can do it, we have a record of it.
+
+
+Michael Davidsaver   1:29:51
+Anyway, I I I think at this point we're working.
+
+
+Alex Gardeck   1:29:54
+From this stat page or from any page, can you check what bit file is currently loaded?
+
+
+Michael Davidsaver   1:30:03
+If you go back to boot the boot tab.
+And scroll all the way to the right.
+The information on here shows the there's the git hash and build dates associated with the running image.
+
+
+Henrik Loos   1:30:16
+Oh, and OK, so we have all the August 25th image.
+
+
+Alex Gardeck   1:30:18
+Good.
+
+
+Michael Davidsaver   1:30:28
+But to answer the question, yes, it's remotely auditable.
+
+
+Alex Gardeck   1:30:32
+Nice.
+
+
+Mark Holl   1:30:34
+What was the question?
+
+
+Alex Gardeck   1:30:35
+Was I was just asking if you can see which bit file is loaded onto the chassis through Phoebus.
+
+
+Mark Holl   1:30:42
+OK, and that's where that column is.
+
+
+Alex Gardeck   1:30:45
+Yep.
+
+
+Mark Holl   1:30:46
+Document it. Um, yeah.
+
+
+Alex Gardeck   1:30:50
+Well, we got 4 working chassis, so that's a great outcome.
+
+
+Mark Holl   1:30:54
+OK, so that's that was an objective for today. You got some diagnostics useful to you and we don't have to ship it back. Is is that the bottom line?
+
+
+Henrik Loos   1:31:07
+Yeah, yeah, yeah. And I learned and I learned how to download binary files.
+
+
+Michael Davidsaver   1:31:08
+That's the bottom line there.
+
+
+Mark Holl   1:31:10
+OK and.
+Yeah, the raw data thing. OK, yeah, OK. So that's a lot of success. But I guess for us to do anything, we're we're not stuck in a holding pattern. We can't land this aircraft and do anything until we have some firmware.
+
+
+Michael Davidsaver   1:31:19
+It.
+Yes, I I I owe you and it's status of firmware for actually using these as event receivers.
+
+
+Mark Holl   1:31:37
+Mm-hmm. And yeah, and event generators too.
+
+
+Henrik Loos   1:31:37
+I'm deleting the bit files that are not bit files.
+
+
+Michael Davidsaver   1:31:40
+Mhm.
+
+
+Mark Holl   1:31:46
+Hmm.
+
+
+Michael Davidsaver   1:31:46
+Good, good, good man.
+
+
+Alex Gardeck   1:31:47
+Seems like a safe move.
+
+
+Mark Holl   1:31:49
+What? What's that? Sorry.
+
+
+Henrik Loos   1:31:51
+I'm deleting the bit files that were actually HTML files.
+
+
+Mark Holl   1:31:55
+OK, so that's a safe move. OK, yeah, so you need you. So the summary is that we need firmware for that enables us to actually use these as event generator and event receiver, yeah.
+OK, so when, when, when should we? We have a scheduled meeting for next Friday, but should we wait that long? I mean, that's Daria doesn't have anything to do right now except wait.
+
+
+Alex Gardeck   1:32:12
+OK.
+
+
+Michael Davidsaver   1:32:26
+Yeah, I I will have to try to get back to you.
+
+
+Mark Holl   1:32:29
+OK, so we'll wait for you because obviously we've got a great team here, but we just need to then he'll you'll get back to us and then we have a scheduled meeting next Friday. Worst case scenario, we meet next Friday. Any other scenario would be.
+You getting us back to us? Uh, Michael.
+
+
+Michael Davidsaver   1:32:49
+I mean, I I should say if you if you want to in parallel with this, there's the there's the firmware to make use of the trigger, but do you actually have a something hooked up electrically?
+
+
+Mark Holl   1:32:59
+We can and we should do that so we can hook up to the A to DS and do some tests. Is that what you're saying? And and the digital lines, is that what you're saying?
+
+
+Michael Davidsaver   1:33:06
+Yeah, the digitals, yes, because I mean, I I I can give you instructions right now to toggle the state of the digital lines. It's just not going to be synchronized with anything.
+
+
+Mark Holl   1:33:16
+Yeah, so let's let's maybe you can send us some instructions on that by e-mail.
+
+
+Michael Davidsaver   1:33:20
+Well, it it it'll take like 2 seconds if you go back to the main tab.
+
+
+Mark Holl   1:33:23
+Oh.
+Can we can we do?
+
+
+Michael Davidsaver   1:33:28
+And then there's uh, interlock IO.
+
+
+Henrik Loos   1:33:32
+Uh.
+
+
+Michael Davidsaver   1:33:34
+And pick a chassis. Let's start with the and so the here there's because right now everything is tripped.
+So in this particular one if you on the left hand side.
+Further down this OK, there says it's concentrator and there's that list of event status mask and then the required mask if you uncheck 567 and eight.
+And now back at the top there's the well, actually I'm sorry, you need to go to the the one that's configured as the event generator at the moment, which is going to be the second one.
+
+
+Henrik Loos   1:34:12
+Uh, we are on the event generator one.
+And and that's 01 is the uh.
+
+
+Michael Davidsaver   1:34:21
+Oh it is?
+
+
+Mark Holl   1:34:22
+19192 Are we on 192?
+
+
+Henrik Loos   1:34:22
+Yeah, this is the yeah, yeah, 19. We configure 192 as the event generator since 191 was broken thanks to me.
+
+
+Mark Holl   1:34:31
+Uh-huh. Uh huh. And so let's, uh, but wait a minute, how do we know we're on 192 right now?
+
+
+Michael Davidsaver   1:34:34
+OK.
+On the boot tab you will see the mapping between IP address and logical number.
+OK, so the first day of the first one is ninety-two or 192.
+
+
+Henrik Loos   1:34:48
+Yeah, we could probably change this and make 191 the EVR the the EVG.
+
+
+Alex Gardeck   1:34:56
+Yep.
+
+
+Michael Davidsaver   1:34:58
+Yeah, they're just if you go in at the top, there's the global interlock clear latch.
+And now if you Scroll down, you should see that. Oh yeah, scroll if you Scroll down.
+You should see OK that the the status indicators at the bottom are green. That's showing that the interlock logic is all happy, which means that the the digital output should now be well, they're they're optic couplers, so they should be now conducting.
+
+
+Mark Holl   1:35:26
+Yeah, here's. There's nobody pointing to anything. So the bottom of what? Yeah, I see. OK, normal. But but where is our inputs? We have what? How many? How many lines do we have as inputs?
+
+
+Michael Davidsaver   1:35:35
+Yes.
+Or there's four insurance and four outs. So what we've just done is toggled the state of the outputs, which is I I kind of understood with what you want to do. If you want to trigger something, you want an output.
+
+
+Mark Holl   1:35:42
+Up it.
+And we only have 4 lines in this.
+
+
+Michael Davidsaver   1:35:57
+Yes.
+
+
+Mark Holl   1:35:57
+4 inputs and four outputs.
+
+
+Michael Davidsaver   1:35:59
+Yes.
+
+
+Mark Holl   1:36:01
+OK, um.
+
+
+Michael Davidsaver   1:36:02
+Well, for for each chassis, but in this case we're looking at the the first one.
+
+
+Mark Holl   1:36:06
+And this is 91.
+
+
+Henrik Loos   1:36:09
+92.
+
+
+Mark Holl   1:36:12
+This is the event.
+
+
+Michael Davidsaver   1:36:14
+Generator.
+
+
+Henrik Loos   1:36:15
+I think there's something that I think there's something Dario can do in the next few days is to reconfigure them. That 191 is the EV EVG and the other three are the EB Rs.
+
+
+Dario   1:36:23
+I can. I can swap it. It makes sense, yeah.
+
+
+Mark Holl   1:36:28
+OK. And then um.
+OK, but then.
+For each of these chassis, regardless of whether it's if it's an event generator.
+Yeah, we're we're probably not. We could use it, I guess, to trigger some devices, but it's mostly gonna be the event receivers that are doing that.
+
+
+Henrik Loos   1:36:55
+I mean the EB, the the event generator also works as a receiver. It it also has the receiver outputs. It's just the one that's the master that triggers everybody else.
+
+
+Mark Holl   1:37:01
+It does.
+Right, right, exactly. And so that means that that we can trigger up to four devices per event receiver.
+
+
+Henrik Loos   1:37:15
+Yeah.
+
+
+Michael Davidsaver   1:37:15
+Well, per quartz chassis, yes. That means the event receiver chassis you're gonna receive have more.
+
+
+Mark Holl   1:37:17
+Records chest.
+Um, right. The event receiver chassis and those can be used as event generators as well, right?
+
+
+Michael Davidsaver   1:37:29
+Yes, it's as. As with the coarse chassis, it's one physical chassis that can be logically configured either way.
+
+
+Mark Holl   1:37:35
+Yeah. And then and yeah, OK. So it can be both. The event generator can be both an event generator and if it's close to some device, it could actually be its own receiver as well. And then OK, then we have the slaves, OK.
+
+
+Henrik Loos   1:37:51
+Yep.
+
+
+Mark Holl   1:37:52
+Uh-huh. Um.
+OK, well Dario, do you know what to do to reconfigure 91 as the event generator?
+
+
+Dario   1:38:01
+I believe so. Everything is on the documentation and if I need help I can reach out to Henrik.
+
+
+Mark Holl   1:38:09
+OK, just make sure that you CC when you when you reach out to Henrik, you reach out to everybody on this line, right? So everybody gets CC'd. OK, yeah, so that we all get to just see the heartbeat on this thing. And OK, and then we're gonna meet next Friday.
+
+
+Henrik Loos   1:38:10
+Yep.
+
+
+Dario   1:38:17
+OK.
+
+
+Alex Gardeck   1:38:24
+It could potentially be good as well to do some documentation from this meeting, Dario, just for internal purposes of documenting what exactly we did for all the open OCD things, just in case we ever need to do it again.
+
+
+Dario   1:38:36
+Yeah, I've got. I've got that written down.
+
+
+Henrik Loos   1:38:38
+Yeah, I yeah, I kept track of it too. I copied the whole chat.
+
+
+Mark Holl   1:38:44
+Uh-huh. And so you're gonna update, you're you're gonna update the Phoebus documentation, right?
+
+
+Dario   1:38:45
+And.
+
+
+Henrik Loos   1:38:51
+Yeah, well, it's it's it's not, it's not, it's not Phoebus documentation, it's HTML documentation. But there's a yeah, there's a button on Phoebus, yeah.
+
+
+Mark Holl   1:38:52
+And then and then and then court.
+Well, yeah, I know, but it's it's, it's, I know it's it's a it's a button on Phoebus and but for CXLS for this, it's in that other documentation tab and then Dario, you can coordinate with Henrik to make sure that everything gets documented.
+
+
+Henrik Loos   1:39:03
+Yeah.
+Yeah.
+Mhm.
+Yeah.
+
+
+Mark Holl   1:39:14
+Then then Dario's going to then switch things around, reconfigure the chassis. Michael's going to think about how to get us the next steps. And then Michael, is our next meeting going to be? We'll listen.
+Should we expect to hear from you before next Friday or are we convening next Friday again to to just see where we're at? So I thought.
+
+
+Michael Davidsaver   1:39:39
+Let's plan for next Friday as scheduled. I will try to get back to you before then.
+
+
+Mark Holl   1:39:43
+All right, very good. Anything else anybody else wants to inject before we adjourn?
+
+
+Henrik Loos   1:39:49
+I have a very general far reaching question. So with this marble boards and all this what we have right now, we can trigger devices, we can with the right firmware have event patterns sent out.
+To specify when what is triggering. Now my question is how does the timing information so these will these are all hardware triggers so I can get send a hardware trigger to a camera or something.
+
+
+Michael Davidsaver   1:40:12
+OK.
+
+
+Henrik Loos   1:40:23
+But how does the event timing information get into an IOC?
+Will there have to be cards, event receiver cards in the PCI slot in the workstations that run soft IOCS or how is that going to play out?
+
+
+Michael Davidsaver   1:40:44
+I think in the strictly speaking there there's no connection at the moment. I mean the the event receiver chassis we're dealing with here do not have a way to provide system clock.
+
+
+Henrik Loos   1:40:54
+Yeah, I'm aware, yeah.
+
+
+Michael Davidsaver   1:40:59
+Yeah, I mean how I mean if you did want to do, I mean, yeah, that the hardware we're currently talking about would not just would not have a way to do that and I mean I right.
+
+
+Mark Holl   1:41:06
+To do what? To do what? Because I mean if we.
+
+
+Henrik Loos   1:41:08
+Yeah, so so essentially how to get the actual Epix timestamps and the event signatures into the IOC into the Epix records.
+
+
+Mark Holl   1:41:19
+Yeah, I mean, if we don't have that, this is not a timing system. I mean, it's.
+
+
+Michael Davidsaver   1:41:23
+Well, no, no, no, it it's, it's, it is absolutely is because this, this is the question of providing triggers and then there's providing labels on those or assigning labels on the data that was triggered. And that is a much larger question because it also requires knowledge of how the individual device.
+
+
+Henrik Loos   1:41:35
+Yeah, yeah. And the.
+
+
+Mark Holl   1:41:35
+Yes.
+
+
+Michael Davidsaver   1:41:42
+Are triggered what their timing latencies are and how they are read out.
+
+
+Henrik Loos   1:41:46
+Yeah, no, my question is what how the the physical layer for that would look like.
+
+
+Michael Davidsaver   1:41:54
+Yeah, well, there there probably isn't a physical layer is what it comes down to. It's going to be be a really it's a per device question that would have to be answered basically for each epics driver and each device because I mean for something like a camera where it's just taking an electrical trigger in.
+
+
+Henrik Loos   1:42:02
+Oh, mm-hmm.
+
+
+Michael Davidsaver   1:42:10
+The only way I've really found to do it is effectively pre-knowledge where you can you can find the time of it when the trigger happened and if you just have to either be happy to use that time as the label for the when the image is collected and just ignore the, you know the acquisition and readout times, which I think is it's.
+
+
+Henrik Loos   1:42:10
+Mhm.
+Mhm.
+
+
+Michael Davidsaver   1:42:30
+Probably enough in almost every case.
+Or I mean for some newer devices can decode the timing stream directly and in which case you know then you get the the data and time in a nice package.
+
+
+Henrik Loos   1:42:35
+Oh.
+
+
+Mark Holl   1:42:44
+OK, so Diego, This is why you're here. Are you here, Diego?
+
+
+Henrik Loos   1:42:44
+Yeah.
+
+
+Diego Omitto   1:42:49
+Yeah, I'm here.
+Mm-hmm. Yeah.
+
+
+Mark Holl   1:43:05
+Then how are we gonna get that timestamp associated with the image?
+
+
+Diego Omitto   1:43:10
+Yes.
+
+
+Mark Holl   1:43:11
+And then separately, we are gonna have to, once we get things working and we're up to the next level where we can issue these triggers, then we're gonna have to talk with you, Michael, and we're gonna have to expose classes of devices that we use and understand how we get to that physical layer because we've.
+Gotta get that universal timestamp associated with the data that's collected that's been triggered.
+We'll have to. We'll have to grapple with that one step at a time.
+
+
+Michael Davidsaver   1:43:40
+I I.
+Yes, no, I agree. It it's it's just to understand that it's not a a single answer.
+
+
+Mark Holl   1:43:48
+No, I'm not asking for easy answers. Yeah, no, I'm not asking for the world to be easy. I just it has to be.
+
+
+Henrik Loos   1:43:48
+Yeah, I mean that that's obvious, yeah.
+
+
+Mark Holl   1:43:57
+Someday.
+
+
+Michael Davidsaver   1:44:00
+Oh, it's you're assembling a system. It's an integration task.
+
+
+Mark Holl   1:44:00
+OK.
+Exactly. And so we'll just have to get there. And then Henrik, as we do this and and Alex and Dario, as we do this, we'll define classes of devices that we need.
+Analog inputs and so on. I mean, for example, if we have an analog input, which we do on these marble chassis, does that have the feature where the timestamp is automatically savable with that analog? You know, do we have an IO? Yep. So on those we have analog inputs in, right, where somehow we have to write an IOC.
+
+
+Michael Davidsaver   1:44:26
+Yes.
+
+
+Mark Holl   1:44:34
+To then say OK, after this delay, internal delay, take this analog input, timestamp it, and then stuff it off into a PV that has the the timestamp, right?
+
+
+Henrik Loos   1:44:41
+Yeah.
+Well, well, there you have already the the analog, the the the ADC is already.
+The hardware is packaged with the event receiver.
+
+
+Mark Holl   1:44:53
+Mhm.
+Exactly, exactly.
+
+
+Henrik Loos   1:44:56
+But in cases where the acquisition hardware is some other device.
+
+
+Mark Holl   1:45:03
+I understand.
+
+
+Henrik Loos   1:45:04
+Yeah, we have to find some, figure something out.
+
+
+Mark Holl   1:45:05
+And and you know, we're gonna have to cross that. We're gonna have to build that bridge and and cross it. Yeah. OK, very good. Then let's thank you. I think if there's nothing else, is there one more? Any anything else from anyone?
+
+
+Henrik Loos   1:45:10
+Yep.
+
+
+Mark Holl   1:45:21
+Oh, then we'll be listening for you, Michael, and we'll, we'll meet next Friday for sure, but we'll certainly be listening. And Daria, you have, you have some things to play with. We we need to hook up the signal generators and so forth and get you sampling. Can we do anything with the analog input that we have currently and play with that?
+Um, Michael.
+
+
+Michael Davidsaver   1:45:44
+Well, yeah, I mean we we we looked at the analog data earlier. So yeah, if you can get signals hooked up to it, then yes. And oh, actually also Dario, could you oh, just one last item here. Dario, could you scroll up on the Phoebus screen? The last thing I was gonna do is there's a row of buttons here that says force trip.
+
+
+Henrik Loos   1:45:51
+You 121 into.
+
+
+Michael Davidsaver   1:46:04
+One through 4, if you want to toggle the state of one one of the individual bits, you know from OK to not OK. If you press that, you press one and now if you go Scroll down to the bottom and that's apologies, the screen is not well laid out. You'll see that the output bit number one has now.
+
+
+Henrik Loos   1:46:18
+Uh.
+
+
+Michael Davidsaver   1:46:23
+Is no longer conducting.
+
+
+Mark Holl   1:46:25
+OK. And so those are and these are used for machine protection system. See 567 and eight are are things that we can control right for for external triggers, right?
+
+
+Michael Davidsaver   1:46:31
+Yes.
+But that at the on the left hand side the because because this was designed as a machine protection system, it has to fail safe. So on the left hand side what that is saying is that it's a list of which timing links of the upstream help timing links have to be active to be able to lock, you know have the interlock be OK.
+
+
+Mark Holl   1:46:59
+I'm not following.
+
+
+Michael Davidsaver   1:47:02
+I I this is probably a separate discussion. I will try to write something up for you.
+
+
+Mark Holl   1:47:08
+OK. Thank you. Alright.
+
+
+Michael Davidsaver   1:47:09
+I mean the the short of it is it's the interlock. It's not a it's a global interlock, it's not a local interlock. So these chassis talk to each other.
+
+
+Mark Holl   1:47:10
+OK.
+
+
+Henrik Loos   1:47:16
+Uh.
+
+
+Mark Holl   1:47:16
+Yeah, yeah. And that's and I'm I'm very. So it seems like one through 4 are part of the interlock system and five through eight are part of the triggering, right?
+
+
+Michael Davidsaver   1:47:24
+Well, five through eight are not connected. There's there's nothing connected to those fiber links. OK, apparently.
+
+
+Mark Holl   1:47:29
+Well, where are? Where are our trigger outputs?
+
+
+Michael Davidsaver   1:47:33
+Very, very bottom. The unlabeled, I'm sorry, block at the bottom where there's four of the indicators. The 4th one over from the left is red at the moment.
+
+
+Mark Holl   1:47:47
+Are those our trigger signals?
+
+
+Michael Davidsaver   1:47:49
+Those are the four physical outputs on this chassis.
+
+
+Mark Holl   1:47:53
+OK, but then the analog system is inputs. Where are the inputs?
+
+
+Michael Davidsaver   1:47:58
+If you scroll up at the top, the four inputs are and that actually is labeled, thankfully, where it says inputs, and right now they're all showing as red because there's nothing plugged into into them at the moment.
+
+
+Mark Holl   1:48:12
+OK, so those four inputs are actually separate from the tripped outputs or the tripped forced trip.
+
+
+Michael Davidsaver   1:48:19
+They are, yes. It's it's a poor layout of the screen on my part.
+
+
+Mark Holl   1:48:23
+OK, well then maybe you can help us decode the screen and and and address along here a little bit. You know what we need to?
+
+
+Michael Davidsaver   1:48:29
+Yeah, it's just the reason I was pointing to it today for that what I thought you wanted to do first, which was simply toggle an output to see that it actually triggers some external device. I think it's it's sufficient to just be able to know that if you like if you uncheck the the force trigger #1.
+There you go. And then click the the global interlock clear.
+Now you should see that the state's changed, but it's very clunky because it's going through the MPS logic, but with the force trip and the clear, you can toggle the state of these output bits.
+
+
+Henrik Loos   1:48:54
+Mhm.
+
+
+Mark Holl   1:48:59
+Yep.
+Yeah, and those output bits, those are output bits. OK, so those are things that we could use to, for example, change the state of a pump if it, if it was in proximity or something and say we've got a problem shut down, right?
+Is that the idea?
+
+
+Michael Davidsaver   1:49:23
+If if you wanted to use it for its intended machine protection role, yes, I was under the impression and I what I'm going to get back to you is a firmware update that will allow these to be used as general purpose event receiver triggers.
+
+
+Mark Holl   1:49:39
+Wait a minute, wait a minute. This is 2 separate things. Now I'm confused because I I was under the impression I can use this as a machine protection system and also as an event receiver where I have I have countdown timers that I can it.
+Essentially I get a an event code and then I have.
+Separate bits separate from the machine protection system so that I can basically have machine protection system capabilities and I have independent lines that I can use as outputs to then trigger devices.
+That's what I would expect a event receiver to do. Am I mistaken?
+
+
+Michael Davidsaver   1:50:21
+We're we're mixing. I think we're mixing up labels here. I'm talking about the quartz chassis.
+
+
+Mark Holl   1:50:28
+Uh huh.
+
+
+Michael Davidsaver   1:50:29
+It can function logically as an event receiver.
+So the the the the separate discrete EVT chassis will behave in the way you describe.
+
+
+Mark Holl   1:50:42
+Are you talking about the ones I don't have yet?
+
+
+Michael Davidsaver   1:50:43
+In this, in this the ones you don't have yet.
+
+
+Henrik Loos   1:50:47
+Up.
+
+
+Mark Holl   1:50:47
+That's that's what you're talking about. OK, so OK, so OK, now now I'm just catching up to the curve. OK, so these things are configured currently the quartz. That seems strange because they've got the analog input.
+
+
+Henrik Loos   1:50:50
+OK.
+
+
+Mark Holl   1:51:03
+Um, but I'm think this is a longer.
+
+
+Michael Davidsaver   1:51:05
+The right now the the the quartz chassis right now is the firmware application firmware that you have for the quartz chassis can use those out the physical digital digital outputs only as NPS logic outputs.
+
+
+Mark Holl   1:51:13
+Mhm.
+I think this is part of a longer discussion where we need to have a little bit of training.
+
+
+Henrik Loos   1:51:24
+Yep.
+
+
+Michael Davidsaver   1:51:25
+Yes.
+
+
+Mark Holl   1:51:25
+OK, so let's let's leave. We can play with it right now, but then we can obviously reconfigure things. But but until we we do need firmware, but I'm a little bit confused now because I definitely want to use the system that we have.
+As part of a machine protection system that speaks across the beam line, right? And but at the same time.
+
+
+Michael Davidsaver   1:51:51
+Yes, and and that will be. It's just there's there's the the court specific MPS logic that you're looking at here will not be applicable to the to the the EVT chassis because the the logic you're seeing here has to do with the local function of mapping ADC range violations.
+To discrete look digital trigger outputs.
+
+
+Mark Holl   1:52:11
+Yeah, because this was used in some other app, some some other deployment.
+
+
+Henrik Loos   1:52:14
+Yeah.
+
+
+Michael Davidsaver   1:52:17
+Yes.
+
+
+Mark Holl   1:52:18
+And yeah, so I think we probably need to when we meet next time you we need training so that we understand the right questions or the right to ask and the right information to pride you.
+In order to get the firmware usable by us a little bit.
+I think. Am I wrong? Am I right? I don't know.
+
+
+Michael Davidsaver   1:52:44
+It's clearly we need information needs to be conveyed.
+
+
+Mark Holl   1:52:50
+OK, then let's do that and let's let's just keep working as a team and we'll speak. We'll hear from you and then we'll learn and then we'll talk more next Friday for sure at the latest.
+
+
+Henrik Loos   1:53:03
+Here's one interesting analog input that could be tried with this, which is the analog output from the IC TS.
+
+
+Michael Davidsaver   1:53:04
+Hey.
+
+
+Mark Holl   1:53:17
+Well, we could, but that's in the vault right now. We're at the test bed. So we can. Yeah, but but but what we can do is we can we can put a signal generator into it and simulate the an analog input for sure.
+
+
+Henrik Loos   1:53:24
+Oh, this is far away. Never mind.
+
+
+Mark Holl   1:53:35
+Let's do that.
+OK.
+
+
+Henrik Loos   1:53:40
+What?
+
+
+Mark Holl   1:53:41
+Thanks everyone. I think this is great. This actually steps forward, no steps back and then we'll keep stepping forward. See ya. Bye.
+
+
+Michael Davidsaver   1:53:49
+Alright, bye.
+
+
+Henrik Loos   1:53:50
+Bye, bye. Thank you.
+
+
+Mark Holl   1:53:50
+But.
+
+
+Mark Holl stopped transcription

@@ -8,3 +8,10 @@ In the CS-Studio GUI, the usual workflow is:
 - Use **Acq. Recording → Control** to find the **Last Completed File**
 - Open the ATF previewer and use **File → Open**, then paste that path
 
+Notes and gotchas
+-----------------
+
+- The previewer signal drop-down is populated from per-channel metadata (channel name field in the
+  GUI). If many unnamed channels are enabled, the list is hard to use.
+- For test runs, disable all channels, then enable only the channels that are wired and in use.
+

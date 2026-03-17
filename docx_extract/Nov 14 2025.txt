@@ -1,0 +1,2583 @@
+CXFEL EVGEVR Testbed-20251114_193119UTC-Meeting Recording
+
+November 14, 2025, 6:00PM
+
+1h 30m 41s
+
+
+Mark Holl   0:22
+Is is everything working? Can people hear me?
+
+
+Michael Davidsaver   0:27
+I can hear you, Mark.
+
+
+Mark Holl   0:29
+OK, great. So we definitely want to get Henrik in here and he's not here yet. He certainly accepted it.
+And let's see should be here any moment.
+Yeah.
+Go to the chat.
+People added to the chat, let's see.
+Here so far.
+Hey, Henrik, we're here in the meeting.
+OK, very good.
+So Henrik's on his way in to the meeting right now, so be here in just a few months and then we'll be out. I guess get started.
+
+
+Michael Davidsaver   1:57
+OK.
+
+
+Mark Holl   2:06
+And Dario, you're in the lab.
+Good, good, that's great.
+
+
+Alex Gardeck   2:16
+Mark, do you want me to go down and be in the test space just in case?
+
+
+Mark Holl   2:16
+Can't hear you.
+I do, actually, yes.
+
+
+Alex Gardeck   2:21
+OK, I'll head down there.
+
+
+Michael Davidsaver   2:26
+I mean, I I should say I don't think that will be necessary. I mean, I think we can reset things remotely via the USB connection.
+
+
+Mark Holl   2:31
+Oh.
+OK, well, just in case.
+
+
+Alex Gardeck   2:37
+Yep, I'll have down there.
+
+
+Mark Holl   2:37
+See. Well, The thing is also I'd like, I'd like Alex down there at least a little bit to continue the let's call it the.
+
+
+Michael Davidsaver   2:38
+Doesn't hurt.
+
+
+Mark Holl   2:46
+Training and acclimation of Dario into the into the lab in the workspace and because we're soon enough what we're going to be wanting to do Michael, is we're going to be wanting to hook up signal generators and so forth to the A to DS and then also exercising the digital lines of putting it on scopes and things like that.
+
+
+Michael Davidsaver   2:49
+OK.
+8.
+
+
+Mark Holl   3:04
+So even after perhaps the the the work of this of this particular meeting, there might be a few follow on tutorial elements that Alex can do while he's down there.
+
+
+Michael Davidsaver   3:16
+Understood.
+
+
+Mark Holl   3:19
+Yeah. And and yeah. So here we have Henrik coming in. OK, let's make sure some people are outside your art. That's perfectly fine. Can you hear us, Henrik? And we can hear you. We can hear you.
+
+
+Henrik Loos   3:31
+Yes, I can hear you. Can you hear me? Nice. Awesome. Sorry about the delay.
+
+
+Mark Holl   3:35
+OK. OK. That's fantastic. OK. So we're going to just wait for a moment for Alex to get down into the lab and then once he gets there, we'll go ahead and get started.
+Yes, we got Alex. We're getting you back in here and see request to join.
+People added to the chat. I don't know what that means. What does people added to the chat mean?
+
+
+Michael Davidsaver   4:02
+That just means more people have joined.
+
+
+Mark Holl   4:02
+Um.
+She didn't.
+She's not in the the meeting thing. I've let everybody in that said that I could admit, so I don't know what request to join me. Does that mean that I sent her an e-mail?
+Oh.
+
+
+Michael Davidsaver   4:26
+Exceeded my Microsoft Teams knowledge.
+
+
+Mark Holl   4:27
+Enter.
+Yeah, well, OK, so here, here we go. Um.
+You're looking very West Virginia. I'm sorry. Is that bad, Dean?
+Can you hear us, Dean? Dean, Dean, can you hear us?
+Dean, can you hear us?
+And we can't hear you. So at any rate, OK, so just getting started here, of course the main purpose of this meeting here is to get things talking and also for Henrik to have time with Michael and Dario that those people together to be working together to, you know, continue Dario's training.
+
+
+Dean Smith   5:11
+You.
+
+
+Mark Holl   5:15
+Training for Henrik to be able to bring Dario up to speed with the things that he's been doing and to get past this current impasse that that Henrik has faced associated with just getting things talking and working. The rest of us are here really as observers.
+Because this is primarily a training session, but I wanted to open things up so that everybody could be a part of listening and learning while the three primary people are really having a working meeting. And so that's going to be Henrik Dario and.
+Michael, of course, if if something comes up that's really a topical question that adds to the discussion, jump right in. It's not gonna hurt anything, but the primary emphasis is for the three. Oh, here we go. We got Sabina coming in. OK, so gonna have to say that again.
+
+
+Dean Smith   5:51
+OK.
+OK, it's OK.
+
+
+Mark Holl   6:04
+OK, so great. So with Sabina here now I'm just going to give the guidelines. The purpose of this meeting primarily is for Henrik, Michael and Dario to be able to actually have a working meeting where they're really just kind of stumbling along, really trying to get things talking. We we have a lot of progress, but then.
+
+
+Dean Smith   6:12
+Yeah.
+
+
+Mark Holl   6:24
+Also, right now we have a little communications glitch and so they're gonna work on that. The rest of us are really here as observers for the most part. If something comes up that really adds to the discussion as they're working in a working meeting, great. Feel free to step right in there and ask the question or.
+
+
+Dean Smith   6:35
+Trust them.
+
+
+Mark Holl   6:41
+Make the comment, but primarily we're we're all observers here today except for really Henrik, Dario and Michael to get past this communications really some sort of snag where we just need to get past it and then we can get on to the testing of the A to DS and all the other analog and digital testing.
+
+
+Dean Smith   6:51
+Yes.
+But.
+
+
+Mark Holl   7:01
+Metrics that we want to go through on the FPGA board. So anyway, that's where we're at. So I'm gonna mute myself and Henrik, Michael and Dario jump right in.
+
+
+Michael Davidsaver   7:14
+OK. So I was hoping to start with just if Henrik, if you could kind of demonstrate where things are in terms of what you see on the FPGA console.
+
+
+Dean Smith   7:17
+OK.
+
+
+Henrik Loos   7:30
+Hear one second.
+
+
+Michael Davidsaver   7:30
+As I as I understand the situation, you're able to power on power on the chassis, either that it communicates with the IOC from the bootloader application, but the the bootloader image, but when the actual application image is loaded, things do not go correctly.
+
+
+Dean Smith   7:32
+OK.
+Yes.
+
+
+Henrik Loos   7:51
+OK, let me share the screen.
+
+
+Dean Smith   7:55
+But.
+
+
+Henrik Loos   8:19
+OK. Can you see?
+
+
+Michael Davidsaver   8:23
+Yes, I can.
+
+
+Henrik Loos   8:28
+OK.
+Alright, so.
+There is.
+The IOC is running.
+And.
+OK.
+OK, so there's a.
+It's the M dash. IOCM dash that I'm using.
+
+
+Michael Davidsaver   9:14
+Uh, OK.
+
+
+Henrik Loos   9:14
+And yeah, so that's running as a comes actually as a system service with proc serve and then the.
+
+
+Michael Davidsaver   9:28
+And which host is that running on? I want to check I am.
+
+
+Henrik Loos   9:31
+That's on the .5.59 host.
+And so this is the Phoebus interface.
+
+
+Michael Davidsaver   9:44
+Uh.
+
+
+Henrik Loos   9:45
+And so if I go to.
+ADC's. Yeah, that's.
+
+
+Michael Davidsaver   9:47
+This this is the IOC because I I say that I'm at the moment I'm logged into the what is it the?
+I am logged into. I believe it's the 459.
+OK.
+OK.
+
+
+Henrik Loos   10:09
+One. Yeah. OK, so the IOC is running and the M DAS 01 gold image says gold.
+
+
+Michael Davidsaver   10:19
+Correct. All right. And I can you go to the the boot status or the the boot control screen?
+
+
+Henrik Loos   10:20
+Yeah.
+Yeah.
+Yep, there's FPJ, I guess. Yeah, so.
+
+
+Michael Davidsaver   10:26
+Because it provides a little more information there. OK, it's done 5191.
+Goodness.
+I'm hearing a lot of noise from somebody's microphone.
+
+
+Henrik Loos   10:46
+Yeah, someone should mute their microphone.
+
+
+Michael Davidsaver   10:51
+OK, that that's better. All right. OK, so this this is the stable state when it is running the bootloader image. Just to to give a little more detail here, what you're seeing is the the, the, the vertical blue line, so there's sort of three groups of columns.
+
+
+Henrik Loos   10:59
+Yeah.
+
+
+Michael Davidsaver   11:10
+The first is the just the control for the IOC. The 2nd is status information which is shown when the the bootloader image is running and the 3rd is status information which is shown when the application image is running.
+
+
+Henrik Loos   11:18
+Mhm.
+
+
+Michael Davidsaver   11:24
+Well, the fact that you see the hash code there appearing for the bootloader image says that it it's confirmation that it is running and that actually tells you which VCS version was built.
+
+
+Henrik Loos   11:31
+Mm-hmm. Yeah.
+So so I got there relatively quickly like after I installed the IOC and compiled it and started it and put the IP address in and went to the.
+
+
+Michael Davidsaver   11:37
+OK.
+
+
+Henrik Loos   11:53
+Feebus display I got all this so that worked very quickly and then when I did boot app.
+Then all of this here, the golden bootloader image, those information, everything went away and I could not talk to the.
+Um, the chassis anymore?
+And the only way to recover this was to go use the pyserial command to get to the the serial console and do a 5 command to.
+Restart the FPGA.
+
+
+Michael Davidsaver   12:41
+Right. And that would have been through the MMC serial console because there there's four of the virtual serial consoles. The MMC console is it's is talking to others. There's a small microcontroller on the board adjacent to the FPGA.
+
+
+Henrik Loos   12:46
+Yeah, good. Yeah.
+Yeah.
+Yeah, this went through the on the USB 3, the 4th Um port.
+
+
+Michael Davidsaver   13:02
+OK. And you and so far you've seen on the the USB two, I guess that would be the the third of the four virtual serial terminals. You've just seen the well just to tell you, you actually will see something if you change the meaningful if you change the baud rate to 9600.
+But for the actual application, it uses a different baud rate. That's why I was telling you 115200 for that. But yeah, if you just run that now, you leave 9600 for the moment.
+Yeah, it's it's not very interesting, but the bootloader image will print measurements of its internal frequencies for the various oscillators on the board. It's just it's a diagnostic.
+Yeah, if you interrupt this and switch it back to 115200 and then do the the boot app.
+And we will see what there is to see.
+Just what you had there, please.
+And then now go to the to Phoebus and tell it to boot. No, no, you want the USB to baud rate 115200.
+I expected to show garbage until you actually click on boot app.
+So please go ahead.
+I click on boot app.
+I just go back to the terminal. I mean, we really should have seen something by this point. OK, so it looks like something happened and then it went back to the.
+All right, so it tried to boot and it failed and it went back to the bootloader.
+OK.
+All right, and you had said that you reloaded the application image using the the bin, the bit file off of the sports web page, which that should have been the same image that was on there before.
+So, but at the same time we should go check that because something does not appear to have gone as desired.
+And I'm a little bit confused by that because the program command for the Illuvium tool will do a read back and compare.
+We can do well just to repeat that compare.
+Let's see that's the verify sub command I think.
+Give me a minute here. I'm switching around to 'cause I I've got a a test system.
+Here and I'm going to go and restart.
+Yeah, Chelsea.
+OK, yeah, so if you instead of doing the the the in the bottom group of C I guess what 6 lines there's the the. So what I would ask you to do is repeat the clear but not the erase and then in place of program there's another sub-command called verify.
+I which accets the same 2 arguments.
+And for the room, just to say what we're doing here is using this tool to access. There's a flash chip, a flash memory chip attached to the FPGA on which the the two program files, the two bit stream files for the FPGA are stored.
+That is all as expected.
+
+
+Alex Gardeck   19:27
+Henrik, you're on mute right now, Henrik.
+
+
+Michael Davidsaver   19:33
+Oh, I'm sorry, I didn't even notice it was.
+
+
+Henrik Loos   19:37
+OK. Can you hear me again?
+
+
+Michael Davidsaver   19:39
+Yes.
+
+
+Henrik Loos   19:40
+OK.
+OK, so would I? So I did the clear. What? What now?
+
+
+Michael Davidsaver   19:49
+Uh, verify app and then the the the file, the bitstream file that uh.
+
+
+Henrik Loos   19:57
+Verify.
+
+
+Michael Davidsaver   19:57
+you had previously programmed.
+
+
+Henrik Loos   20:00
+App and then.
+
+
+Michael Davidsaver   20:02
+That it's stream files.
+
+
+Henrik Loos   20:05
+It's stream.
+
+
+Michael Davidsaver   20:06
+No, no the the the the path of the file name that you showed that you downloaded previously because this is the actual file name.
+
+
+Henrik Loos   20:14
+Oh, OK. Um, one second. I need to.
+
+
+Michael Davidsaver   20:16
+What we're we're going to do is repeat the verification step. So what's going to happen is this tool will read the the bitstream file from the flash ship and compare it against that file.
+
+
+Henrik Loos   20:20
+Oh.
+Pants.
+OK.
+Ah, match. OK.
+
+
+Michael Davidsaver   20:41
+OK, that's good and.
+
+
+Henrik Loos   20:50
+So what are these different commands? Erase?
+
+
+Michael Davidsaver   20:52
+You are loading.
+Yeah, erase what that is doing. That's actually erasing the flash chip. So what what you've what you've done there is erase the upper half of the flash chip which contains the application image and then reflash it from that file which should have restored it to the same configuration that it was in already.
+
+
+Henrik Loos   20:57
+Remove.
+OK.
+Yeah, well there was a difference after I reinstalled the application image, which is that after the boot command I could still ping.
+
+
+Michael Davidsaver   21:30
+Right. Which, which probably that that's, yeah, that's probably significant because if you're able to ping, that means it was no longer going into the application image at all, so.
+
+
+Henrik Loos   21:39
+Yeah.
+OK, So what next?
+
+
+Michael Davidsaver   21:50
+Well, I'll tell you what let's do. Let's go. I'll have you go back to the older FPGA image. There are currently 3 FPGA images published on the Osprey site. There was the August one, which you downloaded and go if you had asked you to go download the May image.
+
+
+Henrik Loos   22:00
+Yeah.
+Mhm.
+OK, um.
+
+
+Michael Davidsaver   22:09
+You know the August image has been checked, so I I I'd be well. I will be surprised if it behaves differently, but let us check that out.
+
+
+Henrik Loos   22:11
+I don't notice.
+OK, one second.
+You just.
+Application the May 25th image.
+
+
+Michael Davidsaver   22:37
+Yes.
+
+
+Henrik Loos   22:38
+OK.
+
+
+Michael Davidsaver   22:41
+Yeah, which which will have a different hash code.
+Because the the the the format of those names, it's the the it's based on the version control for the the source that the the file was built built from. So there's the the date of that of the last commit that was built and then the actual git hash of that commit. So you could actually this is the way it gets traceability to the the source archive.
+
+
+Henrik Loos   23:06
+Up.
+OK, I'm OK, I have downloaded it.
+And now.
+I should erase the present image.
+
+
+Michael Davidsaver   23:20
+In this case you could just do the program, which means that the program will erase just enough that that is needed. The the the full erase will erase the the whole upper 6 or 8 megabytes, which it's it's a paranoia tool. That's why that's in in there in the configuration in the documentation, but in this case.
+
+
+Henrik Loos   23:27
+Uh, OK.
+OK.
+
+
+Michael Davidsaver   23:40
+It's fine, just two.
+Or it'll be slightly faster.
+
+
+Henrik Loos   23:49
+Program app what's?
+May 25, OK.
+
+
+Michael Davidsaver   23:55
+Yep, that's it.
+And this will take a minute or so. Well, actually, that's quite fast. That's.
+
+
+Henrik Loos   24:06
+OK, looks like it's I see. OK, it doesn't erase and then a programming. OK.
+
+
+Michael Davidsaver   24:14
+Yeah, just erase program and verify which is when it says match that that says that it's read it back correctly.
+
+
+Henrik Loos   24:17
+Yeah.
+
+
+Michael Davidsaver   24:20
+OK, then I guess let's restart the serial terminal and try to boot into that image now.
+
+
+Henrik Loos   24:34
+One second.
+So what? What exactly does the clear command do?
+
+
+Michael Davidsaver   24:54
+Uh, the clear is that is there's a a a error to error status of the in the flash chip for its communications.
+
+
+Henrik Loos   25:01
+Ah, OK.
+
+
+Michael Davidsaver   25:03
+And for reasons I have never actually been able to establish firmly, sometimes when the FPGA resets or when the when the flash chip is reset, it will come up into an error configuration error state.
+It it's assume the bit, you know the bit stream is actually trying to toggle some lines on the flash chip and it it's it's a spy bus. There's a there's a spy bus interface between the the FPGA and the flash chip and I think some of those lines may be ill-defined on reset.
+
+
+Henrik Loos   25:26
+Uh.
+Reboot app.
+
+
+Michael Davidsaver   25:43
+You you can do that. Yeah, that's equivalent to doing through the the the Phoebus display. Did you have the serial terminal open still? Because that's necessary to see. I want to see what that has to say because you should be seeing.
+
+
+Henrik Loos   25:50
+Yeah.
+Oh, I'm sorry, I closed it.
+
+
+Michael Davidsaver   26:05
+Well, it looks like it dumped back into the the bootloader already anyway.
+
+
+Henrik Loos   26:11
+Yeah.
+
+
+Alex Gardeck   26:29
+One thing I may have missed, but how do you know when to use the USB 3 versus the USB 2 connection?
+
+
+Michael Davidsaver   26:40
+So for the the USB3 is only used for communicating with this MMC or management microcontroller, though the only instance where you would need to do that is if you want to force the FPGA to reset.
+
+
+Alex Gardeck   26:55
+And when we set the IP address initially, correct?
+
+
+Henrik Loos   27:00
+Yeah.
+
+
+Michael Davidsaver   27:01
+Yeah, you're yes, yes, correct. Yeah, 'cause I mean that that's, yeah, that's where the IP address is stored.
+
+
+Henrik Loos   27:02
+Yeah.
+Mhm.
+OK, you wanna reboot again?
+
+
+Michael Davidsaver   27:13
+Please.
+
+
+Henrik Loos   27:21
+Yeah.
+
+
+Michael Davidsaver   27:36
+Hmm.
+
+
+Henrik Loos   27:37
+Yep.
+
+
+Michael Davidsaver   27:49
+Well.
+I'm uzzled. Can we try the other chassis?
+
+
+Henrik Loos   27:56
+Um.
+I think we did with similar results.
+Um.
+
+
+Michael Davidsaver   28:05
+OK, so at this point you've tried that there's three chassis there. At this point, have you tried this procedure on all three?
+
+
+Henrik Loos   28:12
+Um, no, we we only tried it on the second one.
+I don't quite exactly remember what all we did. We can go back to the second one too.
+
+
+Michael Davidsaver   28:25
+Well, at this point I I would like to go to the third one if that's the one you haven't. I mean, I'd just be clear, not not suggesting you've done anything wrong with it. I just I'd like to try the one where it which should be in the the the factory state.
+
+
+Henrik Loos   28:30
+Yeah, the third one, we haven't done any.
+Yeah, we haven't done anything with the third one yet, OK.
+
+
+Michael Davidsaver   28:43
+OK, so I guess this this is will be something that I guess Dario down in the lab there will have to do, which is to I guess let's let's see what what's the configuration change going to be. It's going to be switching the USB cable to the third chassis.
+
+
+Henrik Loos   28:49
+Yeah.
+
+
+Michael Davidsaver   29:02
+And then we'll have to make sure that our the IP address.
+
+
+Alex Gardeck   29:08
+Yeah, and we don't need to have a jumper at this time, right? The jumper, the fiber jumper is only installed on the first chassis, the 191 currently.
+
+
+Michael Davidsaver   29:21
+No, we we we we'd be getting will that we will if if we are successful we would get that far. But we'll this first part does not require the fiber.
+
+
+Henrik Loos   29:36
+So the the application firmware will work either way if there are fibers attached or not.
+
+
+Michael Davidsaver   29:44
+Yeah, it'll it. Yeah, they'll it'll it should. It'll start up regardless. Yes. I mean, if there were faults, it will complain.
+
+
+Henrik Loos   29:47
+Yeah, that kind of makes sense, yeah.
+
+
+Alex Gardeck   29:52
+OK, the USB is now plugged into the third chassis.
+
+
+Michael Davidsaver   29:59
+OK. And what IP address does that have? I guess we could, I guess we can check now with the connect to the MMC console and check to see that it has an IP address set correctly.
+
+
+Alex Gardeck   30:04
+It I don't think it's been set, but 193 has been allocated for it.
+
+
+Henrik Loos   30:15
+Yeah, OK. So which are we going to the MMC console?
+
+
+Michael Davidsaver   30:21
+Yes.
+
+
+Henrik Loos   30:23
+OK, so let's give this be 3.
+OK.
+It usually takes a little while. OK, now it responds OK.
+All right, so we set the.
+Reset the I address.
+
+
+Michael Davidsaver   30:44
+Yes, I believe so.
+
+
+Henrik Loos   30:50
+So Alexia said 193.
+
+
+Alex Gardeck   30:54
+That's right.
+
+
+Henrik Loos   30:56
+OK, alright.
+Success.
+
+
+Michael Davidsaver   31:03
+OK. And I guess I but might hold reset the FPGA just for to make sure that that setting is taking effect.
+
+
+Henrik Loos   31:09
+OK, five. Yeah, all right.
+
+
+Michael Davidsaver   31:14
+All right, and then it gets switched to the console above and try to ping it first.
+
+
+Henrik Loos   31:18
+OK.
+Oh.
+Mm.
+Oh.
+Uh, OK.
+
+
+Michael Davidsaver   31:32
+With the Ethernet cable plugged into the third as well.
+
+
+Henrik Loos   31:36
+Well, it's pinging now.
+
+
+Michael Davidsaver   31:38
+Oh, all right. OK, this is the switch takes a little time.
+
+
+Henrik Loos   31:39
+It just took a little while to respond, yeah.
+
+
+Michael Davidsaver   31:43
+Yeah, that's probably your switch is probably set up to.
+Account for the possibility that there is another switch hooked into those ports. The there is a configuration change you could make to the switch to tell it that certain ports will only ever be connected to Leaf devices. I'm I'm blanking on the name of that at the moment.
+
+
+Henrik Loos   32:04
+Hmm.
+
+
+Michael Davidsaver   32:08
+Because it's just well, it's related to the the spanning free protocol or what, whatever the descendant of that is. But all right, so we can.
+We're good there. So could you now do? Actually, it might be simplest to change the IOC over to talk to 193 or start up a different IOC to talk to 193.
+
+
+Henrik Loos   32:29
+OK, that's uh, I can quickly do that.
+
+
+Michael Davidsaver   32:34
+Actually, you know what? Never mind. The first thing to do is just to look at the FPGA application console and tell it to boot app and see if we see anything. Because if we don't see anything, then there's no point in messing around with Bio C configuration.
+
+
+Henrik Loos   32:41
+Yeah.
+Um, so that would be alluvium or would it be the?
+
+
+Michael Davidsaver   32:51
+That would be on the lower terminal, switching the the mini term to USB three. I'm sorry, USB 2, correct? Yes, USB 2.
+
+
+Henrik Loos   32:56
+Oh, of USB tool and.
+B2 and 1152 and OK, all right.
+
+
+Michael Davidsaver   33:04
+Yes, correct.
+And now if you go in the upper terminal and yes, use Bluvium to tell it to boot app, and this would be 1193.
+
+
+Henrik Loos   33:16
+Yeah.
+93 Reboot app.
+
+
+Michael Davidsaver   33:20
+Correct.
+Uh.
+
+
+Henrik Loos   33:27
+Oh, that's new.
+
+
+Michael Davidsaver   33:29
+There we go.
+OK, and there's an NTP server configured which OK, so that that's actually an issue, but we can fix that now because this is not the one you want to use as as the event generator node.
+
+
+Henrik Loos   33:46
+Where does it say oh NTP server? Yeah, I we can set this to the I set. I've set up the the host computer for the IOC as an NTP server and checked it with another computer that could use it on.
+
+
+Michael Davidsaver   33:49
+It's.
+
+
+Henrik Loos   34:02
+That could be a client to it, so we can change this now I guess.
+
+
+Michael Davidsaver   34:08
+Correct. But we don't want, yeah, we don't want this because this particular chassis does not have, it's not intended to be, I believe not intended to be the event generator chassis. So it does not have the pulse per second cable connected to it, which is why it's complaining there saying, you know, no PPS.
+
+
+Henrik Loos   34:22
+Uh.
+So.
+
+
+Michael Davidsaver   34:25
+So if you go to that terminal and do so, the command I'm going to have you execute is going to be NTP space and then 0.0.0.0.
+Put that into the chat.
+
+
+Henrik Loos   34:40
+On the.
+So on on the uh.
+Um, Debug console.
+
+
+Michael Davidsaver   34:49
+Yes.
+
+
+Henrik Loos   34:50
+Oh, that's new. So NTP.
+
+
+Michael Davidsaver   34:55
+A lowercase.
+
+
+Henrik Loos   34:55
+And then oh.
+
+
+Michael Davidsaver   34:58
+I I I typed it into the meeting chat if you would just want to copy paste.
+
+
+Henrik Loos   35:01
+Oh, I'm sorry.
+
+
+Michael Davidsaver   35:04
+I should have just done that to begin with.
+
+
+Henrik Loos   35:04
+Oh, about help.
+If I can find the meeting chat.
+I can't find the meeting chat, sorry.
+
+
+Mark Holl   35:25
+Chat rather than me and at the bottom. It's up at the top. Um at the very top. Just to the top left hand side it says chat people, raise your hands, react view.
+
+
+Michael Davidsaver   35:25
+OK, I mean it's just lowercase NTP.
+
+
+Henrik Loos   35:26
+Save the screen.
+
+
+Mark Holl   35:38
+So meeting chat is at the very top.
+
+
+Henrik Loos   35:39
+1.
+I'm sharing the screen, so I'm not. Oh, I oh, OK, I got it. I got it. Chat.
+
+
+Mark Holl   35:45
+OK. Yeah, yeah, there you go.
+
+
+Henrik Loos   35:51
+OK, I'm seeing. Oh, just OK, yeah, that was trivial NTP.
+Oh, I don't know. I already typed something. Now it has. Let's type it again.
+
+
+Michael Davidsaver   36:04
+Yeah, you can just hit hit returns and then start typing again.
+
+
+Henrik Loos   36:05
+OK, empty keys. OK, that's what I thought we need to type in.
+
+
+Michael Davidsaver   36:13
+And then yes for Y.
+
+
+Henrik Loos   36:13
+Uh, and then yes.
+Do I have to do like this? Yeah.
+
+
+Michael Davidsaver   36:19
+I I think it only looks at the 1st letter, but yeah, so it's what why you're in.
+
+
+Henrik Loos   36:22
+OK, OK.
+
+
+Michael Davidsaver   36:29
+All right, an I see while we're here because the other thing we need to change is the netmask.
+Which is actually probably responsible for some of the communications problems you've been having, because if you can see it defaults to the the 255-2555 and what you want is two of those in a 254.
+
+
+Henrik Loos   36:41
+Yeah.
+
+
+Michael Davidsaver   36:50
+And let's see here, so.
+
+
+Henrik Loos   37:55
+OK, I just took some notes here.
+
+
+Michael Davidsaver   37:58
+That's OK. I'm trying to look something up right now as well.
+
+
+Henrik Loos   38:03
+OK.
+Oh, it's still complaining about no PPS.
+
+
+Michael Davidsaver   38:10
+Yeah, the the setting does not take effect immediately.
+
+
+Henrik Loos   38:14
+Oh.
+
+
+Michael Davidsaver   38:14
+You'd have to re reset it, which I mean you you can at this point.
+I think there's actually at the debug console, there's a command called reboot as well if you want.
+
+
+Henrik Loos   38:24
+Yeah.
+I can do reboot.
+
+
+Michael Davidsaver   38:30
+Yes.
+
+
+Henrik Loos   38:31
+Up.
+
+
+Michael Davidsaver   38:33
+In this case, you just reboot and it'll it'll always reboot to the golden image.
+
+
+Henrik Loos   38:37
+OK, reboot unknown command.
+
+
+Michael Davidsaver   38:39
+Oh, uh.
+
+
+Henrik Loos   38:47
+Uh, it has a question mark.
+
+
+Michael Davidsaver   38:56
+Oh, I'm sorry, just boot. OK, forgive me. Sometimes it's reboot, sometimes it's reset.
+
+
+Henrik Loos   38:58
+OK.
+
+
+Michael Davidsaver   39:03
+Different programs do it differently, and I don't always remember.
+
+
+Henrik Loos   39:13
+OK, boot.
+Yes. Uh.
+Is it supposed to do this now?
+Went back to the gold.
+
+
+Michael Davidsaver   39:32
+Yes, and now if you tell it to go up to the upper terminal and tell it to reboot the app again.
+
+
+Henrik Loos   39:39
+Oh, I see.
+Oh, if I do boot, it jumps back to the the boot loader.
+
+
+Michael Davidsaver   39:46
+Yes.
+
+
+Henrik Loos   39:47
+Uh.
+
+
+Michael Davidsaver   39:51
+Yeah, the the application image does not actually know that it's not the bootloader, so it does not know what address it booted from.
+
+
+Henrik Loos   39:54
+Yeah, well.
+
+
+Michael Davidsaver   39:58
+OK, and in this case you should see that this says no NTP server, so that option did take effect.
+
+
+Henrik Loos   39:59
+OK.
+
+
+Michael Davidsaver   40:09
+Right now, at this point, while I'm still trying to look something up, you actually can from the upper terminal. You can try to ping it. I'm sorry, not try to ping it. The there's a see what director you in.
+Actually, just hold on a second if I need. I need to figure out how to tell you to change the.
+Gateway net mask.
+
+
+Henrik Loos   40:30
+Is that the console Python script?
+
+
+Michael Davidsaver   40:37
+Actually, yeah, the the console Python script should do it. That is a remote access to the same debug console you're in in the lower terminal, so you should be able to run them both. And if the IP communication is working correctly, you should see you should be able to use the console script.
+
+
+Henrik Loos   41:10
+I guess that's what it was.
+
+
+Alex Gardeck   41:14
+Yes, and just a reminder that once we get to setting the gateway, the gateway is still dot 4.1.
+
+
+Henrik Loos   41:24
+Yeah.
+
+
+Alex Gardeck   41:25
+Yeah.
+
+
+Michael Davidsaver   41:43
+Oh, there we go. I I get my syntax wrong. All right, so.
+Because yeah, go ahead and run the console script and let's see.
+
+
+Henrik Loos   41:51
+Oh, it's A. It's dash A. Sorry, not dash N dash A address, right? OK.
+
+
+Michael Davidsaver   42:00
+And if you hit return a few times, you should see those returns echoed.
+
+
+Henrik Loos   42:04
+Uh, OK.
+
+
+Michael Davidsaver   42:06
+Oh, interesting. So you did ress return a couple more times.
+All right, so you can see down the lower terminal, so the packets are getting to the device or just the replies are not getting back, which is consistent with the the net mask being wrong.
+
+
+Henrik Loos   42:22
+Uh.
+
+
+Michael Davidsaver   42:23
+All right, so yeah, the command. See if I can get this to you correctly. So this is gonna be so that.
+It is.
+So that was 4.4 was the the gateway.
+It was. It was said a few minutes ago, but I was not taking notes.
+
+
+Mark Holl   42:50
+I believe it was, wasn't it 4.1 Alex?
+
+
+Henrik Loos   42:53
+It should be dot 4.1.
+
+
+Alex Gardeck   42:54
+Yes, for the gateway is dot 4.1 and then.
+
+
+Michael Davidsaver   42:56
+OK.
+All right, so I just wanted to make sure I put the correct number in the in the chat. So it should be the command you would issue in the the lower terminal is GW space the gateway IP address and then a slash 23 in your case.
+
+
+Henrik Loos   43:07
+Take me.
+OK.
+Oh, we need the gateway and next mask.
+
+
+Michael Davidsaver   43:28
+Yes, yeah. If you omit the slash 23, then the default is 24, which is not going to work because in this case the the the server is.4 and device is.5, yeah.
+
+
+Henrik Loos   43:30
+It will.
+Yeah, right. Yeah.
+I can't find. Yeah, I can't find the dot for subnet. Yeah, 1013941.
+Do I need the slash 23 there?
+
+
+Michael Davidsaver   43:49
+Yes, absolutely.
+
+
+Henrik Loos   43:50
+OK, eight way.
+
+
+Michael Davidsaver   43:54
+OK, just stop and have a look at this. Does that appear correct?
+
+
+Henrik Loos   43:54
+This.
+
+
+Michael Davidsaver   43:58
+Yeah, it looks it looks correct to me. All right. So, yes, it's at two fifty-four.
+
+
+Henrik Loos   44:03
+Yeah.
+
+
+Michael Davidsaver   44:05
+All right, and then now you'll repeat the the reboot procedure.
+
+
+Alex Gardeck   44:09
+So with that slash 23, that's how we get net mask with the gateway.
+
+
+Michael Davidsaver   44:15
+Yes.
+
+
+Alex Gardeck   44:16
+Where they're both changed simultaneously. Cool.
+
+
+Henrik Loos   44:19
+Oh, yeah, yeah, that's that makes sense, yeah.
+OK, let's reboot the app. Um.
+OK, with alluvium.
+
+
+Michael Davidsaver   45:14
+Yes.
+
+
+Henrik Loos   45:15
+Oh.
+
+
+Michael Davidsaver   45:17
+Well, you first tell the the the the application image, tell it to reboot to the lower console type in boot.
+
+
+Henrik Loos   45:24
+Oh.
+
+
+Michael Davidsaver   45:30
+And then now in the upper console again do reboot app.
+
+
+Henrik Loos   46:02
+Yeah.
+Uh.
+
+
+Michael Davidsaver   46:34
+OK, it's come back up and it has the correct net mask. So now in the upper terminal, try to repeat the the console script and see if you get an actual reply this time.
+
+
+Henrik Loos   46:38
+Mhm.
+Yeah.
+
+
+Michael Davidsaver   47:24
+There we go. All right. So yeah, if you just type in help or yeah.
+
+
+Henrik Loos   47:28
+Oh, OK. Yeah.
+
+
+Michael Davidsaver   47:30
+OK. All right. We are communicating with this one. Good.
+
+
+Henrik Loos   47:35
+Nice.
+
+
+Michael Davidsaver   47:37
+All right, now the question is why are the other two not booting correctly in that audit?
+
+
+Henrik Loos   47:51
+Didn't really do anything different on the third one.
+
+
+Michael Davidsaver   47:55
+Well, the difference is that so far you have not overwritten or may correct me if I'm wrong, but I believe that currently you have not overwritten the the bit file that's on the 3rd.
+
+
+Henrik Loos   48:05
+Well, I've we've also not overridden the bit file on the second one. I've only done this on the first one.
+
+
+Michael Davidsaver   48:10
+Uh.
+OK, then I guess let's move to the second one and.
+
+
+Henrik Loos   48:15
+Yeah.
+
+
+Michael Davidsaver   48:16
+See if we can repeat this procedure.
+
+
+Henrik Loos   48:20
+Yeah.
+
+
+Alex Gardeck   48:20
+OK, I'll move the USB connection right now.
+
+
+Henrik Loos   48:48
+But.
+
+
+Alex Gardeck   48:57
+OK, it's connected now.
+
+
+Michael Davidsaver   50:22
+Yep.
+Yep.
+Yeah, at least on on this screen. I mean if you if we do wanna do a a slight detour here, we can go back to the main screen and look at the the detailed status for that chassis.
+
+
+Henrik Loos   50:33
+Yeah, well, what does boot go to the?
+
+
+Michael Davidsaver   50:37
+That will tell it to command. That's the same as the the boot command from the debug console. It will tell it to boot back to the golden image.
+
+
+Henrik Loos   50:47
+Uh.
+Oh, OK now. OK, now the logic makes more sense. I was confused as to why the the button seemed to be reversed. OK, it makes sense now.
+
+
+Michael Davidsaver   51:00
+Yeah, it's it's my own. Yeah, it's how my own strange mind works. It's just that the the button is placed where where the command is being sent to.
+
+
+Henrik Loos   51:11
+Well, it's not. It's not strange. There's a logic and yeah, I get it now, OK.
+Alright, so.
+OK, I guess we're.
+Gonna be stopping all this. So Alex, you've connected the second chassis with USB.
+
+
+Alex Gardeck   51:34
+That's correct.
+
+
+Henrik Loos   51:35
+OK.
+OK, So what do we do now? We get back to the.
+
+
+Michael Davidsaver   51:49
+Like I guess the state of this chassis is it has been it's been configured with an IP address. I guess in this case it would be 192.
+
+
+Henrik Loos   51:55
+Yeah.
+Yeah.
+
+
+Michael Davidsaver   51:59
+All right. I guess can we just confirm that it's pingable and or or do the the alluvium reset at either one?
+
+
+Henrik Loos   52:09
+Um, it doesn't ping. Oh, it pings now, OK.
+
+
+Michael Davidsaver   52:17
+Hmm. OK, that's.
+If you if you run repeat the ping command, does it start right away?
+
+
+Henrik Loos   52:25
+Yeah.
+
+
+Michael Davidsaver   52:26
+OK, so I I I do think that is a it's a switchboard configuration that could, but you could make that go away. It's probably it's not necessary, but it might save you a couple seconds of frustration.
+
+
+Henrik Loos   52:31
+It's something very.
+Yeah.
+
+
+Mark Holl   52:40
+Are are you saying that this has something to do with spanning tree?
+
+
+Michael Davidsaver   52:44
+I think so, yes. I mean the when the in the in the spanning tree arrangement the when you first connect a new device to the switch port and then the link goes up, there's a period of time it's configurable where the the switch waits to see if another switch using spanning tree protocol announces itself on that new link.
+
+
+Mark Holl   53:04
+Oh.
+Yeah, we disabled spanning tree on a number of of devices, but we'll come back and take a look at that for sure.
+
+
+Michael Davidsaver   53:06
+And it.
+Yeah, I mean, I I understand in the lab why why you wouldn't bother. I mean it is that you've used the default configuration and all and it like I say, it just means you have to wait a couple seconds.
+
+
+Mark Holl   53:22
+And then after that it should remember, right?
+
+
+Michael Davidsaver   53:25
+Well, until the link goes down and comes back up again, which in in this case when you reset the FPGA, it causes the Ethernet link to go down and back up.
+
+
+Mark Holl   53:34
+Oh, OK. But then after that, after the initialization, it'll have east West traffic as opposed to going north-south.
+
+
+Henrik Loos   53:34
+Uh.
+
+
+Michael Davidsaver   53:39
+Yeah.
+Yeah, I mean, after it's been up for a couple seconds and then the switch is decided, there's no other switch there, it will go over to the regular regular mode from there on until it resets again.
+OK, so let us go on the lower console to the terminal. Yeah, I guess it probably well, USB 2.
+
+
+Henrik Loos   54:07
+Yep.
+OK.
+
+
+Michael Davidsaver   54:10
+And then go up and tell 192 to boot app.
+
+
+Henrik Loos   54:21
+It would up.
+Now we're getting the question mark here. Oh, now it works too.
+
+
+Michael Davidsaver   54:29
+Oh, here we go.
+All right. Uh.
+Actually, while you're looking at this, can I ask you to copy paste the the firmware build date and software build dates that were printed?
+
+
+Henrik Loos   54:51
+Is it the?
+
+
+Michael Davidsaver   54:51
+Yes, yes, the the one scrolled off the top of the screen at the moment, but the.
+
+
+Henrik Loos   54:56
+Oh, OK oh, software build date.
+When we build software build date.
+
+
+Michael Davidsaver   55:06
+Yeah, if you just copy those two lines and paste them into the meeting chat, please.
+I mean, just for for reference, those numbers are just Posic's time.
+
+
+Henrik Loos   55:17
+Yeah.
+
+
+Michael Davidsaver   55:20
+I'd like to confirm what version of the firmware is on here.
+
+
+Henrik Loos   55:48
+Yeah, um.
+My top bar was a.
+Chat option has disappeared.
+
+
+Mark Holl   56:04
+Huh.
+Weird.
+It's not at the top anymore.
+There's like an up down arrow on the very. Oh, wait a minute. No, maybe not.
+
+
+Michael Davidsaver   56:19
+But it's OK I I transcribe the first date.
+
+
+Henrik Loos   56:19
+Oh, I got it. I got it back. I I got it back.
+
+
+Michael Davidsaver   56:28
+And yet it looks like it is the May 25th, 2025.
+
+
+Henrik Loos   56:33
+OK, it's in the chat.
+
+
+Michael Davidsaver   56:36
+Alright.
+OK, I've got that as well.
+OK. Yeah, I mean that that should be the that's, I mean those are the dates for the.
+One T25 uh May image.
+
+
+Henrik Loos   57:07
+OK.
+
+
+Michael Davidsaver   57:13
+Well, I believe we still need to change the gateway and net mask.
+
+
+Alex Gardeck   57:19
+Yes.
+
+
+Henrik Loos   57:20
+Yes.
+Oh, because I just linked the Uh IOC to the second chassis and it's showing me a bad state.
+
+
+Michael Davidsaver   57:31
+Yes, because we haven't set the gateway and net mask.
+
+
+Henrik Loos   57:32
+Because, yeah, OK, so and we need NTP.
+
+
+Michael Davidsaver   57:40
+Uh yeah, NTP 0 or we did 000.
+
+
+Henrik Loos   57:50
+And good.
+
+
+Michael Davidsaver   57:50
+And you can you can enter both commands before you reboot.
+
+
+Henrik Loos   57:52
+Yeah, gateway.
+We.
+
+
+Michael Davidsaver   58:03
+Hey, that looks correct to me.
+
+
+Henrik Loos   58:06
+OK.
+Yes.
+And.
+Uh.
+
+
+Michael Davidsaver   58:30
+You know NTP server.
+All right, now there we go. And in the upper right-hand side, I see see from the IOC console that it looks like it has connected. If you bring the Phoebus to the foreground, you should see. There we go. All right.
+
+
+Henrik Loos   58:44
+Application OK oh so the so depending on which image running I see either the the hash of the application image or the hash of the bootloader image.
+
+
+Michael Davidsaver   58:46
+Two down, one to go.
+Correct.
+And there it it shows the decoded build dates as well. So we can see this. This is the May 2025.
+
+
+Henrik Loos   58:59
+OK.
+Yeah.
+Yeah.
+OK.
+
+
+Michael Davidsaver   59:11
+All right, which just brings us to the first back to the first chassis and why it is not booting correctly.
+
+
+Henrik Loos   59:11
+So.
+Yeah, well, let's do what we just did with the first chassis, and maybe it'll magically work now.
+
+
+Alex Gardeck   59:24
+OK, I'll go ahead and unplug and plug into the first chassis right now.
+
+
+Michael Davidsaver   59:30
+All right. Thank you.
+
+
+Alex Gardeck   59:54
+OK, now the first chassis is plugged back in.
+
+
+Henrik Loos   1:00:15
+Yeah, turn the IOC off now.
+On the bootloader image.
+So while the bootloader image is running.
+There you cannot type any commands in on the debug console.
+
+
+Michael Davidsaver   1:00:44
+No.
+
+
+Henrik Loos   1:00:44
+Oh, OK.
+
+
+Michael Davidsaver   1:00:45
+Yeah, they they they are. Those characters do get to the FPGA. It's just the bootloader image doesn't do anything with those characters.
+
+
+Henrik Loos   1:00:52
+Yeah.
+
+
+Michael Davidsaver   1:01:06
+That's the puzzling part. Why did it just?
+
+
+Henrik Loos   1:01:08
+Yeah.
+Maybe if we disconnect the fiber 'cause that's the only difference right now with the physical setup.
+
+
+Michael Davidsaver   1:01:15
+Well.
+
+
+Alex Gardeck   1:01:23
+I can go ahead and do that.
+
+
+Michael Davidsaver   1:01:25
+No.
+I mean, I I guess it it doesn't hurt and I mean maybe while we're at it to do a full power cycle.
+
+
+Henrik Loos   1:01:32
+Yeah.
+
+
+Alex Gardeck   1:01:33
+OK.
+
+
+Michael Davidsaver   1:01:33
+And also it is is the pulse per second cable connected to the front?
+
+
+Alex Gardeck   1:01:37
+No, it's not.
+
+
+Michael Davidsaver   1:01:39
+No, it's not. OK, alright, yeah, that's.
+Go ahead and disconnect the fiber and do a power cycle.
+
+
+Alex Gardeck   1:02:29
+OK, the fiber has been disconnected. I'm gonna power cycle it right now.
+Yeah.
+
+
+Henrik Loos   1:02:52
+Yeah, I leave the debug console running.
+
+
+Michael Davidsaver   1:02:56
+Yes, that that's OK. Because I mean the reason it's actually going to stay connected because the the the serial to USB chip is powered from the the USB side.
+
+
+Henrik Loos   1:03:10
+Yeah, we got our question mark again.
+
+
+Alex Gardeck   1:03:12
+Yep, we're powered back on now.
+
+
+Michael Davidsaver   1:03:16
+All right.
+
+
+Alex Gardeck   1:03:17
+What?
+
+
+Michael Davidsaver   1:03:22
+So Henrik, go ahead and tell it to reboot to app again. I don't totally expect it to be any different, but we should do the test.
+
+
+Henrik Loos   1:03:42
+Oh, we got two question marks. That's new.
+
+
+Michael Davidsaver   1:03:44
+Well, it's it's it's.
+Probably nothing of any significance there, it's just the the the US, the serial lines changed data a couple times during the reset.
+
+
+Henrik Loos   1:03:56
+Yeah.
+
+
+Alex Gardeck   1:04:07
+Are you still able to paying it? I'm assuming.
+
+
+Michael Davidsaver   1:04:12
+You should be able to, yes, 'cause the bootloader image does respond to ping.
+
+
+Henrik Loos   1:04:16
+Yep, it's pinging.
+So clear changes some statuses here, but every time I do clear I don't see any status change, so it didn't really do anything.
+
+
+Michael Davidsaver   1:04:51
+Yeah, well, in point of fact, the that what it's doing here is it's not actually changing the state, it's just for reasons I don't understand. There's actually the the first request you send after the FPG is reset, the status comes back wrong.
+
+
+Henrik Loos   1:05:05
+Oh.
+
+
+Michael Davidsaver   1:05:05
+So it's it's so that the reason for the instructions there is that just doing one communication cycle so that it gets the correct status so that then clear will actually not clear anything.
+
+
+Henrik Loos   1:05:15
+Uh.
+
+
+Michael Davidsaver   1:05:19
+Because yeah, the first time you did status they the it shows Pierre in the first line. That's a that that would be the case if the press program error. So if the an attempt to write to the flash chip fails that that would be set.
+
+
+Henrik Loos   1:05:24
+Mhm.
+
+
+Mark Holl   1:05:32
+You've got really just this initiation race condition error of some kind.
+
+
+Michael Davidsaver   1:05:39
+I yeah, I I it's it's one of the small gremlins. It's it's never been annoying enough to spend the time to figure out what's going on. I I suspect it's like a but some gate in the the bit file is is not initializing the way it needs to.
+
+
+Henrik Loos   1:05:47
+Mhm.
+
+
+Mark Holl   1:05:47
+Mhm.
+Alright.
+
+
+Michael Davidsaver   1:05:55
+Or perhaps it's being left in a bad state after the FPGA itself reads from the flash chip.
+
+
+Mark Holl   1:06:01
+Until power gets to it, yeah.
+Something like that.
+
+
+Michael Davidsaver   1:06:09
+Yeah, I mean we we can do reverify the.
+Good file again, but I mean we it's it's that's that's a waste of time. I mean we know it's it's the May 2025.
+
+
+Henrik Loos   1:06:21
+Yeah.
+
+
+Michael Davidsaver   1:06:24
+And it's just not booting correctly. That's.
+That is quite uzzling.
+All right.
+
+
+Henrik Loos   1:06:39
+Oh, failed.
+
+
+Michael Davidsaver   1:06:43
+Oh.
+
+
+Henrik Loos   1:06:47
+I verified it against the 525 image.
+And there's a problem. OK, I'm glad I did that.
+
+
+Michael Davidsaver   1:06:54
+Oh.
+Well, just repeat that to actually do the do the reset and then repeat that.
+
+
+Henrik Loos   1:07:05
+The the clear.
+
+
+Michael Davidsaver   1:07:08
+I'm sorry. Yeah, clear. We forget what I call the command sometimes. All right, it didn't actually clear anything. OK, fine. So just repeat the verify. Let's just see that it fails in the same way.
+
+
+Henrik Loos   1:07:08
+Yeah.
+Now it's a match.
+
+
+Michael Davidsaver   1:07:20
+Yes. All right. So that was a some.
+
+
+Henrik Loos   1:07:24
+Be at Litch.
+
+
+Michael Davidsaver   1:07:27
+Weird glitch, yes. If you could copy that the the error message out and just send it to me separately in an e-mail. I I would like to I I have very occasionally seen false failures and it it's just it's hard to triage when I have such a small data set. So having another example may help.
+
+
+Henrik Loos   1:07:46
+Yeah, I'm gonna.
+Send you all of this.
+That.
+
+
+Michael Davidsaver   1:07:57
+I'm also a little bit actually concerned about how quickly this is running for you, because the execution time for the program command really ought to be bounded by the the slow, fairly slow write speed for the flash chip.
+
+
+Henrik Loos   1:08:12
+Yeah.
+
+
+Michael Davidsaver   1:08:12
+I'm actually starting to wonder if the Alluvium tool has a bug that in some situations it can run too fast.
+Because I mean I if I as I understand the situation now, the only difference between the 1st and the 2nd 2 is that you have.
+On your end, use the Illuvium tool to write to the flash chip for the first one, but not the second two.
+
+
+Henrik Loos   1:08:41
+But.
+Oh, I got the whole thing.
+OK, I'll send it to you.
+
+
+Michael Davidsaver   1:09:01
+Yes, thank you.
+OK, I've actually so in the upper left terminal I'd like to verify that you have the the version of the Illuvium tool that I think you have. So if you could just at the console type in get space log space and then the dash lower case in.
+And then the number one.
+That's a dash.
+
+
+Henrik Loos   1:09:34
+Oh.
+What?
+
+
+Michael Davidsaver   1:09:39
+Oh, is that GG? You know what? Let me just put it in the chat. It's easier.
+
+
+Henrik Loos   1:09:45
+You want the git log? Oh, git log. Sorry, yeah.
+
+
+Michael Davidsaver   1:09:47
+Yes, just.
+It is that OK, there we go. Then it is. Oh goodness, the font. Does that in the yellow? Does that say tag V 1.0?
+
+
+Henrik Loos   1:09:58
+Yes.
+
+
+Michael Davidsaver   1:10:00
+OK.
+Mark, then you have the same version that I do.
+
+
+Henrik Loos   1:10:01
+So yeah, I I like the white background, but some of the yellow yellow color in the terminal doesn't really show up well.
+
+
+Michael Davidsaver   1:10:12
+Indeed.
+
+
+Henrik Loos   1:10:15
+Yeah.
+
+
+Michael Davidsaver   1:10:20
+Let's see.
+
+
+Henrik Loos   1:10:20
+Yeah, it was the latest version.
+
+
+Michael Davidsaver   1:10:24
+Yep, it hasn't changed in a while. I just didn't seriously expect to see any difference, but I'm just checking anyway.
+
+
+Henrik Loos   1:10:26
+Yeah.
+So there might be a hardware problem in the.
+On the marble board.
+
+
+Michael Davidsaver   1:10:43
+Don't think there's a hardware problem. I think this is.
+
+
+Henrik Loos   1:10:46
+OK.
+
+
+Michael Davidsaver   1:10:50
+I yeah, I think this is just a that's a firmware because I have a suspicion that if you had not written to the use Illuvium to overwrite the the flash image that it would probably work just fine. I think that's what we're seeing here is a situation that didn't write the did not write the flash chip correctly.
+
+
+Henrik Loos   1:10:59
+Mhm.
+
+
+Michael Davidsaver   1:11:08
+Because the only reason I for the behaviour you're seeing that I know about is that if you tell it to boot from the application image and there's not a valid bit file there, then the FPGA when it attempts to read that bit file will hit a checksum error and reset itself.
+
+
+Henrik Loos   1:11:11
+Mhm.
+
+
+Michael Davidsaver   1:11:24
+Which will appear that it goes back to the bootloader image.
+
+
+Henrik Loos   1:11:29
+So the reason I wasn't oh.
+
+
+Michael Davidsaver   1:11:32
+And the reason you weren't able to communicate otherwise was because of the the net mask issue.
+
+
+Henrik Loos   1:11:38
+The netmask issue. So I yeah, and I try to yeah, I was looking at the documentation and so I thought I need to get the.
+The application console.
+And I went to the application console.
+But I expected to get some kind of reply.
+But I didn't it. I never I got didn't get any replies and nothing showed up on the IOC either. So I thought the application image hadn't booted, but it had actually booted. It just couldn't.
+Communicate properly because I wasn't using the debug console and didn't set the netmask.
+OK.
+
+
+Michael Davidsaver   1:12:24
+Yes, I believe that is the situation.
+
+
+Henrik Loos   1:12:25
+I think that all makes sense now.
+So how do we get a proper application image?
+Onto it.
+OK.
+3.
+
+
+Michael Davidsaver   1:12:56
+See how I'm going to yes there are if you do in the so that it where I had you run the the git before if you type in rep leap.
+
+
+Henrik Loos   1:12:56
+Then alluvium.
+Mhm.
+
+
+Michael Davidsaver   1:13:13
+You know, if you actually, if you look in the the chat, it will be easier.
+There are four places in this code where there is needs to be a hard coded sleep because the protocol used does not have a good handshake.
+
+
+Henrik Loos   1:13:24
+Uh.
+
+
+Michael Davidsaver   1:13:34
+And what I'm going to ask you to do is to change each of these to just be 0.1, which will slow it down dramatically. But if this is a speed problem, this will avoid it.
+
+
+Henrik Loos   1:13:57
+It's on.
+Yes.
+Yeah, just uh like .01.
+
+
+Michael Davidsaver   1:14:15
+Is .1. Let's slow it all the way down.
+
+
+Henrik Loos   1:14:19
+.1 OK.
+
+
+Michael Davidsaver   1:14:33
+Yeah, there's three in this file and one in another file.
+
+
+Henrik Loos   1:14:49
+OK.
+
+
+Michael Davidsaver   1:14:50
+This is the the wonders of open source software. You get to see my comments.
+
+
+Henrik Loos   1:14:55
+So, so what? What was that?
+
+
+Michael Davidsaver   1:14:56
+The wonders of open source software means you get to see my comments.
+
+
+Henrik Loos   1:14:58
+Yeah.
+OK.
+Oh, that's a nice command. Git grep. I didn't know about that. OK, so now let's try the.
+
+
+Michael Davidsaver   1:15:19
+But if you go back down in there, it robably have to do CD dot dot and then repeat the verify command.
+
+
+Henrik Loos   1:15:27
+Um, no, I'm still. I'm still in the same.
+
+
+Michael Davidsaver   1:15:32
+OK, then I guess I just lost track.
+
+
+Henrik Loos   1:15:34
+Yeah.
+
+
+Michael Davidsaver   1:15:39
+All right, this will take much longer.
+
+
+Henrik Loos   1:15:41
+Yeah.
+
+
+Michael Davidsaver   1:15:43
+All right, well, the fact that it's succeeding so far.
+
+
+Henrik Loos   1:15:54
+Oh, so it was. It was pushing the bit files too fast to the FPGA.
+
+
+Michael Davidsaver   1:16:01
+I don't. That was my theory, but I this is succeeding.
+Which does not fit with that theory.
+
+
+Henrik Loos   1:16:13
+Hmm.
+So they're gonna take 100 times longer now.
+
+
+Michael Davidsaver   1:16:27
+It's about halfway done.
+
+
+Henrik Loos   1:16:29
+Oh, OK.
+
+
+Michael Davidsaver   1:16:49
+OK, so much for that theory.
+Well, I'll tell you what, for the for the purposes of today, I would like to switch to or well, if if we have time to continue, I would like to switch back to the second chassis and configure and see if we can configure it as an event generator because that would allow you to actually have a working system of two chassis.
+
+
+Mark Holl   1:17:13
+Yes, let's do that.
+
+
+Henrik Loos   1:17:15
+OK. Yeah. Yeah.
+
+
+Michael Davidsaver   1:17:18
+So to do that we will need the the fiber jumper and also the pulse per second.
+
+
+Henrik Loos   1:17:24
+OK.
+
+
+Mark Holl   1:17:27
+You're there, Alex, right?
+
+
+Alex Gardeck   1:17:33
+Yes, I'm here, uh, getting the pulse per second. I'm not sure what I'm gonna have to do to the FS740 to get that fully hooked up.
+
+
+Michael Davidsaver   1:17:45
+Oh, oh, that's a good point. If you haven't verified that, yes, I would recommend putting it into an oscilloscope the first time just to to convince yourself that it's actually pulsing.
+And it should be a TTL level, so zero to 5 volts.
+
+
+Mark Holl   1:18:01
+OK, so it's TTL as falls per second. Is this just a square wave or is it a rising edge trigger rising?
+
+
+Michael Davidsaver   1:18:07
+I'm having a hard time hearing you, Mark.
+
+
+Mark Holl   1:18:10
+Yeah, I know we can't hear over Alex. Alex, for whatever reason, you're super loud. Is this a? Is it a rising edge with just a, you know, or is it a?
+
+
+Michael Davidsaver   1:18:21
+Yeah, the the way that the logic is that the pulse per second should be a rising edge zero to 5 volts at the start of the GPS second.
+
+
+Mark Holl   1:18:31
+OK, so even A1 Hertz rising edge from a signal generator would do the job. All right, one kHz, right? Or what do we do?
+
+
+Michael Davidsaver   1:18:39
+No, well, one Hertz. I mean this is like it pulse pulse per second means we know what it really does mean what it says one pulse per second and the duty cycle as long as the pulse width is more than like 20 or so nanoseconds and less than 50%, so less than 500 milliseconds, it's fine.
+
+
+Mark Holl   1:18:47
+Right.
+OK. Yeah, yeah. That's the other part I was looking for. Yeah, duty cycle and then also, yeah, it hurts.
+
+
+Michael Davidsaver   1:18:58
+It.
+Yeah, it's looking for the edge, so as long as it stays up long enough to detect the edge, that that's all that matters.
+I think our our officially our spec is like 10 at least 10 nanoseconds with.
+
+
+Mark Holl   1:19:10
+Yes.
+Yes, well, I mean if we use the DG645 or if we use the Um.
+Well, scanning the FS740 might actually be something that requires manual butts on the route.
+Alex will have to tell us whether or not this is um.
+
+
+Alex Gardeck   1:19:39
+Yeah, I'm not positive that we're gonna be able to get the whole thing set up in 10 minutes.
+
+
+Mark Holl   1:19:40
+Something.
+Yeah. So that's so for us right now we've gotten this far. And so if we've got to get the EPS, you know, at 1 Hertz into the front end of this thing, is there anything else we can do, you know, in lieu of that and then reconvene?
+
+
+Michael Davidsaver   1:20:04
+See, what could we do? OK, well, we can do the if we can switch back to the second chassis, connect the IOC to it and I can show you some of the status that you are seeing and you can understand.
+
+
+Henrik Loos   1:20:16
+Yeah, the IOC is connected.
+
+
+Michael Davidsaver   1:20:19
+OK, so if you go back to main and then do ADC status screen.
+So what you're seeing here, those the all those red LEDs are a good indication that you know things are not happy, but on the left hand side there's the button that says 01.
+
+
+Henrik Loos   1:20:31
+Oh, temperature, you know.
+Yeah.
+
+
+Michael Davidsaver   1:20:41
+Click on that and do sysmon.
+
+
+Henrik Loos   1:20:44
+Uh.
+
+
+Michael Davidsaver   1:20:45
+This is showing you some internal status information, so you're going to see the repeats. I guess starting from the top center, there is repeats. It's showing you. Well, in this case it's zero because it's it's not streaming samples, but if it was streaming samples, those would be non-zero numbers. There's firmware, there's the device serial number of time.
+And a set of status registers which I won't go too far into now, although if you notice that line that says MGT status.
+If you go over from that to the right, you'll see the the set of LEDs numbered 8 down to 1.
+
+
+Mark Holl   1:21:22
+Hmm.
+One and three are lit up.
+
+
+Michael Davidsaver   1:21:26
+One and three are lit up, which is showing you that it has successfully locked on one and three in this case because the jumper is there, so it's talking to itself.
+
+
+Alex Gardeck   1:21:31
+Yes, the jumper is connected.
+
+
+Mark Holl   1:21:33
+Yep, alright.
+
+
+Michael Davidsaver   1:21:38
+And if you also Scroll down to the bottom.
+
+
+Henrik Loos   1:21:42
+Oh, there's more.
+
+
+Michael Davidsaver   1:21:44
+Yeah, in the lower left-hand corner you will see the showing received optical power on QSFP one ports one and three.
+
+
+Henrik Loos   1:21:51
+Uh.
+
+
+Michael Davidsaver   1:21:58
+And yeah, because it's a very short cable, you're seeing quite high power. If it was longer cable, it would be probably something more in the lines of seven or 600 microwatts.
+
+
+Mark Holl   1:22:11
+Where is that?
+
+
+Michael Davidsaver   1:22:13
+By the the lower left-hand corner, there's two columns headed by the the USFP one and two. So there's the temperature, which is it should just be it. It's there's a couple temperature statuses here. They should all be somewhere between 40 and 60.
+
+
+Mark Holl   1:22:17
+Yep. All right, right, right. Yep, Yep, Yep.
+Mhm, mhm.
+
+
+Michael Davidsaver   1:22:30
+And then the optical power is the one I was pointing out because that'll tell you whether they're that that's received optical power. So because all the fibers are duplex, even if we're only using One Direction, you will see that they will that something's connected.
+
+
+Mark Holl   1:22:43
+Mhm.
+
+
+Alex Gardeck   1:22:44
+Yeah, this is only a 20 centimeter cable.
+
+
+Michael Davidsaver   1:22:48
+Yeah.
+Yeah, and most of the rest of the the temperatures and voltages on that screen. I mean the the the point thing to point out is they they have alarm Epic's alarm limit set. So if they do go out of spec they should light up with the red border like some of the other statuses which are not happy.
+So the idea being that when this is functional, you should look there and you should not see any red.
+
+
+Henrik Loos   1:23:22
+OK, should I set the NTP on that second chassis, the NTP server?
+
+
+Michael Davidsaver   1:23:27
+You should not now because it needs both the NTP and the pulse per second to function correctly.
+
+
+Henrik Loos   1:23:33
+Oh, OK.
+
+
+Mark Holl   1:23:37
+And.
+Alright.
+
+
+Michael Davidsaver   1:23:40
+But yeah, I mean that would be the that would be the process when you do have a. I mean we we can use the just a function generator that produces a stable enough one Hertz as a test.
+
+
+Henrik Loos   1:23:45
+Yeah.
+
+
+Mark Holl   1:23:50
+Yeah, well, I think what we'll do.
+So what I'd like to do at this point is not fumble and futz about too much here with everybody tied in, but what what are people's schedules look like for next week?
+Getting back together after we have the pulse generator, we've checked it on the scope, we have better than 50, you know, lower than 50%, et cetera, et cetera, duty cycle, one Hertz, et cetera. So we can go ahead and get that plugged in and we'll let Henrik know about it. But then when can we get back together as a?
+Group again to take next steps because you know, right now we're, you know, as as it were, we're really at the end of this meeting block of time anyway. And so let's let's plan for next week. When can we do this?
+
+
+Michael Davidsaver   1:24:38
+Mhm.
+
+
+Henrik Loos   1:24:42
+Um, next week is bad for me.
+
+
+Mark Holl   1:24:43
+Next week.
+All week.
+
+
+Henrik Loos   1:24:47
+Um, more or less, yeah.
+
+
+Mark Holl   1:24:50
+Well, I guess then that means more I guess.
+
+
+Henrik Loos   1:24:56
+Yeah, um, I could.
+
+
+Mark Holl   1:24:56
+Um, yeah. So I'm not. I'm not opposed to putting this on the slow train. We have a lot of things.
+
+
+Henrik Loos   1:25:00
+Yeah, I mean, I may, may, yeah, it could be a, it could be a board meeting maybe on.
+
+
+Mark Holl   1:25:03
+But.
+
+
+Henrik Loos   1:25:12
+Tuesday afternoon, maybe?
+
+
+Mark Holl   1:25:16
+Well, I mean, next week's a bad week for a lot of people, a lot of students. I don't know. Dario, do you a lot of people are having midterm crunch next week? Is that true for you as well?
+
+
+Dario DAddamio   1:25:28
+No, not next, not next week.
+
+
+Mark Holl   1:25:30
+OK. So you mean no, not midterms next week?
+
+
+Dario DAddamio   1:25:34
+Yeah, I should not have any exams next week. What?
+
+
+Mark Holl   1:25:38
+OK, what about? So, OK, I mean, I'm, I'm not, there is no crisis here. So what Thanksgiving is Thursday and Friday the following week? What is there anything like on Tuesday the 25th that we could?
+
+
+Henrik Loos   1:25:48
+Yep.
+
+
+Mark Holl   1:25:53
+If if we if next week's horrible for you, Henrik, you are the bottleneck here.
+
+
+Henrik Loos   1:25:57
+Um.
+
+
+Mark Holl   1:25:57
+That's not a bad thing. Not a bad thing, but just a thing.
+
+
+Henrik Loos   1:25:59
+Well, well, well, Tuesday next week would.
+What would work?
+
+
+Mark Holl   1:26:06
+Tuesday next week.
+
+
+Henrik Loos   1:26:07
+Yeah, in the afternoon.
+
+
+Mark Holl   1:26:08
+OK. What about you, Michael and Dario? What about Tuesday next week?
+
+
+Michael Davidsaver   1:26:13
+I will have. I mean I do have other meetings depending the exact time. Let's see so.
+
+
+Mark Holl   1:26:20
+I'm looking at 11:00 AM on Arizona time, 10:00 AM Pacific, 2:00 PM.
+Uh, Atlantic or whatever.
+
+
+Michael Davidsaver   1:26:32
+Thanks.
+I do have something at 11, so that was the 10:50 Pacific is open.
+
+
+Mark Holl   1:26:42
+What about 11? I mean, we have.
+
+
+Michael Davidsaver   1:26:46
+I've got something at 11 to 12 my time.
+
+
+Mark Holl   1:26:49
+What about? What about 12 then?
+
+
+Michael Davidsaver   1:26:51
+Uh, well, that but.
+I'd like to have lunch, but uh.
+
+
+Mark Holl   1:26:56
+Oh, OK. Well, OK. What about what? What? What? What about 1:00? Yeah.
+
+
+Michael Davidsaver   1:26:58
+We could do one at one o'clock.
+Yeah, I think 1:00 is currently open.
+
+
+Mark Holl   1:27:03
+OK, what about Dario and Henrik?
+
+
+Henrik Loos   1:27:07
+That would be 4:00 PM here. That would work.
+
+
+Mark Holl   1:27:10
+OK. What about you, Dario, 1:00 PM?
+
+
+Dario DAddamio   1:27:12
+It's 1:00 PM Arizona time would work, yes.
+
+
+Mark Holl   1:27:15
+OK, so we're gonna do it on Tuesday the 18th, Tuesday.
+
+
+Michael Davidsaver   1:27:19
+Well, hang on that would that be one that would be 11 Pacific and I I said that's you guys Roger, you guys are in mountain time this time of year. So that'd be 2:00 Pacific or 2:00 mountain.
+
+
+Henrik Loos   1:27:24
+Yeah.
+Yep, Yep.
+
+
+Mark Holl   1:27:29
+We no, it's gonna be 1:00 PM Mountain, noon Pacific.
+
+
+Henrik Loos   1:27:29
+And for me at.
+
+
+Michael Davidsaver   1:27:35
+Right. I was asking if you could do 11 Pacific, because I'd like to eat lunch.
+
+
+Mark Holl   1:27:40
+One Pacific, which would be I can't do 2. I've got a meeting with Steve Ellis. I mean, it doesn't mean you guys can't meet, but I'd like to be here. What about Monday? Is Monday out?
+
+
+Michael Davidsaver   1:27:54
+Monday afternoon can work for me.
+
+
+Mark Holl   1:27:58
+What about you, Henrik?
+
+
+Henrik Loos   1:28:00
+Um, I could put in an. I could be available there for an hour.
+
+
+Mark Holl   1:28:06
+How about 2:00 PM Pacific one? No, 2:00 PM Arizona, 1:00 PM Pacific on Monday.
+
+
+Henrik Loos   1:28:15
+And 4:00 PM Eastern.
+
+
+Mark Holl   1:28:17
+That's correct.
+
+
+Henrik Loos   1:28:19
+Yeah, I could have a board meeting there. Yeah, just to.
+Yeah.
+
+
+Mark Holl   1:28:26
+OK, so I'll schedule it for an hour. What about the Dario on 2:00 PM next Monday?
+
+
+Dario DAddamio   1:28:28
+Yeah.
+Oh yeah, that would be fine.
+
+
+Mark Holl   1:28:37
+All right. So then we're we're on for Monday. It's going to be two PM, 2:00 PM. It's going to be AZ 1:00 PM Pacific, 4:00 PM Atlantic.
+And um, one hour length. Um.
+
+
+Dean Smith   1:28:55
+We had a time change. It's 3:00 PM. It's only a two hour difference now.
+
+
+Mark Holl   1:29:01
+I know that's why 2:00 PM Arizona is 4:00 PM. That's what I said. So OK, so we're good for next Monday. I will create the the maximum one hour meeting. It'll be 2:00 PM next Monday. This is quite exciting, guys.
+
+
+Dean Smith   1:29:04
+OK, OK.
+
+
+Henrik Loos   1:29:05
+Yeah.
+
+
+Mark Holl   1:29:16
+This is the end of our meeting today, but I think we've made some great progress. Between now and then, I'll work with Alex and we will get the pulse per second generator in place. Thanks so much. Let's let's.
+
+
+Alex Gardeck   1:29:23
+OK.
+Mark, was that the 17th or the 24th for this?
+
+
+Michael Davidsaver   1:29:32
+OK, I.
+
+
+Mark Holl   1:29:34
+No, it's it's gonna be the 17th, actually. It's it's next Monday, right? Next Monday. Yeah, the 17th next.
+
+
+Alex Gardeck   1:29:38
+OK.
+
+
+Michael Davidsaver   1:29:44
+Was that clear to everyone? I I had actually been thinking, I mean, I'm OK with the 17th. Henrik, are you OK with the 17th?
+
+
+Henrik Loos   1:29:50
+Yeah, on Monday, yeah.
+
+
+Mark Holl   1:29:52
+Yeah, this coming Monday. Yeah, we we don't want to let too much dead air. You know, I I I like this much better. I'd rather we don't not lose momentum. So yeah, Monday the 17th, it's 17th. Everybody clear on that?
+
+
+Michael Davidsaver   1:30:00
+OK.
+
+
+Henrik Loos   1:30:04
+Yep.
+
+
+Mark Holl   1:30:05
+You'll see the meeting. OK. Thanks so much, everyone. Good meeting. See you guys later. Let's bye. Bye.
+
+
+Henrik Loos   1:30:09
+Alright.
+
+
+Michael Davidsaver   1:30:10
+Hi.
+
+
+Henrik Loos   1:30:11
+OK, see you. Bye.
+
+
+Mark Holl stopped transcription

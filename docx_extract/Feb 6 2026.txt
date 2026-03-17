@@ -1,0 +1,1497 @@
+CXFEL EVGEVR System Integration and Deployment-20260206_190020UTC-Meeting Recording
+
+February 6, 2026, 7:00PM
+
+1h 4m 14s
+
+
+Alex Gardeck   0:20
+Dario, can you hear me?
+
+
+Dario   0:24
+Yes.
+
+
+Alex Gardeck   0:25
+I can hear you.
+Let's see if Henrik is able to join.
+
+
+Dario   0:47
+What was the password for the CSO dev again? I accidentally closed the notepad.
+
+
+Alex Gardeck   0:55
+If you open the notepad, I think it should still be there.
+OK.
+
+
+Dario   1:03
+Is it a sticky note or a?
+
+
+Alex Gardeck   1:07
+It was notepad.
+
+
+Dario   1:13
+I don't see it still. Was it like a saved file?
+
+
+Alex Gardeck   1:15
+OK.
+I'm not sure. So it's pound.
+
+
+Dario   1:22
+Yep.
+
+
+Alex Gardeck   1:23
+49 at.
+54 exclamation point, capital K, capital R.
+
+
+Dario   1:36
+OK. Thank you.
+
+
+Alex Gardeck   1:51
+Sabina just joined. I sent Henrik a message to see if he's able to join. Michael, are you able to hear us?
+
+
+Dario   2:02
+I am.
+
+
+Alex Gardeck   2:03
+OK, good.
+Give Henrik another minute before we get started here.
+I'm gonna try calling them.
+Hello. Hi, Henrik. Are you available to join the EVGEVR meeting? Oh, there you are. Joining. I'm joining right now. OK.
+
+
+Henrik Loos   2:40
+Alright, bye.
+
+
+Alex Gardeck   2:42
+But.
+OK. So I think we've now got everyone here who's gonna be here today. Mark is traveling on business. He's over in California right now. So Michael, I saw your update that you sent out that it's.
+
+
+Henrik Loos   3:00
+Thank.
+
+
+Michael Davidsaver   3:02
+Actually, I I think.
+
+
+Alex Gardeck   3:02
+That we still don't have. Go ahead.
+
+
+Michael Davidsaver   3:05
+Out of curiosity, what part of California is Mark in?
+
+
+Alex Gardeck   3:09
+He's in, uh, the Bay Area.
+
+
+Michael Davidsaver   3:11
+Oh yeah, I I'm in. I'm in Mountain View, CA. So yeah, I will send him a note and make a note. I said that distraction there. I just thought I'd mentioned that.
+
+
+Alex Gardeck   3:19
+Please.
+No worries. Yeah, he's checking out. Uh, he's meeting with a couple of our suppliers today.
+
+
+Michael Davidsaver   3:29
+Hmm.
+
+
+Alex Gardeck   3:30
+Yesterday and today. So I got your e-mail about the.
+The delivery of the digital chassis that those are a little bit delayed now with the trigger pulses and then there still is going to be some more time required to get the firmware update of the.
+Quartz chassis to add the EVR functionality. The one thing I didn't see is do you have any estimated timelines on both of those items?
+
+
+Michael Davidsaver   4:06
+The best I can give you now is for the the first one for the the the EVT chassis probably 2 weeks.
+
+
+Alex Gardeck   4:14
+OK.
+
+
+Michael Davidsaver   4:17
+I mean, I hope to have a more firm number next week.
+
+
+Alex Gardeck   4:22
+OK. Yeah. And then it, I would say as soon as you get an updated accurate time, if you can then just inform the whole chain via e-mail, that would be appreciated.
+And then as far as the development of the firmware update.
+
+
+Michael Davidsaver   4:36
+Yes, will do.
+That's gonna that's a little more complicated because it's just the way our scheduling worked out. Our principal firmware developer is is about to start a seven week vacation just travelling in Europe and so it's sort of the the the.
+
+
+Alex Gardeck   4:57
+Mm.
+
+
+Michael Davidsaver   5:01
+I don't want to say second string people because that includes myself to try to see if we can do it in his absence. So I mean, I think the the the concrete thing I can say is worst case, it'll be when he's back. We're exploring options for trying to get it done sooner.
+
+
+Alex Gardeck   5:04
+Mhm.
+OK, gotcha. I will update Mark with that. And the meeting, it does look like, is still being recorded by Mark. I will let Diego.
+
+
+Michael Davidsaver   5:23
+Yes.
+
+
+Alex Gardeck   5:27
+Into the meeting. Uh, so the where where we finished up last week, uh, we had just gotten all of the chassis online. We resolved the issue with the first quartz chassis where as we all know it was the.
+Red herring of the the text or the HTML file instead of the the configuration file. So we got that all resolved and then where we closed last meeting was then with.
+
+
+Michael Davidsaver   5:53
+OK.
+
+
+Alex Gardeck   5:58
+Reconfiguring the chassis so that we could make the first chassis which is the dot 191, the EVG and then the subsequent 3 chassis 192, one 93 and 194 be our event receivers.
+And so I know Diego or Dario was taking steps to be working on that. So I think kind of the key thing I think to start with today is to make sure that all four chassis are behaving properly. The first one is behaving as the EBG and the subsequent 3 are behaving.
+As EVR's, one thing Dario, that I was just curious about as you were going through that process of reassigning the IP's was just making sure that during that process, let's say while you were.
+Oh, so you weren't changing any of the IP addresses, it was just changing the functionality because changing IP addresses could lead to some issues with then having duplicate IPS. But you didn't actually change IPS of hardware, correct?
+
+
+Dario   7:06
+Well, there's files that are the way Henrik set it up. There's files associated with each of the chassis that have the IP address, and I just switched the ones to be the correct so that .91 or .191 was the 1st.
+And then the second was .192 and so on. Uh.
+
+
+Alex Gardeck   7:30
+And that's just Henrik. That's for the IOC mapping, right? So that it knows which one is the EVG and which ones are the EVRS.
+
+
+Dario   7:34
+Yeah.
+
+
+Henrik Loos   7:38
+Yeah, yeah, the one, the labeled number one is the EVG and then the other ones are the EVR nodes.
+
+
+Alex Gardeck   7:50
+Gotcha. So I think, Dario, just I think demonstrating that everything is booting properly and that things become pingable in the right states is a good thing to demonstrate so that we've got a good foundation to.
+Build from from here.
+
+
+Dario   8:09
+Yeah, there was only one issue that I ran into. I was able to switch all the addresses like they were supposed to be, but then and I was also able to set up the first one to be the EVG.
+With the NTP server set up to the proper address, but all the other chassis now 2-3 and four, they say that the NTP server is not specified even though I have a successful.
+Round trip communication on the EVG side. So right now this is connected to the second one and you can see here this output I tried. OK, that's expected on it.
+
+
+Henrik Loos   8:43
+OK.
+
+
+Michael Davidsaver   8:51
+That that is that is expected.
+
+
+Henrik Loos   8:54
+Yeah.
+
+
+Michael Davidsaver   8:56
+Yeah, it says event generator disabled because this this check particular chassis should not function as an event generator. It's only as a receiver.
+
+
+Dario   9:03
+OK, well then I.
+
+
+Alex Gardeck   9:05
+So is that something that the 0.0.0.0 when it sees that it flags that?
+
+
+Henrik Loos   9:10
+Yeah, so that so the DNT setting up an NTP server basically determines if it tries to be an EVG or an EVR.
+
+
+Michael Davidsaver   9:12
+Yes.
+
+
+Dario   9:13
+Bye.
+
+
+Alex Gardeck   9:13
+OK.
+
+
+Dario   9:24
+OK.
+I see then I then all of them should be properly set up. Is there any like specific steps you want me to do to to check again like in front of you?
+
+
+Michael Davidsaver   9:37
+Well, the obvious one is to turn on acquisition and see if you see data from the the chassis scope page for each one.
+
+
+Dario   9:47
+On this page.
+
+
+Michael Davidsaver   9:49
+If you go back to the main page.
+There's the Uh ADC acquire enable.
+And if you could also open the EDC status, that's usually a good one for a left left-hand column, 2nd row and scroll over and see that you OK, so there's one out of global alignment. So if you issue the global align.
+9.
+That'll bring those back into sync.
+OK, now if you go back to the chassis scope, you should see the waveform dislays updating.
+
+
+Adil Ansari   10:28
+Ah.
+
+
+Michael Davidsaver   10:41
+I mean, obviously with nothing connected, it's it's not going to look so interesting.
+
+
+Dario   10:45
+Yeah.
+Right.
+Everything.
+
+
+Alex Gardeck   11:06
+So this is just looking at the 4th, which is the third EVR.
+
+
+Dario   11:16
+Yeah.
+
+
+Alex Gardeck   11:36
+So then if you were to go to five, you wouldn't see anything updating. Perfect.
+So I guess the the next other thing that we were gonna be looking into was seeing what can be done in terms of inputs and outputs with the firmware as it is.
+We want to try and start getting into that discussion.
+How we can get things set up to do so we don't have any triggering ability, is that correct, Michael?
+Like, So what would be a a good thing for us to do in terms of testing with this firmware that's set up as a machine protection system?
+
+
+Michael Davidsaver   12:29
+Correct.
+Well, the getting I think with these chassis in their current configuration with current firmware, I mean their primary function is as ADCS, so measuring analog signals. So pretty much everything is gonna be, it's gonna be making it this interesting starts with putting some interesting signal into one of those ADC channels.
+Is the kind of the things you can set up for the MPS interlocks are things like your level violations on one of the channel input ADC channels.
+
+
+Alex Gardeck   13:16
+Mm-hmm.
+
+
+Dario   13:22
+Do we have anything we can connect right now, Alex?
+
+
+Alex Gardeck   13:28
+I'm trying to think in terms of what's in the setup that we could use for that purpose. Let me come walk over by you.
+Use our delay generator for.
+Perfect could be.
+
+
+Michael Davidsaver   14:07
+Well, I mean, you certainly could put that in there. I mean, it would measure it.
+Yeah, I mean, I mean if you I think you have the the the DG645 which does have configurable amplitude if memory serves me.
+
+
+Alex Gardeck   14:27
+And so that would be something when we're connecting these, we would be using the DB1 and DB2 inputs on the front panel or those?
+
+
+Michael Davidsaver   14:36
+Yes.
+
+
+Alex Gardeck   14:39
+If I just show.
+Set up PM.
+It's showing this, so we would want it to be on probably one of the EDRS, correct? We were the one to test it.
+
+
+Michael Davidsaver   14:55
+We can be on any of them.
+
+
+Alex Gardeck   14:56
+On any of them. OK, so then we also do have these breakout boards, the DB37 breakout boards and then we do also.
+
+
+Michael Davidsaver   15:08
+Ah, OK, that will certainly simplify things.
+
+
+Alex Gardeck   15:13
+Yeah, so we have the the breakout boards and.
+Of uh.
+The two wire VNC connector uh terminal boards.
+So that then we can go from the breakout board to a BNC connection, which then we can use to tie into our DG645.
+Except I'm not.
+Would you recommend doing the first initial things on the EVG or on one of the EVRs?
+
+
+Michael Davidsaver   16:46
+Well, in terms of the analog inputs, it should be. I mean the the simplest one to understand might be if you put the insurance and outs on the event generator chassis.
+
+
+Alex Gardeck   16:53
+Get.
+OK.
+Uh.
+I'm looking for the BMC.
+Breakouts. I know Sammy was borrowed some for testing camera triggering.
+Here we go.
+OK, so I'll show you the setup again.
+my screen
+Can you guys see my video?
+
+
+Michael Davidsaver   18:52
+Yes, I can. I was gonna ask, do you have the pin out for the the DB37 connector handy?
+
+
+Alex Gardeck   18:55
+It's my art. OK, so we've got.
+I do not.
+
+
+Michael Davidsaver   19:04
+OK.
+Let me find that.
+
+
+Alex Gardeck   19:13
+For the chassis itself, correct?
+
+
+Michael Davidsaver   19:15
+Yes, yeah, you'll see that it's what pins, what pair to start you with.
+
+
+Alex Gardeck   19:40
+Should work with whatever.
+
+
+Michael Davidsaver   19:50
+OK.
+If I can share this.
+OK, I've.
+
+
+Alex Gardeck   20:22
+Hello.
+
+
+Michael Davidsaver   20:22
+Light and I'll go try to find a. I know there's a couple places where this is online.
+
+
+Alex Gardeck   20:22
+Hello.
+Yeah.
+OK.
+OK.
+
+
+Michael Davidsaver   21:02
+I'm also pasting a link into the chat.
+
+
+Alex Gardeck   21:14
+Let me go get my.
+Yeah, so if you can direct us to two pens and then.
+
+
+Michael Davidsaver   21:33
+Ends number one and #20.
+
+
+Alex Gardeck   21:34
+Number one and number 20, one and 20.
+
+
+Michael Davidsaver   21:40
+Where in this case one is the the negative the ground.
+
+
+Alex Gardeck   21:45
+Uh.
+
+
+Michael Davidsaver   21:45
+So hook that to the shield of the DB or the of the BNC and 20 is the center pin.
+
+
+Alex Gardeck   21:58
+2.
+One ground 20 center.
+
+
+Michael Davidsaver   22:26
+Yes, 111 ground slash shield and 20 is the center.
+
+
+Alex Gardeck   22:27
+Is that correct? Yeah.
+I need a small.
+Yeah.
+OK.
+Well, that works out conveniently for this breakout board.
+
+
+Michael Davidsaver   23:34
+I suspect that's probably not an accident because the they're they're adjacent pins on two different rows on the connector and I would hope that the designers of the breakout would preserve that geographic proximity.
+
+
+Alex Gardeck   23:43
+So let me show.
+So here you get yellow in the shield.
+
+
+Michael Davidsaver   23:59
+OK, uh.
+
+
+Alex Gardeck   23:59
+Black in the center.
+20.
+And the yellow to one.
+So that's all connected.
+
+
+Michael Davidsaver   24:12
+OK. And and which you're you're hooked up to the, are you hooked up to DB1 or two?
+
+
+Alex Gardeck   24:18
+DB1.
+
+
+Michael Davidsaver   24:20
+OK.
+
+
+Alex Gardeck   24:23
+The DB1 um.
+
+
+Michael Davidsaver   24:24
+It it it's worth mentioning that for complicated reasons, the the logical channel one is actually the first one on DB2, but we'll we'll we'll see that when we actually get a signal hooked up.
+
+
+Alex Gardeck   24:38
+Do you want me to switch it to two now or not yet?
+
+
+Michael Davidsaver   24:40
+Nope, it's it's just fine. We can just well, you'll either. The point is you'll either it'll either appear on logical channel one or logical channel 16.
+
+
+Alex Gardeck   24:52
+And then Henrik, right now I've got the.
+From the terminal then into the AB channel.
+
+
+Henrik Loos   25:03
+Um.
+
+
+Alex Gardeck   25:04
+On the DG645.
+
+
+Henrik Loos   25:06
+Yeah.
+
+
+Alex Gardeck   25:09
+So if we this is the dot eighty-eight uh DG.
+
+
+Henrik Loos   25:15
+Mhm.
+
+
+Alex Gardeck   25:18
+So.
+Whose screen is Sharon?
+Or do you want to share your?
+See.
+So if you want to go to the other Phoebus.
+And um, let's see.
+Finished.
+T H.
+3.
+dot 88, so that's it.
+OK, so right now.
+Super.
+And then Henrik, how familiar are you now with the DG?
+Epic's interface.
+
+
+Henrik Loos   26:41
+Well, as familiar as I always was, I guess it's up. I mean, it does everything that you can do on the front panel.
+
+
+Alex Gardeck   26:56
+So I guess this would be the amplitude change.
+
+
+Michael Davidsaver   27:03
+Like you it may be basic question is the is it actually can set up to run internal trigger?
+
+
+Alex Gardeck   27:03
+But you know, maybe basic function is the set up to.
+
+
+Michael Davidsaver   27:15
+It's been a while since I configured one of these things, but I believe you probably want to set up an internal Rep rate.
+
+
+Alex Gardeck   27:15
+It's been a while since I've been to do one of these things, but I believe you probably want to set up an internal rep.
+
+
+Michael Davidsaver   27:23
+And just as a suggestion, 1 kHz to start with.
+And then try to set up a 50% duty cycle.
+
+
+Alex Gardeck   27:39
+So there's the internal. No, we don't have an external one on this yet.
+
+
+Henrik Loos   27:41
+That that there's no there's no external trigger input.
+Set up for this.
+Um.
+EG.
+OK now.
+
+
+Alex Gardeck   28:09
+Yeah, the code to put this up.
+
+
+Henrik Loos   28:10
+Do you have a scope to put this up to so I can see what actually comes out?
+
+
+Alex Gardeck   28:14
+Yeah.
+Yep, I mean disconnected.
+OK.
+You guys see my screen?
+
+
+Henrik Loos   28:36
+Yep.
+
+
+Michael Davidsaver   28:38
+I see somebody's screen. Anyway, I am.
+What am I looking at here?
+
+
+Alex Gardeck   28:43
+If you see the scope, I've got my iPad looking at the scope. We do have a signal.
+
+
+Michael Davidsaver   28:50
+No.
+Uh, yes. OK, I do see some little.
+I get some some some fuzz sticking up there.
+
+
+Alex Gardeck   28:58
+OK.
+Speaking up there.
+
+
+Michael Davidsaver   29:01
+Alright, yeah, that's.
+
+
+Alex Gardeck   29:03
+OK, OK.
+
+
+Michael Davidsaver   29:05
+And is that what are the what's the amplitude or I guess what it looks like 0 to something?
+
+
+Alex Gardeck   29:05
+What are the what's the 0 to?
+
+
+Michael Davidsaver   29:13
+Can't tell what the the vertical scale is.
+Oh, two volts per division. All right, so that looks like that must be zero to five then.
+
+
+Alex Gardeck   29:25
+OK.
+Yeah.
+
+
+Michael Davidsaver   29:31
+I've had a little trouble reading that, but yeah, that should be fine.
+
+
+Alex Gardeck   29:33
+OK, so you wanna plug it into the?
+
+
+Michael Davidsaver   29:43
+Yeah, I mean, well, if you could increase the duty cycle, that would probably make things more obvious because since the.
+
+
+Alex Gardeck   29:44
+Back into the breakout board.
+
+
+Michael Davidsaver   29:51
+Since the trigger for the DG645 is asynchronous to the acquisition clock, it's going to process, of course, just like it is with the scope. And with the low duty cycle, it might be a little harder to see since it won't. You won't necessarily see a pulse on every.
+
+
+Alex Gardeck   29:53
+The the 6:45 to the acquisition.
+With the low key backbone, it's like a little farther, but you want to start to recall.
+
+
+Michael Davidsaver   30:11
+Reacquisition.
+
+
+Alex Gardeck   30:15
+So Henrik, do you is it the duty cycle this level?
+
+
+Michael Davidsaver   30:15
+So you you.
+
+
+Alex Gardeck   30:23
+If you want to adjust the.
+Play.
+
+
+Michael Davidsaver   30:28
+Actually, probably not delete, probably with. There's no reason to have any delay here 'cause you're using an internal trigger.
+
+
+Alex Gardeck   30:30
+I'll probably have any delay. What kind of picking do you want to have on that? Is it on? Yeah, I think that would be.
+
+
+   30:32
+Well, you.
+
+
+Henrik Loos   30:34
+What? What kind of signal do you want to have? One that's 50% on and 50% off?
+
+
+Michael Davidsaver   30:40
+Yes, that I think that would be the easiest to tell if something is happening.
+
+
+Henrik Loos   30:41
+OK.
+Um.
+
+
+Alex Gardeck   30:47
+So that's gonna be channel B then, right, that we have to adjust?
+
+
+Henrik Loos   30:51
+Oh, you're using channel A&B? Yeah.
+
+
+Alex Gardeck   30:53
+Yeah, yeah.
+
+
+Henrik Loos   31:09
+Oh, that's right.
+So channel A is said to.
+Um .1 millisecond delay.
+
+
+Alex Gardeck   31:16
+Just to be to no, it's 0.
+That's just to adjust it. This is the delay. Yeah, that's the.
+
+
+Henrik Loos   31:27
+Oh, that's the increment. Never mind. It's set to 0, yeah.
+And then channel B should be set to 510 to the -4.
+
+
+Alex Gardeck   31:35
+5 - 4.
+
+
+Henrik Loos   31:40
+Yeah.
+
+
+Alex Gardeck   31:41
+Much better.
+So you guys can see the scope now.
+
+
+Henrik Loos   31:45
+Yeah, looks good.
+Can can you trigger the scope?
+
+
+Michael Davidsaver   31:48
+Yep. Yeah, easily.
+
+
+Alex Gardeck   31:52
+What was it?
+
+
+Henrik Loos   31:54
+When you trigger the scope, it's it's looks like it's free run.
+
+
+Michael Davidsaver   32:03
+Or if you just stop the acquisition.
+Yeah, it doesn't look like 50%, but I think that's wide enough. We'll we'll pretty easily see something.
+
+
+Henrik Loos   32:21
+Yeah.
+
+
+Alex Gardeck   32:25
+Let's see.
+OK, so that is now going in. So if you want to take back driver's seat.
+And then Michael, if you can now navigate Dario to where he should be looking.
+
+
+Michael Davidsaver   32:59
+Let's actually if you scroll over to the to the right hand side of this window.
+Hence what you're seeing here is the.
+Min Max is like it's just statistical data from all of all 32 channels. So this this is kind of useful if you want to Scroll down until you see something that's significantly bigger.
+I should, it should probably be 17. Yeah, there we go.
+
+
+Henrik Loos   33:23
+It.
+
+
+Alex Gardeck   33:24
+Oh.
+
+
+Henrik Loos   33:26
+Did the scope trace change just now?
+
+
+Michael Davidsaver   33:36
+Oh wait, it's not hooked up to the scope at the moment, but if you go Dario, if you go slide.
+
+
+Henrik Loos   33:38
+Oh, because there was that there was a pre-scale set for the trigger, which I think means that it was only triggering every two milliseconds. That's why it was not.
+
+
+Michael Davidsaver   33:42
+Yeah.
+
+
+Henrik Loos   33:53
+Equally on and off.
+
+
+Michael Davidsaver   33:58
+But since I there's something, there is something on channel 17 count. So can we go and look at the waveform for channel 17?
+There we go.
+
+
+Henrik Loos   34:16
+Uh.
+
+
+Michael Davidsaver   34:22
+And if you Scroll down a little bit and there'll be a button there that says FFT enable and switch that to run.
+OK, there we go. So the base frequency is the kilohertz.
+
+
+Henrik Loos   34:37
+How did you know it was Channel 17?
+
+
+Michael Davidsaver   34:41
+It's this. This was the thing I mentioned earlier with the the the the confusing reasons that the channel one is is actually the first channel on the DB2 connector.
+And actually well that there's that and that was my pre-knowledge. But I also because on the right hand side they're looking at the statistics for channel 17, I could see it was significantly larger than everything else which is reading noise.
+
+
+Henrik Loos   35:00
+Yeah.
+Yeah, I just found that too, OK.
+
+
+Alex Gardeck   35:09
+OK. Well, we got a signal and we're seeing it. So I think that's a nice little check box to have now.
+
+
+Henrik Loos   35:18
+Now the really interesting thing is to hook up another output to the second to the EVR.
+
+
+Michael Davidsaver   35:30
+Mhm.
+
+
+Henrik Loos   35:31
+And see if those uh acquisitions um.
+Match.
+
+
+Alex Gardeck   35:40
+So another signal coming from the DG.
+
+
+Michael Davidsaver   35:41
+Actually, I I.
+I should say that the the the monitoring waveforms you're seeing here are not synchronized. However, the underlying data acquisition is. So if you were to do a recording and then look at the recording, then you would see that the channels are phase aligned between chassis.
+
+
+Henrik Loos   35:57
+Oh.
+
+
+Alex Gardeck   35:57
+And then look at the recording, then you would complete the channels.
+
+
+Henrik Loos   36:00
+Right. Yeah.
+
+
+Alex Gardeck   36:01
+No.
+So is that something we want to do?
+
+
+Michael Davidsaver   36:09
+We, yeah, I think we should be able to do that. I'm I'm trying to remember where we where I left things with the acquisition control. I know I had you, I believe I had you do a test recording from 1 chassis.
+
+
+Alex Gardeck   36:16
+I know I had to move off, but I can't give you the things.
+
+
+Michael Davidsaver   36:25
+But sure, maybe we can. I've got another 25 minutes here before I've done another meeting. So until then, I'm at your disposal.
+
+
+Alex Gardeck   36:28
+Yeah, I've got meetings as well.
+OK, for this one, do we want to try going into DB2 just to double verify the first channel?
+
+
+Michael Davidsaver   36:46
+This would be a DB2 on the second chassis.
+Yep, sure.
+
+
+Alex Gardeck   36:51
+Sure.
+And then we can do the same you know with one in 20.
+I gotta make a couple wires real quick.
+Yeah, OK.
+OK.
+
+
+Henrik Loos   38:59
+Michael, what's the scaling on the?
+
+
+Alex Gardeck   39:00
+I can work with.
+
+
+Henrik Loos   39:03
+On the ADC channels.
+
+
+Alex Gardeck   39:03
+From music.
+Personality.
+
+
+Michael Davidsaver   39:06
+Right now it's counts.
+
+
+Henrik Loos   39:09
+OK.
+Uh, I figured it's just it counts. Um.
+
+
+Michael Davidsaver   39:16
+Yeah.
+
+
+Henrik Loos   39:16
+Is there a calibration for these?
+
+
+Michael Davidsaver   39:19
+There is. I do not have it right to hand. Hang on a second. We'll be able to get you the nominal value anyway.
+And we have a chat.
+
+
+Henrik Loos   39:30
+This we're getting.
+
+
+Alex Gardeck   39:31
+OK.
+
+
+Henrik Loos   39:33
+So we're getting 5.
+
+
+Michael Davidsaver   39:34
+I guess if you're yeah, if you're asking that then you must not have it, but we have individual calibrations for each of the gasses which get to you.
+
+
+Henrik Loos   39:43
+But those calibrations are not part of the firmware or the epics records.
+
+
+Michael Davidsaver   39:51
+They are part of the Epic's records.
+
+
+Henrik Loos   39:55
+Oh, they are OK.
+
+
+Michael Davidsaver   39:55
+So this is the the the OPI screen that Dario is looking at. If he were to Scroll down toward the bottom, there would be a place for entering the calibration.
+
+
+Henrik Loos   40:09
+Uh, slope and offset, OK.
+
+
+Alex Gardeck   40:21
+Twilight.
+
+
+   40:29
+Oh, is that just the?
+
+
+Alex Gardeck   40:30
+I'm getting a lot of feedback.
+
+
+Henrik Loos   40:33
+East low, East low and Oslo fields and offset field, OK.
+
+
+Michael Davidsaver   40:39
+I'm getting quite a lot of feedback.
+
+
+Henrik Loos   40:43
+Yeah, there has been for a while.
+
+
+Alex Gardeck   40:43
+You have to ask me for a while.
+Okay, is that better?
+
+
+Michael Davidsaver   40:51
+Oh, there we go.
+The testing. Testing. Yes. Yeah, I'm not hearing any echoes.
+Let's see, I also lost the the the screen share, but yeah the the actually my first question is actually and this is you know we checked the serial number of the courts board that's being used at the moment. You will find that on the the system monitor page.
+
+
+Alex Gardeck   41:10
+4.
+That's not him.
+
+
+Michael Davidsaver   41:17
+For that chassis.
+
+
+Alex Gardeck   41:22
+Back it out a little more.
+And.
+Go.
+It's me.
+
+
+Henrik Loos   41:35
+Now the system monitor thing we don't have the.
+Uh, the uh um display files.
+
+
+Michael Davidsaver   41:48
+Oh, I I'm pretty sure I saw one of them earlier. This is from the ADC status. There's the the button in the first column and the the first option from that menu.
+
+
+Alex Gardeck   41:51
+Yes.
+OK.
+Sorry. Yeah, what's going on?
+
+
+Henrik Loos   42:10
+Oh, so this month. Oh, never mind.
+
+
+Alex Gardeck   42:11
+Did you?
+OK.
+Hey, we're in a meeting. Yeah. And did you guys let Mark know? Yeah, but we still got to communicate.
+
+
+Henrik Loos   42:20
+Yeah.
+Yeah, Michael, I pressed on the system monitoring button on the main this now.
+
+
+Alex Gardeck   42:35
+What happened?
+
+
+Michael Davidsaver   42:41
+I guess which I've I'd say since we can't that's I can't see what you're seeing. If you go from the the court's main page, select ADC status.
+
+
+Henrik Loos   42:46
+Oh.
+
+
+Michael Davidsaver   42:53
+From the second page there's the the well, you select the row for the appropriate chassis. In the very first column there's a button which will say like you know 01/02 et cetera. If you click on that it menu will appear. The first entry in there should say Sysmon.
+
+
+Henrik Loos   43:00
+Yeah.
+Yeah.
+Yeah, I I found that one. Yeah, the the one. Yeah, the the one that doesn't work is on the main display, the button called system monitoring.
+
+
+Michael Davidsaver   43:11
+And that will open. Yeah, that will open a third screen.
+Oh, OK, right. That's something totally unrelated. That was a.
+Hooks for IOC stats.
+Which I don't think you guys are going to care about that.
+
+
+Henrik Loos   43:31
+Oh.
+Well, actually we we we do have those implemented everywhere.
+
+
+Michael Davidsaver   43:37
+Yes. Oh yeah, yeah, you you you link through them through your own, your own navigation tree.
+
+
+Henrik Loos   43:41
+Yeah, yeah. OK. So it's just the OK, that's what they think too. OK, yeah.
+
+
+Michael Davidsaver   43:46
+Terminology.
+Difference this month.
+
+
+Henrik Loos   43:51
+Yeah, I didn't recognize the the file name.
+
+
+Michael Davidsaver   44:00
+Yeah, well, it's I guess yeah. Strictly speaking they that that system monitoring it's actually it's using my Linstat Epix driver instead of the IOC stats. So it's a sort of a superset with Linux only.
+
+
+Henrik Loos   44:10
+Oh, I see.
+OK.
+
+
+Michael Davidsaver   44:16
+Not immediately relevant.
+But can you read off the the the serial number for the courts board? So on that sys bond page in the the center column that right below the firmware and software build dates there'll be a serial number.
+
+
+Henrik Loos   44:36
+135.
+
+
+Michael Davidsaver   44:40
+135 OK.
+
+
+Henrik Loos   44:41
+Well, the chassis #1.
+
+
+Michael Davidsaver   44:56
+OK, so that would mean you have a gain factor.
+I will paste this into the chat.
+OK, here, that's it. So it's just uh.
+The 1.2 microvolts per count.
+
+
+Henrik Loos   45:51
+OK, so if we put those.
+
+
+Dario   45:57
+So Henrik, what was the last thing that you changed on CD or AB?
+
+
+Henrik Loos   46:04
+Oh, I changed the. I didn't change on AB. I changed on the trigger. Um.
+The the trigger for the GG645 I there was a pre scale on the T0 channel set to two, which means it only triggers every two milliseconds instead of every one millisecond.
+So I changed that to one and that changed it to actually triggering at 1 kHz.
+
+
+Dario   46:38
+So.
+Verify that we had a signal.
+
+
+Henrik Loos   46:44
+So.
+So.
+
+
+Dario   46:48
+He's now putting it in.
+Yeah.
+So you got to go to.
+Yeah, there it is on channel one, I think. Yep.
+
+
+Henrik Loos   47:28
+OK, we are now seeing 6 volts on the ADC output.
+
+
+Michael Davidsaver   47:35
+Mhm.
+Yeah, it just FYI if you want to Scroll down on this page.
+So if you wanted to at the at the bottom there, there's the the two parts of the voltage scale. There's the ADC to V if you were to put in.
+
+
+Henrik Loos   47:51
+Yeah, I put the, I put your, I put your calibration number in there and for the ASLO field.
+
+
+Michael Davidsaver   47:56
+Yes.
+
+
+Henrik Loos   48:02
+And.
+
+
+Michael Davidsaver   48:05
+If you wanna do it for this this one as well, that might help things.
+
+
+Henrik Loos   48:17
+What I'm not understanding is why it shows me 6 volts when there should be 3 volts.
+Is it a coupling thing?
+
+
+Michael Davidsaver   48:28
+Oh.
+
+
+Henrik Loos   48:29
+Do we need to be AC coupled?
+
+
+Michael Davidsaver   48:32
+I'm guessing it's a termination thing. I'm trying to remember if the the 645 has options for driving high impedance versus 60 ohms. I'm sorry, 50 ohms.
+
+
+Henrik Loos   48:36
+Yeah.
+Yeah, I just did. I just changed the um.
+Yeah, you can D6445, you can set the termination. I just changed the coupling of channel 17 to AC coupling and now it shows 3 volts.
+No, wait a second. That because I capped it at zero. Never mind that just the output AB can be. Let me change that.
+
+
+Dario   49:02
+And.
+
+
+Henrik Loos   49:18
+ETL.
+But.
+I'm a bit befuddled. I can't find the termination setting on the.
+Menus.
+Oh.
+I don't hear anybody anymore.
+
+
+Michael Davidsaver   51:09
+I can hear you just fine. We're just being quiet.
+
+
+Dario   51:11
+We're here.
+
+
+Henrik Loos   51:11
+Oh, you just nobody was talking, OK?
+
+
+Dario   51:19
+OK. Is there anything else here in the next 5-10 minutes that we want to hit? I think getting signals is a good, good progress here today.
+
+
+Michael Davidsaver   51:31
+Well, we can make a a brief attempt if you would like. If you so if you go back to the main page, at the very least I should be reminded of how far I got in setting you up for this, but if you go to acquisition and recording.
+
+
+Dario   51:32
+And then I think we're.
+
+
+Michael Davidsaver   51:47
+And select control.
+Hey.
+All right, so this is not ready. So if he saw a light over to the right.
+It's OK system chassis, the upper very upper right hand corner there. System chassis is required to be ready. That is a bit mask. Let's set that to seven.
+OK, but I can also see that the acquisition and control IO well I I I say IOC, but it's actually it's a Python PV access server does not appear to be running.
+So that is the next because that that's the piece which actually controls the the coordinates recording for multiple chassis, which is what we want to do.
+So that yeah, that is the ATF engine or ATF dash engine.
+Repository and probably I I I'm guessing you probably caught the you took the the system D file that's included in there as default.
+
+
+Dario   52:59
+Henrik, do you know anything about that?
+
+
+Henrik Loos   52:59
+Oh, oh, OK, sorry, slow on the uptake here. I did not use the the service unit file that was part of the IOC and I just ran it with our usual.
+Framework, but I saw there were a bunch of other things in there too. OK, so I need to take a look at this again.
+
+
+Michael Davidsaver   53:17
+OK.
+
+
+Henrik Loos   53:26
+As a.
+
+
+Dario   53:26
+Yeah.
+
+
+Alex Gardeck   53:40
+Henrik, do you want to share your screen just for record keeping? We can see what's going on and then Dario, if you can stop your share.
+
+
+Henrik Loos   53:46
+Oh, OK.
+OK, you should be able to see my screen.
+So I'm in the.
+
+
+Dario   54:15
+Um.
+
+
+Alex Gardeck   54:17
+It's still loading at the moment.
+
+
+Michael Davidsaver   54:18
+I'm not able to see.
+
+
+Alex Gardeck   54:22
+There it is. Here we go.
+
+
+Michael Davidsaver   54:22
+There we go.
+Oh, now it's gone again.
+
+
+Henrik Loos   54:33
+Oh.
+Bye.
+OK, so I'm in the IOCSIOC and there's IOC boot folder.
+
+
+Michael Davidsaver   55:00
+OK, yeah, this is not the not the relevant repository. There's a separate one, separate git repository ATF dash engine.
+Which if it's not there, then that would answer the question whether I talked you through this before.
+For reference.
+OK, link is in the chat.
+And if you have, if this isn't already there, then I don't think we're gonna have much chance of making it work in 5 minutes because this is not a regular IOC. This is a it's a Python PV access server.
+So it'll need some Python dependencies.
+Which you may or may not have.
+There is a requirements file as well as a readme.
+And I think there's anything special you'll have to do.
+
+
+Alex Gardeck   56:24
+Michael, is this something you think we should try on our own to get running over the next week, or is this something that we should have as the first line item on our meeting next week?
+It's not working.
+
+
+Michael Davidsaver   56:37
+Well, I I would be just from the perspective of testing my documentation. I would appreciate it if you guys did have a try.
+And I guess in addition to the module documentation, if you refer back also to the the the courts documentation.
+Yeah, this should be.
+Included as well.
+Yeah.
+
+
+Alex Gardeck   57:07
+OK. So then I guess between Henrik and Dario, is there, is there one of you guys that wants to take the lead on this?
+
+
+Michael Davidsaver   57:09
+Yeah, here we go.
+
+
+Alex Gardeck   57:16
+Thinking since it's a a computer configuration thing, maybe Henrik, you take the lead on this and then update with how it goes. You're muted, Henrik.
+
+
+Michael Davidsaver   57:37
+And still muted.
+
+
+Alex Gardeck   57:39
+Yeah.
+Henrik, you're still muted. Can't hear you.
+
+
+Michael Davidsaver   57:52
+Anyway, I I pasted in a second link with more setup documentation.
+I think in terms of configuration the choice, well the the two differences you would follow from the the document I just pasted in is there's number of chassis would be 4 instead of 32 and you would then have to select a new route for the data acquisition direct data directory.
+
+
+Alex Gardeck   58:23
+OK, Henrik, it looks like your mic should be working again.
+
+
+Henrik Loos   58:27
+Yeah. Can you hear me? Yeah.
+
+
+Michael Davidsaver   58:28
+Hey, yes.
+
+
+Henrik Loos   58:30
+Yeah, OK.
+
+
+Alex Gardeck   58:34
+So Henrik, is this something that you want to take a lead on then in terms of getting this set up following Michael's documentation?
+
+
+Henrik Loos   58:43
+Yeah, I'm I have the I have the repository.
+
+
+Michael Davidsaver   58:53
+Let's see. Actually also you will. You will also want the data preview, which I I really do have a memory that we went through that setup, but let's just to be complete.
+
+
+Henrik Loos   59:16
+Yeah, the module is is uh installed.
+
+
+Michael Davidsaver   59:29
+OK, and actually I'll also mention there's an I pasted a third link in there which is because there's a a GUI application for reviewing the rather large data files.
+
+
+Henrik Loos   59:40
+Uh, the ATF previewer, OK.
+
+
+Alex Gardeck   59:47
+OK, Michael, I want to respect your time. We're now at 1:00, so I think we'll we'll wrap it here. And then Henrik, I want you to then take the lead on getting this all set up so that then next Friday we can meet with Michael and we'll tackle this first thing. See.
+
+
+Michael Davidsaver   59:54
+Yeah. Thank you.
+
+
+Alex Gardeck   1:00:07
+If everything got installed properly and then we can take further steps.
+
+
+Henrik Loos   1:00:12
+OK.
+
+
+Alex Gardeck   1:00:14
+All right. Thank you very much, everyone.
+
+
+Michael Davidsaver   1:00:14
+Yeah, Henrik, please don't hesitate to reach out if you have problems with the builder running.
+
+
+Henrik Loos   1:00:20
+Sure. Yeah, I'll, I'll do that. Um.
+
+
+Michael Davidsaver   1:00:22
+All right. Thank you, everyone. Bye.
+
+
+Alex Gardeck   1:00:25
+Alright.
+
+
+Dario   1:00:25
+Thank you. Bye.
+
+
+ stopped transcription

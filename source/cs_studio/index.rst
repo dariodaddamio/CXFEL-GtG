@@ -1,7 +1,7 @@
-CS-Studio GUI
+Phoebus (CS-Studio) GUI
 =======================
 
-The Lab's Graphic User Interface (GUI) consists of the user interface for both the CXLS and CXFEL.
+The Lab's GUI consists of the user interface for both the CXLS and CXFEL.
 
 .. toctree::
    :maxdepth: 2

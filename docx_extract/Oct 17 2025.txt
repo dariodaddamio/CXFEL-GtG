@@ -1,0 +1,2763 @@
+CXFEL EVGEVR Testbed-20251017_185648UTC-Meeting Recording(1)
+
+October 17, 2025, 4:51PM
+
+2h 5m 4s
+
+
+Mark Holl   1:34
+The.
+Hello, Dario, can you hear me?
+
+
+Dario DAddamio   1:45
+Yes, I can hear you. Can you hear me?
+
+
+Mark Holl   1:47
+Excellent. Yes, yes.
+Alright.
+No, I'm not sure. I can't really say because it's out of context. I can't really say. I mean, I don't know what the next grouping of jobs is, so I don't really know and.
+I'm sorry, Brian, I I'm going into a meeting right now. Yeah, I mean maybe an e-mail, short e-mail, you know, well like 3 bullets or something with just the information, the title that I gave, the different jobs and the job number and then and then your question. And then I I apologize unfortunately I I am getting ready for a meeting that's.
+Important right now, and you're important too, but I just can't talk right now.
+Thank you.
+I mean two people.
+
+
+Alex Gardeck   7:44
+Thank you.
+
+
+Mark Holl   7:48
+Well, something's very loud.
+When you came on, something became very loud, Alex.
+
+
+Alex Gardeck   8:00
+Mark, can you hear me?
+
+
+Mark Holl   8:04
+Yes, something was very loud for a little bit, but now it seems to be getting better.
+
+
+Alex Gardeck   8:11
+I'm trying to get my audio worked out. I if you can hear me, I, as of right now, can't hear you.
+
+
+Mark Holl   8:11
+Yeah, it was.
+Yeah, I can. I can hear you if I chat here. Yep, I can hear you.
+
+
+Alex Gardeck   8:21
+OK, now try.
+
+
+Mark Holl   8:29
+So I can hear you, Alex.
+
+
+Michael Davidsaver   8:39
+Anyway, yes, just checking for me. Mark, can you hear me?
+
+
+Mark Holl   8:40
+Yeah.
+
+
+Alex Gardeck   8:40
+Yeah, so I know you guys can hear me. I'm just trying to get my output settings working.
+
+
+Mark Holl   8:45
+Yes, I can hear you, Michael. Thank you for joining.
+
+
+Michael Davidsaver   8:49
+OK.
+
+
+Mark Holl   8:53
+OK, four people online now.
+Join.
+It's true.
+
+
+Michael Davidsaver   9:05
+Actually, while we're waiting for Alex, Mark, can I ask you your basic idea of because I I think I'm kind of at your disposal for the next little while here. Now I can talk over specifics about quartz. I can talk over background on in micro research timing system.
+
+
+Mark Holl   9:15
+Yeah.
+Yeah. So what we're going to do, Michael, so this is really the beginning of training and also then, so it's going to be, I'd like to start from the general and move to the specific. And so I would like, for example, you sent information out for the GitHub website.
+Or the GitHub location. I think we should start from the most general. OK, let me go ahead and do this. Let's see. Sabina is here. I want to have her in. Why is she waiting? OK, people.
+
+
+Michael Davidsaver   9:43
+Mhm.
+
+
+Mark Holl   9:58
+And admit. OK, so let's get Sabina in here. And then I also invited Hao. So let's wait just a couple moments and then I'll set the stage for what I'm hoping to accomplish here. It's very important to our project. Let's get.
+Diego in here, that's good. And then hopefully we can get Hao in here since she requested to be able to join and I added her to the meeting and so that will be good. And then what I will do is I will, I'll set the stage for you know.
+Kind of a controlled trajectory here. You know, we're developing our prototype, still developing CXLS as a prototype, and the EVGE VR system will be useful in both. But I'll hold my comments until we can get Hao in the room. Hopefully there she is.
+OK, that's good.
+And then I want to set some realistic expectations because, you know, typically in all things.
+Mismatch and expectations or a lot of frustration.
+None of us have time for.
+OK. How are you here? Can you hear us?
+
+
+Alex Gardeck   11:14
+Right
+
+
+Hao   11:15
+Yes, I'm here. I can hear you.
+
+
+Mark Holl   11:16
+OK, good. And so Henrik, I'm gonna call Henrik because I really want Henrik here from the start. I wanna call him because he said he could be here.
+
+
+Alex Gardeck   11:17
+right a the
+D.
+
+
+Mark Holl   11:30
+Let's go ahead and see what we got here. Dan's not here either. Seems like that's recurring.
+So let me try to do that.
+Calm that we've got a little bit of time here so that we don't need to feel rushed and we're gonna this is the first in a series of meetings and we'll keep going until we can expose the value of the system and the hardware.
+
+
+Michael Davidsaver   12:01
+OK.
+
+
+Mark Holl   12:05
+Yeah, Heinrich, Heinrich, we're in the ABGVR meeting. Are you gonna join?
+Yeah.
+OK, we really want you. Obviously we need you here, so.
+Yeah. OK. I'm gonna call one more person and hope to see you here soon. OK. Talk to you later. Bye.
+
+
+Alex Gardeck   12:23
+D the D
+
+
+Mark Holl   12:33
+Dean in here because I also see him as a an excellent asset. He's a career programmer who can help us out doing routine tasks, if we can define them as being routine or at least specifiable. All right.
+Especially in the low level, which was his purpose all along.
+I know it's trying to join. So. Hi, Dean, this is Mark Halt. Hey, yeah, so I invited you to this Teams meeting. I'd really like to have you here.
+OK, well, it's happening right now, so can you please join?
+No.
+OK. Yeah, it's time already. OK, good.
+Yeah. OK. Yeah. Please join. Thanks.
+Now we just need to write them and then we can.
+Just kind of lay down.
+Initial goals and such. One thing you can do, Michael, is if you could potentially, since we're gonna start from the general and we'll eventually work to the specific, I'm gonna ask you to introduce the Marvel chassis. I'm gonna also ask you to introduce, you know, you know from.
+The the most general to the most specific in terms of really conversationally or in pictures of whatever you have um for the event generator and then present its context and what it needs in order for it to create events and how it works.
+And then also I'll ask you to then talk about the event receivers, how they function and how they use that. And then I'll ask you to then we'll start with the generality comment on how these have been deployed in other locations in general and then and then we'll go into really.
+Kind of drill down into the hardware that we have today. We have two things that we need to accomplish. You can talk about your knowledge of the project. You and Diego combined can talk about your knowledge of the project in terms of the two specific well defined targets that we have for the event generator, event receiver systems.
+That being the low level RF and then also the Eiger detector as our first example of a generic class of detectors. And so then we're going to then drill down even further into the marble chassis hardware that we have.
+And then you're going to need to be patient with us. And then kind of, you know, I would say don't assume anything really. I mean, I mean, we're a bunch of competent scientists. I think I I'm going to consider myself competent. And I've also had programming in my background. It's how I started out of school.
+
+
+Dean Smith   15:28
+So I see.
+
+
+Mark Holl   15:30
+But but the main thing that that I'm concerned about is that don't assume that we're embedded programmers, we're not. Some of us have some some information, but we need to expose procedures so that we can, you know, really learn the steps to do what we need to do.
+To be able to create events and manage them. I mean my current plan is that is the teams who need events would then fill out the requirements for those events and engineering would implement the events and make them available and that way we can maintain essentially knowing basically what's again the configuration of the system.
+I think it's it's a system that actually could have implications that I don't really want to, you know, throw the hood open and just, you know, treat it like a a rent a scooter, you know, because the beam line itself has to actually have some integrity that we can test things before they're released and make them available and make sure we don't break things.
+You know as we as we increment things and provide new resources and new events that people can use. So so that's that's gonna be key and then and then what we'll do is we'll we'll eventually incrementally go down into we will introduce.
+
+
+Dean Smith   16:40
+Thank you.
+
+
+Mark Holl   16:44
+The test bed. Are you here, Henrik, by now? Yes, I think I see you here. Yeah. Yeah. Can you hear us, Henrik? And somebody, is that you, Alex? Can you mute Alex, please?
+
+
+Alex Gardeck   17:01
+Yes, is it?
+
+
+Mark Holl   17:05
+Yeah, you're extremely background noisy, Alex. So unfortunately, I mean, if you could dial in almost on your earsets or something, maybe that would work.
+
+
+Alex Gardeck   17:13
+That's what I wanted to do, but it appears like it was disabled, so I'm trying to see if I can join with my iPad.
+
+
+Mark Holl   17:18
+Yeah, that sounds good because the background noise is quite large from you. OK, so you're here, Henrik. Can you hear us?
+We cannot hear you.
+
+
+Dean Smith   17:32
+Mhm.
+
+
+Mark Holl   17:34
+if you're here.
+Henrick.
+
+
+Michael Davidsaver   17:40
+Enric appears to be muted from my side.
+
+
+Mark Holl   17:42
+Yeah, it. That's what it appears to me as well, that he's muted up.
+Henrik, you're muted if you're if you're here. If you notice that here, I'm gonna try to unmute him. I can't.
+Henrick, are you are you there?
+Because definitely want him to be able to participate and I want everybody to be able to participate. But we have a lot of listening to do in this meeting and a lot of learning to do in general.
+
+
+Michael Davidsaver   18:18
+But I hope you will also feel free to ask questions because I mean I if if just firstly can you see that I'm trying to do a a screen share here of a document.
+
+
+Mark Holl   18:24
+Yeah, I know we we we do. Yeah, we do see the screen share and so you know, the entry into the document. But again, I mean, I do want this to be training and it can be organic and I expect it to be organic because the nature of what we do, none of us actually has complete documentation of anything.
+
+
+Michael Davidsaver   18:35
+Yeah.
+
+
+Mark Holl   18:44
+Anywhere in the system, we have lots of SOPS that we have to work hard to get to, and that's what I want to work to. So by the process of learning how to use this, I'm actually going to have us engineering write SOPS for the things that we do, and I'll record everything and we'll develop the documentation as we go because some of this stuff is going to be very custom.
+Right sizing stuff to our beam line and I'm gonna see if that was Henrik.
+
+
+Alex Gardeck   19:11
+Mark, can you confirm that my audio is better now? It's not coming through. It's coming through good now.
+
+
+Mark Holl   19:16
+Yes, it's much better now, Alex. I'm going to call Henrik. I want to take just a couple more minutes and I apologize for our delay, but it's OK. You know, we've got to. That's why it's two hours, because I don't want to make this thing some sort of rocket show because it's not going to work anyway.
+
+
+Alex Gardeck   19:19
+OK.
+
+
+Mark Holl   19:31
+We got to have some time just to kind of actually even introduce the team to each other actually.
+And then that's one thing, Michael, on this that we're, it's gonna be super important to me that we establish and maintain some momentum and and we'll need to be handheld, you know, and I'm happy to pay for it. That's the point. Bye, Henry.
+
+
+Michael Davidsaver   19:53
+Yeah, well, I I I was gonna start off here with some, uh, background on what?
+
+
+Mark Holl   19:56
+Yeah, but just a moment here. I'm trying to get Henrik. Henrik, can you hear us? It looks like you're on.
+But we can't hear you. It's you're muted.
+Oh yeah, that's the problem with teams. Well, we have to use teams to work with Michael. And so, you know, I think that maybe the best thing is, can you, that's terrible. I mean, can you call into the is there a, is there a phone number or?
+Yeah, maybe you can call in for the audio portion of this and see if that would work and plug your phone in or something I I don't know.
+OK, yeah, let's go ahead and try that. And then while you're trying to get connected, I I'd like to get started with this. And I'm gonna put you on speakerphone right now. OK, so you're on speakerphone, so you can hear what's from this side and you can.
+OK, well, then I'm just gonna keep you on speakerphone and have my phone plugged in. Will that work? Yeah. OK, so you're there and we'll take it one step at a time. OK. And so, Michael, let's start with the most general.
+And just go ahead and get started. And again, let's take it from the most general to the most specific. Everybody feel free to ask questions, that's fine. But we do want to also realize that we have, you know, we have things to get through. And so we don't want to drill too deep when we're just in the most general stuff because we'll get deep soon enough.
+OK, Michael, please take it away again, general to the specific from the very most general to the and work our way down.
+
+
+Michael Davidsaver   21:41
+OK, I I can, I think I can try that. So OK, so I guess sorry background first. My hi, my name is Michael David Saver. I am with Osprey Distributed Control Systems which is a consulting company which does software and hardware and firmware and.
+
+
+Mark Holl   21:45
+OK. Thank you.
+
+
+Michael Davidsaver   22:00
+All kinds of stuff in the the scientific controls world for the past 10 years or so. Before that I was working for seven years. I think it was at Brookhaven National Lab in New York on Long Island and.
+One of my one of the hats I wore there was as manager of the event timing system for the National Synchrotron Light Source 2 accelerator that was being developed.
+So what I'm showing you here is actually documentation I wrote for the Epix driver that I used at the time. You'll see references to MRF Micro Research Finland. That was the company that produced the timing system hardware that was used at the time.
+Which was it was VME cards, and I if you don't know what VME is, I won't explain that any further other than to say that it is a a piece of history which is still in the present.
+
+
+Alex Gardeck   22:47
+2.
+
+
+Michael Davidsaver   22:55
+But the the important things to note are the the basic terminology for this event timing system, which is there is the event timing generator EBG of which there is for each system a single you know single source and a number of event receivers which I you know EVR.
+And between these there are these repeater nodes or fan out nodes, I'll sometimes call them, which are sort of one in multiple outputs.
+
+
+Mark Holl   23:23
+Michael, can I may I ask a a favor? Do you have that? Do you have that PDF handy right at your fingertips?
+
+
+Michael Davidsaver   23:23
+And in partic.
+Please.
+It's online somewhere. I yeah, I mean it's the I mean just as background. This is the documentation I produced for the the the the Epyx drive right at the time under the name of MRFIOC 2. Very creative.
+
+
+Mark Holl   23:37
+Yeah.
+
+
+Michael Davidsaver   23:51
+I believe this PDF is available on some of these the the websites that are well.
+
+
+Mark Holl   23:56
+I'm gonna find it and put it in the chat, OK? And then I'll make it available to everyone, all right?
+
+
+Michael Davidsaver   23:59
+Yeah, if if if you can't, then I I can certainly send you a copy.
+
+
+Mark Holl   24:04
+Yep, thank you.
+
+
+Michael Davidsaver   24:05
+I mean, it has not changed a lot since I wrote it. Uh.
+
+
+Mark Holl   24:08
+Mhm.
+Yeah, I think you may have sent it to me, but I I I have an archive of this stuff, so I'll make it available to everyone as as we all learn this stuff together. Thank you. Please, please continue.
+
+
+Michael Davidsaver   24:20
+OK, alright, so it's.
+The basic way to think about there, one of the ways to think about the the timing system is this kind of the different nodes like the little cartoon I have here where there's one event generator which goes through, you know, one or more of these repeater nodes which is just, you know, they make a copy of the input signal and send it to the output.
+So typically these systems are deployed in a star topology. There is sort of two variants. The the original variant was as a unidirectional system. It was sent 1 output all the way down. There are some variants now where you can get a a concentrator node which which has a return path.
+Where the the all the different event receivers actually send a signal back up which is then combined. It ultimately goes to a a special event receiver at the top level and this was done to enable things like you know machine protection faults.
+Where each of the individual nodes which receives the event stream will then notice something awry and and can pass that notification back up to the central node which can take action. But I'm going to mostly focus today on describing the left hand side scheme.
+Where there's one transmitter down to many receivers.
+And I've talked I think several Times Now about the events and what an event is in this system. There is a it's a serial data stream which goes out from this event generator to the receiver nodes. That serial event stream looks like a series of of 16 bit frames.
+And the 16 bits are an 8 bit event code and an 8 bit of something else. And there's some history behind what the something else is. I'm actually not going to spend too much time on that, but the the key concept is this event code which is an 8 bit number.
+Where there's a a few that are defined as you know for special cases and the remainder are left unused and are selected by the individual implementers for individual sites for the individual installations to be used as as you see fit.
+You know, I can present some specifics of the of how that was done for the the light source to accelerator and I can get to that later.
+
+
+Mark Holl   26:34
+Mhm.
+Mhm.
+
+
+Michael Davidsaver   26:38
+So for the moment to know that there's what what it effectively means is in the in the idle state, these frames are going out with event code 0 all the time and so event code zeros. It's a special just as nothing's happening right now because it's serial data stream. It must be sent continuously.
+And so 0 means nothing's happening. There are some some of the special ones. I mean the probably the the most interesting one of the general purpose ones is the let's see which one is it here? It's the the timestamp. Yeah, reset timestamp counter, otherwise known as this is the start of the second.
+Because one of the things that this event timing system can do, in addition to sending out event codes which cause some specific action, is also distribute a notion of system time or wall clock time, which is accurate to the resolution of this frame, which is configurable in like in the.
+In the case of light sources, it was tended to be around 100 and 125 megahertz, so about 8 nanosecond resolution.
+Any any thoughts so far about the event code?
+
+
+Mark Holl   27:50
+So on the the event codes here, we're going to eventually work out just so we're clear on this, we're gonna start with maybe a handful like, you know, three or four different event codes. And then then in this working group, we're going to get those working on the hardware that we have currently.
+
+
+Michael Davidsaver   28:02
+Mhm.
+
+
+Mark Holl   28:10
+You know, so that we can have triggers that go out and so emphasis on how do we actually write an event code to trigger a Iger detector. How do we write an event code that is compatible with what you understand and are working on separately for the for the low level RF. But these these are the things that we will be doing and so as you're training, you know we're going to.
+
+
+Michael Davidsaver   28:29
+Yeah.
+
+
+Mark Holl   28:30
+And so forth. And we're gonna exercise all, we're gonna exercise all the capabilities of the quartz chassis that we have, you know, including the analog components and the digital components and so forth. Yep, good. Yep.
+
+
+Michael Davidsaver   28:31
+I I understand.
+Yeah, we're we're we're ways. I think we're ways away from that here, but let's just keep working. All right, so I can get the the concept of the event code.
+
+
+Mark Holl   28:44
+Oh yeah, there you go.
+
+
+Michael Davidsaver   28:50
+I guess I'll I'll skip past some of the details about. I guess this might be a useful diagram to look at here. This is some.
+
+
+Mark Holl   28:58
+Yeah, take your time. Don't, don't, don't rush it again, please. Yeah. Thank you.
+
+
+Michael Davidsaver   29:01
+Yeah, I understand. Just so some of the concepts with this particular this particular block diagram, I'm trying to show some of the logical functions that are typically implemented inside of one of these event receiver nodes. So the the green arrows at the top are showing the the the data serial data stream coming in.
+On the right hand side, which is the one I'm going to focus on and sort of some of the things you can do with it. So we talked about event codes. The other useful thing to keep in mind is this event data stream is using the it's very common in Industry 8B10B encoding.
+Which allows for the recovery of a a clock as well as the event codes.
+And this is this is what's used. So this entire the entire point of the timing, this event timing system is it's a synchronous deterministic means of sending out a clock as well as event codes on that clock.
+And this can be used to do well in the context of a general purpose event receiver.
+It ultimately there's trigger outputs and there's this notion of pulse generators which is you you have a it's the on event code 5. I'm going to output a 20 microsecond pulse on output 5 or something like that.
+And part of the idea of having the time synchronization is that there will be a a local timestamp counter so that the reception time of every event code has an an absolute time associated with it.
+OK, I think that was all I was going to go over really on this particular PDF, although I will mention that while this does this document does not describe the quartz chassis per se, it actually does since you guys do have one of the micro research event receivers.
+The the concets described here do alley to the firmware of that card.
+
+
+Mark Holl   30:59
+Well, and so the quartz chassis is everything is meant to actually use as a base interface, the M microsearch Finland command sets, right? Is it correct? It's that that protocol that's being used.
+
+
+Michael Davidsaver   31:12
+Well the the concepts the this is where the going up here a second so.
+As with Ethernet over you know the the cabling you have, there is the micro research timing protocol and so the quartz chassis over its fibre communications uses the micro research timing protocol. So those those fibre outputs that you are the the LC connectors on the front of those chassis.
+Will speak this same protocol and interoperate with the micro research timing hardware.
+
+
+Mark Holl   31:45
+Right, right. And we have a separate problem that we'll be dealing with because we've got a timing card issue that's we'll we'll you you'll be a part of a separate meeting on that because we've got to get that working on below all our my my other question is can you actually.
+Very briefly, just put the title of this document in the chat.
+
+
+Michael Davidsaver   32:05
+Uh, was the the EBR, yeah.
+
+
+Mark Holl   32:06
+Oh, is that it? It's just EVR usage guide. OK, thanks.
+
+
+Michael Davidsaver   32:09
+Yeah.
+Um.
+I should have some.
+But you know what, I'll just I'll just send you a copy of it 'cause I might not finding a URL right now.
+
+
+Mark Holl   32:22
+Uh huh. OK uh.
+In fact, I just found it. Uh, but you have Rev 9 and the only one I found was Rev 7. So better if you send it OK then we can have Rev 9.
+
+
+Michael Davidsaver   32:29
+No, all right.
+Yeah, I I will. It's it hasn't changed much in the last 15 years basically, but sure, I will send you Rev 9.
+
+
+Mark Holl   32:42
+And then we'll distribute it. And yeah, yeah, I'd say keep on going. Yeah. Again, take it easy on us. Oh, take it easy on me. Maybe other people are. I'm happy if things go slowly, but we can absorb it and ask questions.
+
+
+Michael Davidsaver   32:55
+Okay, yep. Well, I would encourage you to do so. Let's see. All right.
+Next thing, I'll just put this URL directly in the chat.
+This is we're gonna try to jump a bit here from the general purpose to the very specific and then I'm gonna change gears to the the quartz chassis after that, so.
+
+
+Mark Holl   33:24
+While you're doing that, we have the quartz chassis plugged, we have them all racked, we have them grounded, we have Ethernet plugged into them. We also have an FS740 with A10 mega Rubidium 10 megahertz.
+
+
+Michael Davidsaver   33:29
+H.
+Yes.
+
+
+Mark Holl   33:39
+Source. I don't think we've connected it yet but but we have it and and we we also then have IP addresses ready to be usable on the course chassis and so we're we I think we've laid out all the the.
+All the ingredients, yeah. So we're ready for thing to to work with you, so.
+
+
+Michael Davidsaver   33:55
+OK.
+
+
+Alex Gardeck   33:58
+Mark, do you want me to do a little tour of the setup for everyone?
+
+
+Michael Davidsaver   33:59
+Yeah.
+
+
+Mark Holl   34:01
+Oh, maybe is that's where we're gonna. OK, not just that Michael's driving here. Good. Yep.
+
+
+Michael Davidsaver   34:02
+And not just yet.
+
+
+Alex Gardeck   34:04
+OK.
+
+
+Michael Davidsaver   34:09
+So what I'm showing you here is actually this is a what I wrote for the some documentation I wrote for the users for the the timing system for light source two. This I'm trying to get just gonna give you an idea of what the specifics of the actual.
+A specific implementation look like after the fact. I I have a suspicion that you guys would wind up producing some similar documentation for your your internal users, so I get I.
+
+
+Mark Holl   34:35
+That's the idea is that, yeah, we're gonna, we're gonna have to right size things and grow into it rather than take and try to implement it will. It would be silly for us to implement something that's yeah.
+
+
+Michael Davidsaver   34:47
+Yeah, so the the light source two was a.
+
+
+Mark Holl   34:47
+Overdone. Overdone to start because go ahead.
+
+
+Michael Davidsaver   34:51
+Is a is a synchrotron with two different rings. There's a a a booster ring and the main synchrotron ring. And so one of what I have here at the top was just showing the the different frequencies involved and how they are actually related to each other because again the the the event timing system is intended to be a deterministic synchron.
+System. So the actual reference clock for the timing system is provided by the RF accelerating system. In the context of light source two, this was this specifically 499.68 was the center frequency it would.
+Change a little bit depending upon the weather, and that's actually not a joke, as these things vary with temperature.
+But every other frequency in the system is a a a integer or fractional relationship to that RF clock. So that's why things here I show the effective value. The the revolution frequency of the storage ring was then you know 300 and well 380K.
+Approximately, but actually it was RF divided by 1320, which is the the number of RF buckets around the circumference of the ring.
+So these are numbers which are effectively governed by the geography and geometry of the of the ring. And so there's others divided down to with the approximately what what we knew is approximately 1 Hertz, but it was actually defined back to RF by this.
+Relationship here and there's a a long diagram. I'll show you the the clock T free diagram for the whole facility that led to the selection of this this particular rate. And I get for a circular machine. This is this is the kind of calculation you'll have to do for a linear machine. There's different ways to look about it.
+And then I added the the same calculations here with respect to the the timing system frequencies and I guess this was just a a a layout of the hardware, the hardware at the time and a summary of some of the event codes which were selected.
+And so this is things like one of the the very common one was event code 15, which was the the quote UN quote one well effectively one Hertz, but it was the the repetition rate of the the Linac that fed into the booster ring.
+And then there were things like, you know, the the repetition rate for the booster ring itself. And then there was the sort of the repetition base repetition rate. I suppose it wasn't really a repetition rate for the storage ring, but we we chose to think of it that way.
+And a number of special cases which I I'm not really going to go into.
+
+
+Mark Holl   37:31
+That sounds good. I mean, ultimately we're going to start with simple things and then build up from the base ground. That's that's a good way for us to learn. Each one of these things will be a little bit of an just an agile Sprint. Can we get this working? Can we get this working and add value to what we're doing?
+
+
+Michael Davidsaver   37:31
+The and.
+Mhm.
+I think I had a yeah, just to give an example, I mean and maybe make this a little more concrete. One of the special cases for the the booster ring was the timing for the injection and extraction kickers. And this is it's kind of a table I guess just to give you an idea of what the the the ring looks like there was injection.
+Ramp up and then extraction. That's it's a pretty common way to handle storage rings and booster rings of various kinds.
+In this case, I I produced a set of figures for the different possible repetition rates for the booster. There was originally plans for it to run at sort of a one Hertz or two Hertz or, you know, double injection and then ramp up. And I had to produce diagrams and timing tables for all the different planned modes.
+And yeah, OK, so this this is a diagram I I I got a fair amount of mileage over. This was sort of trying to show that there there were a different number of the number of different operating modes planned for the Linac by itself, the booster by itself and then combined modes and this again I think that the main.
+Point I would get across here is having a conversation with the accelerator physicist to understand how the machine is going to be used and then figuring out what are all the devices that have to be timed. Many of them are going to be sort of.
+Basic, which is just you, there's a a start time and you'll be delayed off of that start time, but there's going to be some special cases and trying to identify those special cases early is helpful.
+
+
+Mark Holl   39:25
+Yeah. And so in our particular case, you know our we have a very short accelerator section and we we will need to merge an already existing timing system that times the different lasers with respect to each other.
+But we'll talk about that more later. And we'd have Henrik Loes on the line right now. He can't speak, unfortunately, but he's been the accelerator physicist and also the Epic's implementation programmer for our our controls.
+And then we also have Sami Tantali here at ASU. And so when we get down the road a little bit and we understand things better, we will eventually figure out ways to blend this stuff. But yeah, I think that we'll cross that bridge when we come to it. I'm, I'm also pretty aware of everything that's in every bolt that's actually out there in the building.
+And so and every wire and cable. So we'll, I'll make sure that the right people are in the room when we we get there, but we'll get there eventually.
+
+
+Michael Davidsaver   40:25
+OK.
+Let's see. I think there, but I guess you're you're not a a cyclical machine, so this may not be as relevant, but I I wound up having to spend a moderate amount of time to make sure that the.
+That the overall cycle time was a nice even multiple of all of the different revolution clocks needed, and that led me to produce this fun little clock free diagram of the whole facility showing that the various different RF systems that had to be synchronized together.
+Me too though.
+
+
+Mark Holl   40:54
+Yeah, when we get to some of this parts for the the Linac, I I see sub meetings, subgroup meetings because we we have people from the experimental hutch and in essence there's an activity that generates X-rays and pulses and the the clock and then there's two different activities make sure.
+
+
+Michael Davidsaver   41:08
+Mhm.
+
+
+Mark Holl   41:12
+Everything associated with giving that so the experiment can occur and then there's going to be the experiment itself. And so we'll probably have subgroup meetings when we get into aspects of this, especially as it pertains to aspects of the capability of the the system for.
+Implementing triggers for the machine protection systems. And so that's going to be separate. It's going to be important, but it's actually separable because the beam line has to protect itself, you know, independent of other activities as well.
+Yep.
+
+
+Michael Davidsaver   41:44
+OK. Uh, I think there's anymore here, I think.
+Well, I mean, I suppose we can just see what the actual end user interface wound up looking like for for most of this complexity in terms of what the the actual users wound up dealing with. It was not that many controls like they wanted a the the basic operation mode for the Linac was is it going to be going continuously or is it going?
+Going to be just sort of on request and this kind of goes into the thought that during the early commissioning phase, typically I think you're going to want to start with effectively just push to push for beam taking single shots, making sure that things behave properly to make because I mean.
+Making beam means making radiation, and there's going to be concerns about making sure that that is managed properly and that beam goes where it should.
+
+
+Mark Holl   42:36
+So So what we have are two different setups Michael. We have a compact X-ray light source beamline that is active where we are operate 1 kHz and we create 1 kHz X-rays by inverse Compton scattering.
+
+
+Michael Davidsaver   42:40
+Mhm.
+
+
+Mark Holl   42:53
+And so we will be, we're kind of currently behind sort of a firewall I'm putting up right now so that we can learn how to use the system. But as soon as we can, we're going to want to implement this to be able to provide these timestamps.
+And then just hook up one thing on an existing beam line at a time. And but we are gonna be operating up to one up one kHz is our base timing we we we designed the system for without and you've known that already so yeah.
+
+
+Michael Davidsaver   43:19
+Mhm.
+
+
+Mark Holl   43:24
+Yeah.
+
+
+Michael Davidsaver   43:24
+Well, I guess maybe a question when you say operating at a kilohertz, so every one of those shots would be treated the same.
+
+
+Mark Holl   43:31
+No, no, no. Well, no, because, well, every every shot would be treated potentially differently because consider a super simple oversimplified example, maybe not, where every single shot would actually have an image taken by the Eiger detector, which Diego's very familiar.
+With and others on the line and so the but perhaps it would only be every other shot. So you would actually have an event code that would be sent out where the first event code would take a bright shot and then you'd have a dark frame and a light frame and a dark frame. So there would be different.
+Event codes associated with potentially a block of repeating commands that would be issued by the event generator, and then the event receivers would be out there looking for their event codes to do what they're told if they get those event codes.
+That they're programmed to respond to, and so not every shot will be the same because the event receivers will be programmed differently for event codes that would be presented differently in perhaps a repeating sequence of say.
+
+
+Michael Davidsaver   44:42
+Yeah, OK, right. And and that's actually what what you're seeing here when it says one Hertz, what that's referring to is there is a separate table here of what one Hertz actually means. And what that means is each second, each time this one Hertz cycle plays out, there is this.
+It's expressed as a table here of event code and delay from the start of arbitrary start of that table. And so the idea is you know you wait and this is all again with the system expressed in like integer ticks based of this reference clock.
+
+
+Mark Holl   45:19
+Right.
+
+
+Michael Davidsaver   45:19
+And so like you'll start off first thing you do, there's some beam diagnostics that take a long you need a long pre-trigger. So start that off.
+Later on here pre pre-trigger for the RF as well and then down here there's in this case because of the there's a the SLM is synchrotron light monitor on the booster ring and this was a a special diagnostic camera that was they wanted to take pictures of the beam during the ramp up process because it might become unstable during that process and.
+This was arbitrarily picked that there were going to be 10 frames taken over the course of the ramp.
+
+
+Mark Holl   45:55
+Right. And so so whereas you have one second we'd we'd have one millisecond and and there may be for can it can the can the system do the following? I mean say for example we have.
+
+
+Michael Davidsaver   45:56
+And then I guess you have to go ahead.
+Well.
+
+
+Mark Holl   46:11
+Let's say every 10 frames we have a sequence of different events. Every every what you have a second here as your, you know, one Hertz cycle. We have, you know, millisecond cycle.
+And can you do a sequence of, for example on the first pulse of if you have 10 pulses in A-frame, can you have like one set of event codes for the first pulse, another set of event codes for the second pulse in terms of delays or things that would be happening and then you know reset every you know every 10 times you.
+Just cycle that 1010 frame loop or that 10 frame real real can you?
+
+
+Michael Davidsaver   46:49
+I I think that is what you'd wind up doing because the idea of having a a a short 10 millisecond sequence playing out repeatedly might be a little limiting. So I I think you would want a longer cycle, be it maybe one second. It may be too long, maybe it's a 10th of a second, maybe it's 100th of a second.
+
+
+Mark Holl   47:04
+OK, sure, yeah.
+
+
+Michael Davidsaver   47:05
+But but I think what that ultimately is going to play into is sort of not necessarily the, it's sort of the the.
+What on a human time scale you would want to have control over whether there's beam or not or where all beam could go is one of the other and I think you just have do you have any like like fast kickers or anything that would try to alter the the destination for the beam?
+
+
+Mark Holl   47:27
+No.
+No, no, not in this case. We don't have fast kickers, but what I'm thinking of is maybe it's a 10th of a second, maybe it's 100 frames of the the Eiger and then maybe we need to introduce 2 blank frames, you know, just as the cost of doing business. This is going back to Diego, I think is on the line where we're going to have to have.
+
+
+Michael Davidsaver   47:36
+Yeah.
+
+
+Mark Holl   47:48
+The equivalent of some sort of checksum to make sure that you know if we're losing frames or something from the digital control unit on the Eiger that you know we just we only lose 100 you know and we sacrifice you know 1% of our data you know just to make sure the checksum works out.
+You know, but I think that's that's been the working model for five years conceptually on the scribble. And so now it's it's really Diego and teams work to get it to work at a kilohertz. But anyway, yeah, so thanks.
+You're conforming that, for me at least at this level, that we can do what we need to do. So fingers crossed.
+Please keep going.
+
+
+Michael Davidsaver   48:31
+OK, well, let's see. I think I may be about done with this particular. I don't think there's anything else in here I was gonna show.
+Nope. OK, I think I'll stop sharing that one then.
+When I was going to jump over to the specifics about the cable of the quartz chassis for a first test.
+Because it seems like you have everything you would need to do to make that happen in terms of hardware and I think the sooner we.
+
+
+Mark Holl   49:04
+Well, can we can we take a moment now and have Alex at least show us some of what we've been doing over the last several weeks to to get everything set up so we have an ability to maybe if you can take the camera, Alex, and then I'll hand it over to you. But you know at the highest level we've we've got 4 cameras because we want to treat each of these.
+Simple cameras like an Eiger and we want to be able to add a kilohertz, trigger these cameras, produce data that we want to then collect, etc etc and then be able to reassemble it and we want to do it separate from other things. But anyways, Alex, you know.
+Been filing stuff to you and you and I've been putting it together, so maybe take us on a tour if you would please.
+Can you hear us, Alex?
+
+
+Michael Davidsaver   49:52
+That looks like he's muted.
+
+
+Mark Holl   49:52
+You're muted if you can. Yeah, you're muted, yeah.
+
+
+Alex Gardeck   49:55
+OK, can you hear me now?
+OK, so shown here are the quartz chassis that are racked and then just below the quartz chassis we've got a Linux server. That is what we intend to use to establish initial communication with the chassis.
+This server is also configured as a camera server, so we've got four cameras that we have set up currently that are connected to this server. So if I pan over here.
+Maybe running out of distance a little bit. Shown over there are four cameras that are set up in the rack. We've got our FS740 that is just here notionally.
+Hasn't been connected to anything yet in advance. We've also been collecting hardware to essentially get from the DB37 connectors on the front panel of the chassis to them.
+Breakout boards and then from these breakout boards going to BNC connectors that are just screw terminal, we've got a whole suite of DB37 cables to connect to the front panel.
+And then Mark brought in a whole suite of instrumentation of oscilloscopes, power supplies, spectrum analyzers. We've got some delay generators that are connected to our private VLAN. So we've got a whole suite of equipment that is.
+Set up and ready to go as we start getting things together.
+
+
+Mark Holl   51:41
+Yep. And so with that, and we also intend to, you know, we're gonna use have LEDs that are gonna flash, you know, very short pulses, you know, in front of the cameras. Really. Yeah, it's a toy problem, but it's the right way to start a toy problem simulating, for example, either an electron pulse or.
+
+
+Alex Gardeck   51:47
+No.
+
+
+Mark Holl   52:01
+Laser pulse or whatever, an X-ray pulse, and therefore it can be phased into a sampling interval with respect to a trigger in time from an event receiver. And so we've got kind of, I think, a marvelous training test bed here to work with. And so that means we can test things.
+Right. We can and we can test not just one thing. We can set up a whole bunch of stuff here to actually start to really test the things and get it working before we really, before we would even release it into the beamline per SE. Because then if we release it, it should do what it's told to do and it should be ready to.
+
+
+Alex Gardeck   52:37
+OK.
+
+
+Mark Holl   52:41
+Do it.
+Anyway, but that's what we have, David. And so we've got a lot of really good stuff here, I think to to work with and hook up, yeah.
+
+
+Michael Davidsaver   52:53
+OK then.
+
+
+Mark Holl   52:54
+Are you? Would you agree? I mean, this is if you're 'cause if you show your your GitHub thing, I I looked at that and if I and I said, well, good, we're gonna do that on steroids. OK, so go ahead and do that. Yeah.
+
+
+Michael Davidsaver   53:00
+I was just about to do that.
+Uh.
+OK, let me just put the URL for this into the chat as well.
+
+
+Mark Holl   53:15
+M.
+And you know, after we have this meeting also, I'll share a number of different conversations with everybody. Now I've shared it with Henrik and Alex and you know, Dario before, but I wanted to take the edge of this stuff first because I don't want people to expect more than they can reasonably expect from.
+From us just getting started, but I'll share then all this information just so you know it's fragmented and it's not perfect, but it's bits of the puzzle. I have like 15 emails and 15 different things I'll share and then we'll start getting stuff from David as well to this distribution, this e-mail list.
+I will share it, but I wanted to 1st just warn you, it's not perfect, so please don't expect it to be. And then I'll share it just so long as you're not judging it too harshly. We're just getting started. OK, yeah, go ahead, Dave.
+
+
+Michael Davidsaver   54:09
+Michael, by the way.
+
+
+Mark Holl   54:09
+Oh, I'm sorry. I just. I don't know why I said that. I'm Michael. Yeah.
+
+
+Michael Davidsaver   54:10
+Yeah.
+So what I'm showing you here is what we are using as the I guess called open hardware entry point GitHub repository for the the the quartz back chassis.
+
+
+Alex Gardeck   54:18
+Definitely.
+
+
+Michael Davidsaver   54:29
+So the idea is that this this is a jumping off point for all of the information related to these chassis. I mean for for references, this is all open hardware, so you can find you know KiCAD schematics and PCB layout for all of the different components inside this chassis as well as source.
+Code for all of the firmware.
+So, and this is something you're in all likelihood, we're going to be providing you with firmware updates, so this will be a process to understand. So the first thing I'm going to start with here is actually the actually this new system set up.
+Place down here in the middle.
+
+
+Mark Holl   55:09
+Yeah. And then I also understand that you know we are, we are buying some the the next generation digital chassis. So Alison and Eric Norum are working on that and as I understand it and so we will be getting firmware updates to crispen up like our our trigger signals and stuff like that.
+
+
+Michael Davidsaver   55:28
+Thank you.
+
+
+Mark Holl   55:29
+And and then also we'll be getting digital hardware that has just digital capabilities, but these marble chassis have more than the digital they have analog too. So go ahead, sorry.
+
+
+Michael Davidsaver   55:41
+Yeah.
+So if I click on this new system setup, I mean the the the court system is was designed as a stand alone ADC digital collection system.
+So just go right down here to the diagram first, because I think the first thing you're going to want to do is hook up a single chassis to match this diagram here, and this will allow you to exercise and convince yourselves that the chassis is working and will also require dealing with a lot of the software.
+and network infrastructure set up to make it work.
+So to look at this diagram, one of the important things is that the port system is based on a synchronization with the GPS receiver and this is actually done by way of this electrical pulse per second signal which would hook up to the the one of these ports chassis will be designated as the event generator node, no timing master node.
+And that's where you plumb the the pulse per second into that one only the all the other chats.
+
+
+Mark Holl   56:41
+So is it only the pulse per second because we have all the stuff to do this? Or is it does the 10 megahertz signal from this rubidium GPS disciplined rubidium source 10 megahertz? That's actually just gonna go into our low level RF or other systems.
+System, right? And our laser systems and it doesn't actually directly hook up to the the chassis, correct? The 10 megahertz.
+
+
+Michael Davidsaver   57:08
+Correct. It is. Yeah, that that will not be used. It only uses the pulse per second. I mean in internally there's a a a crystal oscillator that gets trimmed according to this pulse per second. So it actually does give you an absolute, you know, 125 megahertz frequency reference internally.
+
+
+Mark Holl   57:09
+Yeah.
+Right, that's.
+Right. And then this just disciplines it so it doesn't drift, right?
+
+
+Michael Davidsaver   57:29
+Correct. Yeah.
+
+
+Mark Holl   57:31
+OK.
+
+
+Michael Davidsaver   57:33
+So getting that plugged in, getting the the to start with the simplest connection you make is is one of the the fiber jumpers across the the front of the chassis. There are these eight LCLC fiber connectors and if you just jumper between 1:00 and 3:00.
+Which is to say it's the one that says EVR in and the the first port of the EVF out that is sufficient for a a self self-contained operation.
+
+
+Mark Holl   57:58
+Yeah, but you know we we can do that for sure. But we we are gonna wanna get our we have a rack of three and I wanna get, you know, the top one to be event generator and the other two to be event receiver.
+
+
+Michael Davidsaver   58:05
+Yes.
+Yep, Yep. And this is this is step one on getting to there. And then you'll also need Ethernet connection as well, which I I guess you must have. I didn't see if there was a switch there, but I'm I'm assuming there's a switch in that rack as well. So the the server box that you had would then be connected by the switch to the Ethernet as well.
+
+
+Mark Holl   58:13
+Yep.
+It's part of our our, our, our distributed network and our we just have to hook them. Yes, the answer is yes, there is a switch architecture and they are connected via the VLAN, yes.
+
+
+Michael Davidsaver   58:42
+Right. And the other piece of infrastructure you will need on the computing side or one of the others is an NTP server because this event generator node, in addition to receiving the the electrical pulse per second, it will also want to make queries to an NTP server, which is how it finds out the actual absolute time.
+
+
+Mark Holl   59:01
+Well, so I want to ask a question about that. In terms of the NTP server, that would be any server that we configure to be an NTP server, is that correct or what?
+
+
+Michael Davidsaver   59:01
+So.
+Mhm.
+Yes, yeah, it needs. It's in NTP version three and you know it needs to be synchronized ultimately back to the same GPS reference source, which is to take the GPS system as a whole. It doesn't necessarily have to be the same player. I believe your Rubidium source does not function as an NTP server.
+
+
+Mark Holl   59:32
+It does not, no. It's it's really just a it's a GPS disciplined source.
+
+
+Michael Davidsaver   59:33
+Well.
+Yeah.
+Yeah, and and ultimately that that's that's fine. I mean the precision of the system is derived from the the electrical pulse per second signal the the NTP querying to get the absolute time is as long as it's not like you know ridiculously long latencies, you know which on a a LAN I can't imagine that you would have such it should be fine.
+
+
+Mark Holl   59:58
+Well then my question is this. I don't see a connection from an NTP server to anything on this hardware interconnect diagram unless I'm missing something.
+
+
+Michael Davidsaver   1:00:06
+Yeah, correct it it's it's it's in this case it's kind of implicit because of the way that the GPS receiver is working here because the in this case I didn't explicitly put it on the diagram, but the assumption is the NTP server is actually running on this computer here.
+
+
+Mark Holl   1:00:20
+Uh huh. And then what does it do? How? How does it convey that information to the to the event generator in any meaningfully through the Ethernet port? Or is that is that is it?
+
+
+Michael Davidsaver   1:00:29
+Yes, the the the quartz chassis functions as an NTP client.
+
+
+Mark Holl   1:00:33
+OK, so basically as Alex showed has shown you, we have a server in the rack because I wanted a server functionality locally running Linux 9.5 which is the baseline build for what we're deploying with and so if we got.
+
+
+Michael Davidsaver   1:00:42
+Mhm.
+
+
+Mark Holl   1:00:51
+But you said it was. Can you and debriefing this meeting send me the NTP server requirements for that server because I need to get it on a list of things that we would. I'm gonna have research computing upgrade and verify.
+And I wanna make it available. So send the requirements for that to me or to me, not in the chat, so that I can get that work done on the server we have dedicated and so that we can record that as a set of requirements so that for future servers it's recorded as something we can put into the profile of a server.
+Configured for that function and then if you'll do that then we'll we'll get it done.
+
+
+Michael Davidsaver   1:01:31
+Well, I mean basic question, do you I mean do you have can that computer reach an NTP server now? Is it is it system clock synchronized?
+
+
+Mark Holl   1:01:37
+Well, it's possible, yeah. I mean, it can reach outward. And so we definitely can reach outward. Maybe the question is, maybe I stated it wrong. If there's an NTP server on campus at Research Computing, I want to get it from someplace that's authenticated. And then the question would be what would be the latency delays between that server and then?
+Getting back to us probably, I don't know how, I don't know what it is and so but it wouldn't be an NTP server would not be in our facility yet, but it could be something that Research Computing has established for their own synchronization needs. They don't need 1000 computers out there on their server racks with.
+Time stamps, they probably have one and so I just need you you to form for me the right question and then the right specification for what we need and how we can interface it with the marble chassis and then I'll get the answers for you for us.
+
+
+Michael Davidsaver   1:02:31
+OK, I will write you an e-mail to start that conversation.
+
+
+Mark Holl   1:02:32
+******.
+Thank you. Yeah.
+
+
+Michael Davidsaver   1:02:37
+Right, yeah, for for the purposes of this, the the essential thing is the the the quartz chassis which is configured as the event generator needs to have a NTP server can reach. It can either be running locally on this computer or elsewhere, but it needs some the part of the configuration that you put into this chassis.
+In addition to setting its IP address and the default gateway, you also set the IP address of an NTP server and actually.
+
+
+Mark Holl   1:03:01
+Excellent. I'm gonna actually start it. I'm gonna start a put it in the chat if you would. Well, it's just NTP. What version? NTP server? What?
+
+
+Michael Davidsaver   1:03:11
+It's a version three, I believe.
+
+
+Mark Holl   1:03:13
+3.0 Is it NTP server version 3?
+
+
+Michael Davidsaver   1:03:17
+Well, it's NTP. The NTP is the protocol and it's version three of the protocol.
+
+
+Mark Holl   1:03:21
+OK, NTP protocol.
+Version 3 and and we need to know if there's a research computing. I'll have an answer probably during this meeting 'cause I'm gonna go to Slack and I'm gonna, I'm gonna get get a line on Slack with Jonathan right now.
+
+
+Michael Davidsaver   1:03:37
+OK, I mean the. OK, fair enough.
+
+
+Mark Holl   1:03:40
+Just keep going. I'll I'll start a conversation with Jonathan.
+
+
+Michael Davidsaver   1:03:44
+All right, so the other just sliding down here slightly. Once you have one of these chassis set up for a a small number of additional chassis, the only thing you have to do is plug the EVR in on those other chassis to one of the unused EVF output ports on that first chassis.
+That's why I say once getting the first one set up is what most of the infrastructure is needed for. But once you have that first one set up, adding additional chassis is a a simple process, at least up to.
+
+
+Mark Holl   1:04:15
+So you can only fan out to. So you you have to burn one of your fan out as an input. No, wait a minute. So let's go back up if we have a marble chassis, the event, the event receiver in.
+OK, so we have a total of 3456, only six fan out ports.
+
+
+Michael Davidsaver   1:04:33
+Yeah.
+Yes.
+
+
+Mark Holl   1:04:40
+OK, on on each one. OK, alright.
+
+
+Michael Davidsaver   1:04:43
+Yeah. And again, if you want more than that, I mean the reason for having the forcing the external loop back is part of the design of this system is to achieve a an approximately the same path for the timing stream for from the generator node to each of the receivers including the generator node which is where the receiver.
+Which is within the generator node. It functions both as the timing generator and also it does reception and sampling locally and to try to maintain a constant phase relationship between every node.
+That is, you try to maintain a a fixed path and that's why for the simple node, go ahead.
+
+
+Mark Holl   1:05:21
+This.
+Does it? Does it compensate for fiber length by sort of any kind of read back or ping back in any? No. OK, thanks.
+
+
+Michael Davidsaver   1:05:31
+No.
+No, that that's why you do handle that externally and why with the larger system you would then have a a a second, a second level of nodes to give you a three, you know 3 levels total and the the the the fibre scheme arranged here maintains that same length in terms of number of hops.
+
+
+Mark Holl   1:05:37
+5.
+I see. So you'd actually need to go to a distal node and then that with that you'd be able to compensate for any time delays that would be distance based.
+
+
+Michael Davidsaver   1:06:04
+Yeah, I mean the the main delay is actually the is not the the fibre length really, it's actually the propagation time through the the logic inside the FPGA chip in one of these nodes.
+
+
+Mark Holl   1:06:04
+Yeah.
+Mm-hmm. And this gives you, yeah. And so for for, for us, at least I'd say in the foreseeable future, we're gonna be able to get a lot of distance. We should do a whole system with one event generator.
+And at most six event receivers, because our beam lines are just not that long and then we would fan out from those to to get a lot done, I'd say.
+
+
+Alex Gardeck   1:06:38
+Well, I think it's five, right? You can have five event receivers because that first port has to be the internal loop of the one to three, so it.
+
+
+Mark Holl   1:06:46
+Uh.
+OK, yeah, very good. Then. But I think we're still gonna get a lot of what I look forward to.
+5 not being enough. That'll be a happy day and that's probably, you know, I'll be thrilled if we use up all of our triggers on five event receivers, that that would be fantastic.
+It means we're really using the system and then then we'll expand it if we need to.
+If it's working.
+
+
+Michael Davidsaver   1:07:18
+OK. So I I guess are are we clear on the the the interconnects that would be needed for this first chassis? Because that that seems to me like the the the obvious next step after this meeting is to try to get you guys started on what you need to do to start talking to that first chassis.
+
+
+Mark Holl   1:07:35
+Well, but do we have to do one to three if we're going to? Yeah, I guess we do have to do one to three, even even even for the event generator.
+
+
+Michael Davidsaver   1:07:39
+Yes.
+Correct. Yes.
+
+
+Mark Holl   1:07:45
+OK, well then I think The thing is.
+
+
+Alex Gardeck   1:07:47
+Well, only for the event generator. I think you have to do that and then you would go from to hook up an EVR. You would go from 4 to the EVFNI would say right to port 2 for the receivers EVR in.
+
+
+Mark Holl   1:07:53
+Mm-hmm. Yeah.
+
+
+Michael Davidsaver   1:07:58
+But it's it's EVRN.
+
+
+Mark Holl   1:08:00
+Yeah, EVRN. Yeah, yeah, yeah.
+
+
+Alex Gardeck   1:08:02
+Is what the OK?
+
+
+Mark Holl   1:08:05
+Yeah, that makes sense. Well, so I don't want us to to walk away from the meeting. We have time together. Is there any way we can actually try to talk to the first chassis and get its IP address and its gateway, you know, get its network identity established so we can talk to it?
+
+
+Michael Davidsaver   1:08:22
+Oh yes, yeah, that that's separate from this. The there's actually it's not shown on this diagram, but there's a micro USB port on the back of each of these that allows you to talk to the the microcontroller which handles some of the the bring up of the FPGA.
+
+
+Mark Holl   1:08:22
+That's, that's, yeah.
+
+
+Michael Davidsaver   1:08:37
+And the IP address and IP net mask gateway and the are configured through that interface.
+
+
+Mark Holl   1:08:43
+Yeah, so I sent all that information to checked it out to Alex this morning. So we have it in the master table and we have all that information is I I'd like to do that in real time and we've got some time. Can you walk us through it? Can we do it?
+
+
+Michael Davidsaver   1:09:04
+Well, I mean, I I guess I'll leave it up to you whether we do that with such a large audience, but I was gonna propose I'll run through.
+
+
+Mark Holl   1:09:08
+Oh, well, I mean, I think everybody wants it's it's up to them. People can stay or leave to their heart's content. But I want to get this done. And so let's let's just step forward into getting this thing powered up and.
+Seeing if it's alive, we've got all the fiber optics, we've got everything.
+
+
+Michael Davidsaver   1:09:25
+OK, yeah, I guess.
+Have you, I guess have have you actually powered it on? I mean at the very least the the the power LED should come on if you apply the the the 12 Volt power and then flip the switch.
+
+
+Mark Holl   1:09:36
+Have we done that yet, Alex, 'cause it's all there and we got it all set up to do it. Have we powered them on?
+
+
+Alex Gardeck   1:09:42
+I have not. I will. I can do that right now. Is my iPad camera showing up or is it only the webcam right now? It's.
+
+
+Mark Holl   1:09:50
+Yeah, no, we see the iPad camera. So let's actually, let's actually do this in real time. I wanna, I wanna spend the next hour getting this thing, you know, working. Turn it on. Let's see what we can accomplish in an hour.
+
+
+Alex Gardeck   1:09:54
+OK.
+
+
+Michael Davidsaver   1:10:05
+Like, I suspect we're not going to get much. Well, it before when we get much beyond flipping the power switch, the rest is going to require it. I mean, we can flip the power switch and set the IP address and you can ping it that we can get through without any additional software.
+
+
+Alex Gardeck   1:10:08
+Thank you. Thank you.
+Yeah.
+
+
+Mark Holl   1:10:18
+That's it.
+
+
+Alex Gardeck   1:10:18
+Yep.
+
+
+Mark Holl   1:10:21
+OK, well then let's.
+
+
+Michael Davidsaver   1:10:21
+Beyond that point, there'll be some setup cost for getting additional software put on there and built and connected. And I mean, I'm I'm quite happy to work through that, just I want to make sure your expectations are set correctly.
+
+
+Alex Gardeck   1:10:23
+Mhm.
+
+
+Mark Holl   1:10:29
+Uh.
+Yeah, I'm all about expectations. Let's get the Yeah, but let's get them powered on. Let's get the IP addresses. Let's make it a working meeting and let's get all of them talking. Make sure that they're working. And then we'll say, OK, now we're here. What's the next step? I just, I want to.
+
+
+Alex Gardeck   1:10:40
+OK, so.
+
+
+Mark Holl   1:10:49
+The thing I'm gonna be facilitating is I'm gonna make sure that we maintain a nice, smooth, manageable momentum. We have to keep this thing moving and I'm really excited to see it moving. So that's gonna be my objective to work with with you, Mike.
+With with you, Michael, on that. So let's, uh, let's get them all turned on.
+
+
+Michael Davidsaver   1:11:10
+The Alex, if you if you're we, we can't actually see, at least I cannot see what you're pointing that camera at. I I just see this a side view of you from your computer.
+
+
+Mark Holl   1:11:19
+No, no. If you have to go to the arrow, if you go to the arrow at the top and you scroll to a different, there's too many people. If you scroll, you'll find an image from him as well. He's on twice. He's on, he's on twice.
+
+
+Alex Gardeck   1:11:20
+It's not.
+
+
+Michael Davidsaver   1:11:30
+Maybe I can.
+
+
+Mark Holl   1:11:34
+Michael.
+
+
+Michael Davidsaver   1:11:36
+Yeah, well, I'm trying to find that and I don't feel.
+
+
+Mark Holl   1:11:38
+Is at the very top where do you have at the very top a bunch of pictures of people?
+
+
+Michael Davidsaver   1:11:43
+Uh, well, I I see.
+
+
+Mark Holl   1:11:46
+But there's like a right curay and a left curay and you need to scroll, you know.
+
+
+Michael Davidsaver   1:11:52
+I see nine people, I see nine names on the meeting here and I see Alex only in there once. I know he would. He would appeared earlier in there twice, but I think one of them may have dropped off.
+
+
+Mark Holl   1:12:01
+Oh, let's see. Do I only see him once? Well, I I only see him once either as well. And so he's only on there once, but then I see his his image.
+
+
+Alex Gardeck   1:12:08
+Hmm.
+You do see the the iPad if I maybe if I turn the camera on.
+
+
+Mark Holl   1:12:14
+Oh, I see the key is.
+Yeah, I see you walking around pointing that I've had at everything.
+
+
+Michael Davidsaver   1:12:17
+There we go.
+
+
+Alex Gardeck   1:12:19
+Now it's on. Now you can see the iPad view as I pan it.
+
+
+Michael Davidsaver   1:12:24
+Yes, I I do.
+
+
+Alex Gardeck   1:12:25
+OK, awesome. So I put the switch, we got a light on the front panel, so that's really good.
+
+
+Mark Holl   1:12:26
+OK, good.
+
+
+Michael Davidsaver   1:12:29
+Yeah, hey.
+
+
+Mark Holl   1:12:31
+Yeah, let's let's light them all up. Let's light them all up, Alex. I want to see them all light up. Yeah, I want them all. Yep.
+
+
+Alex Gardeck   1:12:34
+You want to let him up?
+
+
+Mark Holl   1:12:39
+Yeah, it's gonna be very interactive. Just take your time.
+Speed up layer.
+
+
+Alex Gardeck   1:12:46
+OK. And you can see our our ground cables were jumpered, jumpered and then we have a nice bus bar that everything is grounded to right near the setup.
+
+
+Michael Davidsaver   1:12:51
+Um.
+OK, looks good.
+
+
+Alex Gardeck   1:12:59
+And.
+Power is applied now to all three. I'll come back around and make sure we got nice green lights, which we do.
+
+
+Michael Davidsaver   1:13:14
+OK, presumably you hear the fans turning as well. There should be two fans, one on each side, pulling air through.
+
+
+Alex Gardeck   1:13:18
+Yep, Yep.
+Yep, I can hear that. I can feel it too.
+
+
+Michael Davidsaver   1:13:25
+OK. All right. That's probably all we can do from this perspective.
+
+
+Alex Gardeck   1:13:28
+Yep, the.
+Exhaust is on this side, intake is on the other side.
+
+
+Michael Davidsaver   1:13:33
+Yeah.
+
+
+Alex Gardeck   1:13:36
+So I can get all that. I did grab a nice long micro USB cable, so I'm assuming that we'd probably prefer to plug this into a Windows interface. Or do you? Should we plug the micro USB into our Linux?
+
+
+Michael Davidsaver   1:13:44
+OK.
+I think it's the easiest to do it with the Linux system since it's right there as long as you can reach it by a terminal. I mean the the when you plug this in the the what you're what you're connecting it to. There is a internally one of these FTDI multi serial port to USB interfaces.
+Though it will appear as four virtual serial ports once you connect it.
+
+
+Mark Holl   1:14:20
+We may need some hand holding on that, but can you log into that? Yeah, I know you can, but would you log into that server Alex and then and then we'll need to um.
+
+
+Alex Gardeck   1:14:25
+Yes.
+Yeah, and I've I'm logged into it onto the machine that I'm joined the meeting from, so I'll be able to share my screen where we've got.
+
+
+Mark Holl   1:14:35
+Yeah, he loves doing that.
+
+
+Alex Gardeck   1:14:39
+So we also do have the. I think the micro USB cable that I have is long enough to get back to the windows, but we'll start with a just Linux as suggested.
+
+
+Mark Holl   1:14:40
+Perfect.
+Oh.
+Yeah. And then and then you we we we got it set up so that you can run. Can you run teams from that? Oh, you're you can run, you can run teams.
+
+
+Alex Gardeck   1:15:01
+Yes, it I'm gonna go to the SSH. I've got the the virtual desktop.
+
+
+Mark Holl   1:15:06
+Yeah, you're gonna SSH from the. Yeah. So you're gonna SSH from the the Windows machine, yeah.
+
+
+Alex Gardeck   1:15:13
+Yep, and I've already got that. I just need to.
+
+
+Mark Holl   1:15:15
+OK, great. So you'll be able to then, um, pull up the screen by sharing on teams. Excellent, yes.
+
+
+Alex Gardeck   1:15:21
+Which I'm gonna have to do 'cause there's only one USB port on this, so we're gonna need that anyways. OK, I can see as soon as I connected it, I've got. I guess I can probably show it with my camera decently well.
+
+
+Mark Holl   1:15:28
+You know, do it, do it one at a time.
+
+
+Alex Gardeck   1:15:40
+So the server.
+
+
+Mark Holl   1:15:40
+That sucks. Yeah, it's not very good. Can you? Yeah, yeah, let's.
+
+
+Michael Davidsaver   1:15:41
+OK.
+
+
+Alex Gardeck   1:15:43
+Immediately it popped up. It's not very good, but it at least it showed the the serial device devices connected on.
+
+
+Mark Holl   1:15:49
+Yeah, yeah, let's let's get logged in so that we can see that everyone in a way where we can see it because yeah, it's it's you're it's.
+
+
+Alex Gardeck   1:15:55
+OK, so.
+
+
+Mark Holl   1:16:01
+You got too much jitter.
+
+
+Alex Gardeck   1:16:05
+OK, would you prefer? I've got essentially a virtual desktop of the server that's open as a real VNC right here. I also then just have a SSH session into the terminal. Do you have a preference on that Michael?
+
+
+Michael Davidsaver   1:16:21
+No, really, not really any preference. I mean, we're we're gonna get some stuff there. Well, if we get far enough, there'll be stuff which requires actual GUIs, but we are not there yet.
+
+
+Alex Gardeck   1:16:32
+OK, well we'll we can just use the command line from the real VNC session for now. I'll share my screen here.
+
+
+Michael Davidsaver   1:16:41
+OK. And as a terminal program, I would suggest just do the Python serial if you have that installed or if are are you able to install additional software on this system?
+
+
+Mark Holl   1:16:54
+Oh, we can, but probably it's something that we that I would. If there's something you would that's needed for this environment, let me know what it is and let me know where to access it. And then I'm gonna actually ask Research Computing to do it.
+The reason is I want them to authenticate and be responsible for the installations and I want a record of the installations and by submit.
+
+
+Michael Davidsaver   1:17:17
+Yeah, for for reference at the at the system level, everything I would be asking you to install would be. I guess these would be Red Hat, so these would be RPM packages from the Red Hat repository.
+
+
+Mark Holl   1:17:28
+Yep, I'm gonna ask you to be very specific in an e-mail about it.
+
+
+Michael Davidsaver   1:17:32
+Well, it just we're we're we're getting to the point where I'm gonna I need something installed now if we're gonna continue. That's why I'm stating this.
+
+
+Mark Holl   1:17:37
+Oh, well, I mean, go ahead. Yeah, you can go ahead and do it if you if you know how to do it. Let's do it right now then.
+And then I've got a recording of it and I'll debrief it later.
+
+
+Michael Davidsaver   1:17:44
+Let's see.
+Yep. All right. So then, yeah, I believe it's Dudu DFN install. Do I remember the name of that? Because I I typically use Debian derivatives. Yeah, DNF and.
+
+
+Alex Gardeck   1:17:58
+The an app, right? And.
+
+
+Michael Davidsaver   1:18:08
+Actually you might have to do search first because I I'm trying to remember because this is the one package where I don't have a pre list of what the the package names are. So do search.
+And then it'll I'm sorry, the sudo DFN search.
+
+
+Alex Gardeck   1:18:26
+DN app or DFN? I think it it's N app, right?
+
+
+Michael Davidsaver   1:18:30
+I would yeah DNF is what I'm I I should be saying and then search and then Python dot asterisk serial.
+
+
+Alex Gardeck   1:18:33
+It.
+Just like that.
+
+
+Michael Davidsaver   1:18:44
+Just like that.
+Oh goodness. Hey Diego, do you remember what what what this name is on in Red Hat World?
+I know and and Debbie and it's Python 3 dash serial.
+But that's not going to help us right now.
+
+
+Diego Omitto   1:19:11
+No, I don't remember.
+
+
+Michael Davidsaver   1:19:14
+All right, hang on a second.
+Find this out.
+
+
+Alex Gardeck   1:19:23
+Is Henrik still in the meeting? Mark, can he use chat? He can't talk, but can he use chat?
+
+
+Mark Holl   1:19:26
+He's in, but he can't talk. Yeah, he's.
+I don't know. Hendrick, can you use chat? Please chat. You should be able to.
+
+
+Alex Gardeck   1:19:32
+And.
+
+
+Mark Holl   1:19:44
+Are you there, Henrik? Can you let us know you're there in in the chat? Is he here? I don't know what's going on.
+Yeah, he's here, but uh.
+He's not chatting. Anyway, let's just keep going.
+What are we waiting for right now?
+
+
+Michael Davidsaver   1:20:10
+I just need to find the package name for a serial terminal. I mean if you have another serial terminal program already installed on here that that would work as well.
+
+
+Alex Gardeck   1:20:10
+We need the command.
+
+
+Mark Holl   1:20:17
+Now.
+I don't think so. Let's let's actually do what you're familiar with and we'll become familiar with it as something to use. Um, and then we can compare it to other things if we wish it.
+But I want you to be comfortable with the tools that you know, because we'll use that.
+How is typing?
+What are you typing now? You can unmute.
+
+
+Hao   1:20:46
+Oh, I I just found the GitHub, GitHub of Pythere. I just wondering if you guys are talking about that. See if that's any.
+
+
+Michael Davidsaver   1:20:52
+I believe we are. There's a the the the simple way to get that is from the RPM or from the the the Red Hat repository. It's just I don't remember what the package name is.
+
+
+Hao   1:21:02
+Uh, I can. I will type a link. Is that what you're talking about?
+
+
+Mark Holl   1:21:06
+Buy cereal. Is that it?
+
+
+Michael Davidsaver   1:21:09
+Yeah, that that's the name of the the Python module, but they're Red Hat provides that. I'm pretty sure the Red Hat provides that.
+
+
+Mark Holl   1:21:18
+Well, this is a Rocky Linux, but I guess the red hot is an echo of that.
+
+
+Michael Davidsaver   1:21:24
+That would. I think it's the other way around, but yeah, it's so.
+
+
+Mark Holl   1:21:24
+That is.
+Uh, that's correct. That's right. Yeah, that's right.
+
+
+Michael Davidsaver   1:21:31
+OK, OK, so the CentOS name for it is it's. Yeah, it's Python 3 dash Pycereal.
+And try that and.
+
+
+Alex Gardeck   1:21:40
+Yeah, so these are the what just got created.
+
+
+Michael Davidsaver   1:21:47
+All right, if you look in the chat, this is the last command I'm going to try here and then we're going to look try to find some other terminal program or perhaps defer this and I'll I'll send you a list of system packages.
+
+
+Alex Gardeck   1:21:48
+When I spoke to them.
+
+
+Mark Holl   1:22:04
+Well, I'm fine with that. You know, if there's a list of system packages, we can actually conserve on, you know, consulting hours and give us work to do. We've made it this far. We've put it on, we've noticed that the devices are showing up.
+Um, so yeah, let's let's just go ahead and um.
+
+
+Michael Davidsaver   1:22:23
+Actually, if you could still see the screen that I'm sharing, or can you still see the screen that I'm sharing? I actually probably can't. All right, you want.
+
+
+Mark Holl   1:22:28
+Well, no, he's no, you're not. You're not sharing. Alex is sharing to my knowledge.
+
+
+Michael Davidsaver   1:22:32
+OK, one at a time. Oh, uh, did did it work?
+
+
+Alex Gardeck   1:22:35
+Yeah, it worked.
+
+
+Michael Davidsaver   1:22:36
+All right. OK, so the search just didn't find that for some strange reason. All right, fine. OK.
+So actually at this point can we can we do a little switch? Cause I I should do a screen share because I do have documentation covering this that we should look at first.
+OK, so.
+
+
+Alex Gardeck   1:22:54
+Yep, I.
+
+
+Michael Davidsaver   1:22:56
+Going back to the Launchpad repository here, the there was one section here under chassis setup and recovery, which I'll point you to. I guess it's just as a oh, I don't. There's a lot here on this page that you do not need to do or.
+
+
+Alex Gardeck   1:23:01
+1.
+OK.
+
+
+Michael Davidsaver   1:23:12
+Should not need to do it unless something has gone significantly wrong. The only thing that you need to worry about here is the section for setting IP and I guess optionally if you want to change it the Mac address as well, but I don't think you'll need to. So when you connect the USB, this is the bit where the four virtual serial ports will appear.
+The one you're going to be concerned with is the 4th.
+
+
+Mark Holl   1:23:34
+Let me ask about the Mac before you proceed. Do they they they don't all have the same Mac address? I hope. I hope you assign them valid Mac addresses.
+
+
+Michael Davidsaver   1:23:34
+Which depending upon the numbering.
+No, they they they have a unique Mac address based on the device serial number.
+
+
+Mark Holl   1:23:46
+OK.
+
+
+Michael Davidsaver   1:23:51
+So if you connect via here I have the example of the Python serial, so it's just your Python dash sham serial, then whatever the the the 4th of the four virtual serial ports it appears the the 115200.
+And you can connect on there and when you get to that you'll see a it's a little like this is sort of a abbreviated version. If you type in question mark, you'll get a list of commands. The ones that are immediately relevant are is M for setting the IP address and N for.
+I guess in this case you wouldn't be setting the Mac address, so just M for setting the IP address and I think there's another one for setting the the net mask as well.
+
+
+Alex Gardeck   1:24:36
+OK, and I can share my screen with that has both the virtual machine and your this document so that we can be looking at both simultaneously.
+
+
+Mark Holl   1:24:37
+Oh, where is that?
+Oh, that's perfect. Yeah, that's really good. Let's do that.
+
+
+Michael Davidsaver   1:24:47
+OK.
+All right, I will stop sharing.
+
+
+Alex Gardeck   1:24:54
+OK, so let's just go.
+
+
+Mark Holl   1:25:06
+Perfect.
+What's up, Dean? There's dead air. You're typing something. What's going on?
+Go ahead and verbalize it as well, Dean.
+Hey Dean, can you unmute? What are you typing?
+
+
+Alex Gardeck   1:25:25
+So.
+
+
+Mark Holl   1:25:31
+What's that your mind mean?
+
+
+Dean Smith   1:25:31
+Uh, I've nothing. I just found it. It's it's it's a moot point now 'cause you got the Pi serial installed. I was gonna say I found the um, the repository or whatever.
+
+
+Alex Gardeck   1:25:38
+OK.
+
+
+Mark Holl   1:25:40
+All right, right on. OK, got it.
+
+
+Alex Gardeck   1:25:43
+OK, so seemingly it is configured the same way as you as what's in the example here with the USB 3 being the 4th entry. So that's how it was. So I'm gonna go ahead and just.
+
+
+Michael Davidsaver   1:25:55
+Mhm.
+
+
+Alex Gardeck   1:26:00
+Copy and paste. That's gonna be our first command, correct?
+
+
+Michael Davidsaver   1:26:03
+Correct.
+
+
+Alex Gardeck   1:26:05
+OK.
+
+
+Michael Davidsaver   1:26:07
+And well, that's weird.
+You did do AI, just sorry, I can't see. You just did Python 3. Well, I oh, I try to make that instead of Python. Make that Python 3 'cause maybe you still have Python 2 installed on here as well.
+
+
+Alex Gardeck   1:26:19
+Uh.
+
+
+Michael Davidsaver   1:26:23
+I'm sorry, just just just up arrow once.
+
+
+Alex Gardeck   1:26:23
+Oh, it it did say Python.
+
+
+Michael Davidsaver   1:26:27
+Just read instead of just.
+
+
+Mark Holl   1:26:28
+On your command uh.
+
+
+Michael Davidsaver   1:26:30
+So alright, click clear the line please.
+
+
+Mark Holl   1:26:31
+Alright, so go ahead.
+
+
+Alex Gardeck   1:26:32
+The.
+
+
+Michael Davidsaver   1:26:34
+Press return OK.
+
+
+Alex Gardeck   1:26:36
+Oh.
+
+
+Michael Davidsaver   1:26:38
+Up arrow once.
+Change Python to Python 3.
+
+
+Mark Holl   1:26:44
+At the very beginning of the line.
+
+
+Alex Gardeck   1:26:46
+Yes.
+
+
+Dean Smith   1:26:50
+Oh.
+
+
+Alex Gardeck   1:26:53
+Quadrate 115200.
+
+
+Michael Davidsaver   1:26:58
+Well, what on earth is going on here? I saw you install it.
+
+
+Mark Holl   1:27:01
+Henrik Henrik is is typing in here on the chat here.
+
+
+Michael Davidsaver   1:27:12
+What sort of this? What sort of Linux variant is this?
+
+
+Mark Holl   1:27:15
+Rocky Lenox 9.5.
+
+
+Michael Davidsaver   1:27:18
+K Linux 9.5 alright.
+
+
+Mark Holl   1:27:24
+It should be, unless somebody made decisions on their own to say, oh, there's something later, but yeah, should we can can we check it? Can we just query? Let's check the install.
+What's the command to check the current um version?
+
+
+Michael Davidsaver   1:27:47
+Oh, goodness. Let's see that's.
+That's one of those distribution specific things. I think it'll probably probably cat CAT space slash ETC slash and then I think it's like rocky something and hit tab. I'm sorry, leading slash in front of ETC. That's the start of the route.
+
+
+Mark Holl   1:27:54
+Yeah, and Henrik, uh.
+
+
+Michael Davidsaver   1:28:11
+And I think it's rocky with a lowercase R.
+If you just hit tab at this point. Oh, there we go. Alright, so press return.
+
+
+Mark Holl   1:28:17
+Uh.
+
+
+Michael Davidsaver   1:28:21
+All right, 95.
+
+
+Mark Holl   1:28:21
+Yeah, so Hendrik is saying there's a minimal Rocky 9 Python 3 need needs Python 3 invocation. I could do a pseudo alternatives configure Python.
+
+
+Michael Davidsaver   1:28:32
+Well, we I we did invoking it directly with Python 3 also did not appear to have the effect. So this is this is strange because I can clearly see that he has installed the Python 3 version of the Pyserial module as an RPM.
+Which should place it in the default search path. Unless this Python is not the system Python, we do we do this if you the word type.
+I I just put this command in the chat. That might be easier because it's a little awkward to say type type and then space Python 3.
+
+
+Alex Gardeck   1:29:07
+Mhm.
+
+
+Mark Holl   1:29:08
+Yeah, you just wanna have have him type Python 3 and return it?
+
+
+Michael Davidsaver   1:29:14
+Yes, you could. There we go. And it is all right. That is the system. That's weird.
+What is going on here?
+Let me see if I can find myself a this thing.
+There we go. That'll download.
+This is puzzling. Why on earth?
+
+
+Mark Holl   1:29:58
+I mean, we can also, obviously we can also, Michael, make things available to you with this thing on the network so you can log into it. In fact, you should be able to log into it in this as you see currently just.
+
+
+Michael Davidsaver   1:29:59
+Would you not be?
+Oh is there a a post name or IP address for that that I can add to my list of devices?
+
+
+Mark Holl   1:30:20
+Yeah, yeah. So yeah, can you just give him the IP address for for this machine?
+
+
+Michael Davidsaver   1:30:27
+But in in the chat please.
+
+
+Mark Holl   1:30:29
+Yeah, Alex.
+
+
+Alex Gardeck   1:30:31
+Yep.
+
+
+Mark Holl   1:30:32
+Because because you can be because you have 40 net access, you're already working on a source V line machine and this is a CX alpha EL source. You can also get to the CXFEL this machine and log in with the CXFEL.
+The DEV account just like you can on the other one.
+
+
+Michael Davidsaver   1:30:52
+Uh, OK, so same credentials. All right.
+
+
+Mark Holl   1:30:54
+Yeah, exactly.
+
+
+Alex Gardeck   1:30:55
+And then for.
+
+
+Michael Davidsaver   1:30:58
+And is there a host name for this one that I can just put to my notes?
+
+
+Mark Holl   1:31:00
+No, we don't have host names yet, no.
+
+
+Michael Davidsaver   1:31:03
+OK, so I'll just put this down as quartz server for the moment.
+
+
+Alex Gardeck   1:31:03
+We'll be in.
+
+
+Mark Holl   1:31:13
+Naming things is something we'll get to eventually, but mountain ranges and other things are.
+
+
+Michael Davidsaver   1:31:19
+Indeed, indeed, that's one of the hard problems.
+
+
+Mark Holl   1:31:21
+Not interesting to me yet.
+I just want to get things functioning. I don't care about the cute stuff yet.
+
+
+Michael Davidsaver   1:31:37
+OK, sorry, I've just.
+Started up at the.
+Container here. Let's see I do DFN install the same command I just did, so then I do Python 3.
+
+
+Mark Holl   1:31:44
+Um.
+
+
+Michael Davidsaver   1:31:51
+OK. Yes.
+
+
+Mark Holl   1:32:11
+Yeah, and if this does come to the the point where there's some just mucking around on the machine that you need to do and then just keep track of anything and everything.
+
+
+Michael Davidsaver   1:32:19
+Oh, you know, I I think I see what it is. It's just you this it's it's I I guess I shouldn't be surprised. It's Red Hat, so it has an older version of everything.
+
+
+Dean Smith   1:32:25
+6.
+
+
+Michael Davidsaver   1:32:30
+Let me see. That's just it's they they it used to be less convenient. It is what it is.
+
+
+Dean Smith   1:33:21
+Mm.
+
+
+Mark Holl   1:33:28
+So you've got one session going, Alex, and you've got another one going also, Michael, by now, right?
+
+
+Michael Davidsaver   1:33:34
+Well, I'm just running something locally on my computer and I'm trying to figure out what the old name for that was.
+
+
+Mark Holl   1:34:09
+This is good.
+A breakthrough.
+Stop.
+
+
+Michael Davidsaver   1:34:26
+OK, there we go. All right, so I'll I'll paste the variation of this into the terminal. It's just got a longer name.
+O instead of justice M serial, it's mserialtoolsminiterm.
+
+
+Mark Holl   1:34:43
+Alex Woo.
+
+
+Alex Gardeck   1:34:43
+Do I need those dot dot dots?
+
+
+Michael Davidsaver   1:34:46
+That's just what you did after the the the same serial port and pod rate.
+
+
+Alex Gardeck   1:34:52
+Uh.
+
+
+Michael Davidsaver   1:34:53
+Sorry, should just copy that as well.
+
+
+Mark Holl   1:34:54
+And then, Alex, after we're done with this, I'd like you to record the command line mode history and let's.
+Capture that.
+
+
+Michael Davidsaver   1:35:03
+Well, I will be updating our documentation as well because I realize I have a gap here. I've got pretty much copy paste for every step after this process, but I just was assuming that this would be an easy thing to get installed.
+
+
+Alex Gardeck   1:35:05
+OK.
+OK, so just like this here, Michael is OK.
+
+
+Michael Davidsaver   1:35:19
+It's like this.
+
+
+Alex Gardeck   1:35:22
+Blender girl.
+
+
+Michael Davidsaver   1:35:26
+You didn't even need Sudo for that one, but alright, it doesn't matter.
+
+
+Alex Gardeck   1:35:28
+Thank you.
+
+
+Michael Davidsaver   1:35:31
+OK, there we go. Now Tye question mark and ress return.
+
+
+Mark Holl   1:35:37
+Huh.
+
+
+Michael Davidsaver   1:35:38
+Fitness.
+
+
+Alex Gardeck   1:35:42
+Help maybe control T control H is that?
+
+
+Michael Davidsaver   1:35:48
+Well, that's that's for the the the terminal program itself. If you just see if you just hit return, what happens?
+
+
+Alex Gardeck   1:35:50
+Mhm.
+
+
+Michael Davidsaver   1:35:59
+Goodness.
+All right, this is really weird 'cause yeah, like question mark return should print the the menu that is.
+
+
+Alex Gardeck   1:36:40
+OK.
+
+
+Michael Davidsaver   1:36:46
+All right, I you know, I I think at this point I'm gonna have to pull the cord on this one, cause clearly there's something weird going on here. It's gotta be something about the fact that this is Rocky Linux and this this different version of PIE serial is behaving strangely.
+
+
+Alex Gardeck   1:37:03
+Can I try this control T for menu?
+
+
+Mark Holl   1:37:03
+So is this something that?
+
+
+Michael Davidsaver   1:37:06
+Yeah, by all means, yeah, you can go ahead. I mean that that'll give you the menu for the terminal program, which I don't think there's gonna be any real relevant options there.
+
+
+Alex Gardeck   1:37:16
+Yeah, it's not even.
+
+
+Mark Holl   1:37:19
+So control T is not.
+
+
+Michael Davidsaver   1:37:19
+Actually, you know what? Duke, get out of this. Maybe run it without Sudu. I I that really should not make a difference. I mean, it should be oh goodness.
+
+
+Alex Gardeck   1:37:27
+What is?
+
+
+Michael Davidsaver   1:37:30
+Well, all right, so just you should do. It should be control and then the right square bracket.
+
+
+Alex Gardeck   1:37:30
+How do I exit?
+
+
+Michael Davidsaver   1:37:38
+But I think this OK, there we go. All right, so that there it clearly did recognize that command.
+I guess run it again without sudo. Yeah, I don't really expect this will make a difference.
+Oh, I get. All right. Well, fine. For the permissions issue, fine. So you do have to run it with Sudo. That's what on earth is going on here.
+
+
+Mark Holl   1:37:59
+So are you saying, Michael, that you need some private time with the machine to sort some stuff out?
+
+
+Michael Davidsaver   1:38:07
+Yes, because this is behaving really strangely. It's like this terminal program is injecting extra characters which.
+Maybe you can do that?
+
+
+Alex Gardeck   1:38:18
+I guess we could do an attempt of just doing it through an SSH versus this virtual desktop and see if that's any different.
+
+
+Michael Davidsaver   1:38:26
+That will not make any difference whatsoever.
+
+
+Alex Gardeck   1:38:27
+OK.
+
+
+Mark Holl   1:38:31
+OK, well then I I would say that at this point, um, in order to take next steps we have to be able to get past this and you you have access to the server.
+
+
+Michael Davidsaver   1:38:38
+Yep.
+
+
+Mark Holl   1:38:41
+And.
+
+
+Michael Davidsaver   1:38:41
+I will, yeah, I I have not confirmed that yet, but I will try to confirm that when we sign off here and try to figure out what on earth is going on. Actually, I you know what, before we before we sign off, I will just switch back and give you an overview of what all the software that will need to be installed is.
+
+
+Mark Holl   1:38:46
+OK. And then uh.
+Yeah, and so.
+Yes.
+Right. And then I'm gonna ask potentially that either there's a choice, either you do it and tell us what you did or we have another session where we do it together and I'm.
+
+
+Michael Davidsaver   1:39:12
+Well, I'd like, I think I'd like for you guys to have go at it because I think it is, it's a a useful learning opportunity and will give you confidence that you know that you can replicate this installation.
+
+
+Mark Holl   1:39:22
+OK, that sounds good. Yeah. But then obviously this is, this is exactly what I'd hoped we'd do and push through is that until we hit a wall that required for you to have some private time with the hardware, because nothing here is a surprise really.
+
+
+Michael Davidsaver   1:39:36
+Yeah.
+Well, this is a little bit of a surprise 'cause I did not expect that getting a simple serial terminal would be complicated, but all right.
+
+
+Mark Holl   1:39:41
+So.
+No, I understand. I I'm just prepared to either be surprised or not be surprised.
+
+
+Michael Davidsaver   1:39:51
+OK, so we can we switch over? I'll do the the sharing again. Oh, yes, it just worked. What's different?
+
+
+Alex Gardeck   1:39:53
+Oh, oh, wait, did it just work?
+I I just tried hitting question mark again and this time it worked.
+
+
+Mark Holl   1:39:59
+And what'd you do?
+You logged in with Sudo again.
+
+
+Alex Gardeck   1:40:07
+Well, it was already logged in and then I just tried hitting question mark. I did. I exited here, but then we had tried.
+
+
+Mark Holl   1:40:10
+I thought you broke out.
+
+
+Alex Gardeck   1:40:20
+Right here.
+
+
+Mark Holl   1:40:22
+Yeah, but you did that and then it's.
+
+
+Alex Gardeck   1:40:22
+Could not open, but then I did it again right here and then I guess it started.
+
+
+Mark Holl   1:40:25
+Yeah, so you logged in. You logged in again, right, with Sudo.
+
+
+Alex Gardeck   1:40:28
+Yeah, and then I just tried it.
+
+
+Mark Holl   1:40:29
+And then you.
+
+
+Michael Davidsaver   1:40:30
+Well, alright.
+
+
+Mark Holl   1:40:31
+Hello.
+
+
+Michael Davidsaver   1:40:32
+OK, but that that's what you should see then, yes. And if you look about a little more than halfway down, there's the command M is set IP address.
+
+
+Mark Holl   1:40:33
+Let's keep going then.
+
+
+Alex Gardeck   1:40:42
+Yep.
+
+
+Michael Davidsaver   1:40:43
+But if you haven't, if you know an IP, if you know what IP address you want to set, then the simple thing to do is M space and then paste in that IP address.
+
+
+Mark Holl   1:40:52
+No, we know. So let's do it. OK.
+Henrik says. Do you need live USB to be installed?
+
+
+Michael Davidsaver   1:41:03
+No, we're we're clearly getting past that step.
+
+
+Mark Holl   1:41:06
+OK, I'm.
+
+
+Alex Gardeck   1:41:07
+OK, so this do I need to have a 005?
+
+
+Michael Davidsaver   1:41:08
+Just press return.
+
+
+Mark Holl   1:41:10
+Wait a minute. Hey, wait a minute. You said hey, hey, Alex, why is Chassis 2192 instead of 191?
+
+
+Alex Gardeck   1:41:17
+0191.
+
+
+Michael Davidsaver   1:41:20
+Now to touch.
+
+
+Alex Gardeck   1:41:21
+191.
+Hold on.
+
+
+Mark Holl   1:41:23
+Yeah, OK, good.
+
+
+Alex Gardeck   1:41:25
+OK, and I don't need to have 005, right? It can just be .5.
+
+
+Michael Davidsaver   1:41:26
+OK, if you press return.
+Correct. Well, all right. That's what just happened there.
+
+
+Alex Gardeck   1:41:33
+OK.
+I tried using the arrow.
+
+
+Mark Holl   1:41:40
+Yeah.
+
+
+Michael Davidsaver   1:41:42
+Oh yeah, this doesn't work. This is a very simple terminal.
+
+
+Alex Gardeck   1:41:43
+One, not new. OK, Yep. OK.
+
+
+Mark Holl   1:41:49
+Yay. And then we have a net mask. It's down there at the bottom when I convey conveyed.
+
+
+Michael Davidsaver   1:41:50
+No. All right, that's success.
+
+
+Alex Gardeck   1:41:58
+Yep, we're I'm looking for the commands for netmask and gateway.
+
+
+Mark Holl   1:42:04
+No worries.
+
+
+Alex Gardeck   1:42:14
+Oh, or is it in here?
+
+
+Michael Davidsaver   1:42:19
+No, I thought it was just uh.
+
+
+Alex Gardeck   1:42:20
+And.
+
+
+Michael Davidsaver   1:42:22
+Actually, this is where I have to admit we typically just leave the the. I mean the default gateway is the 24 bits. I'm sorry, the default net mask is 24 bits and we usually don't use a gateway, so I don't have those commands memorized.
+
+
+Mark Holl   1:42:35
+Yeah, so we're we're in a a VLAN where it this may make a difference.
+
+
+Michael Davidsaver   1:42:40
+Yes, it will, because you you definitely do have a different one. I believe it's if if my notes are correct here, it's like 23.
+
+
+Alex Gardeck   1:42:42
+Yeah.
+
+
+Mark Holl   1:42:45
+Yeah.
+No, actually, can you, Alex, can you put back up, you know, the information? Yeah, it's at the bottom of this message. That is what we have to actually use. That is exactly what must be used for the net Mexican gateway.
+
+
+Michael Davidsaver   1:43:13
+Yeah, I can just.
+All right, this one I will have to go and and check up on. See, I don't. I do not have that handy at the moment. It may be it just may be as simple as just putting in a slash after the Mac address, but I'm not going to have you try that just yet.
+
+
+Mark Holl   1:43:50
+OK.
+Alright, so I suggest that there's some e-mail follow up that we need to do.
+
+
+Michael Davidsaver   1:43:58
+So.
+Well, I mean what I was gonna suggest is if the let me just because you get you gave me the IP address for this computer. But OK, no, it's it's different enough. It's not going to.
+It would need a gateway to reach. Alright, so yeah, let's see if we could try the ping test, but it looks like this computer. So this computer is has a different.
+
+
+Alex Gardeck   1:44:19
+Yeah, I already tried it. It didn't. This is on the same VLAN. This Windows computer that I'm doing everything from. It didn't get a ping. I tried it.
+
+
+Michael Davidsaver   1:44:31
+OK, so this is in addition to actual.
+
+
+Alex Gardeck   1:44:32
+Oh wait, no, it is pinging. It is pinging.
+
+
+Mark Holl   1:44:34
+So what's going on here? It seems like it needs to be done twice in some respect.
+
+
+Michael Davidsaver   1:44:41
+Well, I mean when you we're changing the IP address that that that will be different because of you know ARP cache would take potentially take a little bit of time to update. The VLAN has to decide that that port is active.
+
+
+Mark Holl   1:44:53
+Oh, yeah, OK, yeah.
+
+
+Michael Davidsaver   1:44:53
+So that I can kind of understand, but I'm a little bit perplexed about why I can't change the back address.
+But I'm sorry, I did that mask. Yeah. All right. So yeah, that that I'm gonna have to go out and uh.
+
+
+Mark Holl   1:45:04
+You you mean the net mask and gateway?
+
+
+Alex Gardeck   1:45:04
+Yeah, I can do it.
+It doesn't look like the Mac has this serial number. This is 10/18.
+
+
+Michael Davidsaver   1:45:11
+I'm back.
+
+
+Alex Gardeck   1:45:18
+It is what it's finding.
+
+
+Michael Davidsaver   1:45:18
+Yeah, you're right. Is it? Does that? Does that mean that IP address is already actually? Well, the simple thing to do, turn off the chassis and try to ping it again.
+
+
+Alex Gardeck   1:45:20
+So the Mac.
+
+
+Michael Davidsaver   1:45:27
+If we got a duplicate IP address, that'd be really, really confusing.
+
+
+Mark Holl   1:45:29
+No, no, no. Well, let's try it. Let's.
+
+
+Alex Gardeck   1:45:31
+Oh, I could. I can even just unplug the Ethernet without turning it off, right? Let me just try doing that.
+
+
+Michael Davidsaver   1:45:34
+Yep.
+Doesn't matter one way or the other.
+
+
+Mark Holl   1:45:37
+Yeah.
+Yeah, but boy, that'll be shocking because I'm in a completely blank block. I I I I went into a blank block of addresses for CXFEL EVG VR systems.
+So we'll see.
+
+
+Dean Smith   1:45:56
+Oh.
+
+
+Alex Gardeck   1:45:58
+1.
+Ethernet is unplugged.
+I mean.
+OK and.
+It is now not pingable.
+
+
+Michael Davidsaver   1:46:15
+OK, that's it then.
+
+
+Alex Gardeck   1:46:19
+And just to confirm.
+It disappeared from ARP as well.
+
+
+Mark Holl   1:46:27
+Yeah, that's where you're looking for the Mac address, right? Yeah.
+
+
+Alex Gardeck   1:46:30
+Yeah, well, it just would. It's IP would show up with its Mac address.
+
+
+Michael Davidsaver   1:46:30
+Mhm.
+
+
+Mark Holl   1:46:34
+That's the point, yeah. The ARM command I thought was a an interesting find when I was mucking around with the DG 640 fives. Yep.
+
+
+Alex Gardeck   1:46:36
+Yeah.
+OK, and now now we'll see. It might need a second, but.
+
+
+Michael Davidsaver   1:46:49
+Well actually are we are we pinging from the server or from the the the this whatever terminal you're running from? Cause I think we want to make sure it's pingable from the server.
+
+
+Alex Gardeck   1:46:56
+From the Windows computer, yeah, I can also try pinging it from.
+
+
+Mark Holl   1:47:01
+I mean, they're on the same, they're on the same network.
+
+
+Michael Davidsaver   1:47:01
+Right 'cause if if it 'cause it it should be noted.
+Well, I think the well we should confirm that. Yeah, 'cause I thought there was a.4 versus the.5, but if you could try it, repeat that ping command from the Linux terminal.
+
+
+Mark Holl   1:47:15
+From the from your the answer.
+
+
+Michael Davidsaver   1:47:18
+Let's open up another. Well, just open up another terminal. There's no reason to close this out just yet.
+
+
+Alex Gardeck   1:47:19
+OK, so I've gotta exit this, correct?
+Uh, just open up. Yep.
+
+
+Mark Holl   1:47:27
+I can't see the fine print in the terminal.
+
+
+Alex Gardeck   1:47:30
+And.
+It's paying in.
+
+
+Michael Davidsaver   1:47:33
+OK, and now we get do that repeat the ARP command here because it occurs me if it's not on the same gate where if not on the same subnet then the ARP command will show the.
+
+
+Mark Holl   1:47:41
+Wait a minute. Did you plug the Ethernet back in? Did you plug the cable back in? Yeah, so he plugged the cable back in, Michael.
+
+
+Alex Gardeck   1:47:44
+Yeah, yes.
+
+
+Michael Davidsaver   1:47:50
+Yes, I understood that.
+
+
+Mark Holl   1:47:51
+OK, Sir.
+
+
+Michael Davidsaver   1:47:52
+I'm sorry for on Linux it'll be slash S spin slash arp and then I'll probably want to do a dash in if I can just put that in the chat.
+
+
+Mark Holl   1:48:06
+What does that do?
+Yes, Ben, is it too?
+What does that do, Michael?
+
+
+Michael Davidsaver   1:48:22
+Oh, hang on. All right, so is it? Oh, it's been difficult to see this right Red hat differences. OK, try USR slash S spin slash ARP.
+And is it just not installed? I guess it must right. This should be the equip rough equivalent of the what's running on or what the command you're running on the Linux or on the Windows terminal, which you just just dump the ARP table, but it appears it is not installed.
+And I'm not gonna try to talk you through that just yet, but the point is if the from the Windows machine if the.
+It's going to show you either the it's going to show you the Mac address of the device it's talking to directly, which if it's going through a router, you'll see the Mac address of the router, which would be why it doesn't match up necessarily.
+
+
+Mark Holl   1:49:13
+Well.
+That makes sense to me.
+
+
+Michael Davidsaver   1:49:19
+Well, let's go.
+
+
+Mark Holl   1:49:20
+'Cause when I when I've used it, I've hooked directly to devices.
+
+
+Michael Davidsaver   1:49:23
+Yeah, which is if you're running from the Linux machine. If it's direct, it should show it there, but apparently that the ARP tool is not installed, so we can put that on the list of things to come back to. But anyway, I'm I'm.
+
+
+Alex Gardeck   1:49:35
+Yeah, Mark, I think this goes back to the the minimum installation that's on this server.
+
+
+Mark Holl   1:49:35
+Yeah, but and so yeah, first, OK, start, start over. I screwed everything up, Alex. So please start over on your words, 'cause I was talking, we were both talking at the same time, so.
+
+
+Alex Gardeck   1:49:47
+I think this goes just back to as we know from Henrik that it was a minimal installation on this server. So that's just one of those things 'cause on our other Linux terminal or Linux workstations, ARP is a feature that we have used.
+
+
+Mark Holl   1:50:03
+Yeah, and so.
+
+
+Alex Gardeck   1:50:04
+So it's just 'cause this.
+
+
+Mark Holl   1:50:06
+So my my request for you, Michael, is any deficiencies that you note, make them crystal clear in a list of things that we need to actually add. We're keeping a detailed list of anything that we build into the bare bones machines. We don't need more than we need.
+But we also need to have build up from that. The reason why it's important is because Henrik is also keeping a detailed list of anything that he does to upgrade a machine, and we'll need to keep track of that because we we.
+
+
+Michael Davidsaver   1:50:37
+Mhm.
+
+
+Mark Holl   1:50:39
+Uh.
+Our architecture is such that we're using salt to create a profile for these machines. In case a machine goes down, we want to be able to recreate the machine quickly by just popping in a equivalent machine and having it reconfigured to be that machine we popped out if it fails.
+So that's part of our architecture anyway, just so you know.
+
+
+Michael Davidsaver   1:51:02
+Yep, but understood. I mean that this is this is something. I mean anytime I give you commands that start with sudo, I will be very clear about what they're doing.
+
+
+Mark Holl   1:51:11
+Excellent. And then we'll get it done, whatever you ask us to do.
+
+
+Michael Davidsaver   1:51:14
+Yep. All right. It's actually all right. So if I if we can switch over for the moment, I can do the screen share again. I will try to bring things home here with what the next steps will be in terms of software setup.
+So if I go again back to the the launch launch page, there is Epic's IOC setup.
+If I click on that here I've got list of prerequisites. I mean the the package names I'm giving here are for Dev Linux and that's basically the the system packages are what are what is listed here to get the compiler I guess.
+Git because I'm giving you instructions for cloning git repositories as well as a set of system dependencies. If you have difficulties trying to find the equivalent of this for Red Hat, please let me know and I will try to help out with that.
+But the basic communications are.
+A bunch of cloning.
+Configuration for builds a whole bunch of make demands.
+
+
+Alex Gardeck   1:52:18
+Uh.
+
+
+Michael Davidsaver   1:52:19
+And when this is done, this will give you everything except for the GUI tool, which I will try to send some separate instructions for. I didn't put that in here because I think it's a it's a little bit out of the scope for setting up communications with the device, but it is an important one for.
+Doing something real.
+And this gives the the next step which is you switch into this directory. There is this configuration file for node one and you will set the IP address according to what you have done here today.
+
+
+Mark Holl   1:52:51
+OK, um, Henrik, I'm gonna.
+You've you've seen this stuff and and you you know what the machine is and I'm.
+Mhm.
+I'm kind of torn because I know that you'd probably just tear into this and start doing all this stuff. And on the one hand, that might be the thing to do. On the other hand, we need to.
+Keep complete records of everything so that it can be shared with a larger team because we we don't want to have you just go do all this stuff and.
+Then we don't know and can't do what you're doing is kind of a way to put it. So if you're doing it, then we need to have a complete record of if. For example, if you were Henrik and I can't talk to you, so I don't know if you were to go in and start working on this machine to get these things to work after.
+Michael solves the problem of the gateway and so forth and netmask, then then I would ask that that you just do it on one machine 'cause we we only have one machine and that we could probably replicate your actions separately from you. So you'd have to keep absolute.
+Records of that and then for example, Alex might do the next one next two machines and then we write an SOP to update it with any deviances that are occurring because of the Rocky Linux. The main thing is I want everybody to have full transparency of the things that we're doing on these machines and we have an SOP record of it as.
+As we go, and I'm happy to slow the process down so that at every step we can update an SOP. And Alex, we've already talked about this, but I'm tasking you and me to get an SOP for it's our responsibility to get SOP for configuring these machines.
+
+
+Alex Gardeck   1:54:34
+Big.
+
+
+Mark Holl   1:54:43
+OK. Yeah, good. That's fantastic. And so, yeah, Henrik, so I'm relying on you, Michael, after you get something working. Actually, if Henrik, you would take it on, I would, I would like you to be the person to take on seeing if you can get.
+
+
+Alex Gardeck   1:54:43
+Yep.
+
+
+Mark Holl   1:54:59
+Well, let's coordinate. Once we get the instructions from Michael, let's coordinate. Yeah, let's just have a coordination. We'll do that. UI and Alex will get together and then we'll make sure that we bring full transparency back to the full group on this as we try to replicate this back into other things. And we'll also create a an evolving, let's call it.
+Developer document and call it an SOP, but it's going to be a design history file for how we're actually configuring these things and it's going to just capture everything and then we'll we'll add some outline and structure to it down the road. But we'll have a developer document for everything we're doing on this. This is the thing we're going to do, Alex.
+Yeah.
+
+
+Dean Smith   1:55:38
+Yep.
+
+
+Mark Holl   1:55:38
+Yep.
+
+
+Michael Davidsaver   1:55:40
+Just as a last note here, there is one other bit of special configuration you will need to do for the the generator node, the master node and that is done through. There's a second console which you will get to after you have. Well, it's explained a bit here, but there's the.
+
+
+Dean Smith   1:55:46
+Yeah.
+
+
+Michael Davidsaver   1:56:00
+When you first power on the chassis, there the firm, there's a special firmware that will boot automatically, which it it effectively just just acts as a bootloader. But then once you have communications established with the Epyx IOC, you will tell it to switch over to the actual application firmware.
+And once you have done that, the application firmware presents a a network debug console. There's one additional piece of configuration you have to do through that debug console, which is setting the NTP server.
+
+
+Mark Holl   1:56:30
+Yeah, and so I actually sent something. Jonathan Lee got back to me just moments ago. We do not. We use the campus Active Directory servers as our NTP servers. I don't know if they're 3.0 or not.
+And so therefore internal to our activity, can we set up one of our servers as a MTP server and OK, then I'm going to ask for you to help us do that as part of your write up.
+
+
+Michael Davidsaver   1:56:53
+Yes, that will be my recommendation.
+All right, yes, that I can.
+
+
+Mark Holl   1:57:01
+And the server that you have access to will be the one that we'll do as a prototype, keeping track of all our steps. And then in addition, I'm not sure that we're gonna get to all this stuff, but let's take one logical step at a time and we'll come to a place where probably the.
+Our position on the learning curve is means we're gonna be slipping as fast as we're gaining and at that we're gonna get there as soon as we can. And then we're gonna have to have another meeting and we'll schedule another two hour meeting and we'll move forward from wherever we get to. Let's try to get as far as we can electronically in a few days.
+And then let's and then I'll be asking you today, Michael, to provide your availability for you and Diego, because I want Diego along for all of this and to provide your availability for next week and then we'll find another event. Perhaps it's going to be more towards the end of the week.
+So that there's some time to to suffer a little bit 1st and then we'll be able to build the stage to then breakthrough on Friday, hopefully, yeah.
+
+
+Michael Davidsaver   1:58:05
+OK, and then just to put to put on another item on your To Do List which is related, the instructions I'm giving here are were intended to be a self-contained, simple to set up environment that doesn't require any special privileges to do.
+
+
+Mark Holl   1:58:05
+Hopefully.
+
+
+Michael Davidsaver   1:58:21
+I strongly suspect, and actually would strongly recommend that for your actual installations, we need to have a a chat about how you want to deploy the Epic software to your actual systems in a way that's more controlled.
+
+
+Mark Holl   1:58:35
+Yeah. And so I would say let's, let's get, let's breakthrough on the things that are in our way right now and then.
+
+
+Michael Davidsaver   1:58:40
+Yep.
+
+
+Mark Holl   1:58:43
+Without actually putting in any deep thought, yeah, I've thought about this for years. It's a constant problem in terms of, you know, ease of use and then security. It's a constant problem. And I find people on both sides of the fence depending on the day and what they're trying to do.
+
+
+Michael Davidsaver   1:58:43
+Yeah, that's why I provide this as a standalone.
+
+
+Mark Holl   1:59:00
+And so the the thing that we need to do is potentially is it conceivable that for this prototype testbed, we don't try to build in all the cybersecurity, we just try to get it running and then we basically rebuild the system once we have all the blockages out of our way or what is your thought process on this?
+
+
+Michael Davidsaver   1:59:20
+Well I I would suggest following the instructions I have here which are I guess it is if they intended to produce a self-contained environment for testing and development.
+And then once you've seen all the pieces that go into place for that, we'll have a discussion about how you would like to I I can go over. I rejected Diego could do this as well. The the different ways folks have come up with in the epics world for, you know, deploying software and there are, but there's a fair variety.
+And what are your thoughts? I mean, some of this is gonna play into how you're deploying other software, I expect, because there's there's no particular reason that this needs to be special.
+
+
+Diego Omitto   1:59:53
+Yeah, we should. I think Eric is already doing something like that, right, Mark? Doesn't. Doesn't Henrik have a way of deploying as he's right now, like what he's doing first to be in beeline?
+
+
+Mark Holl   1:59:57
+Exactly. So wait a minute.
+What's that?
+Well, we do have a, yeah, that's right. Well, Henrik's gonna stay here. The short answer is yes, but the longer answer is that we're completely a prototype system right now and now is the right time where we're actually looking at directory structures to.
+Split apart CXFEL from CXLS. We're looking at longer term implementations that protect different data into different essentially groups, different data groups, so that different permissions can be managed. So I'm kind.
+Above the opinion that this test bed is a test bed and and if I heard you correctly, Michael, let's get it working as a test bed and then let's do exactly what you suggested. We'll have a separate meeting where we can learn from you and your broader reach and experience.
+
+
+Michael Davidsaver   2:01:01
+Yeah, well, it sounds like we should definitely include Heinrich as well. If if he already has a system, that seems like a reasonable starting point.
+
+
+Mark Holl   2:01:02
+Uh.
+Well, we already have a complete control system out there for CXLS. We just don't have a timing system hooked into it and.
+
+
+Michael Davidsaver   2:01:14
+Right, I'm referring specifically to an environment for the Epic software. There's there's many ways to do it, and if he already has one established at your site, that seems like a reasonable place to start.
+
+
+Mark Holl   2:01:20
+Oh, we.
+
+
+Michael Davidsaver   2:01:33
+OK.
+
+
+Mark Holl   2:01:34
+You know, present because Henrik has been the architect for everything that makes, at least on the beamline side, everything work. And so let's let's do that, let's, but I want to have a craft out and.
+Almost the same as our Epyx install. I'd add necessary modules to our CX Heavy master installation so the quartz ISE could work on it. Yeah, so Henrik has some ideas and so.
+I'll talk, we'll have a meeting. Alex and I will have a meeting with Henrik to debrief on this next week and but then we'll be looking for things from you, Michael, you know, as soon as possible and then we'll see how far we can get. And then Michael, you've got the, you've got to crack a nut for us and figure out what in the world, you know.
+We we need to do to get a few things working.
+But we need to get the gateway and we need to get the net mask at least.
+
+
+Michael Davidsaver   2:02:26
+Yes.
+Mhm.
+
+
+Mark Holl   2:02:32
+Yeah. And we'll just keep working as a team, we'll figure it out and then we'll and then Alex is one of Alex's prime tasks and I'll work with him on it is you know we will capture all the way along with Henrik as well and then to develop this tool because the.
+The experiment team really needs this tool, and that's that's Chris Howe and Sabina. And then we need it for the beam line too, because we've got a timestamp things that need to go to the Epix archiver and so on. So it's all good. All right, what are we doing here at 1:54? Do you have anything else, Michael, for us today?
+
+
+Michael Davidsaver   2:03:08
+I think that's pretty much it from my end.
+
+
+Mark Holl   2:03:12
+OK, then let's make it a meeting wrap, Dario. It's really great that you're here. I'm sure you're learning a lot, but the the goal here is to have you learning all of these steps, right, so that you can then be working with and helping us generate when we get.
+To the event codes, Dario, you'll be working with Dean Smith. And Dean, I want you to be a backup on this. So we're gonna have both you and Dario. And by the way, Dario, meet Dean. Dean, meet Dario. Dario is is a computer science person and he with some data science.
+And Dean is really responsible for so many things that we've have out there that stood up our first test bed and we're still using aspects of his software throughout the system. And so you as computer science, computer developers and programmers.
+We'll have things and we'll we'll make it available for you guys to get to know each other. But then I want you on the engineering side to be able to learn how to do the lower level things that we will learn from Michael as we proceed and and then also from Diego as we proceed.
+So we can provide system services to people who need these event codes, and so we can provide the the hooks for them to be able to write the scripts. Perhaps whatever it would be, Bluebeam or whatever a blue sky or whatever it would be under hopefully the epics.
+Umbrella for scripting that needs to be done for experiments and such. So we're heading in that direction. Thanks everybody. That's the end of today's meeting.
+
+
+Michael Davidsaver   2:04:51
+Alright, bye.
+
+
+Dean Smith   2:04:51
+Bye.
+
+
+Mark Holl   2:04:52
+See ya.
+
+
+Hao   2:04:54
+Alright, thank you.
+
+
+Dario DAddamio   2:04:58
+Mark left already OK.
+
+
+Mark Holl stopped transcription
