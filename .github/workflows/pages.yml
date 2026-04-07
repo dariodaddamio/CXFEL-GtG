@@ -2,6 +2,7 @@ name: Build and deploy Sphinx docs to GitHub Pages
 
 on:
   push:
+    branches: [ Main ]
     # Match GitHub default branch casing (main vs Main)
     branches: [main, Main]
   workflow_dispatch:
@@ -25,6 +26,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
+          python-version: "3.12"
           # Pin: 3.x on ubuntu-latest can resolve to very new Python (e.g. 3.14) before
           # all wheels/themes are ready; Furo must import cleanly for sphinx-build.
           python-version: "3.12"
