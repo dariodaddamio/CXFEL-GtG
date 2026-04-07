@@ -2,7 +2,7 @@ name: Build and deploy Sphinx docs to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [ Main ]
   workflow_dispatch:
 
 permissions:
