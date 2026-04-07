@@ -39,8 +39,8 @@ path, plus PPS on electrical input 1 in EVG mode. In generator mode, input 1 is 
 Phoebus link widgets 1-8 match these physical fiber positions. If 1 and 2 look unused while 3+ are
 active, compare against actual jumpers on the panel before assuming a display bug.
 
-Pulse Per Second (PPS), Network Time Protocol (NTP), and Event Generator (EVG) bring-up
---------------------------------------------------------------------------------------
+PPS, NTP, and EVG bring-up
+--------------------------
 
 - PPS into input 1 must be 1 Hz. A source left at 1 kHz can look partially alive but will not work as
   a pulse-per-second reference for the Phase-Locked Loop (PLL).
