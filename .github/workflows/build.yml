@@ -16,12 +16,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.x"
+          python-version: "3.12"
 
-      - name: Install Sphinx
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install sphinx
+          pip install -r requirements.txt
+          python -c "import furo; print('furo OK:', furo.__file__)"
 
       - name: Build HTML
-        run: sphinx-build source build/html
+        run: sphinx-build -W source build/html
