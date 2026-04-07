@@ -6,7 +6,8 @@ Event Generator (EVG) and Event Receiver (EVR) roles, triggers). Quartz covers a
 :doc:`quartz_firmware`. Top-level orientation is in :doc:`index`.
 
 A fuller Quartz-versus-EVT discussion and laboratory notes are in :doc:`quartz_vs_evt_timing`.
-Stack-wide integration is in :doc:`integration_reference`.
+Stack-wide integration is in :doc:`integration_reference`. EVG/EVR bring-up across EVT and Quartz
+is summarized in :doc:`initial_bring_up`.
 
 Fiber ports (eight Lucent Connector (LC) ports, back of chassis)
 ----------------------------------------------------------------
@@ -84,4 +85,8 @@ Checklist
 #. Oscilloscope on a digital output: DC coupling, threshold suited to Low-Voltage Transistor-Transistor Logic (LVTTL) (about 3 V high in vendor demos),
    tens of µs per division for a slow pulse train; use 50 Ω scope input when edge fidelity is required.
 
-See also: :doc:`timestamping_detectors`, :doc:`quartz_firmware`.
+.. figure:: ../images/diagrams/Testing\ Rig\ Diagrams-SDS1104X-E\ Front\ Panel.drawio.png
+   :alt: Siglent SDS1104X-E oscilloscope front panel (reference for lab checks)
+   :width: 720px
+
+See also: :doc:`quartz_firmware`.

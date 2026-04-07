@@ -14,6 +14,21 @@ Read next
 - :doc:`quartz_firmware_network`: gateway/netmask, ping, Network Time Protocol (NTP), Event Receiver (EVR)–only
 - :doc:`quartz_firmware_alluvium`: Alluvium program/verify
 
+Panel reference (diagrams)
+--------------------------
+
+Analog connectors are on the front (DB37); digital and fiber are on the back (DB9 and eight Lucent
+Connector (LC) ports). The same back-panel fiber numbering applies to Event Timing (EVT) chassis;
+see :doc:`evt_chassis`.
+
+.. figure:: ../images/diagrams/Testing\ Rig\ Diagrams-Quartz\ Chassis\ Front\ Panel.drawio.png
+   :alt: Quartz chassis front panel (connector layout)
+   :width: 720px
+
+.. figure:: ../images/diagrams/Testing\ Rig\ Diagrams-Quartz\ Chassis\ Back\ Panel.drawio.png
+   :alt: Quartz chassis back panel (fiber and digital connectors)
+   :width: 720px
+
 Observed behaviors (Quartz)
 ---------------------------
 

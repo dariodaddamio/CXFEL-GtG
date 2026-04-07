@@ -8,28 +8,28 @@ how those roles appear on Quartz (analog acquisition) versus Event Timing (EVT) 
 observed during bring-up (including February–March 2026 laboratory work and vendor sessions), and how
 Phoebus and Input/Output Controllers (IOCs) are used to operate the equipment.
 
-For a concise EVT checklist see :doc:`evt_chassis`. Quartz boot, USB, network, and Alluvium are
-covered in :doc:`quartz_firmware`. Stack-wide integration is in :doc:`integration_reference`.
+- For a concise EVT checklist see :doc:`evt_chassis`. 
+- A consolidated EVG/EVR bring-up entry point is :doc:`initial_bring_up`. 
+- Quartz boot, USB, network, and Alluvium are covered in :doc:`quartz_firmware`.
+- Stack-wide integration is in :doc:`integration_reference`.
 
-What EVG and EVR are (network roles, not box types)
+What EVG and EVR are
 ----------------------------------------------------
 
 EVG and EVR are **roles** on the timing network, not a fixed product model or part number.
 In one fiber tree (call it an island), one node is the generator: it launches the event stream and the
-time reference everyone else locks to. Receivers eat that stream and turn it into triggers, stamps,
-and status for local gear.
+time reference everyone else locks to. Receivers eat that stream and turn it into triggers and other output for local gear.
 
-Multiple Quartz and multiple EVT chassis may be installed in one rack; each unit is still configured
-as EVG or EVR (or equivalent) according to wiring, firmware mode, and NTP/PPS. Chassis family name
+Multiple Quartz and multiple EVT chassis may be installed in one island; each unit is still configured
+as EVG or EVR according to wiring, and set up procedure. Chassis family name
 alone does not imply a fixed EVG or EVR role.
 
 Quartz chassis: analog acquisition on the same timing fabric
 -------------------------------------------------------------
 
 Quartz is for high-channel analog (DB37 fronts; see the vendor Quartz Data Acquisition (DAQ) docs). It still sits on the
-same Osprey fiber timing fabric: eight Lucent Connector (LC) fiber ports on the back, with Phoebus labeling ``Quartz #N``.
-
-Whether that chassis is the generator or just a receiver follows the same physics as EVT: jumpers,
+same Osprey fiber timing fabric: eight Lucent Connector (LC) fiber ports on the back, with Phoebus labeling ``Quartz #N``
+link widgets. Whether that chassis is the generator or just a receiver follows the same physics as EVT: jumpers,
 Network Time Protocol (NTP) when the design says so, Pulse Per Second (PPS) when it matters. Quartz firmware NTP/PPS knobs are what tilt you
 toward EVG-style versus EVR-only-style behavior (for example EVR-only when the chassis is not acting
 as an NTP server); details in :doc:`quartz_firmware_network`.

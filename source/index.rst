@@ -60,6 +60,10 @@ There are several resources that need to be parsed in order to understand, devel
 
    - Standard boot procedure and the main tabs: Global, Event, Network.
 
+4. :doc:`diagram_index`
+
+   - Gallery of PNGs under ``source/images/diagrams/`` (lab / hardware diagrams).
+
 .. toctree::
    :maxdepth: 2
    :titlesonly:
@@ -70,3 +74,4 @@ There are several resources that need to be parsed in order to understand, devel
    osprey/index
    internal/index
    cs_studio/index
+   diagram_index

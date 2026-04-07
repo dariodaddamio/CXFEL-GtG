@@ -6,8 +6,8 @@ Timing and lab integration
 This page describes how Quartz versus Event Timing (EVT) chassis, EVT fiber layout, Event Generator (EVG)
 bring-up, Input/Output Controller (IOC) boundaries, Pulse Per Second (PPS) and Network Time Protocol (NTP),
 and detector integration fit together. Read :doc:`quartz_vs_evt_timing` first for EVG and Event
-Receiver (EVR) roles and laboratory observations; use this page together with :doc:`evt_chassis`,
-:doc:`timestamping_detectors`, and :doc:`quartz_firmware`.
+Receiver (EVR) roles and laboratory observations; use this page together with :doc:`evt_chassis`
+and :doc:`quartz_firmware`.
 
 Chassis families and EVG/EVR roles
 ----------------------------------
@@ -105,7 +105,7 @@ Quartz analog: DB1, DB2, bench wiring
 Detector stack: timestamps, Eiger, cameras
 --------------------------------------------
 
-More detail is in :doc:`timestamping_detectors`. Summary:
+Summary:
 
 - Target: at the machine rate of interest (for example 1 kHz), timing ticks must be joinable to
   frames after the camera path delivers pixels to a server. Plan where timing metadata meets
@@ -144,6 +144,5 @@ See also
 
 - :doc:`quartz_vs_evt_timing` for EVG/EVR on Quartz vs EVT and lab interaction.
 - :doc:`evt_chassis` for EVT checklist and UI pointers.
-- :doc:`timestamping_detectors` for correlation design notes.
 - :doc:`quartz_firmware`, :doc:`quartz_daq_repo` for Quartz bring-up and upstream links.
 - :doc:`/cs_studio/index` for Phoebus (Global / Event / Network).

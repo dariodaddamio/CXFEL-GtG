@@ -67,8 +67,7 @@ At CXFEL, the local NTP server for control-system hosts is::
 
    10.139.4.59
 
-See Henrik’s “Installation of Additional Control System Server Features” -> *NTP Client/Server Setup*
-for ``chronyd`` configuration.
+See Henrik’s documentation from Global tab -> Installation Procedures for ``chronyd`` configuration.
 
 EVR-only role
 ^^^^^^^^^^^^^
