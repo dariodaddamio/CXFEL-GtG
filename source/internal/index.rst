@@ -1,6 +1,5 @@
-Internal Documentation
-======================
+Internal documentation
+========================
 
-This section is for CXFEL-specific internal documentation (e.g. Henrik’s generated docs) and any
-local notes that aren’t covered by the vendor repositories.
-
+Henrik’s internal docs and CXFEL-specific notes (where applicable) are not mirrored in this public
+repository. Use your team’s internal wiki or ask whoever owns integration for access and links.

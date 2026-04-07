@@ -28,24 +28,25 @@ exclude_patterns = [
 ]
 
 
-
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'alabaster'
+# Browser tab <title> and Furo’s top-left sidebar label (see theme sidebar/brand.html).
+html_title = f'{project} Docs'
+
+html_theme = 'furo'
 html_static_path = ['_static']
 
-# Load local overrides (e.g. font tweaks) from _static/custom.css
+# Typography + sidebar tweaks on top of Furo (see _static/custom.css)
 html_css_files = ['custom.css']
 
-# Sidebar/navigation behavior (Alabaster)
 html_theme_options = {
-    # Show hidden toctree entries in the sidebar (we keep toctrees hidden on pages).
-    "globaltoc_includehidden": True,
-    # Do NOT auto-collapse other branches; keep the full tree visible so
-    # dropdowns are always available.
-    "sidebar_collapse": False,
+    # Left sidebar: show project name
+    'sidebar_hide_name': False,
+    # j/k to move between sidebar items
+    'navigation_with_keys': True,
+    # Right-hand page TOC heading
+    'toc_title': 'On this page',
+    'pygments_light_style': 'default',
+    'pygments_dark_style': 'monokai',
 }
-
-# Add a tiny sidebar script to collapse/expand nested nav items.
-html_js_files = ["nav.js"]

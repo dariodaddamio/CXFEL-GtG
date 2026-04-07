@@ -4,7 +4,7 @@ Alluvium and Flashing Procedure
 Alluvium
 --------
 
-Alluvium (from the Osprey repo) accesses the flash attached to the FPGA.
+Alluvium (from the Osprey repository) accesses the flash attached to the Field-Programmable Gate Array (FPGA).
 
 Typical APP update sequence::
 
@@ -28,3 +28,4 @@ Miscellaneous notes
   cycle usually restores normal values.
 - Rare MMC “lock-ups” during heavy testing were fixed by a full power cycle of the chassis.
 
+See also :doc:`quartz_firmware` for the hub and reading order.

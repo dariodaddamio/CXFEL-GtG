@@ -1,0 +1,12 @@
+# Sphinx output (built in CI; see .github/workflows/)
+build/
+
+# Stray / exported HTML (docs are RST; HTML is produced in CI)
+*.html
+*.htm
+
+.cursor*
+*SKILL.md
+
+*.md
+*.py

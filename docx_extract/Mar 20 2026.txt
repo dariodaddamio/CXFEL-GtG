@@ -1,0 +1,1243 @@
+Transcript
+
+March 20, 2026, 6:58PM
+
+Alex Gardeck   0:26Can you hear me, Mark?
+
+0:27Yes.
+
+Mark Holl   0:31Yes, yes.1.OK.OK, yes, Michael Davidson is in. Who brought him in? Somebody brought him in. Can everybody bring him in? OK, good.
+
+Alex Gardeck   2:39Yeah, I brought him in.
+
+Mark Holl   2:48Yeah.
+
+Michael Davidsaver   2:48Actually Mark, as a request, can you, I guess either an hour after the meeting sort of remove me and re add me to this meeting because I it's not on my calendar. I just had to Diego reminded me earlier.
+
+Mark Holl   2:59Yeah, I think I'm yeah. So which which which one of me is the one that doesn't create an error?
+
+Michael Davidsaver   3:09I I don't know.
+
+Mark Holl   3:09This.Yeah, the inviting chaos. I got the message and I don't know. It's something the enterprise software did for me. Thank you very much. So yeah, so I'll, I'll try to resolve that. Yeah, I may just reestablish the meeting and send out the same series again.
+
+Michael Davidsaver   3:16Yes.Oh, the feature. Wonderful.
+
+Mark Holl   3:28And they get everybody fresh, yeah.
+
+Michael Davidsaver   3:31OK.
+
+Mark Holl   3:33And let's see, do we have Diego's here? Good. I think everybody's here at September. Give him a call.OK.
+
+Michael Davidsaver   3:49Actually, while you're doing that, Dario, are you able to share your Phoebus screen?
+
+Dario DAddamio (Student)   3:57Yes.
+
+Michael Davidsaver   3:58I wanted to remind myself of where things work 'cause I was.
+
+Mark Holl   4:00Camera.
+
+Michael Davidsaver   4:02Doing a little bit of remote investigation and confusing myself.I was hoping you remember which which of the chassis is the one which is configured as the timing generator.
+
+Dario DAddamio (Student)   4:18We had a EDT one and then EDT 5 was supposed to, but that one was the one that had the broken front.
+
+Mark Holl   4:28Yeah, but that's that's been pulled out that. But yeah, so that one's been pulled out and a new one's been rotated in. Alex, can you give a chassis, um, a rack update on that?
+
+Michael Davidsaver   4:29OK.
+
+Dario DAddamio (Student)   4:30Yeah.
+
+Alex Gardeck   4:39Yep, so EVT 6 is now serving as the CXLS prototype EVG instead of EVT 5. And then I guess Dario, if you want to stop your share.Real quick.Just share my screen.No.Earlier this week, on Monday, I opened up the took off the top lid of the chassis that had the issue with the fan.
+
+Dario DAddamio (Student)   5:08Uh.
+
+Alex Gardeck   5:18That was the extent of all I've done. I haven't even tried to turn it on with it opened up at all at this point. There were a couple of things that we noticed. It does look like there's a little bit of a kink in the wire that goes to the fan.
+
+Michael Davidsaver   5:39Yeah.
+
+Alex Gardeck   5:40Right there, there's that tank right there. And then this comes around and then there's a connector here and then that goes to the fan.Uh.And then Michael, one other thing that I've talked about with Mark that is a bit of a concern for us is that on the front panel of all the EVT chassis, there were not D slots that were put in.For all of the SMA connectors.So that means that the SMA is free to rotate, and in addition to that, the SMA connectors were not really properly torched down, so even just using a standard.
+
+Mark Holl   6:20Oh.
+
+Alex Gardeck   6:35Many circuits torque wrench. Before I was even breaking the torque wrench, that's just a standard SMA torque wrench. It had already started to spin the SMA because there's not a D slot that can hold its position and now after opening up the chassis.And seeing how the SMAS are secured to these mini circuit boards, I think that's a big concern that these if someone's not paying attention, they can start spinning the SMA, which will then put a torque.On probably the solder connection to that SMA.
+
+Michael Davidsaver   7:11Yeah, I I I agree. That's totally unacceptable. And I OK, I'll, I will have to investigate that. You know, you said some of them did have the D because I wasn't certainly under the impression they all did. All right.
+
+Mark Holl   7:12Yeah.Yeah.No.
+
+Alex Gardeck   7:20No, I don't think any of them do.
+
+Mark Holl   7:23No, they didn't. And and so it's it's a pretty major oversight kind of, you know.
+
+Michael Davidsaver   7:28Yep, I will follow up on that actually. Alright, so actually if you.You have a picture of one of the. Did you take one of them all the way out to take a picture of it?I will have to confirm 'cause the other I'll, I'll figure out what happened 'cause that that's, yeah, that's not good.
+
+Mark Holl   7:42Yeah, so I'll I'll participate in reporting this with with Alex, but we will carefully extract one of the bulkhead mounts and take a picture. But you know, it's just a blindingly clear if your SMA sits there and spins, you know you got a problem.
+
+Michael Davidsaver   8:00I know, and that's why I'm surprised this didn't come up.
+
+Alex Gardeck   8:01Yeah, and you can see the flat. The flat spot is on in a different orientation for all of them. So that's also a dead giveaway that there's not a D slot.
+
+Mark Holl   8:11Mhm.Mhm.Well, we'll report it in a in a proper, you know, just kind of a report, the short report. Sure.Yeah. And then then we also would like to see the wiring diagram for this or understand a little bit better how the fans are put in because the the fans are really, they're just not appropriate for our environment. I mean, we're not in a hot, you know, humid, you know, dusty.Kilometer long corridor. You know, we're in a 22 degrees Celsius room with nice air and all kinds of good stuff. And so we're going to have to, we're going to have to come up with, you know, I'll help, but we got to put a different set of fans in there for sure.
+
+Alex Gardeck   9:00OK.
+
+Mark Holl   9:15But aside from that, let's make this thing work.
+
+Michael Davidsaver   9:18Oh.Yes, let's.
+
+Mark Holl   9:33Oh, Henrik, um.
+
+Alex Gardeck   9:35Yep.
+
+Mark Holl   9:36We had a little bit of a scare yesterday in that something failed on a PLC and and it and it when it failed it sent a last dying gasp.Um, it basically locked up. The PLC locked up. It sent its last dying gas to take every single one of our flow controls to 0 flow.
+
+Henrik Loos   10:02That's what happened with the water system, OK.
+
+Mark Holl   10:05Yeah. And so we're gonna, this is the reason why the things that I'm talking with you about, the project I'm starting with you is so super important. We've got to get into MPS and get and we're gonna put some layers of security on this thing with some flow, no flow gauges and things like that.
+
+Henrik Loos   10:05OK.Yeah, mm-hmm.Yep. So the PLC probably the the the PLC report anything or?
+
+Mark Holl   10:24Yeah.OK.Well, that's the thing. I'll I'll actually Alex exhausted himself writing a completely fantastic report on it, the the diagnostics. But the bottom line is that it gave strange and mixed results because.Dean, on some of his Labview software, which is where this was running the PLC, basically took a digital output where he put a one Hertz heartbeat on it and was sending that back and reading it. Now for whatever reason the PLC locked.
+
+Michael Davidsaver   10:48Who?
+
+Henrik Loos   10:55Mhm.
+
+Mark Holl   10:59It sent all the analog and digital signals and locked them up and then sent them the wrong before it died. It sent the absolute worst wrong signal out to them and then and they all went pegged. Every single last one of them pegged to 0 flow.In the control and then but the but the software thought that the PLC was still healthy. So this is something where we're just not asking all the right questions. We're only asking some of them, but not all the right questions.
+
+Henrik Loos   11:15Mhm, yes.Yep.
+
+Mark Holl   11:31So we'll we'll work on that because I do want to get out eventually as part of doing the CXFEL, we're going to, we're going to replace the Dean's water software with new transparent layered software using Epics and IOCS.Support.
+
+Henrik Loos   11:51Yes, good.
+
+Mark Holl   11:55Oh, and and since we've got Diego here and Michael here, we should probably use their time wisely and yours too.Oh.
+
+Alex Gardeck   12:08Dario, if you want to pop your screen back up.
+
+Mark Holl   12:09Michael.Take us forward.
+
+Dario DAddamio (Student)   12:21Alright.Were we able to, uh, did you receive my e-mail last week, Michael?
+
+Alex Gardeck   12:31That was about the firmware, right, Dario? That's what you're referring to?
+
+Mark Holl   12:32We.If you're talking, Michael, we can't hear you.
+
+Michael Davidsaver   12:39Oh, yeah, I just, I just got a phone call there. But yeah, I'm I'm back. Yeah. So I I got your help me remember which e-mail this is.
+
+Mark Holl   12:44Oh.
+
+Dario DAddamio (Student)   12:47I was just about letting you know that I like we were done updating the firmware.
+
+Michael Davidsaver   12:54Ah, yes. OK. Yeah, I remember that. Yes.
+
+Dario DAddamio (Student)   12:59Um, what did you find out about that?
+
+Michael Davidsaver   13:05I I don't know what's going on. That's the short of it. I went and compared again with the test unit I have with me and it it's behaving as I was expecting. So I think we need to just resume where we were in terms of troubleshooting.I mean, I've got the appropriate documentation up now at the for the the status bits that aren't necessarily the status registers which are not broken out to individual bits yet. I hope to have a just as a side note, I hope to have a an ILC software update for you which breaks those out into more meaningful indicators soon.But for the moment I'd like to go to the EVT chassis page for the the unit which is configured as the event generator.
+
+Dario DAddamio (Student)   13:53Sorry.
+
+Alex Gardeck   13:56You'll want to go to EBT number one.
+
+Michael Davidsaver   13:56One of these chassis.
+
+Alex Gardeck   14:00That button for EVT number one right in front of you, Dario.
+
+Dario DAddamio (Student)   14:04So it's like really hard to hear with the fan.
+
+Michael Davidsaver   14:09I'm sorry.OK, so this one, yeah, so this now right now this one is showing that it doesn't mean that. Are there any fibers hooked up to this thing at the moment?
+
+Alex Gardeck   14:24Yes.
+
+Dario DAddamio (Student)   14:28Um, yes.
+
+Michael Davidsaver   14:30I guess something is really strange with this situation right now 'cause it that MGT state really should be showing.Something on something non-zero if there's fibers hooked up to it.
+
+Mark Holl   14:44Well, Alex, can we go a step further than just that highest level question? What fibers are hooked up and what are they hooked up to and how are they hooked up?
+
+Alex Gardeck   14:53There's the jumper that is between the fiber one and fiber three that makes it an EVG, and then there are three fibers that connect to three EVT chassis and then two fibers that connect to.Two quartz chassis, so.It's entirely populated with the ports one through 6.And then the jumper between one and uh.The is it the EDF that it is?
+
+Mark Holl   15:33And these don't require some sort of null modem configuration where we have to swap the fiber orientation, do they? It's just straight across, right?
+
+Michael Davidsaver   15:41Correct. I mean the the the the crossover is part of the standard table.
+
+Mark Holl   15:49I checked that, Alex.
+
+Alex Gardeck   15:52Yeah, I mean I would assume it's the same configuration as the quartz chassis and I they are and it it's largely the the same cables that we were previously using.
+
+Michael Davidsaver   15:57Yes.
+
+Mark Holl   15:58Yeah.No, they're the same. They're the same exact, just different links.
+
+Alex Gardeck   16:07Yep.
+
+Michael Davidsaver   16:07Alright.Actually what you can do is if you go back to that page and do the that what I label it the experts Sysmon page.Try this EVT of it.OK, yeah, I joined no optical power received.OK. Well, I guess maybe the the next thing to do is if you can.I actually, you know what it just I can't just trying to decide how certain are the are we that we're talking to the chassis we think we are.You just go flip the power off on that one. Do we see this one start timing out?
+
+Dario DAddamio (Student)   16:55Like.I can turn it off, yeah.
+
+Michael Davidsaver   17:10OK, that's good.And back on as well, please.I think you'll have to switch to the other tab and tell it to boot to the application firmware since you don't have auto boot set.OK, now if you could just, oh, this looks very what happened here. It's still suddenly very different.
+
+Mark Holl   18:11It's like the act of doing something woke it up.
+
+Michael Davidsaver   18:15Yeah.
+
+Alex Gardeck   18:21But then it's not everything.
+
+Michael Davidsaver   18:22OK, some of those latency measurements look a little nuts, but uh.Hmm.Well, the powers look stable.
+
+Mark Holl   18:39Why is five? What's 5 flashing for?
+
+Michael Davidsaver   18:39Except.That's a good question. I was just noticing that as well. I mean, is is it? Is it flashing regularly and I just can't see it because I'm only seeing it flash occasionally?
+
+Alex Gardeck   18:45Yeah, four should be on as well.
+
+Mark Holl   18:52It's I've watched it flash 345 times.
+
+Michael Davidsaver   18:52It.Right, but I I'm asking someone who's looking at the the display directly and not through the video conference. Please, because I'm worried if there's an aliasing effect.
+
+Dario DAddamio (Student)   19:02OK.No, it's it's like off and then on for a bit and then off and on for a bit.
+
+Mark Holl   19:04Mhm.
+
+Michael Davidsaver   19:12OK.
+
+Alex Gardeck   19:13Is that the same one that we had the gateway issue with?
+
+Dario DAddamio (Student)   19:22So these are just the fiber optic connections, right? So.
+
+Michael Davidsaver   19:28Right, but if the FPGA is resetting itself internally, that might well cause this behavior.
+
+Dario DAddamio (Student)   19:33Oh, I no, this one had no issues.
+
+Mark Holl   19:35It.So should we just rifle through those and you would have reset the gateways or checked them on every single one that you updated the firmware on, right?
+
+Dario DAddamio (Student)   19:48Yeah, like everything was like that's up to date and correct.
+
+Mark Holl   19:56Well, I mean, did you reset check the gateway because it's 225 or 22 or 224 or or 245255 or 254, right?
+
+Dario DAddamio (Student)   20:08Yeah, the page.
+
+Mark Holl   20:08So it's like 11 digit off.
+
+Dario DAddamio (Student)   20:12Yeah, I I'm pretty sure they're correct. I can check again.
+
+Alex Gardeck   20:17And Michael, just to confirm that one in three, that's the jumper, right?
+
+Henrik Loos   20:19Thanks.
+
+Michael Davidsaver   20:24Yes.
+
+Alex Gardeck   20:26And so we should have 45678 all active where four is connected to the 10:05 EVT.Five is connected to the 10/06 EVT.Then six should be connected to the 10/07 EBT. 7 should be connected to the 1018 quartz and eight should be connected to the 1015.Boards.
+
+Dario DAddamio (Student)   21:30That would be.
+
+Alex Gardeck   21:32Yeah, so that's what we're using as the EVG right now.That's where the.Oh, and now it's back to.Showing none of them.
+
+Michael Davidsaver   21:59Yeah, this is really strange.
+
+Dario DAddamio (Student)   22:41Is there a way to check the fiber optic for the older chassis?
+
+Michael Davidsaver   22:48I'm sorry.
+
+Dario DAddamio (Student)   22:50Is there a way to check the fiber connections if they're active on the screen like this for the, uh, previous chassis that we have?
+
+Michael Davidsaver   22:59Yes.It's done, yeah, through the the chassis, the the quartz chassis expert screen has the same information.
+
+Dario DAddamio (Student)   23:10Is it here?
+
+Michael Davidsaver   23:12I think it'll be under ADC status is the quickest way to get to it.And then on the left hand side, the first column is buttons and do sysmon.And that information is down. Scroll down.Uh, you get down further. It's just it's off the bottom of the screen at this point.Oh, your window's too big. I see. OK.Yeah, so the the table in the lower left hand corner has the same information. It's laid out in two columns instead of 1 just for space reasons.
+
+Dario DAddamio (Student)   23:54So this is the first.Uh.
+
+Michael Davidsaver   23:58Yes, yeah, QSFP1RX1 is the the is on the chassis that is #1 and yeah QSFP 2 #1 is is you know the 5th.
+
+Dario DAddamio (Student)   24:12So yeah, we just have one to one cable connected to the very first slot for all of them. So that will confirm the cables are done.
+
+Michael Davidsaver   24:18Mhm.Yeah, what what's puzzling me is that the SFP information, because they did the communication path for the link status and the QSFP received power is very different.I mean having the QSF, I mean having that receive power go to 0. Actually, you know what it it's right now with it in this situation where it's saying there is a.Yeah, OK, actually it's still saying there's received power.123 and it is updating.
+
+Alex Gardeck   24:56Yeah. And then seven and eight are the quartz chassis, which is what we saw.
+
+Michael Davidsaver   24:57It's just deciding there's.
+
+Alex Gardeck   25:04But it seems like the other EBTS are not getting a read back.Which are 456.
+
+Michael Davidsaver   25:16The only thing I can think to suggest at this point is to check the pulse per second source to make sure that the the the frequency really is 1 Hertz.Yeah, I know you you probably you have the the same configuration for the the the quartz chassis and it it should have the same effect.
+
+Dario DAddamio (Student)   25:25It still sounds.Do you look at my screen?
+
+Michael Davidsaver   25:36I not easily now. It's very tiny.
+
+Dario DAddamio (Student)   25:39OK.
+
+Alex Gardeck   25:39And it's reversed. Or wait, no, there it is.
+
+Dario DAddamio (Student)   25:45Thank you.
+
+Alex Gardeck   25:45If you bring it back up.
+
+Michael Davidsaver   25:45Um.Most of the auto gain is uh.making a layer, wiping that out.Like I can't read that unfortunately, but it it it's it be maybe if you move it up and and and do it at a down angle.
+
+Dario DAddamio (Student)   26:02Yeah.
+
+Michael Davidsaver   26:06You move your camera up and then it pointed at it angling down. Oh, there we go. Almost. OK, so that's saying I guess that's 1.0 Hertz.
+
+Alex Gardeck   26:16Yep.
+
+Michael Davidsaver   26:17I can't actually tell where the decimal point is, but I mean, I'll take your, if you say it's one Hertz, I'll believe you.
+
+Dario DAddamio (Student)   26:21Yeah.Yeah, there's, uh, there's six zeros there.So it is 1.0.
+
+Michael Davidsaver   26:29Yeah, or at least by by the calibration of that device, which I mean it it should the exact frequency. Well, actually, yeah.Alright, yeah, no, the exact frequency. It should be able to compensate if if the frequency is slightly off.
+
+Mark Holl   26:41Well, it's a rebellion. Um, discipline. It's really good.
+
+Michael Davidsaver   26:48Oh, it it's very stable, yes. But I mean in terms of absolute accuracy, that's, I mean it should be, I agree it should be, it should be calibrated well and the SRS does a good job about that.
+
+Mark Holl   26:58Alright, alright.Yes.
+
+Michael Davidsaver   27:10Is it possible to try this with an actual GPS receiver pulse per second?
+
+Alex Gardeck   27:10What is?
+
+Mark Holl   27:17No, not right now.
+
+Michael Davidsaver   27:20Hmm, OK.
+
+Alex Gardeck   27:24What about when you look at?
+
+Mark Holl   27:24I mean that is a that is a GPS receiver, but it's just not disciplined by the GPS.
+
+Michael Davidsaver   27:28Right. Yeah. Which may well mean that the frequency's off a little bit. I mean, and again, a little bit should be fine. It's just that all of our testing configurations we've used an actual GPS receiver.
+
+Mark Holl   27:42Yeah.
+
+Michael Davidsaver   27:44I shouldn't say that. I mean I I have. I've used a a signal generator before with the quartz chassis and that was fine.
+
+Alex Gardeck   27:45Sorry.Daria, when you look at like EVT #2, does that show anything active?Oh, so it's getting it.
+
+Mark Holl   28:05What?
+
+Alex Gardeck   28:06Yeah.It's in the the fiber EBT #2 is seeing the the fiber coming from.The EBT we were just looking at.
+
+Mark Holl   28:21Well, so you've got EBT 121 through 4 in the CXFEL rack, right?
+
+Alex Gardeck   28:29Yes.
+
+Dario DAddamio (Student)   28:30Yeah.
+
+Mark Holl   28:31OK, and then we have two cord chassis, but I.Power.What about? Well, let's look at the same thing for EVT 3.'Cause it should be coming in on link one, right?
+
+Alex Gardeck   28:45Mhm.
+
+Mark Holl   28:47There it is. And let's look at, let's go down through each one of them and just look at what they see coming in. It could be that the software is just not routing the information right. That seems to be that's.
+
+Alex Gardeck   28:47Yeah.Yes, David.
+
+Michael Davidsaver   29:01Oh I I just just for reference I and since I am able to remotely access this I was check the device registers already and they they they match the indicators on the the OPI screen.So if there's something funny going on here, it is going on at the lower levels.
+
+Mark Holl   29:19Meaning what level?
+
+Michael Davidsaver   29:22Meaning firmware or hardware?
+
+Dario DAddamio (Student)   29:22Well, it's fine.For the other, um, the other three that we have, these ones are showing green.
+
+Mark Holl   29:25Mhm.
+
+Dario DAddamio (Student)   29:32If you have the correct.
+
+Michael Davidsaver   29:32Yeah.Oh.
+
+Mark Holl   29:36Are you talking about EBT? Wait a minute. Now you're over at 8, so you're in the other rack, right?
+
+Dario DAddamio (Student)   29:43Yeah, but these ones are like lighting up accurately.
+
+Mark Holl   29:48Well, but do you have right now in the SEC you you went to this to what's the CXLS rack? It's still on CXFEL and you've taken the the Stanford the.FS740 and you've split it, right? You're going to two different units, right? OK. And so in that rack, do you have the top unit, the top unit in the rack configured as an event generator?
+
+Dario DAddamio (Student)   30:05Yeah.Um, Alex, did you say you did that?
+
+Alex Gardeck   30:19I did. I rerouted the fibers to do as such and I've got the FS740 going into input one on it.And that it that should be the.
+
+Dario DAddamio (Student)   30:37But but it says only EDR only here so maybe.
+
+Alex Gardeck   30:37The 60.
+
+Dario DAddamio (Student)   30:42If not fully completed.
+
+Michael Davidsaver   30:51Could we try connecting the the the that function generator directly to one and only one of the EV PS?
+
+Dario DAddamio (Student)   31:01So it it doesn't have the sweater.
+
+Mark Holl   31:02Yeah, take the splitter out entirely so you don't have to terminate the naked end of the T.
+
+Michael Davidsaver   31:02Yes, remove the slitter.I'm pretty sure that's going to drop the voltage.As well, and if it's below or near the threshold, then weird stuff could happen.
+
+Mark Holl   31:20A one to two fan out could be, but it would be not a lot depending on what your input impedance is.
+
+Michael Davidsaver   31:27What's?3DB probably.
+
+Mark Holl   31:30Yeah.
+
+Dario DAddamio (Student)   31:32I I I've changed the.
+
+Mark Holl   31:34Mm.Well, half, right, so.
+
+Alex Gardeck   31:38So did you remove the T Dario?
+
+Dario DAddamio (Student)   31:41Yeah, you look at my camera.
+
+Alex Gardeck   31:46Yep.
+
+Dario DAddamio (Student)   31:47It is this to to here.
+
+Alex Gardeck   31:51Oh, you're going to?
+
+Mark Holl   31:52OK.
+
+Alex Gardeck   31:55That's going into the 10:04 chassis, right?
+
+Mark Holl   32:00Wait a minute. Is that the right rack or the left rack?
+
+Dario DAddamio (Student)   32:03That's the left rack.
+
+Mark Holl   32:04OK, good.
+
+Dario DAddamio (Student)   32:07Yes, it is. It is 10/04, yes.
+
+Mark Holl   32:07That's the one I like.
+
+Michael Davidsaver   32:18OK, and it says PPPS marker there says PMOD, which is what it should say.The link is not showing active.And if you go back to the other tab.
+
+Alex Gardeck   32:44I suppose there could potentially there's be an issue with our adapter to get from the BNC to an SMA.
+
+Mark Holl   32:52Oh, no.
+
+Michael Davidsaver   32:55Teams.
+
+Henrik Loos   32:56No.
+
+Alex Gardeck   32:56No.
+
+Michael Davidsaver   32:57Full.
+
+Mark Holl   32:58No.
+
+Henrik Loos   32:59And that's just.
+
+Michael Davidsaver   33:00Well, I mean, I guess if if you were reporting issues with the the the panel mount, I mean, does it feel like it's actually tightening down all the way?
+
+Alex Gardeck   33:09Yeah.
+
+Michael Davidsaver   33:11If you if those the the panel mount feed throughs are not in all the way, it might not. The center pin might not be making sufficient contact.
+
+Henrik Loos   33:20Could we try a different?
+
+Mark Holl   33:20Did were you able to tight? So let me ask it this way. Were you able to tighten the SM? How were you able to tighten the SMAS without popping the lid on each one of these things to keep it from spinning?
+
+Alex Gardeck   33:33So I was able to tighten the nut on the front panel with a wrench so that it kind of was clamped in place.
+
+Mark Holl   33:37Mm.OK. And then when you put the SMA, you've used the the basically our many circuits and had them click, right? Torque wrench, torque wrench, yeah. So we we put these things together, all of our SMA connectors, we connect them with SMA torque wrenches.
+
+Alex Gardeck   33:49Yeah.
+
+Michael Davidsaver   33:57Yep, it's good practice.
+
+Henrik Loos   34:01Could we try a different EVT chassis to work as an EVG?
+
+Dario DAddamio (Student)   34:07Yeah, that's what I was saying earlier. The the other chassis, these ones I they're disconnected now from the bolts, but we can set this one up as the EVGNC.
+
+Alex Gardeck   34:24Yeah, because this one Dario, the input one light was green on correct when you had it plugged in.
+
+Dario DAddamio (Student)   34:31I I believe so.
+
+Michael Davidsaver   34:33OK.
+
+Alex Gardeck   34:35If you switch over the the GPS signal over to that one.
+
+Mark Holl   34:59So Michael, once again, you said that you checked registers and you found that in fact.The power was getting in and it was being read to.
+
+Michael Davidsaver   35:07No, no, no. What I see is that the register values I read directly from the device. I I've got a command line script that'll do that.Is are the same as what I'm seeing on the OPI screen.
+
+Dario DAddamio (Student)   35:21Finished.
+
+Michael Davidsaver   35:21So that it it's not a software or display issue, there's there is an actual issue with the firmware or hardware.
+
+Dario DAddamio (Student)   35:23No.This is the the correct call.Right, Alex, this middle one or I I forgot.
+
+Mark Holl   35:47Well, Piedmont was green, but now it's not.
+
+Dario DAddamio (Student)   35:52Alex, you're muted, by the way.
+
+Alex Gardeck   35:59I'm coming downstairs right now.
+
+Dario DAddamio (Student)   36:01OK.
+
+Alex Gardeck   36:29But yes, it should be connected to the pulsar.
+
+Dario DAddamio (Student)   36:50Oh yeah, so that went itself now.
+
+Michael Davidsaver   36:56Just for reference, that in input state you're looking at there, you you reminded me I was going to change that right now that's being pulled every two seconds, which for a 50% duty cycle you can I guess do do the math depending on the as as the phase processes, that's either gonna be all the way on or all the way off.Change that scan rate to half a second and then it'll it'll flicker as it should in this case.All right, so this one case, this one said EVR only.
+
+Dario DAddamio (Student)   37:27Oh well, this one is supposed to be the. This is the top one in the rack. It's supposed to be the EVG. How do we?
+
+Michael Davidsaver   37:34Oh it is EBT mode is showing EVR only and this this is IP 200.
+
+Dario DAddamio (Student)   37:42Uh.Yes.I don't think Alex finished setting it up.
+
+Michael Davidsaver   37:49Now this.Yeah, that this one is not set up to be an event generator at the moment.
+
+Mark Holl   37:56So this this is on the left track, right?
+
+Dario DAddamio (Student)   37:59This is on the right wrap.
+
+Mark Holl   38:01Why are we on the right rack?
+
+Dario DAddamio (Student)   38:03Because we're testing. Um, because these ones are receiving the.uh connections properly. So let's see if it's one.Introduce something with it. Maybe something's wrong with the laptop for some reason.
+
+Mark Holl   38:19Oh well, I think we may be a little bit scattered in our approach, but if not, that's fine. But we didn't really finish the left rack, we just.We went to something that's not even configured as an EB event generator, so.
+
+Dario DAddamio (Student)   38:37I'm sorry, I didn't catch that last part.
+
+Mark Holl   38:39Well, we went to a a device that is a rack that's not not even fully configured yet from a rack that is supposed to be fully configured. And I'm gonna leave it in my I'm. I'm gonna leave it in Michael's hands here right now, but I.
+
+Alex Gardeck   38:49So we just need to give it the.
+
+Mark Holl   38:54Let's let's plot a course, because otherwise we're just jumping around.
+
+Michael Davidsaver   39:02Yeah, I'd I'd like to stick with the updating one of the other chassis to be an event generator and have it connected to itself one on the the five reports one to three. And I guess let's just disconnect everything else for the time being. So it should only have.
+
+Alex Gardeck   39:02So Dario, I'm gonna go.
+
+Mark Holl   39:15Yeah, so I want to move back. I want to move back to the left rack and stay on the left rack until we get something working with four chassis.
+
+Alex Gardeck   39:16OK.
+
+Mark Holl   39:24So let's not use the right rack until we get the left rack working. Just to simplify matters. We have 4 chassis there, all of them seeming to power on. If we can't get some combination of those to work, let's start there.
+
+Dario DAddamio (Student)   39:39Well, I've reconnected the.Oh, this one here.And what am I leaving connected for the fiber optics just?To itself and that's it.
+
+Michael Davidsaver   39:55But this one right now is showing that it's nothing is connected, which is that that this this is the one I'd like to. Let's move away from this particular unit for the time being and try to replicate the same behavior with a separate one if if there if this is just a some issue with this particular unit.Let's try to, yeah, let's try to isolate that.
+
+Mark Holl   40:15But.
+
+Dario DAddamio (Student)   40:19Yes.
+
+Mark Holl   40:20Simplify matters. OK, the very first top chassis that was the EVR. OK, turn it off.
+
+Dario DAddamio (Student)   40:28Uh.
+
+Mark Holl   40:29Take it out. Take it out of play.
+
+Dario DAddamio (Student)   40:32This one for EVP 6.
+
+Mark Holl   40:34No EVT one you should be in. You should be in the left rack. Everything we're doing should be in the left rack. So turn EVT, turn EVT one off.
+
+Dario DAddamio (Student)   40:35OK, but.Yes.Yes, but the.OK.
+
+Mark Holl   40:47Physically power it down.
+
+Dario DAddamio (Student)   40:49The left wrap is the one that we're not getting any like, yeah.
+
+Mark Holl   40:52I don't care. I mean, yeah, I don't care because we want to. We're not going to play with the right rack at all. We're not going to work on it at all today.
+
+Dario DAddamio (Student)   41:02OK.
+
+Mark Holl   41:02With the time we have left now turn off is is EVT one turned off?
+
+Dario DAddamio (Student)   41:06Yes.
+
+Mark Holl   41:08Then we should go from port one to three in the fiber optic in EBT 2.
+
+Dario DAddamio (Student)   41:13Bye.
+
+Mark Holl   41:14OK. And move the pulse per second down to EVT 2 and let's do everything we can to make EVT 2 into the event generator and Michael will guide us through that.
+
+Dario DAddamio (Student)   41:27Michael, is there an issue with switching the fibers with the unit powered on?
+
+Michael Davidsaver   41:32No.
+
+Dario DAddamio (Student)   41:34OK.
+
+Mark Holl   42:00Um.
+
+Dario DAddamio (Student)   42:16OK, so it looks like EVT 2 is getting the input signal.Wait, I I connected one and three, then one this four is empty and the rest are connected.
+
+Michael Davidsaver   42:42It's 196, OK.
+
+Dario DAddamio (Student)   42:51The seven and eight are the older chassis again.
+
+Michael Davidsaver   42:57Could you could you just disconnect those? I would like for the second chassis EVT two in your nomenclature IP address 196. I would like the only connections external to the chassis to be power ground.Fiber from 1:00 to 2:00 and then the pulse per second into input one.
+
+Dario DAddamio (Student)   43:18OK.Yeah, except for the, for example, the pre.Uh, uploading the USBM. Yeah, you gotta set up that and and see.Could you could you show?You see it.
+
+Michael Davidsaver   44:09Yeah, could you pull, pull back a little bit? OK, so it's the short jumper there.
+
+Dario DAddamio (Student)   44:13OK.
+
+Michael Davidsaver   44:19That is not matching the status. Actually, we we need to switch over to the event generator mode, I think maybe before that status shows properly.
+
+Dario DAddamio (Student)   44:20OK.
+
+Michael Davidsaver   44:32So that will be through the the the debug console clear the OR is that the the NTP server?
+
+Dario DAddamio (Student)   45:05What's the IT player?Uh.
+
+Michael Davidsaver   45:11196 is the one I'm hoping it is, because at least the one I I intend it to be.
+
+Dario DAddamio (Student)   45:11For the application.Yes.Yeah, for the uh again you can say there dot 4.59 dot.
+
+Michael Davidsaver   45:20Oh.
+
+Dario DAddamio (Student)   45:2510.139.4 not 59.Looks like now we are.Getting one in three.
+
+Michael Davidsaver   46:39Yes, OK. And in fact right now everything looks like I think it should. That's showing EVG status 7, EVR status. The low 2 bits are set. Timestamp is decoding.So you're so you're yes. OK, so if you if if you stop and so looking here it's just starting from the top left MGT status showing 5 which is 1 and if it's one and three.Mode is saying EVGEVR. The EVG status is showing 7 which is I'll I'll give better status breakout, but the first bit is pulse per second. OK, the second bit is timestamp decoding and the same in EVR. The low two bits are saying timestamp decoding.
+
+Mark Holl   47:24But.
+
+Michael Davidsaver   47:34Pulse per second, which fits with the time field to the right of the EVR status is now showing the current time and it's taking along happily.O All right, this is what it should look like.
+
+Dario DAddamio (Student)   47:52Did we try to add the connections now to the other one?
+
+Alex Gardeck   47:52So.
+
+Michael Davidsaver   47:57Yes, yeah. Well, this is the point where, yeah, this is the point where we go, we change and then we can step back to this configuration if something starts misbehaving.
+
+Mark Holl   48:07So let's just add one thing at a time.
+
+Dario DAddamio (Student)   48:10OK.Yeah.Where's the short one where you are?That.Well, well, it should be connected now, but.This is the 10/06.
+
+Michael Davidsaver   48:56So what are the connections you you've made?
+
+Dario DAddamio (Student)   48:58It should be 4 to the 10:06 chassis.
+
+Michael Davidsaver   49:08Help me out with the nomenclature. Which? Which? Which? So which?
+
+Dario DAddamio (Student)   49:08It is BB2 um BB3 #3 this one I do.
+
+Michael Davidsaver   49:14Three, which is 7, is is 97, right?
+
+Dario DAddamio (Student)   49:18Yeah.
+
+Michael Davidsaver   49:19OK, so it's showing it thinks it has link on its end and it's decoding the timestamp correctly. All right, here we go.Though we progress, so the issue is with the reverse link status.All right, that's maybe making a little bit more sense and it's it's not going to derail you immediately, but.A note about this here.
+
+Dario DAddamio (Student)   49:56Do you want to add another one?Could we add another Michael?
+
+Michael Davidsaver   50:05Yes, yeah, just, yes, so you've connected.Second downstream and yeah, so you've got to keep in check connect the third one. I guess yeah, four is the one that's currently configured as a receiver.This will be 198.
+
+Mark Holl   50:23Can you flash the flash the rack mount the rack schedule up?The Excel spreadsheet.
+
+Dario DAddamio (Student)   50:38Alex. Oh, one second.
+
+Mark Holl   50:44Yeah, well, I was there for a second.Yeah. And so right now you've connected what's in lines 20 and 19 and 20, right? The 198.
+
+Dario DAddamio (Student)   50:57We we've connected, yes, 196 to 197 and 198.
+
+Mark Holl   51:04Right. And you just connected this time 198.
+
+Dario DAddamio (Student)   51:08Yes.
+
+Mark Holl   51:09OK, just to be clear.
+
+Dario DAddamio (Student)   51:11This is 198 here showing we're doing but on this one 196. Both the connections that are supposed to be there are up here.
+
+Mark Holl   51:26And am I correct in seeing the EVR status that that timestamp is updating?
+
+Michael Davidsaver   51:32Yes, you are. So yeah, what I'm seeing right now from just from IP addresses, I'm seeing 196 configured as a generator. It's happily decoding timestamps. I see 197198 configured as receivers, also happily decoding timestamps.
+
+Mark Holl   51:33If.
+
+Henrik Loos   51:35Mm.
+
+Michael Davidsaver   51:50They don't see the reverse link status indicated on the the the first chair, the 196 chassis, which would be consistent with the reverse link not locking up correctly, but the the the forward link from generator to receivers is clearly working since the timestamp decoding is is correct and the status link status.
+
+Dario DAddamio (Student)   51:50OK.
+
+Michael Davidsaver   52:10On those chassis is showing that the port one is locked.OK, so we've got a firmware bug which is preventing the reverse link from locking up in some situations, which I will have to investigate.
+
+Henrik Loos   52:25Delete.
+
+Alex Gardeck   52:27Should we also add 'cause I think the reverse link was working for the quartz, so should we attach the quartz now?
+
+Michael Davidsaver   52:32Oh, certainly was, yeah.
+
+Henrik Loos   52:34Yeah, can we? I mean the the the first chassis, the 195. Can we try this as an EVR and see if it also updates the timestamp?
+
+Michael Davidsaver   52:51Yeah, that I think I either one of those are valid next steps.
+
+Mark Holl   52:56Let's let's do the first one.Which is, uh, let's let's just let's convert.
+
+Michael Davidsaver   52:59So that's a connect quartz.
+
+Mark Holl   53:04EBT one to a receiver and then plug it in as such and then verify that we're getting the EBR status update.
+
+Henrik Loos   53:13Yes.
+
+Mark Holl   53:13For the forward leak verification.
+
+Dario DAddamio (Student)   53:18Yeah.Can you turn it on and soft?I mean, I would be.
+
+Mark Holl   54:41And now you're gonna plug in the fiber. OK, there it is.
+
+Dario DAddamio (Student)   54:44Have a nice day.Oh.
+
+Mark Holl   54:51It should be AVT one, right?
+
+Dario DAddamio (Student)   54:56Now we we've got this one flashing.
+
+Mark Holl   55:01Wait a minute. Where it's, uh, the top one in the rack is 195.
+
+Dario DAddamio (Student)   55:07Yes.
+
+Mark Holl   55:10It's updating and then one I'd say one.
+
+Michael Davidsaver   55:12Yeah, OK. I I think this is just that that says that the the the link, the reverse link is for at least for one of them was sometimes locking and sometimes not.
+
+Mark Holl   55:25So I have a.
+
+Michael Davidsaver   55:27This is.
+
+Mark Holl   55:31A question at this time of the day. Um.Do we have a path forward on working on this remotely or are we gonna need to ship all this stuff back?
+
+Michael Davidsaver   55:53They don't have an immediate answer for that.
+
+Mark Holl   55:56OK, well then we'll keep going as we are. Do we wanna hook up the go with the Alex's suggestion to hook up the course chassis now?
+
+Michael Davidsaver   55:58Yeah.Well, where are we in terms of so I'm just trying to again because I I can't see the cabling there. So there's the I guess in in your left hand rack with the which I guess your your nomenclature is EVT one through 4.
+
+Mark Holl   56:20Hey, so, so first, first, can you, Dario, I'm sorry, I'm gonna facilitate here. Please put up the spreadsheet, the, the, the rack schedule. That way we can know exactly what we're talking about. OK, we're in the left rack.The I'm gonna grab the I can't annotate in the stamp teams thing. OK, so.
+
+Michael Davidsaver   56:39Uh, OK, all right, the the IP addresses are there. All right, so that, yeah, so the IP address 196 is configured as an event generator connected to itself, and now it is also connected to the other three 195.97 and 98 in that rack as well. Is that the current situation?
+
+Mark Holl   56:59Precisely. Precisely.
+
+Dario DAddamio (Student)   57:00Yes.Yeah.
+
+Michael Davidsaver   57:02OK.Yeah, which should leave, I think, uh, 3 unused fiber outputs.
+
+Dario DAddamio (Student)   57:11This one is the top, the one I'm going.OK, Alex is connecting.
+
+Mark Holl   57:25Are you connecting to the courts chassis now, Alex?
+
+Dario DAddamio (Student)   57:28Yeah, yeah. It's the next one right here.
+
+Mark Holl   57:30OK.
+
+Dario DAddamio (Student)   57:39Yeah.
+
+Mark Holl   57:50Can you go back to the IO scene? I'm just looking at something while we're waiting.Uh, top level of the interface, Phoebus interface.
+
+Dario DAddamio (Student)   57:55Alright.
+
+Mark Holl   58:04The one that has all the I, yeah, that one there. So we've got quartz one through 4, EVT one through 4, I see. Can we, can we arrange these a little bit differently, Henrik?
+
+Henrik Loos   58:18All right, can we?
+
+Mark Holl   58:20Yeah, I was just wondering if we could put the courts as underneath, you know, one through 4 and just put the courts as under EV courts, you know, one and two under EVT 4 and just organize this like racks rather than.Anyway, it's a it's a thought if it's a bad thought.
+
+Henrik Loos   58:40Oh, what you you want the button to be moved?
+
+Mark Holl   58:45Oh, I don't know. I was just thinking that right now EBT one through four is 1 rack, five through 8 is another rack. And if we put the quartz chassis under the buttons for the quartz chassis, you know, directly underneath the.
+
+Henrik Loos   58:59Oh yeah, I can do that. Oh, and that there probably should be two buttons since they're gonna be split.
+
+Mark Holl   59:08Yeah, yeah, it is. So, yeah.
+
+Henrik Loos   59:08Right. Yeah, I need. I need to change that.
+
+Mark Holl   59:13And then we can just have, you know, 6 chassis on the left and six chassis on the right.
+
+Henrik Loos   59:15Yeah.Yeah, we well, the quartz thing will only be 1 button for one EVG configured one. So but we we haven't changed that yet. That's still they're still all but.Uh, hi.
+
+Mark Holl   59:34Wait a minute. You mean, I thought the courts, chassis, both of them were turned into event receivers.
+
+Dario DAddamio (Student)   59:40Uh, they are. They are, yeah.
+
+Mark Holl   59:40All of them.Yeah, all the court's chassis are event receivers now.
+
+Henrik Loos   59:50Although.Well, the first one is not, yeah.
+
+Mark Holl   59:52Yeah.They should be all event receivers.
+
+Henrik Loos   1:00:00Well, the first one is not doing. It's not showing anything useful.
+
+Michael Davidsaver   1:00:07Yeah, it's it's not gonna be showing anything useful right now.Yeah, I think the the important thing is that the reverse link is for those two is uh.Copy.Actually, it's the right. Sorry. So right now you should have.
+
+Alex Gardeck   1:00:27For the courts.
+
+Michael Davidsaver   1:00:31Pretty much all of those fiber like fibers one and then three through 8 should be connected to something.
+
+Dario DAddamio (Student)   1:00:37That's four. I think 4 is or yeah, sorry, yeah, they should all be.
+
+Michael Davidsaver   1:00:45I'm really curious why there's no received power being shown on four and five.
+
+Alex Gardeck   1:00:55On the reverse link that is 'cause we can see the power in the forward direction on the other two.
+
+Dario DAddamio (Student)   1:00:59Yeah.
+
+Michael Davidsaver   1:01:01Yes.OK, could you try pulling out?I guess on on either end of that and looking to see if you can actually see the laser on. It's just if you haven't done that before, it'll show up as a faint red red dot if the fiber's actually if the transceiver is actually sending.
+
+Dario DAddamio (Student)   1:01:26It wouldn't matter which side.
+
+Michael Davidsaver   1:01:30You just need to be keep track of which one it is so you know whether you expect to see light out of it or not. Like in this context the the outputs on the the EVT 2 chassis, they should all be lit up and because we are we're seeing something on the other end. So really I think it would be the.That whichever one is on number which is connected to EVT 2 port #4. If you looked on the other end of that one, just pull the fiber out of it's it's port number one and see if you see a light on.
+
+Mark Holl   1:02:05In the port.
+
+Michael Davidsaver   1:02:07Yes.
+
+Mark Holl   1:02:07As opposed to looking at the fiber, which would be a little bit hard to.
+
+Michael Davidsaver   1:02:10No, I mean, I mean looking at the fiber.
+
+Mark Holl   1:02:12OK, that's what I wanted to clarify.
+
+Dario DAddamio (Student)   1:02:16like you to be one of them.
+
+Mark Holl   1:02:21You see a red?
+
+Dario DAddamio (Student)   1:02:29How did I just? Oh, there it was.
+
+Mark Holl   1:02:33So in one of the fibers, you're seeing a red pillow.
+
+Dario DAddamio (Student)   1:02:38Yeah.
+
+Mark Holl   1:02:42The only other I'm not sure it's a useful test was that you can always do a binary fiber swap.
+
+Michael Davidsaver   1:02:49Well, the the next step is if you see some, if you see light coming out of port 0 transmit side for one of these chassis, then pull the then reconnect that fiber, disconnect the other end on the EVT, you know the the EVT chassis 2 end and see if you see light coming out of that fiber.
+
+Dario DAddamio (Student)   1:03:09Out of the same one and out of the office one.
+
+Michael Davidsaver   1:03:13Well this this is where it it should match up that if you if you take the fibre out of EV2 port four, you should see light coming out of one side of the the fibre that you you see one side coming out of the chassis, one side coming out of the fibre and it should be such that when you make the connectors.Light should be coming out one one side and the other. They shouldn't be.The two sides, the two ends of the LED that the fibers which are glowing should not be mated to each other.Did that make any sense?
+
+Dario DAddamio (Student)   1:03:49Uh.So you've got an A and AB. So great now.
+
+Mark Holl   1:03:55And these are labeled. These are labeled A.
+
+Dario DAddamio (Student)   1:04:00Coming out uh.
+
+Mark Holl   1:04:03So I think you're trying to say, since we're labeled on both ends of our fibers with A&B, you you.
+
+Dario DAddamio (Student)   1:04:09So right now it's coming out of page.I'm gonna plug it in.Now I'm gonna find it from EDT.
+
+Mark Holl   1:04:44Michael, I think you were saying you you you don't want B to come out of A.Simply put.
+
+Dario DAddamio (Student)   1:04:53I don't see any.
+
+Mark Holl   1:05:01So I'd like to clarify what you're talking about, Alex. Now you look, you've always been looking at just the end of a fiber, correct?
+
+Dario DAddamio (Student)   1:05:02Well.Yes.
+
+Mark Holl   1:05:11OK. And and so you have a fiber plugged in and you know that one. And so you since you're you're only looking at the end of the fiber, all you can know is what's coming out of that fiber. I think Michael, were you trying to say unplug the fiber from one device and then unplug it from the other device?And make sure that the the lights are coming out of different fibers in each one of those combinations.Is that what you're saying? Because one's transmitted, one's received. They're not bidirectional, right?
+
+Michael Davidsaver   1:05:44Correct. Yeah, that's that's why there's two. The LC connector has two fibers, 22 light tubes, one in 11 intended for One Direction, 1 intended for the other direction.
+
+Mark Holl   1:05:48Yeah.So, so Alex, if I could try to visualize if I had a fiber and I had it plugged into two ports.Maybe you already have it. Do you already have it? Do you understand exactly what he's talking about?
+
+Dario DAddamio (Student)   1:06:08Yeah, yeah. But it's just that with the fiber only connected to port one on EDT #3, there's no light that's showing up on the fiber.
+
+Mark Holl   1:06:24Well, so.
+
+Michael Davidsaver   1:06:25Oh, all right. Well, that'll do it.
+
+Mark Holl   1:06:27What's that?
+
+Michael Davidsaver   1:06:28You tried to. Do you have another patch cable you could try and quickly and replace that one?
+
+Dario DAddamio (Student)   1:06:35Trail.
+
+Mark Holl   1:06:37We do just grab from the box over there, Alex. Grab a completely new fiber.
+
+Dario DAddamio (Student)   1:07:43Yeah, plug it back in with the same one.
+
+Mark Holl   1:07:48Well, let me see if we can do a mind meld here, Alex. I mean, what I'm interpreting here is if you put the fibers in like you're installing it, just install it, right?Let's say we've got EV, which which two chassis are you going between EVT two and three or no? Yeah, OK, so between 2:00 and 3:00, then you would pull out the fiber from EVT 2 and look at it. And if channel A was glowing red, whatever it was.
+
+Dario DAddamio (Student)   1:08:07Yes.
+
+Mark Holl   1:08:19Right. Then you would plug it back in and then you'd pull it out of EVT 2 and you'd expect to see red on channel B is you you. That's where the information is coming from, right? 22 pipes going both.Direction. So what do you see in those terms? If you take it out of EVT 3, which fiber do you see the light on?Which it's A or B.
+
+Dario DAddamio (Student)   1:08:53Right now nothing's connected, so I'm just plugging it into two.
+
+Mark Holl   1:08:58Well, but have it have it plugged because we know that it transmits. Have it plugged into the event generator so it should be. So plug it into EBT 2 and take it out of EBT 3 and one of those two fibers should have a faint red glow on it.
+
+Dario DAddamio (Student)   1:09:04Yeah.OK, so right now he's typing from out of meeting to.
+
+Mark Holl   1:09:19No, put it into EBT two. Take it out. Take put it into EBT two. Take it out of EBT 3.
+
+Dario DAddamio (Student)   1:09:22That's where it is.That that is what we're checking right now.
+
+Mark Holl   1:09:30OK. And then we just want to know is it a or is it?
+
+Dario DAddamio (Student)   1:09:31And it's E that's active.
+
+Mark Holl   1:09:34B is the one that is red, so now plug it back into EBT 3, take it out of EBT 2 and look at channel A.And if if they're both black, then that's the answer.
+
+Dario DAddamio (Student)   1:09:57Yeah, still nothing is coming out.
+
+Mark Holl   1:09:59So that means.Nothing that what that means is that we the test has been done, the binary nothing's being transmitted from Channel 3 back to to or from chassis 3 to chassis 2.
+
+Dario DAddamio (Student)   1:10:13Which is what we've been seeing.
+
+Mark Holl   1:10:15Right. But this is, this is I I guess just a way to break it down so that it was.
+
+Michael Davidsaver   1:10:21Well, hang on a second. I I thought that there was a.
+
+Mark Holl   1:10:21Visualizable.
+
+Michael Davidsaver   1:10:30I thought that where where we were with that you were seeing from port one on the I guess let's just to be clear. So we're talking about the connection from EVT to which what's the other other end of this which chassis?
+
+Dario DAddamio (Student)   1:10:4223.
+
+Mark Holl   1:10:42Yeah, can you put the put the spreadsheet back up again?It's the only way to keep our sanity. Yeah, so it's it's this 196 that when you go from 196 to 197, you can see a red dot on channel B. When you go from 197 to 196, you see nothing black on both channels.
+
+Dario DAddamio (Student)   1:11:06But anything coming out of 197, there's nothing.
+
+Mark Holl   1:11:07When you.What?
+
+Dario DAddamio (Student)   1:11:13That's when we have one end of the fiber off table connected to 197, that's when the other end is left.
+
+Mark Holl   1:11:21Yeah, right. That's what I just said.So.
+
+Michael Davidsaver   1:11:24But on on one on port 1197 port one, if you disconnect the fiber from the chassis end, do you see light coming out of the transceiver directly?
+
+Dario DAddamio (Student)   1:11:42The camera right now it's set up so we can see what Alex can do.
+
+Mark Holl   1:11:47Well, there's only one five. Alex, I need to ask you a question. We only have one fiber going from 196 to 197, correct?
+
+Michael Davidsaver   1:11:49Yeah, I'm trying here.
+
+Dario DAddamio (Student)   1:11:58Yes.
+
+Mark Holl   1:11:581/5 repair, 1/5 repair, OK.So there's one fiber pair going from 196 to 197 and Michael, what what we're saying is that if you unplug it from 196 and look at the fibers.
+
+Dario DAddamio (Student)   1:12:12OK.
+
+Mark Holl   1:12:15It's black.
+
+Michael Davidsaver   1:12:17I understand that, which is why I'm asking him to trace that signal back to 197 ort 1, which that looks like he's doing at the moment.
+
+Dario DAddamio (Student)   1:12:28Yeah, and it does not look like there's a light coming out.
+
+Michael Davidsaver   1:12:28Is it the?OK, I I'm my misunderstanding and I thought that that was had been verified earlier. All right. So yeah, if there's no light coming out of there, then there's no point looking at the other end of the fiber.
+
+Mark Holl   1:12:41And did you, did you, did you verify that looking straight into the port, Alex?
+
+Michael Davidsaver   1:12:42My mistake.
+
+Dario DAddamio (Student)   1:12:47Yes, and I'm gonna do the same thing.For EDT 4.
+
+Mark Holl   1:13:00Nothing coming out of part one, which is the return signal, right?
+
+Dario DAddamio (Student)   1:13:05Yeah, there's nothing coming out of this one either.It's the EVR port, which is port #1.And nothing is coming out.
+
+Mark Holl   1:13:16H.Well, that's the return signal port, right?It has to be.
+
+Dario DAddamio (Student)   1:13:27It's the EVR form.
+
+Mark Holl   1:13:28Well, there's two. There's two ports.Two fiber connections on each port, right?
+
+Dario DAddamio (Student)   1:13:37Yes, they're both done.
+
+Michael Davidsaver   1:13:47OK, so it's transmitter's not transmitting.
+
+Dario DAddamio (Student)   1:13:47Where is?
+
+Mark Holl   1:13:52The return transmitter, right?
+
+Michael Davidsaver   1:13:55Yes.
+
+Dario DAddamio (Student)   1:13:56Look at it just to make sure.
+
+Mark Holl   1:14:07Huh.
+
+Michael Davidsaver   1:14:11OK, well I guess what what this tells me is that the the transceiver power report status that that is indicating reality then.
+
+Dario DAddamio (Student)   1:14:20Yes, 'cause I can see the light on the coins.
+
+Mark Holl   1:14:29Uh.It's good. We're learning.
+
+Michael Davidsaver   1:14:35OK, well it in truth, I think I'd like to try to stop tracing this particular trail. I'm I'm gonna have to try to replicate the if I can, the issue with the uplink path here.So that leaves us with whatever is going on with the event EVT one. The IP address 195 would not be with when configured as an event generator was not working at all.And then there's or we can pursue that further or if you like, we could move on to actually trying to trigger things.
+
+Mark Holl   1:15:12Was it not working at all or was it working just the same as this one giving the same diamond?
+
+Michael Davidsaver   1:15:17It was not working. It was no, no, it was was behaving quite differently. That's why I was very confused earlier.
+
+Mark Holl   1:15:24Oh, OK.
+
+Alex Gardeck   1:15:24Yeah, I will note that this was the first one that connected that I connected the SMA to. So this was that was the channel that spun a little bit. I stopped it as quick as I saw it rotating, but it probably did rotate.45 to 90 degrees at most I would say before I.
+
+Mark Holl   1:15:48That's not gonna. That's not gonna do a thing.
+
+Alex Gardeck   1:15:48Noticed it.
+
+Michael Davidsaver   1:15:49Well, that's the cables are long enough. I don't think that would have torqued anything.
+
+Mark Holl   1:15:54Yeah, um.Well, so.This is this is good to shake this out, but we're.
+
+Michael Davidsaver   1:16:08Yeah, well, that's why I was proposing we could go. Since we you have 3 chassis that you can actually, it seems like you have 4 chassis you can trigger from. If you want to move on to trying to get a test configuration that you guys can use in your lab, we can try to do that for the remainder of today if you're in a position where you want to actually have devices you can trigger.
+
+Mark Holl   1:16:12Mhm.
+
+Michael Davidsaver   1:16:28And we can I I can try to replicate the uh.Well, at least the reverse path issue, which is not going to be an immediate issue with for you, but just the figuring out what's wrong with EVT #1 and what also then.
+
+Mark Holl   1:16:44Yeah, so so some of these probably are gonna need to get shipped back, but the but yeah, I think maybe let's keep the learning going forward. We've identified some problems. Let's let's at least use whatever time you can spare today.For us to learn some, take a step forward in learning how to use these things for programming event codes and then doing triggering so we can get it recorded and then we can we can continue to learn and then document.The features as we go, you know, it's clear that there's gonna need to be an iterative pathway, some somewhat agile to to getting this thing.Um.The way we need it to be and with your help. So yeah, take us forward. Let's let's learn something new. We've done a whole bunch of diagnostics. Let's learn something new and then we'll, um, figure something out.
+
+1:17:37So.
+
+Alex Gardeck   1:17:39With us already over time, are we just gonna keep pushing?
+
+Mark Holl   1:17:43Well, I mean that was the I that was my take is that we're overtime, but I don't we don't have anything Alex until 2:30 and and I would keep pushing as long as David can actually stay on the line to push some new concepts forward so that we can at least be thinking about them in the week while we.While behind the scenes he can take a look at some things and then we'll I'll certainly be thinking logistically about.And then being able to talk with Michael about what sort of that what what's our strategy for shake it shake out on these things, yeah.
+
+Michael Davidsaver   1:18:19Mhm.
+
+Mark Holl   1:18:21Yeah. So let's take us forward a little ways before we run out of time.
+
+Michael Davidsaver   1:18:23OK.Actually, maybe the quick question I should have asked first was, are you guys in a position to be able to get more SMA to BNC adapters and connect two of these channels into an oscilloscope?
+
+Mark Holl   1:18:36Not right this moment. Now, Alex, you did send me a list of things to buy, right?
+
+Michael Davidsaver   1:18:38I I see.
+
+1:18:41Yep.
+
+Mark Holl   1:18:42OK. Yeah. So I'm gonna, I'm gonna say no. And so maybe that's, is there anything you can show us or is it better that we just pick this up next week and that you keep us up to date on progress?I don't know.
+
+Michael Davidsaver   1:18:59Yeah, I think it might be in that case better too. All all I would be able to show you is that just the configuration steps to do that, which I mean I I can run through that quickly enough here, which is if you go to say EVT #2.
+
+Mark Holl   1:19:09Let's do that.Yeah, so you're gonna show it. You're gonna show us how to set up a trigger so that if we have the right adapters, we could go out to a a camera and trigger it or anything else, right? OK, thanks. Let's do that.
+
+Michael Davidsaver   1:19:15If you were in the.Yes.So firstly in the Uh.
+
+Alex Gardeck   1:19:30Which initially we probably just want to connect it to a scope, right? So that we can see things change and shift.
+
+Michael Davidsaver   1:19:36Yep, exactly. So that you have some confidence that what's coming out.
+
+Mark Holl   1:19:39Hey Alex, can you take one of the SMA to BNC's for example that was used for the timer on the rack #2? Since you only got two of those built up, hook it up to one of the output trigger channels and then you'll be able to then go.
+
+Alex Gardeck   1:19:40Yep.
+
+Mark Holl   1:19:55Put a BNC onto the scope, for example.
+
+Alex Gardeck   1:19:59Yep.
+
+Mark Holl   1:20:08So we will be able to get that set up and at least start playing with that.And then Dario, as we're as we're setting up these individual little test setups, I'd let you from the simplest to the more complicated things that we'll evolve into. Can you hear me, Dario?
+
+Dario DAddamio (Student)   1:20:30Yeah, sorry, could you repeat?
+
+Mark Holl   1:20:31Yep, yeah. So for the simple setups like the one we're gonna do right now, this is the simplest setup. So definitely I want to have experimental setup schematics OK that have all the wiring for the simplest setup as one example in the documentation.
+
+Dario DAddamio (Student)   1:20:38Yeah.Well.
+
+Mark Holl   1:20:51OK. Because then as we get to more and more complicated ones, each time we draw a schematic, it lays down track and we get stronger and stronger and I and you can communicate with me, right? So this is going to be great. So please do the schematics. It's critical that we do schematics.
+
+Dario DAddamio (Student)   1:21:07OK.Connecting to output one.Well, we've connected.The.Let's go.We connected the input channel one to the scope.
+
+Michael Davidsaver   1:22:00You output channel one, you mean?
+
+Dario DAddamio (Student)   1:22:01Oh, yes, sorry, yes, yeah.
+
+Michael Davidsaver   1:22:04OK, and if you are you just is the scope just on free running trigger auto trigger?
+
+Dario DAddamio (Student)   1:22:10Yeah.Yes.
+
+Michael Davidsaver   1:22:14OK, then in the output under output configurations for out one is the connect column. If you click on static 0, you'll have the option to set it to static one.Did the scope show that the output's gone high?
+
+Dario DAddamio (Student)   1:22:33Alex has his camera on there. He says yes.
+
+Michael Davidsaver   1:22:36It kinda looks like yeah, I think. I think I see the 0 marker on there.
+
+Mark Holl   1:22:41What's volts per? Is it 5 volts or 10 volts is putting out?
+
+Michael Davidsaver   1:22:45To be thread 3.3.
+
+Mark Holl   1:22:48It's putting out 3.3 or both 3. It's putting out 3.3.
+
+Michael Davidsaver   1:22:51Yes, LDTTL level.
+
+Mark Holl   1:22:54That's below 3 point. That's barely threshold for logic level high.
+
+Michael Davidsaver   1:23:00Which for LVTTL that is that the by definition. Are you guys who you're talking about what what you're seeing or what you're expecting? Because I I can't actually see the scope all that well.
+
+Mark Holl   1:23:09Yeah, I was just what do you have is the voltage for logic level high?
+
+Michael Davidsaver   1:23:1433 volts.
+
+Mark Holl   1:23:16OK.So it's not TTL, it's something else.
+
+Michael Davidsaver   1:23:20It's LVTTL, low voltage TTL.
+
+Mark Holl   1:23:23OK, so it's low voltage TTL. OK, well, we'll probably have to compensate that on some circuits that expect TTL. So is that that's baked in, it's not selectable.
+
+Michael Davidsaver   1:23:36Yes, that's baked in. That's the the drivers we picked do LVTTL.
+
+Mark Holl   1:23:38Yeah.OK, alrighty.
+
+Michael Davidsaver   1:23:47Mark, it's worth saying if if you it's worth checking the specs of the devices you are trying to trigger because many of them will probably accept either LVTTL or TTL as inputs.
+
+Mark Holl   1:24:00Oh, I will. Yeah, certainly I will. Sure. Yeah, absolutely.
+
+Michael Davidsaver   1:24:03Is that the the high threshold is for TTL and LVTTL are it's intentionally intent picked to be the same. But anyway so it OK so I see non-zero. If you switch it back to static 0, does that go back down?
+
+Mark Holl   1:24:11Mhm.
+
+Dario DAddamio (Student)   1:24:17Yeah.
+
+Michael Davidsaver   1:24:19OK, all right, we've got controls.
+
+Mark Holl   1:24:20Oh, good. Very exciting.The first thing we've ever done with this thing. OK, good.
+
+Michael Davidsaver   1:24:24All right now.So now if you would set the pulse width to, let's say uh.I don't know what frequency your scope is set for, but let's set it to 10,000 nanoseconds or you know, 10 microseconds.And set in the next column over for event numbers that first zero change that to 125125.And now in the connect column change it from static one to pulse.And I think if you adjust your scope trigger you ought to see a 10 microsecond pulse.You may need to set it to normal trigger mode.
+
+Mark Holl   1:25:25Is that because there's two? Well, it shouldn't be that way if it's in.Very low phase jitter on this thing, right?
+
+Michael Davidsaver   1:25:40If you leave the leave the vertical scale the same cause the vertical scale is not going to change. We don't need to be changing the horizontal scale and if we're looking for microseconds, 10s of microseconds if the if the horizontal scale is something like anywhere close to 10 microseconds per division.You'll see it.
+
+Mark Holl   1:26:01Alex, can you pan up a little bit?What's the trigger setting right now on that thing?
+
+Michael Davidsaver   1:26:30OK, normal try say I see just it's really hard for me to see this. But yeah what what I what I would like you to set is normal trigger trigger level set it to say 2 volts.And what's the horizontal scale?OK, 20 microseconds per division.And I really can't tell. Is it actually triggering? It shouldn't be like it should be triggering at one Hertz at this point.But the scope is not updating, or if it's updating faster than that, then there's something going on.I I think I think I see DC coupling which I should have verified as well, but yes, it needs to be DC coupled.Yeah, you you got it there. I can see it.Pro 1X.OK, and with limit, which that's high enough, it's not gonna matter.Actually we go go back to the Phoebus screen for a moment because there's one other thing I should have done to verify that it's really behaving as I think it is, which is in the upper right hand corner of the event log event RX log. We changed the first of those to 125 as well.I mean, I I know 125 is coming out because that's also the that's the timestamp, the the pulse per second tick. So the timestamp updating tells me that 125 is coming along.OK, the pulse delay on zero width 125 pulse.Yeah, you really should be seeing.When? When?Oh, like why? It shouldn't matter. You should see something either way, but if you set the scope input impedance to 50 ohms.I mean you you'll you should see a pulse one way or the other, but if if it's high Z you'll see ringing.
+
+Mark Holl   1:29:15So this is really just a triggering setting right now. Um.About to head down, but um.How many events again do we get?You have a reserved event and then there's and currently are we only set up to. I think the firmware that we have right now has limitations, right? It only has like one event or something we can use or.What's the situation?
+
+Michael Davidsaver   1:29:48No, there there's a there's a few more than that. Right now I'm just starting with the fixed function 125 event just because I don't wanna mess with trying to set up anything else right now.
+
+Mark Holl   1:29:57Well, I'm gonna, I'm about to head down and I'll help with triggering on this thing. If we just leave it this way right here, is this one exercise that we've gotten through?
+
+Michael Davidsaver   1:30:09Well, I I can't quite tell. It doesn't look to me like there's any pulse on the scope. Again, I I can't see it very well.
+
+Mark Holl   1:30:18Yeah. And so the question is, is it triggering Alex, I'm coming down. I'll be right down.
+
+Dario DAddamio (Student)   1:30:23So what?I think the.
+
+Michael Davidsaver   1:30:32Oh, there we go. Made it a little bit bigger.Oh.OK, so is is it my just optical illusion or is that updating fairly rapidly?
+
+Dario DAddamio (Student)   1:30:51It seems very rapid, yeah.
+
+Michael Davidsaver   1:30:56All right.Yeah, which is not does that. That's not making sense. So if it's a normal trigger, then it should only be updating if it actually passes the threshold in that the direction. I guess in this case it looks like rising edge trigger.But when you adjust the trigger level earlier, there was a risk blocking my view, but is it set up for? Because if you just just slew the trigger level down below 0, it should stop updating.And don't change the vertical scale. Don't change. Don't change the vertical scale. Leave it at, you know, just one or two volts per division is fine, but this is the trigger level.Which I can unless I can't quite see where that's showing it.So this is a trigger level, so it's underneath the light that says normal. There's the knob that's the level. When you do that, you should see a vertical or a horizontal line that kind of appear on the display showing where the the threshold for the trigger actually is at this point.And again, with the camera pointed down there, I can't actually see what you're seeing.Is if you twiddle that knob, do you see any changes on the display?
+
+Dario DAddamio (Student)   1:32:14I think there's no changes when that knob is being turned.
+
+Michael Davidsaver   1:32:17OK, so I I I think the triggering on the scope is set up incorrectly somehow, but I I can't quite.Can't quite see how.You're hooked up. You're hooked up to a channel one, which is the yellow one, which looks to be.OK, and I think that says is it? Oh, is the trigger actually set to channel one or is it set to something else?Source. OK, there we go. Edge source channel one rising. Yeah, hold off doesn't matter. Coupling DC.OK, that all looks fine.So has the is is the scope still updating?Oh, there we go. So now it looks like you're twiddling the trigger level now, and it's.Right. There we go. Yeah, that that's fine. Just leave it there.All right, so has the scope up? Has the scope started? It looks like it stopped updating.
+
+Dario DAddamio (Student)   1:33:29I I still have enough static. Oh, OK.
+
+Michael Davidsaver   1:33:32Just just leave it there that that's 1 Volt level threshold is fine for this exercise.
+
+Dario DAddamio (Student)   1:33:40There it is.
+
+Michael Davidsaver   1:33:40Ah, there we go.That's our guy at 20 microseconds per division. So that's half a division. That's one that's 10 microseconds.
+
+Dario DAddamio (Student)   1:33:58So it's going to be.
+
+Michael Davidsaver   1:34:12Yeah, you're going the wrong way there that you should be zooming to a smaller.And also oh also you should check you should center the before you do zoom like that just I would suggest do zoom back to where you can see it. One of the other knobs will do will be triggered delay which will let you move that pulse side to side. So before you zoom in I would recommend.Using the trigger delay to move that pulse in the center of the screen, because otherwise when you zoom in, it's going to zoom off to the left side and you'll get lost.
+
+Dario DAddamio (Student)   1:35:04No, I don't think we.Yeah.What do we want to do here? Can you hear me?
+
+Michael Davidsaver   1:35:18I I could hear various people. It's a little little hard to tell who's talking.
+
+Dario DAddamio (Student)   1:35:22This is Mark. Yeah, I mean, I'm down here and I these things are loud and so we'll we'll work on that. But it's it's very hard to even talk with somebody who's four or five feet away.So we'll work on it. Um.Huh. Good.
+
+Michael Davidsaver   1:35:48So I think I.
+
+Dario DAddamio (Student)   1:35:50What?
+
+Michael Davidsaver   1:35:50Well, there we go.
+
+Dario DAddamio (Student)   1:35:52What's that?
+
+Michael Davidsaver   1:35:53Yeah. OK. See. Yeah, there we go. Yeah. So just move that to the center of the screen and then zoom in a little bit more.In horizontal scale only you do not. You do not need to change the vertical scale.There we go. All right, so I see you ringing, which suggests that the the input impedance is high Z.You should be able to make that go away if you change the input impedance of the oscilloscope to 50 ohms.
+
+Dario DAddamio (Student)   1:36:29What do you think?How can we change it?
+
+Michael Davidsaver   1:36:33Change the input impedance of the oscilloscope to 50 ohms.
+
+Dario DAddamio (Student)   1:36:3750 hours.
+
+Michael Davidsaver   1:36:40Assuming the scope can be configured. If it can't, you'll have to find a feed through Terminator or.
+
+Dario DAddamio (Student)   1:37:07Have to admit, you know, we're not. We're just starting. We're just starting. Let's not waste our time having to consult on that. What we should do in the manual. We'll go ahead and do that. We'll we'll get that. We'll just leave it set up like this for now.And then we'll consult the manual and get the info the peanuts up to 50 ohms and we'll see if that goes away, OK.
+
+Michael Davidsaver   1:37:28Yeah.
+
+Dario DAddamio (Student)   1:37:31M.
+
+Michael Davidsaver   1:37:32Yeah, I mean the the fact that you see a pulse at all, I mean, that's significant. It works.
+
+Dario DAddamio (Student)   1:37:38Right. And then, so I know you're working on firmware. We couldn't, I couldn't really end this meeting without asking you about are you gonna work this weekend on the Pixie Chassis and are you communicating with Thomas and Darren about the.You know the problem that it didn't work quite the way you expected it once again.
+
+Michael Davidsaver   1:37:59Well, it was not that the the problem I was having last night is still in place. I'm not able to communicate with the pixie chassis at all, so I cannot proceed until somebody there tells me it's it's the chassis just turned off.
+
+Dario DAddamio (Student)   1:38:11But I'm gonna go check it right now and I'll get back to you on that. And then the the question is now you recall that we invested in a network switch, so you could power cycle with the Pixie chassis yourself if you wanted to. Now I'll go over there.
+
+Michael Davidsaver   1:38:15OK.
+
+Dario DAddamio (Student)   1:38:27And I assume there's no harm in power cycling it. I'll send an e-mail out first to Thomas and give him a phone call just to make sure that something's not going on. But then I'm gonna power it. But I'm gonna power cycle it after I touch base with him.
+
+Michael Davidsaver   1:38:37Yeah.
+
+Dario DAddamio (Student)   1:38:42And he says, OK, or I'm gonna have him check it too. I'll give him a phone call and and then one way or another, we're gonna get the Pixie Chatsy so that he can talk to it.
+
+Michael Davidsaver   1:38:50Oh, looks like Alex is walking down the hall.
+
+Dario DAddamio (Student)   1:38:55I guess.
+
+Michael Davidsaver   1:38:56OK, well it looks alright. Certainly looks like it's powered, but yeah, I'm not able to communicate with it, so something's going on. So this maybe this is a Tom question.
+
+Dario DAddamio (Student)   1:39:04A what?
+
+Michael Davidsaver   1:39:05He might. This might be a question for Tom because perhaps he's changed the configuration somehow, which has changed the IP addresses.
+
+Dario DAddamio (Student)   1:39:12Possibly. Can you reach out to him by e-mail and then have me in it?
+
+Michael Davidsaver   1:39:15Yes.Yes, I will. Now now that I've seen, you know Alex is showing me that they're the chassis is clearly powered. So if there's a problem, it's a configuration problem.
+
+Dario DAddamio (Student)   1:39:26OK, well, I'll be watching for that e-mail to Tom and then let's let's try to move that ball down the field now what you what you.
+
+Michael Davidsaver   1:39:32Yep, I know we're almost there.
+
+Alex Gardeck   1:39:32There's a little sticky note on the chassis.
+
+Dario DAddamio (Student)   1:39:35Uh, just uh what?
+
+Alex Gardeck   1:39:37There's a sticky note with an IP address that's on the Pixie.
+
+Dario DAddamio (Student)   1:39:42Well, it wouldn't have been anything he did, Alex. So let's stand down for right now.
+
+Alex Gardeck   1:39:49OK.
+
+Michael Davidsaver   1:39:49Anyway, yeah, thank you Alex. That answers my immediate question. I will send the note to Tom and ask him if he knows why the why this might be going on.
+
+Dario DAddamio (Student)   1:39:58Yeah. And if he says he can't talk to it, that's another diagnostic we can work with. OK. And then what should we expect on this particular project in terms of firmware? Next week, we're gonna, I'm gonna get all the connectors and stuff in here and we'll be ready to connect to the world.
+
+Michael Davidsaver   1:40:03Yep.
+
+Dario DAddamio (Student)   1:40:14But what is our timeline and what should we expect to do next week?You're gonna try to figure out the bugs, right? But then.
+
+Michael Davidsaver   1:40:22We're we're back now the context switch this we're talking about the EVT chassis now.
+
+Dario DAddamio (Student)   1:40:26Yeah, that's what we're talking about, yeah.
+
+Michael Davidsaver   1:40:29OK, yeah, I I so OK, so in terms of things I can do, I I will try to investigate the the issue with the reverse links, but I in truth I'm not sure I'll be able to do much about that myself. Our our firmware engineer is still on vacation for another week I think and so this seems like a problem which I'm probably gonna need his input on because it it.
+
+Dario DAddamio (Student)   1:40:302.I see.
+
+Michael Davidsaver   1:40:49Understanding the transceivers. There's the issue of what may be going on with the EVT chassis #1, which is to say the one with IP address 195. The fact that you configured it as an event generator and it did not function correctly, that's not good. We'll need to revisit that.
+
+Dario DAddamio (Student)   1:40:51Mhm.Uh.Mhm.
+
+Michael Davidsaver   1:41:07And I will also pursue the question of why the SMA connectors are spinning, which is also not acceptable.
+
+Dario DAddamio (Student)   1:41:14Yeah, I mean, it almost seems like we're probably, I don't think we should live with that. That's, uh, that's just.
+
+Michael Davidsaver   1:41:20No, you don't have to live with that. I consider that a defect.
+
+Dario DAddamio (Student)   1:41:24Yeah. So we'll have to ship them back at some point anyway. So we'll we'll figure it all out though, OK.
+
+Michael Davidsaver   1:41:31All right. Thank you for your patience, Mark.
+
+Dario DAddamio (Student)   1:41:33Oh, thank you. And then send me information, whatever you can dig up on these fans there. I I I guess I can see the model number so I can look up their specs and I will do that, but we're gonna look.
+
+Michael Davidsaver   1:41:39Oh.Yeah, I I I should send you something because there there's something you should be aware that there's a a a non-standard pen out with the connection to the marble board. It's just a power ground or reversed from what your PC case fan is wired up as surprise.
+
+Dario DAddamio (Student)   1:41:56Right. And we may actually want to put an interface board or something in the box and go to two fans or something, 4 fans or whatever it takes to gets these things down into a something that we can live with. All right, that's good. All right, thanks.
+
+Michael Davidsaver   1:42:12Alright, bye.
+
+Dario DAddamio (Student)   1:42:13It's all good. Thank you. We're making progress.
+
+Mark Holl stopped transcription

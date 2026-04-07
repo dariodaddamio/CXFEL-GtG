@@ -1,0 +1,759 @@
+Transcript
+
+February 27, 2026, 6:58PM
+
+0:33Um.
+
+Alex Gardeck   1:00Mark, can you hear me?
+
+Mark Holl   1:02I can.
+
+Alex Gardeck   1:03OK.Yeah, I got that info to Manfred and the team, so hopefully we can get something back from Pierre.
+
+Mark Holl   1:37Yes, definitely. Good. Good job on that e-mail.Um.Fingers crossed. This time around though, for a number of reasons I'm not going to.Acquiesce. Well, I didn't acquiesce last time. I asked the question about pursuing. You know, when we had an open-ended timeline, I did ask the question about.Both the Micronix and the Smart Act.You know, we we couldn't. No, I did. I I pressed on it as a risk management thing. And you and I had a you and I had a what?
+
+Alex Gardeck   2:20Mm.Yep.Yeah, back in September, right?Yeah, back in September.
+
+Mark Holl   2:34Yeah, it's quite. I have to look at when the PO went in, but for the but and you and I actually talked at the door and your recommendation at the time. So I kind of look at you in my mind's eye at the door was, you know, well, if I had to choose, you would have chosen.
+
+Alex Gardeck   2:37Yeah.
+
+Mark Holl   2:51At that point in time, you would have chosen, I'm not sure if it was the SMAR Act. It would have been a SMAR Act. It would have been a lot sooner. It would have been back in March or something. Yeah, I mean, but you would have chosen the the pod.
+
+Alex Gardeck   3:00Yes, Marx was earlier. Yep.Yeah, the smart pod.
+
+Mark Holl   3:09Yeah. And so, uh, but you know, that was in March and that was actually, um.And still even in September, frankly, when we went through and whatever we got working, um.The funding horizon had not changed, and it was really funding horizon that has shaped our risk management strategies. So there's a lesson there, actually.
+
+Alex Gardeck   3:30Yep.
+
+Mark Holl   3:47Yeah, there's a there's a lesson there in terms of risk management and.Funding horizon trade-offs, cost benefit and we pulled the trigger on either the.At the time when the amount of money.Was an issue and we pulled the trigger anyway, we would have come out fine, but we really didn't know in two layers actually, what the funding thresholds were going to be. We hadn't received, you know, either the 1st or the 2nd.
+
+Alex Gardeck   4:191.Yep.
+
+Mark Holl   4:24Trage and so it's interesting as a case study, but.Difficult when you wish you had had pulled the trigger and rolled the dice. But as we rolled the dice, you know there's always a.You know, the 1st order of business was to keep the team together and and then deal with everything else. But you know, it's it's it's OK, you know, it's just there are no right answers. Sometimes there's just.
+
+Henrik Loos   4:47If.
+
+Mark Holl   4:57Playing the odds.
+
+Alex Gardeck   4:59Yep.
+
+Mark Holl   5:01So um.It's live. OK, so we're here together and Henrik, good you're here. And I believe that we are actually here automatically recording. It should be. And so I think what I'd like to do is that Alex, I'd like you to, you know, mention your.Um.Your take on debriefing the meeting and also we can reengage on things where there was confusion, certainly on my part and you can then maybe step through slowly with the whole team. Henrik and Dario just have an open discussion about how those eight.Green boxes with two of them lit up for memory, whatever have patch into and maybe draw some pictures how those things patch into how we patch together with the fiber optics I think is the idea. And maybe Alex you could just.Kick it off.
+
+Alex Gardeck   6:01Yep. So Dario, if you go ahead and share your screen, I think that would be a good starting point. The first thing that first kind of minor and issue that was encountered during that meeting last Friday.Was Henrik, you noted how when we went to open up the DG645 #1, everything was showing as disconnected. That's because that DG645 is connected for the low-level RF system.And so they've just got that unplugged right now, which is why it obviously then can't connect. So what I did was I went through and added and you see now up in the top near the managed device it now says has the LLRF test in there. That way we can more easily identify.
+
+Henrik Loos   6:54OK, awesome. Yeah.
+
+Alex Gardeck   6:55And then Dario, if you open up then two and three, you can see that I updated the labeling of them. So it says EVG EVR #1 and then the other one says EVG EVR #2. So now there's no.We have clarity on which one is which, so that's taken care of. One of the other things that from reviewing the meeting from last week that Mark and I immediately jumped on was.We needed to have the ability to do more testing with the digital inputs and the digital outputs. As we all know, those are DB9 connectors on the back panel of the quartz chassis.So we've already submitted orders for DB9 cables and DB9 breakout boards, just like we have for the DB thirty sevens. That way we can do testing on each individual channel, so.
+
+Henrik Loos   7:52Oh.
+
+Alex Gardeck   8:00We should get those in. If they're not already in today, then probably sometime early next week we should get those in so that by the meeting next Friday we should be able to do testing of the digital inputs and outputs and.See how that's working. So that's taken care of. Then the other thing, the last kind of thing that jumped out that we were looking at, that you guys were looking at at the end of the meeting last Friday.Was over on the left hand side underneath the event link status and you've got the the terminals one through 8. So those are representative of the fiber ports that are on the front panel of.The quartz chassis. So Dario had tried showing it, but it just hadn't popped up through. So those are representative of what's the jumpers in between each of the the panel. So I think 1:00 and 2:00.Are grayed out on that first panel just because those are the ones that I think are jumpered together. So I think that's what those those fields on the left were representing and those were kind of my.Biggest takeaways besides just the everyone overall increasing their understanding of the bit masks and how those are funneled into this GUI here.
+
+Mark Holl   9:32Yeah, so I I was looking the other direction unfortunately, but let's go over that last set of points again and attach it to the hardware and then break it down for me if you would please.
+
+Alex Gardeck   9:44Yeah, so I can.
+
+Mark Holl   9:45The cables, the fiber cables and the four out, you know, the whole two light green and you know, three through eight that are dark green. Let's break that down a little bit.What's going on?Viking.Viking.
+
+Dario DAddamio   10:07My mic is.
+
+Mark Holl   10:10Are you somebody talking because we can't hear you?
+
+Dario DAddamio   10:14Are we getting ringing right now?
+
+Mark Holl   10:16No.
+
+Dario DAddamio   10:18OK, good.And I'll turn on my camera.Wait here.
+
+Mark Holl   10:25OK, I'm gonna. I'm gonna basically highlight that. I need to actually pull that down. If if you're actually using your camera, then let me go ahead and and I wanna do.
+
+Dario DAddamio   10:26OK.2.
+
+Mark Holl   10:39Figured out how to do all this in oh, I don't know how to do it in this. Let's see spotlight for everyone. I want a spotlight for everyone. What you know, I spotlighted for everyone so it gets in the recording.
+
+Dario DAddamio   10:47If you just stop your share, maybe.OK, got you. So like on the top chassis, which is the EVG, we have the jumper between one which is right here and then that goes to the.EVR board, which is the one furthest on the left.
+
+Mark Holl   11:16But wouldn't that be 3? Wouldn't that be three that you pointed to?
+
+Dario DAddamio   11:17And that's required.Yeah, so I there's nothing in the EDF in.
+
+Mark Holl   11:28Oh, I see. It's in the it's in the white block. It's actually one. I understand.
+
+Dario DAddamio   11:33Yeah, and then you can see underneath.Those EVF outs are labeled one through 6 and so then starting with two two jumpers to the EVR.
+
+Mark Holl   11:44Yep.
+
+Dario DAddamio   11:51On our second ports chassis.
+
+Mark Holl   11:53Yep.
+
+Dario DAddamio   11:54Then three goes to the third quartz chassis.
+
+Mark Holl   12:01Yep.
+
+Dario DAddamio   12:04And then four goes to the 4th voice.
+
+Mark Holl   12:06What? Where does Fargo?
+
+Dario DAddamio   12:09To the 4th quartz chassis, they all go into the EVR.
+
+Mark Holl   12:12OK, to the 4th. Yeah, why is that fiber optic looped underneath that power cord?Can we unthread that? Yeah, it just makes me nervous.
+
+Dario DAddamio   12:26Yeah.
+
+Mark Holl   12:30Not really, not nervous in any.Really nervous way, but I'm it better to be soto in.OK.And now what's happening?Yeah, I'm guess.Happening. Let's see.
+
+Dario DAddamio   13:01Uh, maybe it was this one.I I have a picture.
+
+Mark Holl   13:11So while you guys are working on something, what are you doing right now?
+
+Henrik Loos   13:17Yes.
+
+Dario DAddamio   13:17Reconnecting the TTL.
+
+Mark Holl   13:21OK, so I've got good news. I hope.
+
+Dario DAddamio   13:21From the FSA.
+
+Mark Holl   13:30It turns out that.Since I haven't heard yet today, but I may hear later today, it's either gonna be today or Monday, but ahead of schedule, they've actually finished our eight EVT chassis.
+
+Dario DAddamio   13:47Oh.
+
+Mark Holl   13:48OK. So those those are finished ahead of schedule. And so that means that they're going to ship them probably on Monday, maybe today and I'll get the tracking information and we'll track them in. And then what we'll do, Alex, is we'll talk about how we want, I want to rack them all, you know and.Test them all and but we're going to be able to take one of those and define it into. Maybe we have two more racks left. I think we might use both of them. Leave the one that's there as it is. It's all racked up. We can just move fibers around.And then we can have maybe we take a tall rack and we just use the the high Bay and the low Bay and that tall rack to.
+
+Dario DAddamio   14:26Thank you.
+
+Mark Holl   14:35You know to rack then 22 pairs so we can set up potentially a CXLSEVG and a CXFELEVG and then we will then have three more digital to put under each one of them just notionally to test them out.This is I'm just making this stuff up, but we'll do something like that so that we can expose all of them and then we may take then conceptually two of the quartz chassis and.Allocate them to the CXLS. Um.Rack and then two two of the cord chassis and allocate them to the.CXFEL Um.
+
+Alex Gardeck   15:24Yeah, I think we'll definitely want to get one of our big racks just deployed and ready to go. Yep.
+
+Mark Holl   15:24Test.Well, there's one left. Yeah, there's one left over in laser tube and and so that's what that's what I I thought I had anyway. And by doing that we can then expose everything and it really does.Open up the ability to really shake it out. Now in that we would actually potentially take the.FS740 and then potentially with a splitter be able to, you know, get the whole thing working right and so and then shake it out. That's that's what I'd like to do and then with the new chassis.When I have eyes on them and we start to move them around physically, we will have Michael David Saver back next week.And the expectation is even Monday of next week, I'll be saying, hey guys, great, the chassis are on the way. Where's the is the firmware there? Give us some documentation on the firmware so that we can start playing up with a hello world.Um.Event code. So this is a kind of where I see things shaking out a little bit, but we can get into it while Dario's still around for about 8-9 weeks and you have too.
+
+Alex Gardeck   16:44Yeah, and with that we kind of have two options. We can either do eight more long runs from the switch in Hutch 2 all the way wrapping around Hutch 2 to then be able to hook up. But I think the better solution would be just to get a switch.
+
+Mark Holl   16:46Yep.
+
+Alex Gardeck   17:03To have proximal. That way we can then just use a switch with spanning tree turned off to be able to hook up the eight additional EVT chassis when they get in. I think that would.
+
+Dario DAddamio   17:04Thank you.
+
+Mark Holl   17:16Well, four of them are gonna be on CXLS and what you're talking about is the wire copper, the copper from our switch over to the testbed.
+
+Alex Gardeck   17:26Yeah, exactly. Just getting from the Arista switches instead of having to run 8 cables. I guess we would then only have to run 2 cables and then just have shorter runs, like have a switch that's closer by so that we're not just chewing through 100 foot cables.
+
+Mark Holl   17:44Yeah, that sounds fine. We'll we'll talk about it and we're gonna act on it quickly, but I'm gonna stay true to my never ending rant. We're gonna draw it up, OK?
+
+Alex Gardeck   17:56Yep, but yeah, having two two switches, one for CXLS, one for CXLV LAN. That will should make things a little easier than having to do these massive cable runs.
+
+Mark Holl   17:57Alright, so.OK, we'll do it then. I want to get the higher end switches though, because I don't want to fight with some of the squawking that goes on when we introduce a lower end switch into the system. So anyway, we'll talk about it and we're and you and I will draw it up, OK.
+
+Alex Gardeck   18:18Mhm.Yep.
+
+Mark Holl   18:24And then we'll together, uh, massage it and.Fix it and change it as we move and each one will change independently, even as it then gets superseded and to deployment eventually. But I want it to actually evolve into the system and at each stage we're going to, we're going to create a.You know, even if it's B size sheets on a.Your PowerPoint or a draw IO program, whatever it is, we're gonna make it look, we're gonna make it a configuration controlled thing because it's too much stuff. I'll just, I'll lose my mind if can't help if we don't have anything.To document. So we'll do that.
+
+Alex Gardeck   19:11Yep.
+
+Dario DAddamio   19:13Mark, can you see my screen? OK, this is one of the resources on GitHub that has a more detailed visualization of what's on the the GUI that was provided, but here we can see.
+
+Mark Holl   19:16Yeah.
+
+Dario DAddamio   19:30The 8 ports that we're talking about and the first two, one and two from my understanding are reserved to determine if the chassis is a EVG or an EVR, and so that's why they're all connected on the 1st.
+
+Mark Holl   19:42Mhm.
+
+Henrik Loos   19:43Yep.
+
+Dario DAddamio   19:47And for the first one here, the EDRN because they're all EDRS and then on the software side we program the top one as the EDG.
+
+Mark Holl   19:57Perfect. Yeah. And so this is gonna be you're gonna.
+
+Henrik Loos   19:59It's like it's like two things. It's two things that makes a chassis and EVG is one is the fibre, the the the short fibre connection between ports one and three and having set an NTP server in the configuration.8.So that it knows them.
+
+Mark Holl   20:18Now can we use the same NTP server that you created? We can use that same server for both CXLS and CXFEL, right? Just direct them both to it. Is that gonna work?
+
+Henrik Loos   20:27Yeah, it it should work if yeah, there's the NTP servers visible throughout the VLAN or throughout all the VLANS since we don't have firewalls there.
+
+Mark Holl   20:37Currently, and and even at that we we can even if we do put up walls eventually between the VLANS for good reasons, well we can state them, then we can still put in an access control list the the ability for certain servers to be visible to other servers.
+
+Henrik Loos   20:43Mm-hmm.Yeah.Yeah, yeah. And what we could also do is have one NTP server for each network and have one looking at the other.
+
+Mark Holl   21:07Oh, you know, I like that because then it gives us redundancy. It's kind of a crossover redundancy.
+
+Henrik Loos   21:10Yeah.Yeah, it's redundancy. It will if then one of the if the network fails or if one system fails then then it will just still be an NTP server, just not looking just using its own time.
+
+Mark Holl   21:28Yeah, we don't. Do we have, we don't have the NTP server on this. It's really just the network connection, right?So it's it. So actually you.
+
+Henrik Loos   21:36Yeah, it's just.
+
+Alex Gardeck   21:36It it's on the dot 4.59 server that's in that rack.
+
+Henrik Loos   21:39Yeah.
+
+Mark Holl   21:42I know, but I'm asking a different question just badly and I still don't know how to. Can somebody show me where I can annotate in this teams thing? Where can I grab?
+
+Alex Gardeck   21:52I was just looking for it myself. I couldn't find anything.
+
+Mark Holl   21:56I hate this. Yeah, where?
+
+Henrik Loos   21:57What we don't need to do teams today is Mike Michael is not on.
+
+Dario DAddamio   21:57Are you referring to the to the diagram I have up?
+
+Mark Holl   22:01Yeah, I know, but I guess it's if you see the your fingers right near the Ethernet switch, right? So dangling off that Ethernet switch is going to be these two NTP servers, right?
+
+Dario DAddamio   22:09Yes.Yeah, I believe originally Michael had mentioned that the MTP server was like embedded in this computer box here, so there's not an explicit part on this diagram, so it's inside this box.But we can have it like Henrik was saying.
+
+Mark Holl   22:34But does the GPS receiver really? No. I think our FS 740 by USB. Oh, it has to go by USB. Is that really what we're doing? What's that? What?
+
+Alex Gardeck   22:43We don't have a connection between. We don't have a connection between the FS740 and the server. We are only using the PPSTTL signal out of the FS740, so there's no.
+
+Mark Holl   22:57OK. To give us, yeah, OK.
+
+Henrik Loos   22:58Yeah, I mean in principle you can't. Yeah, I think with the GPS receiver you could turn a computer into a like level one NTP server like that has like highest direct.
+
+Alex Gardeck   22:59There's no line between where it says USB.
+
+Henrik Loos   23:13Um, connection to a a clock.
+
+Mark Holl   23:17But why wouldn't we just have the because the PPS is going to be, well, that's the one second metronome on the whole system and that's going to come out of the GPS receiver. Couldn't we just take, well, I don't know, can we use the one FS740?Um.No, wait, wait, wait, wait, wait. When we actually implement this thing, we already have an FS740 in the CXLS that disciplines the Winsel, I think, and and so since it disciplines the Winsel, it has to stay there. That's gonna be the FS740 that is being used for.The CXLS, the other FS740 and I bought two of them, one for the one for the CXFEL and one for development. Um.I think that why wouldn't we just plug into the Ethernet and then control the FS740 by, you know, an IOC, you know, with the Phoebus interface? Why wouldn't we do that and not connect it by USB to the computer?
+
+Henrik Loos   24:17Well, can I the FS740? Is that the GPS receiver? OK.
+
+Mark Holl   24:23Yeah.So why? Why screw around with the USB in this? We just plug it into the Ethernet and then it can be like any other, you know, you kind of IOC to talk to it.
+
+Alex Gardeck   24:32I gotta check and see if it has an Ethernet port. I'm not sure.
+
+Mark Holl   24:39Oh, really? I.Wow.Does it?
+
+Dario DAddamio   24:53Yes.
+
+Mark Holl   24:54Yeah, I I was kind of gonna be shocked if I didn't. Anyway, we'll figure it out.
+
+Henrik Loos   25:01Allegedly, there's a somewhere is an annotate feature.
+
+Dario DAddamio   25:03Even.
+
+Mark Holl   25:06Yeah, I know this is. This is horrible, yeah.
+
+Henrik Loos   25:08It seems, but I haven't found it yet.
+
+Mark Holl   25:11Yeah, I mean, I I think I I'm every time I sit down to actually say, oh, I'm gonna figure out how to use teams. There's different configurations if you own teams, if you're the owner of the actual session, if you launch it, or I don't know. And so I don't know.
+
+Henrik Loos   25:22Mhm.
+
+Mark Holl   25:28It's not very democratic. It's a little bit.
+
+Henrik Loos   25:31Yeah.
+
+Mark Holl   25:32Something. So, um, anyway, so OK, so I think that's good. We'll sort this out. What we're gonna do is we're gonna redraw this diagram. And I thanks for pointing it out again. Um, Dario, this is the diagram part of it. I I did read this whole thingy at one point in time.But uh, we'll uh, we're gonna do something like this and except it's gonna.It's going to be ours.And sell somebody else.
+
+Alex Gardeck   26:02Which kind of on a similar note to this, one other thing that I want to bring up with Michael the next time with we're with him. I'm not sure if Dario, you or Henrik had found the full pin outs for the DB1 and DB2.
+
+Henrik Loos   26:12Mm.
+
+Alex Gardeck   26:18Connections, which those are the two DB thirty sevens on the front panel. All we've learned to this point was that the we know that the DB2, the DB2 is channels one through 16 and then the DB1 is channels 17 through 32.
+
+Mark Holl   26:26Yeah, bring it up. Let's let's drill down. Let's drill in.
+
+Alex Gardeck   26:37But 16 * 2 we got that's 32 with 37, so we got to figure out what the oh.
+
+Mark Holl   26:43OK, wait a minute. Diego just put something out. Let's take a look at what that is.
+
+Diego Omitto   26:47Yeah, that's the payout for the DB37.
+
+Mark Holl   26:50Let's see what Diego did.
+
+Henrik Loos   26:50Uh, where is that?
+
+Mark Holl   26:53You guys get the pin up. Actually, wait a minute. Daria put one thing up. OK, so.
+
+Alex Gardeck   26:59Ah, nice.
+
+Mark Holl   27:02OK.Yeah.And there you go. Yep, Yep, perfect.
+
+Alex Gardeck   27:06To.Yep. And those are the five grounds. OK, so that's good to know.
+
+Mark Holl   27:13Yeah, Yep, it's good.
+
+Alex Gardeck   27:17And then now we just got to remember that it's DB2 that's one through 8 and DB1 that's 17 through 32.
+
+Mark Holl   27:26Yeah, we wanna when we get this to a breakout board, let's also draw, you know, some just benchmarking test cases and stuff. I I wanna even if we're doing the testing cases, I wanna have Dario.
+
+Henrik Loos   27:36Uh.
+
+Mark Holl   27:41You know, actively involved in um.Drafting some stuff up and I I think that it would be useful. Dario, I'd like to use draw IO for this, OK?And for just some of these draw diagrams initially, because it's easy to distribute, anybody can get to it, anybody can have it, and it's better than PowerPoint by far in terms of some of the stuff you'd want to do.So if you haven't used Draw IO, do you know have you are familiar with Draw IO?
+
+Dario DAddamio   28:18Yeah, I I actually used it for a few classes.
+
+Mark Holl   28:22Yeah, so we'll use that. And then we're gonna start interacting, talking about the drawings that we need to draw up and we're gonna make it. The drawings are gonna be enviable. But yeah, we're we're gonna we're we're gonna detail out everything because.I'm too stupid to remember things, so we're gonna detail it out.
+
+Dario DAddamio   28:48Alex, could you clarify the DB1 is one through 16 and then DB2 is 17 to 32? OK.
+
+Alex Gardeck   28:56No opposite DBDB one is 17 through 32DB2 is one through 16. So I think if you if you look at the actual device, I think if you see on the EVG we got the DB37 going to DB2.
+
+Dario DAddamio   29:05OK.
+
+Alex Gardeck   29:15On the top one, right? That's the one that we did for channel one. But then if you look at that first EVR, the second chassis in the rack, the DB37 is plugged into DB1, which then results in channel 17.Because on both of the breakout boards, we're just using pins one and pins 20.
+
+Henrik Loos   29:37That makes all perfect sense.
+
+Mark Holl   29:37What the hell?
+
+Dario DAddamio   29:38OK.
+
+Alex Gardeck   29:41OK.
+
+Mark Holl   29:42Yeah, you you're you're being facetious or sarcastic.
+
+Henrik Loos   29:47Of course.
+
+Mark Holl   29:48Yeah, OK. Yeah. So my when I take a look at, when I take a look at this, you know we've got plus and minus and so the minus line is always gonna be signal. My question is.
+
+Alex Gardeck   29:51Yeah, very interesting.
+
+Mark Holl   30:03What are the X's? What are the red X's mean on that pin out? Are those just going to?
+
+Henrik Loos   30:09I think.Are these resistors like for the?Yeah.Yeah.
+
+Mark Holl   30:19So my question is that this is supposed to be double, double, double sided and if so, I guess what you've got here is that the for example pin number one would be ground, I would assume signal ground and then that AI and pin #20.Would be then the the plus or minus. It would be the signal line and then that would swing plus or minus with respect to signal ground on pin one. That's the only way I can interpret it. So yeah.
+
+30:47Mhm.
+
+Mark Holl   30:53So.
+
+Dario DAddamio   30:53So I'm turning back on.My camera so pin one is plugged into the shield on the BMC. That's the yellow table here.And then pin 20 is the black.Which is not on the the the BNC breakout.
+
+Henrik Loos   31:19OK.
+
+Mark Holl   31:24Well, I mean and one should be.
+
+Dario DAddamio   31:27Oh yeah, the the pin, the minus goes to the shield.One is going to Shield.
+
+Mark Holl   31:36Oh.Really?
+
+Dario DAddamio   31:40Yes, that's how Michael had this wired up.
+
+Mark Holl   31:45Welcome.
+
+Dario DAddamio   31:46One is going to shield on the BNC and then 20 is going to center on the BNC.
+
+Mark Holl   31:53Well, then that makes sense. Yeah, it's a basically a coax connector, yeah.
+
+Dario DAddamio   31:58Yeah. And then we got our coax is going to the.Thank you.
+
+Mark Holl   32:07Yeah.That's good. So that means that in combination we've got.Different combinations of 64 got.16 * 4, 64.
+
+Alex Gardeck   32:2832 channels per chassis, so 32 by 4128.
+
+Mark Holl   32:32Yeah, we got a lot of channels. Yeah, 128. We've got a lot of channels available to us, so that's gonna be useful.OK.So that explains a bunch. Now what was he showing us? Can we go into the just practice getting reps going into the panels where we had those channels available? Dari, do you have that fired up?
+
+Dario DAddamio   33:00Yeah.Can you tell them about this?
+
+Alex Gardeck   33:04Yeah, 'cause looking at the channels, that's what required that Python extension that Henrik got configured.Which I don't know, Henrik, if you've had a chance to get a button that launches that so we don't have to go into the weeds of.
+
+33:14Yeah.
+
+Mark Holl   33:14Uh huh.
+
+Henrik Loos   33:20Maybe now would be good at a good time to show some changes I made to the interfaces.
+
+Alex Gardeck   33:27That would be great.So, Dario, you want to stop sharing so Henrik can go through and share what he's done?
+
+Dario DAddamio   33:35Yeah, Yep.
+
+Henrik Loos   33:47OK, can you see things?
+
+Mark Holl   33:51Mhm.
+
+Alex Gardeck   33:53Yep.
+
+Henrik Loos   33:53All right, so so on the event panel timing system development, there's a button for the ATF viewer.
+
+Alex Gardeck   34:02Awesome.
+
+Henrik Loos   34:03You click on it and it opens magic.
+
+Alex Gardeck   34:07Beautiful.
+
+Henrik Loos   34:09Yeah.And then I took out stuff that we don't need from the main screen here. There are only 36 buttons. Now I took out the NASA specific stuff.
+
+Alex Gardeck   34:23Yeah, the operations one that was talked about.
+
+Henrik Loos   34:25Yeah, yeah. And so if you go to chassis scope now you see this and.Oh.Yes.Teams.
+
+Alex Gardeck   34:43And Dario, you may have to reopen Phoebus to see these changes. I'm not sure if you are seeing this the same way or still seeing the old way.
+
+Henrik Loos   34:45Music.F5 just just F5 to refresh.
+
+Alex Gardeck   34:54Yep.
+
+Henrik Loos   34:58Wait, no, no, no. Because I relocated the source files, I took them. I'm not using the ones in the IOC software, I'm using the ones in our displays.
+
+Alex Gardeck   35:00No, you have to actually open it.
+
+Henrik Loos   35:15So you need to go, you need to start from the the home screen, the event panel.Yeah.Then you should see it and so.There was some bug in the uh in this display here.Which was loading a generalized version that showed 32 chassis.If you clicked on any of the buttons.Um, so now all the screens only show 4 chassis.And if you yeah and I added this indicator here.
+
+Alex Gardeck   35:55Good.
+
+Henrik Loos   36:01Which highlights which channel is um has the acquisition enabled?So like Channel 17.It has the that acquisition enabled button. That status gets reflected in the in this LED here.
+
+Mark Holl   36:24Oh.
+
+Henrik Loos   36:24There'll be no right now only on chassis 1.Only channel 17 is enabled for acquisition and on.Chassis 2 only channel one is enabled and none on channel chassis three and four.
+
+Alex Gardeck   36:45Yep. And those are the, those are the two that are connected to the DG right now.
+
+Mark Holl   36:46It's nice.
+
+Henrik Loos   36:49Yeah.Yeah, and another thing I did for the.
+
+Mark Holl   36:57Huh.
+
+Henrik Loos   37:06For the interlock.Yeah.For the interlock, I added some documentation.Um. In the quad chassis. Um.Help or documentation explaining all the all the different items on the display here. I haven't put any pictures in there.That's at least something. And yeah, and I'm still a little bit shaky on the meaning of this part here, the concentrator.
+
+Mark Holl   37:44Mhm.Yeah, I am too.
+
+Alex Gardeck   37:55Yep.
+
+Henrik Loos   37:56Yep.Anyway, so that's what I got here.
+
+Mark Holl   38:01Nice.Yeah, that's nice. It's really nice.Yeah, so I think we're coming along. I mean getting those additional EVT chassis and is gonna flush out the picture. Then we can start, you know, truly a little bit of a agile jumping around here to.You know, hook it up and then create a fictitious beamline, 2 fictitious beamlines and start to digital twin into what we actually have for CXLS and conceptually.Um, you know, create something and then do the same thing for CXFEO reaching into the future for something we don't really have yet, but we'll have, you know, we'll have it.
+
+Alex Gardeck   38:54Yep, and it'll be good to test the digital on the quartz chassis once we get those boards and cables in.
+
+Mark Holl   38:55So.Yeah. Well, and then of course we're gonna have more digital lines. And so we'll have to take a look at our inventory because we'll also need to touch the test all the digital lines on the EVT chassis and also, you know, the thing that we're really gonna, I'm gonna.Some of the some of the scopes and stuff that's it's been absorbed into the to the.The patch one experimentation. I don't care if I get it back. I'm gonna replace it and um and so the uh.But we need to test those things. And the main thing we need to test on those, of course, is going to be the trigger and delays, right? And so we've got to figure out how to do the dance and assigning triggers, assigning delays, and then start doing the dance of getting images and such and so.Diego Hi.
+
+Diego Omitto   40:02Can you hear me?
+
+Mark Holl   40:03Yeah, so, so two weeks ago we the challenge was set out there again about how we're gonna do this with these 2D detectors if they're allied vision or Eiger.
+
+Diego Omitto   40:04Alright.Mhm.And.Yeah.
+
+Mark Holl   40:25Or even something to share and show about how we're going to start taking steps, because you're the guy who's got the assignment.
+
+Diego Omitto   40:26Uh.Right. Yeah, I have some ideas, but I thought, what's his name? Richard would put together some slides with a use case so we can discuss what's the best way to approach this. What's was it? What's his name? Yes, he said he has.
+
+Mark Holl   40:43With who? With who?
+
+Henrik Loos   40:46Richard Curry.
+
+Mark Holl   40:49With who? I'm sorry, I didn't. I'm sorry. I need to here. Oh, I see. Uh huh.
+
+Diego Omitto   40:52Richard Kiria.
+
+Henrik Loos   40:54Richard Curion.
+
+Diego Omitto   40:563.So he said he has experience of the Slack system and he knows how he wants this to what's the what's the use case for this. So I would like to see that so we can.
+
+Mark Holl   41:08No, but.Well, that'll inform us, but it won't. It won't drive being able to actually capture frames and be able to.Reassemble the metadata with the timestamps and the images. So I think these things, I don't think these things have to necessarily be linear in in order to make some progress showing something working.
+
+Diego Omitto   41:25Right. So for.Right, but right now we have for the Eiger in specific because it's going to be the first one, right? We have timestamps that's they're coming from this three 0MQ interface and once we get the EVT sending triggers to the Eiger then the challenge.It's just, you know, making sure that we put in the metadata whatever pulse or counter we're sending triggers from. So that's that's I would say step zero, just, you know, get a trigger from.
+
+Mark Holl   42:08And how do we do that?
+
+Diego Omitto   42:11Or get a trigger from the EVT and get a PV or the details you need to be flushed out with Michael. How do we get you know the the from the EVT system telling you you know what what counter or what metadata we're gonna be putting?
+
+Mark Holl   42:13Mhm.
+
+Diego Omitto   42:29In the Eiger IOC and then.
+
+Mark Holl   42:31Yeah.
+
+Diego Omitto   42:33And then changing the metadata is, I would say changing or adding that to the metadata, it's an easy change on my end. It's just the only challenge is just making sure you know we have a circular buffer or buffering that's you know, sizable according to whatever latency we're expecting.
+
+Mark Holl   42:34Yeah, but here's the thing. Mm-hmm. Good.
+
+Diego Omitto   42:53At that that on my end, that's the easy part.
+
+Mark Holl   42:54Yeah.OK, so here's the thing. You know, yeah, I was expecting to get some stuff to look at from Rick, but he's been very busy with course work and things like that. And and from my perspective for the priorities that I'm gonna set.
+
+Diego Omitto   43:07Mhm.
+
+Mark Holl   43:15You you definitely support a deal. You know, drop everything to answer house questions for making things work the way they work on the Iger for now. Drop everything to answer Adil's questions or Spin's question or whatever.
+
+Diego Omitto   43:16Mhm.Mm.Mhm.
+
+Mark Holl   43:33But do not drop the priorities that we're setting in this meeting for getting things working, OK? And don't wait for, don't wait for Rick, don't wait for anybody. These are two separate things and they will merge and we'll take advantage of whatever data we get coming in from the Eiger that's and for.
+
+Diego Omitto   43:40Um.Right.Mhm.OK.
+
+Mark Holl   43:52And for the SAX wax type stuff and the triggering and whatever. But I've been pretty explicit that I want the test bed to be independent but interdependent. OK, it's independent in the sense that we need to make progress that can feed back in and we don't let linearly.
+
+Diego Omitto   43:57Mhm.Mhm.
+
+Mark Holl   44:12Wait for things to come to us from other people, just like they didn't need to necessarily wait for us to be ready on this side to make all the progress that they do. We'll blend them back together. So can I can I can I ask you to please? I know Michael's been in London this week, right?
+
+Diego Omitto   44:17OK.Mhm, right.Mhm.
+
+Mark Holl   44:30And I think he's back next week. But for next week's meeting where we all come back together, I'd like to see something. I want to, I want to see details as to how we, how we on paper we can do this. Can can we set that goal?
+
+Diego Omitto   44:34Bye.OK. Yeah, sure. I'll get with Michael.
+
+Mark Holl   44:45OK, let's say. And then of course, if new things come in, we can take care of it. But again, there there's there's a different thing. The Eiger is going to be its own hothouse tomato. You know, it's it's its own thing because you know it it wasn't, it's not cease bad. It wasn't designed to take time stamps.
+
+Diego Omitto   44:50OK.Mhm.
+
+Mark Holl   45:05You know, so we we got it. So always be thinking about it, but I want to make progress on this test bed that shows we can do it and then we'll blend that with whatever adaptations. But I don't want to have this waiting game thing going.
+
+Diego Omitto   45:05Mhm.
+
+Mark Holl   45:21Because it it's not really what we want to do. Thanks.That'll be fantastic. I'll be really excited to see what you have next week because I want, for example, on this test bed, we have the Allied Vision cameras. We know how to trigger them. We're gonna have digital outputs to trigger the Allied Visions completely separate from the Eiger. OK, and so we can also trigger.
+
+Diego Omitto   45:35Right.No.
+
+Mark Holl   45:46LEDs and I want Dario and I'll be working with Dario and Alex mostly just to be a cheerleader, but to get that stuff going so that you can get in there and work with them to test it. And then if it works for an allied vision trigger, well, it ought to work for an Eiger trigger.
+
+Diego Omitto   46:06Right. But what's the goal of the test bed like other than you know you want synchronize frames with the LEDs, right? And then?
+
+Mark Holl   46:16Well, I want synchronized frames with the timestamps with the images. I want every timestamps gonna have a trigger. The trigger is gonna trigger the allied vision. The allied vision is going to stream over the Internet on a win.
+
+Diego Omitto   46:20Mhm.Right.
+
+Mark Holl   46:3210 Gigabit per second, no one Gigabit per second link back to a server OK via area detector. Now when it gets back to area detector, that image has to be linked up in some manner with every single timestamp at 1 kHz.
+
+Diego Omitto   46:36Mhm.
+
+Mark Holl   46:49That to me is the.
+
+Henrik Loos   46:49That means the computer needs to have an EBR. The computer that houses that receives the the camera images also needs to receive time stamps.
+
+Diego Omitto   47:04Yes.
+
+Henrik Loos   47:05And the way this is the the the way this was usually done like at Slack was that the there was an embedded computer that had the frame Grabber and that also had an EVR and then software like area detector or whatever that would.Made the timestamp from the EVR with the image in the IOC.
+
+Diego Omitto   47:29Yeah.
+
+Mark Holl   47:30Right. But fundamentally, this isn't from going back even a year, a year, a year or so ago. Um.
+
+Diego Omitto   47:31Yeah, today.
+
+Mark Holl   47:39You know, we've.
+
+Diego Omitto   47:40No.
+
+Mark Holl   47:42Got to we we had the servers out there and we actually, and I'll I'll remind everybody of this, we spent a lot of effort to actually identify what was going to be the network distributed network architecture and where these images were going to be streamed to a server.
+
+Henrik Loos   47:53Yeah.
+
+Mark Holl   47:58And then and then and then the the metadata was going to be put back together. So I'm not clear and I'm I'd like to see a picture of what you're saying Henrik, because it's it's we'd have to find a way in which that either is or is not what we spent months or weeks.And months drawing out over a year ago as to what the server.Event generator, event receiver architecture would be. I'm going to, I'm going to bring all that stuff out. That was a lot of work. And so I'm going to bring it back out so we can take a look at it and start drawing these pictures. But can you describe it again? You're you're saying something different that I'm confused by. Say it again.
+
+Henrik Loos   48:33And.What I'm saying is that.The.The IOC needs to.Have two inputs, one is the timing system signal and the images and then.
+
+Mark Holl   48:57Mhm.
+
+Henrik Loos   49:00The way that was like originally done way back was.An embedded computer that that have a like a micro TCA crate that had an event receiver in it and and A-frame grabber and then.The the IOC would get by whatever mechanism through the EVR card would get the timestamps and would get the images and would know that they were coming in at the same time and the tabs the timestamp.To the images.
+
+Mark Holl   49:42I know, but that was at 60 or 120 Hertz and and also there it was back, it was back in the day. We're trying to do the same thing.
+
+Henrik Loos   49:47Yeah.It was 20 years ago. So now we have on the camera side, there's not a frame grabber, but there is, there's a a private.
+
+Mark Holl   50:00Network, yes.
+
+Henrik Loos   50:00Ethernet connection network connection for the giga for the gig E connection. So the images come come in just like you had for the frame grabber but.
+
+Mark Holl   50:06Yes.
+
+Henrik Loos   50:13I wasn't involved in the original planning of this, so I don't know what the idea was, how to get the timestamps.Into the IOC.The IOC.
+
+Mark Holl   50:26Yeah. So tomorrow when I come in, yeah.
+
+Henrik Loos   50:27And in principle, in principle, this is a very fast Ethernet connection, so in principle.The timestamps couldn't could come in over Ethernet.
+
+Mark Holl   50:40Well, that's what we have to figure out because and and Henrik, I'm gonna bring you up to speed on the foundational meetings because we had lots of meetings I.
+
+Henrik Loos   50:42Yeah.Mhm.
+
+Mark Holl   50:51I spent a lot of time. I don't want to just Chuck away drawing this stuff up to get an agreement on the base starting point architecture for how we're gonna lace all these servers together, including for imaging detectors, including for discrete detectors, including.
+
+Alex Gardeck   51:01Mhm.
+
+Mark Holl   51:11For the also the RF system. OK, because I restarted this last week, all the the RF system work after I could real, you know, happily I'd like.
+
+Henrik Loos   51:15Yep.
+
+Mark Holl   51:27Work well with Steve Jack, but really back in to finish the work on that. And so after he retired, he's coming back on hourly. So we have some things to finish with TCB. So the so we're going to, I'm going to send that stuff out. I'm going to do it tomorrow when I haven't wasted so much prime time energy on.
+
+Henrik Loos   51:28Mhm.
+
+Mark Holl   51:47Fighting to ship some stuff back to Germany to get it recalibrated. I'm not going to talk about it, but the but anyway, I'll bring us back up to date before we left it off because and and then I'll send that out Diego, so we can start looking at it in the.
+
+Henrik Loos   51:54Yeah.
+
+Mark Holl   52:06Of that. And if it's wrong, we'll fix, we'll change it, but we'll redraw it so we know what we've changed. But now we got to make it work. Now we got to make it work. And I I want you to dust off the drawings because you had some case A, case B, case C drawings that you were doing.
+
+Diego Omitto   52:11Yes.So.Mhm.Yep, I had idea, but what I would say is please copy Michael too cause he's directly involved with the firmware and the IOC for the EVTVRVG.
+
+Mark Holl   52:22And.Yeah, yeah, yeah. It'll be everybody on this meeting. He's not here this week, 'cause he's in London, but but everybody, I'm gonna.
+
+Diego Omitto   52:32Mhm, mhm.
+
+Mark Holl   52:39Because I don't want to get distracted by solving right now, when we have fundamental architectural things that we've got to tease out, we need to remain aware and we need to be informed by the experiments in touch one, and we need to be informed by.
+
+Diego Omitto   52:43OK.OK.
+
+Mark Holl   52:57What Rick is gonna write up and Sabine's gonna write up. We got to be informed by it, but I don't want solving the real problem.To um.I don't want to start solving the real problem immediately. I want to start solving the bigger problem in the architecture because there's a difference. If we're solving the real problem, we could easily paint ourselves into a blind Canyon by just tweaking everything every which way to make one thing work that now doesn't solve the more general case.And so we're going to get there as fast as we can, but that's not the way I want to do this. I I want us to solve the general problem and while being by and design benchmarking tests to be sure we can solve the the the specific problems too.I Unless somebody thinks I'm crazy. Does that? Does that make sense?
+
+Diego Omitto   53:50I'm OK with that. Yeah, it just we just need to be careful to not waste a lot of time making too generic, too flexible and then, you know, don't need all that. That's just the only thing I like to keep an eye. What's the use case, you know?
+
+Henrik Loos   53:50That totally makes sense, yeah.
+
+Mark Holl   54:00Well, yeah, we're not going to. Yeah, yeah, that's that's what I just said though. We have to be aware of the use cases and we're not going to generate something that's wild ranging. But I'm not going to get pigeonholed into solving just one thing and being in constant crisis mode. OK, I'm not going to have this project.
+
+Diego Omitto   54:07Mhm.Mhm.
+
+Mark Holl   54:20In constant crisis mode to solve the immediate thing that has to be done right now. Yeah, it does have to be done right now, but I want to actually solve the generic set of cases. We can understand digital analog imaging, OK.
+
+Diego Omitto   54:32Mm.
+
+Mark Holl   54:36Waveforms. There you have it. We got to solve those cases and I want to be able to dissolve those things before all our energy is going into solving the crisis of the day. And I don't want to do it. OK, it's no good for anyone.
+
+Diego Omitto   54:36OK.Mhm.Mhm.
+
+Mark Holl   54:55But if we hold course and we make steady progress, we'll come out the other side and then eventually everybody will be happy.As they can be.Yeah. OK. So then definitely dust it off. I'm really just trying to put some wind, um, into the air to say that next week I want to talk about real things and have figures to look at.Please, if I could.Are you agreeing with me, Diego?
+
+Diego Omitto   55:28Yep, Yep. I'll talk to Michael since he get back and see what we can put together.
+
+Mark Holl   55:28OK, good.Perfect. Thank you so much. Because then I we're gonna be all over it. Alex and I are gonna be all over it to with Diego, with you and Michael and everyone and Dario, we're gonna start testing stuff, but.But I can only test things that are well defined. So otherwise, yeah, let's do that.I'm excited. This is great.K Um.Good. That's that's the thing I wanted to be sure of for next week. And so if you talked with Michael, let's really be prepared to to do this.And I think with that, I just want to go around. Does anybody else have anything or? Yeah, good, good. Go ahead.
+
+Henrik Loos   56:16Yep.Just check the the FS740. The GPS receiver has Ethernet connection RS and RG.
+
+Mark Holl   56:29Yeah, yeah, yeah. Yeah. Who knows? Um, hey.
+
+Henrik Loos   56:29No, but whatever it is, yeah, yeah. And there's a and there's a book, there's a programming manual that speaks TCP, so to be.
+
+Mark Holl   56:37OK, Alex, can you do that so that Henrik can dive in and and let's let's figure out. Alex, could I ask you to go to the manual, figure out how we're gonna set the IP if we haven't already, and let's get it hooked to the Ethernet by whatever means so that Henrik can go go to town on it.
+
+Alex Gardeck   56:54Yep, Yep, we can work on that. And I think that'll also be part of just getting a switch deployed so that we're not running these massive cable runs.
+
+Mark Holl   57:04Well, yeah, but let's get one cable to the FS 740.Right away and then and then you and I, I'll order another switch. I'd like to order some quality switches like the ones we have in for example.Uh, the RF test bed.
+
+Alex Gardeck   57:23Mm.
+
+Mark Holl   57:25Yeah.Unless you object to that.
+
+Alex Gardeck   57:32No, that that seems reasonable.
+
+Mark Holl   57:34'Cause then we have visibility on it and we'll, uh, we'll be able to and they work well, right? I mean, we had no problems with that one at all, right?
+
+Alex Gardeck   57:43Yeah, 'cause those ones were even doing the 100 base T.
+
+Mark Holl   57:47Well, and that's the reason why. That's in part the reason why if we're going to go local, I don't want to be limited. We have 10 Gigabit per second at the at the Arista switches and I want to have at least 10 Gigabit per second in the local network rather than choke down to 1 Gigabit per second because we can't actually test some of this stuff we want to.
+
+Alex Gardeck   57:48So yeah.
+
+Mark Holl   58:07Test if we're choked down.
+
+Alex Gardeck   58:09Yep.
+
+Mark Holl   58:10Yeah, OK.Dinner, got anything else?
+
+Alex Gardeck   58:15Hello.
+
+Mark Holl   58:18All right, let's close the meeting and.
+
+Alex Gardeck   58:19Do you want to mark float anything about future Xbot development or you want to hold hold that for a bit until we figure out where we're going?
+
+Mark Holl   58:27Well, so the question, Oh yeah, we have Diego. Diego, let's stick around. Hey, Diego and Henrik, we're looking, we're having problems right now with a third party that routed through Micronix.
+
+Henrik Loos   58:42Oh, the symmetry nano pulse. OK, yeah, I saw.
+
+Mark Holl   58:42This thing called it the Nanopause. Yeah. And so I'm working. I immediately opened up a conversation that got shut down for budgetary reasons because I had two. I have a quote from Smart Act for a stage that would be marvelous, but it's 100,000.For the stage and controller, OK. And I also have an open had an open conversation last year and effectively a quote as well from Manfred, who's the CEO lead guy at Micronix.
+
+Dario DAddamio   59:02Oh.
+
+Henrik Loos   59:15Mm-hmm.Yeah.
+
+Mark Holl   59:19Now the Micronics have an X bot.And the nice part about the Smartact Contrera is that they have these rapidly replaceable stages if they were to get switched out and Smartact does good stuff. Problem is Smartact is 26 to 30 weeks lead time and my chronics I can get to 10 weeks lead time.
+
+Henrik Loos   59:39Yeah.
+
+Mark Holl   59:41Now what we need to do is now I'll send something out to you guys cuz I'm creating just a high level fly by on the for the Micronix and so and the Smart, but on the Micronix they've got the Python and they've got.The.They've got MATLAB, Python, whatever interfaces, but I'd like Henrik, you and Diego with what I'm going to send out this weekend. And Alex, you can chime in at any point with any comments, but I'd like us to start looking at and discussing with Micronix how we can write an IO.
+
+Henrik Loos   1:00:05Mm-hmm.
+
+Mark Holl   1:00:22See for the Xbox.OK, because the Xbot is 50 grand, I could afford to have a complete and that means the driver modules and the actual stage. I could have two of those for the price of 1 Smartact and so and they can be reconditioned. So at any rate, I'll I'll queue that up and I'll send it out this weekend.
+
+Henrik Loos   1:00:25OK. Yeah.
+
+Mark Holl   1:00:45Weekend and I'd like you guys to start talking in an open manner with all of us. But then let's let's figure out what we can figure out next. Start asking questions and develop an IOC for the for the Xbox, yeah.
+
+1:00:58OK.
+
+Alex Gardeck   1:00:58Yeah, and hopefully we can get an API from Manfred and some more information about that Xbox controller, cause the only things available right now on the motor Micronics are the MMC 100 and the MMC 200.Kind of standard modules and I was doing a little bit of digging this morning. It seems like some people at Diamond Light Source have gotten Smartpods working in Epix, but it doesn't seem like the.Standard Smartact GCS2 module that's in the motor Smartact repository. That isn't out of the gates gonna work with a Smartpod. They've got separate software development kits that Mark was alluding to.But then it also seems like people at DLS have got things working in Epix for the smart pod. They just haven't made it publicly available yet.
+
+Mark Holl   1:01:48Yep.Yeah, but and maybe that has some utility. We'll leave that to you guys. But the main thing is, but the main thing is that I'm gonna, it's gonna be Peter at when you go to the support page. It's Peter who's doing the software part of this thing. So anyway, I'm gonna launch, I'm, I'm gonna start.
+
+Alex Gardeck   1:02:00Yep.
+
+Henrik Loos   1:02:01Mhm.
+
+Mark Holl   1:02:14Connecting the people on the dots for this project, Alex, I'm going to do it this weekend after I get the quote from Manfred and I'm going to just pulled, pulled. I'm going to pull together a team. Everyone here is on it and we're going to come up with a IOC that works really great for Micronix.
+
+Henrik Loos   1:02:16Yeah.
+
+Alex Gardeck   1:02:23Yep.
+
+Henrik Loos   1:02:27Mhm.Yeah, no, the lowest level solution would be to take Python interface and stuff it into an IOC with the Python IOC thing, but.
+
+Mark Holl   1:02:33Alright, alright.And and that's this is what I this is what I was thinking because you can issue individual commands to their software. We just gotta figure out what the bridges are for this. Yeah, yeah.
+
+Henrik Loos   1:02:46Yeah.Mm-hmm. But but an API would be would be good.
+
+Mark Holl   1:02:55Yeah. So, well, I'm, I'll expose all that and then people can just jump into the conversation and start asking the questions they need to answer. And then with Diego's, you know, expertise and yours, Henrik, I have no doubt we're going to come up with something by the time the hardware is ready to go.
+
+Henrik Loos   1:03:09Yeah.Yep.
+
+Mark Holl   1:03:12Alright, that's the end of the meeting. See you guys.
+
+Dario DAddamio   1:03:15Mark, can can I remind you to, can I remind you to publish the previous meeting and this meeting as well? OK.
+
+Henrik Loos   1:03:15OK.
+
+Mark Holl   1:03:17Oh yeah, Dario. What's that?Yep, Yep. It's gonna happen at the latest tomorrow morning. I intended to to do that, but it's happening tomorrow morning for sure at the latest.
+
+Dario DAddamio   1:03:31OK. Yeah, thank you. I'm continuing to work on my sort of guide to the guides, assembling all the information from the meetings from Henrik. So for myself and for anyone who's.Potentially in the future going to be accessing all the information.
+
+Mark Holl   1:03:50That's great because I'm I'm bringing in, we're going to have two are, well, actually two REU NSF research experience for undergraduate students this summer and we're going to have two more undergraduates as well.
+
+Henrik Loos   1:03:51Yeah.
+
+Mark Holl   1:04:06That are going to take the place for you and two other people that are going to internships this summer. And so I think what you're putting together and then you're teaching it will be a great opportunity to then maybe bring some of those folks and us up to speed. That'll be great.
+
+Henrik Loos   1:04:23But how are you putting that together? Are you familiar with restructured text?
+
+Dario DAddamio   1:04:28I was. I'm currently on just on Google Docs, but I was planning to migrate it to Latex. I don't know if there's a specific.
+
+Henrik Loos   1:04:36Oh.
+
+Mark Holl   1:04:36Oh, no, wait, wait, wait, wait, wait, wait, wait. Yeah, this isn't a physics exercise. We need to we need to figure out how we're actually gonna do this so that the documentation is more.Portable. What? What did you say, Henrik?
+
+Henrik Loos   1:04:52Restructure text and you can publish it as HTML or you can turn it into latex.
+
+Mark Holl   1:04:58OK, yeah, so actually, could you actually, uh, send to all of us? I'm unfamiliar with this, Andrew. Can you send us some information on this and show us how you're using it?
+
+Henrik Loos   1:05:05Yes.Yep.
+
+Mark Holl   1:05:09OK, let's do that. And then we'll we'll probably go that direction 'cause it's got a a fork in the road to go either way, Dario.
+
+Dario DAddamio   1:05:17Yeah, I mean for now it's just I have all the information, it's easily, I can easily migrate it to whatever platform is preferred, so.
+
+Mark Holl   1:05:24Yeah, let's yeah. So let's take a look at what is gonna send us.
+
+Henrik Loos   1:05:24Yeah, yeah, yeah. The what you've like the on the Osprey website, on the GitHub website, the all documentation, that's all restructured text.
+
+Mark Holl   1:05:35Yep. So let's learn it. Let's learn how to use it. And Henrik's gonna show us the way.
+
+Henrik Loos   1:05:36Yeah.
+
+Dario DAddamio   1:05:41OK.
+
+Mark Holl   1:05:42Thanks, Henrik.
+
+Henrik Loos   1:05:42OK.
+
+Mark Holl   1:05:44Alright, see you guys. Bye.
+
+Dario DAddamio   1:05:46Thank you.
+
+Mark Holl stopped transcription

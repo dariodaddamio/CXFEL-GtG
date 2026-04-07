@@ -1,9 +1,39 @@
-Navigating the GUI
-==============
+Main tabs
+=========
 
-After boot, the tabs we care about most for DAQ work are:
+After reaching the home screen (:doc:`../boot_procedure`), routine work uses three main areas of the
+Phoebus (Control System Studio, CS-Studio) display: Global, Event, and Network. Event Timing (EVT) and
+Quartz chassis screens are reached from the Event tab (see :doc:`/osprey/evt_chassis`).
 
-- :doc:`global`
-   - This tab has general directories for global opasderations. For the DAQ system, the main entry is theasdn
-- :doc:`event`
-- :doc:`network`
+.. _phoebus-global-tab:
+
+Global tab
+----------
+
+Open ``System Manual`` to access Henrik's documentation.
+
+.. _phoebus-event-tab:
+
+Event tab (Devel)
+-----------------
+
+Select ``Devel``. On the left: ``DG645 #X`` (`DG645 manual <https://www.thinksrs.com/downloads/pdfs/manuals/DG645m.pdf>`_).
+On the right: ``Quartz #N`` (chassis). ``EVT #N`` appears beside Quartz at the same hierarchy level;
+see :doc:`/osprey/evt_chassis`.
+
+``Acq. Recording`` → ``Control`` → ``Last Completed File`` → ATF previewer ``File`` → ``Open``. Full
+notes: :ref:`atf-previewer` on :doc:`/osprey/quartz_daq_repo`.
+
+.. figure:: ../../images/Acq\ Control.png
+   :alt: Acq. Recording Control tab showing Last Completed File
+   :width: 800px
+
+See also: :doc:`/osprey/quartz_firmware`.
+
+.. _phoebus-network-tab:
+
+Network tab
+-----------
+
+Host and switch topology (depends on the display export). Chassis IP: :doc:`/osprey/quartz_firmware`.
+EVT links and status: :doc:`/osprey/evt_chassis`.

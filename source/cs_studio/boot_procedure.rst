@@ -3,14 +3,14 @@ Standard Boot Procedure
 
 1. Connect to FortiClient, and RealVNC.
 2. Open a terminal on your machine.
-3. Start the GUI (Phoebus / CS-Studio):
+3. Start the Graphical User Interface (GUI) (Phoebus / Control System Studio (CS-Studio)):
 
    - Run: ``phoebus.sh``
 
-4. If you see extra/unwanted tabs, close them. We are looking for a tab that says "CS-Studio: CXFEL Home" or just "CS-Studio".
+4. Close any extra or unwanted tabs. The desired tab is labeled "CS-Studio: CXFEL Home" or "CS-Studio".
 
-If the page you are left with is blank and has no label after “CS-Studio:”, click the blue home
-icon to reach the desired screen.
+If the active page is blank and shows no label after “CS-Studio:”, select the blue home icon in the
+toolbar to reach the facility home screen.
 
 .. figure:: ../images/Empty\ CS-Studio.png
    :alt: Blank CS-Studio screen (before pressing home)
@@ -25,4 +25,5 @@ icon to reach the desired screen.
    Desired CXFEL Home Screen.
 
 
-- Once you have reached the home screen, you can start to :doc:`navigate the GUI <tabs/index>`.
+- After reaching the home screen, proceed to :doc:`navigate the GUI <tabs/index>`. Quartz versus EVT
+  roles and hardware are described in :doc:`/osprey/index`.

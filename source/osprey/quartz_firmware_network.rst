@@ -1,8 +1,8 @@
 Networking Configuration
 ===========================
 
-Ping behavior
--------------
+Internet Control Message Protocol (ICMP) ping behavior
+------------------------------------------------------
 
 Observed:
 
@@ -11,8 +11,8 @@ Observed:
 
 Use ping only as a quick “GOLD is alive” check. For APP, rely on:
 
-- Phoebus status (hash, build date, EVG/EVR state)
-- IOC/console tools
+- Phoebus status (hash, build date, Event Generator (EVG) / Event Receiver (EVR) state)
+- Input/Output Controller (IOC) or console tools
 
 [image needed: simple diagram showing host <=> Quartz ping paths]
 
@@ -47,8 +47,8 @@ Symptoms:
 
 This is switch behavior, not a Quartz fault.
 
-EVG vs EVR (NTP and PPS)
-------------------------
+Event Generator (EVG) vs Event Receiver (EVR) (Network Time Protocol (NTP) and Pulse Per Second (PPS))
+------------------------------------------------------------------------------------------------------
 
 EVG role
 ^^^^^^^^
@@ -56,12 +56,12 @@ EVG role
 For a chassis that should act as an EVG:
 
 - configure a valid NTP server
-- provide PPS TTL input:
+- provide PPS Transistor-Transistor Logic (TTL) input:
 
   - level: TTL (0–5 V)
   - rate: 1 Hz
   - duty cycle: < 50 %
-  - rising edge at GPS second
+  - rising edge at Global Positioning System (GPS) second
 
 At CXFEL, the local NTP server for control-system hosts is::
 
@@ -77,3 +77,5 @@ For a chassis that should not act as EVG, disable NTP on the Quartz side::
 
    ntp 0.0.0.0
 
+See also :doc:`quartz_firmware` for the hub and reading order. For EVT timing and EVG/EVR roles on
+EVT chassis, see :doc:`evt_chassis`.

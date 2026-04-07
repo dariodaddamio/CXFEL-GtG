@@ -1,10 +1,10 @@
 GOLD vs APP
 ============================
 
-Quartz stores two FPGA images in flash:
+Quartz stores two Field-Programmable Gate Array (FPGA) images in flash:
 
 - GOLD: bootloader image (minimal, stable)
-- APP: application image (full DAQ functionality)
+- APP: application image (full Data Acquisition (DAQ) functionality)
 
 FPGA boot control (Phoebus)
 ---------------------------
@@ -27,3 +27,4 @@ Notes
 
 - GOLD typically responds to ping; APP may not (see :doc:`quartz_firmware_network`).
 
+See also :doc:`quartz_firmware` for the hub and reading order.

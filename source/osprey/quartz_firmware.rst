@@ -1,31 +1,24 @@
-Quartz Bring-Up
-=======================================
+Quartz firmware
+===============
 
-This page is a hub for Quartz bring-up notes (Osprey + CXFEL).
+**Quartz** chassis: boot, Universal Serial Bus (USB), Ethernet, Alluvium. **Event Timing (EVT)** is a
+different chassis family: :doc:`evt_chassis`.
 
-It is not a replacement for the upstream documentation:
+Upstream (not replaced by this site): `Quartz Data Acquisition (DAQ) 250‑24 <https://github.com/osprey-dcs/quartz-daq-250-24>`_
 
-- Main repo: `Quartz DAQ 250‑24 <https://github.com/osprey-dcs/quartz-daq-250-24>`_
+Read next
+---------
 
-Recommended Reading Order:
-------------------
+- :doc:`quartz_firmware_boot`: GOLD vs APP, ``FPGA boot control`` (Field-Programmable Gate Array (FPGA))
+- :doc:`quartz_firmware_usb`: micro-USB, management microcontroller (MMC) vs debug console
+- :doc:`quartz_firmware_network`: gateway/netmask, ping, Network Time Protocol (NTP), Event Receiver (EVR)–only
+- :doc:`quartz_firmware_alluvium`: Alluvium program/verify
 
-- :doc:`quartz_firmware_boot` 
-   
-  - GOLD vs APP
-  - What ``FPGA boot control`` shows.
+Observed behaviors (Quartz)
+---------------------------
 
-- :doc:`quartz_firmware_usb`  
-  
-  - USB (micro-USB) port location
-  - MMC vs debug console, and what can/can't be done without USB.
+- First flash status after FPGA reset can show error bits; one status/``clear`` with Alluvium often fixes it.
+- MMC can rarely lock up after heavy flash/reset; full power cycle fixed it in the lab.
+- **Network Time Protocol (NTP) / Pulse Per Second (PPS)** in firmware sets Quartz **Event Generator (EVG) vs Event Receiver (EVR)–style** behavior; ``ntp 0.0.0.0`` forces EVR-only (see network page).
 
-- :doc:`quartz_firmware_network`
-    
-  - Gateway + netmask (/23)
-  - Ping behavior
-  - Switch delays
-
-- :doc:`quartz_firmware_alluvium`
-    
-  - Alluvium (program/verify)
+See also: :doc:`quartz_daq_repo`, :doc:`evt_chassis`, :doc:`/cs_studio/tabs/index`.

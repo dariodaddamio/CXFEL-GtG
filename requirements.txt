@@ -1,0 +1,8 @@
+# Sphinx docs (GitHub Pages + local builds)
+#
+# Local preview: if you use pipx for sphinx-autobuild, Furo must be in that same venv:
+#   pipx inject sphinx-autobuild "furo>=2024.8.6"
+# Otherwise: python -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt
+#
+sphinx>=8,<10
+furo>=2024.8.6

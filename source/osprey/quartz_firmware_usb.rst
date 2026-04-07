@@ -14,11 +14,11 @@ USB required vs not required
 USB is required for:
 
 - accessing MMC console (management microcontroller)
-- accessing the application/debug console (UART logs and debug commands)
+- accessing the application/debug console (Universal Asynchronous Receiver-Transmitter (UART) logs and debug commands)
 
 USB is not required for:
 
-- normal IOC operation over Ethernet (once network settings are correct)
+- normal Input/Output Controller (IOC) operation over Ethernet (once network settings are correct)
 - Alluvium flash operations over Ethernet (requires GOLD running and network reachability)
 
 MMC console vs debug console
@@ -42,3 +42,4 @@ If console output is unreadable, check baud rate (``9600`` vs ``115200``).
 
 [image needed: OS view of MMC vs application serial ports]
 
+See also :doc:`quartz_firmware` for the hub and reading order.

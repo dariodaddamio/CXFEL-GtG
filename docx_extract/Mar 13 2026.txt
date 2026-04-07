@@ -1,0 +1,1409 @@
+Transcript
+
+March 13, 2026, 7:00PM
+
+Dario DAddamio (Student)   0:41OK, keep going to the.Hello.
+
+Mark Holl   0:53Hey.
+
+Dario DAddamio (Student)   0:55We're finishing connecting the fiber.
+
+Mark Holl   0:59Fantastic.
+
+Dario DAddamio (Student)   1:27And why we were able to get all the IPs set.
+
+Mark Holl   1:31Oh, good.
+
+Henrik Loos   6:35Yep, but everybody's muted and there you and.Alexa.Working in the lab.
+
+Dario DAddamio (Student)   6:46Yeah, we're just wrapping a few things up.
+
+Henrik Loos   6:48Uh, OK.
+
+Dario DAddamio (Student)   6:50I was able to change all the IP addresses.
+
+Henrik Loos   6:54Mhm.
+
+Dario DAddamio (Student)   6:55Um.And share screen real quick.You able to see?
+
+Henrik Loos   7:14Yep, I can see that.
+
+Dario DAddamio (Student)   7:18So the one through four are the.
+
+Henrik Loos   7:21One second. I need to get my glasses one second.
+
+Dario DAddamio (Student)   7:24OK.
+
+Henrik Loos   7:40Right, OK.
+
+Dario DAddamio (Student)   7:44OK, so the one through four are the ones that are not new. They're not the EV TS, they're just the old ones we had.And they're all EV Rs now, same IP address.Um, all that and then from 5:00 on.
+
+Henrik Loos   8:11Um, let me, uh, go back a a step here.
+
+Dario DAddamio (Student)   8:17Yes.
+
+Henrik Loos   8:18So the so there are more quartz chassis or does the EVT chassis run a different IOC?
+
+Dario DAddamio (Student)   8:20OK.Yeah, I can show you. Are you able to see my camera as well?
+
+Henrik Loos   8:35Yep.
+
+Dario DAddamio (Student)   8:37So.These top four and these top four are the EBTS and then we have the older chassis down here.
+
+Henrik Loos   8:41Mhm.Yeah.OK.
+
+Dario DAddamio (Student)   8:52So everything is like wired up correctly. I wasn't sure for the EBTS what changes needed to be made to the to these files, so I just like copied the ones.
+
+Henrik Loos   9:04Yeah.
+
+Dario DAddamio (Student)   9:06From before as if nothing changed. Um.
+
+Mark Holl   9:12So, so what's what's happening here? Because are we working on the new server?
+
+Henrik Loos   9:12Yeah, now the.
+
+Alex Gardeck   9:22No, nothing's being done on the new server. Everything's being done from 59.
+
+Mark Holl   9:24OK. OK. Yeah, good. Because, yeah, thanks. And uh, Diego.
+
+Dario DAddamio (Student)   9:27OK.
+
+Mark Holl   9:33Diego, are you there?
+
+Diego Omitto   9:34Yeah, I'm here.
+
+Dario DAddamio (Student)   9:34I don't want me to. I'll.
+
+Mark Holl   9:35Could you text, could you text Michael and see if he's gonna join us?
+
+Diego Omitto   9:42OK, yeah, I'll try to reach.
+
+Mark Holl   9:44Thank you.
+
+Henrik Loos   9:50OK, so.
+
+Dario DAddamio (Student)   10:03Yes.So.
+
+Henrik Loos   10:04OK, alright, so.
+
+Alex Gardeck   10:05Yeah, so I guess I can do a quick tour.
+
+Dario DAddamio (Student)   10:13OK. Can you hear me?
+
+Henrik Loos   10:17Yep.
+
+Dario DAddamio (Student)   10:19Going through the audio, right? Yeah, OK, uh, so in this rack now.We've got the FPS 740 up top. Then the left rack is gonna be the CXL prototype. The right rack is the CXLS prototype.And while we're still working on them as prototypes, everything is going to be on the CSL source V line. That way it's isolated from the production. So on the left server, that's the dot 4.59 server that we've found using.
+
+Henrik Loos   11:05Mhm.
+
+Dario DAddamio (Student)   11:05That will continue to use and then this new camera server will serve as a test bed to be able to test loading salt configuration of the server and then down low is where we've got the.
+
+Henrik Loos   11:16OK.
+
+Dario DAddamio (Student)   11:22Sports tracks. And then one of the things that we've implemented that I I believe Michael had talked about was that the first input.
+
+Henrik Loos   11:25OK.
+
+Dario DAddamio (Student)   11:39The EBT is what we're gonna use for the pulse per second TTL signal from the FBS.
+
+Henrik Loos   11:49Yeah.
+
+Dario DAddamio (Student)   11:50But on the EB TS there are not any BNC connections. Every the only thing that we have on the front panel is an SMA.
+
+Henrik Loos   12:03Uh.
+
+Dario DAddamio (Student)   12:05And then on the backside, the other is that all of the fiber is on the backside.
+
+Henrik Loos   12:09We have.OK.Do you have B? Do you have BNC to make adapters?
+
+Dario DAddamio (Student)   12:24What was it?
+
+Henrik Loos   12:25Do you have BNC to SMA adapters?
+
+Mark Holl   12:28Yeah, we're gonna order those and we have something Jerry rigged for today.
+
+Henrik Loos   12:32OK.
+
+Dario DAddamio (Student)   12:33Yeah.
+
+Mark Holl   12:37We're we're bringing in a whole fleet of BNC connectors and then also these SMA to BNC female adapters.Just haven't gotten quite there yet.
+
+Alex Gardeck   12:58And then Mark, essentially we've burned through our inventory of the .2 meter, the half meter and the 2 meter, but that was like the perfect amount.Uh.But we still have all of the one meter, which there were four of. We've got 15 meter, 110 meter, 120 and 130 meter in stock, so we'll just want to reload on.But I think for now we have everything we need for this test bed.
+
+Mark Holl   13:32OK. Yeah. Well, it's good. Um.OK.And yeah, so good. So that first order run worked out. Just let's let's talk about it. I've got every curse records on everything we've ordered, but I.And I think before we can, we can always order when we deploy these things, we'll have a map, we'll know exactly where we're putting them and we'll order the right length at that time.Michael.
+
+Alex Gardeck   14:18Hello.
+
+Mark Holl   14:22Well, we've got everything wrapped up, so.
+
+Michael Davidsaver   14:24Yeah, OK. Well, actually, I'm just trying to figure out why this meeting was not on my calendar this week, 'cause I can see it was last week.
+
+Mark Holl   14:32Huh.
+
+Michael Davidsaver   14:33And I don't see it next week. So was this just was last week just a one off?
+
+Mark Holl   14:37Oh no, you should be on everything. I I sent out the renewal of this meeting series. Let me see. It says that you're on in this meeting on this date. Wow, maybe I should.
+
+Michael Davidsaver   14:39Uh.
+
+Henrik Loos   14:41Yeah.
+
+Mark Holl   14:54Delete you and add you again or something.
+
+Michael Davidsaver   14:56I'm.
+
+Mark Holl   14:59It's every week. It's every week right now. Um, let me.
+
+Michael Davidsaver   15:02Yeah, all right. Well, OK, I will just put in a placeholder for it anyway. So this is the CXFEL EVG VR systems integration and deployment.
+
+Mark Holl   15:07I will, um.Yep, every week this time. Yep.
+
+Michael Davidsaver   15:13Right. Yeah, I found, I found the invite, but yeah, for some reason it's add to calendar.Oh, wonderful. Processing message failed. All right, so OK, so I.You'd think that calendars would be a solved problem.
+
+Mark Holl   15:34Well, they just keep making them better is the problem.
+
+Michael Davidsaver   15:34But you think wrong.Yes, the problem is always software.
+
+Mark Holl   15:42They work just fine and then they have to add new features and one of those new features is don't work anymore.So.But anyway, I'm glad you're here and we've we've each done our part to bring in materials, get the logistics, check out IP addresses, and Alex has done a great job building the racks. We're all here now to try to get these EBTS.Um, in the configuration one is an event generator for each of two.Cracks and then one of them, and then the rest is event receivers. Of course, the first one can be both, and then the courts chassis will be just event receivers moving forward.
+
+Alex Gardeck   16:30And so Dario, maybe you can pull up the rack schedule just to show kinda the deployment.
+
+Dario DAddamio (Student)   16:37The Excel file.
+
+Alex Gardeck   16:38Yeah.
+
+Dario DAddamio (Student)   16:42OK.
+
+Alex Gardeck   16:43Me too.
+
+Mark Holl   16:44Uh.Yeah.
+
+Alex Gardeck   16:49So we're using the EVTS as our event generators and then the rest are EVR. So essentially the two racks are identical to each other. So we've got one rack that's on the left hand side for the CXVAL protocol.Prototype and the right rack on the right is for the CXLS prototype.But now you can go back, don't you?
+
+Dario DAddamio (Student)   17:20OK, but yeah, the the server we're using for both racks right now is the is this one right here, so.
+
+Mark Holl   17:31Yeah, yeah. And then we're gonna, we're gonna force ourselves through through salt on any of our duplications, or at least run into a wall if we, but we'll force ourselves to try to use salt.And.Creating copies of systems.
+
+Alex Gardeck   17:50Yes.
+
+Dario DAddamio (Student)   17:53So I was telling Henrik, does anything need to change in these files? This is the EVT, the first EVG that you can see.
+
+Henrik Loos   18:03Yeah, the file, the the files are in the wrong place. This is for the quartz IOC. Yeah, the SIOC and as that's under that's under the ATF.Quotes IOC this all this now needs to happen in the in a different epics module in the timing IOC.
+
+Dario DAddamio (Student)   18:38Do you know the path for that?
+
+Henrik Loos   18:44Yeah, it's just it's instead of where it says ATF, whatever IOC, it has to be timing. IOC it's in the, it's in the same branch, it's in the.Up in the modules folder Epic 7 Epics 7 EL 9 modules.
+
+Dario DAddamio (Student)   19:12This the.Right, so this one right here.Are you able to see my screen?
+
+Henrik Loos   19:29One second. Um.Yes, exactly there, yeah.
+
+Dario DAddamio (Student)   19:36I just need to move over.Do we need to move over all the CXL?Ones to there or just the EDT ones?
+
+Henrik Loos   19:50Well, we're not moving any of these files. They're different. They're different. The the startup commands file that I I made one that I showed last in the last meeting and the St. command dev 2 EV 01, although I'm going to be renaming that right now since it's.
+
+Dario DAddamio (Student)   20:00M.
+
+Henrik Loos   20:10Mhm.
+
+Michael Davidsaver   20:15Oh, Henrik, if you didn't. In case you didn't notice, I tried to structure this repository so that you could more easily build your own IOC executables using it.
+
+Henrik Loos   20:26Oh, um.Uh, what do you mean with, uh, build your own executables?
+
+Michael Davidsaver   20:50Oh, in the sense that you can use this despite the name timing IOC, you can use it as a just as a support module.
+
+Henrik Loos   20:54Yeah.Oh yeah.Done.
+
+Mark Holl   21:06If if there's something hidden, Michael, what did you do? Maybe you could expand upon that.
+
+Henrik Loos   21:07Yeah, but.
+
+Michael Davidsaver   21:11Well it it it's it's not really it's not really hidden it's just the the the build will in addition to the full IOC executable. It also provides the the the DVD fragment and library which are constitute a support module.
+
+Henrik Loos   21:27Uh, OK, got it.Right, I see there's a lip folder. OK, yeah.
+
+Michael Davidsaver   21:41Yeah, it's for the for the for the present. There's no real, I think no real benefit from doing so, but it's the kind of thing I think you may want to do long term.
+
+Henrik Loos   21:41Oh yeah, yeah.Yeah.OK, yeah, yeah, I I hadn't looked into the the quartz IOC module closely yet. I was gonna run this in in our own IOC application.So I hadn't noticed that there would that I that I will be running into problems there.
+
+Michael Davidsaver   22:08Yes, you probably will, yeah.
+
+Henrik Loos   22:10OK. All right. I appreciate that. Yeah. Yeah. Yeah. OK.
+
+Michael Davidsaver   22:11We're trying to do better for the the IOC, tire the timing IOC.
+
+Henrik Loos   22:29OK, so.So that um.OK, there we go. The the St. command file you're looking at right now, that's the generic one.
+
+Michael Davidsaver   22:40OK.
+
+Henrik Loos   22:42And.I copied that over to the other one, the St. command dev 2-EV11.Yeah.
+
+Dario DAddamio (Student)   23:02Back.
+
+Henrik Loos   23:02And that and I I already put the first IP address in the the dot 5.195.
+
+Dario DAddamio (Student)   23:09So we don't explicitly need to differentiate between the EVG and the EER here, it's just change the IP address.
+
+Henrik Loos   23:18Yeah.
+
+Dario DAddamio (Student)   23:19OK.Um, is there a reason why this is 11?
+
+Alex Gardeck   23:24Why don't we need to specify if it's an EVG in this one, Henrik, as opposed to with the quartz? We did have to specify that it was an EVG.
+
+Henrik Loos   23:36Well, that's because the master.The the EVR runs, I guess a bunch more software that supports than the the EVGIOC runs a bunch of software that supports the other.EVR IOC since it's kind of a.Package thing, whereas now here for the for the timing thing for the EB TS, they run the same firmware and software and they only identify as a EBR or an EBG based on their hardware connections. Is that right Michael?
+
+Michael Davidsaver   24:22But yeah, that's the firmware configuration.
+
+Henrik Loos   24:26Yeah.
+
+Alex Gardeck   24:28Wait, and then hold up Dario, go back into that. Do we need to do anything to change the PV prefix? We gotta index it to 20, right?
+
+Henrik Loos   24:37Yeah.
+
+Alex Gardeck   24:41So EVT dev 2 colon 20.And then why?
+
+Michael Davidsaver   24:47Uh.
+
+Dario DAddamio (Student)   24:49Yes.
+
+Alex Gardeck   24:50Yeah, yeah, right there. So A2.And then Henrik, how did you land on starting with 11 instead of one or 01?
+
+Henrik Loos   25:07Because that's the name I gave for the quartz chassis. I didn't know about the EBT's at the time, so I'll probably rename everything.
+
+Alex Gardeck   25:17OK.
+
+Dario DAddamio (Student)   25:25And wait, why is this 110 and the other 120?
+
+Henrik Loos   25:34Oh, because the the the PV name numbering increments in units of 10.
+
+Alex Gardeck   25:36Yes.
+
+Dario DAddamio (Student)   25:43Thank.So it will just be like 10203040 all the way to 80.
+
+Henrik Loos   25:50Yeah.
+
+Dario DAddamio (Student)   25:57Now should I just make all of them right now really quick?
+
+Henrik Loos   26:01Sure.Now usually I split these command startup files up into two files, one base file that has the common stuff in it and then one.Um.Then the actual startup file that just sets the macro names.And then calls the other one.
+
+Mark Holl   26:53So is this different than what we're doing here?
+
+Henrik Loos   26:56Well, this is the this is the prototyping. When you do it pedestrian and then later you make it more efficient.
+
+Alex Gardeck   27:29Right.
+
+Henrik Loos   27:31And also later this IOC will run in a different location where all the other CXLSCX file IOCS are running in their own Git repository. So we have version control and don't collude with the.
+
+27:44Uh huh.
+
+Henrik Loos   27:48Um, the module.
+
+Alex Gardeck   27:55And so Dario, I think now at this point you can go back to the quartz file location and just remove the five through 12.
+
+Dario DAddamio (Student)   28:09Is there a fast way to delete all those?With one command.
+
+Henrik Loos   28:19Probably if you do some kind of echo command and a bash expansion and then pipe it into the RM command, but if you do it wrong then you might delete something well.
+
+Dario DAddamio (Student)   28:33I'll just go one by one.
+
+Henrik Loos   28:35It's probably faster to do it manually. If it was 100 files, then um, writing a script would be faster.
+
+Dario DAddamio (Student)   28:49OK.Right now.For the networks tab where?We had to update.This this hitting control X on this also update the EBTS.
+
+Henrik Loos   29:20Um.I think right now you're looking at the IOC shell for the system service.That is not really useful.
+
+Dario DAddamio (Student)   29:35Yeah.
+
+Henrik Loos   29:36Yeah, um, it's oh, that button is on the right end.Yeah.However, these services have not been.Uh, configured yet.
+
+Dario DAddamio (Student)   30:00Go back.
+
+Henrik Loos   30:05Uh, give me one second.But one minute.
+
+Alex Gardeck   30:17Henry, can you share your screen just so it's captured in the meeting reporting?Sorry, if you can stop just so that we can get this process recorded.
+
+Henrik Loos   30:26Oh, want me to share my screen? OK.Um.
+
+Alex Gardeck   30:39Mark, you're muted.
+
+Mark Holl   30:43Yeah, I'm just reinforcing what you're saying, Alex. If anybody's doing anything active that's configuring the system or there's any learning content going on, let's share our screens.
+
+Henrik Loos   30:50Yeah.Mm.OK, alright, so I'm in the CX file config CX file folder.And there's a script deploy services.There's one for each accelerator.And.
+
+Alex Gardeck   31:21Wow, that yellow is lovely.
+
+Henrik Loos   31:25Yep. OK, let me fix this.The better.
+
+Alex Gardeck   32:01Yes.Much better.
+
+Henrik Loos   32:02Yeah.Yeah, figure out how to change this. Everything else looks great on white background except that yellow is hard to see.OK, so we need the.Thanks for the.EBTS.Right now they start at 11.The 8.Oh, we don't have this one.OK, since these are all just copies, it's.Will eventually be better to run a Uh service template.Maybe you should do that right now. That will, um, make the typing much quicker.So that at OK.The the at in the service name indicates that everything that's after the at is basically the the template replacement.So for each of the services, the same template will be called but will be filled in with different numbers.OK.
+
+Alex Gardeck   35:20So what did you just do right there?
+
+Henrik Loos   35:21I just renamed the file. I I had prepared a service. I had prepared a a service file, a unit, a service unit file for this and I've just renamed it so that it says the at sign in there so that it's a template.
+
+Alex Gardeck   35:25Hmm.Gotcha.
+
+Henrik Loos   35:42And now I need to remind myself how to do this.Uh.Escape.There.Oh yeah, dollar percent I is the E here. OK.So now everything that has percent I in the unit file.The percent I will be replaced with the number that you put after the ad when you invoke the service.
+
+Alex Gardeck   36:53Got you.
+
+Henrik Loos   37:10There it gets its port number.Oh, it's supposed to be 7.No 8. I'm doing 8.Dev 2 EV 1% I command.'Cause this is more error prone, so I hope this will work.OK, now I'm going back to the CXFL folder and I will run the script.Which will create a file.IOC list which has everything in there OK.OK.
+
+Alex Gardeck   38:20Looks good.
+
+Henrik Loos   38:21OK now.Go back to network and services and update list and there are the new EVT IO CS.And now we can try and see.If.I need to check something first. Do I have the right place?
+
+Alex Gardeck   38:58Yeah.
+
+Henrik Loos   39:14Yeah, timing IOC. OK, alright, let's first we need to install it.Good.Started.OK, that seem not to have worked.
+
+Alex Gardeck   39:39Do you have to enable before starting it?
+
+Henrik Loos   39:42Well, that's just for a reboot.That will enable the service to be started at startup.Let's go pedestrian for this one.OK.So.Space I with one.Yeah, I'm using a non template file now.
+
+Alex Gardeck   41:07Did I see 111 in that one? Was there an extra 1?
+
+Henrik Loos   41:17Oh, thank you.Yeah.Yeah, let's try that again.OK.OK, because I need to debug the system service file.
+
+Alex Gardeck   42:10Do you think we should try just running the IOC locally?
+
+Henrik Loos   42:13We could, uh.Failed.Doesn't really tell me why.
+
+Michael Davidsaver   42:303rd from the bottom script files is not being found.
+
+Henrik Loos   42:34Oh, invalid argument.
+
+Michael Davidsaver   42:38The third from the bottom, next one up.
+
+Henrik Loos   42:40Oh, this one. Oh, alright, yeah.Well, that's file directory.
+
+Michael Davidsaver   42:57I see EV 11. Is that supposed to be like an EVT 11?
+
+Henrik Loos   43:02It's supposed to be just EB that I only get 2 letters.
+
+Michael Davidsaver   43:05OK.
+
+Henrik Loos   43:13OK.Oh, thanks. And what else? Timing IOC, IOC, EVT.SD command dev tool EB11.
+
+Michael Davidsaver   43:37Oh, they're they're missing a suffix.
+
+Henrik Loos   43:39Oh, command oh.Actually the the the thought command shouldn't be there.All right.I don't know why that was a command at the end.OK.Try that again.Yeah, works. Let's see if the templates work too.
+
+Alex Gardeck   44:59Was that for the template one? OK.
+
+Henrik Loos   45:02That was just for the non template one. Let's try the template one version.Since it's a template, it remove and install installs it for all the instances of course.That template works too. OK, so we can run all of them.OK, so.You want drive again, Dario?
+
+Alex Gardeck   45:32We just.Alright.But just as of right now, we don't have a way to access the IOC shell. We still gotta build that, right?
+
+Henrik Loos   45:49Oh yeah, I need to add that too. Well, you you can access it through the command line.
+
+Dario DAddamio (Student)   45:57Should I store all of them?
+
+Henrik Loos   45:59Sure.Oh.I do their startup as full screen. Oh, you have everything in full screen. OK.
+
+Dario DAddamio (Student)   46:33Yeah, sometimes the default is weird.
+
+Henrik Loos   46:34OK.
+
+Dario DAddamio (Student)   46:42OK.
+
+Henrik Loos   46:45Yeah, they're all running.
+
+Dario DAddamio (Student)   46:52What? What are the next steps?
+
+Henrik Loos   46:55If you want to get to the shell, you can.For now on the command line.Type in telnet.Local host.And then?Space.Uh 23811.That's the port of the first.If you hit enter, you'll get a prompt.Yeah.
+
+Alex Gardeck   47:38So are those ports in the 50,000 range, Henrik is that are we still subtracting 30,000 from the the Epix port? So for CXLS we're using 6000 and then three thousands are the ports and for CXL it'll be 5 and 2000 or 50 and 20,000.
+
+Henrik Loos   47:45Yeah, yeah, the, yeah.Yeah, mm-hmm.Yeah.
+
+Alex Gardeck   47:57OK.
+
+Henrik Loos   47:58Yeah.Yeah, I'm.I wrote up a document with all that naming and.And a better scheme for this.That will need to be implemented at some point, but it will require reboot of everything.
+
+Dario DAddamio (Student)   48:25Sounds good. What am I trying to do in this time?
+
+Alex Gardeck   48:28Yeah, definitely.Definitely we'll need to plan and coordinate for that, Henrik.
+
+Henrik Loos   48:32Yeah, definitely up.
+
+Alex Gardeck   48:34Yeah.
+
+Dario DAddamio (Student)   48:40What am I trying to do in this town that Michelle?
+
+Henrik Loos   48:43Well, you can check if the IOC is. You can type DBL that shows you if all the all the PDS are in existence.It it's not very particularly useful.
+
+Alex Gardeck   49:00But that as part of what we did, Henrik the.The CA adder list got updated when you did that template as well, right? So the PV's should be showing up on the Phoebus interface too.
+
+Dario DAddamio (Student)   49:14Um.
+
+Alex Gardeck   49:15Or did we not get the CA address list?
+
+Henrik Loos   49:19Um, there are no ports set in the.Startup file. They all get their whatever automatic random ports assigned.The.The ports assigned the the ports assigned right now are just for the IOC shells.
+
+Dario DAddamio (Student)   49:36Well, this was previously.And this was previously all pink, now it's not, which is good, but it says EBR only here.But this one is supposed to be an EVG.Yeah.
+
+Henrik Loos   50:12Where did you get the that display from?From.
+
+Dario DAddamio (Student)   50:17Um, right here.
+
+Henrik Loos   50:18Because it's.Oh.Oh, da. Yeah, right. Yeah, I made that button, OK.
+
+Alex Gardeck   50:28And so.One thing just to catch Michael up is in terms of the physical configuration that we've done over the past couple days and hours, Michael.
+
+50:43Mhm.
+
+Alex Gardeck   50:44We have the system.Racks, 2 separate servers, two separate server racks. The one thing that kind of jumps out in terms of just very obvious differences between the EVTS and the quartz boards is so the EVTS have just all SMA connections on the front panel 8 inputs.8 outputs and then the fibers are on the backside of the chassis.But then the other thing is that the EVT chassis do not have a BNC cable to connect the pulse per second TTL input from the GPS, so I think I had recalled.You at some point last week mentioning that input one on the EVT is where we're supposed to connect that.TTL signal, is that correct? OK.
+
+Michael Davidsaver   51:45Correct.
+
+Alex Gardeck   51:50And so right now we've just got some adapters to get from the to have an SMA male to ABNC female so that we can get plugged into our FPS 740.So I hope that that that adapter works and that we're able to get that working.
+
+Michael Davidsaver   52:17I think I saw the the the input one state blinking.
+
+Alex Gardeck   52:23Yep.So I don't know if that's ideal, but.
+
+Michael Davidsaver   52:29Well, it's an indication that the input's changing state, so I think your adapter's working.
+
+Alex Gardeck   52:358.OK, so do we want to take steps to try and get this configured as a EVG? That's how we've connected all of the fibre. So we have the jumper between on this first chassis. We've got the fibre jumper between the EVR.And port one, just like we had done for the quartz chassis and then the fiber two through 6234 are then jumpered to.The three other EVT chassis and then fibers 5 and six go to two quartz chassis and then we have the same configuration for the other rack.Is how we've got it physically wired in as of now.
+
+Michael Davidsaver   53:40OK.Yeah, that doesn't quite match what I'm seeing with MGT state, but I think until we get the the event generator properly synced with the GPS receiver and we're not gonna follow up on that just yet.
+
+Alex Gardeck   53:55OK.
+
+Henrik Loos   53:56Oh yeah, how do we set that up?
+
+Michael Davidsaver   54:00It's the same as with the the quartz chassis. It's through that special debug console, and in fact it should be the same commands.
+
+Henrik Loos   54:04Oh, right. Yeah.
+
+Dario DAddamio (Student)   54:30A quick side note, I was testing the fan speed because they were all like blasting and it for all of them it looks like it's either only off or only maximum power for the fan speeds.
+
+Michael Davidsaver   54:47Yes, these these need to be at 100%.
+
+Henrik Loos   54:47Oh.
+
+Dario DAddamio (Student)   54:50OK.
+
+Henrik Loos   54:50Oh.
+
+Dario DAddamio (Student)   54:54Is there a specific reason compared to the other ones?
+
+Michael Davidsaver   54:56We were unable to source fans that had the dynamic control, so these are only they have an RPM readout, but they're either on or they're off.
+
+Dario DAddamio (Student)   55:06Go back.
+
+Henrik Loos   55:07Oh.
+
+Alex Gardeck   55:14Yeah, they're they're screamers at 100%.
+
+Michael Davidsaver   55:17Sorry about that.
+
+Dario DAddamio (Student)   55:27I had turned all of them off. I should probably turn them all back on.
+
+Michael Davidsaver   55:34Yes, I would definitely recommend turning them on until you have, at least until you have the active temperature monitoring on.
+
+Dario DAddamio (Student)   55:38No.
+
+Michael Davidsaver   55:40It really, I guess I really it would be best if the fans were running if the chassis are enclosed.
+
+Dario DAddamio (Student)   56:03I already run please.Does it look correct?
+
+Michael Davidsaver   56:11Let's see, I see NTP server is set.
+
+Dario DAddamio (Student)   56:11OK.
+
+Michael Davidsaver   56:18And I I guess I I don't remember if that's the correct address or not.
+
+Dario DAddamio (Student)   56:22Yeah, this should be the event generator.
+
+Michael Davidsaver   56:28Yeah, that's the local IP for this unit, but I was 2 lines below that it says or I'm sorry, 3 lines below that it says IPV4 NTP server.
+
+Dario DAddamio (Student)   56:38Yeah, I'm pretty sure and it can double check. This should be the correct one.
+
+Alex Gardeck   56:41Just.Yes, that's the right server. But Henrik, with that server being power cycled when we moved it over, do we have to restart the IT as an MTP server or should does that happen on boot up?On that server.
+
+Henrik Loos   57:02It should all happen automatically since I changed the configuration file for the service.So I.
+
+Michael Davidsaver   57:14It might be worth verifying because I've known the NTP daemon to be somewhat temperamental about, especially if you're have special interface specific configuration. Sometimes it will not just start up correctly if that interface has not yet been brought online.
+
+Henrik Loos   57:17Yeah.
+
+Dario DAddamio (Student)   57:35OK.Thank.
+
+Alex Gardeck   58:19Are you checking that, Henrik?Yep.
+
+Dario DAddamio (Student)   59:06And set you to that one.
+
+Alex Gardeck   59:26Dial.
+
+Henrik Loos   59:29So.It looks like it's working as a server.
+
+Dario DAddamio (Student)   1:00:33But we I just turned all the fans back to maps and one of them is not.Able to turn on.Find that way.
+
+Michael Davidsaver   1:00:52When you say it's not able to turn on, you mean that the chassis is powered but the fan is not turning.
+
+Dario DAddamio (Student)   1:00:57Yeah, like I I just set it to the Max feed right now and it's just off, but the cache itself is on.
+
+Michael Davidsaver   1:01:09All right. Could you turn that chassis off for the time being? Is is is which? Which one is that?
+
+Dario DAddamio (Student)   1:01:14Uh.1008 one.
+
+Alex Gardeck   1:01:52And are those fans something that we could potentially retrofit, something where we can get the variable? I mean, they really do scream when they're at the full or are we just going to live with it?
+
+Michael Davidsaver   1:02:04Yeah, I mean the the the complication is the the marble PCB inside the fan controller on that was the circuit was designed to drive a three wire fan with speed control and most fans you get with speed control have a need 4 wires.There are some, but we couldn't find any that had were sufficiently powerful to move enough air.I mean certainly we can get you the the the part number that we were well that we used for the earlier quartz chassis that we were not able to source.
+
+Mark Holl   1:02:42Uh, yeah, let's do that. Um, let's take a look at that. And So what? They're just no longer available or what's the deal?
+
+Michael Davidsaver   1:02:51By it is at that particular time. I mean they like I say there it's.It's a less common, it's less common than the four-wire fans for speed control, and we couldn't find any others. I mean, we can, I think we could have found ones that didn't move as much air, but you know, for industrial usage, we like these to actually keep things properly cool and not depend on the room temperature being low enough.
+
+Mark Holl   1:03:12Right. Yeah, so, but we can't retrofit this with the fans that are in the course chassis.
+
+Michael Davidsaver   1:03:18Uh.If you felt like it, yes. I mean, if they're physically, I believe they're physically interoperable one. Yeah, they should be. Yes, they you should. I think you should be able to. I mean, they're taking these apart. Obviously we well, I there there are questions about warranty if you start moving things around too much. But yeah, let's, let's.Might need to have a separate conversation about that to to try to stay on task here for today.
+
+Mark Holl   1:03:43Well, I'm gonna, I'm gonna have to experience these fans for the first time and I I will. I'll go down there and just leave everything operating. This is a burn in test as well, Alex and Dario. So we're gonna leave things powered on.Because if they're gonna break in the 1st 100 or 1000 hours or 100 or several 100 hours, I would like to know.And so we're gonna burn in all the chassis just by leaving them on with their fans. But apparently we have a fan vault. Anyway, back to the programming here is the fan. Were you gonna have them turn it back on and see if it powered up or something?
+
+Dario DAddamio (Student)   1:04:25Other than.
+
+Mark Holl   1:04:26Michael.
+
+Michael Davidsaver   1:04:26Well, I was gonna wait and just do the question is it is it the is that chassis the one that we're trying to configure as the the the timing generator?
+
+Alex Gardeck   1:04:34No.
+
+Michael Davidsaver   1:04:36Then I I guess I'd prefer to stay focused on getting the timing generator configured or finding out if there's some blocker there.
+
+Mark Holl   1:04:40Uhuh.Yeah.
+
+Michael Davidsaver   1:04:54which I guess we were trying to verify the NTP server, which I guess we did.
+
+Henrik Loos   1:05:00Yeah, it says the the system service says that it's that the dot 4.59 is online as source.
+
+Michael Davidsaver   1:05:14OK, and the the configuration file for that service has been updated because this is the second server if memory serves me and I believe you would need to change the configuration file to reflect that server's IP address so that it will actually act as a as an NTP server.
+
+Mark Holl   1:05:19It.
+
+Michael Davidsaver   1:05:30on the appropriate subnet.
+
+Henrik Loos   1:05:36Well, nothing changed except the server was moved, but it's still on the same.Network. It's just a different physical location.
+
+Michael Davidsaver   1:05:49Oh, OK, so alright, so it's the the same, the same server, the same IP address then? Yeah, that that should be not an issue then.
+
+Henrik Loos   1:05:55Yeah.
+
+Alex Gardeck   1:05:59But circling back to something we noticed from the get go is that the in the quartz IO CS there were lines in the startup file where we specified that it was gonna serve as an EVG whereas.In the EVT IOC startup, there is nothing to declare.
+
+Michael Davidsaver   1:06:20Right, what you were doing with the quartz chassis is you were not specifying that that was an event generator. You were loading some additional control records which are needed per installation and would only be useful when the node is also configured as an event generator.Yeah.
+
+Alex Gardeck   1:06:20Good.
+
+Michael Davidsaver   1:06:39So it's not not quite the same thing, but in the in the in the case of the EVT it is the same database file will be loaded regardless and the EVT mode should show EVGEVR in this in this case and it does not.Can you check what that alarm condition is that the purple border that should?Just OK, just says you are only Alan.But could you try to do a a boot back to the bootloader image and then back to the application image again?The boot boot boot gold.And once it's detected, now click Boot A.Operating as event generator. All right, well, that's the important line.OK, well the readout is not happy, but the on the left hand side on the console I can see that now the firmware clearly believes it is acting as an event generator.And I don't see any, I don't see any notes about NTP at all, which is a little bit odd.
+
+Henrik Loos   1:08:33Well, the quad chassis are not in a happy state either.
+
+Michael Davidsaver   1:08:39That's to be expected since their event generator is not present.
+
+Henrik Loos   1:08:46Oh.
+
+Alex Gardeck   1:08:54Yeah, do we need to kill?Uh, prevent the 191 from acting as the event generator. Since it's no longer acting, do we need to do that?
+
+Dario DAddamio (Student)   1:09:07I already changed that.
+
+Michael Davidsaver   1:09:32OK, over in the the left hand side console, can you execute the command the the right one EPS?
+
+Dario DAddamio (Student)   1:09:34OK.Word PPS.
+
+Michael Davidsaver   1:09:46Yes, PPS.Oh, I see. So OK, so it does not like it. It's OK. So it's you have PPS absent from all three.When you should be, it should show up when you're connected to the, you know, physical input number one that actually should show up as secondary PPS present, so it's not liking something about the pulse per second signal.
+
+Alex Gardeck   1:10:02Oh, wait.Very.Sorry.Yes.
+
+Dario DAddamio (Student)   1:10:17I'm in the groups.
+
+Michael Davidsaver   1:10:18But since we.That should do it. And the what? What level is that?Is it you know TTL levels? Cause I mean this it should mean that the the inputs here should be compatible with either five or 3.3 Volt.
+
+Alex Gardeck   1:10:34Yes.
+
+Dario DAddamio (Student)   1:10:34Thanks.
+
+Alex Gardeck   1:10:49Yeah.
+
+Michael Davidsaver   1:10:49Oh.
+
+Dario DAddamio (Student)   1:10:50It looks like it connected now.
+
+Alex Gardeck   1:10:51It looks like it connected now.Do you see that, Michael?
+
+Michael Davidsaver   1:11:12Oh, there we go. Yes, I see. OK. It's presence and PLL locked. All right. That's OK. Those are good signs. All right. What? What did you change?
+
+Alex Gardeck   1:11:22I just had to set the frequency to be 1 Hertz.
+
+Michael Davidsaver   1:11:27Oh, oh, OK, right. Yeah, yeah, that that that certainly helps.
+
+Henrik Loos   1:11:30What was it before?
+
+Alex Gardeck   1:11:31Yes.It was at a kilohertz.
+
+Henrik Loos   1:11:37Uh.
+
+Michael Davidsaver   1:11:37Oh yeah, that's.
+
+Alex Gardeck   1:11:39Yeah, that's not a pulse per second.
+
+Michael Davidsaver   1:11:40Best time?
+
+Henrik Loos   1:11:43So how accurate does it have to be? What if it's 1.1 per second?
+
+Michael Davidsaver   1:11:49I think that's OK. The important, the important performance is actually jitter. It needs to be stable for whatever period it is needs to be pretty stable with respect to that period.
+
+Henrik Loos   1:12:01Right.
+
+Michael Davidsaver   1:12:02Because this is the input for a slow PLL to try to lock the the local oscillator effectively to the GPS oscillator, although in this case it's actually just to your SRS box.
+
+Henrik Loos   1:12:09Yeah.
+
+Michael Davidsaver   1:12:19It's still not decoding timestamps properly.This is odds.
+
+Alex Gardeck   1:12:39We do have a splitter right now on the output of the.The GPS, but I don't think that should be causing an issue.You.
+
+Mark Holl   1:12:50Do you have a 50 OM terminator on the hanging end?
+
+Michael Davidsaver   1:12:51I.
+
+Alex Gardeck   1:12:55Well, we have it plugged into what will be the other EVG that's now powered off.
+
+Michael Davidsaver   1:13:06OK, so both outputs of the splitter should be seeing a 50 on termination then that's the key key thing.
+
+Alex Gardeck   1:13:14Yes.
+
+Michael Davidsaver   1:13:15Is that correct?
+
+Alex Gardeck   1:13:19Well, they're both plugged into input one.
+
+Michael Davidsaver   1:13:24Right. In input one on two different chassis, you know those inputs should be correct.
+
+Mark Holl   1:13:30OK.
+
+Dario DAddamio (Student)   1:13:33Oh, I saw you again.
+
+Michael Davidsaver   1:13:38Right in in any way if you run the the PPS command again just to make sure but it the the important things there it should say PLL locked and then jitter should be less than like 8 nanoseconds and that that's the the units there nanosecond so that that's yeah jitter one is quite stable.
+
+Dario DAddamio (Student)   1:13:38What are you doing?
+
+Michael Davidsaver   1:13:59So that's not the issue.And I mean, I did see one of the of the lines about to halfway up on the screen where it says time and then it gives 2 numbers after 116 microseconds that says that it did get a reply back from the NTP server, which again is a good good sign.All right, something is still.Misbehaving.This is the firmware build is so that this.
+
+Henrik Loos   1:14:35Now we could. Is that the debug console?
+
+Michael Davidsaver   1:14:46Try say again.
+
+Henrik Loos   1:14:48I'll be looking at the the application console. Uh, OK.
+
+Michael Davidsaver   1:14:51Yes.OK, the only thing I can think at the moment is to do a restart again now that the frequency is set correctly.OK, there. Alright, so we get our BTP round trip.
+
+Henrik Loos   1:15:36No response from NTP server.
+
+Michael Davidsaver   1:15:40It that's not unexpected, at least momentarily, but the the next two lines where it says you know NDP round trip and then at the time that indicates that it did get a reply.
+
+Henrik Loos   1:15:44So.That's good, yeah.Yeah.Took 2 seconds to get a response from the NTP server.
+
+Michael Davidsaver   1:16:19That certainly does seem like a very long time.
+
+Henrik Loos   1:16:21Yeah.
+
+Michael Davidsaver   1:16:36OK, I have to admit I'm stumped at this point. I'm not sure that I should want to keep you guys online while I stare at this some.I think this might be a the stopping point for today to try to go back and figure out or if you need to go back and try to figure out what could be causing the situation.
+
+Mark Holl   1:16:55Hey, do you have access to this machine? Can you get to it?
+
+Michael Davidsaver   1:16:58I don't know. Can I get to it?
+
+Mark Holl   1:17:03You should have the instructions for remote access and um, so Alex, can you um queue that up?
+
+Michael Davidsaver   1:17:08I.Let's check a while since I tried that. You're right, I certainly do have those instructions.
+
+Mark Holl   1:17:19Good. And then the IP address is the thing.
+
+Henrik Loos   1:17:44Dario.
+
+Mark Holl   1:17:46Yes.
+
+Henrik Loos   1:17:47And you will go back to the main Phoebus display.And hit F5 the I mean the the main, the main, the home screen.The start screen where everything the no that one. Yeah, and hit F5.
+
+Michael Davidsaver   1:18:20All right, yes, it looks like I if I had an IP address, I could try to get in.
+
+Henrik Loos   1:18:25And all the sister services are the the sorry the IOC shells. There are also buttons now for all of them.
+
+Michael Davidsaver   1:18:38OK, I see. So this is oh, there we go. .4.59. All right, so I may actually already have a note for this one.
+
+Alex Gardeck   1:18:50Yeah, and it's gonna be that pound 49 at 54 exclamation capital K capital R as the password.
+
+Michael Davidsaver   1:18:59Yes, OK, I've got that as well.is 222.
+
+Alex Gardeck   1:19:12And then if you've got the real VNC, you'll just put the IP colon 6 and that'll get you in.
+
+Michael Davidsaver   1:19:25It's trying to SSH here, so see if I can get in there.
+
+Alex Gardeck   1:19:28Hm.
+
+Michael Davidsaver   1:19:30OK, I can. Does this look like this is B2?
+
+Dario DAddamio (Student)   1:19:37Why is this one, uh, not think in this one train?
+
+Michael Davidsaver   1:19:42In the lower left hand corner under FPGA boot control, it says current none, so it's not communicating.
+
+Henrik Loos   1:19:45No.
+
+Michael Davidsaver   1:19:51Is that the one I had to turn off?
+
+Dario DAddamio (Student)   1:19:54Um, no.
+
+Alex Gardeck   1:20:15Maybe check the IOC?
+
+Michael Davidsaver   1:20:16OK, I see dev dev 2 EV one OK right? So it looks like I'm it looks like I am connected to the appropriate server.
+
+Alex Gardeck   1:20:29Yeah, so Dario, maybe go to the network tab and then go to EVT 3.Or 13 EV 13.Maybe try doing a control out.
+
+Michael Davidsaver   1:21:03And this one.Oh, actually, if I can interrupt for a moment, Mark, a complete topic change, but a question for you.
+
+Mark Holl   1:21:12I'm here.
+
+Michael Davidsaver   1:21:14So last week in the meeting on the the the or the RF low-level RF hardware, I had sort of volunteered myself to try to do some testing this weekend, but that was dependent on Steve making a configuration change to that PXI crate. Do you know if that happened?
+
+Mark Holl   1:21:27Yeah.Yeah, I'm gonna call him right now. He he said he was in the cup.
+
+Alex Gardeck   1:21:34I just saw him. I just saw him walk by. He's in the lab.
+
+Mark Holl   1:21:38OK, good. So he is in the lab. I'm gonna call him and find out if that's done.He had volunteered to come in and and do that today.
+
+Dario DAddamio (Student)   1:21:55And this chassis right here was the one that when I connected through.The USD.I I can't type anything right now in this terminal.I've gotten it to work at one point, but I'm not sure how to replicate that.
+
+Michael Davidsaver   1:22:27Oh, that is.Right, that should be the application console, which yeah, that that would indicate that the FPGA. If you're seeing nothing, then certainly the application image is not running.
+
+Henrik Loos   1:22:43Mhm.Mm-hmm.
+
+Michael Davidsaver   1:23:06OK, so something is going on. If you're if you're plugged into the USB, you see power on the front of the chassis, but it's not responding again. So which one are you plugged into at the moment?
+
+Dario DAddamio (Student)   1:23:21Which is, uh, 1006.
+
+Michael Davidsaver   1:23:36And was this working earlier?
+
+Dario DAddamio (Student)   1:23:39I got into a point where I could like write L and have the information pop up, but now it's not.
+
+Michael Davidsaver   1:23:53Just to confirm, is the fan turning on that one?
+
+Alex Gardeck   1:23:54OK.
+
+Dario DAddamio (Student)   1:23:56Yes.
+
+Henrik Loos   1:24:04I can hear the fan.
+
+Dario DAddamio (Student)   1:24:07Yeah, flight lab.
+
+Michael Davidsaver   1:24:30OK, I guess. All right, so you're able to. OK, so you're able to connect through the the the microcontroller console that you're able to check and set the fan state. So something at least is powered on in there.
+
+Dario DAddamio (Student)   1:24:44Stop.
+
+Michael Davidsaver   1:24:48Can you check the Ethernet cable? And another obvious one would be if it's not plugged in.
+
+Mark Holl   1:25:04How would you communicate with it?
+
+Michael Davidsaver   1:25:08But you can't. That's why the cable kind of needs to be plugged in.
+
+Henrik Loos   1:25:11OK.
+
+Dario DAddamio (Student)   1:25:13OK.
+
+Alex Gardeck   1:25:16Yeah, it's not writing up.It's still different here.
+
+Mark Holl   1:25:29I mean, I I kind of gathered that much, Michael. I was just kind of wondering, um, how could you set the fan speed? Is that being done USB?
+
+Alex Gardeck   1:25:35OK.
+
+Michael Davidsaver   1:25:37Yes.
+
+Alex Gardeck   1:25:37OK.
+
+Mark Holl   1:25:38OK.
+
+Michael Davidsaver   1:25:40Yeah, I mean that that's why seeing that the USB console or the USB connection to the microcontroller is active tells me that there is power going into the chassis and at least part of the marble board is up and running.
+
+Alex Gardeck   1:25:41Akhtar Sakshi, HCS, Akhtar, Akhtar.And it is tirelessly the process.
+
+Mark Holl   1:25:54Mm-hmm. Yeah. I mean, we'll definitely have to figure out what we're gonna do with these. If they're that, if they're that loud, um, they can't go.Just naked in the spaces. They're they're too noisy.
+
+Alex Gardeck   1:26:11So it seems that the Ethernet is not connecting.
+
+Dario DAddamio (Student)   1:26:11So I.
+
+Alex Gardeck   1:26:18It's plugged in, but it's not connecting, which I think is impressedly something with the Ethernet port on the capacity.
+
+Dario DAddamio (Student)   1:26:19What?
+
+Michael Davidsaver   1:26:28OK.
+
+Dario DAddamio (Student)   1:26:28OK.
+
+Mark Holl   1:26:33Well, are the other chassis registering as being connected?
+
+Alex Gardeck   1:26:34OK.
+
+Dario DAddamio (Student)   1:26:37Yes.
+
+Alex Gardeck   1:26:37Yes.
+
+Michael Davidsaver   1:26:39OK. Can you go back to the get the microcontroller console for that or the microcontroller connection for that chassis again? That's the the TTVTDY USB 3.
+
+Alex Gardeck   1:26:57Yeah, it lit up.
+
+Michael Davidsaver   1:26:58OK, can you execute the command one? So it's number one.
+
+Dario DAddamio (Student)   1:26:58Thanks.OK.
+
+Michael Davidsaver   1:27:06OK, and Nope, that's not happy.Actually, can you do that again to do one space V?
+
+Alex Gardeck   1:27:14OK.
+
+Michael Davidsaver   1:27:20All right, that's.That says the PHY chip is not communicating, which that is a not a good sign.I'm just all right. I've got to just do due diligence. How long were these things running with the fans turned off?
+
+Dario DAddamio (Student)   1:27:42Um.
+
+Alex Gardeck   1:27:44Less than 1/2 hour.
+
+Dario DAddamio (Student)   1:27:47Yeah.
+
+Alex Gardeck   1:27:48And the room is very cold.
+
+Michael Davidsaver   1:27:50Yeah, I know. I mean, we've done testing where we've intentionally blocked up the fans and nothing dies, but it's just it's.Annoying that it happened to stop working.Before, after that, what you described before, it sounded like it was definitely communicating.
+
+Alex Gardeck   1:28:04Yeah, it's well, it initially was not working. It initially was not working. Then Dario, it suddenly came on and now it's back to not being on and I can see on the Ethernet switch that it's just not connecting and I did verify that.Port is OK 'cause I plugged it into another chassis and it immediately lit up, so it's something internal.
+
+Michael Davidsaver   1:28:29Oh definitely yes. The with the command that I had Dario run there would give it would say the link not active if it was not plugged in that the the fact that it's showing registers all F that says that the the marble the the microcontroller is not able to communicate with the five chip.Which is a significant issue that's.So this is just this is chassis in a 20 dash 1006. Is that correct?Yes.
+
+Alex Gardeck   1:29:028.Eight, isn't it? Or is it 6?
+
+Dario DAddamio (Student)   1:29:04No, the one, the one with the Ethernet port that's not working is 1006. The one with the fan not working is 1008.
+
+Alex Gardeck   1:29:11OK.Got you.
+
+Michael Davidsaver   1:29:25Actually, oh sorry, sorry, these serial numbers should start with OS because these are EVT chassis, so it's OS2.
+
+Alex Gardeck   1:29:26Yeah.Yes.
+
+Michael Davidsaver   1:29:331006 and 1008.
+
+Dario DAddamio (Student)   1:29:33Yeah.
+
+Michael Davidsaver   1:29:35OK.My notes correct.
+
+Dario DAddamio (Student)   1:29:57Do you want me to try powers hopefully?
+
+Michael Davidsaver   1:30:02Uh, sure. I mean, I I almost hope it doesn't make a difference. But uh, yeah, please, since we're online, you may as well.
+
+Dario DAddamio (Student)   1:30:25OK, my um.It's not really. It's going up with this.
+
+Alex Gardeck   1:30:56On the switch is showing up. OK, and there it is.
+
+Mark Holl   1:31:06So it is showing up.
+
+Dario DAddamio (Student)   1:31:06Yeah.
+
+Michael Davidsaver   1:31:06Will that that change the behavior?
+
+Alex Gardeck   1:31:09Yes.
+
+Michael Davidsaver   1:31:11Oh.Could you go back to the MMC console and repeat the M command?
+
+Dario DAddamio (Student)   1:31:18The what command? Sorry.
+
+Michael Davidsaver   1:31:19I'm I'm sorry the the number one command number one command my mistake it's the.
+
+Dario DAddamio (Student)   1:31:20Yes.And now it's going back and forth.
+
+Alex Gardeck   1:31:32And now it it's going back and forth between on and off.
+
+Dario DAddamio (Student)   1:31:37Oh.No, thank you.
+
+Mark Holl   1:32:08All right.
+
+Michael Davidsaver   1:32:14Did you try running that one command? So you say it's you say the link light is intermittent. Is that what you're seeing? You say it's got coming on and off?
+
+Alex Gardeck   1:32:23Yes, I can see on the switch.
+
+Dario DAddamio (Student)   1:32:23Yeah, I think.
+
+Alex Gardeck   1:32:31On the network switch, it occasionally flashes to off.
+
+Michael Davidsaver   1:32:57OK. I think we just have to note this again. Just note this for the time being. I'm not sure what more we can get in terms of diagnostics. This one may wind up having to come back to us.
+
+Mark Holl   1:33:05And what about the one with the fan?
+
+Michael Davidsaver   1:33:08Well, that one, not yet, but that will have to separately triage.
+
+Mark Holl   1:33:13And then, um, yeah.
+
+Michael Davidsaver   1:33:17And then there's a why the EVG and it it is not despite apparently being configured properly is not.
+
+Mark Holl   1:33:17Them.
+
+Michael Davidsaver   1:33:25Locking it U it's time synchronization properly, which there I just need to go and.
+
+Mark Holl   1:33:28Is that a third?
+
+Alex Gardeck   1:33:29And let me just try.
+
+Mark Holl   1:33:33Is that a third unit?
+
+Alex Gardeck   1:33:35I.
+
+Mark Holl   1:33:40That has apparent issues.I'm just trying to sort it out.Who's doing this? Is this you, Alex?Who's typing?
+
+Dario DAddamio (Student)   1:34:01Me.
+
+Mark Holl   1:34:02OK, what are you doing?
+
+Dario DAddamio (Student)   1:34:04I was just, uh, trying to get the screen to update.But this is still not showing and then I just.Went back into USB 2.I guess now this is popping up.
+
+Michael Davidsaver   1:34:24Yeah, that's a symptom of no Ethernet connection.
+
+Dario DAddamio (Student)   1:34:29Yeah.Yeah, and when that.
+
+Alex Gardeck   1:34:44Yeah, and when that message.
+
+Mark Holl   1:34:52Alex, you're mute.
+
+Alex Gardeck   1:34:56That message showing up coincides with the light going off on the network switch, so it keeps like disconnecting itself.
+
+Michael Davidsaver   1:35:04Oh, OK, sorry. So what? What what we're seeing there is, yeah, the reset is when it's resetting the phi. OK, that's all right. So that that would be why it's blinking.
+
+Alex Gardeck   1:35:06From the network.But I verified that it's not a port or a network thing because that same cable and port then instantly connected with one of the other chassis.
+
+Michael Davidsaver   1:35:15But the question is why does it think network transmission?Yeah.OK, and there is an IOC running which is trying to talk to it.Hmm.Let me just try. Since I am logged into this thing, I'm going to try to.Look at the art table to see if there is anything showing U.
+
+Alex Gardeck   1:35:45Stop this.
+
+Michael Davidsaver   1:35:51And you don't have ARP installed. Oh no, there we go.Well, you don't. You don't have ARP installed. That's a little.
+
+Henrik Loos   1:36:05Oh, you want our?
+
+Michael Davidsaver   1:36:08Yes.I mean, there's probably other command line utilities which would tell me the same thing, but the one I always go for is just the user Ben Arb, which looks like that's provided by the Net Dash tools. Well, I'm sorry, on Debian, it's the Net Dash tools package. I keep forgetting you guys are not running Debian, so that's.Perhaps not so useful.
+
+Henrik Loos   1:36:39What package is that?
+
+Alex Gardeck   1:36:40So.
+
+Michael Davidsaver   1:36:42That's what I'm trying to see if I can find out for you here. It's DNF provides.
+
+Henrik Loos   1:36:44Yeah.It's like, oh, wait a minute. I might have found something.
+
+Michael Davidsaver   1:36:51DNF.
+
+Henrik Loos   1:36:55Arbs can ARP pack.I just asked for.
+
+Michael Davidsaver   1:36:59It provides plural.Yeah, well I I was like doing DNF provides bin slash arp.And if I've got to wait for it to download, it's cache.
+
+Henrik Loos   1:37:16Oh well, it wants to, but it found something.It's wants to install.ARP Scan, ARP Pack, ARP, ARP Act, Devil, ARP Pack, Dock and ARP Pack Static and ARP Watch.
+
+Michael Davidsaver   1:37:32Mm.Recently.Don't have.
+
+Henrik Loos   1:37:41Yeah, I can just install all of it.
+
+Michael Davidsaver   1:37:43I well, I don't think any of them. I'm just looking at the provides entries and it doesn't look like any provides that, which is a little weird.
+
+Henrik Loos   1:37:49Oh.Oh.Oh, one of them is to solve large scale eigen eigenvalue problems.
+
+Michael Davidsaver   1:38:35That's not what we want.
+
+Henrik Loos   1:38:36Oh, the scanning and fingerprinting tool ARP scan.
+
+Michael Davidsaver   1:38:40Oh, OK, yeah, it looks like it is just Netdash tools on Redhead as well.
+
+Mark Holl   1:38:47You're adding that to the configuration file, of course center, correct?
+
+Henrik Loos   1:38:52Yeah, I will. Once I know. So well, which one do you want?You want the ARP scan or what do you want?
+
+Michael Davidsaver   1:38:59It just.No, it's it's net net dash tools.
+
+Henrik Loos   1:39:03Of net dash to OK, net dash tools.The dev tools.The dev tools.Oh, OK.
+
+Michael Davidsaver   1:39:27OK, there we go. So we've got.
+
+Henrik Loos   1:39:28OK, does it now work? Art works.
+
+Michael Davidsaver   1:39:35Yes, all right. So if you can dump dumps in our the ARB table and we're looking for 5.197, correct?And it's got an entry for that, all right.
+
+Dario DAddamio (Student)   1:39:46Yes.
+
+Alex Gardeck   1:39:47Yes.
+
+Dario DAddamio (Student)   1:39:49Mhm.
+
+Michael Davidsaver   1:39:50OK, so clearly the the host does seem to be getting some communication.
+
+Alex Gardeck   1:39:59Yeah, it's just anytime that message is showing up, that is in perfect alignment with the light going out on the network switch.
+
+Michael Davidsaver   1:40:06Yeah.OK. All right. So that that's a symptom, not the cause.
+
+Alex Gardeck   1:41:03And in the interim, I do want to try. Michael, can we take one more attempt to reboot that chassis with the fan that wasn't working just to see if it comes on?
+
+Michael Davidsaver   1:41:12OK.
+
+Henrik Loos   1:41:35It's the USB.
+
+Dario DAddamio (Student)   1:42:18Thank you.Thank you, Daniel.
+
+Michael Davidsaver   1:42:45Actually, could you on the?OK, uh, so see it is not configured. OK, not configured as NTP. Alright, not not configured as event generator. Fine, alright.
+
+Henrik Loos   1:43:01Oh, the net mask is wrong.
+
+Michael Davidsaver   1:43:08Uh.That'd be a good thing to to fix up because yeah, this is this is a.4, isn't it? Yep. All right, that's the problem. OK.
+
+Henrik Loos   1:43:12Yep.
+
+Alex Gardeck   1:43:13That gateway is wrong too, yeah.
+
+Henrik Loos   1:43:17Yep.
+
+Michael Davidsaver   1:43:19That's the problem. All right.
+
+Mark Holl   1:43:37Who's doing that?
+
+Dario DAddamio (Student)   1:43:39Hey.
+
+Mark Holl   1:43:39Dario, OK.
+
+Alex Gardeck   1:43:55Yeah, so the the key thing is that even for a.5 IP address, Dario, the net mask and gateway are.4 or the gateway is for.4.
+
+Dario DAddamio (Student)   1:44:08Yeah.I guess I missed it, but.
+
+Alex Gardeck   1:44:11Mm.And we'll definitely want to go and check all the rest of them. We can do that offline, but we'll want to make sure that's good.
+
+Dario DAddamio (Student)   1:44:24Well, all all the other ones are working because no, none of them are pink. I already checked.
+
+Mark Holl   1:44:31Mm-hmm. Let's check one of them. See what? Just query it.OK.
+
+Michael Davidsaver   1:44:37All right, so this this was just updating my notes. We this was the Chassey 1006.
+
+Dario DAddamio (Student)   1:44:44Yes.
+
+Michael Davidsaver   1:44:51OK.
+
+Mark Holl   1:44:52So Alex, is the network now showing a green light on that?
+
+Alex Gardeck   1:44:54OK.Yeah, it's solid.
+
+Dario DAddamio (Student)   1:45:00Yeah.
+
+Michael Davidsaver   1:45:04OK, so I think what I was seeing before the issue was that it was, we just happened to catch it while it was resetting the phy and that's why it was not reading back correctly.
+
+Alex Gardeck   1:45:14Yeah, because I would say before 90% of the time that network network light was on, but then it would go off and then try and reconnect and then connect and then but it's resolved now it seems.
+
+Michael Davidsaver   1:45:22Yeah.OK, so it's just a a combination of wrong configuration and the the reset timeout or the timeout and reset behaviour giving us false indications.
+
+Henrik Loos   1:45:40I wasn't really looking at it, it just looked wrong.
+
+Mark Holl   1:45:44Huh.
+
+Michael Davidsaver   1:45:49OK, so that takes us back to the the one with the the fan which is not.
+
+Mark Holl   1:45:53Wait a minute. That's 255 as well. So what are we looking at here?
+
+Henrik Loos   1:45:56That that was the the old, the previous.
+
+Alex Gardeck   1:45:58Yeah.
+
+Mark Holl   1:45:59Oh, the previous one. OK, great.
+
+Henrik Loos   1:46:00Yep.No, they're all working now, except number one is not working as an EBG.
+
+Dario DAddamio (Student)   1:46:12Oh, it would be EVT #5. It's not working. It's just powered off right now.
+
+Alex Gardeck   1:46:17That's turned off. Yep.
+
+Henrik Loos   1:46:19Oh.
+
+Michael Davidsaver   1:46:22OK, so I take it you powered it on and the fan did not start turning.
+
+Dario DAddamio (Student)   1:46:27No.
+
+Michael Davidsaver   1:46:27Can you confirm the the fan setting for 120?
+
+Alex Gardeck   1:46:28No.
+
+Dario DAddamio (Student)   1:46:31Yeah, I tested both.Zero and one time.
+
+Alex Gardeck   1:46:35We can. It seems like the air intake is working just fine because I can feel the air coming into it and you can feel a little bit of air coming out. Yeah, it's only one of them. It's the the output fan.
+
+Michael Davidsaver   1:46:45Oh, only one of them.OK, that's different. All right.The exhaust fan, all right.
+
+Alex Gardeck   1:46:54The intake is Yep.
+
+Michael Davidsaver   1:47:00Hmm.
+
+Alex Gardeck   1:47:01Is that that fan command was not affecting the intake seemingly?
+
+Michael Davidsaver   1:47:02Well, it.Yeah, which it should be both. I mean it the the one that should be setting both fans. So if that alright that actually OK this this could just be legitimate the fan fail.
+
+Alex Gardeck   1:47:16Gotcha.
+
+Michael Davidsaver   1:47:25Yeah, or I guess actually the maybe the simplest explanation is that something is obstruct, is is touching or obstructing the fan.
+
+Alex Gardeck   1:47:33No, it's open.
+
+Michael Davidsaver   1:47:35Well, it'd be perhaps on the inside. I mean, this is where I have to open the chassis to find out.
+
+Alex Gardeck   1:47:37Oh, on the inside. Gotcha, gotcha, gotcha.In the interim, in the coming.Days. What I'll probably do is so that chassis is the OS2-1008, so I'll probably we'll probably set it up so that OS2-1009 can serve as the EVG for the CXLS prototype.If you want to show the rack schedule, Dario, just to make that clear.
+
+Michael Davidsaver   1:48:15Right.It just again, just to repeat, just to make sure my notes are correct that with the exhaust fans not turning.
+
+Dario DAddamio (Student)   1:48:33Yes.
+
+Michael Davidsaver   1:48:35OK.
+
+Alex Gardeck   1:48:38And then zoom in.
+
+Dario DAddamio (Student)   1:48:53This one.
+
+Alex Gardeck   1:49:46OK.
+
+Michael Davidsaver   1:49:50And for the chassis OS20-1008, if you would like, you could take off the top lid and take a picture of the internals. If you did this, I would be interested specifically to see the area around the exhaust fan because there are a couple of cables which might have moved if they had.It weren't tacked down properly.
+
+Alex Gardeck   1:50:17OK, I'll probably want to unrack it and bring it over to a nice space with the grounding mat and whatnot before I start taking the top off.
+
+Michael Davidsaver   1:50:26Yeah, yes, always good. Always a good idea. Although in in this case I I should say that there's nothing attached to. There's no cables attached to the lid. If you, if I don't know if you ever had one of these apart before, but there should be nothing but the the they take the the sheet metal screws off the outside.The lid and just pop it off. There's nothing attached.
+
+Mark Holl   1:50:47Yeah, so you don't even have a a separate grounding wire to a lug on that.Probably don't need it as long as you mask the chassis on that design. We're grounding it now the Um.
+
+Michael Davidsaver   1:51:01Yeah, the the inside of the chassis is not powder coated.
+
+Mark Holl   1:51:04And then at the edge where you bolt it together, probably you've got it set up, yeah.
+
+Michael Davidsaver   1:51:08Yeah, likewise.
+
+Mark Holl   1:51:15Do you use Protocase for that?
+
+Michael Davidsaver   1:51:17Yes.
+
+Mark Holl   1:51:18Yeah, yeah. So I've done a lot.
+
+Michael Davidsaver   1:51:21We found they did good work.
+
+Mark Holl   1:51:24Yeah, they do. They really do.Um.
+
+Alex Gardeck   1:51:43So we've got the one rack and then we still have the mystery as to why.The 1004 chassis is not recognizing in Phoebus that it's an EVG because we saw it's recognizing itself as an EVG in the boot loader, right? But it's just not.Getting linked to Phoebus that it is an EBG.
+
+Henrik Loos   1:52:09But it has nothing to do with Phoebus.
+
+Alex Gardeck   1:52:11Or to the IOC.
+
+Henrik Loos   1:52:12The IOC doesn't. The IOC doesn't recognize it the.It has a read alarm. Does it mean anything?
+
+Michael Davidsaver   1:52:24Yeah, well, yes, I mean that that's I was wondering about the cause that it's.
+
+Henrik Loos   1:52:30That's the purple, the the pink frame around it.
+
+Michael Davidsaver   1:52:35Yeah, I mean, I'll have to look at that that that may or may not be a stupid mistake on my part, but I was mostly looking at the to the right of that there is the current time which was showing some nonsense.
+
+Henrik Loos   1:52:49It's not the year 21 or 6 yet.
+
+Michael Davidsaver   1:52:51Nope.
+
+Henrik Loos   1:52:52Oh.
+
+Dario DAddamio (Student)   1:52:53OK.
+
+Michael Davidsaver   1:52:57I guess both it's showing nonsense and that the nonsense is not changing.
+
+Henrik Loos   1:53:03Yeah.Mhm.
+
+Dario DAddamio (Student)   1:53:23Yeah.Yeah, it's it's set up the same way that the 4th chassis were.
+
+Michael Davidsaver   1:53:33OK, yeah, I mean, cause that's just the only thing I can think of offhand is if it wasn't, if that wasn't plugged in or it was plugged into something else. OK, so you just disconnected it.
+
+Dario DAddamio (Student)   1:53:42Yeah, I like to use.Switching it loud.
+
+Michael Davidsaver   1:53:49Yep. OK. And then the yeah, when when you did that, the the status for those two went away, which is what I'd expect. So, all right, so it's.Hmm.And just to confirm, since we didn't get, I think far enough to do so here, which of the firmware images did you guys flash on?
+
+Dario DAddamio (Student)   1:54:18But I don't think I changed anything.
+
+Michael Davidsaver   1:54:21Oh.Right. Then if it if, let's see, I don't remember my times that's.Uh, OK, yes, I could. Sorry, could you switch back to the the the bug console there? So that's showing.OK, yeah, this. Oh, sorry. OK, so this is not the latest firmware. That's why that indicator is not there, 'cause that was one of the more recent things I added.
+
+Dario DAddamio (Student)   1:54:58OK.
+
+1:54:59Uh.
+
+Mark Holl   1:55:00How do we update?
+
+Michael Davidsaver   1:55:00All right, so.It's the same. The update process is the same with with the quartz chassis. I'm I'm sorry, I thought I had provided a link to latest firmware.
+
+Henrik Loos   1:55:16I guess it's not in the timing. I will see.
+
+Michael Davidsaver   1:55:16Please add it.Correct. No, it it's a what I have. What I have for you now is a a Google Drive download link.
+
+Henrik Loos   1:55:26Uh, it's not on the not on GitHub.
+
+Michael Davidsaver   1:55:30No, not yet.
+
+Henrik Loos   1:55:32No.
+
+Mark Holl   1:55:40Are you putting that in chat or something?
+
+Michael Davidsaver   1:55:41I am doing that 'cause it is way too long to try to read off.
+
+Mark Holl   1:55:57No.Why are you not copying and pasting?From the chat.
+
+Dario DAddamio (Student)   1:56:19Uh, I'm in the VM.You can have page across.
+
+Mark Holl   1:56:29Uh, I mean.
+
+Henrik Loos   1:56:30It's a 4.2 megabyte K.
+
+Alex Gardeck   1:56:30I didn't realize that.
+
+Michael Davidsaver   1:56:46And yes, correct, it should be 4.2 megabytes.
+
+Alex Gardeck   1:57:07I think it's funny that they make us dual dual authenticate with the the three letter code now.
+
+Dario DAddamio (Student)   1:57:15Yeah.
+
+Michael Davidsaver   1:57:42Oh, OK, right. And that's why. OK, the their time is not updating because that was also one of the things I had slightly before that. OK, right. So that are the the old firmware I think explains all the abnormal behavior I've seen so far.
+
+Alex Gardeck   1:57:47OK.
+
+Michael Davidsaver   1:58:04Yeah, as before, you'll want to make sure the chassis is in the the bootloader.
+
+Alex Gardeck   1:58:19I mean, he's just checking to make sure the USB is plugged into that chassis.
+
+Michael Davidsaver   1:58:24I would that that's not necessary. I mean now that it's communicating with the IOC you can do, you can do that through Phoebus.
+
+Alex Gardeck   1:58:28Hmm.Gotcha.Did you hear that, Dario?
+
+Dario DAddamio (Student)   1:58:36Uh, no, I do not.
+
+Alex Gardeck   1:58:40Now that we're connected to the network, you can just enter the bootloader through Phoebus.
+
+Dario DAddamio (Student)   1:58:44Oh, OK.Uh.Here now.
+
+Michael Davidsaver   1:59:18You need to start with clear first.OK, so it it could you switch to the Phoebus screen please?So the one we were looking at before for that that chassis that we're working with at the moment.So in the lower left hand corner, click boot gold.And wait until it says current says gold. OK, now go back to the terminal and repeat the clear.
+
+Alex Gardeck   1:59:54And.
+
+Michael Davidsaver   1:59:58OK, there we go.Now you can continue with the instructions.
+
+Dario DAddamio (Student)   2:00:12What is that 8M parameter name?
+
+Michael Davidsaver   2:00:158 megabytes.
+
+Dario DAddamio (Student)   2:00:18Does that need any change here or is that?
+
+Michael Davidsaver   2:00:20No.The the the chip on these things is 16 megabytes in total and the way the the partitioning scheme is, it's the lower 8 megabytes for the bootloader, upper 8 megabytes for the application.OK. And I just now that I've just had you do that, I just realized that when you did the erase app, so proceed with the program, but we're gonna have to change the.
+
+Mark Holl   2:00:51No.
+
+Michael Davidsaver   2:01:02Netmask and NTP server.Server.
+
+Dario DAddamio (Student)   2:01:06Oh.
+
+Michael Davidsaver   2:01:06Because the erase app got rid of those.Here we go.
+
+Dario DAddamio (Student)   2:02:41This will need to be done for all of them.
+
+Michael Davidsaver   2:02:44Yes, all of the EVT chassis.
+
+Mark Holl   2:02:52Would this have anything to do with the fan like that possibly be related?
+
+Michael Davidsaver   2:02:57No, I don't believe so.
+
+Dario DAddamio (Student)   2:03:01Probably not, because I could change the fan speed for the other ones, but not for that one.
+
+Michael Davidsaver   2:03:06But the fact that it's one fan and not the other that that really does point to it being an issue with that fan.
+
+Dario DAddamio (Student)   2:03:11Mm-hmm.
+
+Alex Gardeck   2:03:12Well, yeah, and it was just from the the first boot, it didn't turn on and the rest of them immediately were turbo mode.
+
+Michael Davidsaver   2:03:19Yeah.
+
+Dario DAddamio (Student)   2:03:27OK.
+
+Mark Holl   2:03:27It really does suggest that we're going to need to.
+
+Dario DAddamio (Student)   2:03:27Google.
+
+Mark Holl   2:03:31Well, for these chassis, most likely they I'd have to go into the that's a.If they really produce a lot of heat, they seem like they're really punching out the heat. You have to have that much air across them.Surprising.
+
+Michael Davidsaver   2:03:51Well, we probably are. We are, to be honest, yes, we we erred on the side of having a a larger, more powerful fan.
+
+Mark Holl   2:03:59Yeah, I mean, my concern is that, you know, we would need to put them into our Retal racks, but the reason we have the Retal racks is to really manage, you know, all of our magnet power supplies and then keep things really stable for the low level RF, but.
+
+Michael Davidsaver   2:04:12Mhm.
+
+Mark Holl   2:04:15We could, but we may have to do that just to get the sound enclosed.
+
+Michael Davidsaver   2:04:21Yeah, I mean, part of the reason we didn't worry about noise is because usually these equipment is in unpopulated or in closed racks or, you know, people aren't around or they're in closed racks.
+
+Mark Holl   2:04:32Mhm.
+
+Henrik Loos   2:04:33Uh, it now says EVGEVR.
+
+Michael Davidsaver   2:04:37Yes. All right. And does it show timestamp? It still does not show timestamp. Well, that's annoying.
+
+Mark Holl   2:04:50Yeah.
+
+Michael Davidsaver   2:04:52You PLL. Oh, let's let's see Pl. unlocked.
+
+Henrik Loos   2:04:54And now is way in the future.
+
+Mark Holl   2:04:58What's that?
+
+Michael Davidsaver   2:04:59Yes, well, if in this case, the past is actually the future, something's wrapping around.But also it's showing no NPT state. It's saying no fiber is active, which is very odd.
+
+Henrik Loos   2:05:18Oh yeah, previously there were links active.
+
+Michael Davidsaver   2:05:21Yes. Can you switch to the the left hand side console?
+
+Alex Gardeck   2:05:26Are the other ones gonna need their firmware to show up?
+
+Michael Davidsaver   2:05:27That's now showing.That is OK, that is.
+
+Alex Gardeck   2:05:44And then Mark, I think they're looking for us in the 2:00 planning meeting.
+
+Mark Holl   2:05:48Yeah, yeah. So we're gonna need to call this meeting and and then can you look into this, Michael, and get back to us as to what you find out since you can log in.
+
+Henrik Loos   2:05:53Yep.
+
+Michael Davidsaver   2:06:03Yeah, well, I I guess I um.OK, so I I will look for you to just separately give me confirmation when Steve has made switches in the PXI crate.
+
+Mark Holl   2:06:15Mhm.
+
+Michael Davidsaver   2:06:16And I will. Are you guys gonna be doing anything more on this installation today?
+
+Mark Holl   2:06:23Not today.
+
+Alex Gardeck   2:06:23Um.Should we have Dario update the firmware for the other ones that are working?
+
+Michael Davidsaver   2:06:28Sorry, I.
+
+Dario DAddamio (Student)   2:06:29OK.
+
+Mark Holl   2:06:31Yeah, if you can do that and get all the firmware across everything updated, I yeah, let's do that. And then.
+
+Michael Davidsaver   2:06:36Good idea.
+
+Mark Holl   2:06:41And then we'll be done today.
+
+Michael Davidsaver   2:06:46OK, I guess that I'll I'll wait for you guys to let let me know that your hands off on both of these.
+
+Mark Holl   2:06:52Yeah. So Alex, send an e-mail out when we're hands off on this or Dario, you send it up, send it out to the entire team when you finished updating everything in your hands off. And then Michael can look at that and then I'll I'll continue to try to get in touch with Steve Jack and and get back to you, Michael.
+
+Henrik Loos   2:06:57Yeah.
+
+Alex Gardeck   2:07:08OK.And then, Michael, on Monday, I'll remove that chassis, take it to our clean room, set it on a grounding mat, open up the lid and take a picture of the internals and send it over to you.
+
+Michael Davidsaver   2:07:22Yeah, OK, let's we'll hopefully it's something simple like something up. Don't come unplug.
+
+Mark Holl   2:07:29Right.
+
+Alex Gardeck   2:07:29OK.
+
+Michael Davidsaver   2:07:34OK, everyone. Bye.
+
+Mark Holl stopped transcription

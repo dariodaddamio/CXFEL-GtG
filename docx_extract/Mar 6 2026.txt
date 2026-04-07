@@ -1,0 +1,869 @@
+Transcript
+
+March 6, 2026, 6:56PM
+
+Alex Gardeck   2:56Hey, Mark, can you hear me?
+
+Mark Holl   2:58I can. Yes, I can.Um.
+
+Alex Gardeck   3:10We got a lot of activity of tours going through right now, but I think they're wrapping up.
+
+Mark Holl   3:16Yeah, sounds good. I mean, Petra caught me off guard. Actually, I was kind of going, what? I mean, I'm supposed to talk. Um, I that was not my best tour for sure.And she was clearly wanting. Wait a minute. That's stuff I want to talk about. You know, whatever.
+
+Alex Gardeck   3:33Yeah, exactly. I was. She had the more focused group of senior people, so she had me, man, the pan, tilt, zoom cameras to be able to do a virtual tour for them.
+
+Mark Holl   3:49Oh, what was that? The she had the more focused group of what, senior people?
+
+Alex Gardeck   3:53From the same group, seemingly from. I'm not sure it's whatever was listed at the the site reviewers or something.
+
+Mark Holl   3:59Oh, OK, it's. I think it's.Oh, OK. The more senior people. Oh, good. So you. Yeah, you took him in on the patent. Zoom. Good. Excellent.
+
+Alex Gardeck   4:04Yeah, so.Yeah, through Hodge, Vault, Laser, uh RF. So gave them all four and so.
+
+Mark Holl   4:12Nice.That was nice. Yeah, nice. That's what they're for in part, yeah.
+
+Alex Gardeck   4:19Yeah, it'll be nice to just one with that S wall. We should just put them up on the upper monitors at some point.
+
+Mark Holl   4:28Yeah, we really should.And then that way we can just let people. Um.
+
+Alex Gardeck   4:38Yeah, and for for whatever reason, Alan had never connected. None of those computers are actually connected to the switch. I don't know what the reason was at that time, but it's just something to do.
+
+Mark Holl   4:40So.Well, so yeah, so that's. Well, we need to do that. And so that's why this weekend what I'm gonna do is I'm gonna map the walls. I'm gonna because those, none of those computers have IP addresses.
+
+Alex Gardeck   5:00No, they do. They do. They all do.
+
+Mark Holl   5:02OK, see, why did you ask for an IP address?
+
+Alex Gardeck   5:06Because they wanted it on the Hutch V LAN. All of the that was a CX file source.
+
+Mark Holl   5:12Yeah, so I'm gonna go back to the IP addresses that I've already checked out and and so they do and make sure that we're, you know, gonna have a plan for how we deploy them as I would get the work package ready for Alex Chiquette.
+
+Alex Gardeck   5:17Mhm.Yeah.
+
+Mark Holl   5:32I think Diego in OK, we.
+
+Alex Gardeck   5:36I tried calling Henrik earlier. He was not. His phone went straight to voicemail, so hopefully he'll be available for this.
+
+Mark Holl   5:46Yeah, let's try that.Yeah.Excuse me?Oh, there is.And it's here.OK.And you showed up on a laptop, OK.Alright.So.A number of us were in a meeting with the data acquisition team the other day. That's really not gonna be our focus today, but it is something to keep in mind in the background. We can be thinking about it, but it just falls into, you know.Getting systems, you know ready to go, we have not unpacked the we're still in the process of we received I guess yesterday or the day before and I verified we have and I have possession of the EVT.Chassis and so we don't have them racked and ready yet, so but I think we can.
+
+Henrik Loos   7:26Oh, I'm ready.
+
+Mark Holl   7:29What's that?
+
+Henrik Loos   7:30I'm ready.
+
+Mark Holl   7:31OK, well.
+
+Henrik Loos   7:33Hello.
+
+Mark Holl   7:34The hardware's not ready, but I am kind of curious about what you sent out just recently. Henrik and if you could explain what it means for you've built the.The IOC. Maybe you can explain what that means.
+
+Henrik Loos   7:51Um.
+
+Dario DAddamio (Student)   7:52Uh, before Henrik gets in one.
+
+Mark Holl   7:56Yeah.
+
+Dario DAddamio (Student)   7:57Quick question.
+
+Mark Holl   7:57But.
+
+Henrik Loos   7:59So what?
+
+Dario DAddamio (Student)   7:59Is that right now? I got the rack set up over here, the new rack compared to where this rack is. So a question for Michael is are we gonna have connections between the EBT chassis and the marble chassis? Because if so, we'll probably do some reconfiguration.
+
+Henrik Loos   8:09Mhm.
+
+Dario DAddamio (Student)   8:19To get that right, just right next to the other.
+
+Henrik Loos   8:22Mhm.
+
+Mark Holl   8:22Well, it's it's actually that's one's for me, Alex. Yes, the answer is yes. We're we're going, we're going to actually split the the marble chassis up and we're going to create a rack with four. We're going to use the EVT chassis.
+
+Dario DAddamio (Student)   8:30OK.
+
+Mark Holl   8:41And we'll put four in one rack and then two marble chassis, and then four in another rack with two marble chassis. Just as something we start shaking things out. Are you?
+
+Henrik Loos   8:50So there are four EBT chassis.
+
+Mark Holl   8:53Yes, we'll put 4 EVT chassis in each rack. There'll be one EVT chassis, which will be the EVG in each rack and then we're going to split up the four marble chassis and have two in each rack. So there's going to be a lot of reconfiguration work, Dario, that you'll you'll be needing to do.
+
+Henrik Loos   8:54Mhm.OK.
+
+Mark Holl   9:13In that with and making sure with Henrik that we can get practice doing that and then then we'll just we'll start there with an even split of the systems for CXLS and CXFEL.We'll just use that as a starting point.
+
+Alex Gardeck   9:30OK, that sounds good. And we'll do the reconfiguration efforts next week, so that or later this afternoon so we can get the two racks next to each other. It'll just take some moving things around.
+
+Mark Holl   9:42Yeah. And do we have two tall racks or do you just have one short and one tall?We have just two short. We have one tall rack left, right?
+
+Alex Gardeck   9:52Yeah, that was the one tall rack left. I can we can unload the current short rack and replace it with one of the magnet ones to gain back a tall rack so that we have two.
+
+Mark Holl   10:04I think we should have two tall racks. What do you think about that?
+
+Alex Gardeck   10:08I agree. I think we'll want this space.
+
+Mark Holl   10:10Yeah. So let's reconfigure and unload the magnet rack because those are going to start going into the Ratal, you know, you know, racks anyway, the Ratal enclosures, temperature control enclosures. So let's do that. Let's go ahead and go for two tall racks and.Then we'll start with the EVG at the top of each of the the racks at, you know, probably a third down, and then we'll build down from there, putting space as appropriate just to make it workable. And we'll have four of the EVT's in each rack and then the two marble chassis.We can think about where we want the marble chassis to be so we can get the the electrical cables that we're going to pull off those to go to the benches for experimentation and testing and we can then start partitioning the benches for a couple of different.You know, setups, you know so.
+
+Alex Gardeck   11:04Yep, that sounds good. So I think on Monday we'll be able to make some progress towards getting things set up.
+
+Mark Holl   11:10Yep, that makes sense. Yeah. So that's that's kind of the shake out we've got here. Henrik, you you mentioned. OK, so can I is that what you wanted to say first?
+
+Henrik Loos   11:24Yep.
+
+Alex Gardeck   11:24Yes, that was all I had.
+
+Mark Holl   11:24Alex.OK. And then Henrik, could you, you know, share what you sent an e-mail and said I've built this and then something's going on. What? What did you mean?
+
+Henrik Loos   11:35Oh.Well, I I installed the timing IOC software in the CX file epics area and compiled it and I added the button.To the Phoebus displays and I'm running the IOC right now. Of course it's not connected to anything, but just to see what the display looks like. Yeah, yeah.
+
+Mark Holl   12:06Hmm, you gonna share?
+
+Henrik Loos   12:19Alright, should be able to see this now.
+
+Mark Holl   12:21Uh huh.
+
+Henrik Loos   12:23OK, so.Yeah, this is the IOC running just with some dummy IP address here.And it didn't even complain that there's nothing on this IP address.
+
+Michael Davidsaver   12:46Well, if you look at the OPI screen, everything should be with the purple box for indicating invalid data.
+
+Henrik Loos   12:47Um, um.Yeah, and so I added a button here EBT one and that is.And that opens up this screen, which as Michael said, everything is purple and there is no boot control and none of this connects to anything actual.But that way we can see what it would look like and Michael can maybe explain. Oh by the way, if I go to experts this month and go to reboot FPGA at once and MPEX.Um, widget? Yeah.
+
+Michael Davidsaver   13:31Uh, OK.But in in point of fact, you actually I should just delete that button because if you go back to the main screen.
+
+Henrik Loos   13:38Yeah, there's a reboot. Yeah, yeah, yeah.
+
+Michael Davidsaver   13:39There's the reboot A down there is what you would use.You found a dead link. I'll get rid of it.
+
+Henrik Loos   13:47Yeah, I I always try everything.
+
+Michael Davidsaver   13:50That's much appreciated, but good testing is all about.
+
+Henrik Loos   13:55Yeah.
+
+Michael Davidsaver   13:57OK, what I can offer you actually is if I can switch and I can share my screen here, I can show you a remote demo of a slightly more interesting screen.
+
+Mark Holl   13:58So.
+
+Henrik Loos   14:09Yeah.
+
+Mark Holl   14:14Yeah.
+
+Michael Davidsaver   14:15OK, is this working? Can you see a Feedbus screen?
+
+Henrik Loos   14:21Yep.
+
+Michael Davidsaver   14:23Excellent. All right. Been having problems with screen share for the last couple of days. I'm glad this worked. OK, So what we're looking at here is the test unit that's sitting at my place. So at the moment because starting from the upper left.The EVT mode is the important one because in this case it tells you that this particular unit is configured as a generator and a receiver, so it has the NTP server set.And in the next indicator over MPT status, that's just telling me that I've got active link on the 1st and the 3rd, which is to say the EVR input and the first fan out output. So this which are just connected to each other that that you cannot see here.But so this is just a simple situation where one unit is by itself, so the only external connections it has are between these two fiber. These two fibers and I also have the input one is connected to the pulse per second.
+
+Mark Holl   15:11Oh.
+
+Henrik Loos   15:14Mm-hmm.
+
+Michael Davidsaver   15:21Because I should say when it's in the event generator mode, the input one has a fixed function as pulse per second input.
+
+Mark Holl   15:28Um.
+
+Michael Davidsaver   15:31In other in other modes that that input is not not special.
+
+Mark Holl   15:33What are you, um, generating that pulse per second from?
+
+Michael Davidsaver   15:38It's I've just got a GPS receiver on my desk.
+
+Mark Holl   15:43OK, GPS.
+
+Michael Davidsaver   15:47So I guess if you can see over here next to EVR status there is a time stamp which is incrementing and this is just the giving a indication of the decoded or the decoded GPS time.So this is an indication of what the timestamp that is being sent over the the timing network would look like.And I guess continuing all the way over to the right, there's this event log event RX log, which in this instance, since I can't show you a scope remotely, is about the only interesting thing on this screen. And here I have set up event code 125, which is the fixed function code for.Pulse per second tick. So this is this 125 is sent whenever the electrical pulse comes in from the GPS receiver. The event generator node will send out a event code 125 over the network over the timing link and below that is.
+
+Mark Holl   16:42And what is that?But sorry.
+
+Michael Davidsaver   16:45Below that is a counter that just increments each time that event arrives, and while you may not be able to see the tool tip that pops up, you can see the time that's listed in the table down below that shows that the reception time of 1:25.Is associated with a value of seconds, and then the nanoseconds column is just showing you 8 because there's a one tick latency in there for when it's read out. But basically this is showing a fixed value of nanoseconds because this event defines the start of the second.
+
+Henrik Loos   17:10Oh.OK.
+
+Mark Holl   17:16Uh, yeah, wait, so that so that's it shows 8 nanosecond between.
+
+Michael Davidsaver   17:25It's 8 nanoseconds after the second start of the second, so that what you're seeing here is the event code reception time is seconds and nano plus nanoseconds.
+
+Mark Holl   17:36And is that the that's the time at which it was received?
+
+Michael Davidsaver   17:39Yes.
+
+Mark Holl   17:40OK, so it's transmitting to itself, so it takes 8 nanoseconds to complete that operation.
+
+Michael Davidsaver   17:47Well, it it's not that it takes 8 nanoseconds to complete that operation. There's just a one, there's a one second tick or one, sorry, one tick which is 8 nanoseconds in somewhere in the logic. Now actually in point of fact, I think we're going to try to chase that out. There's no reason for it.But in this case, the reason for the 8 nanoseconds is there's no it's not a cabling thing, it's just because what's happening internally is when one event 125 is received, that is the definition for the start of the second.And that resets the the the counter, which is what you see for the the far right column. 8 nanoseconds is 1 tick.
+
+Mark Holl   18:17Yeah.
+
+Henrik Loos   18:22Yeah, that makes sense. Yeah.
+
+Mark Holl   18:24Yeah, see somewhere in there you've got a ripple that that latches and and so. So you you kind of said what I thought you might, which is that that may disappear in an update. It may be zero, yeah.
+
+Michael Davidsaver   18:35Yeah.
+
+Henrik Loos   18:37I mean, it's just a matter of defining the origin. Whoa, it just went way fast. The seconds incremented way fast.
+
+Mark Holl   18:47Happened.
+
+Michael Davidsaver   18:47Really. Oh, is that when I just switched screens? Maybe. Did you do it again?
+
+Henrik Loos   18:51Or maybe it was just, it was just the late update because it was stuck for a while. OK, so these seconds, yeah.
+
+Michael Davidsaver   18:54Yeah, I I I think that might just be that the network. I mean it's it's incrementing for me one once. Also I I should warn you that what's happening here is this the the hardware behind this is sitting in California. I am sitting in Iowa. So what's happening is these images are going from California to Iowa.
+
+Henrik Loos   19:07Yeah.Mhm.
+
+Michael Davidsaver   19:13And then back off to the, you know, Microsoft Cloud. So they're making quite a long, circuitous route with a considerable latency.
+
+Henrik Loos   19:19Wow. OK.
+
+Mark Holl   19:22Yeah, but there's also appears to to store frames because I've seen it go one second, one second, one second and then click, click, click where I actually see it click through several seconds and I see the individual seconds, but it does it really fast.
+
+Henrik Loos   19:32Mhm.
+
+Michael Davidsaver   19:37Yeah, well, what I can promise you is if you when you get this in in your lab in front of your face, I think you will become quickly convinced that it's not doing that for real.
+
+Henrik Loos   19:46I'll I'll believe you. Um, the seconds. Do they reflect GPS time?
+
+Mark Holl   19:47OK, alright.
+
+Alex Gardeck   19:50And.
+
+Michael Davidsaver   19:53Yes, yeah, the.
+
+Henrik Loos   19:53OK.
+
+Alex Gardeck   19:54So that's the second since 1970, right? Is that what it is?
+
+Michael Davidsaver   19:57Correct.
+
+Henrik Loos   19:57So, so it's it's epic. It's so it's converted into Epic's time base.
+
+Michael Davidsaver   20:02I know it's the past six time base.
+
+Henrik Loos   20:04POSIX time base OK.Yeah.
+
+Michael Davidsaver   20:10Just a fixed offset though.
+
+Henrik Loos   20:12Mhm.
+
+Michael Davidsaver   20:14OK, and I guess the the next part I can show you, which I mean is not going to look very interesting since I can't show you the scope that it's attached to. But if I were here for this output configuration out one, if I were to say event code also 125, because right now event 125 is the only one that's happening of any interest.And then if I were to say width, let's say 100 nanoseconds and then I were to switch from static 0 to pulse.At this point, if I had a scope, I would see once a second a 100 nanosecond wide pulse.
+
+20:52Good.
+
+Mark Holl   20:52That's a lot better interface than the SRS.
+
+Michael Davidsaver   20:57Yeah, well, yeah.
+
+Henrik Loos   20:57Well the SRS, the SRS in well you could make it better looking but but this this looks like at slacked EVR this place.
+
+Mark Holl   20:57Um.That's nice. I mean, it seems very simple, intuitive. What is the number second thing though?
+
+Michael Davidsaver   21:11Yep.
+
+Henrik Loos   21:12Yep.Yeah.
+
+Michael Davidsaver   21:21Which one are we looking at here? Number second.
+
+Mark Holl   21:22The the last the last column what is? There's a zero in there.
+
+Henrik Loos   21:26Oh yeah, that's it.
+
+Michael Davidsaver   21:26Oh oh, event code, yes. So the what you there is this is making the association between the event code number and this particular delay generator and physical output.
+
+Mark Holl   21:38Uh huh. You.
+
+Michael Davidsaver   21:39So if I were to clear the sorry, go ahead.
+
+Mark Holl   21:41So there's a there's a number sign S and it has a zero in it. What does the 0 mean?
+
+Michael Davidsaver   21:48Zero is the idle code, so that means it's it's ignored. So right now in this configuration the output one is configured to respond to event code 125 only and the other seven are not configured to will will not respond to any event.
+
+Mark Holl   22:04OK, so the zero, the 0.
+
+Henrik Loos   22:05Well, that the 0 defines which one not. It defines how to disable it, what number to disable it.
+
+Mark Holl   22:15What?
+
+Henrik Loos   22:15Oh, oh, oh.
+
+Michael Davidsaver   22:16Not really. I mean what what the what you're seeing here is there it's possible, although I mean that's this is one of these things I I put the feature in here because the I did the same for the MRF driver that you can actually you can configure this physical or the physical output to to respond to more than one event code.
+
+Henrik Loos   22:35Yeah.
+
+Michael Davidsaver   22:36Now the hardware allows this. I mean, personally, I've never actually seen anyone do this, but you know, my my imagination does not necessarily provide a good bound for what experimenters will want.
+
+Henrik Loos   22:40Mhm.Oh.
+
+Mark Holl   22:48So I have a question then and that will probably latch my answer. I still don't know how to annotate anything. OK, so if if I put let's say we created an event code number 126.And I put 126 in the second the last column and then I on row #2 or output #2 I put 126 then both then both output one and output two would respond to both 126.
+
+Michael Davidsaver   23:13Mhm.
+
+Mark Holl   23:21As well, so you get.
+
+Michael Davidsaver   23:21Yeah, if I were to do, yeah, so this.
+
+Mark Holl   23:24Yeah.
+
+Michael Davidsaver   23:29Then yes, if you were looking at a scope, then each time event 126 arrives. Actually right now you this again to tell the several pieces of the configuration. You'd also want to set a non-zero width, otherwise you get nothing out and you'd also want to change from static 0.
+
+Henrik Loos   23:30Oh.
+
+Michael Davidsaver   23:46To pulse.
+
+Mark Holl   23:49And then will it show 126 coming out every second?Uh, how do I?
+
+Michael Davidsaver   23:54Well, if if if one point right now event code 126 is not being sent by the event generator logic, so event code 126 never happens.
+
+Mark Holl   24:01Add to it.
+
+Henrik Loos   24:01Mhm.
+
+Mark Holl   24:03How do we do that?
+
+Henrik Loos   24:05Well, that's that's my next question.
+
+Michael Davidsaver   24:06We'll come to that.Yeah.
+
+Mark Holl   24:11Uh huh.
+
+Michael Davidsaver   24:13OK, so yeah, so the point being is I I think for the the the simple use case which you're almost always going to use, you will ignore this last column and only use the the 2nd to last column of event and putting in a single event code number.
+
+Mark Holl   24:23Uhuh.OK.Yeah, so now we go up to the right hand side set of things. I want 125 and 126 to be sending their event codes.
+
+Michael Davidsaver   24:38Well, I can put this here to show you that event code 126 is not currently being sent because I see I put put 126 in there and the counter is not incrementing.And what I can do here is down in the very bottom, and I apologize, there's going to be another version of this screen which adds because there's there's more than one of these timers, but for the event generator logic, the simplest way or one of the simplest ways to send a repeating event.
+
+Mark Holl   24:59Uh.
+
+Michael Davidsaver   25:05Is to put in, let's say 26 here.Oh, not because yeah, you caught me out here. I was testing this yesterday and there's still a value in that register.If I do 1252312, so this will be one. This will be at 12.5.Million do that.OK, so there now what I've I've configured the event 126 to be sent and what I the second value here is a division factor.
+
+Henrik Loos   25:45Uh.
+
+Michael Davidsaver   25:46So the reference clock in this case is 125 megahertz and So what I put in here is you know 12.5 million. That means the division is you know 125 megahertz divided by you know 12 million or 12 and a half million which is 10.So what I have here is a situation where once a second the event code 126 is being sent 10 times or was it? It's being sent every 100 milliseconds. That would be a more accurate way to describe it.
+
+Mark Holl   26:05Every times that.126 is so great.Uh, OK, the event code appears to be sent every second.But.
+
+Michael Davidsaver   26:29Well, if you look here that the it's not the the apology is that the the fractional value is getting clipped, but you can kind of see it's being sent every, I'm sorry, 100 milliseconds, which is why you're seeing the number this in the nanoseconds column going from 5678.9 wraing back to zero and then going 1234. Yeah, the presentation is not great.
+
+Henrik Loos   26:44Oh.Yep.And we're seeing ten of those because it only shows what happens within one second.
+
+Michael Davidsaver   26:54Correct. There's the the readout time or the readout period is set by the the the scan menu up here. Oh yeah, if I wanted to do, let's say half.
+
+Henrik Loos   26:56Hold it.Uh, OK.So if you set that to.
+
+Michael Davidsaver   27:06Now we should see five or six events each time, and you can see 125 only shows up every other time.
+
+Henrik Loos   27:08I.
+
+Mark Holl   27:19Here at 568 bar here it appears every half second. Yeah, so.That event log upstairs isn't reflective of how many times the event has actually been transmitted. It only it only just says how many.
+
+Michael Davidsaver   27:38Yeah, correct.
+
+Mark Holl   27:44Times in the event log .5 seconds. So in reality, as you've pointed out, 10 every second, 10 of 126 is being transmitted. So this this readout is.
+
+Michael Davidsaver   27:55Mhm.
+
+Mark Holl   28:00I guess useful if you learn how to interpret it.
+
+Michael Davidsaver   28:05Well, the the table you're looking at here is is going to get moved off into an expert screen. I don't think it's something that your typical operator is going to care about. And what we're also I'm actually I'm almost done with this is there's a mode where you can in addition because right now that what you're seeing here with the the counter, I added that it's just typically just a debugging operator.Because as you point out, if the event code reception gets significantly faster, you can miss stuff and that's not so terribly useful. But there is going to be a buffer mode where it'll read out. It will basically be a filtered version of the table below for only certain event codes.
+
+Mark Holl   28:44Uh huh. Yeah, because for me, you know, I could miss it. When you set it to one second, I could misinterpret the number of events being sent. You know, just one second. How did you, since you have timer one, this is how did you set 125 to be every second?How did that happen?
+
+Michael Davidsaver   29:01That's a that's a fixed function event that's tied to the GPS logic. So there's the what you cannot see here is that on my desk there, in addition to the fiber between the two optical ports, there is a input. One is connected to the electrical pulse per second signal from my GPS receiver.
+
+Henrik Loos   29:06OK.
+
+Mark Holl   29:20OK, with the BNC.Um, OK and the 125 is just a it's a reserved code.
+
+Michael Davidsaver   29:30Yes, fix, yes, fix function.
+
+Mark Holl   29:32K and then and you have available ranges of event codes and plenty of them for us to use, right?
+
+Henrik Loos   29:33See.
+
+Michael Davidsaver   29:41Oh yes, yeah. I mean, I think there's maybe 6 fixed function codes out of 255.
+
+Mark Holl   29:49Oh, and so there's a total of 255 total that are available globally forever.
+
+Michael Davidsaver   29:54Yes.
+
+Mark Holl   29:55255 so if we have 255 out of 255 you have six, so we have 249 left to assign and I guess some of them come before is it?Zero to 256 as far as the.Codes that can be assigned.
+
+Michael Davidsaver   30:19Well, I get the event code 0 is the idle code, so I guess that's. I should also include that in the the special the fixed function list, but it's one through 255 with the exception of the six fixed function codes.
+
+Mark Holl   30:32OK, well, so yeah, OK, this is great. It's kind of fun. This is like 10 questions or something. And so, so I guess my next question is.That is uh.In your experience at NSLS or whatever, how many event codes do they have?
+
+Michael Davidsaver   30:57Oh, we'd have to go refer. I mean to the exact number and I'd refer you back to my the the document I sent around previously, but I think it was something like 20 or 30.
+
+Mark Holl   31:02Claudia. Sure, sure.Oh, well, OK, I mean.
+
+Henrik Loos   31:10It it all, it all depends on the complexity of the machine. Like NSLS, there are storage rings, there are injectors, so there there are various things running on different time scales and so you need lots of events, event codes to synchronize all of this.
+
+Mark Holl   31:24But did you hear what he said? He said they only use 20 or 30. And so I'm going, well, then we should have plenty of room. Yeah, that'll make sense. Yeah. So, so, so that totally makes sense to me. Thanks, Henrik. I mean, I totally appreciate it. Makes sense.
+
+Henrik Loos   31:25So.Yeah.Definitely without a question.
+
+Mark Holl   31:41Yeah. So this is looks like it's. And then of course let's if we put something into the pulse delay on 126, we could put any number of nanoseconds and then that would be after the.Demarcation or the OK, for example on this one here where it's every 100 milliseconds. If we did that, then with regard to the metronome of every 100 milliseconds, we would delay the start of that 100 nanosecond pulse by whatever we set as the number of nanoseconds for the pulse delay.
+
+Michael Davidsaver   32:17Yep, correct.
+
+Mark Holl   32:19Yeah.
+
+Michael Davidsaver   32:20If I do 126 for, I'll just do three of them.6.Yeah, I did, uh, say 100 here, 100 here.
+
+Mark Holl   32:34Oh, and and that you'd have to have. And if you have a an event 126, the width better be the same in all cases, right? It does error checking. I mean, that would have to be the case, right?
+
+Michael Davidsaver   32:45Oh, no, no, the the width can be anything you like.
+
+Henrik Loos   32:48Yeah, what if the width is longer? Is there a limit on the width? Like if it goes past the next pulse, will it skip?
+
+Michael Davidsaver   32:49I mean, it should well.Yeah, you just, yeah, you you know, in in point of fact, I just realizing I've never explicitly tested that. So you guys can feel free to give it a go, but I it's not gonna do anything crazy. It'll the worst you're gonna get is a static one.
+
+Mark Holl   33:06I mean, we're we're that.Yeah, so I.
+
+Henrik Loos   33:10All right, let's just stay on.
+
+Michael Davidsaver   33:12Yeah.
+
+Mark Holl   33:13Yeah, yeah. So yeah, we're alpha testers for sure. And yeah, but I'm confused though, because I thought an event would have you have the same event 126126126. I thought the event code needs to be unique for an event.
+
+Michael Davidsaver   33:27Mhm.
+
+Henrik Loos   33:30No, no. The the event code. The event code is when the pulse will be set out from the EVG to all the EVRS. Then the EVRS know OK this event comes, I need to do something and then the EVR, every EVR for itself decides then what?To do about this event, like what kind of pulse trigger pulse to send out, what delay, what width and all and all that.
+
+Mark Holl   33:57OK, well, I'm gonna ask my question again because I that doesn't didn't connect with me. I'll listen more carefully this time. OK, for example, this is the event generator that we're talking about and the event generator is gonna define.
+
+Henrik Loos   34:02Oh.
+
+Mark Holl   34:15Here I only see 8 outputs and the event receivers now.
+
+Michael Davidsaver   34:26There's a slight confusion here because the device we're looking at, it's configured. Oh, go ahead, Henrik.
+
+Mark Holl   34:26Please.
+
+Henrik Loos   34:28The the the outputs are.The the the outputs are just whatever BNC output or whatever it is to to connect to trigger some hardware. The the outputs are not event outputs.
+
+Mark Holl   34:45Right, right. Yeah. This thing here is acting as an event receiver we're talking about.
+
+Henrik Loos   34:51And event generator. It's bolt.
+
+Mark Holl   34:54It's both here, so that's where my confusion is coming in because I'm.
+
+Henrik Loos   35:01Yeah, every event generator is also an event receiver in in the sense that it can send out actual electrical triggers.
+
+Mark Holl   35:13Right, but this one here is both, whereas you notice up in the upper left hand corner it says EVT mode. Here it's both, but in only they'll only be one that has that and then they'll be all the rest of them in a rack are gonna be just event receivers.
+
+Henrik Loos   35:13Thank you.Yeah.Yeah.Yeah. And I guessing and that that was my question that it's it is in this EVGEVR mode because of the fibre jumper and it having and it being connected to a GPS receiver.
+
+Michael Davidsaver   35:46Correct.
+
+Mark Holl   35:47And because you don't want to throw away, wait a minute, so.
+
+Henrik Loos   35:47OK.
+
+Mark Holl   35:53The fiber optics, these outputs are these are electrical outputs, so these are completely separate from the fiber fan out unit that has to be on this one, right? Of course.
+
+Michael Davidsaver   36:02Yeah, yeah.
+
+Mark Holl   36:04And so, um.And we can go out to seven different event receivers, correct?
+
+Michael Davidsaver   36:15It's a six. So the way I did, the way it's part, I mean that the markings on the front of or on the back of the chassis make this clearer. But the the the 8 fiber outputs or the eight fiber transceivers LC connectors, the first one is labeled EVR in.
+
+Mark Holl   36:15Oh.
+
+Henrik Loos   36:19Oh.
+
+Mark Holl   36:22Yeah, yeah.
+
+Michael Davidsaver   36:31The second is labeled fan out in and the remaining six are labeled fan out outputs one through 6.So it's the same layout as with the quartz chassis.
+
+Mark Holl   36:41Yeah.Right. I only see. OK, so there's a total of 12345678 and the second one is fan out in. What's that about?
+
+Michael Davidsaver   36:55This is the each of the check your quartz or EVT chassis has a built in one input 6 output fan out and fan out in this context means it just it it echoes whatever it's in its input is echoed to the the six outputs.This is how you build out a tree as opposed to just having a single generator connected to a single receiver.
+
+Mark Holl   37:20Right. And then there's, but I thought that was the fan out return you said. I mean we we do have all of the event receivers which can also be used in combination mode where some of them are for fault detection and that would then.Oh.What? What's the one that reports back? Or is it bidirectional on each fiber?
+
+Michael Davidsaver   37:42All right, there I have to admit you've caught me out on something when I which I had not thought of when I was describing that before. So when I was when I was talking through the the return path, I was forgetting that the EVT chassis release, the EVT firmware does not currently have that fault handling.Logic in it. We're still trying to decide what we're going to do about that.
+
+Mark Holl   38:07Oh, OK.
+
+Michael Davidsaver   38:08But right now the event generator with VVT chassis is in event generator mode. You can send out event codes, but the return fault logic is not there.
+
+Mark Holl   38:17OK, all right. But then we'd go into that place where you have the arrow, if it were.
+
+Michael Davidsaver   38:24I mean the the the the return path is it's the opposite. You have to think about it in the opposite way. So what I was describing the fan out where you you know events go into the second one which is the fan out input and come out of the fan out outputs one through 6 where the return path logic.It's the opposite of that. You have an event stream coming into each of the fan out outputs, so they they do direction flips around. So each of the individual event receivers sends something back into the fan out outputs, which is then concentrated. That's the that's the kind of the complicated logic of it, and then it's sent back out of.Of the fan out output, which is handled specially by the event generator in that that fan out output does not actually connect physically to anything, but it switches over to the logical event generator core inside.
+
+Henrik Loos   39:13Uh, so this is basically the fan out. That's like the veins going into the heart.
+
+Michael Davidsaver   39:20Yes, very much so. Yeah, it's it's the same sort of tree tree network.
+
+Henrik Loos   39:24OK.
+
+Mark Holl   39:25Well, there's veins and arteries, but veins would be the right thing if it's coming back. But I think, but I think that in this case it.
+
+Henrik Loos   39:30Yeah.
+
+Michael Davidsaver   39:33Oh, it it is. Yeah, that that's actually a pretty good analogy. I like that. But yeah, in this in this context, the arteries are the the what I described as the fan out output and then it's it's six or the fan out input in it's 6 outputs and then the the veins are the return data streams which are then merged back together.
+
+Henrik Loos   39:37OK.
+
+Mark Holl   39:38Yeah.But but.The ports.They're bidirectional, so they can be either arteries or veins, so.
+
+Michael Davidsaver   39:59Yes.
+
+Mark Holl   40:01Yeah, OK.I'm sure we'll cover this again. Let's see. But this is good. Yeah, so this is good. I think that this will, it will become second nature eventually. Is Bob, is that Bob Dalasio, EBT Bob?What? What does Bob mean? Chest this. The top level OPI file for this is OSPR AVT Bob.
+
+Michael Davidsaver   40:23Uh.
+
+Henrik Loos   40:28Oh, that's.
+
+Michael Davidsaver   40:30That is the I I can tell you the story of this. The reason the file the OPI file extension had the file extension dot Bob is because the the guy who does Kai Casimir who does the Phoebus tool used to work for Bob and has a.
+
+Henrik Loos   40:31That's um best OPI or something.
+
+Michael Davidsaver   40:50Sense of humor.
+
+Mark Holl   40:51Oh.
+
+Henrik Loos   40:52Oh, that's actually relate to. OK, I didn't know that.
+
+Michael Davidsaver   40:55Yep, not not an accident.
+
+Mark Holl   40:55Well, OK, yeah. So yeah, it doesn't. You know, it's not bidirectional, omnibus, BLOB or whatever. No, it's actually a a strange sense of humor where it makes sense. Cool.Cool. Uh, so yeah. What else can you tell us about this? Uh, what's boot gold? What's boot app? I mean, let's just start keep asking questions.
+
+Michael Davidsaver   41:20OK, uh, that that's go ahead.
+
+Henrik Loos   41:20Yeah, I have a question.So.For the EVR mode, you only have to define what your outgoing electrical triggers are supposed to look like and what the event codes they're supposed to listen to. So for the EVG mode to define the meaning of these event codes, that's only.What you have as timer one. Of course there are many more that are just not exposed here and then you only define the event code and a and a divider, but there are no.
+
+Michael Davidsaver   42:00Yeah. OK. So the the three, the sort of the three modes for event generation that are currently implemented. And yes, you've caught me out the fact that the screen's not complete. That's something that's going to be on my To Do List when I get back home next week. But there is the the timer mode which you're seeing here. There is a software mode where you just like you're right to an event.
+
+Mark Holl   42:09Yeah, yeah.
+
+Henrik Loos   42:09Mhm.
+
+Mark Holl   42:13Uh huh.
+
+Michael Davidsaver   42:20Write the number to a PV and that gets queued for transmission. And then the most advanced one is the sequence mode, which is where you can set up a sequence of events and delays and trigger that. They'll trigger the start of that or the repeat of that by various actions, including the electrical inputs. That's where the inputs.
+
+Henrik Loos   42:35Uh.OK, OK. I I was wondering if there was more sophisticated things. Yeah, are they, are they in the database or in the in the firmware or or are they?
+
+Mark Holl   42:38A room.
+
+Michael Davidsaver   42:40Come in.
+
+Mark Holl   42:42Yeah, well.
+
+Michael Davidsaver   42:43Oh, yes, yeah.They are in the firmware, they are in the database. They've just it's just what's in the database is not is the earlier you kind of. I step tripped over myself when I was setting up the timer. You saw me put a number in there, but I left the delay the the division is 0, but something still started to happen because I have not gotten the IOC the data.
+
+Henrik Loos   42:52That is.Mhm.Yeah.Mhm.
+
+Michael Davidsaver   43:09Database to actually properly synchronize up to write those registers on startup. I've done this for the event receiver logic so that the raw list of registers is there. I don't expect that to change, but there will be additional logic to coordinate the proper initialization when the IOC starts or when the device reconnects.
+
+Henrik Loos   43:20Yeah.
+
+Mark Holl   43:26And we're talking, we're talking about the ethics database, right, 'cause everything's stored as a view. Everything associated with the configuration is stored as a PV in some form.
+
+Henrik Loos   43:27OK.
+
+Michael Davidsaver   43:30Yes.Correct.
+
+Henrik Loos   43:37Yeah.
+
+Mark Holl   43:38And you said there's three modes. There's. Is there a pure EVG mode or is it always gonna be EVG slash EVR or just EVR? And how do you change that?
+
+Michael Davidsaver   43:50Oh, I'm sorry, I I I probably was overloading the word mode in that context. So there's three pieces of logic in the event generator core for generate for actually causing events to be queued. The one you're seeing here, which is the simple division, you know, local divider.There's a software trigger or a software event mode where you write an event code and it's triggered as soon as it's received, but that can be useful for testing if you have a or if you have like a one shot event you want to cause.And then the third mechanism is the sequence mode. So these are all within the overall overarching or under the event generator core, but then are only active when an EBT chassis is configured as an event generator.
+
+Mark Holl   44:29Uh huh.OK, I was looking up in the upper left hand corner and there's a mode EVT mode.
+
+Michael Davidsaver   44:38Mhm.Yes, and that that's that's separate. That's just saying whether this particular unit is configured as an event generator and receiver or only as an event receiver. So those are the two options.
+
+Mark Holl   44:50And how and how is that?
+
+Henrik Loos   44:52Will will that be? Will there be different database files if it's configured um as only as an EBR?
+
+Michael Davidsaver   44:58No, right now it's I intend and right now and I intend to keep it that way. There's one database file for the chassis type.
+
+Henrik Loos   45:06OK, but.
+
+Mark Holl   45:06And then there's different, there's different instantiations of that data type.Is that why it's?
+
+Michael Davidsaver   45:12Yeah, well, all all the chassis should receive the same set of records. It's just depending upon the runtime configuration, all some of those records do nothing.
+
+Mark Holl   45:21Oh, oh.
+
+Henrik Loos   45:22Uh, so if I have an EVR and I try to define event codes, this will just get ignored.
+
+Michael Davidsaver   45:30Yes.
+
+Mark Holl   45:31Well, but you won't be able to even do that because it's in an EVR mode, right?
+
+Henrik Loos   45:32Yeah.Well, I mean it's it's fine if it's in the IOC, but I think we can just make this place that won't expose this if it's not doing anything and will to to reduce confusion.
+
+Michael Davidsaver   45:50I would definitely encourage that, yes. I mean my my thinking was for when I get to the point of having a like the sequencer screen, it's probably going to need to be its own screen. I would put the EVT mode up there and do some custom colors so that if it's an EVR only mode it'll have a red border.
+
+Henrik Loos   45:51Yeah.Yeah.1.Yeah, mhm.
+
+Mark Holl   46:07Um.OK, now the timer. Uh, this is an incomplete screen, so probably probing too deeply here, but um, there's gonna be what? Um.How many?Is it a pull down or how many that you could have?
+
+Michael Davidsaver   46:23Alright.
+
+Mark Holl   46:28As many timers as you have event codes available, right? How is that gonna be?
+
+Michael Davidsaver   46:32Not there. There's in the in the firmware that the number of event time or timers is dependent because this is actually a discrete piece of logic in the firmware. But I think at the moment there are it's either four or eight. I don't remember dividers defined.Because there there's, yeah.
+
+Mark Holl   46:49OK, these are countdown. These are countdown. OK, so every clock, every clock, it's a countdown timer. OK, so we are limited in the number of things that we can do in the man that you've said to the firm what's in the hardware.
+
+Michael Davidsaver   46:52Exactly. Yeah, just simple countdown.Well, in the firmware it should be said because this is not a hardware limitation, this is a firmware decision for resource allocation. You can't have an infinite number because the FPGA is only so big, but at the moment it's nowhere near full. So if there was a reason to have, say, 16 or 20 of them, we could.
+
+Mark Holl   47:04Um.Oh.Oh.Mhm. OK.
+
+Michael Davidsaver   47:24It's just a case if we need to do changing that number means rebuilding the firmware.
+
+Mark Holl   47:29And you're which is still being written so and you currently are thinking about having how many timers?
+
+Michael Davidsaver   47:37I don't. I don't remember offhand. It's either 4 or 8.
+
+Mark Holl   47:42OK, it's a nice round number.
+
+Michael Davidsaver   47:45Yeah, I mean the the the MRF firmware or the MRF receivers have 8.
+
+Mark Holl   47:50Yeah, let's do that then. Um.OK.See what other things can we? You would do status. There's gonna be a magnum.
+
+Michael Davidsaver   48:05Yeah, I think if you're if you're asking for sort of comparisons with what I did for light source too, I think I used six there for different rates. I think there was the the overall sort of one second Rep rate, there was a 10 Hertz Rep rate, there was a sort of a boost or there was the for the two, there was two rings. So there was the ring repetition rates.And there was one other which was a fast orbit feedback system, which is a division on the storage ring rate.
+
+Mark Holl   48:29OK, let's let's ask something going the other direction. We're going to have this thing every second. What if I wanna make something sample every?
+
+Henrik Loos   48:30Mhm.
+
+Mark Holl   48:415 seconds every 100 seconds.
+
+Michael Davidsaver   48:45Well, I mean you can just divide having a divisor which is greater than 125. I think that would actually, yeah, that should work.
+
+Mark Holl   48:56What?
+
+Michael Davidsaver   48:57It said that though the division factor I think is limited to a 32 bit unsigned, so it can be quite large.
+
+Henrik Loos   49:02OK, there is no.
+
+Mark Holl   49:04So, OK, OK. So it's really, yeah, you divided by it's a million, right? So it's.
+
+Henrik Loos   49:08Yeah, that there's no divider option on the EVR side like.When, when in the event. OK, well, that's fine. Um, another.
+
+Michael Davidsaver   49:16At the moment, no.In general, we're we're collecting, we're we're looking for feature requests, so you know ideas on how you might use it.
+
+Henrik Loos   49:25Mm-hmm.
+
+Mark Holl   49:25How would you? Well, so let's think, yeah, how would you use, how would you use that, Eric? Where would you think of that?
+
+Henrik Loos   49:34Well, if you want only like for the Aiger, you want to send only every other pulse, but I guess you can just make an event code for that.
+
+Mark Holl   49:43Well, I mean, there's, I guess, yeah, I mean, I'm, I'm thinking about that as well.Well, if you want dark frames or something like that, you know.
+
+Henrik Loos   49:53Yeah.But I mean in general it should be the the event. Yeah, you shouldn't. I think it's probably better not to have that for the EVR because an event should mean.That an event cannot be ignored.
+
+Michael Davidsaver   50:14Mhm.
+
+Henrik Loos   50:15Yeah, um, what about these input states? What? What's the meaning of that?Uh.
+
+Michael Davidsaver   50:30So this is for example, and this is actually something I was based on our discussion yesterday. I was wondering if at some point we probably should discuss. I think you're going to want to pipe your photocathode trigger in to one of these.
+
+Henrik Loos   50:30Uh.
+
+Mark Holl   50:46Why?
+
+Michael Davidsaver   50:47Because that would allow you to at least mostly synchronize these this event system with the actual of the cycle of the machine.
+
+Mark Holl   50:57And this would become, well, OK, yeah, this would come into the event generator, correct?
+
+Henrik Loos   50:57Yeah.So what? What? So these input states, are they like physical inputs or are they logical inputs based on events or they're physical inputs?
+
+Michael Davidsaver   51:05Yes, in one place.They are physical inputs.
+
+Mark Holl   51:15Yeah, let me, yeah, let me ask it. Go ahead, Anika, that I have a question.
+
+Michael Davidsaver   51:16Yes.
+
+Henrik Loos   51:19So, so they're like, they're like on the quad, on the quad sport, they're like the MPS, they're like like fog inputs or?
+
+Mark Holl   51:27Are these BNCS?
+
+Michael Davidsaver   51:30These are all these are all SMAS. So this this these are all SMA inputs. It's LVTTL logic levels.
+
+Mark Holl   51:30Are these being sees?Yeah, well, I'm glad it's SMA rather than just a breakout board for for something like this.
+
+Michael Davidsaver   51:41Yeah.
+
+Henrik Loos   51:42And and they're supposed to be like logical states like enable or disable and they are like or they're supposed to be pulsed things.
+
+Michael Davidsaver   51:55They are configurable. I believe the the the sequencer uses edges.
+
+Henrik Loos   52:00Uh.
+
+Mark Holl   52:01Rising edge are or can it be determined?
+
+Michael Davidsaver   52:04I don't remember offhand, but it it it'll be configurable if it's not now.
+
+Mark Holl   52:06OK.OK. And then so now I have a question, a more systems oriented question. We're going to come with off of our GPS system with the ones, the one.Hurts discipline.to the EVG, and thenThe photocathode. Well, OK, you're you said photocathode. There is a master clock, and that master clock is some division of some thing that's close to 1 kHz.And that is what's being dispensed out over a fan out of DG645 S right now. OK and.
+
+Michael Davidsaver   53:00Mhm.
+
+Mark Holl   53:04My question is that's happening at 1 kHz and that one kHz signal would come into input state IN1 and that would and so who who wins here the one?
+
+Michael Davidsaver   53:18OK.
+
+Mark Holl   53:21The one hurts. Um, you know, discipline.
+
+Michael Davidsaver   53:23Oh no, no. You would use in input two. Yeah, you would not use input one. When in the event generator mode, input one is fixed function. That will always be the GPS receiver input. In the event generator mode, 22 through 8 are open for business.
+
+Mark Holl   53:32Oh, well then I that.OK, well then input one, I didn't make that latch. So anyway, the input one is taken from the GPS and it's coming at a one Hertz discipline rubidium clock. I mean, it's very accurate, right? But then off of the that discipline.
+
+Michael Davidsaver   53:48Mhm.
+
+Mark Holl   53:52Then there's going to be this photo cathode, Bang Bang Bang Bang, you know, 11 kHz that's coming out of the DG 645 and if we put that into input two, could there be a beating?You know, kind of, you know, essentially a bucket jump condition coming along here or something.
+
+Michael Davidsaver   54:16Yes, I mean you have two independent oscillators. They will precess.That's why I was saying that this would be a way of giving at least a partial synchronization.
+
+Mark Holl   54:28Or with.
+
+Michael Davidsaver   54:28I mean the real, the real, the proper synchronization would be to drive from with one clock globally, but we don't quite, we're not quite out the pieces to do that yet.
+
+Mark Holl   54:34OK, it's.Yeah.
+
+Henrik Loos   54:37Well, that's always the question how you synchronize the fast RF signal with some slow seconds or kHz thing.
+
+Michael Davidsaver   54:47Yes.
+
+Mark Holl   54:48Yeah. So Henrik, you've seen this before, but I mean, we obviously have this issue and bucket jumps are invariably probably occurring.
+
+Henrik Loos   54:49Oh.
+
+Mark Holl   54:58Every so often, but um.It's a concern of mine because we're not running at exactly 1 kHz, yet a number of assumptions are being made on different timing systems, and I'm not sure all of the divisors of the 10 megahertz master clock are.All set perfectly, but I just don't know. But I guess the goal is just to get it as close as possible and live with an occasional bucket jump or something or.
+
+Henrik Loos   55:33Well, unless, well, unless you, well, I don't know, you could derive the kilohertz as a division of the 10 megahertz.
+
+Mark Holl   55:33Dinner.Yeah, and then and OK, therein lies. This is 12.5 megahertz clock.On this FPGA.
+
+Michael Davidsaver   55:53125.
+
+Mark Holl   55:55125 megahertz, we've got a 10 megahertz, we've got 125 megahertz there. So keeping track of what we're throwing around and what we're dividing is going to be important.
+
+Michael Davidsaver   56:07And it should be noted the in this case the 125 megahertz is phase locked to the GPS system.
+
+Mark Holl   56:08What was this?Oh, it is. OK, so it stays low.
+
+Michael Davidsaver   56:17Yeah, it it's.
+
+Henrik Loos   56:17So, so, so the RF, the RF.Where is it? What is it tied to? It's? Is it tied to the GPS receiver clock, um, oscillator or?
+
+Mark Holl   56:32Yeah, you're talking to me in that case cuz I'm you're talking about for the CXLS. OK, yeah, so it's tied to the FS740, but you know I do have a fairly elaborate and out of date, but the best we have diagram of this, I'm going to go down there and probably start tracing it.
+
+Henrik Loos   56:35Yeah, I'm fine with you.Yeah.
+
+Mark Holl   56:52Or I ideally I'll get a student. Um.Work with me on it and then I'll I'll still need to go and trace it out, but at least some training can go on as well. But we're gonna get an interconnect diagram and I'm gonna get back to you on that because I need to make sure that things are the way they were once planned to be or or figure out if they're not.
+
+Henrik Loos   57:13Yeah.
+
+Mark Holl   57:16And then and then figure out how we're gonna.
+
+Alex Gardeck   57:17And then.Mark, because we're going to build out two prototype setups, one for CXLS and one for CXO. And since we only have the one FS740, do we want to get a?
+
+Mark Holl   57:25I know a good one.Yeah, we should be able to use it for both. Shouldn't we be able to? We we should be able to put that FS740 into both. Shouldn't we?
+
+Alex Gardeck   57:37Yeah, it's just if we want to use a splitter or a fan out type thing, but we'll just need to get something in place.
+
+Mark Holl   57:42I hope.Let's uh, I think we should be able to just take a splitter and split that one.Let's draw a picture and let's let's bring it back so at least we can look at what we're talking about and make sure we're talking about the same thing and then bring it in front of everybody. We'll have an opinion, but we'll get other opinions and then we'll.
+
+Alex Gardeck   57:58Yeah.
+
+Henrik Loos   58:04So, so right, yeah. So right now what what's working is that there is an RF system and then there's a DG645 trigger system and they're completely separate and independent. No, no. Oh.
+
+Mark Holl   58:17No, no, no.No, no, let me, let me, let me start to socialize the CXLS with. I've got a detailed diagram of this and I'll be prepared in the next meeting to throw it up because we're looking at retrofitting the.
+
+Henrik Loos   58:34OK.
+
+Mark Holl   58:37CXLS system within this with this EVG VR system and also we are looking at being able to take the new and potentially better.System after it's fully proven out that we're developing for CXFEL and retrofit it back into the CXLS system and similarly we need to actually I would I want to draw it first.
+
+Henrik Loos   59:09Mhm.
+
+Mark Holl   59:09Well, it won't survive encounter with physicists, but I want to well, sorry, I mean you're you're an engineer and a physicist, but but once it once physicists get their hands on it, the cables are just going to start flying so.
+
+Henrik Loos   59:24Um.
+
+Mark Holl   59:24But but what we'll do is I wanna draw this out for what we're gonna deploy in the CXFEL, principally because it's the only way we can communicate really well with you, Henrik and everyone else.
+
+Henrik Loos   59:35Mm-hmm. Yep.
+
+Mark Holl   59:38So yeah, so we'll draw it up.OK, I mean, I'm, I'm feeling.
+
+Alex Gardeck   59:44OK.
+
+Mark Holl   59:48Optimistic and really kind of excited about what I'm seeing here. And and so this is going to be a tool. I mean, Henrik, I'm thinking this is going to be a very powerful tool for us, but it's still, it still has all kinds of good stuff that you're going to add to it, David. So we'll.
+
+Henrik Loos   1:00:00Definitely, yeah.
+
+Mark Holl   1:00:07Keep up to date and test it as it comes out and we'll be your awful testers, so.Yeah. So with that, I think our hour is just about up and I think I'm going to give you guys back 4 minutes unless there are any final questions.Alright, let's, uh, let's meet again next week.
+
+Henrik Loos   1:00:30All right.
+
+Mark Holl   1:00:31Bye, bye.
+
+Dario DAddamio (Student)   1:00:33Thank you.
+
+Michael Davidsaver   1:00:33Alright everyone.Oh.
+
+Mark Holl   1:00:34OK. Go ahead, Alex.
+
+Alex Gardeck   1:00:34Rick.
+
+Dario DAddamio (Student)   1:00:35What?
+
+Alex Gardeck   1:00:39Or anyone else? I was just letting you know Henrik that I I sent you an e-mail about getting an IOC ready to go as a system service for Mark and I are supporting a student project. So all the information's captured I initially was having.
+
+Mark Holl   1:00:41Right.
+
+Alex Gardeck   1:00:55A couple errors with axis 5, but it turned out that that was just because I needed to add a couple axes to the St. dot CMD file because it was only configured to handle 4 axes at the time, but so I added in.
+
+Mark Holl   1:01:06Mhm.
+
+Alex Gardeck   1:01:10Five through 8, just because it's an 8 axis controller into the the base St. dot CMD file and so now everything's working good, but it's all captured in the e-mail. But I want to let you know that that St. dot CMD base file has been.
+
+Henrik Loos   1:01:16OK, yeah.
+
+Alex Gardeck   1:01:27Edited, so we should probably get that pushed up to get and then the IOC files themselves have been tested locally. If you need to do any renaming of ports, you're good to go.
+
+Henrik Loos   1:01:40OK, I expect, I expected to. I expected to hear from you. I saw a git status told me something was up.
+
+Alex Gardeck   1:01:49Yep.
+
+Mark Holl   1:01:50Yeah, yeah. So definitely, if you can just knock that out and get the system service ready, that'll be great. We're holding everything back right now until we're done. And when we're done, then we'll just expose the PVS to the student and the professor and let them play.
+
+Henrik Loos   1:02:08What?
+
+Mark Holl   1:02:10Alright, um.
+
+Alex Gardeck   1:02:12Oh, and then.
+
+Mark Holl   1:02:13Thanks, David.
+
+Alex Gardeck   1:02:15Michael.
+
+Michael Davidsaver   1:02:18Yes, Sir.
+
+Alex Gardeck   1:02:18And then Mark, yeah, I'll come up and talk to you. It can be.
+
+Mark Holl   1:02:24Oh, it's Michael though. You said Michael.
+
+Alex Gardeck   1:02:26Well, you called him David. Michael David Sayer.
+
+Mark Holl   1:02:31Did I call in David? Oh, I'm sorry. I'm sorry. OK. Oh, I see. I see what happened. OK. Well, I I apologize. OK. I I sometimes mix things up. Sorry.
+
+Michael Davidsaver   1:02:32You did. That's okay, though.
+
+Alex Gardeck   1:02:33Yeah.Yeah.
+
+Michael Davidsaver   1:02:44No problems.
+
+Mark Holl   1:02:44All right. All right. OK. Thanks so much, everyone. Bye, bye.
+
+Alex Gardeck   1:02:44OK.
+
+Henrik Loos   1:02:47All right.
+
+Michael Davidsaver   1:02:47Alright, bye.

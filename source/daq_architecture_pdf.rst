@@ -1,9 +1,13 @@
 DAQ Architecture Proposal
 =========================
 
-The original architecture proposal for the CXFEL timing and DAQ system describes how a
-GPS-disciplined atomic clock provides a global reference, and how the local timing hardware
-derives clocks and event streams from it.
+This page embeds the original Arizona State University (ASU) timing and Data Acquisition (DAQ)
+architecture PDF (revision 1). It provides historical context for how timing and DAQ were described in
+that document. For current laboratory practice, wiring, Phoebus navigation, and Osprey-related
+procedures, begin with :doc:`index` and :doc:`osprey/index`.
+
+If the preview does not load in your browser, download the file using the link inside the box
+below.
 
 .. raw:: html
 
