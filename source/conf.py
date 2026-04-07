@@ -40,13 +40,12 @@ html_static_path = ['_static']
 # Typography + sidebar tweaks on top of Furo (see _static/custom.css)
 html_css_files = ['custom.css']
 
+# Sphinx built-in (Sphinx 9 + strict theme.toml rejects these under html_theme_options for Furo)
+pygments_style = 'default'
+
 html_theme_options = {
     # Left sidebar: show project name
     'sidebar_hide_name': False,
     # j/k to move between sidebar items
     'navigation_with_keys': True,
-    # Right-hand page TOC heading
-    'toc_title': 'On this page',
-    'pygments_light_style': 'default',
-    'pygments_dark_style': 'monokai',
 }

@@ -22,3 +22,12 @@ Observed behaviors (Quartz)
 - **Network Time Protocol (NTP) / Pulse Per Second (PPS)** in firmware sets Quartz **Event Generator (EVG) vs Event Receiver (EVR)–style** behavior; ``ntp 0.0.0.0`` forces EVR-only (see network page).
 
 See also: :doc:`quartz_daq_repo`, :doc:`evt_chassis`, :doc:`/cs_studio/tabs/index`.
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   quartz_firmware_boot
+   quartz_firmware_usb
+   quartz_firmware_network
+   quartz_firmware_alluvium
