@@ -1,18 +1,23 @@
 EVT chassis
 ===========
 
-This page summarizes Event Timing (EVT) chassis behavior: digital event timing (fiber, event codes,
-Event Generator (EVG) and Event Receiver (EVR) roles, triggers). Quartz covers analog acquisition; see
-:doc:`quartz_firmware`. Top-level orientation is in :doc:`index`.
+This page is EVT-specific. EVT is the **digital chassis family**; Event Generator (EVG) versus Event
+Receiver (EVR) is assigned by wiring and configuration, not by chassis name alone.
 
-A fuller Quartz-versus-EVT discussion and laboratory notes are in :doc:`quartz_vs_evt_timing`.
-Stack-wide integration is in :doc:`integration_reference`. EVG/EVR bring-up across EVT and Quartz
-is summarized in :doc:`initial_bring_up`.
+For the role model (EVG/EVR) versus hardware model (Quartz/EVT), see :doc:`quartz_vs_evt_timing`.
+For stack-wide wiring and IOC boundaries, see :doc:`integration_reference`.
 
-Fiber ports (eight Lucent Connector (LC) ports, back of chassis)
-----------------------------------------------------------------
+.. _evt-fiber-debug:
 
-Same layout idea as Quartz:
+Hardware snapshot
+-----------------
+
+- Front panel: digital trigger I/O (SMA connectors).
+- Back panel: eight LC fiber ports for timing-tree links.
+- IOC identity in Phoebus: ``EVT #N``.
+
+Fiber ports (back panel)
+------------------------
 
 .. list-table::
    :widths: 22 78
@@ -21,72 +26,40 @@ Same layout idea as Quartz:
    * - Port role (label)
      - Role in the timing tree
    * - 1 EVR in
-     - Receive path from upstream (toward this chassis as EVR).
+     - Receive path from upstream.
    * - 2 Fan-out in
-     - Fan-in for the return / merge side of the tree.
+     - Return/merge-side fan-in path.
    * - 3-8 Fan-out outputs
-     - Fan the event stream to downstream EVT/Quartz nodes; EVG setups often use a short jumper
-       between ports 1 and 3 so the generator also drives its own fan-out port.
+     - Downstream outputs to EVT/Quartz nodes.
 
-Phoebus link widgets numbered 1-8 line up with these physical positions. If 1 and 2 look unused while
-3+ are active, compare to jumpers on the real hardware before chasing software.
+Phoebus link widgets 1-8 map to these physical ports.
 
-.. list-table::
-   :widths: 18 41 41
-   :header-rows: 1
-
-   * - Role
-     - Quartz
-     - EVT
-   * - Primary function
-     - Analog acquisition (many channels).
-     - Event stream over fiber; EVG/EVR; digital outputs.
-   * - Phoebus
-     - ``Quartz #N``
-     - ``EVT #N`` (timing Input/Output Controller (IOC): links, logs, sysmon)
-
-Typically one EVG per timing island; remaining nodes are EVRs (with Quartz present according to
-wiring). Confirm against Phoebus and the rack diagram. Phoebus: :doc:`/cs_studio/boot_procedure`,
-Event tab (:ref:`phoebus-event-tab`).
-
-UI tips: Expert/sysmon for links; event/receive (RX) log for codes (for example 125 for a simple oscilloscope check).
-Slow input-state scan rates can look stuck; check the widget rate before re-cabling.
-
-.. _evt-fiber-debug:
-
-Debug and bring-up
+Bring-up checklist
 ------------------
 
-Timestamps on receivers usually mean the forward fiber path from the EVG works. Reverse link can still
-fail; debug fibers separately. Universal Serial Bus (USB) console can look alive when Ethernet is down; test the switch port
-with a known-good cable or chassis.
+#. Use the timing IOC tree for EVT instances (not Quartz startup trees).
+#. In EVG mode, apply PPS to input 1 and verify source frequency is 1 Hz.
+#. Confirm NTP server, IP, netmask, and gateway match lab network design.
+#. Verify fiber routing against rack map before software-level debugging.
+#. Validate outputs on scope/diagnostic endpoints after link health is stable.
 
-Subminiature version A (SMA) connectors and fans: mechanical follow-ups with vendor or lab, not a firmware tweak by themselves.
+Common failure patterns
+-----------------------
 
-DB37 harness: if the rack uses one, match the laboratory drawing; incorrect pins often appear as
-faulty General Purpose Input/Output (GPIO) or trigger behavior.
+- Forward path healthy, reverse path unhealthy: treat as separate diagnostics.
+- Wrong PPS rate (for example kHz instead of 1 Hz): PLL/timestamps remain incorrect.
+- Wrong network mask/gateway: intermittent links or PHY resets that look like hardware faults.
+- Post-flash settings drift: re-enter NTP/network fields after erase/program operations.
+
+Diagram placeholder
+-------------------
+
+EVT front/back formal diagram is pending. Keep this page text-first for now and add the diagram after
+the EVT chassis drawing is finalized.
 
 Checklist
 ---------
 
-#. Timing IOC for EVT lives in the lab timing IOC tree (not the Quartz/ATF Quartz IOC). EVT instances
-   are not configured by copying Quartz ``st.cmd`` EVG-only lines; IP and macros select the box;
-   EVG vs EVR follows wiring and firmware (see :doc:`integration_reference`).
-#. Pulse Per Second (PPS) to the EVG on input 1 in generator mode (that input is reserved for PPS). Confirm the source is
-   1 Hz, not a kHz rate left over from another test. EVT fronts are SMA; Bayonet Neill–Concelman (BNC)-to-SMA adapters are
-   normal when driving from Stanford Research Systems FS740–style BNC outputs.
-#. Network Time Protocol (NTP) server IP, netmask, and gateway must match the laboratory Virtual Local Area Network (VLAN). Wrong mask or gateway has shown up as
-   flaky link, Ethernet physical layer (PHY) resets, and misreads on Phoebus. Re-check after flash erase/program because network
-   fields may reset with the application image.
-#. Fiber per rack diagram; minimal debug is power, one EVG with 1-3 jumper, one fiber to a downstream
-   chassis, PPS present.
-#. Ethernet to the lab switch; verify port or cable with another chassis if the link is flaky.
-#. Mode EVG vs EVR per Osprey docs and multi-gigabit transceiver (MGT) / link pages.
-#. Oscilloscope on a digital output: DC coupling, threshold suited to Low-Voltage Transistor-Transistor Logic (LVTTL) (about 3 V high in vendor demos),
-   tens of µs per division for a slow pulse train; use 50 Ω scope input when edge fidelity is required.
-
-.. figure:: ../images/diagrams/Testing\ Rig\ Diagrams-SDS1104X-E\ Front\ Panel.drawio.png
-   :alt: Siglent SDS1104X-E oscilloscope front panel (reference for lab checks)
-   :width: 720px
-
-See also: :doc:`quartz_firmware`.
+- :doc:`initial_bring_up` for full sequence across racks.
+- :doc:`quartz_vs_evt_timing` for role-versus-hardware definitions.
+- :doc:`integration_reference` for cross-system IOC and wiring context.

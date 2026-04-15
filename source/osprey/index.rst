@@ -1,18 +1,52 @@
-Osprey (vendor + lab)
+Osprey Provided
 =====================
 
-This section collects Osprey Distributed Control Systems (DCS) material relevant to CXFEL: upstream
-repositories, Quartz bring-up and firmware, and Event Timing (EVT) chassis documentation. For Event
-Generator (EVG) versus Event Receiver (EVR) roles and how they appear on Quartz versus EVT hardware, see
-:doc:`quartz_vs_evt_timing` first. For a structured bring-up checklist (EVT, Quartz, interconnect,
-inputs, and where to read status), see :doc:`initial_bring_up`. Then return to :doc:`index` for the
-overall guide structure.
+Purpose
+-------
 
-:doc:`integration_reference` summarizes how timing, fiber, Input/Output Controller (IOC) boundaries,
-and laboratory integration fit together; the entries below provide topic-specific detail.
+This section organizes Osprey Distributed Control Systems (DCS) material used at CXFEL.
+It separates timing roles (Event Generator/Event Receiver) from hardware families (Analog Quartz/Digital EVT),
+then points to bring-up, firmware, and integration references.
+
+Guide to Resources
+------------------
+
+- :doc:`quartz_vs_evt_timing`
+
+  - Defines Event Generator (EVG) and Event Receiver (EVR) as timing roles.
+  - Explains how Analog Quartz and Digital EVT hardware can each operate in either role.
+
+- :doc:`initial_bring_up`
+
+  - Provides a step-by-step bring-up sequence for EVT and Quartz and interconnecting them.
+
+- :doc:`integration_reference`
+
+  - Explains how fiber, PPS, and NTP fit together with Analog Quartz and Digital EVT.
+  - Clarifies Input/Output Controller (IOC) boundaries.
+
+- :doc:`quartz_daq_repo`
+
+  - Links to Osprey’s public Quartz DAQ repo on GitHub and how the source tree is organized.
+  - Use it when you need the vendor’s layout, build notes, or where a feature lives in code.
+
+- :doc:`quartz_firmware`
+
+  - Summarizes Quartz firmware and service workflow.
+  - Includes references used for chassis-level bench validation.
+
+- :doc:`evt_chassis`
+
+  - Documents Digital EVT chassis hardware, interfaces, and operational notes.
+  - Helps with rack-level integration and timing hardware troubleshooting.
+
+..
+   Descriptions cannot live inside one ``toctree`` list. This hidden tree still registers
+   the child pages for navigation; the bullets above are what readers see on this page.
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    quartz_vs_evt_timing
    initial_bring_up

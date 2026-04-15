@@ -48,9 +48,9 @@ There are several resources that need to be parsed in order to understand, devel
 
 1. :doc:`osprey/index`
 
-   - GitHub Repositories
-   - Quickstart Guide
-   - ATF (Acquisition Test Framework) Previewer
+   - EVG/EVR (roles) versus Quartz/EVT (hardware) model.
+   - Bring-up and integration references across fiber, PPS, and IOCs.
+   - Vendor repositories, firmware workflow, and chassis-level guidance.
 
 2. :doc:`internal/index`
 

@@ -3,146 +3,123 @@
 Timing and lab integration
 ===========================
 
-This page describes how Quartz versus Event Timing (EVT) chassis, EVT fiber layout, Event Generator (EVG)
-bring-up, Input/Output Controller (IOC) boundaries, Pulse Per Second (PPS) and Network Time Protocol (NTP),
-and detector integration fit together. Read :doc:`quartz_vs_evt_timing` first for EVG and Event
-Receiver (EVR) roles and laboratory observations; use this page together with :doc:`evt_chassis`
-and :doc:`quartz_firmware`.
+This page is the integration map for the CXFEL timing stack. It describes how hardware families,
+timing roles, wiring, and IOC boundaries connect in practice.
+
+Use this page to answer: "Where does this signal/configuration belong in the full system?"
+
+- Role definitions: :doc:`quartz_vs_evt_timing`
+- EVT-specific checks: :doc:`evt_chassis`
+- Quartz firmware and bench procedures: :doc:`quartz_firmware`
 
 Chassis families and EVG/EVR roles
 ----------------------------------
 
-- Quartz chassis: analog acquisition (many channels, DB37 fronts; see vendor Quartz DAQ docs). EVT
-  chassis: digital timing (fiber event stream, event codes, SMA digital I/O).
+- **Quartz (analog chassis family)**
 
-- EVG and EVR are roles on the timing network, not chassis model numbers. Typically one node per timing
-  island is the generator; the rest are receivers. The same hardware type can be wired and configured
-  for either role.
+  - Analog acquisition focus.
+  - DB37 front connectivity in lab usage.
+  - Participates in timing fabric over fiber.
 
-- On EVT, EVG versus EVR follows firmware configuration and wiring (fiber between specific ports, NTP
-  server address, PPS on input 1 in generator mode). The timing IOC uses one database for the chassis
-  type; in EVR-only mode, records that do not apply may have no effect.
+- **EVT (digital chassis family)**
+
+  - Digital timing and trigger I/O focus.
+  - SMA digital connections on front, LC timing fibers on back.
+
+- **EVG/EVR (timing roles)**
+
+  - EVG generates/distributes timing events in one island.
+  - EVR receives/acts on timing events.
+  - Either Quartz or EVT hardware may be configured as EVG or EVR.
 
 EVT fiber layout (eight LC ports)
 ---------------------------------
 
-The eight back-panel LC transceivers follow the same port numbering idea as Quartz:
+Both chassis families follow the same role labels for fiber ports:
 
 - Port 1: EVR in (receive from upstream).
 - Port 2: Fan-out in (aggregate return path in a full tree).
 - Ports 3-8: Fan-out outputs (downstream EVT/Quartz).
 
-A minimal EVG setup uses a short jumper between ports 1 and 3 so the chassis drives its own fan-out
-path, plus PPS on electrical input 1 in EVG mode. In generator mode, input 1 is for PPS; use inputs
-2-8 for other experiment signals.
+- What this tells you:
 
-Phoebus link widgets 1-8 match these physical fiber positions. If 1 and 2 look unused while 3+ are
-active, compare against actual jumpers on the panel before assuming a display bug.
+  - A minimal EVG setup often uses a short 1-to-3 jumper.
+  - In EVG mode, input 1 is reserved for PPS.
+  - Phoebus 1-8 link widgets should map directly to physical ports.
 
 PPS, NTP, and EVG bring-up
 --------------------------
 
-- PPS into input 1 must be 1 Hz. A source left at 1 kHz can look partially alive but will not work as
-  a pulse-per-second reference for the Phase-Locked Loop (PLL).
+- PPS on EVG input 1 must be 1 Hz.
+- NTP server, IP, netmask, and gateway must match lab network design.
+- After erase/program cycles, re-check network and NTP fields.
+- Verify timing receive path with known-good event behavior before adding custom logic.
 
-- Laboratory Stanford Research Systems FS740 (or similar) Bayonet Neill–Concelman (BNC) / Transistor-Transistor Logic (TTL) outputs often feed the EVT; EVT inputs are Subminiature version A (SMA), so BNC-to-SMA
-  adapters are normal. If splitting PPS to multiple chassis, verify termination: both legs should see
-  valid loads; open stubs cause marginal PPS.
+What this tells you:
 
-- NTP IP, netmask, and gateway must match the laboratory Virtual Local Area Network (VLAN). Wrong mask or gateway produces flaky Ethernet,
-  Ethernet physical layer (PHY) resets, and confusing link lights. After application flash erase/program, network and NTP may
-  need to be re-entered (same pattern as Quartz).
-
-- Event code 125 is the usual fixed-function PPS tick tied to the Global Positioning System (GPS)/PPS path. Use 125 when validating
-  event receive (RX) paths and timestamps before adding arbitrary codes.
+- Timing can look partially alive even when PPS/network configuration is wrong.
+- Configuration mismatches can mimic cable or hardware faults.
 
 Event generation (conceptual)
 -----------------------------
 
-The EVG can emit events via timer/divider paths, software (write an event code to a process variable (PV)), and sequence
-logic where implemented. Event code 0 is idle. Multiple physical outputs can respond to the same event
-code; some Operator Interface (OPI) tables have an extra column for multi-map cases; simple use is event number, width,
-and pulse vs static.
+- EVG event output can come from timer/divider logic, software writes, and sequence logic (where enabled).
+- Outputs can be mapped to events by code, width, and output mode.
+- Multiple outputs may respond to the same event code when configured.
 
-Digital outputs are Low-Voltage Transistor-Transistor Logic (LVTTL) (often about 3.3 V high). Match LVTTL vs Transistor-Transistor Logic (TTL) at downstream loads; on a scope
-use 50 Ω input when edge fidelity and reduced ringing are required.
+What this tells you:
+
+- Keep event mapping and output validation coupled; test mapping on scope/diagnostics early.
 
 Timing IOC vs Quartz (ATF) IOC
 ------------------------------
 
-- Quartz Operator Interface (OPI) and Acquisition Test Framework (ATF) / Quartz IOC startup trees are not where new EVT instances are added.
+- Quartz IOC workflows live in Quartz/ATF paths.
+- EVT instances are added in the timing IOC tree.
+- EVG/EVR role assignment follows wiring/configuration; IOC identity follows IP/macros/service instance.
 
-- EVT chassis are run from the timing IOC module tree (Phoebus entry points and systemd services live
-  with that layout). EVG versus EVR is not declared in the startup file in the manner of some Quartz
-  configurations; role follows hardware and firmware; the IOC loads the same record set and IP and
-  macros identify the chassis.
+What this tells you:
 
-- PV numbering (for example increments of 10 per chassis) is a lab convention; align names with the
-  rack sheet.
-
-- IOC shell for debug is often localhost telnet to a fixed high port per instance; Channel Access (CA) ports may be
-  dynamic during early bring-up.
+- Do not add EVT boxes by copying Quartz startup fragments.
+- Keep IOC ownership and service boundaries explicit in rack documentation.
 
 Forward vs reverse fiber (debugging)
 ------------------------------------
 
-If downstream EVT or Quartz show good timestamps and healthy receive links, the forward path from the
-EVG is often fine even when reverse-link or return-path indicators on the generator look wrong. Treat
-forward and reverse as separate checks: swap cables, confirm transmit/receive (TX/RX) on the correct Lucent Connector (LC) strand (A vs B),
-and use sysmon/optical power before assuming Field-Programmable Gate Array (FPGA) issues.
+- Forward delivery and reverse/return reporting should be debugged as separate paths.
+- Good downstream timestamps do not guarantee healthy reverse-link status on the EVG.
+- Verify cable strand orientation and optical link metrics before firmware-level assumptions.
 
 Quartz analog: DB1, DB2, bench wiring
 -------------------------------------
 
-- DB2: channels 1-16. DB1: channels 17-32 in the mapping used on the testbed (always confirm against the
-  current vendor pinout for your hardware revision).
+- Testbed mapping commonly used in lab work:
 
-- Bench tests often use pins 1 and 20 on breakouts with coax; follow the applicable bench wiring drawing.
+  - DB2: channels 1-16
+  - DB1: channels 17-32
 
-- For per-channel digital I/O tests on Quartz, use DB9 breakouts and cables on the digital connectors
-  on the back.
+- Always confirm mapping against the current hardware revision pinout.
+- Use DB9 breakout paths for per-channel digital I/O verification on Quartz.
 
 Detector stack: timestamps, Eiger, cameras
 --------------------------------------------
 
-Summary:
-
-- Target: at the machine rate of interest (for example 1 kHz), timing ticks must be joinable to
-  frames after the camera path delivers pixels to a server. Plan where timing metadata meets
-  areaDetector (or successor), not camera-only timestamps.
-
-- Eiger: metadata may use ZeroMQ (ZMQ); EVT triggers still need to land in PVs/metadata so each exposure
-  records which pulse or counter fired. Size buffers to latency, not a default guess.
-
-- Allied Vision / Gigabit Ethernet (GigE): pixels and trigger are separate paths; prove scope or LED triggers early to
-  separate timing from camera-specific bugs.
-
-- Older facilities often put frame grabber and EVR together so one IOC saw images and stamps in one
-  place. GigE moves pixels on another link; the association job remains in software.
+- Timing metadata must remain joinable to detector frames at target machine rate.
+- Trigger path validation should happen independently from camera transport debugging.
+- GigE camera deployments keep pixel transport and timing transport on separate paths; software joins them.
 
 Laboratory practice
 -------------------
 
-- Keep rack schedules, fiber maps, and IP rows aligned with Phoebus and IOC macros (including which
-  chassis is EVG in each rack).
-
-- Prefer small, accurate schematics (power, PPS, one fiber hop, scope) and add complexity in steps.
-
-- EVT firmware may lag OPI features; version skew shows up as missing widgets or bad time readouts.
-  After bootloader versus application work, confirm firmware vintage. Clear/program flows follow the
-  same idea as Quartz.
-
-- EVT fans in current builds are effectively on or off (limited variable speed with the installed
-  parts). Plan for noise and burn-in when racks are open.
-
-- SMA bulkheads should not spin under torque; use proper wrenches and flat engagement; if hardware does
-  not key the body, treat it as a mechanical/process issue and track with vendor or lab quality
-  channels.
+- Keep rack sheets, fiber maps, and IOC naming conventions synchronized.
+- Start with minimal, known-good test topology and scale stepwise.
+- Check firmware/OPI version alignment before deep troubleshooting.
+- Track mechanical issues (fans, connectors, bulkheads) separately from firmware issues.
 
 See also
 --------
 
-- :doc:`quartz_vs_evt_timing` for EVG/EVR on Quartz vs EVT and lab interaction.
-- :doc:`evt_chassis` for EVT checklist and UI pointers.
-- :doc:`quartz_firmware`, :doc:`quartz_daq_repo` for Quartz bring-up and upstream links.
-- :doc:`/cs_studio/index` for Phoebus (Global / Event / Network).
+- :doc:`quartz_vs_evt_timing` for role and hardware definitions.
+- :doc:`evt_chassis` for EVT hardware behavior and checklist.
+- :doc:`quartz_firmware` and :doc:`quartz_daq_repo` for Quartz procedures and source references.
+- :doc:`/cs_studio/index` for Phoebus usage (Global/Event/Network).
