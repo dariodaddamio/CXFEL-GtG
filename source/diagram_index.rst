@@ -3,7 +3,8 @@
 Diagram index
 =============
 
-A collection of hardware diagrams and other.
+Rendered hardware diagrams used across the docs. Digital chassis (EVT) panel PNGs are linked from
+``../drawio/``; other figures still live under ``images/diagrams/`` until those sources move.
 
 .. figure:: images/diagrams/Testing\ Rig\ Diagrams-SDS1104X-E\ Front\ Panel.drawio.png
    :alt: Siglent SDS1104X-E oscilloscope front panel
@@ -28,3 +29,15 @@ A collection of hardware diagrams and other.
    :width: 800px
 
    Used on :doc:`osprey/quartz_firmware`.
+
+.. figure:: ../drawio/Testing\ Rig\ Diagrams-Digital\ Chassis\ Front\ Panel.drawio.png
+   :alt: Digital chassis front panel
+   :width: 800px
+
+   Used on :doc:`osprey/evt_chassis`.
+
+.. figure:: ../drawio/Testing\ Rig\ Diagrams-Digital\ Chassis\ Back\ Panel.drawio.png
+   :alt: Digital chassis back panel
+   :width: 800px
+
+   Used on :doc:`osprey/evt_chassis`.

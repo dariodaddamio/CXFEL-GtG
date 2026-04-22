@@ -1,7 +1,7 @@
 Guide to Guides
 ===============
 
-*Last updated: February 2026*
+*Last updated: April 2026*
 
 Purpose
 -------
@@ -24,18 +24,20 @@ The original proposal can be found :doc:`here <daq_architecture_pdf>`, but some 
 - **Timing chain**
 
   - Global Positioning System (GPS) satellites provide an absolute time reference (atomic clock).
-  - A GPS receiver (FS740) on the Biodesign roof locks to those satellites and outputs a very stable
-    **1 pulse‑per‑second (1 PPS)** plus a **10 MHz** clock into the timing system.
-  - Ideally, the EVG synchronizes to this clock and generates a global **event stream** that encodes when
-    things in the machine should happen.
-  - EVRs listen to that stream, decode event codes, and output hardware triggers/gates to local
+  - A GPS antenna on the Biodesign roof is cabled to a FS740 GPS receiver in the lab. The FS740 locks to those satellites and supplies the timing system with a stable
+    **1 pulse‑per‑second (1 PPS)** and **10 MHz** reference.
+  - The EVG synchronizes to this clock and generates a global **event stream** that encodes when
+    things in the machine should happen. 
+  - The EVRs listen to that stream, decode event codes, and output hardware triggers/gates to local
     detectors, lasers, and other devices.
   - Detectors/DAQs record data in sync with those triggers, while Input/Output Controllers (IOCs)
     handle configuration, timestamps, and data flow. The Experimental Physics and Industrial Control
     System (EPICS) provides the surrounding control and monitoring layer.
 
-- **Event stream format (from the National Synchrotron Light Source II (NSLS II) system)**
+In addition, the NSLS-II timing system was used as inspiration for the event stream format, the original file can be found :doc:`here <nsls2_timing_pdf>`.
 
+- **Event stream format:**
+  
   - Each event is carried as a **16‑bit word**: the upper 8 bits are the **event code**
     (e.g. “start acquisition”), and the lower 8 bits are **metadata** (context like channel number).
   - Example: ``0x0105`` → event code ``0x01``, metadata ``0x05`` (binary ``00000001 00000101``).
@@ -62,7 +64,7 @@ There are several resources that need to be parsed in order to understand, devel
 
 4. :doc:`diagram_index`
 
-   - Gallery of PNGs under ``source/images/diagrams/`` (lab / hardware diagrams).
+   - Gallery of diagrams used in the docs.
 
 .. toctree::
    :maxdepth: 2
@@ -71,6 +73,7 @@ There are several resources that need to be parsed in order to understand, devel
    :hidden:
 
    daq_architecture_pdf
+   nsls2_timing_pdf
    osprey/index
    internal/index
    cs_studio/index
