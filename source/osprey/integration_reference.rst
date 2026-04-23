@@ -1,6 +1,6 @@
 .. _integration-reference:
 
-Timing and lab integration
+Integration Reference
 ===========================
 
 This page is the integration map for the CXFEL timing stack. It describes how hardware families,

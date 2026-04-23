@@ -1,4 +1,4 @@
-Quartz firmware
+Quartz Firmware
 ===============
 
 **Quartz** chassis: boot, Universal Serial Bus (USB), Ethernet, Alluvium. **Event Timing (EVT)** is a
@@ -19,8 +19,7 @@ Panel reference (diagrams)
 
 Analog connectors are on the front (DB37); digital and fiber are on the back (DB9 and eight Lucent
 Connector (LC) ports). The same back-panel fiber numbering applies to Event Timing (EVT) chassis;
-see :doc:`evt_chassis`. Rendered panel images are in ``source/images/diagrams/`` and editable Draw.io
-sources are in ``drawio/``.
+see :doc:`evt_chassis`.
 
 .. figure:: ../images/diagrams/Testing\ Rig\ Diagrams-Quartz\ Chassis\ Front\ Panel.drawio.png
    :alt: Quartz chassis front panel (connector layout)

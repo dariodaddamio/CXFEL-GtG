@@ -1,7 +1,7 @@
-.. _initial-bring-up:
+.. _bringup-procedures:
 
-Initial bring-up
-================
+Bring-Up Procedures
+===================
 
 This page is a single entry point for configuring Event Generator (EVG) and Event Receiver (EVR)
 roles on Event Timing (EVT) and Quartz chassis, how those nodes connect on the fiber tree, what
@@ -12,6 +12,8 @@ Conceptual background is in :doc:`quartz_vs_evt_timing`. EVT checklist detail is
 :doc:`evt_chassis`. Quartz boot, Universal Serial Bus (USB), network, and Alluvium are in
 :doc:`quartz_firmware`. Stack-wide integration is in :doc:`integration_reference`.
 
+.. _bringup-evt:
+
 1. EVT chassis: EVG and EVR
 ---------------------------
 
@@ -21,6 +23,8 @@ as receivers). Role follows **wiring, jumpers, and firmware**, not the chassis m
 **IOC path.** EVT uses the **lab timing IOC tree** (not the Quartz Acquisition Test Framework (ATF)
 ``st.cmd`` tree). EVG versus EVR is not selected by copying Quartz-only lines; instance IP and macros
 identify the box; role matches hardware and firmware (:doc:`integration_reference`).
+
+.. _bringup-evt-evg:
 
 **EVG-style bring-up (EVT).**
 
@@ -34,8 +38,12 @@ identify the box; role matches hardware and firmware (:doc:`integration_referenc
 - **Front panel:** Subminiature version A (SMA) inputs; Stanford Research Systems FS740–class sources
   are often Bayonet Neill–Concelman (BNC); BNC-to-SMA adapters are normal.
 
+.. _bringup-evt-evr:
+
 **EVR-style (EVT).** Receive the event stream from upstream fiber; no EVG jumper recipe on that
 node—follow the rack diagram and Phoebus link widgets versus physical fibers.
+
+.. _bringup-quartz:
 
 2. Quartz chassis: EVG and EVR
 -------------------------------
@@ -43,11 +51,15 @@ node—follow the rack diagram and Phoebus link widgets versus physical fibers.
 Quartz uses the **same fiber port numbering** as EVT (``Quartz #N`` link widgets 1–8). EVG versus
 EVR-style behavior is set in **firmware** via NTP and PPS (:doc:`quartz_firmware_network`).
 
+.. _bringup-quartz-evg:
+
 **EVG role (Quartz).**
 
 - Configure a **valid NTP server** (for example the lab server used on control hosts).
 - Provide **PPS Transistor-Transistor Logic (TTL)** input: 0–5 V, **1 Hz**, duty cycle under 50 %,
   rising edge at Global Positioning System (GPS) second.
+
+.. _bringup-quartz-evr:
 
 **EVR-only role (Quartz).** When the chassis should **not** act as EVG, disable NTP on the Quartz
 side (for example ``ntp 0.0.0.0`` in the application console—see :doc:`quartz_firmware_network`).
@@ -55,6 +67,8 @@ side (for example ``ntp 0.0.0.0`` in the application console—see :doc:`quartz_
 **IOC path.** Quartz Operator Interface (OPI) and ATF / Quartz IOC trees—not the timing IOC used for
 EVT. When Quartz operates as an event generator, vendor startup files may load extra records; do not
 assume one ``st.cmd`` line alone declares EVG role (:doc:`quartz_vs_evt_timing`).
+
+.. _bringup-interconnect:
 
 3. Interconnecting EVT and Quartz
 ---------------------------------
@@ -66,6 +80,8 @@ assume one ``st.cmd`` line alone declares EVG role (:doc:`quartz_vs_evt_timing`)
   wiring and configuration.
 - **Diagnostics:** Timestamps on receivers often mean the **forward** fiber path works; **reverse**
   link can still fail—debug forward and reverse separately (:doc:`evt_chassis`).
+
+.. _bringup-inputs:
 
 4. Possible inputs
 ------------------
@@ -85,6 +101,8 @@ PPS for EVG mode follows the TTL rules in :doc:`quartz_firmware_network`.
 
 **Fiber.** LC ports 1–8 as above; align Phoebus widgets with **physical jumpers** before blaming the
 GUI.
+
+.. _bringup-status:
 
 5. Where to see outputs and status
 ----------------------------------

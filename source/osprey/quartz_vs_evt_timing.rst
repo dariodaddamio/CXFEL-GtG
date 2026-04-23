@@ -40,6 +40,14 @@ Quartz chassis at a glance (analog)
 - IOC path: Quartz runs in the Quartz/ATF IOC workflow, not the EVT timing IOC tree.
 - Hardware reference: use both Quartz front and back panel diagrams together to represent one chassis.
 
+.. figure:: ../images/diagrams/Testing\ Rig\ Diagrams-Quartz\ Chassis\ Front\ Panel.drawio.png
+   :alt: Quartz chassis front panel (DB37 analog connectors)
+   :width: 720px
+
+.. figure:: ../images/diagrams/Testing\ Rig\ Diagrams-Quartz\ Chassis\ Back\ Panel.drawio.png
+   :alt: Quartz chassis back panel (LC timing fiber and DB9 digital)
+   :width: 720px
+
 Observed during bring-up:
 
 - Flash/program cycles can require status clear and occasional full power cycle recovery.
@@ -53,6 +61,14 @@ EVT chassis at a glance (digital)
 - Front panel: SMA trigger connectors (digital I/O).
 - Back panel: eight LC fiber ports for timing distribution.
 - IOC path: EVT instances run from the timing IOC tree (not Quartz ``st.cmd`` trees).
+
+.. figure:: ../../drawio/Testing\ Rig\ Diagrams-Digital\ Chassis\ Front\ Panel.drawio.png
+   :alt: EVT digital chassis front panel (SMA trigger I/O)
+   :width: 720px
+
+.. figure:: ../../drawio/Testing\ Rig\ Diagrams-Digital\ Chassis\ Back\ Panel.drawio.png
+   :alt: EVT digital chassis back panel (LC timing fiber)
+   :width: 720px
 
 Observed during bring-up:
 
@@ -76,7 +92,7 @@ panel jumpers and cable placement before treating it as a software issue.
 Where to go next
 ----------------
 
-- :doc:`initial_bring_up` for step-by-step EVG/EVR bring-up.
+- :doc:`bringup_procedures` for step-by-step EVG/EVR bring-up.
 - :doc:`evt_chassis` for EVT-specific checklist and digital hardware notes.
 - :doc:`quartz_firmware` for Quartz firmware, boot, and service details.
 - :doc:`integration_reference` for stack-wide wiring and IOC boundary mapping.

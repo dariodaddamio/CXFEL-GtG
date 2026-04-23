@@ -16,7 +16,7 @@ Guide to Resources
   - Defines Event Generator (EVG) and Event Receiver (EVR) as timing roles.
   - Explains how Analog Quartz and Digital EVT hardware can each operate in either role.
 
-- :doc:`initial_bring_up`
+- :doc:`bringup_procedures`
 
   - Provides a step-by-step bring-up sequence for EVT and Quartz and interconnecting them.
 
@@ -25,20 +25,20 @@ Guide to Resources
   - Explains how fiber, PPS, and NTP fit together with Analog Quartz and Digital EVT.
   - Clarifies Input/Output Controller (IOC) boundaries.
 
-- :doc:`quartz_daq_repo`
+- :doc:`evt_chassis`
 
-  - Links to Osprey’s public Quartz DAQ repo on GitHub and how the source tree is organized.
-  - Use it when you need the vendor’s layout, build notes, or where a feature lives in code.
+  - Documents Digital EVT chassis hardware, interfaces, and operational notes.
+  - Helps with rack-level integration and timing hardware troubleshooting.
 
 - :doc:`quartz_firmware`
 
   - Summarizes Quartz firmware and service workflow.
   - Includes references used for chassis-level bench validation.
 
-- :doc:`evt_chassis`
+- :doc:`quartz_daq_repo`
 
-  - Documents Digital EVT chassis hardware, interfaces, and operational notes.
-  - Helps with rack-level integration and timing hardware troubleshooting.
+  - Links to Osprey’s public Quartz DAQ repo on GitHub and how the source tree is organized.
+  - Use it when you need the vendor’s layout, build notes, or where a feature lives in code.
 
 ..
    Descriptions cannot live inside one ``toctree`` list. This hidden tree still registers
@@ -49,8 +49,8 @@ Guide to Resources
    :hidden:
 
    quartz_vs_evt_timing
-   initial_bring_up
+   bringup_procedures
    integration_reference
-   quartz_daq_repo
-   quartz_firmware
    evt_chassis
+   quartz_firmware
+   quartz_daq_repo

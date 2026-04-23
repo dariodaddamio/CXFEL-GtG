@@ -34,6 +34,13 @@ Fiber ports (back panel)
 
 Phoebus link widgets 1-8 map to these physical ports.
 
+Checklist
+---------
+
+- :doc:`bringup_procedures` for full sequence across racks.
+- :doc:`quartz_vs_evt_timing` for role-versus-hardware definitions.
+- :doc:`integration_reference` for cross-system IOC and wiring context.
+
 Bring-up checklist
 ------------------
 
@@ -57,9 +64,3 @@ Diagram placeholder
 EVT front/back formal diagram is pending. Keep this page text-first for now and add the diagram after
 the EVT chassis drawing is finalized.
 
-Checklist
----------
-
-- :doc:`initial_bring_up` for full sequence across racks.
-- :doc:`quartz_vs_evt_timing` for role-versus-hardware definitions.
-- :doc:`integration_reference` for cross-system IOC and wiring context.
