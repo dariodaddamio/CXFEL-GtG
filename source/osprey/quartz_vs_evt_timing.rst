@@ -9,10 +9,10 @@ Purpose
 This page defines the core model used throughout the docs:
 
 - Event Generator (EVG) and Event Receiver (EVR) are **timing roles**.
-- Quartz and Event Timing (EVT) are **hardware families**.
-- A chassis family does not automatically fix EVG versus EVR role.
+- Analog (Quartz) and Digital (EVT) are **hardware families**.
+- A hardware family does not automatically fix EVG versus EVR role.
 
-Concept model (roles vs hardware)
+Roles vs Hardware Family
 ---------------------------------
 
 - **EVG role**
@@ -31,63 +31,55 @@ Concept model (roles vs hardware)
   - EVT is the digital timing/trigger chassis family.
   - Either family can be configured as EVG or EVR depending on wiring and configuration, and they can be interconnected.
 
-Quartz chassis at a glance (analog)
+Analog Chassis (Quartz)
 -----------------------------------
 
 - Primary function: analog acquisition with DB37 front interfaces.
 - Timing fabric: participates in the same fiber timing network as EVT.
-- Physical timing ports: eight Lucent Connector (LC) fiber ports (back panel) used for timing tree connections.
+- Physical timing ports: eight Lucent Connector (LC) fiber ports (front panel) used for timing tree connections.
 - IOC path: Quartz runs in the Quartz/ATF IOC workflow, not the EVT timing IOC tree.
-- Hardware reference: use both Quartz front and back panel diagrams together to represent one chassis.
+- Hardware reference: use both Quartz front and back panel diagrams together to represent one chassis, which can also be seen below:
 
-.. figure:: ../images/diagrams/Testing\ Rig\ Diagrams-Quartz\ Chassis\ Front\ Panel.drawio.png
-   :alt: Quartz chassis front panel (DB37 analog connectors)
+.. figure:: ../images/diagrams/drawio/Testing\ Rig\ Diagrams-Quartz\ Chassis\ Front\ Panel.drawio.png
+   :width: 720px
+   
+   Quartz chassis front panel (DB37 analog connectors)
+
+.. figure:: ../images/diagrams/drawio/Testing\ Rig\ Diagrams-Quartz\ Chassis\ Back\ Panel.drawio.png
    :width: 720px
 
-.. figure:: ../images/diagrams/Testing\ Rig\ Diagrams-Quartz\ Chassis\ Back\ Panel.drawio.png
-   :alt: Quartz chassis back panel (LC timing fiber and DB9 digital)
-   :width: 720px
+   Quartz chassis back panel
+   
 
-Observed during bring-up:
-
-- Flash/program cycles can require status clear and occasional full power cycle recovery.
-- Forward timing path may be healthy while reverse diagnostics still fail; debug separately.
-- Re-check channel and breakout mappings against current pinout revision before bench conclusions.
-
-EVT chassis at a glance (digital)
+Digital Chassis (EVT)
 ---------------------------------
 
-- Primary function: digital timing and trigger I/O.
-- Front panel: SMA trigger connectors (digital I/O).
-- Back panel: eight LC fiber ports for timing distribution.
-- IOC path: EVT instances run from the timing IOC tree (not Quartz ``st.cmd`` trees).
+- Primary function: digital timing and trigger I/O with SMA connectors on the front panel and LC fiber ports on the back panel.
+- Timing fabric: participates in the same fiber timing network as Quartz.
+- Physical timing ports: eight Lucent Connector (LC) fiber ports (back panel) used for timing tree connections.
+- IOC path: EVT runs in the EVT timing IOC workflow, not the Quartz IOC tree.
+- Hardware reference: use both EVT front and back panel diagrams together to represent one chassis, which can also be seen below:
 
-.. figure:: ../../drawio/Testing\ Rig\ Diagrams-Digital\ Chassis\ Front\ Panel.drawio.png
-   :alt: EVT digital chassis front panel (SMA trigger I/O)
+.. figure:: ../images/diagrams/drawio/Testing\ Rig\ Diagrams-Digital\ Chassis\ Front\ Panel.drawio.png
+   :alt: EVT digital chassis front panel (SMA trigger I/O)  
    :width: 720px
 
-.. figure:: ../../drawio/Testing\ Rig\ Diagrams-Digital\ Chassis\ Back\ Panel.drawio.png
+   EVT digital chassis front panel (SMA trigger I/O)
+
+.. figure:: ../images/diagrams/drawio/Testing\ Rig\ Diagrams-Digital\ Chassis\ Back\ Panel.drawio.png
    :alt: EVT digital chassis back panel (LC timing fiber)
-   :width: 720px
+   :width: 720px  
+   
+   EVT digital chassis back panel (LC timing fiber)
 
-Observed during bring-up:
-
-- EVG mode requires Pulse Per Second (PPS) on input 1 at 1 Hz.
-- Wrong netmask/gateway can mimic cable faults or unstable Ethernet behavior.
-- After firmware update/erase, network and NTP settings may need re-entry.
-- Firmware and Operator Interface (OPI) versions should stay aligned to avoid missing indicators.
-
-Fiber port numbering (both families)
+Fiber Port Layout
 ------------------------------------
 
-Quartz and EVT follow the same port role convention in vendor docs:
+Analog (Quartz) and Digital (EVT) follow the same fiber port layout in vendor docs:
 
 - Port 1: EVR in
-- Port 2: fan-out in
-- Ports 3-8: fan-out outputs
-
-Phoebus widgets 1-8 align with these physical ports. If software status looks inconsistent, verify
-panel jumpers and cable placement before treating it as a software issue.
+- Port 2: Fan-out in
+- Ports 3-8: Fan-out outputs
 
 Where to go next
 ----------------

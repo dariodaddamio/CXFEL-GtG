@@ -21,11 +21,11 @@ Analog connectors are on the front (DB37); digital and fiber are on the back (DB
 Connector (LC) ports). The same back-panel fiber numbering applies to Event Timing (EVT) chassis;
 see :doc:`evt_chassis`.
 
-.. figure:: ../images/diagrams/Testing\ Rig\ Diagrams-Quartz\ Chassis\ Front\ Panel.drawio.png
+.. figure:: ../images/diagrams/drawio/Testing\ Rig\ Diagrams-Quartz\ Chassis\ Front\ Panel.drawio.png
    :alt: Quartz chassis front panel (connector layout)
    :width: 720px
 
-.. figure:: ../images/diagrams/Testing\ Rig\ Diagrams-Quartz\ Chassis\ Back\ Panel.drawio.png
+.. figure:: ../images/diagrams/drawio/Testing\ Rig\ Diagrams-Quartz\ Chassis\ Back\ Panel.drawio.png
    :alt: Quartz chassis back panel (fiber and digital connectors)
    :width: 720px
 
