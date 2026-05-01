@@ -1,7 +1,7 @@
 Guide to Guides
 ===============
 
-*Last updated: April 2026*
+*Last updated: May 2026*
 
 Purpose
 -------
