@@ -1,10 +1,10 @@
-Osprey Provided
+GitHub Repositories
 =====================
 
 Purpose
 -------
 
-This section organizes Osprey Distributed Control Systems (DCS) material used at CXFEL.
+This section synthesizes GitHub repositories provided by Osprey Distributed Control Systems (DCS), and additional repositories used for this project.
 It separates timing roles (Event Generator/Event Receiver) from hardware families (Analog Quartz/Digital EVT),
 then points to bring-up, firmware, and integration references.
 

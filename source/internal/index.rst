@@ -1,14 +1,16 @@
 Internal documentation
-========================
+======================
 
-To access Henrik's internal docs and CXFEL-specific notes:
+This section groups the internal CXFEL references:
 
-- Follow Standard Boot Procedure :doc:`/cs_studio/boot_procedure`, then select the "System Manual" from the CXFEL Global Tab.
+- :doc:`Henrik docs <henrik_docs>`
+- :doc:`DAQ original doc </daq_architecture_pdf>`
+- :doc:`NSLS-II timing doc </nsls2_timing_pdf>`
 
-.. figure:: ../images/System\ Manual.png
-   :alt: System Manual
-   :width: 800px
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
 
-   System Manual
-
-- This will open a new tab with detailed documentation from Henrik. Most of that information has attempted to be synthesized in this documentation here.
+   henrik_docs
+   /daq_architecture_pdf
+   /nsls2_timing_pdf
