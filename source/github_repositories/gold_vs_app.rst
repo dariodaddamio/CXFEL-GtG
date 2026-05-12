@@ -3,36 +3,66 @@
 GOLD vs APP
 ===========
 
-Purpose
--------
+Each chassis stores two Field-Programmable Gate Array (FPGA) images in flash. You pick which image
+runs from Phoebus; the **FPGA boot control** screen tells you which side is active and what build is
+loaded.
 
-GOLD and APP name the two FPGA images you switch between from Phoebus. This page states what each is for and shows FPGA boot control on the analog and digital chassis OPIs. In the site navigation it appears under Bring-Up and Testing.
+What is in flash
+----------------
 
-GOLD
-----
+- **GOLD**
 
-GOLD is the bootloader (gold) image. Use it when you need a simple Ethernet target after USB programming, for recovery, or before you load the application from Phoebus. On the ttyUSB2 debug console, GOLD can look like repeating block characters until APP is running.
+  - Bootloader image: small, stable firmware used for recovery and for network tools such as Alluvium.
 
-APP
----
+- **APP**
 
-APP is the application image. Normal timing work and IOC interaction use APP after bring-up.
+  - Application image: full timing and acquisition behavior for that chassis family.
 
-Where to switch
----------------
+- **Where you switch in Phoebus**
 
-In Phoebus, open Event, then Devel, then the Quartz or EVT screen for that chassis. Use FPGA boot control there for Boot GOLD and Boot App. Screenshots of those areas:
+  - **Event** tab, then **Devel** sub-tab, then the Quartz or ``EVT #N`` screen for that chassis.
+
+  - Boot actions on that screen move you between GOLD and APP without re-cabling.
+
+FPGA boot control (Phoebus)
+---------------------------
+
+The **FPGA boot control** display on each chassis screen shows:
+
+- which image is active (GOLD vs APP)
+
+- hash or build information for each stored image
+
+Analog chassis (Quartz) FPGA boot control:
 
 .. figure:: ../images/Analog\ Chassis\ FPGA\ Boot\ Control.png
-   :alt: Quartz analog chassis FPGA boot control in Phoebus (Boot GOLD, Boot App)
+   :alt: Quartz analog chassis FPGA boot control in Phoebus
    :width: 720px
 
-   Analog (Quartz) chassis: FPGA boot control.
+   Analog chassis FPGA boot control screen.
+
+Digital chassis (EVT) FPGA boot control:
 
 .. figure:: ../images/Digital\ Chassis\ FPGA\ Boot\ Control.png
-   :alt: EVT digital chassis FPGA boot control in Phoebus (Boot GOLD, Boot App)
+   :alt: EVT digital chassis FPGA boot control in Phoebus
    :width: 720px
 
-   Digital (EVT) chassis: FPGA boot control.
+   Digital chassis FPGA boot control screen.
 
-See also :doc:`/cs_studio/tabs/index` and :doc:`/github_repositories/bringup_procedures`.
+Normal use
+----------
+
+- At power-up the chassis normally lands in **GOLD** first.
+
+  - From there you bring up Ethernet and sanity-check reachability (for example ping while still in GOLD).
+
+- When you are ready for normal timing or acquisition work, use **Boot App** on the FPGA boot control screen to run **APP**.
+
+- To return to the bootloader side, use **Boot Gold** on the same screen.
+
+Notes
+-----
+
+- **GOLD** often responds to ping once Ethernet is configured; **APP** behavior on ICMP depends on what that image is doing, so do not treat a missing ping as “dead” without checking which image is running.
+
+See also :doc:`/cs_studio/tabs/index`, :doc:`/github_repositories/bringup_procedures`, and :doc:`/github_repositories/alluvium`.

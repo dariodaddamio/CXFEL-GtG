@@ -1,0 +1,44 @@
+Alluvium CLI reference (Marble / Quartz flash over Ethernet)
+==============================================================
+
+Source: mdavidsaver/alluvium (README and alluvium/__init__.py). Typical form:
+
+  python3 -m alluvium <CHASSIS_IP> <subcommand> ...
+
+Default LEEP port is 804 unless the target is given as host:port.
+
+status
+------
+Queries the SPI flash and prints status registers (e.g. SR1, SR2), including block protect and
+error-related bits. Read-only sanity check before or after other commands.
+
+clear
+-----
+Clears flash status / error indication after a failed operation (see upstream README).
+
+verify
+------
+Compares flash contents starting at a base address to a reference bitstream.
+
+  python3 -m alluvium <IP> verify app <path/to/file.bit>
+  python3 -m alluvium <IP> verify app -
+
+With a file path: the reference is read from that file. The compare length defaults to the size of
+that file unless you pass an explicit size with -S / --size.
+
+With "-" as the file operand: the reference is read from standard input instead of a named file.
+For a pipe, stdin is usually not seekable; use -S / --size with the byte length you intend to
+compare so the tool does not rely on seeking to measure the stream.
+
+program
+-------
+Writes a region (erase by default, then program, then verify unless disabled). Example:
+
+  python3 -m alluvium <IP> program app <path/to/file.bit>
+
+Address aliases "gold" and "app" map to the lower and upper 8 MB of the 16 MB flash layout used
+on Marble-class boards.
+
+If your site uses a shell wrapper that drops the file operand for verify, compare behavior against
+`python3 -m alluvium -h` and `python3 -m alluvium <IP> verify -h` on the machine you run from.
+

@@ -40,8 +40,8 @@ Preflight are physical preparations for bring-up and testing.
 
    - ``sudo python -m serial.tools.miniterm /dev/ttyUSB3 115200``
 
-     - This opens the MMF console on ttyUSB3, for first-time ethernet setup.
-
+     - This opens the MMC (management microcontroller) console on ttyUSB3.
+     
      - After miniterm connects, type ``?`` and press Enter to print the firmware command list.
 
      - Set the IPv4 with ``m <IP_ADDRESS>`` (e.g. ``m 10.139.5.191``)
@@ -94,8 +94,6 @@ Preflight are physical preparations for bring-up and testing.
 
    - If the ping is successful (returns some ``bytes`` and not ``packet loss``), the chassis is reachable.
 
-   - Boot GOLD or Boot App from FPGA boot control (Event / Devel); see :doc:`/cs_studio/tabs/index` and :ref:`gold-vs-app`.
-
 #. If anything is unclear physically (which connector or which port), stop and verify against the
    diagrams before applying signals, or ask Alex Gardeck or Mark Holl for assistance.
 
@@ -104,3 +102,4 @@ Preflight are physical preparations for bring-up and testing.
    :hidden:
 
    gold_vs_app
+   alluvium

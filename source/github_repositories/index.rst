@@ -41,7 +41,7 @@ Guide to Resources
 
 - :doc:`/github_repositories/bringup_procedures`
 
-  - Step-by-step bring-up for Quartz and EVT, including preflight. Subpage :doc:`/github_repositories/gold_vs_app` covers GOLD vs APP and FPGA boot control screenshots.
+  - Step-by-step bring-up for Quartz and EVT, including preflight. Subpages :doc:`/github_repositories/gold_vs_app` and :doc:`/github_repositories/alluvium` cover GOLD vs APP (and FPGA boot control screenshots) and Quartz flash work with Alluvium.
 
 ..
    Descriptions cannot live inside one ``toctree`` list. This hidden tree still registers
