@@ -8,5 +8,5 @@ This section groups the internal CXFEL references from scattered emails, and oth
    :titlesonly:
 
    henrik_docs
-   /daq_architecture_pdf
-   /nsls2_timing_pdf
+   daq_architecture_pdf
+   nsls2_timing_pdf

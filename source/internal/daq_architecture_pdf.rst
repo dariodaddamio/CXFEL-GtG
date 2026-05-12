@@ -6,14 +6,14 @@ architecture PDF (revision 1). It provides historical context for how timing and
 that document. 
 
 For current laboratory practice, wiring, Phoebus navigation, and Osprey-related
-procedures, begin with :doc:`index` and :doc:`github_repositories/index`.
+procedures, begin with :doc:`/index` and :doc:`/github_repositories/index`.
 
 If the preview does not load in your browser, download the file using the link inside the box
 below.
 
 .. raw:: html
 
-   <object data="_static/pdfs/ASUTimingAndDAQArchitectureR1.pdf"
+   <object data="../_static/pdfs/ASUTimingAndDAQArchitectureR1.pdf"
            type="application/pdf"
            width="100%"
            height="800px"
@@ -21,6 +21,6 @@ below.
      <p>
        Your browser does not support inline PDF preview.
        You can
-       <a href="_static/pdfs/ASUTimingAndDAQArchitectureR1.pdf">download the PDF directly</a>.
+       <a href="../_static/pdfs/ASUTimingAndDAQArchitectureR1.pdf">download the PDF directly</a>.
      </p>
    </object>

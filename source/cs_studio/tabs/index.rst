@@ -1,7 +1,7 @@
 Main tabs
 =========
 
-After reaching the home screen (:doc:`../boot_procedure`), routine work uses three main areas of the
+After reaching the home screen (:doc:`/cs_studio/boot_procedure`), routine work uses three main areas of the
 Phoebus (Control System Studio, CS-Studio) display: Global, Event, and Network. Event Timing (EVT) and
 Quartz chassis screens are reached from the Event tab **Devel** area below. Initial EVG and
 EVR bring-up (EVT, Quartz, fiber interconnect, inputs, and where to read status) is documented in
@@ -36,15 +36,15 @@ ATF Previewer, and EVT) are grouped here.
   style view). Firmware actions such as **Boot GOLD** are available from the same family of displays
   when you need to re-enter the bootloader image from the network. If OPI files change on the server,
   return to the Phoebus home **Event** panel and refresh (**F5**) so clients load the latest screens.
-  Boot mode, USB console, Ethernet/NTP, and Alluvium are documented on :doc:`/github_repositories/quartz_boot`,
-  :doc:`/github_repositories/quartz_usb`, :doc:`/github_repositories/quartz_network`, and :doc:`/github_repositories/quartz_alluvium`.
+  Boot mode, USB console, Ethernet/NTP, and Alluvium are operated from these Quartz displays; rack
+  sequencing is in :doc:`/github_repositories/bringup_procedures`. Vendor manuals: :doc:`/equipment_manual`.
 
 - ``ATF Previewer``.
 
   A button on this Event / Devel panel launches the ATF acquisition preview tool so you can open and
   inspect captured waveforms without leaving CS-Studio. Typical hand-off from a run:
   **Acq. Recording → Control → Last Completed File**, then in the ATF previewer **File → Open** and
-  paste the path (see :ref:`atf-previewer` on :doc:`/github_repositories/quartz_daq_repo`). During tests, enable only
+  paste that path. During tests, enable only
   wired channels so unused logical channels do not clutter the signal list.
 
 - Below that, ``EVT #N`` (digital).
@@ -71,12 +71,12 @@ ATF Previewer, and EVT) are grouped here.
    **Acq. Recording** control view: use **Last Completed File** as the path source for the ATF previewer
    **File → Open** workflow.
 
-See also: :doc:`/github_repositories/bringup_procedures`, :doc:`/github_repositories/quartz_network`.
+See also: :doc:`/github_repositories/bringup_procedures`, :doc:`/equipment_manual`.
 
 .. _phoebus-network-tab:
 
 Network tab
 -----------
 
-Host and switch topology (depends on the display export). Chassis IP fields: :doc:`/github_repositories/quartz_network`.
+Host and switch topology (depends on the display export). Chassis IP and timing fields are edited in the Quartz and ``EVT #N`` screens above; rack planning is in :doc:`/github_repositories/bringup_procedures`.
 EVT links and status checks: :doc:`/github_repositories/bringup_procedures`.

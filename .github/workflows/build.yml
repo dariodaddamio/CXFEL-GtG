@@ -26,4 +26,5 @@ jobs:
           python -c "import furo; print('furo OK:', furo.__file__)"
 
       - name: Build HTML
-        run: sphinx-build -W source build/html
+        # -E fresh environment, -a write all HTML (Furo embeds nav; avoids stale sidebar URLs)
+        run: sphinx-build -W -E -a source build/html

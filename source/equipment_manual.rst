@@ -3,13 +3,12 @@
 Equipment Manual
 ================
 
-Vendor PDF manuals and bench equipment documentation used with CXFEL timing bring-up.
+Vendor PDF ls and bench equipment documentation used with CXFEL timing bring-up.
 
 The links below are the **canonical** copies (vendor / ManualsLib). The docs do not require
 checked-in PDFs for a normal HTML build.
 
-**NSLS-II timing design PDF:** the embedded copy used by the docs lives under
-``source/_static/pdfs/`` and is shown on :doc:`nsls2_timing_pdf` (Internal Documentation).
+**Architecture PDFs (Internal Documentation):** :doc:`/internal/daq_architecture_pdf` (ASU timing and DAQ proposal) and :doc:`/internal/nsls2_timing_pdf` (NSLS-II timing design).
 
 **Optional offline library:** if you want vendor PDFs in the repository (for example air-gapped
 preview builds), add them under ``source/_static/pdfs/vendor/`` and link them here with Sphinx’s

@@ -11,13 +11,13 @@ then points to bring-up procedures and the canonical timing model.
 Guide to Resources
 ------------------
 
-- :doc:`quartz_vs_evt_timing`
+- :doc:`/github_repositories/quartz_vs_evt_timing`
 
   - Defines Event Generator (EVG) and Event Receiver (EVR) as timing roles.
   - Defines Analog (Quartz) and Digital (EVT) hardware families, and how they can each operate in either role (EVG or EVR).
   - Consolidates role setup guidance, fiber port meaning, and IOC/service boundary notes.
 
-- :doc:`bringup_procedures`
+- :doc:`/github_repositories/bringup_procedures`
 
   - Provides a step-by-step bring-up sequence for Analog (Quartz) and Digital (EVT) and interconnecting them.
 

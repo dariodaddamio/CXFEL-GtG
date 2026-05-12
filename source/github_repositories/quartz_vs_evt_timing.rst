@@ -84,5 +84,5 @@ Analog (Quartz) and Digital (EVT) follow the same fiber port layout in vendor do
 Where to go next
 ----------------
 
-- :doc:`bringup_procedures` for step-by-step EVG/EVR bring-up.
-- Quartz boot, network, USB console, and Alluvium: :doc:`quartz_boot`, :doc:`quartz_network`, :doc:`quartz_usb`, :doc:`quartz_alluvium`.
+- :doc:`/github_repositories/bringup_procedures` for step-by-step EVG/EVR bring-up.
+- Quartz Phoebus controls and vendor manuals: :doc:`/cs_studio/tabs/index` and :doc:`/equipment_manual`; upstream Quartz DAQ reference: `Quartz DAQ 250‑24 <https://github.com/osprey-dcs/quartz-daq-250-24?tab=readme-ov-file>`_.
