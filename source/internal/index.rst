@@ -1,11 +1,7 @@
-Internal documentation
+Internal Documentation
 ======================
 
-This section groups the internal CXFEL references:
-
-- :doc:`Henrik docs <henrik_docs>`
-- :doc:`DAQ original doc </daq_architecture_pdf>`
-- :doc:`NSLS-II timing doc </nsls2_timing_pdf>`
+This section groups the internal CXFEL references from scattered emails, and other sources:
 
 .. toctree::
    :maxdepth: 1

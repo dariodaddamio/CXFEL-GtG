@@ -6,7 +6,7 @@ architecture PDF (revision 1). It provides historical context for how timing and
 that document. 
 
 For current laboratory practice, wiring, Phoebus navigation, and Osprey-related
-procedures, begin with :doc:`index` and :doc:`osprey/index`.
+procedures, begin with :doc:`index` and :doc:`github_repositories/index`.
 
 If the preview does not load in your browser, download the file using the link inside the box
 below.

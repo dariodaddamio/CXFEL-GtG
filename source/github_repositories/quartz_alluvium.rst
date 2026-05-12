@@ -1,3 +1,7 @@
+.. orphan::
+
+.. _quartz-alluvium:
+
 Alluvium and Flashing Procedure
 ======================================
 
@@ -28,4 +32,4 @@ Miscellaneous notes
   cycle usually restores normal values.
 - Rare MMC “lock-ups” during heavy testing were fixed by a full power cycle of the chassis.
 
-See also :doc:`quartz_firmware` for the hub and reading order.
+See also :doc:`bringup_procedures` and :doc:`quartz_boot` for bring-up order and boot modes.

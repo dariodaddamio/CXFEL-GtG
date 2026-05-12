@@ -1,3 +1,7 @@
+.. orphan::
+
+.. _quartz-usb:
+
 USB and Consoles
 =================================
 
@@ -42,4 +46,4 @@ If console output is unreadable, check baud rate (``9600`` vs ``115200``).
 
 [image needed: OS view of MMC vs application serial ports]
 
-See also :doc:`quartz_firmware` for the hub and reading order.
+See also :doc:`bringup_procedures` and :doc:`quartz_network` for rack sequence and network fields.

@@ -85,6 +85,4 @@ Where to go next
 ----------------
 
 - :doc:`bringup_procedures` for step-by-step EVG/EVR bring-up.
-- :doc:`evt_chassis` for EVT-specific checklist and digital hardware notes.
-- :doc:`quartz_firmware` for Quartz firmware, boot, and service details.
-- :doc:`integration_reference` for stack-wide wiring and IOC boundary mapping.
+- Quartz boot, network, USB console, and Alluvium: :doc:`quartz_boot`, :doc:`quartz_network`, :doc:`quartz_usb`, :doc:`quartz_alluvium`.

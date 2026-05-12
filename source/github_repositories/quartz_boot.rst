@@ -1,3 +1,7 @@
+.. orphan::
+
+.. _quartz-boot:
+
 GOLD vs APP
 ============================
 
@@ -39,4 +43,4 @@ Notes
 
 - GOLD typically responds to ping
 
-See also :doc:`quartz_firmware` for the hub and reading order.
+See also :doc:`bringup_procedures` for full bring-up sequence alongside these boot-mode notes.

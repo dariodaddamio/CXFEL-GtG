@@ -5,7 +5,7 @@ This page embeds Timing System Design for the NSLS-II (Brookhaven National Labor
 reference used here for **event stream format** background (16-bit words, event codes, metadata).
 
 For current laboratory practice, wiring, Phoebus navigation, and Osprey-related
-procedures, begin with :doc:`index` and :doc:`osprey/index`.
+procedures, begin with :doc:`index` and :doc:`github_repositories/index`.
 
 If the preview does not load in your browser, download the file using the link inside the box
 below.

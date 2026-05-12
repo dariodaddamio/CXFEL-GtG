@@ -1,6 +1,10 @@
 # Sphinx output (built in CI; see .github/workflows/)
 build/
 
+# Windows alternate-data-stream exports on WSL/UNC paths
+*Zone.Identifier*
+*:Zone.Identifier
+
 # Stray / exported HTML (docs are RST; HTML is produced in CI)
 *.html
 *.htm

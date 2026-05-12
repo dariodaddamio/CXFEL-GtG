@@ -20,6 +20,11 @@ exclude_patterns = [
     "_build",
     "Thumbs.db",
     ".DS_Store",
+    # Windows NTFS / browser download sidecar files (not documentation sources)
+    "**/*Zone.Identifier*",
+    # Obsolete section (content lives under ``github_repositories/``)
+    "osprey",
+    "osprey/**",
     # Legacy pages (replaced by the Guide-to-Guides structure)
     "overview.rst",
     "system_manual.rst",

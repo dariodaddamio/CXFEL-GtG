@@ -26,4 +26,4 @@ toolbar to reach the facility home screen.
 
 
 - After reaching the home screen, proceed to :doc:`navigate the GUI <tabs/index>`. Quartz versus EVT
-  roles and hardware are described in :doc:`/osprey/index`.
+  roles and hardware are described in :doc:`/github_repositories/index`.

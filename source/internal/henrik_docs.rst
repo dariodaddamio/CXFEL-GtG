@@ -1,7 +1,7 @@
-Henrik docs
+Henrik Documentation
 ===========
 
-To access Henrik's internal docs and CXFEL-specific notes:
+To access Henrik's internal documentation and CXFEL-specific notes:
 
 - Follow Standard Boot Procedure :doc:`/cs_studio/boot_procedure`, then select the "System Manual" from the CXFEL Global Tab.
 

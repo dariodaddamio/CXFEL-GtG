@@ -1,3 +1,7 @@
+.. orphan::
+
+.. _quartz-network:
+
 Networking Configuration
 ===========================
 
@@ -76,5 +80,5 @@ For a chassis that should not act as EVG, disable NTP on the Quartz side::
 
    ntp 0.0.0.0
 
-See also :doc:`quartz_firmware` for the hub and reading order. For EVT timing and EVG/EVR roles on
-EVT chassis, see :doc:`evt_chassis`.
+For EVT timing and EVG/EVR roles on
+the digital chassis, see :doc:`quartz_vs_evt_timing` and :doc:`bringup_procedures`.
