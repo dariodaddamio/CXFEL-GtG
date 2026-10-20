@@ -1,7 +1,7 @@
 .. _bringup-procedures:
 
 Bring-Up and Testing
-===================
+====================
 Purpose
 ---------------------------
 

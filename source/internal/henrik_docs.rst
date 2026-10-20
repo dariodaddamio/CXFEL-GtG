@@ -1,5 +1,5 @@
 Henrik Documentation
-===========
+====================
 
 To access Henrik's internal documentation and CXFEL-specific notes:
 
