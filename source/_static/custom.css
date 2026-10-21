@@ -10,6 +10,54 @@ body {
   font-feature-settings: "zero" 1;
 }
 
+/* Keep table labels and values readable at the normal document text size. */
+.content table.docutils {
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.content table.docutils caption,
+.content table.docutils caption .caption-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.content table.docutils caption {
+  padding: 0.6rem 0;
+}
+
+.event-code-guide :is(.facility-codes, .timing-design-notes) {
+  margin: 0.8rem 0;
+  border: 1px solid var(--color-background-border);
+  border-radius: 0.35rem;
+}
+
+.event-code-guide :is(.facility-codes, .timing-design-notes) summary {
+  padding: 0.9rem 1rem;
+  background: var(--color-background-secondary);
+  border-radius: 0.35rem;
+  color: var(--color-foreground-primary);
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.event-code-guide :is(.facility-codes, .timing-design-notes) summary:focus-visible {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: 2px;
+}
+
+.event-code-guide .facility-codes-body {
+  padding: 0 1rem 0.5rem;
+}
+
+.event-code-guide .facility-codes-body > p:first-child {
+  margin-top: 1rem;
+}
+
 /* Distinct slashed zero in body and mono */
 .content,
 .sidebar-tree {

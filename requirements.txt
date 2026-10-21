@@ -6,3 +6,4 @@
 #
 sphinx>=8,<10
 furo>=2024.8.6
+sphinxcontrib-mermaid==2.0.2

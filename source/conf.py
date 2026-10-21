@@ -13,7 +13,12 @@ author = "Dario D'Addamio"
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
+extensions = ['sphinxcontrib.mermaid']
+
+# Render the Event Codes diagrams in HTML, including the site's dark theme.
+mermaid_version = '11.12.1'
+mermaid_init_config = {'startOnLoad': False, 'securityLevel': 'strict'}
+mermaid_height = 'auto'
 
 templates_path = ['_templates']
 exclude_patterns = [
