@@ -3,24 +3,22 @@
 Event Codes
 ===========
 
-**Survey and planning outline · October 2026**
+October 2026
 
-This document summarizes published facility practices, Osprey's existing event
-functions and possible approaches for CXFEL. It is intended to support discussion
-of the timing architecture and event dictionary. The CXFEL values shown are
-examples for comparison, not a selected configuration.
+This report examines event-code allocation for CXFEL using published timing-system
+designs, Osprey firmware and IOC source code, and CXFEL architecture and meeting
+records. The analysis addresses the relationship between equipment-defined
+functions, facility timing events and data correlation.
 
-**At a glance**
+The source revisions and document dates are identified with each finding.
+Installed firmware versions, current wiring and measured timing performance have
+not been verified. The numerical CXFEL assignments are illustrative and remain
+subject to the requirements and implementation limits described below.
 
-- An event code names a timing occurrence. Each receiver determines its local
-  action, output delay and pulse width.
-- Multiple devices can share an event code. Shot identity and detector acceptance
-  need separate definitions and records.
-- The tables distinguish source-defined functions, compatibility reservations
-  and possible CXFEL assignments. Installed support still needs verification.
+.. _the-two-8-bit-channels:
 
-The two 8-bit channels
-----------------------------------------
+Timing-word format
+------------------
 
 The two-byte format comes from the `MRF event-stream specification`_: one byte
 for event codes and one for distributed bus signals or data transfer. It is also
@@ -48,14 +46,13 @@ code and bits 7–0 as bus data:
    * - Bus / data
      - Carries distributed bus signals or buffered data bytes, according to the firmware implementation. It is processed separately from the event code.
 
-This is a firmware interface, not a proposed way to divide a freely assignable
-16-bit event number. The second byte does not extend the event-code range to
-65,536 values. Byte positions differ in the inspected older `Quartz receiver`_;
-the diagram follows the digital timing implementation, not a universal byte order.
+The event-code field therefore contains 256 possible values. The separate bus
+byte does not increase that range. The older `Quartz receiver`_ uses different
+byte positions, so the diagram applies specifically to the inspected digital
+timing implementation.
 
-Whether CXFEL uses the data channel, and for what, remains a design question.
-The inspected source does not establish a complete per-shot metadata interface
-on the installed system.
+The role of the data channel in CXFEL has not been established. In particular,
+the reviewed source does not demonstrate a complete per-shot metadata interface.
 
 .. raw:: html
 
@@ -83,8 +80,9 @@ Installed image versions and measured behavior have not been verified.
    * - Quartz recording
      - The shown Quartz receiver leaves the distributed-bus output unconnected (`receiver wiring`_). Storage of that byte alongside ADC samples has not been established.
 
-Consequently, the second byte must not be documented as an available shot-ID,
-mode or destination field without a defined update, sampling and recording path.
+These findings are insufficient to establish the second byte as a usable
+shot-ID, mode or destination field. Such a use requires an update, sampling and
+recording path that is absent from the evidence reviewed here.
 
 .. raw:: html
 
@@ -106,25 +104,25 @@ mode or destination field without a defined update, sampling and recording path.
      - Consequence / work required
    * - 8-bit events with separately recorded context
      - Triggers, event timestamps and run-level mode/destination records.
-     - Retains the inspected event interface. Bind context to a run or shot explicitly; an asynchronously read PV is not evidence of the state at that shot. Loss detection and data joins still need implementation.
+     - Retains the inspected event interface. Context requires explicit association with a run or shot; an asynchronously read PV does not establish the state at that shot. Loss detection and data joins remain implementation requirements.
    * - Use distributed bus bits
      - A small set of persistent signals where receivers expose them.
-     - Define bit assignments, sampling and validity. Confirm receiver support and add recording where needed; the shown Quartz path does not record these bits.
+     - Requires defined bit assignments, sampling and validity, confirmed receiver support and a recording path. The inspected Quartz path does not record these bits.
    * - Implement buffered metadata
      - Shot IDs or structured context delivered before the associated event.
-     - Requires Osprey firmware/IOC and recording changes, or hardware exposing the required buffer functions. Define ordering, completion, integrity and shot binding. Full MRF products document buffer support, but compatibility must be checked (`MRF receiver data transfer`_).
+     - Requires Osprey firmware/IOC and recording changes, or hardware exposing the required buffer functions. Ordering, completion, integrity and shot association require specification. Full MRF products document buffer support; compatibility with this implementation remains unverified (`MRF receiver data transfer`_).
    * - Revise the proposed code allocation
      - Different event categories or fewer shared references.
-     - Changes the facility dictionary, not the frame format. Preserve firmware-owned codes and review every consumer mapping.
+     - Retains the frame format while changing facility assignments. Existing firmware-owned codes and affected consumer mappings constrain the allocation.
    * - Change the protocol or timing hardware
      - Requirements that cannot fit the supported event and data interfaces.
-     - A wider event field or different message format needs compatible generators, receivers and software. Existing Quartz/MRF links cannot be assumed to decode it; qualify timing, timestamps and data association again.
+     - A wider event field or different message format requires compatible generators, receivers and software, with renewed qualification of timing, timestamps and data association. Compatibility with existing Quartz/MRF links is not established.
 
-**Working proposal:** retain 8-bit event meanings while the team establishes
-whether additional synchronized data are required. Do not depend on the second
-byte for shot correlation until the complete path is implemented and tested.
-If installed firmware differs from these sources, review both the format diagram
-and the reserved-code table against that image before adopting the allocation.
+The source review supports evaluating an eight-bit event dictionary as the
+baseline interface. Shot correlation through the second byte remains dependent
+on a complete transport and recording implementation. Applicability of the
+format diagram and reserved-code table also depends on the installed firmware
+matching the revisions examined in this report.
 
 .. raw:: html
 
@@ -150,12 +148,16 @@ the receiver configuration identifies the output.
 Actions needed *before* the beam use an earlier preparation reference.
 The event code is reused on every shot; it does not identify an individual shot.
 
-Osprey, NSLS-II and the CXFEL dictionary
---------------------------------------------
+.. _osprey-nsls-ii-and-the-cxfel-dictionary:
 
-**CXFEL's dictionary must include the Osprey functions used by its equipment.**
-The new beamline events would occupy additional values; they would not replace
-Quartz acquisition controls, timestamp codes or protection functions.
+Existing functions and facility-defined events
+----------------------------------------------
+
+A CXFEL event dictionary would contain equipment-defined Osprey functions
+alongside facility-defined beamline events. Quartz acquisition controls,
+timestamp codes and protection functions already occupy values in the reviewed
+implementations. Additional beamline events would require allocations compatible
+with those functions.
 
 The NSLS-II material is an example of a facility event system built on MRF timing.
 The Osprey implementation uses related event-stream and timestamp conventions,
@@ -169,12 +171,16 @@ recalled for NSLS-II. The estimate of about six fixed-function codes is not a
 complete firmware inventory. The later source inspection also finds compiled
 Quartz controls, protection-clear differences and Osprey sequencer values.
 
-The code space is thus a combination of **inherited functions**, **compatibility
-reservations**, **site-defined events** and **unassigned values**. It is not
-necessary to give every value a purpose. One shared event can serve many devices.
+The resulting code space comprises inherited functions, compatibility
+reservations, site-defined events and unassigned values. Unassigned values
+provide capacity for later requirements. The number of devices does not directly
+determine the number of codes, because several receivers can respond to the same
+event.
 
-All 256 values
---------------------------------------------
+.. _all-256-values:
+
+Event-code space
+----------------
 
 The table accounts for every value from 0 through 255. "Unassigned" means that
 no meaning is selected in this outline; it does not certify that every installed
@@ -268,7 +274,7 @@ confirmed Osprey functions.
    * - 126
      - ``0x7E``
      - MRF delay-compensation beacon; Osprey test script uses it for protection clear; meeting demo uses it as a timer event.
-     - Conflicting uses across sources. Keep out of a new machine allocation until the image and configuration are identified.
+     - Conflicting uses across sources; availability for a machine event depends on the identified image and configuration.
    * - 127
      - ``0x7F``
      - MRF / NSLS-II end-of-sequence convention.
@@ -291,8 +297,10 @@ Sources: `Quartz configuration`_, `digital firmware`_, `generator core`_,
 `MRF conventions`_. The full 112–127 block is a possible compatibility reservation;
 it is not a claim that Osprey assigns all sixteen values.
 
-CXFEL event concepts to compare
---------------------------------------------
+.. _cxfel-event-concepts-to-compare:
+
+Illustrative CXFEL event allocation
+-----------------------------------
 
 .. list-table:: Illustrative CXFEL values
    :header-rows: 1
@@ -323,16 +331,14 @@ CXFEL event concepts to compare
      - A notification to capture fault-related data.
      - Fault recording; protection actuation is separate.
 
-**Why these examples?** Preparation, beam reference, independent experiment
-timing and fault capture are different occurrences that may need shared timing.
-Cycle events are shown together at 16–18 simply to illustrate grouping. The
-numbers 1 and 80 illustrate separate notification and experiment uses. No complete
-category ranges have been selected; the unused values in the preceding table
-remain available for evaluation, subject to the implementation constraints.
+The examples distinguish preparation, a beam reference, independent experiment
+timing and fault capture. Values 16-18 illustrate a grouped cycle sequence;
+values 1 and 80 illustrate separate notification and experiment functions. The
+selection does not define complete category ranges or an approved allocation.
 
-The comparison should establish whether CYCLE_START and SHOT_PREPARE are both
-needed, which consumers can share BEAM_SHOT, and whether independent experiment
-references require one event or several.
+The unresolved requirements are whether CYCLE_START and SHOT_PREPARE represent
+distinct necessary references, which consumers can share BEAM_SHOT, and how many
+independent experiment references are required.
 
 For example, LLRF and a detector can both use ``BEAM_SHOT`` with different local
 delays. Quartz can record continuously between 97 and 96, with its samples matched
@@ -342,10 +348,11 @@ implementation and validation status needs confirmation.
 Documented CXFEL requirements
 ----------------------------------------
 
-The Dropbox :doc:`ASU Timing and DAQ Architecture, Revision 1
-</internal/daq_architecture_pdf>` already identifies the following consumers.
-These are architecture requirements and proposed interfaces; they do not establish
-the current wiring or demonstrate completion of the integration.
+The :doc:`ASU Timing and DAQ Architecture, Revision 1
+</internal/daq_architecture_pdf>`, available in the supplied Dropbox material,
+identifies the following timing consumers. The document specifies requirements
+and proposed interfaces; it does not establish current wiring or completed
+integration.
 
 .. list-table:: Requirements in the architecture document
    :header-rows: 1
@@ -411,56 +418,65 @@ reviewed material.
    </div>
    </details>
 
-Questions for further study
-----------------------------------------
+.. _questions-for-further-study:
 
-1. Beyond the consumers listed above, which devices need timing? What are their
-   device IDs, rack locations and connections? The rack spreadsheet and a current
-   DG645 AB/CD/EF/GH assignment sheet would complete the inventory.
-2. What are the actual lead times, pulse widths, polarities and timing tolerances
-   for those devices? The architecture names the consumers but does not give a
-   complete shot sequence or per-device settings.
-3. What does EVG selection of the beam path mean in operation? Which approved
-   modes, destinations and reduced-rate/dark patterns change that sequence?
-4. Is the planned Eiger timestamp plugin implemented and validated? Which frame
-   counters, accepted-trigger signals and ROENTek/SPECS tags are available to
-   detect missed triggers or data loss?
-5. Which installed firmware and IOC versions correspond to the source-defined
-   functions above? How do they handle protection clear, timing-link loss and PPS loss?
-6. Which context must change on each shot, rather than remain fixed for a run?
-   Would separate records, distributed bus bits or buffered metadata meet that need?
+Unresolved requirements
+-----------------------
 
-Directions to compare
---------------------------------------------
+The reviewed material leaves six groups of requirements unresolved.
 
-.. list-table:: Approaches for discussion
+.. list-table:: Information required to evaluate an allocation
+   :header-rows: 1
+   :widths: 25 75
+
+   * - Area
+     - Evidence still required
+   * - Equipment inventory
+     - Additional timing consumers, device IDs, rack locations and connections; the referenced rack spreadsheet and DG645 AB/CD/EF/GH output assignments.
+   * - Timing sequence
+     - Device lead times, pulse widths, polarities and tolerances, together with the complete shot sequence and per-device settings.
+   * - Operating modes
+     - The operational meaning of EVG beam-path selection, including destinations and reduced-rate or dark patterns.
+   * - Data correlation
+     - Implementation and validation of the Eiger timestamp plugin; available frame counters, accepted-trigger signals and ROENTek/SPECS tags for detecting lost triggers or data.
+   * - Installed implementation
+     - Firmware and IOC versions, protection-clear behavior, and responses to timing-link or PPS loss.
+   * - Per-shot context
+     - Which context changes between shots, and whether separate records, distributed bus bits or buffered metadata can transport and record it adequately.
+
+.. _directions-to-compare:
+
+Allocation strategies
+---------------------
+
+.. list-table:: Allocation strategies and evaluation criteria
    :header-rows: 1
    :widths: 25 40 35
 
-   * - Direction
+   * - Strategy
      - Potential advantage
-     - Main question
+     - Evaluation criterion
    * - Small set of shared cycle events
      - Many devices use the same reference with local delays; little namespace growth.
-     - Are common references sufficient for RF, lasers, diagnostics and experiments?
+     - Sufficiency of common references for RF, lasers, diagnostics and experiments.
    * - Additional subsystem events
      - RF, laser or experiment sequences can operate independently where required.
-     - Which independent occurrences justify a new code rather than another local mapping?
+     - Presence of independently scheduled occurrences requiring distinct event meanings.
    * - Events plus synchronized metadata
      - Shot identity, mode, destination and pattern can be associated with the timing reference.
-     - Can the inspected Osprey path support the required transport and recording, or are firmware/software changes or different hardware needed?
+     - Availability of the required transport and recording path in the installed implementation, or the extent of firmware, software or hardware changes required.
 
-These approaches can be combined. Compare them against the documented consumers,
-required timing precision, operating patterns, receiver capabilities and data
-correlation needs before selecting a CXFEL allocation. The earlier design-options
-dropdown describes the transport alternatives and their implementation limits.
+These strategies are compatible with one another. Their applicability depends
+on consumer requirements, timing precision, operating patterns, receiver
+capabilities and data-correlation requirements. The transport alternatives and
+implementation limits are assessed in the preceding source review.
 
 Facility event codes
 --------------------
 
-Select a facility to view the published values. Source dates are retained because
-assignments can change. These are documented examples and protocol functions,
-not complete operational event dictionaries.
+The following references document selected facility assignments and protocol
+functions. Each example is identified by its publication date and scope; none
+provides a complete current operational dictionary for direct adoption by CXFEL.
 
 .. raw:: html
 
