@@ -299,10 +299,30 @@ it is not a claim that Osprey assigns all sixteen values.
 
 .. _cxfel-event-concepts-to-compare:
 
-Illustrative CXFEL event allocation
------------------------------------
+.. _illustrative-cxfel-event-allocation:
 
-.. list-table:: Illustrative CXFEL values
+Example event-code assignments for CXFEL
+----------------------------------------
+
+This section covers five example event types: cycle start, shot preparation,
+the beam-shot reference, independent experiment timing and fault capture. These
+examples show how shared timing references could be organized. The reviewed
+records do not establish the proposed numbers as approved or installed CXFEL
+assignments.
+
+The architecture identifies RF, lasers, Quartz, PXI and detectors as timing
+consumers, but does not specify a complete operating sequence, device lead times
+or current receiver mappings. Separate codes for every device would therefore
+imply requirements that the available records do not establish. Devices responding
+to the same timing reference may share a code and use different local delays.
+
+The remaining values are left unassigned in this report because additional event
+meanings depend on those missing requirements and on the installed firmware's
+existing functions. This does not mean that CXFEL needs only five events. The
+Osprey acquisition, timestamp and protection functions are listed separately in
+the event-code space table above.
+
+.. list-table:: Example assignments; adoption not established by the reviewed records
    :header-rows: 1
    :widths: 15 24 36 25
 
@@ -331,10 +351,9 @@ Illustrative CXFEL event allocation
      - A notification to capture fault-related data.
      - Fault recording; protection actuation is separate.
 
-The examples distinguish preparation, a beam reference, independent experiment
-timing and fault capture. Values 16-18 illustrate a grouped cycle sequence;
-values 1 and 80 illustrate separate notification and experiment functions. The
-selection does not define complete category ranges or an approved allocation.
+Values 16-18 demonstrate grouping for a cycle sequence; values 1 and 80 represent
+notification and experiment functions. These choices do not define complete
+category ranges.
 
 The unresolved requirements are whether CYCLE_START and SHOT_PREPARE represent
 distinct necessary references, which consumers can share BEAM_SHOT, and how many
