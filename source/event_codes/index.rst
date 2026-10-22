@@ -304,25 +304,12 @@ it is not a claim that Osprey assigns all sixteen values.
 Example event-code assignments for CXFEL
 ----------------------------------------
 
-This section covers five example event types: cycle start, shot preparation,
-the beam-shot reference, independent experiment timing and fault capture. These
-examples show how shared timing references could be organized. The reviewed
-records do not establish the proposed numbers as approved or installed CXFEL
-assignments.
+Five example events are shown below. The reviewed records do not confirm these
+assignments. Other codes remain unassigned because operating sequences, device
+timing and existing firmware uses still need verification. Several devices may
+share one event, using different local delays.
 
-The architecture identifies RF, lasers, Quartz, PXI and detectors as timing
-consumers, but does not specify a complete operating sequence, device lead times
-or current receiver mappings. Separate codes for every device would therefore
-imply requirements that the available records do not establish. Devices responding
-to the same timing reference may share a code and use different local delays.
-
-The remaining values are left unassigned in this report because additional event
-meanings depend on those missing requirements and on the installed firmware's
-existing functions. This does not mean that CXFEL needs only five events. The
-Osprey acquisition, timestamp and protection functions are listed separately in
-the event-code space table above.
-
-.. list-table:: Example assignments; adoption not established by the reviewed records
+.. list-table:: Example CXFEL assignments
    :header-rows: 1
    :widths: 15 24 36 25
 
@@ -351,18 +338,12 @@ the event-code space table above.
      - A notification to capture fault-related data.
      - Fault recording; protection actuation is separate.
 
-Values 16-18 demonstrate grouping for a cycle sequence; values 1 and 80 represent
-notification and experiment functions. These choices do not define complete
-category ranges.
+Still to establish: whether cycle start and shot preparation need separate events,
+which devices can share the beam-shot reference, and how many experiment references
+are needed.
 
-The unresolved requirements are whether CYCLE_START and SHOT_PREPARE represent
-distinct necessary references, which consumers can share BEAM_SHOT, and how many
-independent experiment references are required.
-
-For example, LLRF and a detector can both use ``BEAM_SHOT`` with different local
-delays. Quartz can record continuously between 97 and 96, with its samples matched
-to shot times. The records describe that matching as planned; its current
-implementation and validation status needs confirmation.
+Quartz uses 97/96 to start/stop acquisition. Matching its samples to shot times
+is described as planned; implementation remains unconfirmed.
 
 Documented CXFEL requirements
 ----------------------------------------
