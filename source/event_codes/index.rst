@@ -10,6 +10,15 @@ functions and possible approaches for CXFEL. It is intended to support discussio
 of the timing architecture and event dictionary. The CXFEL values shown are
 examples for comparison, not a selected configuration.
 
+**At a glance**
+
+- An event code names a timing occurrence. Each receiver determines its local
+  action, output delay and pulse width.
+- Multiple devices can share an event code. Shot identity and detector acceptance
+  need separate definitions and records.
+- The tables distinguish source-defined functions, compatibility reservations
+  and possible CXFEL assignments. Installed support still needs verification.
+
 The two 8-bit channels
 ----------------------------------------
 
@@ -140,211 +149,6 @@ the receiver configuration identifies the output.
 
 Actions needed *before* the beam use an earlier preparation reference.
 The event code is reused on every shot; it does not identify an individual shot.
-
-Facility event codes
---------------------
-
-Select a facility to view the published values. Source dates are retained because
-assignments can change. These are documented examples and protocol functions,
-not complete operational event dictionaries.
-
-.. raw:: html
-
-   <details class="facility-codes" id="aps-codes">
-   <summary>APS / Argonne — 2025</summary>
-   <div class="facility-codes-body">
-
-Published timestamp and delay-compensation codes. The paper does not provide a complete machine-event allocation.
-
-.. list-table::
-   :header-rows: 1
-   :widths: 15 20 65
-
-   * - Decimal
-     - Hex
-     - Function
-   * - 112
-     - ``0x70``
-     - Shift a zero into the seconds register.
-   * - 113
-     - ``0x71``
-     - Shift a one into the seconds register.
-   * - 125
-     - ``0x7D``
-     - Reset the subsecond timestamp counter.
-   * - 126
-     - ``0x7E``
-     - Beacon used for delay compensation.
-
-Reference: `Fast Event System for the Advanced Photon Source <https://proceedings.jacow.org/icalepcs2025/pdf/WEBR001.pdf>`_, ICALEPCS 2025, pp. 838–839.
-
-.. raw:: html
-
-   </div>
-   </details>
-
-.. raw:: html
-
-   <details class="facility-codes" id="nsls-codes">
-   <summary>NSLS-II — 2009 design</summary>
-   <div class="facility-codes-body">
-
-Reserved codes from the timing-system design. These are protocol functions, not a complete list of machine triggers.
-
-.. list-table::
-   :header-rows: 1
-   :widths: 15 20 65
-
-   * - Decimal
-     - Hex
-     - Function
-   * - 0
-     - ``0x00``
-     - Null event.
-   * - 112
-     - ``0x70``
-     - Seconds bit: zero.
-   * - 113
-     - ``0x71``
-     - Seconds bit: one.
-   * - 122
-     - ``0x7A``
-     - Heartbeat.
-   * - 123
-     - ``0x7B``
-     - Synchronize prescalers.
-   * - 124
-     - ``0x7C``
-     - Increment the timestamp counter.
-   * - 125
-     - ``0x7D``
-     - Reset / latch the timestamp.
-   * - 127
-     - ``0x7F``
-     - End of sequence.
-
-Reference: :doc:`Timing System Design for the NSLS-II </internal/nsls2_timing_pdf>`, Joe DeLong, July 2009, p. 12.
-
-The `17 October 2025 · 34:51–37:31`_ discussion also identifies **15 (0x0F)**
-as an NSLS-II Linac-cycle reference at approximately 1 Hz, derived from the RF
-timing. This is a site-specific example from the meeting, not an Osprey-reserved
-value or a complete current NSLS-II dictionary.
-
-.. raw:: html
-
-   </div>
-   </details>
-
-.. raw:: html
-
-   <details class="facility-codes" id="lcls-codes">
-   <summary>SLAC / LCLS-I — 2009–2010</summary>
-   <div class="facility-codes-body">
-
-The experiment sequencer reserves a block of codes for user sequences. A separate code marks a Linac shot.
-
-.. list-table::
-   :header-rows: 1
-   :widths: 15 20 65
-
-   * - Decimal
-     - Hex
-     - Function
-   * - 67–98
-     - ``0x43–0x62``
-     - Experiment event codes; functions are assigned by the experiment.
-   * - 140
-     - ``0x8C``
-     - Linac-shot marker; also a start marker for experiment software.
-   * - 112
-     - ``0x70``
-     - Shift a zero for fiducial-ID distribution.
-   * - 113
-     - ``0x71``
-     - Shift a one for fiducial-ID distribution.
-   * - 125
-     - ``0x7D``
-     - Latch the shifted value and reset the timestamp counter.
-
-References: `Event Code Sequence User Manual, Revision C <https://www.slac.stanford.edu/grp/lcls/controls/global/sw/epics/app/Mpg/mpg-R2-5-1-2/documentation/EventCodeSequences/revisions/event_code_sequences_rev_c.pdf>`_, 27 April 2010, p. 6; `LCLS timing interface ICD 1.1-528 <https://www-ssrl.slac.stanford.edu/lcls/PRD/1.1-528-r0.pdf>`_, 2009, pp. 3–4. Code 140 does not guarantee usable beam. These references describe LCLS-I, not LCLS-II.
-
-.. raw:: html
-
-   </div>
-   </details>
-
-.. raw:: html
-
-   <details class="facility-codes" id="diamond-codes">
-   <summary>Diamond Light Source — 2010</summary>
-   <div class="facility-codes-body">
-
-The published EPICS example assigns the same reference event to generator and receiver records.
-
-.. list-table::
-   :header-rows: 1
-   :widths: 15 20 65
-
-   * - Decimal
-     - Hex
-     - Function
-   * - 32
-     - ``0x20``
-     - T-ZERO reference in the Linac EVG and EVR records.
-
-Reference: `Review of the Diamond Light Source Timing System — presentation <https://accelconf.web.cern.ch/r10/talks/wechb02_talk.pdf>`_, RuPAC 2010, slide 10. This is a documented example; the presentation does not provide a complete numeric allocation.
-
-.. raw:: html
-
-   </div>
-   </details>
-
-.. raw:: html
-
-   <details class="facility-codes" id="ess-codes">
-   <summary>ESS — 2023</summary>
-   <div class="facility-codes-body">
-
-The LLRF integration paper names the events below but does not give their numeric codes.
-
-.. list-table::
-   :header-rows: 1
-   :widths: 15 20 65
-
-   * - Decimal
-     - Hex
-     - Function
-   * - Not specified
-     - —
-     - RF Start: starts the modulator, LLRF and local protection-system acquisition.
-   * - Not specified
-     - —
-     - Beam Start: beam-envelope marker for LLRF.
-   * - Not specified
-     - —
-     - Beam End: beam-envelope marker for LLRF.
-
-Reference: `LLRF and Timing System Integration at ESS <https://accelconf.web.cern.ch/icalepcs2023/papers/thpdp051.pdf>`_, ICALEPCS 2023, p. 1426. Numeric assignments require a facility event dictionary.
-
-.. raw:: html
-
-   </div>
-   </details>
-
-.. raw:: html
-
-   <details class="facility-codes" id="xfel-codes">
-   <summary>European XFEL — 2022</summary>
-   <div class="facility-codes-body">
-
-The reviewed camera-integration reference uses a facility-wide train ID to associate data. It does not publish a numeric event-code allocation. A train ID identifies a particular train; it is not a fixed event code.
-
-Reference: `Synchronization of commercial camera data at the European XFEL <https://indico.psi.ch/event/12738/contributions/38944/>`_, NOBUGS 2022. A numeric event dictionary is required for a code-by-code comparison.
-
-.. raw:: html
-
-   </div>
-   </details>
 
 Osprey, NSLS-II and the CXFEL dictionary
 --------------------------------------------
@@ -626,17 +430,6 @@ Questions for further study
 6. Which context must change on each shot, rather than remain fixed for a run?
    Would separate records, distributed bus bits or buffered metadata meet that need?
 
-Practices to carry forward
---------------------------------------------
-
-- Include existing Osprey functions in the facility dictionary, with their source
-  and firmware scope. Distinguish protocol conventions from confirmed implementation.
-- Define shared occurrences before assigning numbers. Keep output delays and
-  pulse widths in the receiver configuration.
-- Treat shot identity and detector acceptance separately from the event code.
-- Leave expansion space. A new detector does not automatically need a new event.
-- Keep historical examples, source findings and possible CXFEL choices clearly labelled.
-
 Directions to compare
 --------------------------------------------
 
@@ -661,6 +454,211 @@ These approaches can be combined. Compare them against the documented consumers,
 required timing precision, operating patterns, receiver capabilities and data
 correlation needs before selecting a CXFEL allocation. The earlier design-options
 dropdown describes the transport alternatives and their implementation limits.
+
+Facility event codes
+--------------------
+
+Select a facility to view the published values. Source dates are retained because
+assignments can change. These are documented examples and protocol functions,
+not complete operational event dictionaries.
+
+.. raw:: html
+
+   <details class="facility-codes" id="aps-codes">
+   <summary>APS / Argonne — 2025</summary>
+   <div class="facility-codes-body">
+
+Published timestamp and delay-compensation codes. The paper does not provide a complete machine-event allocation.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 20 65
+
+   * - Decimal
+     - Hex
+     - Function
+   * - 112
+     - ``0x70``
+     - Shift a zero into the seconds register.
+   * - 113
+     - ``0x71``
+     - Shift a one into the seconds register.
+   * - 125
+     - ``0x7D``
+     - Reset the subsecond timestamp counter.
+   * - 126
+     - ``0x7E``
+     - Beacon used for delay compensation.
+
+Reference: `Fast Event System for the Advanced Photon Source <https://proceedings.jacow.org/icalepcs2025/pdf/WEBR001.pdf>`_, ICALEPCS 2025, pp. 838–839.
+
+.. raw:: html
+
+   </div>
+   </details>
+
+.. raw:: html
+
+   <details class="facility-codes" id="nsls-codes">
+   <summary>NSLS-II — 2009 design</summary>
+   <div class="facility-codes-body">
+
+Reserved codes from the timing-system design. These are protocol functions, not a complete list of machine triggers.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 20 65
+
+   * - Decimal
+     - Hex
+     - Function
+   * - 0
+     - ``0x00``
+     - Null event.
+   * - 112
+     - ``0x70``
+     - Seconds bit: zero.
+   * - 113
+     - ``0x71``
+     - Seconds bit: one.
+   * - 122
+     - ``0x7A``
+     - Heartbeat.
+   * - 123
+     - ``0x7B``
+     - Synchronize prescalers.
+   * - 124
+     - ``0x7C``
+     - Increment the timestamp counter.
+   * - 125
+     - ``0x7D``
+     - Reset / latch the timestamp.
+   * - 127
+     - ``0x7F``
+     - End of sequence.
+
+Reference: :doc:`Timing System Design for the NSLS-II </internal/nsls2_timing_pdf>`, Joe DeLong, July 2009, p. 12.
+
+The `17 October 2025 · 34:51–37:31`_ discussion also identifies **15 (0x0F)**
+as an NSLS-II Linac-cycle reference at approximately 1 Hz, derived from the RF
+timing. This is a site-specific example from the meeting, not an Osprey-reserved
+value or a complete current NSLS-II dictionary.
+
+.. raw:: html
+
+   </div>
+   </details>
+
+.. raw:: html
+
+   <details class="facility-codes" id="lcls-codes">
+   <summary>SLAC / LCLS-I — 2009–2010</summary>
+   <div class="facility-codes-body">
+
+The experiment sequencer reserves a block of codes for user sequences. A separate code marks a Linac shot.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 20 65
+
+   * - Decimal
+     - Hex
+     - Function
+   * - 67–98
+     - ``0x43–0x62``
+     - Experiment event codes; functions are assigned by the experiment.
+   * - 140
+     - ``0x8C``
+     - Linac-shot marker; also a start marker for experiment software.
+   * - 112
+     - ``0x70``
+     - Shift a zero for fiducial-ID distribution.
+   * - 113
+     - ``0x71``
+     - Shift a one for fiducial-ID distribution.
+   * - 125
+     - ``0x7D``
+     - Latch the shifted value and reset the timestamp counter.
+
+References: `Event Code Sequence User Manual, Revision C <https://www.slac.stanford.edu/grp/lcls/controls/global/sw/epics/app/Mpg/mpg-R2-5-1-2/documentation/EventCodeSequences/revisions/event_code_sequences_rev_c.pdf>`_, 27 April 2010, p. 6; `LCLS timing interface ICD 1.1-528 <https://www-ssrl.slac.stanford.edu/lcls/PRD/1.1-528-r0.pdf>`_, 2009, pp. 3–4. Code 140 does not guarantee usable beam. These references describe LCLS-I, not LCLS-II.
+
+.. raw:: html
+
+   </div>
+   </details>
+
+.. raw:: html
+
+   <details class="facility-codes" id="diamond-codes">
+   <summary>Diamond Light Source — 2010</summary>
+   <div class="facility-codes-body">
+
+The published EPICS example assigns the same reference event to generator and receiver records.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 20 65
+
+   * - Decimal
+     - Hex
+     - Function
+   * - 32
+     - ``0x20``
+     - T-ZERO reference in the Linac EVG and EVR records.
+
+Reference: `Review of the Diamond Light Source Timing System — presentation <https://accelconf.web.cern.ch/r10/talks/wechb02_talk.pdf>`_, RuPAC 2010, slide 10. This is a documented example; the presentation does not provide a complete numeric allocation.
+
+.. raw:: html
+
+   </div>
+   </details>
+
+.. raw:: html
+
+   <details class="facility-codes" id="ess-codes">
+   <summary>ESS — 2023</summary>
+   <div class="facility-codes-body">
+
+The LLRF integration paper names the events below but does not give their numeric codes.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 20 65
+
+   * - Decimal
+     - Hex
+     - Function
+   * - Not specified
+     - —
+     - RF Start: starts the modulator, LLRF and local protection-system acquisition.
+   * - Not specified
+     - —
+     - Beam Start: beam-envelope marker for LLRF.
+   * - Not specified
+     - —
+     - Beam End: beam-envelope marker for LLRF.
+
+Reference: `LLRF and Timing System Integration at ESS <https://accelconf.web.cern.ch/icalepcs2023/papers/thpdp051.pdf>`_, ICALEPCS 2023, p. 1426. Numeric assignments require a facility event dictionary.
+
+.. raw:: html
+
+   </div>
+   </details>
+
+.. raw:: html
+
+   <details class="facility-codes" id="xfel-codes">
+   <summary>European XFEL — 2022</summary>
+   <div class="facility-codes-body">
+
+The reviewed camera-integration reference uses a facility-wide train ID to associate data. It does not publish a numeric event-code allocation. A train ID identifies a particular train; it is not a fixed event code.
+
+Reference: `Synchronization of commercial camera data at the European XFEL <https://indico.psi.ch/event/12738/contributions/38944/>`_, NOBUGS 2022. A numeric event dictionary is required for a code-by-code comparison.
+
+.. raw:: html
+
+   </div>
+   </details>
 
 .. _APS / Argonne: https://proceedings.jacow.org/icalepcs2025/pdf/WEBR001.pdf
 .. _Diamond: https://accelconf.web.cern.ch/r10/papers/wechb02.pdf
