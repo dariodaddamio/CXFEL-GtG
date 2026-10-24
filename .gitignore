@@ -14,3 +14,7 @@ build/
 
 *.md
 *.py
+
+# Read-only experiment tools are maintained with the report.
+!tools/timing_check/*.py
+tools/timing_check/runs/

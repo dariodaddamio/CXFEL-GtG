@@ -1,0 +1,156 @@
+# Timestamp consistency experiment
+
+## Objective
+
+Measure timestamp agreement between receivers 10.139.5.195 and 10.139.5.198, and assess camera timestamp consistency and LED response during the same observation.
+
+## Setup
+
+The 60-second observation started on 2026-10-23 at 23:13:35.288589 UTC (16:13:35 Phoenix).
+
+| Device | IP address | PV prefix |
+|---|---|---|
+| Generator | 10.139.5.196 | EVT:DEV2:20: |
+| Receiver A | 10.139.5.195 | EVT:DEV2:10: |
+| Receiver B | 10.139.5.198 | EVT:DEV2:40: |
+| Camera | 192.168.2.1 | CAM:DEV2:20: |
+| IOC and analysis host | 10.139.4.59 | — |
+| Host camera interface | 192.168.2.100 | — |
+
+The operator confirmed that the LED is on a small breadboard connected to a DG645.
+The exact unit, output connector and circuit have not been recorded.
+The camera uses the timing system through its Line1 trigger input; the source cable is not verified.
+The fiber ports are not recorded. Existing receiver event streams agree with a common source.
+An exact hardware rebuild requires the missing cable and circuit records.
+
+Generator settings: 125 MHz reference; timer 1 sends event 101; divisor 31,250,000; rate 4 Hz.
+Both receivers log event 101. Timestamp resolution is 8 ns. Event logs are read once per second.
+Camera settings: Continuous; external trigger On; Line1; FrameStart; rising edge; 1 ms exposure.
+Timestamp and frame-ID modes are Camera. Images are 1200×900 Mono12.
+The sensor crop starts at column 600, row 400 on the 2464×2056 sensor.
+The LED analysis region uses image columns 300–699 and rows 550–849, starting at zero.
+
+A later read-only configuration check found event 101 on output 1 of receiver 10.139.5.197.
+Its pulse delay was 0 ns and width was 100,000 ns. Its cable destination remains unverified.
+Output 1 on 10.139.5.195 and 10.139.5.198 used event 125, with widths 50,000 and 100,000 ns.
+Outputs 2–8 were Static 0 on all three receivers.
+
+The development DG645 units have addresses 10.139.4.87 and 10.139.4.88.
+The first reported Internal trigger and prescale 1. The second reported External rising edge and prescale 2.
+Both reported trigger inhibit Triggers and burst mode Disabled.
+These are later configuration readbacks. They do not prove emitted pulse rates or identify the LED connection.
+Full delay, voltage and reference readbacks are saved in dg645-readback.json.
+Receiver settings are saved in output-routes-readback.json.
+
+## Procedure
+
+### Check the rack
+
+1. Use the existing EPICS environment on 10.139.4.59.
+2. Read the generator settings and both receiver states:
+
+```bash
+pvget -w 3 EVT:DEV2:20:Ref:Freq EVT:DEV2:20:EVG:TMR:1:event EVT:DEV2:20:EVG:TMR:1:divisor
+pvget -w 3 EVT:DEV2:10:APP:IPADDR EVT:DEV2:10:EVR:status EVT:DEV2:10:EVR:Lnk:Ok EVT:DEV2:10:EVR:TS:Ok
+pvget -w 3 EVT:DEV2:40:APP:IPADDR EVT:DEV2:40:EVR:status EVT:DEV2:40:EVR:Lnk:Ok EVT:DEV2:40:EVR:TS:Ok
+```
+
+3. Check that both addresses match the table and link/time validity are true.
+4. Decode status: 0x1=link up; 0x2=timestamp valid; 0x4=FIFO not empty; 0x8=FIFO overflow.
+5. Stop if link/time validity fails or overflow is set.
+6. Read the camera settings:
+
+```bash
+caget -a -w 3 CAM:DEV2:20:cam1:Acquire_RBV CAM:DEV2:20:cam1:ImageMode_RBV CAM:DEV2:20:cam1:AcquireTime_RBV CAM:DEV2:20:cam1:GC_TriggerMode_RBV CAM:DEV2:20:cam1:GC_TriggerSource_RBV CAM:DEV2:20:cam1:GC_TriggerSelector_RBV CAM:DEV2:20:cam1:TimeStampMode_RBV CAM:DEV2:20:cam1:UniqueIdMode_RBV
+caget -a -w 3 CAM:DEV2:20:cam1:MinX_RBV CAM:DEV2:20:cam1:MinY_RBV CAM:DEV2:20:cam1:SizeX_RBV CAM:DEV2:20:cam1:SizeY_RBV
+```
+
+7. Compare the readbacks with the setup values.
+8. Check that acquisition is active and the LED is visible.
+9. Check that at least 3 GB of disk space is free.
+10. Stop if settings differ. Obtain approval before any PV or hardware change.
+
+The active camera acquisition record can show STATE MINOR in its Acquiring state.
+A read failure or invalid record is a failure.
+The camera Channel Access address list must include 10.139.4.59:52002.
+Use EPICS_CA_MAX_ARRAY_BYTES=32000000 as configured on this host.
+
+### Record and analyze
+
+The camera environment uses Python 3.13.5, PyEPICS 3.5.10, NumPy 2.5.4 and Matplotlib 3.11.2.
+The system Python 3.9.25 provides p4p for the event recorder.
+The repository contains observe.py, event_logger.py, analyze.py and requirements.txt under tools/timing_check/.
+
+1. Run the recorder:
+
+```bash
+cd /home/cxfeldev/Desktop/dario
+OBS_DIR="$PWD/timing-check/observations/$(date -u +%Y%m%dT%H%M%SZ)"
+export PYEPICS_LIBCA=/usr/local/cxfel/epics/7-el9/base/lib/linux-x86_64/libca.so
+.venv-docs/bin/python -B cxfel-gtg/tools/timing_check/observe.py --event-python /usr/bin/python3 --seconds 60 --output "$OBS_DIR"
+```
+
+2. Read observation.json after the recorder finishes.
+3. Check that error is null and frame_queue_overruns is zero.
+4. Keep the image arrays, frames.csv, events.jsonl and baseline.json together.
+5. Run the analysis:
+
+```bash
+MPLCONFIGDIR="$PWD/.cache/matplotlib" .venv-docs/bin/python -B cxfel-gtg/tools/timing_check/analyze.py --input "$OBS_DIR" --output "$OBS_DIR/analysis"
+```
+
+6. Read analysis/results.json and both CSV files.
+7. Inspect receiver-offset.svg and camera-led.svg.
+
+The recorder subscribes to the existing camera and event logs. It makes no PV writes.
+It saves pixel arrays, frame IDs, camera times, IOC image times and host receipt times.
+Frame IDs must agree before and after each metadata read.
+Metadata update times must be within 10 ms of the image update.
+This association check does not measure trigger accuracy to 10 ms.
+
+The analysis removes padding and repeated receiver records, then excludes the first and last shared seconds.
+It matches event 101 by POSIX second and order within that second.
+Check unmatched counts and spacing because missing events can shift this matching method.
+It calculates t=10^9×Sec+NS with integer arithmetic, then subtracts receiver A from receiver B.
+Camera intervals are consecutive camera-clock differences. Standard deviations use the population formula, dividing by N.
+The LED is bright when its analysis-region peak exceeds 1000 raw counts; otherwise it is dim.
+Check this threshold again if the scene changes.
+
+The new offline analysis reproduced the saved observation results.
+The new recorder has not yet been validated with another live observation.
+
+## Results
+
+| Measurement | Result |
+|---|---|
+| Matched receiver events | 240; unmatched A/B=0/0 in the analyzed window |
+| Receiver timestamp difference B−A | Mean 0 ns; stddev 0 ns; range 0–0 ns |
+| Event-101 spacing | Exactly 250 ms throughout the logged intervals |
+| Camera sequence | 240 frames; IDs 50557–50796; no gaps or backwards timestamps |
+| Camera timestamp interval | Mean 249.996 ms; stddev 9.56 µs; range 249.9757–250.0009 ms |
+| Metadata checks / recorder overruns | 240 of 240 accepted / 0 |
+| LED images | 120 bright and 120 dim; strict alternation across all 239 adjacent pairs |
+
+The camera and receiver analysis windows have not been matched frame by frame. Equal counts do not prove a one-frame-per-event association. No PVs were changed, so restoration was not required.
+
+Raw arrays, frame records, event logs and numerical results are in camera-capture-20261023T231334Z-passive/. The documentation provides LED images, the recording, CSV records and experiment.json with explicit device IP mappings.
+
+### Receiver differences and LED recording
+
+![Receiver timestamp differences](../cxfel-gtg/source/_static/timing-check/evidence/receiver-offset.svg)
+
+![Camera intervals and LED states](../cxfel-gtg/source/_static/timing-check/evidence/camera-led.svg)
+
+![Recorded bright and dim LED frames](../cxfel-gtg/source/_static/timing-check/evidence/led-bright-dim.png)
+
+<video controls playsinline preload="metadata" width="720" src="../cxfel-gtg/source/_static/timing-check/evidence/cam2-led-passive.mp4"></video>
+
+The website displays all 240 receiver pairs and all 240 camera records beside the figures and video.
+
+## Findings
+
+The receivers at 10.139.5.195 and 10.139.5.198 assigned identical reported timestamps to every matched event. At 4 Hz and an 8 ns reporting tick, this supports common event timestamps as a correlation key across the tested receivers. It does not establish physical clock skew or sub-tick timing precision.
+
+Camera 192.168.2.1 produced an ordered sequence and stable sampled LED alternation. Its timestamp intervals varied by 9.56 µs standard deviation. This is variation in the camera's reported clock intervals, not electrical trigger jitter. The camera clock has not been calibrated to receiver POSIX time, and frames have not been assigned individual event IDs.
+
+For CXFEL, receiver timestamp consistency supports event-based data correlation. Camera data still require verified event tagging or clock calibration to join the facility timeline. Absolute UTC accuracy, physical trigger-to-exposure delay and complete 1 kHz logging are not established by this one-minute, 4 Hz experiment.

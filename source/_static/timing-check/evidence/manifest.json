@@ -1,0 +1,141 @@
+{
+  "capture_utc_date": "2026-10-23",
+  "files": {
+    "cam2-acquisition-journal.jsonl": {
+      "sha256": "b829912d27f65f6cbfdceb5d92bdd706e46af0ae6672e7fb373117efd2af8ca5",
+      "bytes": 804
+    },
+    "cam2-analysis.json": {
+      "sha256": "982810122a80f92de1ac03eabe51a941a680bad6ff1c15464d020e30d5a45f40",
+      "bytes": 2181
+    },
+    "cam2-capture-summary.json": {
+      "sha256": "a73d52c3010cadfc565dd23ac73b73cfd52d0ec187e4d56cdabf61762b445ee4",
+      "bytes": 343
+    },
+    "cam2-capture.mp4": {
+      "sha256": "0f4673d8ba4ce47b2f510ce3f7d2c5a41dba76c2fa98b3c7d68418713e0d8a28",
+      "bytes": 3297367
+    },
+    "cam2-frame-cadence.svg": {
+      "sha256": "03f96ec8d049f88d5deba715150c7f77e10ed08846a2649291bb1fe89232bf6b",
+      "bytes": 120896
+    },
+    "cam2-frames.csv": {
+      "sha256": "344aee1d56d25db6852fd9510a87c165580c1d68cf8529ab722ef65b2c2ab005",
+      "bytes": 25003
+    },
+    "cam2-led-passive.mp4": {
+      "sha256": "7dbc9e40ea57301ded51f579d6a2d6b714169bffa8b92c5ebc1b34c7d9cde2b5",
+      "bytes": 338352
+    },
+    "cam2-poster.png": {
+      "sha256": "2414808a8dff8146b5d3b8e59ced3c58e44e2445f61aabf50a87c4874c3e6a40",
+      "bytes": 108196
+    },
+    "cam2-response.png": {
+      "sha256": "a210536b2e18a36abd55ac94be4f365b044e09ddca1f900015d0442321af7724",
+      "bytes": 473550
+    },
+    "camera-audit.json": {
+      "sha256": "ba5cf7901ab87a03c8232ee7a9d099fded3668f02b965fccafe851203aab38ba",
+      "bytes": 19622
+    },
+    "camera-led.svg": {
+      "sha256": "4c5cf9546d56293aa1d21bb6ce6e641969da917bcf2b80be8270be54fcd7feba",
+      "bytes": 81770
+    },
+    "compare.py.txt": {
+      "sha256": "6c1b95608a2491fda251e73cd1135359cd9f80aa7a674193b48fd8af1e25a495",
+      "bytes": 8218
+    },
+    "comparison-summary.json": {
+      "sha256": "4e036f8ba2981f58fac3470ee9594794ef3ab58516013b5da65724fd07b56358",
+      "bytes": 14896
+    },
+    "dg645-readback.json": {
+      "sha256": "f2559b8eb7af0e1556a8a422ed46cc21ddd3c24d4a1522ae89f14974f78b7d07",
+      "bytes": 18240
+    },
+    "engineering-audit.txt": {
+      "sha256": "5dc604d6268e04d98b17bea654982e51b289ac4736f512c9bb1de4349cd782da",
+      "bytes": 19925
+    },
+    "experiment.json": {
+      "sha256": "c3cdb7fbd789f8d071b5263f3e2b7820610b934c222a57ac422e83cea341d7ac",
+      "bytes": 4952
+    },
+    "historical-camera-images.png": {
+      "sha256": "4ea2595ea516dfdb6155bb0e8c26942667128c94743fa144e07b926e455e90f3",
+      "bytes": 256114
+    },
+    "led-bright-dim.png": {
+      "sha256": "61c645f1c99982187d8686fc6ca08605305d6bdac9c4c787fb1c70ab41e91c26",
+      "bytes": 178793
+    },
+    "led-consistency-summary.json": {
+      "sha256": "3284388039c8c56fcb14d6fb580eecb06828c5604128697e7eeaeff4569cca63",
+      "bytes": 1677
+    },
+    "led-consistency.svg": {
+      "sha256": "90b0c59bdaa12c035a459882d61a5cdf7f9ac8b387bbb2fb5356509418899d0c",
+      "bytes": 95419
+    },
+    "led-frames.csv": {
+      "sha256": "be578efb3c59f89224daa824bb79c1186e242868ff37c9d6e898518e55e30777",
+      "bytes": 31992
+    },
+    "led-passive-raw-summary.json": {
+      "sha256": "a4b92c8792c28d33acdea8ae2e8fdeae754b1e8b5b74ab6ee09c29164eaf8d91",
+      "bytes": 404
+    },
+    "led-poster.png": {
+      "sha256": "e3f23363305227dabe2405005c7360aacbecf5e5e881717116505c6a607015f1",
+      "bytes": 40704
+    },
+    "led-run-receiver-matches.csv": {
+      "sha256": "c4ce7d3019267921bde119d840a54b87d3a56af62cf0d39aa3aa793c44f58802",
+      "bytes": 9523
+    },
+    "matched-events.csv": {
+      "sha256": "95a0c0cf43632990e47b2026d06e9208389c8963ee672f0fdcf2db17e6fbb8b3",
+      "bytes": 128015
+    },
+    "observation-tools.zip": {
+      "sha256": "b9fecf98292b789d7647bb1ef1b2d155b0b290bcd1a4d8a1317837f22ba9fddd",
+      "bytes": 6804
+    },
+    "offset-agreement.png": {
+      "sha256": "5b33efb3eb1a739e10c6414afa5ea6398e46bfaf733b35287029db9882dc032a",
+      "bytes": 61129
+    },
+    "offset-agreement.svg": {
+      "sha256": "97a06bde4654aea33020cfcba33274f962dd37d841757bdc387dcb559251b7a7",
+      "bytes": 362783
+    },
+    "output-routes-readback.json": {
+      "sha256": "fa9e3fb098ae450d75e3a0232cc952edb4a4bfbf0e1e533623b4b61b00491db2",
+      "bytes": 7814
+    },
+    "receiver-offset.svg": {
+      "sha256": "36f7d5acf5ef521c1b5ad95e68557526c9387c0a50e69267fa8582a85e7bd49a",
+      "bytes": 55418
+    },
+    "report.txt": {
+      "sha256": "05188f39a92e7ef944356e0e6a08493d3015f93711cfadcd35a730b70adbe050",
+      "bytes": 8951
+    },
+    "restoration.json": {
+      "sha256": "a97d65be4b282a24af762d57c5f9b491da6fe138ef5094e4b6c0b3132dc913d6",
+      "bytes": 89
+    },
+    "sanity-summary.json": {
+      "sha256": "08d35c9001937d2decdfb2686530a97e9b6bacf9acb6463f6f8a61741949b8de",
+      "bytes": 7805
+    },
+    "validation.txt": {
+      "sha256": "d00a410aa52b59a018814e57c61d8e381c41b6a294257d8ce31509f04800fdd2",
+      "bytes": 343
+    }
+  }
+}

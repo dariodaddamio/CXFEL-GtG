@@ -1,0 +1,438 @@
+{
+  "read_utc": "2026-10-23T23:46:35.381144+00:00",
+  "pv_writes": 0,
+  "outputs": [
+    {
+      "ip": "10.139.5.195",
+      "output": 1,
+      "source": {
+        "index": 1,
+        "choices": [
+          "Static 0",
+          "Pulse",
+          "Dbus 0",
+          "Static 1",
+          "MPS mitigation"
+        ]
+      },
+      "delay": 0.0,
+      "width": 50000.0,
+      "evt1": 125,
+      "evt2": 0
+    },
+    {
+      "ip": "10.139.5.195",
+      "output": 2,
+      "source": {
+        "index": 0,
+        "choices": [
+          "Static 0",
+          "Pulse",
+          "Dbus 1",
+          "Static 1",
+          "MPS mitigation"
+        ]
+      },
+      "delay": 0.0,
+      "width": 0.0,
+      "evt1": 0,
+      "evt2": 0
+    },
+    {
+      "ip": "10.139.5.195",
+      "output": 3,
+      "source": {
+        "index": 0,
+        "choices": [
+          "Static 0",
+          "Pulse",
+          "Dbus 2",
+          "Static 1",
+          "MPS mitigation"
+        ]
+      },
+      "delay": 0.0,
+      "width": 0.0,
+      "evt1": 0,
+      "evt2": 0
+    },
+    {
+      "ip": "10.139.5.195",
+      "output": 4,
+      "source": {
+        "index": 0,
+        "choices": [
+          "Static 0",
+          "Pulse",
+          "Dbus 3",
+          "Static 1",
+          "MPS mitigation"
+        ]
+      },
+      "delay": 0.0,
+      "width": 0.0,
+      "evt1": 0,
+      "evt2": 0
+    },
+    {
+      "ip": "10.139.5.195",
+      "output": 5,
+      "source": {
+        "index": 0,
+        "choices": [
+          "Static 0",
+          "Pulse",
+          "Dbus 4",
+          "Static 1",
+          "MPS mitigation"
+        ]
+      },
+      "delay": 0.0,
+      "width": 0.0,
+      "evt1": 0,
+      "evt2": 0
+    },
+    {
+      "ip": "10.139.5.195",
+      "output": 6,
+      "source": {
+        "index": 0,
+        "choices": [
+          "Static 0",
+          "Pulse",
+          "Dbus 5",
+          "Static 1",
+          "MPS mitigation"
+        ]
+      },
+      "delay": 0.0,
+      "width": 0.0,
+      "evt1": 0,
+      "evt2": 0
+    },
+    {
+      "ip": "10.139.5.195",
+      "output": 7,
+      "source": {
+        "index": 0,
+        "choices": [
+          "Static 0",
+          "Pulse",
+          "Dbus 6",
+          "Static 1",
+          "MPS mitigation"
+        ]
+      },
+      "delay": 0.0,
+      "width": 0.0,
+      "evt1": 0,
+      "evt2": 0
+    },
+    {
+      "ip": "10.139.5.195",
+      "output": 8,
+      "source": {
+        "index": 0,
+        "choices": [
+          "Static 0",
+          "Pulse",
+          "Dbus 7",
+          "Static 1",
+          "MPS mitigation"
+        ]
+      },
+      "delay": 0.0,
+      "width": 0.0,
+      "evt1": 0,
+      "evt2": 0
+    },
+    {
+      "ip": "10.139.5.197",
+      "output": 1,
+      "source": {
+        "index": 1,
+        "choices": [
+          "Static 0",
+          "Pulse",
+          "Dbus 0",
+          "Static 1",
+          "MPS mitigation"
+        ]
+      },
+      "delay": 0.0,
+      "width": 100000.0,
+      "evt1": 101,
+      "evt2": 0
+    },
+    {
+      "ip": "10.139.5.197",
+      "output": 2,
+      "source": {
+        "index": 0,
+        "choices": [
+          "Static 0",
+          "Pulse",
+          "Dbus 1",
+          "Static 1",
+          "MPS mitigation"
+        ]
+      },
+      "delay": 0.0,
+      "width": 0.0,
+      "evt1": 0,
+      "evt2": 0
+    },
+    {
+      "ip": "10.139.5.197",
+      "output": 3,
+      "source": {
+        "index": 0,
+        "choices": [
+          "Static 0",
+          "Pulse",
+          "Dbus 2",
+          "Static 1",
+          "MPS mitigation"
+        ]
+      },
+      "delay": 0.0,
+      "width": 0.0,
+      "evt1": 0,
+      "evt2": 0
+    },
+    {
+      "ip": "10.139.5.197",
+      "output": 4,
+      "source": {
+        "index": 0,
+        "choices": [
+          "Static 0",
+          "Pulse",
+          "Dbus 3",
+          "Static 1",
+          "MPS mitigation"
+        ]
+      },
+      "delay": 0.0,
+      "width": 0.0,
+      "evt1": 0,
+      "evt2": 0
+    },
+    {
+      "ip": "10.139.5.197",
+      "output": 5,
+      "source": {
+        "index": 0,
+        "choices": [
+          "Static 0",
+          "Pulse",
+          "Dbus 4",
+          "Static 1",
+          "MPS mitigation"
+        ]
+      },
+      "delay": 0.0,
+      "width": 0.0,
+      "evt1": 0,
+      "evt2": 0
+    },
+    {
+      "ip": "10.139.5.197",
+      "output": 6,
+      "source": {
+        "index": 0,
+        "choices": [
+          "Static 0",
+          "Pulse",
+          "Dbus 5",
+          "Static 1",
+          "MPS mitigation"
+        ]
+      },
+      "delay": 0.0,
+      "width": 0.0,
+      "evt1": 0,
+      "evt2": 0
+    },
+    {
+      "ip": "10.139.5.197",
+      "output": 7,
+      "source": {
+        "index": 0,
+        "choices": [
+          "Static 0",
+          "Pulse",
+          "Dbus 6",
+          "Static 1",
+          "MPS mitigation"
+        ]
+      },
+      "delay": 0.0,
+      "width": 0.0,
+      "evt1": 0,
+      "evt2": 0
+    },
+    {
+      "ip": "10.139.5.197",
+      "output": 8,
+      "source": {
+        "index": 0,
+        "choices": [
+          "Static 0",
+          "Pulse",
+          "Dbus 7",
+          "Static 1",
+          "MPS mitigation"
+        ]
+      },
+      "delay": 0.0,
+      "width": 0.0,
+      "evt1": 0,
+      "evt2": 0
+    },
+    {
+      "ip": "10.139.5.198",
+      "output": 1,
+      "source": {
+        "index": 1,
+        "choices": [
+          "Static 0",
+          "Pulse",
+          "Dbus 0",
+          "Static 1",
+          "MPS mitigation"
+        ]
+      },
+      "delay": 0.0,
+      "width": 100000.0,
+      "evt1": 125,
+      "evt2": 0
+    },
+    {
+      "ip": "10.139.5.198",
+      "output": 2,
+      "source": {
+        "index": 0,
+        "choices": [
+          "Static 0",
+          "Pulse",
+          "Dbus 1",
+          "Static 1",
+          "MPS mitigation"
+        ]
+      },
+      "delay": 0.0,
+      "width": 0.0,
+      "evt1": 0,
+      "evt2": 0
+    },
+    {
+      "ip": "10.139.5.198",
+      "output": 3,
+      "source": {
+        "index": 0,
+        "choices": [
+          "Static 0",
+          "Pulse",
+          "Dbus 2",
+          "Static 1",
+          "MPS mitigation"
+        ]
+      },
+      "delay": 0.0,
+      "width": 0.0,
+      "evt1": 0,
+      "evt2": 0
+    },
+    {
+      "ip": "10.139.5.198",
+      "output": 4,
+      "source": {
+        "index": 0,
+        "choices": [
+          "Static 0",
+          "Pulse",
+          "Dbus 3",
+          "Static 1",
+          "MPS mitigation"
+        ]
+      },
+      "delay": 0.0,
+      "width": 0.0,
+      "evt1": 0,
+      "evt2": 0
+    },
+    {
+      "ip": "10.139.5.198",
+      "output": 5,
+      "source": {
+        "index": 0,
+        "choices": [
+          "Static 0",
+          "Pulse",
+          "Dbus 4",
+          "Static 1",
+          "MPS mitigation"
+        ]
+      },
+      "delay": 0.0,
+      "width": 0.0,
+      "evt1": 0,
+      "evt2": 0
+    },
+    {
+      "ip": "10.139.5.198",
+      "output": 6,
+      "source": {
+        "index": 0,
+        "choices": [
+          "Static 0",
+          "Pulse",
+          "Dbus 5",
+          "Static 1",
+          "MPS mitigation"
+        ]
+      },
+      "delay": 0.0,
+      "width": 0.0,
+      "evt1": 0,
+      "evt2": 0
+    },
+    {
+      "ip": "10.139.5.198",
+      "output": 7,
+      "source": {
+        "index": 0,
+        "choices": [
+          "Static 0",
+          "Pulse",
+          "Dbus 6",
+          "Static 1",
+          "MPS mitigation"
+        ]
+      },
+      "delay": 0.0,
+      "width": 0.0,
+      "evt1": 0,
+      "evt2": 0
+    },
+    {
+      "ip": "10.139.5.198",
+      "output": 8,
+      "source": {
+        "index": 0,
+        "choices": [
+          "Static 0",
+          "Pulse",
+          "Dbus 7",
+          "Static 1",
+          "MPS mitigation"
+        ]
+      },
+      "delay": 0.0,
+      "width": 0.0,
+      "evt1": 0,
+      "evt2": 0
+    }
+  ]
+}

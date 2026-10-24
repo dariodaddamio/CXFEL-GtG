@@ -1,0 +1,692 @@
+{
+  "captured_utc": "2026-10-23T19:01:58.345602+00:00",
+  "read_only": true,
+  "cameras": {
+    "CAM:DEV2:10:": {
+      "records": {
+        "cam1:Acquire": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791581829.237507,
+          "posixseconds": 1791581829.0,
+          "nanoseconds": 237507994,
+          "value": 0,
+          "label": "Done"
+        },
+        "cam1:Acquire_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791581829.237512,
+          "posixseconds": 1791581829.0,
+          "nanoseconds": 237512543,
+          "value": 0,
+          "label": "Done"
+        },
+        "cam1:DetectorState_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791581829.237493,
+          "posixseconds": 1791581829.0,
+          "nanoseconds": 237493653,
+          "value": 0,
+          "label": "Idle"
+        },
+        "cam1:TimeStampMode_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791581829.386495,
+          "posixseconds": 1791581829.0,
+          "nanoseconds": 386495177,
+          "value": 0,
+          "label": "Camera"
+        },
+        "cam1:UniqueIdMode_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791581829.386497,
+          "posixseconds": 1791581829.0,
+          "nanoseconds": 386497467,
+          "value": 0,
+          "label": "Camera"
+        },
+        "cam1:AcquireTime_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791581829.23755,
+          "posixseconds": 1791581829.0,
+          "nanoseconds": 237550054,
+          "value": 0.0001
+        },
+        "cam1:ImageMode_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791581829.237525,
+          "posixseconds": 1791581829.0,
+          "nanoseconds": 237525963,
+          "value": 2,
+          "label": "Continuous"
+        },
+        "cam1:GC_TriggerMode_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791581829.237713,
+          "posixseconds": 1791581829.0,
+          "nanoseconds": 237713664,
+          "value": 1,
+          "label": "On"
+        },
+        "cam1:GC_TriggerSource_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791581829.237714,
+          "posixseconds": 1791581829.0,
+          "nanoseconds": 237714724,
+          "value": 1,
+          "label": "Line1"
+        },
+        "cam1:GC_TriggerSelector_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791581829.237712,
+          "posixseconds": 1791581829.0,
+          "nanoseconds": 237712544,
+          "value": 0,
+          "label": "FrameStart"
+        },
+        "cam1:ArrayCounter_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791581829.23748,
+          "posixseconds": 1791581829.0,
+          "nanoseconds": 237480253,
+          "value": 0
+        },
+        "cam1:GC_StatFrameDropped_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791581829.237695,
+          "posixseconds": 1791581829.0,
+          "nanoseconds": 237695594,
+          "value": 0
+        },
+        "image1:UniqueId_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791581829.185174,
+          "posixseconds": 1791581829.0,
+          "nanoseconds": 185174066,
+          "value": 0
+        },
+        "image1:TimeStamp_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791581829.185175,
+          "posixseconds": 1791581829.0,
+          "nanoseconds": 185175306,
+          "value": 0.0
+        },
+        "image1:ArrayCounter_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791581829.185179,
+          "posixseconds": 1791581829.0,
+          "nanoseconds": 185179916,
+          "value": 0
+        },
+        "image1:ArraySize0_RBV": {
+          "status": 17,
+          "severity": 3,
+          "timestamp": 631152000.0,
+          "posixseconds": 631152000.0,
+          "nanoseconds": 0,
+          "value": 0
+        },
+        "image1:ArraySize1_RBV": {
+          "status": 17,
+          "severity": 3,
+          "timestamp": 631152000.0,
+          "posixseconds": 631152000.0,
+          "nanoseconds": 0,
+          "value": 0
+        },
+        "image1:ArraySize2_RBV": {
+          "status": 17,
+          "severity": 3,
+          "timestamp": 631152000.0,
+          "posixseconds": 631152000.0,
+          "nanoseconds": 0,
+          "value": 0
+        }
+      },
+      "cached_frame": null
+    },
+    "CAM:DEV2:20:": {
+      "records": {
+        "cam1:Acquire": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791582157.668463,
+          "posixseconds": 1791582157.0,
+          "nanoseconds": 668463336,
+          "value": 0,
+          "label": "Done"
+        },
+        "cam1:Acquire_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791582156.562132,
+          "posixseconds": 1791582156.0,
+          "nanoseconds": 562132160,
+          "value": 0,
+          "label": "Done"
+        },
+        "cam1:DetectorState_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791582156.566119,
+          "posixseconds": 1791582156.0,
+          "nanoseconds": 566119355,
+          "value": 0,
+          "label": "Idle"
+        },
+        "cam1:TimeStampMode_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791296362.409988,
+          "posixseconds": 1791296362.0,
+          "nanoseconds": 409988072,
+          "value": 0,
+          "label": "Camera"
+        },
+        "cam1:UniqueIdMode_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791296362.409994,
+          "posixseconds": 1791296362.0,
+          "nanoseconds": 409994963,
+          "value": 0,
+          "label": "Camera"
+        },
+        "cam1:AcquireTime_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791581525.562996,
+          "posixseconds": 1791581525.0,
+          "nanoseconds": 562996094,
+          "value": 0.001
+        },
+        "cam1:ImageMode_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791296362.262671,
+          "posixseconds": 1791296362.0,
+          "nanoseconds": 262671779,
+          "value": 2,
+          "label": "Continuous"
+        },
+        "cam1:GC_TriggerMode_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791572899.540301,
+          "posixseconds": 1791572899.0,
+          "nanoseconds": 540301703,
+          "value": 1,
+          "label": "On"
+        },
+        "cam1:GC_TriggerSource_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791581552.161177,
+          "posixseconds": 1791581552.0,
+          "nanoseconds": 161177032,
+          "value": 1,
+          "label": "Line1"
+        },
+        "cam1:GC_TriggerSelector_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791296362.262864,
+          "posixseconds": 1791296362.0,
+          "nanoseconds": 262864239,
+          "value": 0,
+          "label": "FrameStart"
+        },
+        "cam1:ArrayCounter_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791582156.465985,
+          "posixseconds": 1791582156.0,
+          "nanoseconds": 465985912,
+          "value": 26212
+        },
+        "cam1:GC_StatFrameDropped_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791296362.262846,
+          "posixseconds": 1791296362.0,
+          "nanoseconds": 262846069,
+          "value": 0
+        },
+        "image1:UniqueId_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791582156.465795,
+          "posixseconds": 1791582156.0,
+          "nanoseconds": 465795141,
+          "value": 1707
+        },
+        "image1:TimeStamp_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791582156.465796,
+          "posixseconds": 1791582156.0,
+          "nanoseconds": 465796961,
+          "value": 9861904.3663498
+        },
+        "image1:ArrayCounter_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791582156.465793,
+          "posixseconds": 1791582156.0,
+          "nanoseconds": 465793821,
+          "value": 26212
+        },
+        "image1:ArraySize0_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791581669.36567,
+          "posixseconds": 1791581669.0,
+          "nanoseconds": 365670136,
+          "value": 1200
+        },
+        "image1:ArraySize1_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791581669.365671,
+          "posixseconds": 1791581669.0,
+          "nanoseconds": 365671116,
+          "value": 900
+        },
+        "image1:ArraySize2_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791581669.365676,
+          "posixseconds": 1791581669.0,
+          "nanoseconds": 365676446,
+          "value": 0
+        }
+      },
+      "cached_frame": {
+        "waveform_metadata": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1791582156.465786,
+          "posixseconds": 1791582156.0,
+          "nanoseconds": 465786681
+        },
+        "uid_before": 1707,
+        "uid_after": 1707,
+        "shape": [
+          900,
+          1200
+        ],
+        "pixel_min": 112,
+        "pixel_max": 301,
+        "pixel_mean": 205.7777064814815,
+        "historical_only": true
+      }
+    },
+    "CAM:DEV2:30:": {
+      "records": {
+        "cam1:Acquire": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790375643.426354,
+          "posixseconds": 1790375643.0,
+          "nanoseconds": 426354278,
+          "value": 0,
+          "label": "Done"
+        },
+        "cam1:Acquire_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790375643.323818,
+          "posixseconds": 1790375643.0,
+          "nanoseconds": 323818207,
+          "value": 0,
+          "label": "Done"
+        },
+        "cam1:DetectorState_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790375643.411964,
+          "posixseconds": 1790375643.0,
+          "nanoseconds": 411964020,
+          "value": 0,
+          "label": "Idle"
+        },
+        "cam1:TimeStampMode_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790353760.069234,
+          "posixseconds": 1790353760.0,
+          "nanoseconds": 69234298,
+          "value": 0,
+          "label": "Camera"
+        },
+        "cam1:UniqueIdMode_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790353760.069236,
+          "posixseconds": 1790353760.0,
+          "nanoseconds": 69236338,
+          "value": 0,
+          "label": "Camera"
+        },
+        "cam1:AcquireTime_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790353759.950461,
+          "posixseconds": 1790353759.0,
+          "nanoseconds": 950461685,
+          "value": 0.01
+        },
+        "cam1:ImageMode_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790353759.950432,
+          "posixseconds": 1790353759.0,
+          "nanoseconds": 950432455,
+          "value": 2,
+          "label": "Continuous"
+        },
+        "cam1:GC_TriggerMode_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790375638.653174,
+          "posixseconds": 1790375638.0,
+          "nanoseconds": 653174450,
+          "value": 1,
+          "label": "On"
+        },
+        "cam1:GC_TriggerSource_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790375621.904948,
+          "posixseconds": 1790375621.0,
+          "nanoseconds": 904948604,
+          "value": 1,
+          "label": "Line1"
+        },
+        "cam1:GC_TriggerSelector_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790353759.95062,
+          "posixseconds": 1790353759.0,
+          "nanoseconds": 950620026,
+          "value": 0,
+          "label": "FrameStart"
+        },
+        "cam1:ArrayCounter_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790375638.6547,
+          "posixseconds": 1790375638.0,
+          "nanoseconds": 654700302,
+          "value": 259
+        },
+        "cam1:GC_StatFrameDropped_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790353759.950602,
+          "posixseconds": 1790353759.0,
+          "nanoseconds": 950602406,
+          "value": 0
+        },
+        "image1:UniqueId_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790375638.655206,
+          "posixseconds": 1790375638.0,
+          "nanoseconds": 655206162,
+          "value": 17
+        },
+        "image1:TimeStamp_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790375638.655208,
+          "posixseconds": 1790375638.0,
+          "nanoseconds": 655208362,
+          "value": 8655391.4040193
+        },
+        "image1:ArrayCounter_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790375638.655204,
+          "posixseconds": 1790375638.0,
+          "nanoseconds": 655204602,
+          "value": 259
+        },
+        "image1:ArraySize0_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790354229.20388,
+          "posixseconds": 1790354229.0,
+          "nanoseconds": 203880265,
+          "value": 2464
+        },
+        "image1:ArraySize1_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790354229.203882,
+          "posixseconds": 1790354229.0,
+          "nanoseconds": 203882755,
+          "value": 2056
+        },
+        "image1:ArraySize2_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790354229.203883,
+          "posixseconds": 1790354229.0,
+          "nanoseconds": 203883555,
+          "value": 0
+        }
+      },
+      "cached_frame": {
+        "waveform_metadata": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790375638.655195,
+          "posixseconds": 1790375638.0,
+          "nanoseconds": 655195712
+        },
+        "uid_before": 17,
+        "uid_after": 17,
+        "shape": [
+          2056,
+          2464
+        ],
+        "pixel_min": 4,
+        "pixel_max": 137,
+        "pixel_mean": 16.43646150481328,
+        "historical_only": true
+      }
+    },
+    "CAM:DEV2:40:": {
+      "records": {
+        "cam1:Acquire": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790354177.103913,
+          "posixseconds": 1790354177.0,
+          "nanoseconds": 103913189,
+          "value": 0,
+          "label": "Done"
+        },
+        "cam1:Acquire_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790354176.961978,
+          "posixseconds": 1790354176.0,
+          "nanoseconds": 961978572,
+          "value": 0,
+          "label": "Done"
+        },
+        "cam1:DetectorState_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790354177.048899,
+          "posixseconds": 1790354177.0,
+          "nanoseconds": 48899745,
+          "value": 0,
+          "label": "Idle"
+        },
+        "cam1:TimeStampMode_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790354127.006,
+          "posixseconds": 1790354127.0,
+          "nanoseconds": 6000355,
+          "value": 0,
+          "label": "Camera"
+        },
+        "cam1:UniqueIdMode_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790354127.006006,
+          "posixseconds": 1790354127.0,
+          "nanoseconds": 6006095,
+          "value": 0,
+          "label": "Camera"
+        },
+        "cam1:AcquireTime_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790354126.886927,
+          "posixseconds": 1790354126.0,
+          "nanoseconds": 886927715,
+          "value": 0.01
+        },
+        "cam1:ImageMode_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790354126.886899,
+          "posixseconds": 1790354126.0,
+          "nanoseconds": 886899805,
+          "value": 2,
+          "label": "Continuous"
+        },
+        "cam1:GC_TriggerMode_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790354126.887097,
+          "posixseconds": 1790354126.0,
+          "nanoseconds": 887097066,
+          "value": 1,
+          "label": "On"
+        },
+        "cam1:GC_TriggerSource_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790354126.887098,
+          "posixseconds": 1790354126.0,
+          "nanoseconds": 887098176,
+          "value": 0,
+          "label": "Freerun"
+        },
+        "cam1:GC_TriggerSelector_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790354126.887095,
+          "posixseconds": 1790354126.0,
+          "nanoseconds": 887095966,
+          "value": 0,
+          "label": "FrameStart"
+        },
+        "cam1:ArrayCounter_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790354177.048845,
+          "posixseconds": 1790354177.0,
+          "nanoseconds": 48845965,
+          "value": 447
+        },
+        "cam1:GC_StatFrameDropped_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790354126.887073,
+          "posixseconds": 1790354126.0,
+          "nanoseconds": 887073786,
+          "value": 0
+        },
+        "image1:UniqueId_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790354177.04972,
+          "posixseconds": 1790354177.0,
+          "nanoseconds": 49720615,
+          "value": 447
+        },
+        "image1:TimeStamp_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790354177.049722,
+          "posixseconds": 1790354177.0,
+          "nanoseconds": 49722615,
+          "value": 89.5135632
+        },
+        "image1:ArrayCounter_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790354177.049718,
+          "posixseconds": 1790354177.0,
+          "nanoseconds": 49718986,
+          "value": 447
+        },
+        "image1:ArraySize0_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790354135.231332,
+          "posixseconds": 1790354135.0,
+          "nanoseconds": 231332621,
+          "value": 2464
+        },
+        "image1:ArraySize1_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790354135.231339,
+          "posixseconds": 1790354135.0,
+          "nanoseconds": 231339372,
+          "value": 2056
+        },
+        "image1:ArraySize2_RBV": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790354135.23134,
+          "posixseconds": 1790354135.0,
+          "nanoseconds": 231340541,
+          "value": 0
+        }
+      },
+      "cached_frame": {
+        "waveform_metadata": {
+          "status": 0,
+          "severity": 0,
+          "timestamp": 1790354177.049714,
+          "posixseconds": 1790354177.0,
+          "nanoseconds": 49714575
+        },
+        "uid_before": 447,
+        "uid_after": 447,
+        "shape": [
+          2056,
+          2464
+        ],
+        "pixel_min": 5,
+        "pixel_max": 109,
+        "pixel_mean": 16.46832007365203,
+        "historical_only": true
+      }
+    }
+  }
+}

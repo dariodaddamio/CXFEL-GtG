@@ -1,0 +1,177 @@
+# Osprey timing check — Steps 1–3
+
+## What this means for the LED/camera test
+
+**We have not measured camera frames per LED flash. No new camera images or video were acquired during Steps 1–3.** The completed result only establishes that two EVRs reported the same timestamps for a shared electronic event stream. It does not establish exposure/flash overlap or camera-event association.
+
+A subsequent read-only camera audit found all four cameras idle and configured for camera-clock timestamps. Camera 20 retained frame 1707 from October 9; cameras 30/40 retained frames from September 25. Cached camera image time values are not on the EVR POSIX time base. The cached images were retrieved and labeled as historical under camera-audit/; none is a frame from the timing test.
+
+The current first event-101 timestamp is 53.203928 ms after PPS. EVR 10 output 1 is configured for event 125 with a 50 microsecond pulse; EVR 20 output 1 is configured for event 101. Camera 20 is set to Line1-triggered FrameStart with a 1 ms exposure. IF the former drives the LED and the latter triggers camera 20, their windows would not overlap. That physical wiring, any DG645 delays and LED location in the image remain unverified.
+
+The next useful experiment is a bounded camera-20 capture with its existing trigger settings, saving every new frame and its metadata alongside the existing event logs. It will establish whether images arrive and whether a flash is visible. No camera PV writes have been made; acquisition still requires exact-command approval. A flash-to-frame table, brightness trace and missed-frame accounting cannot be supplied until fresh frames and an identifiable LED signal exist.
+
+Detailed engineering evidence follows; this summary takes precedence over reading the receiver-only result as an end-to-end camera success.
+
+Live audit on 2026-10-23, approximately 11:13–11:19 America/Phoenix. All work is under `~/Desktop/dario/timing-check/`. The user elected to proceed without a system snapshot. No PV writes or system changes were performed.
+
+## Inventory and tools
+
+PVA now works with the existing environment. `pvget`, `pvmonitor`, `caget`, `camonitor` and Python `p4p` are available. CA works for the cameras; the broad CA timing request timed out, while PVA resolved the timing PVs. No persistent EPICS environment changes were made. Tool paths and EPICS variables are in `inventory.json`.
+
+All eight timing IOC services `sioc-dev2-ev1@1` through `@8`, four Quartz acquisition IOC services and four camera IOC services are running on this host. A running IOC is not proof of a hardware connection. Startup files and substitution templates are captured in `source-snapshots.json`; live values with alarm information are in `live-pvs.json`.
+
+| Prefix | Device IP | Hardware / connection | EVR status | Link / timestamp | Nonzero map entries |
+|---|---|---|---|---|---|
+| `EVT:DEV2:10:` | 10.139.5.195 | EVR Only; Running | 8839 (`0x2287`) | up / valid | 101:0x20000, 125:0x20001 |
+| `EVT:DEV2:20:` | 10.139.5.196 | EVG/EVR; Running | 8839 (`0x2287`) | up / valid | 101:0x20001 |
+| `EVT:DEV2:30:` | 10.139.5.197 | EVR Only; Running | 8839 (`0x2287`) | up / valid | 101:0x20001 |
+| `EVT:DEV2:40:` | 10.139.5.198 | EVR Only; Running | 8839 (`0x2287`) | up / valid | 101:0x20000, 125:0x20001 |
+| `EVT:DEV2:50:` | 10.139.5.199 | EVR Only; Searching | 0 (`0x0000`) READ/INVALID | read error; value unusable | none |
+| `EVT:DEV2:60:` | 10.139.5.200 | EVR Only; Running | 8833 (`0x2281`) | up / invalid | none |
+| `EVT:DEV2:70:` | 10.139.5.201 | EVR Only; Running | 8833 (`0x2281`) | up / invalid | none |
+| `EVT:DEV2:80:` | 10.139.5.202 | EVR Only; Running | 8833 (`0x2281`) | up / invalid | none |
+
+Status decode: 0x1 link up; 0x2 timestamp valid; 0x4 FIFO not empty; 0x8 FIFO overflow. Thus 0x2287 has link, valid timestamp and nonempty FIFO, with overflow clear; 0x2281 has link only among those four flags. All trustworthy sampled status words have overflow clear. Status monitor updates are change-driven; these observations cannot exclude a transient between IOC scans.
+
+Only prefix **20** reports EVG/EVR mode among these eight instances. Prefixes 10, 30, 40, 60, 70 and 80 report EVR Only. Prefix 50 is Searching with READ/UDF alarms: its apparent default mode/status and empty map must not be interpreted as hardware readbacks.
+
+`EVR:now` values at the inventory read:
+
+| Prefix suffix | EVR:now (IOC local time) |
+|---|---|
+| 10 | 2026-10-23 11:14:17.946 |
+| 20 | 2026-10-23 11:14:18.590 |
+| 30 | 2026-10-23 11:14:18.506 |
+| 40 | 2026-10-23 11:14:17.855 |
+| 50 | 2106-02-06 23:28:16.000 |
+| 60 | 2106-02-06 23:28:16.000 |
+| 70 | 2106-02-06 23:28:16.000 |
+| 80 | 2106-02-06 23:28:16.000 |
+
+The year-2106 values on 50–80 are unusable timestamps. Prefix 50 has a hardware connection failure; 60–80 explicitly report invalid timestamp status despite link up.
+
+## EVG and inferred link topology
+
+EVG `EVT:DEV2:20:` is at 10.139.5.196. `EVG:status=3` reports PPS and time valid. Timer 1 selects event 101 with divisor 31,250,000 and reference frequency 125 MHz, consistent with 4 Hz. All other timer event selections are zero; all eight sequencer code arrays contain only zero, hardware-trigger selections and sequencer hardware-trigger masks are zero, and heartbeat divisor is zero. These are IOC settings for write-only registers where applicable, not independent hardware readbacks. Timer status currently has a READ/INVALID alarm, so its numeric zero cannot establish a stopped timer; the event logs establish actual 4 Hz arrivals.
+
+EVG link round-trip diagnostics (ns):
+
+| Port | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---|---|---|---|---|---|---|---|---|
+| Latency | 159.2 | 6553.5 | 162.4 | 380.0 | 376.7 | 374.0 | 6553.5 | 6553.5 |
+
+Finite short latencies on ports 1, 3, 4, 5 and 6 are consistent with connected links; 6553.5 is a saturated/invalid-looking result and must not be treated as measured cable latency. Receiver-only devices return -0.1 ns in their EVG latency records, which is not a valid measurement.
+
+**Inferred topology:** EVG 20 supplies the common event-101 stream observed on digital receivers 10, 30 and 40, with its local EVR 20 also logging that stream. Evidence: only 20 has generator mode, its sole configured nonzero timer produces exactly the observed 4 Hz event, and all four logs contain consecutive event-101 timestamps at 250,000,000 ns intervals in overlapping POSIX seconds. This is strong operational evidence for multiple receivers on a common timing source, but not a verified physical port-to-device map. Other timing sources outside this inventory cannot be excluded.
+
+The audit checked live compressed device metadata (APP:JSON), IOC startup/substitution files, timing source, link diagnostics and local configuration. The exposed link diagnostics provide latency and optical telemetry but no remote receiver identity or upstream EVG identifier. No cable map was found. `device-metadata.json` and `topology-audit.json` record the metadata audit. No invasive link interruption or test-event insertion was used to identify cables.
+
+Four Quartz acquisition IOCs are also running with prefixes `MDAS:01:`–`MDAS:04:` and configured IPs .191–.194 on 10.139.5.x. They use the atf-acq-ioc/PSC acquisition interface, not the inspected digital EVR NTTable interface. Their upstream fiber connections remain unassigned. atf-engine runs with root `/u1/cxfel/atf-data`; this is evidence of an acquisition service, not of camera-frame recording. The first two Quartz startup files both specify CA port 53802; this apparent configuration conflict was observed without changing it.
+
+## Ten-second event observation
+
+Raw atomic NTTable updates and status notifications: `step1-monitor.jsonl`; every received row, including zero padding: `step1-rows.csv`; counts: `step1-summary.json`. Each device delivered 11 batches during the 10-second subscription, including its initial cached batch. Counts therefore span eleven event seconds and must not be divided by ten to infer a 4.4 Hz rate.
+
+| Prefix suffix | Event 101 rows | Event 125 rows | PPS NS range |
+|---|---|---|---|
+| 10 | 44 | 11 | 8.0–8.0 |
+| 20 | 44 | 0 | not observed |
+| 30 | 44 | 0 | not observed |
+| 40 | 44 | 11 | 8.0–8.0 |
+| 50 | 0 | 0 | not observed |
+| 60 | 0 | 0 | not observed |
+| 70 | 0 | 0 | not observed |
+| 80 | 0 | 0 | not observed |
+
+On each of 10, 20, 30 and 40, all 43 successive event-101 intervals were exactly 250,000,000 ns, establishing 4 Hz in the sampled stream. On 10 and 40, all ten PPS second increments were exactly +1; every PPS NS value was 8 ns (one 125 MHz clock tick). These are preliminary Step 1 observations, not the requested two-minute Step 2 test or a cross-receiver jitter measurement.
+
+Events 112 and 113 were not selected for logging in any live map, so their on-wire presence/rate cannot be directly established by these logs. Timestamp-valid flags on 10–40 are indirect evidence that time synchronization has occurred. Event 125 is directly observed at 1 Hz on 10 and 40. Prefixes 20 and 30 log only 101, so failure to see PPS there is a logging-filter limitation.
+
+Map action bit 17 (0x20000) logs events; bit 0 drives output 1 pulses. Hence 10/40 log 101 and 125, with output 1 on 125; 20/30 log and pulse output 1 on 101. Full live maps contained no other nonzero entries. Nothing in any map was changed.
+
+**Logging capacity finding:** connected EVRs returned 85-element columns, with unused all-zero triples padded out. Their live register metadata reports `EVR:evnt:log.addr_width=8`, i.e. a 256-word register region. With the template offset of one word and three words per event, this accommodates 85 triples per register read even though the IOC arrays declare NELM=128. This indicates a tighter per-read limit than the handoff assumed; sustainable throughput and FIFO behavior still require the approved rate sweep. The disconnected prefix 50 returned default 128-element all-zero arrays, which are not hardware data.
+
+Host receipt time minus event time ranged approximately 1.92–3.77 seconds across these logs. This includes cached initial delivery, IOC batching/transport and possible host-versus-EVG clock offset; it does not measure timing-link latency or receiver synchronization. It should be separated from hardware timestamp agreement in later analysis.
+
+## Camera and flashing LED
+
+All four `CAM:DEV2:10:`–`40:` camera IOCs respond over CA and currently report Acquire=Done and DetectorState=Idle. Camera/image-array counters are 0, 26212, 259 and 447 respectively; their record timestamps show previous activity, not activity during this audit. Trigger selections: 10/20/30 use TriggerMode=On, FrameStart, Line1, RisingEdge; 40 reports Freerun. The image callbacks are enabled with STATE/MINOR alarms. Details are saved in `camera-details.txt`.
+
+Live EVT output 1: 10 pulses event 125 with width 50,000 ns; 20/30 pulse event 101 with width 100,000 ns; 40 pulses event 125 with width 100,000 ns. All delays are zero; outputs 2–8 have Static 0 sources. These assignments identify possible camera/LED trigger signals but do not establish which physical cable drives the camera or LED. No wiring association was found in the audited configuration.
+
+The camera startup path loads the image-array plugin and comments out common file-saving plugins. Existing image counters show that frames have been received historically; no camera is currently acquiring, and no camera-specific frame recorder was identified among local processes. External or remote frame recording cannot be ruled out.
+
+## Steps 2–4 and changes
+
+| Step | State |
+|---|---|
+| 2: Two-minute sanity | Completed read-only on all eight EVRs; results below. |
+| 3: Receiver comparison | Completed at 10 Hz for five minutes; 2,990 complete-second matches, 0 ns measured offset and jitter. All four changed PVs and all eight maps restored. See detailed results below. |
+| 4: Rate sweep | Not run; no rate changes approved. No high-rate overflow or loss measurements exist. |
+
+Steps 1–2 made no PV changes. Step 3 made the four explicitly approved changes listed below and restored them. No firmware operations, IOC restarts or protection/MPS actions. The snapshot requirement was explicitly waived by the user; no system restore point exists. Existing project backup remains under `../backups/`.
+
+## Step 2: Two-minute sanity results
+
+Capture duration: 120.000076 seconds; artifacts: `sanity-20261023T182706Z/raw.jsonl`, `rows.csv`, and `summary.json`. `sanity.py` performs monitor subscriptions and gets only. Each log delivered 121 batches, including one initial cached batch. Counts below include that batch; the 121 PPS points span 120 consecutive seconds.
+
+| Prefix suffix | Valid event rows | PPS count | PPS NS min/max | PPS second increments | Backwards timestamps | Overflow / valid status samples |
+|---|---|---|---|---|---|---|
+| 10 | 605 | 121 | 8.0/8.0 | {'1': 120} | 0 | 0/59 |
+| 20 | 484 | 0 | not logged | not logged | 0 | 0/59 |
+| 30 | 484 | 0 | not logged | not logged | 0 | 0/59 |
+| 40 | 605 | 121 | 8.0/8.0 | {'1': 120} | 0 | 0/59 |
+| 50 | 0 | 0 | unavailable | unavailable | unavailable | 0/0 |
+| 60 | 0 | 0 | no valid time | not observable | no event data | 0/59 |
+| 70 | 0 | 0 | no valid time | not observable | no event data | 0/59 |
+| 80 | 0 | 0 | no valid time | not observable | no event data | 0/59 |
+
+Receivers 10 and 40 pass the observed PPS cadence and phase checks: all 120 second increments are +1 and every PPS NS is 8. No backwards timestamps, NS values outside [0, 1e9), malformed columns or embedded FIFO-overflow flags were found in the four working logs. Receivers 20 and 30 pass event ordering and sampled validity checks but their PPS tests remain unobservable because 125 is not selected in the existing maps.
+
+Prefix 50 had 121 log updates with READ/INVALID alarms and all 59 status samples invalid: no timestamp or overflow conclusion is available. Prefixes 60–80 produced no valid event rows and reported timestamp-invalid in all 59 trustworthy status samples; they fail the timestamp-validity prerequisite. Their sampled overflow bits were clear, but that does not establish useful acquisition.
+
+Status was polled approximately every two seconds, in addition to subscriptions. The IOC itself scans status every two seconds, so zero observed overflow does not exclude an unlatched transient between hardware reads.
+
+Clock comparison: numeric EVR:now_ trailed host receipt by 1.8896–2.8399 seconds on 10–40. Log receipt minus event timestamp ranged 1.9246–3.3085 seconds. Seconds agree with the wall-clock date and are within a few seconds, but absolute UTC accuracy is unresolved because the PV values are sampled/cached. `chronyc tracking` reported host system time 14.650 microseconds slow of its NTP source, with normal leap status; this is a host synchronization diagnostic, not an independent hardware-time calibration. Saved in `host-clock.txt`.
+
+Additional diagnosis: the EVG at prefix 20 reports firmware hash 21560185169b8edfee28edb9daa7b1193f696c92; receivers 10/30/40 report 55055dbc8b759fa7583893f4fe13c51c3f5223e0. Unlike the receivers' newer metadata, the EVG metadata has no EVG:TMR:control or EVG:TMR:status registers. This explains its timer status READ alarm and timer-start WRITE alarm; these records predate our work and were not written. The initial timer-control investigation used the receiver revision and was corrected after checking the generator's actual revision.
+
+The actual EVG revision enables each timer when its event code is nonzero and disables it when zero; divisor writes are corrected by -2 in the driver. Thus the proposed 10 Hz test uses timer 2 event/divisor only and does not touch the unsupported start/reset records. The upstream source was inspected read-only and saved as `evg-live-driver.c` and `evg-live-hdl.v`. See the exact command proposal in `STEP3-PROPOSAL.txt`. Step 3 was subsequently approved and completed; see results below.
+
+## Step 3: Approved two-receiver comparison
+
+The user approved STEP3-PROPOSAL.txt with “it looks good.” Only those exact setup/restoration PV writes were executed. A first preflight attempt stopped before any puts because disconnected prefix 50 exposed an empty map. The second preflight explicitly recorded that known disconnected device as unobservable while checking all connected receivers. It did not claim that an unreadable map established code availability.
+
+Event 42 was generated solely through timer 2 on EVG 20 and observed at exactly 10 Hz on receivers A=10 and B=40 before the timed run. This controlled insertion confirms that both receivers receive the test stream from the same generator. The exact physical fiber port-to-device mapping remains unknown.
+
+The capture lasted **300.000219 seconds**. Each receiver contributed **3000 / 3000** selected test-event rows after initial cached batches were excluded. To avoid partial-capture ordinal misalignment, the first and last shared event seconds were removed from the statistical window: **10 rows from A and 10 from B**. The resulting 299 full seconds each contain exactly ten events per receiver.
+
+| Metric | Measured result |
+|---|---|
+| Matched events in complete seconds | 2,990 |
+| Unmatched A / B in that window | 0 / 0 |
+| Mean offset, B minus A | 0 ns |
+| Population standard deviation | 0 ns |
+| Minimum / maximum offset | 0 / 0 ns |
+| Fitted drift | 0 ns/s; 0 ns over 298.9 s matched-event span |
+| Cross-second rollover candidates within 1 ms | 0 |
+| Mid-capture monitor disconnections | 0 |
+
+The initial two “Disconnected” notifications occur before either subscription receives its first value and are normal connection-establishment notifications. They are retained in raw evidence and classified separately, not counted as live disconnections.
+
+The original untrimmed ordinal analysis included a false -100 ms pairing in the first partial second. Inspection showed that one receiver had one event and the other had two at that boundary. `summary-before-boundary-trimming.json` and `matches-before-boundary-trimming.csv` preserve that analysis; the complete-second policy corrects it without discarding interior outliers or changing raw data. The boundary-handling code passed a synthetic case with unequal partial capture ends.
+
+**Interpretation:** these receivers assigned identical reported timestamps to every matched test event in the complete-second window, at the configured **8 ns timestamp tick resolution**. This supports relative timestamp agreement on this rack during this test; it does not establish sub-tick jitter, cable delay compensation, absolute UTC accuracy, or high-rate acquisition performance. All test events were about 84.4 ms after a second boundary plus 100 ms intervals; none exercised an extremely close PPS rollover. A zero rollover-candidate count is not a dedicated rollover stress test.
+
+Artifacts: `compare-20261023T184553Z/raw.jsonl`, `rows.csv`, `matches.csv`, and `summary.json`. Approved writes, readbacks, baseline and restoration evidence: `step3-20261023T184544Z/`. `compare.py` is the read-only collector/analyzer; `run_step3.py` executes only the approved writes and restores in a finally block.
+
+### Changed PVs and restoration
+
+| PV | Original | Test | Restored |
+|---|---:|---:|---:|
+| EVT:DEV2:10:EVR:LOG:evt3 | 0 | 42 | 0 |
+| EVT:DEV2:40:EVR:LOG:evt3 | 0 | 42 | 0 |
+| EVT:DEV2:20:EVG:TMR:2:divisor | 2147483647 | 12500000 | 2147483647 |
+| EVT:DEV2:20:EVG:TMR:2:event | 0 | 42 | 0 |
+
+`result.json` records restored=true, error=null and no restoration failures. All four PV values and all eight maps matched their baselines. After draining cached batches, event 42 disappeared and the original 125/101 streams continued on both receivers. No global timer start/reset, output settings, reserved events, protection/MPS, firmware or IOC lifecycle settings were changed. Step 4 has not been approved or run.
