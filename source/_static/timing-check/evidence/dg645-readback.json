@@ -1,0 +1,711 @@
+{
+  "read_utc": "2026-10-23T23:46:14.895666+00:00",
+  "pv_writes": 0,
+  "configuration_only": true,
+  "pvs": {
+    "DGEN:DEV2:20:Label": {
+      "status": 17,
+      "severity": 0,
+      "timestamp": 631152000.0,
+      "posixseconds": 631152000.0,
+      "nanoseconds": 0,
+      "value": "DGEN Devel #2 - EVG/EVR #1"
+    },
+    "DGEN:DEV2:20:IdentSI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.038416,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 38416393,
+      "value": "SRS DG645,s/n010941,ver1.19.118"
+    },
+    "DGEN:DEV2:20:TriggerSourceMI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.103187,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 103187828,
+      "value": 0,
+      "label": "Internal"
+    },
+    "DGEN:DEV2:20:TriggerRateAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.037376,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 37376689,
+      "value": 1000.0
+    },
+    "DGEN:DEV2:20:TriggerLevelAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.04389,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 43890812,
+      "value": 1.0
+    },
+    "DGEN:DEV2:20:TriggerInhibitMI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.104032,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 104032704,
+      "value": 1,
+      "label": "Triggers"
+    },
+    "DGEN:DEV2:20:TriggerPrescaleLI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.092571,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 92571245,
+      "value": 1
+    },
+    "DGEN:DEV2:20:BurstModeBI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.077378,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 77378565,
+      "value": 0,
+      "label": "Disabled"
+    },
+    "DGEN:DEV2:20:BurstCountLI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.101239,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 101239030,
+      "value": 1
+    },
+    "DGEN:DEV2:20:BurstPeriodAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.047264,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 47264221,
+      "value": 0.0001
+    },
+    "DGEN:DEV2:20:BurstDelayAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.046087,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 46087351,
+      "value": 0.0
+    },
+    "DGEN:DEV2:20:AReferenceMI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.106198,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 106198315,
+      "value": 0,
+      "label": "T0"
+    },
+    "DGEN:DEV2:20:ADelayAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.048296,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 48296833,
+      "value": 0.0
+    },
+    "DGEN:DEV2:20:BReferenceMI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.107428,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 107428320,
+      "value": 1,
+      "label": "A"
+    },
+    "DGEN:DEV2:20:BDelayAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.050589,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 50589765,
+      "value": 1e-08
+    },
+    "DGEN:DEV2:20:CReferenceMI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.108445,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 108445625,
+      "value": 0,
+      "label": "T0"
+    },
+    "DGEN:DEV2:20:CDelayAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.052888,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 52888580,
+      "value": 0.000926
+    },
+    "DGEN:DEV2:20:DReferenceMI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.109488,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 109488838,
+      "value": 3,
+      "label": "C"
+    },
+    "DGEN:DEV2:20:DDelayAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.055248,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 55248687,
+      "value": 2e-05
+    },
+    "DGEN:DEV2:20:EReferenceMI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.110773,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 110773305,
+      "value": 0,
+      "label": "T0"
+    },
+    "DGEN:DEV2:20:EDelayAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.057621,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 57621748,
+      "value": 0.0
+    },
+    "DGEN:DEV2:20:FReferenceMI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.11181,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 111810474,
+      "value": 5,
+      "label": "E"
+    },
+    "DGEN:DEV2:20:FDelayAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.059917,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 59917405,
+      "value": 1e-08
+    },
+    "DGEN:DEV2:20:GReferenceMI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.113167,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 113167910,
+      "value": 0,
+      "label": "T0"
+    },
+    "DGEN:DEV2:20:GDelayAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.062279,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 62279955,
+      "value": 0.0
+    },
+    "DGEN:DEV2:20:HReferenceMI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.114211,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 114211576,
+      "value": 7,
+      "label": "G"
+    },
+    "DGEN:DEV2:20:HDelayAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.064416,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 64416962,
+      "value": 1e-08
+    },
+    "DGEN:DEV2:20:T0OutputAmpAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.066497,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 66497737,
+      "value": 4.0
+    },
+    "DGEN:DEV2:20:T0OutputOffsetAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.067663,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 67663433,
+      "value": 0.0
+    },
+    "DGEN:DEV2:20:T0OutputPolarityBI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.08772,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 87720322,
+      "value": 1,
+      "label": "POS"
+    },
+    "DGEN:DEV2:20:ABOutputAmpAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.068495,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 68495304,
+      "value": 4.0
+    },
+    "DGEN:DEV2:20:ABOutputOffsetAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.069413,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 69413843,
+      "value": 0.0
+    },
+    "DGEN:DEV2:20:ABOutputPolarityBI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.088608,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 88608557,
+      "value": 1,
+      "label": "POS"
+    },
+    "DGEN:DEV2:20:CDOutputAmpAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.070497,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 70497619,
+      "value": 2.5
+    },
+    "DGEN:DEV2:20:CDOutputOffsetAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.071396,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 71396062,
+      "value": 0.0
+    },
+    "DGEN:DEV2:20:CDOutputPolarityBI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.089495,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 89495906,
+      "value": 1,
+      "label": "POS"
+    },
+    "DGEN:DEV2:20:EFOutputAmpAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.072545,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 72545183,
+      "value": 2.5
+    },
+    "DGEN:DEV2:20:EFOutputOffsetAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.073471,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 73471868,
+      "value": 0.0
+    },
+    "DGEN:DEV2:20:EFOutputPolarityBI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.090544,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 90544631,
+      "value": 1,
+      "label": "POS"
+    },
+    "DGEN:DEV2:20:GHOutputAmpAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.074369,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 74369497,
+      "value": 2.5
+    },
+    "DGEN:DEV2:20:GHOutputOffsetAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.075528,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 75528896,
+      "value": 0.0
+    },
+    "DGEN:DEV2:20:GHOutputPolarityBI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.091432,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 91432433,
+      "value": 1,
+      "label": "POS"
+    },
+    "DGEN:DEV2:30:Label": {
+      "status": 17,
+      "severity": 0,
+      "timestamp": 631152000.0,
+      "posixseconds": 631152000.0,
+      "nanoseconds": 0,
+      "value": "DGEN Devel #3 - EVG/EVR #2"
+    },
+    "DGEN:DEV2:30:IdentSI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.019592,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 19592164,
+      "value": "SRS DG645,s/n011444,ver1.19.118"
+    },
+    "DGEN:DEV2:30:TriggerSourceMI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.067573,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 67573055,
+      "value": 1,
+      "label": "Ext rising edge"
+    },
+    "DGEN:DEV2:30:TriggerRateAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.018566,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 18566783,
+      "value": 1000.0
+    },
+    "DGEN:DEV2:30:TriggerLevelAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.023527,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 23527636,
+      "value": 1.0
+    },
+    "DGEN:DEV2:30:TriggerInhibitMI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.068177,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 68177954,
+      "value": 1,
+      "label": "Triggers"
+    },
+    "DGEN:DEV2:30:TriggerPrescaleLI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.059843,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 59843259,
+      "value": 2
+    },
+    "DGEN:DEV2:30:BurstModeBI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.048771,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 48771566,
+      "value": 0,
+      "label": "Disabled"
+    },
+    "DGEN:DEV2:30:BurstCountLI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.06607,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 66070466,
+      "value": 2
+    },
+    "DGEN:DEV2:30:BurstPeriodAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.025928,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 25928296,
+      "value": 0.0001
+    },
+    "DGEN:DEV2:30:BurstDelayAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.025237,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 25237735,
+      "value": 0.0
+    },
+    "DGEN:DEV2:30:AReferenceMI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.069808,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 69808205,
+      "value": 0,
+      "label": "T0"
+    },
+    "DGEN:DEV2:30:ADelayAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.026735,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 26735646,
+      "value": 0.0
+    },
+    "DGEN:DEV2:30:BReferenceMI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.070621,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 70621530,
+      "value": 1,
+      "label": "A"
+    },
+    "DGEN:DEV2:30:BDelayAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.02851,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 28510989,
+      "value": 1.15e-06
+    },
+    "DGEN:DEV2:30:CReferenceMI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.071423,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 71423308,
+      "value": 0,
+      "label": "T0"
+    },
+    "DGEN:DEV2:30:CDelayAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.030372,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 30372687,
+      "value": 0.0
+    },
+    "DGEN:DEV2:30:DReferenceMI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.072431,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 72431270,
+      "value": 3,
+      "label": "C"
+    },
+    "DGEN:DEV2:30:DDelayAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.03223,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 32230221,
+      "value": 1e-08
+    },
+    "DGEN:DEV2:30:EReferenceMI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.073239,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 73239194,
+      "value": 0,
+      "label": "T0"
+    },
+    "DGEN:DEV2:30:EDelayAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.033886,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 33886924,
+      "value": 0.0
+    },
+    "DGEN:DEV2:30:FReferenceMI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.074043,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 74043246,
+      "value": 5,
+      "label": "E"
+    },
+    "DGEN:DEV2:30:FDelayAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.035743,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 35743552,
+      "value": 1e-08
+    },
+    "DGEN:DEV2:30:GReferenceMI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.075046,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 75046409,
+      "value": 0,
+      "label": "T0"
+    },
+    "DGEN:DEV2:30:GDelayAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.037623,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 37623978,
+      "value": 0.0
+    },
+    "DGEN:DEV2:30:HReferenceMI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.075849,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 75849797,
+      "value": 7,
+      "label": "G"
+    },
+    "DGEN:DEV2:30:HDelayAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.039307,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 39307021,
+      "value": 1e-08
+    },
+    "DGEN:DEV2:30:T0OutputAmpAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.040946,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 40946434,
+      "value": 2.5
+    },
+    "DGEN:DEV2:30:T0OutputOffsetAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.041628,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 41628094,
+      "value": 0.0
+    },
+    "DGEN:DEV2:30:T0OutputPolarityBI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.056231,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 56231987,
+      "value": 1,
+      "label": "POS"
+    },
+    "DGEN:DEV2:30:ABOutputAmpAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.0425,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 42500035,
+      "value": 3.5
+    },
+    "DGEN:DEV2:30:ABOutputOffsetAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.043186,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 43186643,
+      "value": 0.0
+    },
+    "DGEN:DEV2:30:ABOutputPolarityBI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.056883,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 56883051,
+      "value": 1,
+      "label": "POS"
+    },
+    "DGEN:DEV2:30:CDOutputAmpAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.043864,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 43864511,
+      "value": 2.5
+    },
+    "DGEN:DEV2:30:CDOutputOffsetAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.044742,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 44742910,
+      "value": 0.0
+    },
+    "DGEN:DEV2:30:CDOutputPolarityBI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.057676,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 57676814,
+      "value": 1,
+      "label": "POS"
+    },
+    "DGEN:DEV2:30:EFOutputAmpAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.045417,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 45417579,
+      "value": 2.5
+    },
+    "DGEN:DEV2:30:EFOutputOffsetAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.046145,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 46145062,
+      "value": 0.0
+    },
+    "DGEN:DEV2:30:EFOutputPolarityBI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.058332,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 58332132,
+      "value": 1,
+      "label": "POS"
+    },
+    "DGEN:DEV2:30:GHOutputAmpAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.046772,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 46772812,
+      "value": 2.5
+    },
+    "DGEN:DEV2:30:GHOutputOffsetAI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.047663,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 47663913,
+      "value": 0.0
+    },
+    "DGEN:DEV2:30:GHOutputPolarityBI": {
+      "status": 0,
+      "severity": 0,
+      "timestamp": 1788630696.058986,
+      "posixseconds": 1788630696.0,
+      "nanoseconds": 58986606,
+      "value": 1,
+      "label": "POS"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "run": "camera-capture-20261023T231334Z-passive",
+  "read_only": true,
+  "pv_writes": 0,
+  "camera_frames": 240,
+  "camera_frame_id_first": 50557,
+  "camera_frame_id_last": 50796,
+  "camera_frame_id_gaps": 0,
+  "camera_backwards_timestamps": 0,
+  "camera_interval_seconds": {
+    "count": 239,
+    "mean": 0.24999646527196653,
+    "stddev": 9.559534169900103e-06,
+    "minimum": 0.2499757,
+    "maximum": 0.2500009
+  },
+  "receiver_matched_events": 240,
+  "receiver_unmatched_a": 0,
+  "receiver_unmatched_b": 0,
+  "receiver_mean_offset_ns": 0,
+  "receiver_offset_stddev_ns": 0.0,
+  "receiver_offset_min_ns": 0,
+  "receiver_offset_max_ns": 0,
+  "receiver_analyzed_seconds": [
+    1792797212,
+    1792797271
+  ],
+  "receiver_boundary_policy": "First/last shared event seconds excluded; event and camera windows are not per-frame associated.",
+  "led_bright_frames": 120,
+  "led_dim_frames": 120,
+  "led_adjacent_repeated_states": 0,
+  "led_lag2_state_mismatches": 0,
+  "led_roi": {
+    "x_min": 300,
+    "x_max_exclusive": 700,
+    "y_min": 550,
+    "y_max_exclusive": 850
+  },
+  "led_criterion": "Bright if maximum raw Mono12 count in this region exceeds 1000; image classification only, not optical pulse timing.",
+  "clock_mapping": "Camera time has not been calibrated to EVR POSIX time. No absolute camera-to-event delay is claimed.",
+  "example_utc_timestamps": [
+    {
+      "a": "23:13:32.053203928",
+      "b": "23:13:32.053203928",
+      "offset_ns": 0
+    },
+    {
+      "a": "23:14:02.053203928",
+      "b": "23:14:02.053203928",
+      "offset_ns": 0
+    },
+    {
+      "a": "23:14:31.803203928",
+      "b": "23:14:31.803203928",
+      "offset_ns": 0
+    }
+  ]
+}

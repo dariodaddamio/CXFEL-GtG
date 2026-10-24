@@ -1,0 +1,161 @@
+#!/usr/bin/env python3
+"""Read-only comparison of two EVR NTTables. No PV writes."""
+import argparse
+import bisect
+import collections
+import csv
+import datetime
+import json
+from pathlib import Path
+import queue
+import statistics
+import time
+
+from p4p.client.thread import Context
+
+OUT = Path(__file__).resolve().parent
+
+def plain(v):
+    if hasattr(v,'todict'):
+        return plain(v.todict())
+    if isinstance(v,dict):
+        return {k:plain(w) for k,w in v.items()}
+    if hasattr(v,'tolist'):
+        return plain(v.tolist())
+    if isinstance(v,(list,tuple)):
+        return [plain(w) for w in v]
+    if isinstance(v,Exception):
+        return {'error':type(v).__name__+': '+str(v)}
+    return v
+
+def timestamp(row):
+    return row['seconds']*1_000_000_000+round(row['ns'])
+
+def analyze(a, b, trim_boundary_seconds=False):
+    """Match event/second/ordinal; offsets and slope use integer timestamp differences."""
+    original_counts=(len(a),len(b))
+    first=last=None
+    if trim_boundary_seconds and a and b:
+        first=max(min(r['seconds'] for r in a),min(r['seconds'] for r in b))+1
+        last=min(max(r['seconds'] for r in a),max(r['seconds'] for r in b))-1
+        a=[r for r in a if first<=r['seconds']<=last]
+        b=[r for r in b if first<=r['seconds']<=last]
+    def indexed(rows):
+        counts=collections.Counter()
+        result={}
+        for row in rows:
+            pair=(row['event'],row['seconds'])
+            ordinal=counts[pair]; counts[pair]+=1
+            result[pair+(ordinal,)]=row
+        return result
+    ia,ib=indexed(a),indexed(b)
+    keys=sorted(ia.keys() & ib.keys())
+    only_a=sorted(ia.keys()-ib.keys()); only_b=sorted(ib.keys()-ia.keys())
+    offsets=[timestamp(ib[k])-timestamp(ia[k]) for k in keys]
+    origin=timestamp(ia[keys[0]]) if keys else 0
+    elapsed=[(timestamp(ia[k])-origin)/1e9 for k in keys]
+    slope=None
+    if len(elapsed)>1:
+        mx=statistics.mean(elapsed); my=statistics.mean(offsets)
+        denom=sum((x-mx)**2 for x in elapsed)
+        if denom:
+            slope=sum((x-mx)*(y-my) for x,y in zip(elapsed,offsets))/denom
+    rollover=[]
+    # Independent nearest-time audit catches cross-second pairs that ordinal matching misses.
+    by_event=collections.defaultdict(list)
+    for row in b:
+        by_event[row['event']].append((timestamp(row),row))
+    for event,items in by_event.items():
+        items.sort(key=lambda item:item[0])
+    for row in a:
+        ns=row['ns']
+        if not (ns<1_000_000 or ns>999_000_000):
+            continue
+        items=by_event[row['event']]; times=[item[0] for item in items]
+        at=bisect.bisect_left(times,timestamp(row))
+        candidates=items[max(0,at-1):at+1]
+        if not candidates:
+            continue
+        t,other=min(candidates,key=lambda item:abs(item[0]-timestamp(row)))
+        delta=t-timestamp(row)
+        if other['seconds']!=row['seconds'] and abs(delta)<=1_000_000:
+            rollover.append(dict(a=row,b=other,offset_ns=delta))
+    result=dict(matched=len(keys),unmatched_a=len(only_a),unmatched_b=len(only_b),
+                boundary_seconds_excluded=trim_boundary_seconds,
+                analyzed_seconds_first=first,analyzed_seconds_last=last,
+                boundary_excluded_rows_a=original_counts[0]-len(a),
+                boundary_excluded_rows_b=original_counts[1]-len(b),
+                counts_by_second_a=dict(collections.Counter(r['seconds'] for r in a)),
+                counts_by_second_b=dict(collections.Counter(r['seconds'] for r in b)),
+                unmatched_keys_a=only_a,unmatched_keys_b=only_b,
+                mean_offset_b_minus_a_ns=statistics.mean(offsets) if offsets else None,
+                offset_population_stddev_ns=statistics.pstdev(offsets) if offsets else None,
+                offset_min_ns=min(offsets) if offsets else None,
+                offset_max_ns=max(offsets) if offsets else None,
+                drift_ns_per_second=slope,
+                fitted_drift_over_span_ns=slope*(max(elapsed)-min(elapsed)) if slope is not None else None,
+                matched_span_seconds=max(elapsed)-min(elapsed) if elapsed else None,
+                rollover_cross_second_candidates=rollover,
+                matching_caveat='Ordinal matching can mispair pulses after a loss within a second. Inspect unmatched counts and offset outliers. Rollover candidates indicate close timestamps across a second boundary; they are not proof of which receiver is wrong.')
+    matches=[dict(event=k[0],seconds=k[1],ordinal=k[2],a_ns=ia[k]['ns'],b_ns=ib[k]['ns'],offset_ns=d)
+             for k,d in zip(keys,offsets)]
+    return result,matches
+
+def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--a',default='EVT:DEV2:10:EVR:LOG')
+    parser.add_argument('--b',default='EVT:DEV2:40:EVR:LOG')
+    parser.add_argument('--minutes',type=float,default=5)
+    parser.add_argument('--event',type=int,default=42)
+    args=parser.parse_args()
+    if args.minutes<=0 or not 1<=args.event<=255 or args.a==args.b:
+        parser.error('Use a positive duration, distinct PVs and event 1–255')
+    stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ')
+    dest=OUT/('compare-'+stamp);dest.mkdir()
+    context=Context('pva',nt=False);q=queue.Queue();subs=[]
+    for label,pv in [('A',args.a),('B',args.b)]:
+        subs.append(context.monitor(pv,lambda v,label=label,pv=pv:q.put((time.time(),label,pv,plain(v))),
+                                    notify_disconnect=True))
+    selected={'A':[],'B':[]};seen={'A':set(),'B':set()};batches=collections.Counter();issues=[]
+    began=time.time();deadline=time.monotonic()+args.minutes*60
+    print('Capturing read-only into',dest,flush=True)
+    with (dest/'raw.jsonl').open('w') as raw,(dest/'rows.csv').open('w',newline='') as f:
+        writer=csv.writer(f)
+        writer.writerow(['received_unix','receiver','pv','batch','row','event_word','event','seconds','ns',
+                         'zero_padding','alarm_severity','initial_cached_batch','duplicate_batch'])
+        while time.monotonic()<deadline:
+            try:
+                received,label,pv,value=q.get(timeout=min(.25,max(.001,deadline-time.monotonic())))
+            except queue.Empty:
+                continue
+            raw.write(json.dumps(dict(received_unix=received,receiver=label,pv=pv,data=value))+'\n')
+            if 'value' not in value:
+                issues.append(dict(receiver=label,data=value));continue
+            batch=batches[label];batches[label]+=1
+            cols=value['value'];severity=value.get('alarm',{}).get('severity',3)
+            if len({len(cols[k]) for k in ['evt','sec','ns']})!=1:
+                issues.append(dict(receiver=label,batch=batch,error='unequal columns'));continue
+            signature=json.dumps([value.get('timeStamp'),cols],sort_keys=True)
+            duplicate=signature in seen[label];seen[label].add(signature)
+            for row,(e,s,n) in enumerate(zip(cols['evt'],cols['sec'],cols['ns'])):
+                zero=e==s==n==0;event=e&255
+                writer.writerow([received,label,pv,batch,row,e,event,s,n,int(zero),severity,int(batch==0),int(duplicate)])
+                if severity==0 and batch>0 and not duplicate and not zero and event==args.event:
+                    selected[label].append(dict(event=event,seconds=s,ns=n))
+            raw.flush();f.flush()
+    ended=time.time()
+    for sub in subs:sub.close()
+    context.close()
+    result,matches=analyze(selected['A'],selected['B'],trim_boundary_seconds=True)
+    result.update(configuration=vars(args),started_unix=began,ended_unix=ended,
+                  duration_seconds=ended-began,batches=dict(batches),issues=issues,
+                  selected_rows_a=len(selected['A']),selected_rows_b=len(selected['B']),
+                  initial_cached_batches_excluded=True)
+    (dest/'summary.json').write_text(json.dumps(result,indent=2)+'\n')
+    with (dest/'matches.csv').open('w',newline='') as f:
+        writer=csv.DictWriter(f,fieldnames=['event','seconds','ordinal','a_ns','b_ns','offset_ns'])
+        writer.writeheader();writer.writerows(matches)
+    print(json.dumps(result,indent=2),flush=True)
+
+if __name__=='__main__':
+    main()

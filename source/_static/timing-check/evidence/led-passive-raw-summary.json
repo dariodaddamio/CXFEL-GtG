@@ -1,0 +1,13 @@
+{
+  "error": null,
+  "frames_saved": 240,
+  "metadata_consistent_frames": 240,
+  "frame_queue_overruns": 0,
+  "acquire_restored": false,
+  "passive": true,
+  "pv_writes": 0,
+  "acquire_at_end": 1,
+  "flash_association": "Not established: LED image region and camera-to-EVR clock relation require validation.",
+  "recording_started_unix": 1792797215.2885895,
+  "recording_ended_unix": 1792797275.394009
+}

@@ -1,0 +1,4 @@
+{"time_unix": 1792784010.2653823, "action": "put_attempt", "command": ["pvput", "-p", "ca", "-w", "3", "CAM:DEV2:20:cam1:Acquire", "1"]}
+{"time_unix": 1792784010.3116527, "action": "put_result", "command": ["pvput", "-p", "ca", "-w", "3", "CAM:DEV2:20:cam1:Acquire", "1"], "exit_code": 0, "stdout": "Old : 2026-10-09 14:42:37.668  (0) Done\nNew : 2026-10-23 12:33:30.311  (1) Acquire\n", "stderr": ""}
+{"time_unix": 1792784070.3808463, "action": "put_attempt", "command": ["pvput", "-p", "ca", "-w", "3", "CAM:DEV2:20:cam1:Acquire", "0"]}
+{"time_unix": 1792784070.4279373, "action": "put_result", "command": ["pvput", "-p", "ca", "-w", "3", "CAM:DEV2:20:cam1:Acquire", "0"], "exit_code": 0, "stdout": "Old : 2026-10-23 12:33:30.317  (1) Acquire\nNew : 2026-10-23 12:34:30.427  (0) Done\n", "stderr": ""}

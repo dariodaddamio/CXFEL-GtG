@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "title": "Timestamp consistency experiment",
+  "objective": "Measure agreement between event timestamps at two receivers and consistency of camera timestamps and sampled LED states.",
+  "observation": {
+    "date": "2026-10-23",
+    "duration_seconds": 60,
+    "start_utc": "2026-10-23T23:13:35.288589+00:00",
+    "mode": "passive",
+    "pv_writes": 0
+  },
+  "devices": {
+    "generator": {
+      "ip": "10.139.5.196",
+      "event_code": 101,
+      "event_rate_hz": 4
+    },
+    "receiver_a": {
+      "ip": "10.139.5.195",
+      "log_pv": "EVT:DEV2:10:EVR:LOG"
+    },
+    "receiver_b": {
+      "ip": "10.139.5.198",
+      "log_pv": "EVT:DEV2:40:EVR:LOG"
+    },
+    "camera": {
+      "ip": "192.168.2.1",
+      "prefix": "CAM:DEV2:20:",
+      "trigger_source": "Line1",
+      "trigger_selector": "FrameStart",
+      "trigger_edge": "RisingEdge",
+      "exposure_seconds": 0.001,
+      "image_size_pixels": [
+        1200,
+        900
+      ],
+      "pixel_format": "Mono12",
+      "timestamp_mode": "Camera",
+      "sensor_crop": {
+        "x": 600,
+        "y": 400,
+        "width": 1200,
+        "height": 900
+      }
+    },
+    "led": {
+      "type": "LED on a small breadboard",
+      "source": "DG645",
+      "connection_evidence": "Operator confirmation",
+      "unit_ip": null,
+      "output_connector": null,
+      "circuit": "Not recorded"
+    }
+  },
+  "method": {
+    "receiver_matching": [
+      "event_code",
+      "posix_seconds",
+      "ordinal_within_second"
+    ],
+    "exclude_partial_edge_seconds": true,
+    "timestamp_resolution_ns": 8,
+    "stddev": "population",
+    "frame_metadata_max_update_difference_seconds": 0.01,
+    "led_roi": {
+      "x_min": 300,
+      "x_max_exclusive": 700,
+      "y_min": 550,
+      "y_max_exclusive": 850
+    },
+    "led_bright_threshold_counts": 1000
+  },
+  "results": {
+    "run": "camera-capture-20261023T231334Z-passive",
+    "read_only": true,
+    "pv_writes": 0,
+    "camera_frames": 240,
+    "camera_frame_id_first": 50557,
+    "camera_frame_id_last": 50796,
+    "camera_frame_id_gaps": 0,
+    "camera_backwards_timestamps": 0,
+    "camera_interval_seconds": {
+      "count": 239,
+      "mean": 0.24999646527196653,
+      "stddev": 9.559534169900103e-06,
+      "minimum": 0.2499757,
+      "maximum": 0.2500009
+    },
+    "receiver_matched_events": 240,
+    "receiver_unmatched_a": 0,
+    "receiver_unmatched_b": 0,
+    "receiver_mean_offset_ns": 0,
+    "receiver_offset_stddev_ns": 0.0,
+    "receiver_offset_min_ns": 0,
+    "receiver_offset_max_ns": 0,
+    "receiver_analyzed_seconds": [
+      1792797212,
+      1792797271
+    ],
+    "receiver_boundary_policy": "First/last shared event seconds excluded; event and camera windows are not per-frame associated.",
+    "led_bright_frames": 120,
+    "led_dim_frames": 120,
+    "led_adjacent_repeated_states": 0,
+    "led_lag2_state_mismatches": 0,
+    "led_roi": {
+      "x_min": 300,
+      "x_max_exclusive": 700,
+      "y_min": 550,
+      "y_max_exclusive": 850
+    },
+    "led_criterion": "Bright if maximum raw Mono12 count in this region exceeds 1000; image classification only, not optical pulse timing.",
+    "clock_mapping": "Camera time has not been calibrated to EVR POSIX time. No absolute camera-to-event delay is claimed.",
+    "example_utc_timestamps": [
+      {
+        "a": "23:13:32.053203928",
+        "b": "23:13:32.053203928",
+        "offset_ns": 0
+      },
+      {
+        "a": "23:14:02.053203928",
+        "b": "23:14:02.053203928",
+        "offset_ns": 0
+      },
+      {
+        "a": "23:14:31.803203928",
+        "b": "23:14:31.803203928",
+        "offset_ns": 0
+      }
+    ]
+  },
+  "artifacts": {
+    "receiver_records": "led-run-receiver-matches.csv",
+    "camera_records": "led-frames.csv",
+    "recording": "cam2-led-passive.mp4",
+    "led_images": "led-bright-dim.png"
+  },
+  "source_run": "camera-capture-20261023T231334Z-passive",
+  "connections": {
+    "camera_trigger_input": "Line1",
+    "camera_trigger_source_cable": "Not verified",
+    "timing_fiber_ports": "Not recorded",
+    "generator_to_receivers": "Consistent event streams; cable ports unverified"
+  },
+  "network": {
+    "ioc_analysis_host": "10.139.4.59",
+    "camera_host_interface": "192.168.2.100"
+  },
+  "setup_audit": {
+    "dg645": "dg645-readback.json",
+    "outputs": "output-routes-readback.json",
+    "caveat": "Readbacks collected after observation; configured routes are not measured waveforms or cable identification"
+  },
+  "reproduction": {
+    "tool_directory": "tools/timing_check",
+    "tool_bundle": "observation-tools.zip",
+    "duration_seconds": 60,
+    "pv_writes": 0,
+    "analysis_validation": "Reproduced saved observation results",
+    "new_recorder_validation": "Not yet validated with a new live observation",
+    "environment": {
+      "camera_python": "3.13.5",
+      "event_python": "3.9.25",
+      "pyepics": "3.5.10",
+      "numpy": "2.5.4",
+      "matplotlib": "3.11.2"
+    }
+  }
+}

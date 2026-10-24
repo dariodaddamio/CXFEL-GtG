@@ -6,6 +6,58 @@ html {
   font-variant-numeric: slashed-zero;
 }
 
+/* Measured timing findings; scoped to the results page components. */
+.timing-results {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 1.5rem 0 2rem;
+}
+.timing-results > div {
+  padding: 1rem;
+  border: 1px solid var(--color-background-border);
+  border-radius: 0.5rem;
+  background: var(--color-background-secondary);
+}
+.timing-results span {
+  display: block;
+  color: var(--color-foreground-muted);
+  font-size: 0.85rem;
+}
+.timing-results strong {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 1.55rem;
+}
+.timing-chart {
+  padding: 1rem;
+  border: 1px solid var(--color-background-border);
+  border-radius: 0.5rem;
+}
+.timing-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+}
+.timing-controls select {
+  padding: 0.4rem;
+  border: 1px solid var(--color-background-border);
+  border-radius: 0.3rem;
+  background: var(--color-background-primary);
+  color: var(--color-foreground-primary);
+  font: inherit;
+}
+.timing-chart svg { display: block; width: 100%; height: auto; }
+.timing-chart svg text { fill: var(--color-foreground-muted); font: 12px system-ui, sans-serif; }
+.timing-chart .timing-gridline { stroke: var(--color-background-border); }
+.timing-chart .timing-point { fill: var(--color-brand-primary); opacity: 0.55; }
+.timing-chart-note { color: var(--color-foreground-muted); font-size: 0.85rem; }
+@media (max-width: 650px) {
+  .timing-results { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 body {
   font-feature-settings: "zero" 1;
 }
@@ -93,3 +145,16 @@ pre {
   font-variant-numeric: slashed-zero;
   font-feature-settings: "zero" 1;
 }
+
+/* Saved CAM2 experiment replay. */
+.timing-camera-review video { display: block; width: 100%; max-width: 600px; height: auto; margin: 0 auto 1rem; background: #101010; }
+.timing-camera-review button { padding: .4rem .7rem; border: 1px solid var(--color-background-border); border-radius: .3rem; background: var(--color-background-secondary); color: var(--color-foreground-primary); cursor: pointer; font: inherit; }
+.timing-camera-review output { font-size: .85rem; color: var(--color-foreground-muted); }
+
+/* Experiment evidence stays visible in the report. */
+.timing-experiment-video { display: block; width: 100%; height: auto; background: #111; margin: 1rem 0; }
+.timing-records { max-height: 22rem; overflow: auto; margin: 1rem 0 2rem; border: 1px solid var(--color-background-border); }
+.timing-records table { margin: 0; width: 100%; font-size: .85rem; font-variant-numeric: tabular-nums; white-space: nowrap; border-collapse: collapse; }
+.timing-records th, .timing-records td { padding: .45rem .7rem; text-align: right; border-bottom: 1px solid var(--color-background-border); }
+.timing-records th { position: sticky; top: 0; background: var(--color-background-primary); z-index: 1; }
+.timing-records:focus-visible { outline: 2px solid var(--color-brand-primary); outline-offset: 2px; }

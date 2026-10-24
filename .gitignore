@@ -14,3 +14,10 @@ build/
 
 *.md
 *.py
+
+# Read-only experiment tools are maintained with the report.
+!tools/timing_check/*.py
+tools/timing_check/runs/
+
+# Source fragments included by the experiment page are not build output.
+!source/timing_check/*-records.html

@@ -1,0 +1,2 @@
+Synthetic analysis checks passed: known offsets, population scatter, 20 ns/s drift, missing tail pulse, and cross-second PPS-rollover candidate. No live comparison run performed.
+Capture-boundary check passed: deliberately different partial first/last seconds excluded; 30 complete-second pairs retain the correct 8 ns offset and zero jitter.

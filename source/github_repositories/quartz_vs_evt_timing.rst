@@ -84,5 +84,7 @@ Analog (Quartz) and Digital (EVT) follow the same fiber port layout in vendor do
 Where to go next
 ----------------
 
+- :doc:`/timing_check/index` for the measured two-receiver timestamp comparison,
+  camera timestamp consistency and LED observation from the October 2026 experiment.
 - :doc:`/github_repositories/bringup_procedures` for step-by-step EVG/EVR bring-up.
 - Quartz Phoebus controls and vendor manuals: :doc:`/cs_studio/tabs/index` and :doc:`/equipment_manual`; upstream Quartz DAQ reference: `Quartz DAQ 250‑24 <https://github.com/osprey-dcs/quartz-daq-250-24?tab=readme-ov-file>`_.

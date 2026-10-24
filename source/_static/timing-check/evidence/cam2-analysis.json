@@ -1,0 +1,77 @@
+{
+  "frames": 240,
+  "first_id": 1,
+  "last_id": 240,
+  "frame_id_steps": {
+    "1": 239
+  },
+  "frame_id_gaps": 0,
+  "duplicate_or_backward_ids": 0,
+  "metadata_consistent_frames": 240,
+  "camera_clock_interval_seconds": {
+    "count": 239,
+    "mean": 0.2499964656903766,
+    "stddev": 9.559726073423898e-06,
+    "minimum": 0.2499757,
+    "maximum": 0.2500009
+  },
+  "ioc_delivery_interval_seconds": {
+    "count": 239,
+    "mean": 0.25000019665271966,
+    "stddev": 8.725799186096118e-05,
+    "minimum": 0.249714,
+    "maximum": 0.25032
+  },
+  "client_delivery_interval_seconds": {
+    "count": 239,
+    "mean": 0.2499972079497908,
+    "stddev": 0.00019056513898458671,
+    "minimum": 0.2491524,
+    "maximum": 0.2505198
+  },
+  "event_logs": {
+    "EVT:DEV2:10:EVR:LOG": {
+      "unique_counts": {
+        "101": 248,
+        "125": 62
+      },
+      "event101_interval_ns": {
+        "count": 247,
+        "mean": 250000000,
+        "stddev": 0.0,
+        "minimum": 250000000,
+        "maximum": 250000000
+      },
+      "window_note": "Event log includes initial cached/pre/post data; its total is not the camera acquisition window."
+    },
+    "EVT:DEV2:40:EVR:LOG": {
+      "unique_counts": {
+        "101": 248,
+        "125": 62
+      },
+      "event101_interval_ns": {
+        "count": 247,
+        "mean": 250000000,
+        "stddev": 0.0,
+        "minimum": 250000000,
+        "maximum": 250000000
+      },
+      "window_note": "Event log includes initial cached/pre/post data; its total is not the camera acquisition window."
+    }
+  },
+  "brightness_mean_range": [
+    152.49491203703704,
+    161.8986787037037
+  ],
+  "interpretation": "Aggregate camera cadence and consecutive frame IDs support operation at 4 Hz in the existing external-Line1 configuration. No per-event identity, electrical trigger latency, exposure-edge jitter or LED optical timing is established.",
+  "video": {
+    "frames": 240,
+    "playback_fps": 4,
+    "dimensions": [
+      600,
+      450
+    ],
+    "display_scale": "Constant linear scale 0 to 328 raw pixel counts; resized for playback.",
+    "note": "Derived review video. Original pixel arrays remain in individual NPZ files."
+  }
+}
