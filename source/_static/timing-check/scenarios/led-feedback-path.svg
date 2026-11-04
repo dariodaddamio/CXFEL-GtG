@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="264" viewBox="0 0 1080 264" role="img" aria-label="Camera-based LED feedback path; physical trigger cables need verification">
+<style>text{font-family:Arial,sans-serif;fill:#17242e;font-size:15px}.small{font-size:13px;fill:#475569}.box{fill:#f6f8fa;stroke:#64748b}.wire{fill:none;stroke:#334155;stroke-width:2;marker-end:url(#a)}.unknown{stroke-dasharray:5 5}</style>
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#334155"/></marker></defs>
+<rect width="1080" height="264" fill="white"/>
+<rect class="box" x="10" y="20" width="220" height="58"/><text x="24" y="44">Event 101 → output 1</text><text x="24" y="64" class="small">10.139.5.197</text>
+<path class="wire unknown" d="M230 49 H350"/><text x="244" y="33" class="small">Cable unverified</text>
+<rect class="box" x="350" y="20" width="210" height="58"/><text x="364" y="44">CAM2 · Line1 input</text><text x="364" y="64" class="small">192.168.2.1</text>
+<rect class="box" x="10" y="120" width="220" height="66"/><text x="24" y="145">DG645 → breadboard LED</text><text x="24" y="168" class="small">Unit / output unrecorded</text>
+<path class="wire" d="M230 153 H350"/><text x="259" y="140" class="small">Light</text>
+<rect class="box" x="350" y="120" width="210" height="66"/><text x="364" y="145">CAM2 image</text><text x="364" y="168" class="small">Dark → bright in LED region</text>
+<path class="wire" d="M560 153 H600"/>
+<rect class="box" x="600" y="120" width="215" height="66"/><text x="614" y="145">Software → event 42</text><text x="614" y="168" class="small">10.139.5.196 · once only</text>
+<path class="wire" d="M815 153 H855"/>
+<rect class="box" x="855" y="120" width="215" height="66"/><text x="869" y="145">Receiver event logs</text><text x="869" y="168" class="small">10.139.5.195 / 10.139.5.198</text>
+<text x="10" y="229" class="small">Event 101 is not yet verified as the cause of the LED flash. Image detection starts the software response.</text>
+</svg>
