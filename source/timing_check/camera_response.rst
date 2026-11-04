@@ -6,23 +6,54 @@ Camera response to event rate
 Objective
 ---------
 
-Check whether CAM2 receives frames when event 101 changes to 1 Hz, and determine whether those frames contain the flashing LED.
+This experiment checks whether CAM2 delivers an ordered image stream when event 101 is set to 1 Hz, and whether the resulting exposures contain the breadboard LED.
 
 Setup
 -----
 
-The generator at 10.139.5.196 sent event 101. Output 1 on receiver 10.139.5.197 selected that code, with a configured delay of 0 ns and width of 100,000 ns.
-CAM2 at 192.168.2.1 used an external Line1 rising-edge trigger, a 1 ms exposure and 1200 × 900 Mono12 images. The trigger cable and DG645 output were not identified.
-This completed trial used the previous camera-rate configuration 5. It did not generate an event after LED detection.
+.. list-table::
+   :header-rows: 1
+
+   * - Component
+     - Address / prefix
+     - Configuration
+   * - Event generator
+     - 10.139.5.196 / EVT:DEV2:20:
+     - Timer event 101 at 1 Hz.
+   * - Output receiver
+     - 10.139.5.197 / EVT:DEV2:30:
+     - Output 1 selects event 101, with a configured 0 ns delay and 100,000 ns width.
+   * - CAM2
+     - 192.168.2.1 / CAM:DEV2:20:
+     - External Line1 rising-edge trigger, 1 ms exposure and 1200 × 900 Mono12 images.
+   * - Optical source
+     - DG645 and breadboard LED
+     - The unit, output and trigger-cable endpoints were not identified; their settings remained unchanged.
+   * - Trial identity
+     - Previous camera-rate configuration 5
+     - This trial predates LED-qualified sequence generation and did not send an event after detecting light.
 
 Procedure
 ---------
 
-1. Save the timer and output settings. Keep camera acquisition and DG645 settings unchanged.
-2. Set event 101 to 1 Hz with the configured output delay and width listed above.
-3. Record receiver logs and camera metadata for 60 seconds. Save the original image arrays.
-4. Check frame-ID order, saved image counts and consecutive camera-clock intervals.
-5. Check the LED region in all saved images, then restore and verify the starting settings.
+.. list-table::
+   :header-rows: 1
+
+   * - Stage
+     - Method
+     - Verification
+   * - 1. Record initial conditions
+     - Save the timer and output settings while leaving camera acquisition and DG645 settings unchanged.
+     - Confirm that the camera is already acquiring before applying the reviewed timer change.
+   * - 2. Apply the event rate
+     - Set event 101 to 1 Hz with the output delay and width listed in the setup table.
+     - Read the timer divisor and output controls back before acquisition.
+   * - 3. Record the observation
+     - Record receiver logs, camera metadata and original image arrays for 60 seconds.
+     - Compare frame-ID order and the number of metadata records with the number of saved images.
+   * - 4. Analyze and restore
+     - Calculate consecutive camera-clock intervals and inspect the LED region in every saved image, then restore the starting settings.
+     - Read the changed controls back and compare them with the initial snapshot.
 
 Results
 -------
