@@ -576,5 +576,5 @@ The event gap below is measured between two receptions on the same receiver. Rec
 Findings
 --------
 
-With a configured gap of 1,000,000 ns, the receivers measured means of 1,000,000 ns and 1,000,000 ns. Their timestamps agreed at 8 ns resolution. A different selected gap requires its own measured trial.
+With a configured gap of 1,000,000 ns, the receivers measured means of 1,000,000 ns and 1,000,000 ns. Their timestamps agreed at 8 ns resolution. For CXFEL, this supports correlating the two devices’ event records at the tested setting.
 After image detection, the host took 3.27 ms on average to begin the trigger request. This software interval is separate from the received event gap. Optical turn-on and physical transmit times were not measured, and event 43 was a sequencer follow-up rather than an EVR-controlled output pulse.
