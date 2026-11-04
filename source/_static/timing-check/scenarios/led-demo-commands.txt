@@ -1,0 +1,56 @@
+Apply
+pvput -w 3 EVT:DEV2:10:EVR:LOG:evt3 42
+pvput -w 3 EVT:DEV2:10:EVR:LOG:evt4 43
+pvput -w 3 EVT:DEV2:40:EVR:LOG:evt3 42
+pvput -w 3 EVT:DEV2:40:EVR:LOG:evt4 43
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:disarm 1
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:HWrise 0
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:HWfall 0
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:Tmr 0
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:tMode 1
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:slo 1000000000
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:codes '[42,43,255]'
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:times '[0.0,8.0,1008.0]'
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:store 1
+
+Trigger (one per fresh LED transition; maximum 20)
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:arm 1
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:trig 1
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:trig 1
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:trig 1
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:trig 1
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:trig 1
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:trig 1
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:trig 1
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:trig 1
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:trig 1
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:trig 1
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:trig 1
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:trig 1
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:trig 1
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:trig 1
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:trig 1
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:trig 1
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:trig 1
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:trig 1
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:trig 1
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:trig 1
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:disarm 1
+
+Disarm
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:disarm 1
+
+Restore
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:disarm 1
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:HWrise 0
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:HWfall 0
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:Tmr 0
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:tMode 0
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:slo 1000000000.0
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:codes '[0]'
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:times '[0.0]'
+pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:store 1
+pvput -w 3 EVT:DEV2:10:EVR:LOG:evt3 0
+pvput -w 3 EVT:DEV2:10:EVR:LOG:evt4 0
+pvput -w 3 EVT:DEV2:40:EVR:LOG:evt3 0
+pvput -w 3 EVT:DEV2:40:EVR:LOG:evt4 0

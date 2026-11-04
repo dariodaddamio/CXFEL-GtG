@@ -153,16 +153,45 @@ pre {
 
 /* Experiment evidence stays visible in the report. */
 .timing-experiment-video { display: block; width: 100%; height: auto; background: #111; margin: 1rem 0; }
-.timing-records { max-height: 22rem; overflow: auto; margin: 1rem 0 2rem; border: 1px solid var(--color-background-border); }
-.timing-records table { margin: 0; width: 100%; font-size: .85rem; font-variant-numeric: tabular-nums; white-space: nowrap; border-collapse: collapse; }
-.timing-records th, .timing-records td { padding: .45rem .7rem; text-align: right; border-bottom: 1px solid var(--color-background-border); }
-.timing-records th { position: sticky; top: 0; background: var(--color-background-primary); z-index: 1; }
-.timing-records:focus-visible { outline: 2px solid var(--color-brand-primary); outline-offset: 2px; }
 
 /* Timing report: paired evidence images and optional reproduction details. */
 .experiment-image-pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin:24px 0}.experiment-image-pair figure{margin:0!important;min-width:0}.experiment-image-pair img{width:100%;height:auto}.experiment-image-pair figcaption{font-size:13px!important;text-align:left}.experiment-details{margin:20px 0;padding:14px 18px;border:1px solid var(--color-background-border,#dce2e5);border-radius:6px}.experiment-details>summary{cursor:pointer;font-weight:550}.experiment-details[open]>summary{margin-bottom:18px}.experiment-details pre{font-size:12px}.experiment-details p:last-child{margin-bottom:0}@media(max-width:580px){.experiment-image-pair{grid-template-columns:1fr}.experiment-details{padding:12px}}
 
-/* Exact timestamp example and measured results in the LED report. */
-.led-timestamps td:not(:first-child),.led-timestamps th:not(:first-child){text-align:right;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
-.led-measurements th,.led-measurements td{vertical-align:top}
-.led-measurements td:nth-child(2){white-space:nowrap}
+/* Event sequencer test page: neutral, theme-aware inline figures and timestamp tables. */
+.tc-figure{margin:1.25rem 0 .25rem;overflow-x:auto}
+.tc-svg{display:block;width:100%;min-width:var(--tc-min,620px);height:auto;font-family:var(--font-stack);fill:var(--color-foreground-primary)}
+.tc-svg text{font-size:13px}
+.tc-svg .tc-panel-title{font-size:14px;font-weight:600}
+.tc-svg .tc-lane{font-size:13px;font-weight:600;fill:var(--color-foreground-secondary)}
+.tc-svg .tc-tick,.tc-svg .tc-small,.tc-svg .tc-axis-label,.tc-svg .tc-box-sub{font-size:12px;fill:var(--color-foreground-secondary)}
+.tc-svg .tc-zone-label{font-size:12px;fill:var(--color-foreground-muted)}
+.tc-svg .tc-strong{fill:var(--color-foreground-primary);font-weight:600}
+.tc-svg .tc-box-title{font-size:14px;font-weight:600}
+.tc-svg .tc-rule{stroke:var(--color-background-border);stroke-width:1}
+.tc-svg .tc-axis{stroke:var(--color-foreground-muted);stroke-width:1}
+.tc-svg .tc-grid{stroke:var(--color-foreground-border);stroke-width:1;stroke-dasharray:2 3}
+.tc-svg .tc-pair{stroke:var(--color-foreground-muted);stroke-width:1.5}
+.tc-svg .tc-pair-sel{stroke:var(--color-foreground-primary);stroke-width:3}
+.tc-svg .tc-zoomline{fill:none;stroke:var(--color-foreground-muted);stroke-width:1;stroke-dasharray:4 3}
+.tc-svg .tc-zoomframe{fill:none;stroke:var(--color-foreground-border);stroke-width:1}
+.tc-svg .tc-ev{stroke:var(--color-foreground-primary);stroke-width:3.5;stroke-linecap:round}
+.tc-svg .tc-ev-label{font-size:14px;font-weight:700}
+.tc-svg .tc-ns-svg{font-size:12px;font-family:var(--font-stack--monospace);fill:var(--color-foreground-secondary)}
+.tc-svg .tc-zone-soft{fill:none;stroke:var(--color-foreground-border);stroke-dasharray:5 4}
+.tc-svg .tc-zone-hard{fill:none;stroke:var(--color-foreground-muted)}
+.tc-svg .tc-box{fill:var(--color-background-primary);stroke:var(--color-foreground-border);stroke-width:1}
+.tc-svg .tc-box-hard{stroke:var(--color-foreground-muted);stroke-width:1.5}
+.tc-svg .tc-arrow{stroke:var(--color-foreground-muted);stroke-width:1.5}
+.tc-svg .tc-arrowhead{fill:var(--color-foreground-muted)}
+.tc-figcaption{font-size:.875rem;color:var(--color-foreground-secondary);margin:.25rem 0 1.5rem;line-height:1.5}
+.tc-table-wrap{overflow-x:auto;margin:1rem 0 1.5rem}
+.tc-table{width:100%}
+.tc-table td,.tc-table th{vertical-align:top}
+.tc-table .tc-num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tc-records{max-height:24rem;overflow:auto}
+.tc-records th{position:sticky;top:0;background:var(--color-background-secondary);z-index:1}
+.tc-ns{font-family:var(--font-stack--monospace);font-size:.9em;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tc-ns b{font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.tc-table th{text-align:left}
+.tc-table th.tc-num{text-align:right}
+.tc-status td:first-child{font-weight:600}

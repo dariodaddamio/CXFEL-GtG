@@ -1,0 +1,545 @@
+{
+  "captured_utc": "2026-11-04T21:08:05.520696+00:00",
+  "pv_writes": 0,
+  "pvs": {
+    "EVT:DEV2:10:APP:IPADDR": {
+      "value": "10.139.5.195",
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793733689,
+        "nanoseconds": 134012610,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:10:Date:FW-I": {
+      "value": "2026-10-17 16:33:48",
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1792280028,
+        "nanoseconds": 0,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:10:Date:SW-I": {
+      "value": "2026-10-17 16:37:31",
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1792280251,
+        "nanoseconds": 0,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:10:FPGA:Mode": {
+      "value": 0,
+      "label": "EVR Only",
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793734438,
+        "nanoseconds": 910762708,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:10:FPGA:Mode:S": {
+      "value": 0,
+      "label": "EVR Only",
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793734438,
+        "nanoseconds": 910621618,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:10:Ref:Freq": {
+      "value": 125.0,
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793734438,
+        "nanoseconds": 910634398,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:10:EVR:status": {
+      "value": 8839,
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793826484,
+        "nanoseconds": 633808301,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:10:EVR:now": {
+      "value": "2026-11-04 14:08:04.757",
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793826484,
+        "nanoseconds": 756779909,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:20:APP:IPADDR": {
+      "value": "10.139.5.196",
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793735151,
+        "nanoseconds": 881230362,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:20:Date:FW-I": {
+      "value": "2026-10-17 16:33:48",
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1792280028,
+        "nanoseconds": 0,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:20:Date:SW-I": {
+      "value": "2026-10-17 16:37:31",
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1792280251,
+        "nanoseconds": 0,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:20:FPGA:Mode": {
+      "value": 1,
+      "label": "EVG/EVR",
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793735161,
+        "nanoseconds": 987554348,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:20:FPGA:Mode:S": {
+      "value": 1,
+      "label": "EVG/EVR",
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793735161,
+        "nanoseconds": 984429674,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:20:Ref:Freq": {
+      "value": 125.0,
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793735161,
+        "nanoseconds": 984445474,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:20:EVR:status": {
+      "value": 8839,
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793826485,
+        "nanoseconds": 381016080,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:20:EVR:now": {
+      "value": "2026-11-04 14:08:05.493",
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793826485,
+        "nanoseconds": 493178129,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:30:APP:IPADDR": {
+      "value": "10.139.5.197",
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793734949,
+        "nanoseconds": 807789439,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:30:Date:FW-I": {
+      "value": "2026-10-17 16:33:48",
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1792280028,
+        "nanoseconds": 0,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:30:Date:SW-I": {
+      "value": "2026-10-17 16:37:31",
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1792280251,
+        "nanoseconds": 0,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:30:FPGA:Mode": {
+      "value": 0,
+      "label": "EVR Only",
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793734958,
+        "nanoseconds": 864763758,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:30:FPGA:Mode:S": {
+      "value": 0,
+      "label": "EVR Only",
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793734958,
+        "nanoseconds": 861665004,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:30:Ref:Freq": {
+      "value": 125.0,
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793734958,
+        "nanoseconds": 861677884,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:30:EVR:status": {
+      "value": 8839,
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793826485,
+        "nanoseconds": 307562569,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:30:EVR:now": {
+      "value": "2026-11-04 14:08:05.420",
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793826485,
+        "nanoseconds": 419726610,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:40:APP:IPADDR": {
+      "value": "10.139.5.198",
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793734730,
+        "nanoseconds": 620533943,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:40:Date:FW-I": {
+      "value": "2026-10-17 16:33:48",
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1792280028,
+        "nanoseconds": 0,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:40:Date:SW-I": {
+      "value": "2026-10-17 16:37:31",
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1792280251,
+        "nanoseconds": 0,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:40:FPGA:Mode": {
+      "value": 0,
+      "label": "EVR Only",
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793734741,
+        "nanoseconds": 693474059,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:40:FPGA:Mode:S": {
+      "value": 0,
+      "label": "EVR Only",
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793734741,
+        "nanoseconds": 690384744,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:40:Ref:Freq": {
+      "value": 125.0,
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793734741,
+        "nanoseconds": 690393704,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:40:EVR:status": {
+      "value": 8839,
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793826484,
+        "nanoseconds": 120304716,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:40:EVR:now": {
+      "value": "2026-11-04 14:08:05.232",
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793826485,
+        "nanoseconds": 232428074,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:20:Nxt:Sec": {
+      "value": 1793826486,
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793826485,
+        "nanoseconds": 157965,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:20:Nxt:Sec_": {
+      "value": 1793826486,
+      "label": null,
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793826485,
+        "nanoseconds": 62984,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:20:EVG:PPS:Vld": {
+      "value": 0,
+      "label": "OK",
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793826485,
+        "nanoseconds": 382047911,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:20:EVG:TS:Vld": {
+      "value": 1,
+      "label": "Time OK",
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793826485,
+        "nanoseconds": 481171881,
+        "userTag": 0
+      }
+    },
+    "EVT:DEV2:20:EVG:SEQ:1:tModeR": {
+      "value": 0,
+      "label": "Single",
+      "alarm": {
+        "severity": 0,
+        "status": 0,
+        "message": ""
+      },
+      "timeStamp": {
+        "secondsPastEpoch": 1793820704,
+        "nanoseconds": 781191967,
+        "userTag": 0
+      }
+    }
+  },
+  "release_artifact": {
+    "filename": "EVG-20261017-cdcfe1f.bit",
+    "sha1": "f228abca072271148c6042ba410dd5de443a03f1",
+    "expected_sha1": "f228abca072271148c6042ba410dd5de443a03f1",
+    "running_image_hash_exposed": false
+  },
+  "chrony": {
+    "exit_code": 0,
+    "output": "Reference ID    : 43D7F9E5 (dreamstation.systems)\nStratum         : 3\nRef time (UTC)  : Wed Nov 04 21:07:38 2026\nSystem time     : 0.000002678 seconds slow of NTP time\nLast offset     : -0.000018822 seconds\nRMS offset      : 0.000132369 seconds\nFrequency       : 8.516 ppm fast\nResidual freq   : +0.002 ppm\nSkew            : 0.020 ppm\nRoot delay      : 0.065930255 seconds\nRoot dispersion : 0.000456190 seconds\nUpdate interval : 1039.9 seconds\nLeap status     : Normal\n",
+    "error": ""
+  },
+  "host_ntp": {
+    "exit_code": 0,
+    "output": "NTP=yes\nNTPSynchronized=yes\n",
+    "error": ""
+  },
+  "limits": [
+    "Build-date readbacks and release-file hash do not prove the running image hash.",
+    "NTP client removal is documented upstream, not independently proven by these readbacks.",
+    "Generator mode was read, not switched."
+  ]
+}

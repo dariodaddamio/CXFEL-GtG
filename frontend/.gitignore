@@ -1,0 +1,5 @@
+node_modules
+dist/
+*.tsbuildinfo
+!index.html
+.validation/
