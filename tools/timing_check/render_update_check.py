@@ -1,134 +1,286 @@
-"""Render the update check from archived receiver timestamps; no device access."""
-from pathlib import Path
-from collections import defaultdict
-import datetime as dt
-import html,json,argparse
-import xml.etree.ElementTree as ET
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-from matplotlib.ticker import MaxNLocator,FuncFormatter
-ROOT=Path(__file__).resolve().parents[2];S=ROOT/'source';A=S/'_static/timing-check/scenarios'
-TRIALS=['led-8ns','led-80ns','led-1000000ns']
-def stamp(text):
-    sec,ns=text.split('.');assert len(ns)==9
-    return int(sec)*10**9+int(ns)
-def cycles(d):
-    rows=defaultdict(dict)
-    for r in d['receiver_rows']:
-        assert r['event'] not in rows[r['cycle']]
-        rows[r['cycle']][r['event']]=r
-    out=[]
-    for cycle,pair in sorted(rows.items()):
-        assert set(pair)=={42,43}
-        a,b=pair[42],pair[43]
-        a42,a43,b42,b43=[stamp(r[k]) for r,k in [(a,'timestamp_a'),(b,'timestamp_a'),(a,'timestamp_b'),(b,'timestamp_b')]]
-        out.append(dict(cycle=cycle,a42=a42,a43=a43,b42=b42,b43=b43,gap_a=a43-a42,gap_b=b43-b42,delta42=b42-a42,delta43=b43-a43))
-    assert len(out)==d['qualified_cycles']
-    return out
+"""Render the data-driven parts of the event sequencer timing test page.
 
-def group(ns):return f'{ns:09d}'[:3]+' '+f'{ns:09d}'[3:6]+' '+f'{ns:09d}'[6:]
-def cell(value,previous=None):
-    sec,ns=divmod(value,10**9);digits=f'{ns:09d}';old=f'{previous%10**9:09d}' if previous is not None else digits
-    parts=['<mark>'+c+'</mark>' if c!=old[i] else c for i,c in enumerate(digits)]
-    return dt.datetime.fromtimestamp(sec,dt.timezone.utc).strftime('%H:%M:%S')+'<br><span class="rx-ns">'+'&#8239;'.join(''.join(parts[i:i+3]) for i in [0,3,6])+'</span>'
-def raw(markup):return ['.. raw:: html','','   '+markup.replace('\n','\n   '),'']
-def table(headers,rows):
-    out=['.. list-table::','   :header-rows: 1','']
-    for r in [headers]+rows:out+=['   * - '+str(r[0])]+['     - '+str(x) for x in r[1:]]
-    return out+['']
-def fold(title,content):return raw('<details class="experiment-details"><summary>'+title+'</summary>')+content+raw('</details>')
-def section(title):return [title,'-'*len(title),'']
-def render(repo=None):
-    global ROOT,S,A
-    if repo is not None:
-        ROOT=Path(repo).resolve();S=ROOT/'source';A=S/'_static/timing-check/scenarios'
-    ds=[json.loads((A/(n+'-evidence.json')).read_text()) for n in TRIALS];allcycles=[cycles(d) for d in ds]
-    for d in ds:
-        requested={r['requested_relative_ns'] for r in d['receiver_rows'] if r['event']==43}
-        assert len(requested)==1
-        target=requested.pop()
-        assert d.get('configured_gap_ns',target)==target
-        d['configured_gap_ns']=target
-    plt.rcParams.update({'font.size':12,'svg.fonttype':'none','svg.hashsalt':'receiver-only-update-check'})
-    fig,axes=plt.subplots(2,3,figsize=(11,6.8),layout='constrained')
-    summary=[]
-    for col,(d,rows) in enumerate(zip(ds,allcycles)):
-        x=[r['cycle'] for r in rows];target=d['configured_gap_ns'];ax=axes[0,col]
-        ax.axhline(target,color='#697580',ls='--',lw=1.6,label='Programmed')
-        ax.plot(x,[r['gap_a'] for r in rows],'o',mfc='none',ms=7,color='#176b8b',label='10.139.5.195')
-        ax.plot(x,[r['gap_b'] for r in rows],'x',ms=5,color='#bc5c26',label='10.139.5.198')
-        values=[r[k] for r in rows for k in ['gap_a','gap_b']]+[target]
-        ax.set(title=f'{target:,} ns programmed',ylabel='Received 43 − 42 (ns)',ylim=(min(values)-16,max(values)+16))
-        ax.yaxis.set_major_locator(MaxNLocator(integer=True,nbins=4));ax.yaxis.set_major_formatter(FuncFormatter(lambda v,pos:f'{v:,.0f}'.replace(',',' ')))
-        ax=axes[1,col]
-        ax.plot(x,[r['delta42'] for r in rows],'o',mfc='none',color='#176b8b',ms=6,label='Event 42')
-        ax.plot(x,[r['delta43'] for r in rows],'x',color='#bc5c26',ms=5,label='Event 43')
-        diffs=[r[k] for r in rows for k in ['delta42','delta43']]
-        ax.set(xlabel='Cycle',ylabel='Receiver difference (ns)',ylim=(min(diffs)-16,max(diffs)+16));ax.yaxis.set_major_locator(MaxNLocator(integer=True,nbins=4))
-        for ax in axes[:,col]:
-            ax.set_xticks([1,5,10,15,20]);ax.spines[['top','right']].set_visible(False);ax.grid(axis='y',color='#dde4e8');ax.set_axisbelow(True)
-        summary.append({'name':TRIALS[col],'recording_id':d['recording_id'],'programmed_ns':target,'cycles':len(rows),'gap_a_ns':{'min':min(r['gap_a'] for r in rows),'max':max(r['gap_a'] for r in rows)},'gap_b_ns':{'min':min(r['gap_b'] for r in rows),'max':max(r['gap_b'] for r in rows)},'receiver_difference_ns':{'min':min(diffs),'max':max(diffs)},'rows':[{**r,**{k:str(r[k]) for k in ['a42','a43','b42','b43']}} for r in rows]})
-    axes[0,0].legend(loc='upper left',fontsize=9,frameon=False);axes[1,0].legend(loc='upper left',fontsize=9,frameon=False)
-    fig.savefig(A/'receiver-gap-trials.svg',metadata={'Date':None});plt.close(fig)
-    r=allcycles[0][0];origin=r['a42'];sec,ns=divmod(origin,10**9)
-    fig,ax=plt.subplots(figsize=(10,3.3),layout='constrained')
-    for y,ip,keys in [(1,'10.139.5.195',['a42','a43']),(0,'10.139.5.198',['b42','b43'])]:
-        for code,key in zip([42,43],keys):
-            x=r[key]-origin;ax.vlines(x,y-.12,y+.12,color='#176b8b',lw=2.5);ax.annotate(f'{code}: {group(r[key]%10**9)} ns',(x,y),xytext=(0,18),textcoords='offset points',ha='center',fontsize=12)
-        ax.hlines(y,-1,9,color='#b8c4cd',lw=.8)
-    ax.set(yticks=[0,1],yticklabels=['10.139.5.198','10.139.5.195'],xticks=[0,8],xlim=(-2,10),ylim=(-.5,1.6),xlabel=f'Nanoseconds since 10.139.5.195 received event 42\nOrigin: {dt.datetime.fromtimestamp(sec,dt.timezone.utc):%Y-%m-%d %H:%M:%S} UTC + {group(ns)} ns',title='8 ns trial · cycle 1 · receiver timestamps only')
-    ax.spines[['top','right','left']].set_visible(False);fig.savefig(A/'receiver-cycle-zoom.svg',metadata={'Date':None});plt.close(fig)
-    (A/'receiver-trial-analysis.json').write_text(json.dumps({'basis':'Integer subtraction of receiver_rows timestamp_a/timestamp_b; no host receipt times. Absolute nanosecond timestamps are serialized as strings to preserve precision.','trials':summary},indent=2)+'\n')
-    zoom=A/'receiver-cycle-zoom.svg'
-    svg=ET.parse(zoom);ns={'s':'http://www.w3.org/2000/svg'}
-    for element in svg.findall('.//s:text',ns):
-        if element.text and element.text.startswith('43: '):
-            element.text=None;old=f'{r["a42"]%10**9:09d}';digits=f'{r["a43"]%10**9:09d}'
-            ET.SubElement(element,'{http://www.w3.org/2000/svg}tspan').text='43: '
-            for i,digit in enumerate(digits):
-                span=ET.SubElement(element,'{http://www.w3.org/2000/svg}tspan')
-                span.text=(' ' if i in (3,6) else '')+digit
-                if digit!=old[i]:span.set('fill','#a84913');span.set('font-weight','bold')
-            ET.SubElement(element,'{http://www.w3.org/2000/svg}tspan').text=' ns'
-    svg.write(zoom,encoding='unicode',xml_declaration=True)
-    for name in ['receiver-gap-trials.svg','receiver-cycle-zoom.svg']:
-        path=A/name;path.write_text('\n'.join(line.rstrip() for line in path.read_text().splitlines())+'\n')
-    lines=['20261017 timing update check' ,'============================','',
-    'Mark asked whether Michael Davidsaver’s 20261017 firmware and IOC update works on the CXFEL test rack. The IOC is the control program on the host. The update adds a stored event sequence, moves network time handling from the firmware to the IOC, and allows the generator role to change without a reboot. In this test, an LED flash acts as the start button: camera software detects it and asks the generator to run its sequence.','',
-    'The generator sends numbered event codes over the timing link. Each receiver timestamps incoming codes with a 125 MHz clock, giving **8 ns resolution**. We selected unused codes **42 and 43 as test markers**; they drive no outputs. The sequencer is a stored table of “send this code at this time,” which plays once per trigger. An 8 ns gap is one clock tick and the smallest programmable separation.','']
-    lines+=section('Measured result')+['The three trials below each contain 20 cycles. Their receiver logs show the programmed separation on both receivers, with matching timestamps between receivers. These measurements check the sequencer and receiver timing; they do not verify every part of the update.','']
-    lines+=table(['Programmed gap','10.139.5.195: received gap','10.139.5.198: received gap','Receiver difference'],[[f'{d["configured_gap_ns"]:,} ns',f'{s["gap_a_ns"]["min"]:,} ns in all 20 cycles',f'{s["gap_b_ns"]["min"]:,} ns in all 20 cycles',f'{s["receiver_difference_ns"]["min"]} ns for both markers'] for d,s in zip(ds,summary)])
-    lines+=['.. figure:: ../_static/timing-check/scenarios/receiver-gap-trials.svg','   :alt: All receiver-derived event gaps and cross-receiver differences for the 8 ns, 80 ns and 1 ms trials.','   :width: 100%','','   Each column has its own gap axis. The lower row is 10.139.5.198 minus 10.139.5.195 for each marker. Overlapping marks reflect equal logged values, not omitted cycles.','',
-    '.. figure:: ../_static/timing-check/scenarios/receiver-cycle-zoom.svg','   :alt: The first 8 ns cycle, positioned by the actual timestamps recorded at each receiver.','   :width: 100%','','   Both lanes share the first receiver’s event-42 origin, so a receiver offset would remain visible. No host or browser timestamp positions a mark.','']
-    lines+=section('Which recording is which?')+['The comparison uses the three original evidence files listed below. The later 10-second 8 ns demonstration is a separate repeat, not a replacement for the comparison’s 8 ns run.','']
-    lines+=table(['Use','Recording','Evidence'],[[f'{d["configured_gap_ns"]:,} ns comparison',f'``{d["recording_id"]}``',f':download:`{n}-evidence.json <../_static/timing-check/scenarios/{n}-evidence.json>`'] for n,d in zip(TRIALS,ds)]+[['10-second video / repeat','``20261104T073310Z-044488``',':download:`Repeat evidence <../_static/timing-check/scenarios/led-sequence-evidence.json>`']])
-    lines+=raw('<video class="timing-experiment-video" controls playsinline preload="metadata" poster="../_static/timing-check/scenarios/led-demo-poster.png"><source src="../_static/timing-check/scenarios/led-demo-10s.mp4" type="video/mp4"></video>')
-    lines+=section('Update coverage')+['The following readbacks were captured without device writes on 4 November 2026.','']
-    rb=json.loads((A/'update-readbacks.json').read_text());pv=rb['pvs'];nxt=pv['EVT:DEV2:20:Nxt:Sec']['value']
-    assert rb['release_artifact']['sha1']==rb['release_artifact']['expected_sha1']
-    lines+=table(['Change','Observed evidence','Verification limit'],[
-      ['Firmware identity',f'All four devices report ``{pv["EVT:DEV2:20:Date:FW-I"]["value"]}``. The release file SHA1 matches ``f228abca072271148c6042ba410dd5de443a03f1``.','The build date matches release 20261017; the running image hash is not exposed, so exact binary identity is not independently verified.'],
-      ['IOC time / NTP',f'Host reports ``NTPSynchronized=yes``. IOC next second: {dt.datetime.fromtimestamp(nxt,dt.timezone.utc):%Y-%m-%d %H:%M:%S} UTC; PPS status is OK and timestamp status is Time OK.','The IOC time-distribution path is observed. Removal of the firmware NTP client is documented upstream but is not independently verified by these readbacks.'],
-      ['Runtime generator mode','``EVT:DEV2:20:FPGA:Mode`` reads EVG/EVR; the other three devices read EVR Only.','Role readbacks captured. Switching and restoring a role without reboot is not verified; no mode write was made.']])
-    lines+=['The `timing reference guide <https://github.com/osprey-dcs/timing-ioc/blob/ci/documentation/README.md>`_ identifies ``FPGA:Mode`` as the readback and ``FPGA:Mode:S`` as the setting. The `20261017 firmware release <https://github.com/osprey-dcs/timing-firmware/releases/tag/20261017>`_ documents NTP removal. The IOC database supplies ``Nxt:Sec`` from the IOC clock; it does not provide a standalone NTP-status PV.','']
-    lines+=section('Records')+['Nanosecond digits are grouped for reading; highlighted digits change between codes 42 and 43. Times in the tables are UTC on 4 November 2026.','']
-    for n,d,rows in zip(TRIALS,ds,allcycles):
-        body='<div class="timing-records" tabindex="0"><table><thead><tr>'+''.join('<th>'+x+'</th>' for x in ['Cycle','10.139.5.195 · 42','10.139.5.195 · 43','10.139.5.198 · 42','10.139.5.198 · 43','Gap .195 (ns)','Gap .198 (ns)','B − A, 42 / 43 (ns)'])+'</tr></thead><tbody>'
-        for r in rows:body+='<tr><td>'+str(r['cycle'])+'</td>'+''.join('<td>'+cell(r[k],r.get(prev) if prev else None)+'</td>' for k,prev in [('a42',None),('a43','a42'),('b42',None),('b43','b42')])+f'<td>{r["gap_a"]:,}</td><td>{r["gap_b"]:,}</td><td>{r["delta42"]} / {r["delta43"]}</td></tr>'
-        lines+=fold(f'{d["configured_gap_ns"]:,} ns trial · 20 cycle records',raw(body+'</tbody></table></div>'))
-    setup=table(['Component','Recorded setup'],[['Generator','10.139.5.196 / ``EVT:DEV2:20:``; 125 MHz; sequencer bank 1. Normal mode keeps the bank armed after one table finishes; each trigger still plays it only once.'],['Receivers','10.139.5.195 / ``EVT:DEV2:10:`` and 10.139.5.198 / ``EVT:DEV2:40:``. A logging slot is a configurable selection of which event code to put in the event log; slots 3 and 4 selected codes 42 and 43.'],['Sequence','42 at 0 ns; 43 at the selected gap; code 255 at gap + 1,000 ns. Code 255 stops the sequencer table and is not sent over the link. Timer and external-input triggers were disabled.'],['Start input','CAM2 at 192.168.2.1; existing Line1 trigger, approximately 10 frames/s, 1 ms exposure, 1200 × 900 Mono12 images. Peak above 1,000 counts in columns 300–699, rows 550–849 qualified a bright frame after a fresh dark frame.'],['Other event codes','101 is the existing camera-trigger event. Code 125 marks each second; codes 112 and 113 distribute the POSIX seconds value.'],['LED / storage','Breadboard LED connected to a DG645; exact output and cable endpoints were not recorded. Original images, event rows and settings were saved on host 10.139.4.59.']])
-    procedure=table(['Step','Method'],[['Check','Confirm visible dark/bright LED states, valid receiver timestamps and links, and no FIFO overflow. Save controls and maps; verify that test markers and logging slots are free.'],['Acquire','After approval of the exact writes, load the table, select the two logging codes and arm once. For each accepted LED transition, issue one trigger and verify its counter increment; stop after 20 accepted transitions.'],['Compare','Pair codes 42 and 43 by cycle, subtract integer hardware timestamps, and compare the same code between receivers. Preserve full seconds across rollover.'],['Restore','Disarm and restore the saved controls and maps, including after timeout or stop. Read back settings and confirm receiver health. Do not change event 101, camera trigger settings or DG645 settings.']])
-    lines+=fold('Setup and procedure',setup+procedure)
-    command_path=A/'led-demo-commands.txt'
-    lines+=fold('10-second demonstration command log',raw('<pre>'+html.escape(command_path.read_text() if command_path.exists() else 'See the saved executed command manifest on the acquisition host.')+'</pre>'))
-    repeat=json.loads((A/'led-sequence-evidence.json').read_text())
-    host=repeat['measurements']['detection_to_request_ns']
-    lines+=fold('Host software records', ['Host detection-to-request intervals measure computer processing, not receiver hardware timing, so they are excluded from every receiver result and plot.','']+table(['Recording','Mean','Range'],[[repeat['recording_id'],f'{host["mean"]/1e6:.2f} ms',f'{host["min"]/1e6:.2f}–{host["max"]/1e6:.2f} ms']])+[':download:`Full software records <../_static/timing-check/scenarios/led-sequence-evidence.json>`',''])
-    lines+=fold('Firmware, IOC clock and role readbacks',raw('<pre>'+html.escape(json.dumps(rb,indent=2))+'</pre>')+[':download:`Readback snapshot <../_static/timing-check/scenarios/update-readbacks.json>`',''])
-    lines+=section('Findings and limits')+['The sequencer produces the requested separations down to one 8 ns clock tick, and the two receivers agree on the logged event timestamps in all three trials. This supports using common event markers to correlate CXFEL device records. It does not establish absolute UTC accuracy, variation below 8 ns, physical output response or lossless logging at 1 kHz.','',
-    'NTP-client removal and a runtime role switch remain unverified. A later camera-view mismatch must be resolved before repeating the optical start check; it does not change the archived receiver measurements.','']
-    (S/'timing_check/led_response.rst').write_text('\n'.join(line.rstrip() for line in '\n'.join(lines).splitlines()).rstrip()+'\n')
-    print('Rendered',len(summary),'trials from receiver timestamps only.')
-if __name__=='__main__':
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--repo',type=Path);render(parser.parse_args().repo)
+Every mark, number and table cell comes from the receivers' own recorded
+timestamps (``receiver_rows``) or from saved device readbacks. Host and browser
+times never position anything. The script needs no device access.
+
+The prose lives in ``source/timing_check/led_response.rst``; this script writes
+the HTML fragments that page includes, plus a machine-readable summary.
+
+    python tools/timing_check/render_update_check.py
+"""
+from __future__ import annotations
+
+import argparse
+import datetime as dt
+import html
+import json
+from collections import defaultdict
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+RUNS = ["led-8ns", "led-80ns", "led-1000000ns", "led-sequence"]
+A_IP, B_IP = "10.139.5.195", "10.139.5.198"
+
+
+# --------------------------------------------------------------------------- data
+def stamp(text: str) -> int:
+    sec, ns = text.split(".")
+    assert len(ns) == 9, text
+    return int(sec) * 10**9 + int(ns)
+
+
+def load_run(scenarios: Path, name: str) -> dict:
+    d = json.loads((scenarios / f"{name}-evidence.json").read_text())
+    by_cycle: dict[int, dict[int, dict]] = defaultdict(dict)
+    for r in d["receiver_rows"]:
+        assert r["event"] not in by_cycle[r["cycle"]], (name, r)
+        by_cycle[r["cycle"]][r["event"]] = r
+    cycles = []
+    for cycle, pair in sorted(by_cycle.items()):
+        assert set(pair) == {42, 43}, (name, cycle)
+        e42, e43 = pair[42], pair[43]
+        c = dict(
+            cycle=cycle,
+            a42=stamp(e42["timestamp_a"]), a43=stamp(e43["timestamp_a"]),
+            b42=stamp(e42["timestamp_b"]), b43=stamp(e43["timestamp_b"]),
+            programmed=e43["requested_relative_ns"] - e42["requested_relative_ns"],
+        )
+        c.update(gap_a=c["a43"] - c["a42"], gap_b=c["b43"] - c["b42"],
+                 d42=c["b42"] - c["a42"], d43=c["b43"] - c["a43"])
+        cycles.append(c)
+    assert len(cycles) == d["qualified_cycles"], name
+    programmed = {c["programmed"] for c in cycles}
+    assert len(programmed) == 1, name
+    host = d["measurements"]["detection_to_request_ns"]
+    return dict(name=name, recording_id=d["recording_id"], cycles=cycles, programmed=programmed.pop(),
+                host_ms=(host["min"] / 1e6, host["max"] / 1e6, host["mean"] / 1e6))
+
+
+# ------------------------------------------------------------------------ helpers
+def esc(s) -> str:
+    return html.escape(str(s), quote=True)
+
+
+def utc(ns: int, fmt="%H:%M:%S") -> str:
+    return dt.datetime.fromtimestamp(ns // 10**9, dt.timezone.utc).strftime(fmt)
+
+
+def grouped(ns_in_second: int) -> str:
+    s = f"{ns_in_second:09d}"
+    return f"{s[:3]} {s[3:6]} {s[6:]}"
+
+
+def digits_html(value: int, against: int | None = None) -> str:
+    """Nanoseconds within the second, grouped, with changed digits marked."""
+    new = f"{value % 10**9:09d}"
+    old = f"{against % 10**9:09d}" if against is not None else new
+    out = []
+    for i, ch in enumerate(new):
+        if i in (3, 6):
+            out.append(" ")
+        out.append(f"<b>{ch}</b>" if ch != old[i] else ch)
+    return '<span class="tc-ns">' + "".join(out) + "</span>"
+
+
+def delay_label(n: int) -> str:
+    return "1 ms" if n == 1_000_000 else f"{n:,} ns"
+
+
+def run_label(run: dict) -> str:
+    return delay_label(run["programmed"]) + (" repeat" if run["name"] == "led-sequence" else "")
+
+
+def svg_wrap(body: str, w: int, h: int, label: str, min_width: int = 620) -> str:
+    return (f'<div class="tc-figure" style="--tc-min:{min_width}px">'
+            f'<svg viewBox="0 0 {w} {h}" role="img" aria-label="{esc(label)}" class="tc-svg">'
+            f"<title>{esc(label)}</title>{body}</svg></div>")
+
+
+def text(x, y, s, cls="", anchor="start") -> str:
+    return f'<text x="{x:.1f}" y="{y:.1f}" text-anchor="{anchor}" class="{cls}">{s}</text>'
+
+
+def table(headers: list[str], rows: list[str], cls: str = "", num: tuple[int, ...] = ()) -> str:
+    return (f'<div class="tc-table-wrap {cls}"><table class="docutils tc-table"><thead><tr>'
+            + "".join(f'<th class="tc-num">{h}</th>' if i in num else f"<th>{h}</th>" for i, h in enumerate(headers)) + "</tr></thead><tbody>" + "".join(rows) + "</tbody></table></div>")
+
+
+# ----------------------------------------------------------------------- figures
+def system_diagram() -> str:
+    """How a cycle starts (software) and what is measured (timing hardware)."""
+    w, h = 760, 252
+    p = ['<defs><marker id="tc-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">'
+         '<path d="M0 0L10 5L0 10z" class="tc-arrowhead"/></marker></defs>']
+    p.append('<rect x="6" y="28" width="372" height="216" rx="8" class="tc-zone-soft"/>')
+    p.append('<rect x="392" y="28" width="362" height="216" rx="8" class="tc-zone-hard"/>')
+    p.append(text(18, 18, "Software: starts each cycle, not measured", "tc-zone-label"))
+    p.append(text(404, 18, "Timing hardware: measured, 8 ns resolution", "tc-zone-label tc-strong"))
+
+    def box(x, y, bw, bh, title, sub, cls="tc-box"):
+        s = [f'<rect x="{x}" y="{y}" width="{bw}" height="{bh}" rx="6" class="{cls}"/>',
+             text(x + bw / 2, y + 22, esc(title), "tc-box-title", "middle")]
+        s += [text(x + bw / 2, y + 40 + i * 15, esc(line), "tc-box-sub", "middle") for i, line in enumerate(sub)]
+        return "".join(s)
+
+    def arrow(x1, y1, x2, y2):
+        return f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" class="tc-arrow" marker-end="url(#tc-head)"/>'
+
+    p.append(box(18, 102, 96, 70, "LED", ["turns on", "(DG645)"]))
+    p.append(box(140, 102, 104, 70, "Camera", ["CAM2 sees", "dark, then bright"]))
+    p.append(box(268, 102, 100, 70, "Host", ["finds the flash,", "sends trigger"]))
+    p.append(arrow(114, 137, 138, 137))
+    p.append(arrow(244, 137, 266, 137))
+    p.append(arrow(368, 137, 404, 137))
+    p.append(box(406, 94, 132, 86, "Generator", ["10.139.5.196", "sends 42, then", "43 after the delay"], "tc-box tc-box-hard"))
+    p.append(box(612, 44, 134, 70, "Receiver A", [A_IP, "records 42 and 43"], "tc-box tc-box-hard"))
+    p.append(box(612, 162, 134, 70, "Receiver B", [B_IP, "records 42 and 43"], "tc-box tc-box-hard"))
+    p.append(arrow(538, 126, 610, 82))
+    p.append(arrow(538, 148, 610, 194))
+    p.append(text(578, 134, "fiber", "tc-small", "middle"))
+    p.append(text(578, 148, "link", "tc-small", "middle"))
+    p.append(text(192, 212, "Software time: 2.5 to 4.5 ms per cycle", "tc-small", "middle"))
+    return svg_wrap("".join(p), w, h, "The LED and host software start each cycle. The generator and two receivers are the measured timing hardware.")
+
+
+def run_zoom_figure(run: dict) -> str:
+    """Whole run on a seconds axis, then one cycle magnified to nanoseconds."""
+    w, h = 760, 366
+    x0, x1 = 128, 736
+    cyc = run["cycles"]
+    origin = cyc[0]["a42"]
+    span_s = max(1, -(-(cyc[-1]["a42"] - origin) // 10**9))
+    xs = lambda t: x0 + (t - origin) / (span_s * 1e9) * (x1 - x0)
+    p = [text(16, 22, f"Full run: {len(cyc)} cycles, one line for each cycle", "tc-panel-title")]
+    lanes_top = {A_IP: 56, B_IP: 90}
+    for ip, y in lanes_top.items():
+        p.append(text(x0 - 12, y + 4, "A" if ip == A_IP else "B", "tc-lane", "end"))
+        p.append(f'<line x1="{x0}" x2="{x1}" y1="{y}" y2="{y}" class="tc-rule"/>')
+    for c in cyc:
+        for ip, key in ((A_IP, "a42"), (B_IP, "b42")):
+            y = lanes_top[ip]
+            cls = "tc-pair tc-pair-sel" if c is cyc[0] else "tc-pair"
+            p.append(f'<line x1="{xs(c[key]):.2f}" x2="{xs(c[key]):.2f}" y1="{y-10}" y2="{y+10}" class="{cls}">'
+                     f'<title>Cycle {c["cycle"]}: receiver {"A" if ip == A_IP else "B"} recorded 42 at {utc(c[key])} plus {grouped(c[key] % 10**9)} ns</title></line>')
+    for s in range(span_s + 1):
+        x = x0 + s / span_s * (x1 - x0)
+        p.append(f'<line x1="{x:.1f}" x2="{x:.1f}" y1="104" y2="109" class="tc-axis"/>')
+        p.append(text(x, 122, f"{s} s", "tc-tick", "middle"))
+    p.append(text((x0 + x1) / 2, 138, "Time after the first code 42", "tc-axis-label", "middle"))
+
+    sel = xs(cyc[0]["a42"])
+    p.append(f'<path d="M{sel:.1f} 128 L{sel:.1f} 146 L{x0} 186 M{sel:.1f} 146 L{x1} 186" class="tc-zoomline"/>')
+
+    gap = run["programmed"]
+    lo, hi = -gap, 2 * gap
+    xn = lambda t: x0 + (t - lo) / (hi - lo) * (x1 - x0)
+    zoom = (span_s * 1e9) / (hi - lo)
+    p.append(text(16, 178, f"Cycle 1, magnified approximately {round(zoom / 1e7) * 10:,} million times", "tc-panel-title"))
+    p.append(f'<rect x="{x0-4}" y="186" width="{x1-x0+8}" height="168" rx="6" class="tc-zoomframe"/>')
+    if (hi - lo) / 8 <= 40:
+        t = lo
+        while t <= hi:
+            p.append(f'<line x1="{xn(t):.1f}" x2="{xn(t):.1f}" y1="194" y2="310" class="tc-grid"/>')
+            t += 8
+        p.append(text(x1 - 4, 204, "Dotted lines: 8 ns ticks", "tc-small", "end"))
+    c = cyc[0]
+    for name, y, k42, k43 in (("A", 244, "a42", "a43"), ("B", 296, "b42", "b43")):
+        p.append(text(x0 - 12, y + 4, name, "tc-lane", "end"))
+        p.append(f'<line x1="{x0}" x2="{x1}" y1="{y}" y2="{y}" class="tc-rule"/>')
+        for code, key in ((42, k42), (43, k43)):
+            x = xn(c[key] - c["a42"])
+            anchor, dx = ("end", -8) if code == 42 else ("start", 8)
+            p.append(f'<line x1="{x:.1f}" x2="{x:.1f}" y1="{y-13}" y2="{y+13}" class="tc-ev"/>')
+            p.append(text(x + dx, y - 2, f"{code}", "tc-ev-label", anchor))
+            p.append(text(x + dx, y + 13, grouped(c[key] % 10**9) + " ns", "tc-ns-svg", anchor))
+    for t in sorted({lo, 0, gap, hi}):
+        p.append(f'<line x1="{xn(t):.1f}" x2="{xn(t):.1f}" y1="316" y2="321" class="tc-axis"/>')
+        label = "0" if t == 0 else (f"{t / 1e6:+g} ms" if abs(t) >= 100_000 else f"{t:+,} ns")
+        p.append(text(xn(t), 334, label.replace("-", "−"), "tc-tick", "middle"))
+    p.append(text((x0 + x1) / 2, 350, "Time after code 42 at receiver A", "tc-axis-label", "middle"))
+    label = (f"Full run of {len(cyc)} cycles over {span_s} seconds. Cycle 1 is magnified: "
+             f"codes 42 and 43 are {gap} ns apart at receivers A and B.")
+    return svg_wrap("".join(p), w, h, label)
+
+
+# ------------------------------------------------------------------------ tables
+def first_cycle_table(runs: list[dict]) -> str:
+    rows = []
+    for run in runs[:3]:
+        c = run["cycles"][0]
+        for i, (name, k42, k43) in enumerate((("A", "a42", "a43"), ("B", "b42", "b43"))):
+            first = f'<td rowspan="2">{delay_label(run["programmed"])}</td>' if i == 0 else ""
+            rows.append(f"<tr>{first}<td>{name}</td><td>{digits_html(c[k42])}</td><td>{digits_html(c[k43], c[k42])}</td>"
+                        f'<td class="tc-num">{c[k43] - c[k42]:,} ns</td></tr>')
+    return table(["Programmed delay", "Receiver", "Code 42 time (ns)", "Code 43 time (ns)", "43 minus 42"], rows, num=(4,))
+
+
+def summary_table(runs: list[dict]) -> str:
+    def value(vals):
+        lo, hi = min(vals), max(vals)
+        return f"{lo:,} ns" if lo == hi else f"{lo:,} to {hi:,} ns"
+
+    rows = []
+    for run in runs:
+        cy = run["cycles"]
+        diffs = [c[k] for c in cy for k in ("d42", "d43")]
+        rows.append(f"<tr><td>{run_label(run)}</td><td class=\"tc-num\">{value([c['gap_a'] for c in cy])}</td>"
+                    f"<td class=\"tc-num\">{value([c['gap_b'] for c in cy])}</td><td class=\"tc-num\">{value(diffs)}</td>"
+                    f"<td class=\"tc-num\">{len(cy)} of {len(cy)}</td></tr>")
+    return table(["Run", "Delay at A", "Delay at B", "B minus A", "Complete cycles"], rows, num=(1, 2, 3, 4))
+
+
+def records_table(run: dict) -> str:
+    rows = [f"<tr><td class=\"tc-num\">{c['cycle']}</td><td>{utc(c['a42'])}</td>"
+            f"<td>{digits_html(c['a42'])}</td><td>{digits_html(c['a43'], c['a42'])}</td>"
+            f"<td>{digits_html(c['b42'])}</td><td>{digits_html(c['b43'], c['b42'])}</td>"
+            f"<td class=\"tc-num\">{c['gap_a']:,} / {c['gap_b']:,}</td><td class=\"tc-num\">{c['d42']} / {c['d43']}</td></tr>"
+            for c in run["cycles"]]
+    return table(["Cycle", "UTC second", "A: code 42", "A: code 43", "B: code 42", "B: code 43",
+                  "Delay A / B (ns)", "B minus A, 42 / 43 (ns)"], rows, "tc-records", num=(0, 6, 7))
+
+
+def host_table(runs: list[dict]) -> str:
+    rows = [f"<tr><td>{run_label(r)}</td><td class=\"tc-num\">{r['host_ms'][2]:.2f} ms</td>"
+            f"<td class=\"tc-num\">{r['host_ms'][0]:.2f} to {r['host_ms'][1]:.2f} ms</td></tr>" for r in runs]
+    return table(["Run", "Mean", "Range"], rows, num=(1, 2))
+
+
+# -------------------------------------------------------------------------- main
+def render(repo: Path | None = None) -> None:
+    root = Path(repo).resolve() if repo else ROOT
+    scenarios = root / "source/_static/timing-check/scenarios"
+    out = root / "source/timing_check/fragments"
+    out.mkdir(exist_ok=True)
+    runs = [load_run(scenarios, n) for n in RUNS]
+
+    files = {
+        "update-system.html": system_diagram(),
+        "update-run-zoom.html": run_zoom_figure(runs[0]),
+        "update-first-cycles.html": first_cycle_table(runs),
+        "update-summary.html": summary_table(runs),
+        "update-host.html": host_table(runs),
+    }
+    for run in runs:
+        files[f"update-records-{run['name']}.html"] = records_table(run)
+    for name, body in files.items():
+        (out / name).write_text(body + "\n", encoding="utf-8")
+
+    analysis = {
+        "basis": "Integer subtraction of receiver_rows timestamp_a/timestamp_b (receiver hardware timestamps). No host or browser times are used. Absolute timestamps are strings to preserve nanosecond precision.",
+        "receivers": {"A": A_IP, "B": B_IP},
+        "runs": [{
+            "name": r["name"], "recording_id": r["recording_id"], "programmed_ns": r["programmed"], "cycles": len(r["cycles"]),
+            "delay_a_ns": sorted({c["gap_a"] for c in r["cycles"]}), "delay_b_ns": sorted({c["gap_b"] for c in r["cycles"]}),
+            "b_minus_a_ns": sorted({c[k] for c in r["cycles"] for k in ("d42", "d43")}),
+            "rows": [{**c, **{k: str(c[k]) for k in ("a42", "a43", "b42", "b43")}} for c in r["cycles"]],
+        } for r in runs],
+    }
+    (scenarios / "receiver-trial-analysis.json").write_text(json.dumps(analysis, indent=2) + "\n", encoding="utf-8")
+    print(f"Wrote {len(files)} fragments from {sum(len(r['cycles']) for r in runs)} receiver-recorded cycles.")
+
+
+if __name__ == "__main__":
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--repo", type=Path)
+    render(ap.parse_args().repo)

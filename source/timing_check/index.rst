@@ -1,6 +1,6 @@
 :orphan:
 
-LED timing experiment
-=====================
+Event sequencer timing test
+===========================
 
-The current experiment and receiver timestamp measurements are documented in :doc:`led_response`.
+The event sequencer timing test is in :doc:`led_response`.
