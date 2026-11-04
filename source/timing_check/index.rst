@@ -1,7 +1,11 @@
+:orphan:
+
 .. _timing-timestamp-check:
 
 Timestamp consistency experiment
 ================================
+
+The current five-scenario report is :doc:`scenario_results`.
 
 Objective
 ---------

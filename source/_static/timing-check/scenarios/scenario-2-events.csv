@@ -1,0 +1,3 @@
+cycle,event,requested_ns,A_relative_ns,B_relative_ns,A_UTC,B_UTC,A_error_ns,B_error_ns,B_minus_A_ns
+1,42,0,0,0,2026-11-04 00:28:34.494070584 UTC,2026-11-04 00:28:34.494070584 UTC,0,0,0
+1,43,1000,1000,1000,2026-11-04 00:28:34.494071584 UTC,2026-11-04 00:28:34.494071584 UTC,0,0,0

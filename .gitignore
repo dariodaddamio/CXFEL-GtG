@@ -21,3 +21,6 @@ tools/timing_check/runs/
 
 # Source fragments included by the experiment page are not build output.
 !source/timing_check/*-records.html
+
+# Portable timing report is a source evidence artifact.
+!source/_static/timing-check/scenarios/CXFEL-timing-validation.html
