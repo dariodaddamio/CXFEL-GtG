@@ -6,8 +6,69 @@ LED-triggered event sequence
 Objective
 ---------
 
-Test whether an observed LED flash can start an event sequence that both receivers record with consistent timing. CAM2 detects a dark-to-bright change; the generator sends code 42 followed by code 43, and the receivers log both.
-This page documents the completed 8 ns reference trial. A different gap can be selected in the interface, but requires a new measurement.
+This experiment checks whether camera detection of an LED flash can start a two-event sequence that both receivers record with consistent timing. The interval is between the received events, rather than between LED turn-on and reception.
+
+.. image:: ../_static/timing-check/scenarios/led-experiment-path.svg
+   :alt: Camera-qualified trigger path and the definition of the measured interval.
+   :width: 100%
+
+Results
+-------
+
+The source images and raw receiver records were checked independently for recording ``20261104T065440Z-9f4ddd``. The comparison below includes a separate 80 ns trial.
+
+.. list-table::
+   :header-rows: 1
+
+   * - Measurement
+     - Recorded result
+   * - Qualified LED transitions
+     - 20 of 20; all 40 source frames verified
+   * - Events received
+     - 40 of 40 on each receiver
+   * - Time between events, 10.139.5.195
+     - Mean 8 ns; standard deviation 0 ns
+   * - Time between events, 10.139.5.198
+     - Mean 8 ns; standard deviation 0 ns
+   * - Receiver B minus A
+     - Mean 0 ns; standard deviation 0 ns across 40 events
+   * - Capture and restoration
+     - 599 images saved; no frame-ID gaps or writer overruns. Original settings/maps restored and verified.
+
+.. list-table::
+   :header-rows: 1
+
+   * - Requested gap (ns)
+     - Measured mean, A / B (ns)
+     - Standard deviation, A / B (ns)
+     - Events received, A / B
+     - Source
+   * - 80
+     - 80 / 80
+     - 0 / 0
+     - 40 / 40
+     - :download:`Evidence <../_static/timing-check/scenarios/led-80ns-evidence.json>`
+   * - 8
+     - 8 / 8
+     - 0 / 0
+     - 40 / 40
+     - :download:`Evidence <../_static/timing-check/scenarios/led-8ns-evidence.json>`
+
+The 8 ns capture saved 599 contiguous images (IDs 1738106–1738704). Its paired metadata log also contains leading frame 1738105, for which no image was stored. All 40 frames used for trigger qualification are present.
+
+.. figure:: ../_static/timing-check/scenarios/led-qualified-images.png
+   :alt: A common intensity scale preserves the contrast used to qualify the first and last cycles; no brightness adjustment was applied to individual panels.
+   :width: 100%
+
+   A common intensity scale preserves the contrast used to qualify the first and last cycles; no brightness adjustment was applied to individual panels.
+
+.. figure:: ../_static/timing-check/scenarios/led-hardware-timing.svg
+   :alt: The vertical tick spacing is one hardware clock period, so variation below a tick cannot be resolved.
+   :width: 100%
+
+   The vertical tick spacing is one hardware clock period, so variation below a tick cannot be resolved.
+
+:download:`Cycle data <../_static/timing-check/scenarios/led-sequence-cycles.csv>` · :download:`Source evidence and checks <../_static/timing-check/scenarios/led-sequence-evidence.json>`.
 
 Setup
 -----
@@ -53,65 +114,6 @@ Procedure
      - Arm once and accept 20 fresh dark-to-bright frame pairs, issuing one software trigger per pair. Check each run-counter increment, including its 15-to-0 wrap, and match 40 events per receiver. Subtract the code-42 reception time from code 43 on each receiver.
    * - 4. Restore
      - Disarm and restore the saved controls and logging selections, including after a stop or timeout. Compare fresh controls and full maps with the original snapshot, then confirm receiver health.
-
-Results
--------
-
-Recording ``20261104T065440Z-9f4ddd`` completed all 20 LED-qualified sequences. Both receivers recorded the expected codes and order, and every qualifying dark/bright frame was checked against its original pixels.
-The event gap below is measured between two receptions on the same receiver. Receiver difference compares the timestamps recorded by the two devices for the same event.
-
-.. list-table::
-   :header-rows: 1
-
-   * - Measurement
-     - Recorded result
-   * - Qualified LED transitions
-     - 20 of 20; all 40 source frames verified
-   * - Events received
-     - 40 of 40 on each receiver
-   * - 42 → 43 gap, 10.139.5.195
-     - Mean 8 ns; standard deviation 0 ns
-   * - 42 → 43 gap, 10.139.5.198
-     - Mean 8 ns; standard deviation 0 ns
-   * - Receiver B minus A
-     - Mean 0 ns; standard deviation 0 ns across 40 events
-   * - Capture and restoration
-     - 599 images saved; no frame-ID gaps or writer overruns. Original settings/maps restored and verified.
-
-.. list-table::
-   :header-rows: 1
-
-   * - Requested gap (ns)
-     - Measured mean, A / B (ns)
-     - Standard deviation, A / B (ns)
-     - Events received, A / B
-     - Source
-   * - 80
-     - 80 / 80
-     - 0 / 0
-     - 40 / 40
-     - :download:`Evidence <../_static/timing-check/scenarios/led-80ns-evidence.json>`
-   * - 8
-     - 8 / 8
-     - 0 / 0
-     - 40 / 40
-     - :download:`Evidence <../_static/timing-check/scenarios/led-8ns-evidence.json>`
-
-The 8 ns capture saved 599 contiguous images (IDs 1738106–1738704). Its paired metadata log also contains leading frame 1738105, for which no image was stored. All 40 frames used for trigger qualification are present.
-
-.. figure:: ../_static/timing-check/scenarios/led-qualified-images.png
-   :alt: First and last qualifying LED frame pairs from the active trial, shown on the same intensity scale.
-   :width: 100%
-
-   First and last qualifying LED frame pairs from the active trial, shown on the same intensity scale.
-
-.. figure:: ../_static/timing-check/scenarios/led-hardware-timing.svg
-   :alt: Measured event intervals and receiver differences for all 20 cycles.
-   :width: 100%
-
-   Measured event intervals and receiver differences for all 20 cycles.
-
-:download:`Cycle data <../_static/timing-check/scenarios/led-sequence-cycles.csv>` · :download:`Source evidence and checks <../_static/timing-check/scenarios/led-sequence-evidence.json>`.
 
 .. raw:: html
 
@@ -597,5 +599,5 @@ The 8 ns capture saved 599 contiguous images (IDs 1738106–1738704). Its paired
 Findings
 --------
 
-With a configured gap of 8 ns, the receivers measured means of 8 ns and 8 ns. Their timestamps agreed at 8 ns resolution. For CXFEL, this supports correlating the two devices’ event records at the tested setting.
-After image detection, the host took 3.85 ms on average to begin the trigger request. This software interval is separate from the received event gap. Optical turn-on and physical transmit times were not measured, and event 43 was a sequencer follow-up rather than an EVR-controlled output pulse.
+The measured spacing and receiver agreement support using the timing system to correlate event records across these devices. They do not establish absolute UTC accuracy or variation smaller than one clock tick.
+The camera-qualified trigger also includes host processing: the mean delay from detection to the start of the trigger request was 3.85 ms. This path therefore does not provide an 8 ns optical response. Physical LED turn-on, wire transmit time and a receiver-driven output response remain unmeasured.
