@@ -39,11 +39,11 @@ function CameraView({active,live,retained=true,threshold=1000,historyFrames=0,fi
  const effectiveCutoff=frame?.cutoff??threshold;
  const bright=frame?.peak!=null&&frame.peak>effectiveCutoff;
  return <Panel title="Live camera" icon={<Camera size={16}/>}>
- <div className="camera-stage">{frame?<img src={frame.url} alt="Live LED breadboard view from camera 192.168.2.1"/>:<div className="camera-empty"><ScanLine size={24}/>{FRONTEND_ONLY?'Camera unavailable in frontend preview':active?(failure||'Waiting for camera…'):'Live is stopped'}</div>}
+ <div className="camera-stage">{frame?<img src={frame.url} alt="Live LED breadboard view from camera 192.168.2.1"/>:<div className="camera-empty"><ScanLine size={24}/>{FRONTEND_ONLY?'No camera connected':active?(failure||'Waiting for camera…'):'Live is stopped'}</div>}
 
  {frame&&<div className="image-meta"><span><i className={'led-dot '+(bright?'bright':'')}/>{bright?'LED bright':'LED dim'}</span><span>{historyIndex!=null?'Buffered frame':stale&&active?'Camera image stale':active?'Live image':'Last live image'}</span></div>}</div>
- <div className="camera-caption"><span>CAM2 · 192.168.2.1{frame?.id?' · frame '+frame.id:''}</span><span>{active?format(recentPeriod?1000/recentPeriod:null,2)+' frames/s received':'Preview stopped'}</span></div>
- {frame&&<div className="camera-cutoff">Image peak {format(frame.peak,0)} counts · brightness cutoff {format(effectiveCutoff,0)} counts</div>}
+ <div className="camera-caption"><span>CAM2 (192.168.2.1){frame?.id?', frame '+frame.id:''}</span><span>{active?format(recentPeriod?1000/recentPeriod:null,2)+' frames/s received':'Stopped'}</span></div>
+ {frame&&<div className="camera-cutoff">Image peak {format(frame.peak,0)} counts, cutoff {format(effectiveCutoff,0)} counts</div>}
  {historyFrames>1&&<div className="camera-history"><Label htmlFor="camera-history">Camera history</Label><input id="camera-history" type="range" min="0" max={historyFrames-1} value={historyIndex??historyFrames-1} onChange={e=>setHistoryIndex(Number(e.target.value))}/><button type="button" onClick={()=>setHistoryIndex(active?null:historyFrames-1)}>Latest</button></div>}
  <details className="image-diagnostics"><summary>Image details</summary><dl><dt>Frame ID</dt><dd>{frame?.id??'Waiting'}</dd><dt>Image age</dt><dd>{format(latency,0)} ms</dd><dt>Image peak</dt><dd>{format(frame?.peak,0)} counts</dd><dt>Browser preview</dt><dd>{format(previewFps,1)} frames/s</dd></dl></details>
  {failure&&frame&&<p className="px-5 pb-3 text-xs text-amber-700">{failure}</p>}

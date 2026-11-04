@@ -13,7 +13,7 @@ Use Node.js 22.12 or later, then run these commands from the repository root::
     npm run dev
 
 Open http://127.0.0.1:5173. Changes to files in ``src/`` update the preview.
-The form fields can be edited. Camera images, receiver measurements and saved recordings remain unavailable because this checkout has no timing backend. It generates no sample measurements.
+The form fields can be edited. Camera images, live receiver measurements and saved recordings remain unavailable because this checkout has no timing backend, and the preview generates no sample measurements. To see the receiver timing view working, press *Replay recording* or open http://127.0.0.1:5173/?replay. That streams the receiver rows of recording ``20261104T065440Z-9f4ddd`` from ``public/replay/led-8ns.json`` at their original pace. The file holds only those 80 receiver timestamps, copied from the published 8 ns evidence.
 
 To build and inspect the static frontend::
 
@@ -27,7 +27,7 @@ Scope
 
 ``src/App.tsx`` contains the layout and form interactions. ``src/components/ui/`` contains the shadcn components, and ``src/api.ts`` retains the TypeScript interface contracts. Its request function rejects device and storage operations; there is no API proxy.
 
-No EPICS client, IOC configuration, hardware-control backend, firmware, acquisition script, credential or recorded run is included. The operational localhost service remains separate. Generated files and installed dependencies are ignored by Git.
+No EPICS client, IOC configuration, hardware-control backend, firmware, acquisition script or credential is included, and the only recorded data is the replay file described above. The operational localhost service remains separate. Generated files and installed dependencies are ignored by Git.
 
 The included shadcn UI license is in ``SHADCN-LICENSE.txt``.
 

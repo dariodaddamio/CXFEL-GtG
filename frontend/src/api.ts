@@ -20,7 +20,7 @@ export type ActionResult={state:string;blocked_reason?:string;plan_id?:string;me
 // This checkout contains the UI only. It cannot connect to or control the rack.
 export const FRONTEND_ONLY = true
 export async function api<T>(_path:string,_body?:unknown,_signal?:AbortSignal):Promise<T>{
- throw new Error('Unavailable in frontend preview: no timing backend is included.')
+ throw new Error('Not connected to the timing hardware.')
 }
 export function numeric(data:Record<string,Reading>|undefined,key:string){const item=data?.[key];return item&&item.error===undefined&&typeof item.value==='number'?item.value:undefined}
 export function text(data:Record<string,Reading>|undefined,key:string){const item=data?.[key];if(!item||item.error!==undefined)return 'Unavailable';return String(item.label??item.value??'Unavailable')}
