@@ -10,10 +10,27 @@ This experiment checks whether camera detection of an LED flash can start a two-
    :alt: Camera-qualified trigger path and the definition of the measured interval.
    :width: 100%
 
+Event codes
+-----------
+
+.. list-table::
+   :header-rows: 1
+
+   * - Code
+     - Purpose in this rack
+   * - 42
+     - First test event, sent after software qualifies a dark-to-bright change in CAM2. Receivers log its timestamp.
+   * - 43
+     - Follow-up test event, configured 8 ns after 42. Comparing their received timestamps measures this interval.
+   * - 101
+     - Existing camera-trigger configuration. It remains unchanged during the LED sequence.
+   * - 125
+     - The one-second marker (PPS) establishes the second boundary used by receiver timestamps.
+
 Recorded demonstration
 ----------------------
 
-The video shows the actual command review, 10-second acquisition and restoration. Its total length includes these steps; camera previews are sampled independently from the lossless image recording.
+The video shows the bounded 20-trigger reference trial, including command review, 10-second acquisition and restoration. Its total length includes these steps; camera previews are sampled independently from the lossless image recording.
 
 .. raw:: html
 
@@ -100,9 +117,26 @@ Procedure
    * - 2. Review and record
      - Set the interval to 8 ns, the threshold to 1,000 counts and the recording duration to 10 seconds. Review the exact apply, trigger and restore commands before starting. Leave event 101, pulse outputs, camera acquisition and DG645 settings unchanged.
    * - 3. Qualify and measure
-     - Arm the bank once. For each of 20 fresh dark-to-bright frame pairs, issue one software trigger and verify the run-counter increment, including its 15-to-0 wrap. Match the received code order, then subtract event 42’s timestamp from event 43 on each receiver.
+     - The recorded reference uses a 20-trigger cap; continuous Live/Record now accepts transitions until its owners stop. For the bounded reference, arm the bank once. For each of 20 fresh dark-to-bright frame pairs, issue one software trigger and verify the run-counter increment, including its 15-to-0 wrap. Match the received code order, then subtract event 42’s timestamp from event 43 on each receiver.
    * - 4. Restore and inspect
      - Disarm and restore the saved controls and logging selections, including after a stop or timeout. Check fresh readbacks against the original snapshot, verify receiver health, and inspect the saved result.
+
+Live display and recording
+--------------------------
+
+.. list-table::
+   :header-rows: 1
+
+   * - Control
+     - Behavior
+   * - Live
+     - Starts the camera/event display and LED check without creating capture files. Stop Live leaves a timed recording running.
+   * - Memory window
+     - Retains event timestamps and JPEG previews in RAM for up to three hours, with an estimated 4 GiB limit. Old entries expire; the oldest are removed first if the limit is reached. Event history is paged and camera history can be reviewed.
+   * - Record
+     - Saves original images, timestamps and settings for its selected duration, whether Live is on or off. Hardware settings stay locked until saving finishes.
+   * - Timing display
+     - Uses the latest ten seconds for responsive measurements. Event-42 to event-43 spacing is distinct from the period between successive event-42 receptions.
 
 .. raw:: html
 
