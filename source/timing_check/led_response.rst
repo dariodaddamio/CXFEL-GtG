@@ -6,8 +6,8 @@ LED-triggered event sequence
 Objective
 ---------
 
-This experiment tests whether a visible LED transition can start an identified timing sequence whose events reach both receivers with the configured spacing. CAM2 provides the optical observation; the event generator then sends code 42 followed by code 43 at a configured offset of 1,000,000 ns.
-The measured response is the interval between the two received events. The experiment also records software command milestones, so camera-processing delays remain separate from hardware event spacing. It does not measure the instant of optical turn-on or the physical fiber-transmit time.
+Test whether an observed LED flash can start an event sequence that both receivers record with consistent timing. CAM2 detects a dark-to-bright change; the generator sends code 42 followed by code 43, and the receivers log both.
+This page documents the completed 1,000,000 ns reference trial. A different gap can be selected in the interface, but requires a new measurement.
 
 Setup
 -----
@@ -17,39 +17,25 @@ Setup
 
    * - Component
      - Address / PV prefix
-     - Configuration and verification
-   * - LED source
-     - Breadboard connected to a DG645
-     - The existing source is left unchanged. The particular DG645 unit and connector have not been traced; fresh CAM2 images confirm that its light is visible.
+     - Settings used
+   * - Generator
+     - 10.139.5.196 / EVT:DEV2:20:
+     - Release 20261017; 125 MHz clock; bank 1 in Normal mode. Timer and external-input trigger masks are disabled.
+   * - Receivers
+     - 10.139.5.195 / EVT:DEV2:10: and 10.139.5.198 / EVT:DEV2:40:
+     - Logging slots 3 and 4 select codes 42 and 43. Timestamp resolution is 8 ns; neither code drives a pulse output.
    * - CAM2
      - 192.168.2.1 / CAM:DEV2:20:
-     - External Line1 trigger; 1 ms exposure; 1200 × 900 Mono12. The existing approximately 10 Hz stream remains active throughout the trial.
-   * - Optical detector
-     - Image columns 300–699; rows 550–849
-     - Coordinates start at zero. A region peak above 1,000 counts is bright. Every accepted trigger requires a new dark frame followed by a newer bright frame.
-   * - Event generator
-     - 10.139.5.196 / EVT:DEV2:20:
-     - Firmware and IOC 20261017; 125 MHz clock. Bank 1 uses Normal mode with all timer and electrical-input trigger masks disabled.
+     - Existing Line1-triggered stream at approximately 10 frames/s; 1 ms exposure; 1200 × 900 Mono12. Event-101 output on 10.139.5.197 is unchanged.
+   * - LED detection
+     - Breadboard LED connected to a DG645
+     - Use columns 300–699 and rows 550–849, starting at zero. A peak above 1,000 counts is bright. The DG645 unit/output and camera-trigger cable endpoints remain unrecorded.
    * - Sequence
-     - Codes 42, 43, 255
-     - Configured offsets are 0, 1,000,000 and 1,001,000 ns. Code 255 stops the table and is not transmitted. Twenty camera-qualified software triggers are permitted, after which the bank is disarmed.
-   * - Receiver A
-     - 10.139.5.195 / EVT:DEV2:10:
-     - Spare logging selections 3 and 4 record codes 42 and 43. Receiver timestamps have 8 ns resolution.
-   * - Receiver B
-     - 10.139.5.198 / EVT:DEV2:40:
-     - The same codes are logged independently for comparison with receiver A. Neither code drives a pulse output.
-   * - Camera trigger source
-     - 10.139.5.197 / EVT:DEV2:30:
-     - Existing event-101 output settings are preserved. The cable destination is not independently verified.
-   * - Acquisition software
-     - /home/cxfeldev/Desktop/dario/timing-check/console
-     - The primary LED feedback configuration implements the protocol. run_led_sequence.py prepares a reviewed bundle and executes it only with an explicit matching approval; verify_led_sequence.py recalculates the result from saved data.
-   * - Data acquisition
+     - Codes 42, 43 and stop code 255
+     - Offsets: 0, 1,000,000 and 1,001,000 ns. Code 255 ends the table without transmission. Accept 20 fresh dark-to-bright transitions.
+   * - Recording
      - IOC host 10.139.4.59
-     - The trial records receiver rows, camera metadata, original image arrays, qualified frame IDs, host command times, run-counter checks and restoration readbacks.
-
-The procedure below repeats the experiment on the existing rack without moving cables. Rebuilding the optical arrangement elsewhere also requires identifying the DG645 and camera-trigger cable endpoints.
+     - The console saves receiver logs, camera metadata, lossless images and command/readback records under timing-check/console/runs/.
 
 Procedure
 ---------
@@ -58,106 +44,77 @@ Procedure
    :header-rows: 1
 
    * - Stage
-     - Method
-     - Record or acceptance check
-   * - 1. Establish the baseline
-     - Record the existing optical stream before changing the sequencer. Confirm that both light states are visible and that camera acquisition is active.
-     - Save original images and metadata. The fresh baseline below demonstrates separation of the bright and dark states.
-   * - 2. Review the trial
-     - Read the original bank table, trigger masks and full receiver maps, then review the exact apply, trigger and restore commands. Require healthy links, valid timestamps and a clear FIFO-overflow bit.
-     - Codes 42 and 43 must be unused, and logging selections 3 and 4 must be free. No protection events or unrelated outputs are changed.
-   * - 3. Configure and record
-     - Load the listed table, enable the two logging selections on both receivers and begin a 60 s recording with lossless images.
-     - Save the pretrial snapshot and command readbacks before the first trigger. Event 101, DG645 and camera acquisition remain unchanged.
-   * - 4. Qualify each trigger
-     - Arm the bank once. For each of 20 cycles, wait for a fresh dark frame and then a fresh bright frame before issuing one software trigger.
-     - Record both frame IDs, region peaks and detection time. Verify one modulo-16 run-counter increment and an idle/armed bank after every cycle. A timeout or operator stop prevents further triggers.
-   * - 5. Measure the sequence
-     - After receiver readout, match the complete 42/43 sequence for each cycle. Calculate the 42-to-43 interval separately on each receiver and compare the two receivers for each code.
-     - A complete trial contains 40 events per receiver in the expected order. Report counts, missing events, mean, standard deviation and range; do not substitute the configured offset for the measured interval.
-   * - 6. Restore and verify
-     - Disarm the sequencer and restore the saved controls and logging selections, including after an interrupted trial.
-     - Compare fresh values and full event maps with the original snapshot, then confirm idle/disarmed state and receiver health.
+     - Method and check
+   * - 1. Check and review
+     - Confirm visible dark and bright LED states, valid receiver links/timestamps and no FIFO overflow. Save the controls and maps; verify that codes 42/43 and logging slots 3/4 are unused before reviewing the exact commands.
+   * - 2. Configure and record
+     - Load the listed table and logging selections, then start a 60 s lossless recording. Preserve event 101, pulse outputs, camera acquisition and DG645 settings.
+   * - 3. Trigger and measure
+     - Arm once and accept 20 fresh dark-to-bright frame pairs, issuing one software trigger per pair. Check each run-counter increment, including its 15-to-0 wrap, and match 40 events per receiver. Subtract the code-42 reception time from code 43 on each receiver.
+   * - 4. Restore
+     - Disarm and restore the saved controls and logging selections, including after a stop or timeout. Compare fresh controls and full maps with the original snapshot, then confirm receiver health.
 
 Results
 -------
 
-The active recording ``20261104T051638Z-3fd293`` completed 20 camera-qualified sequences during a 60-second acquisition. Each accepted LED transition generated event 42 followed by event 43; both receivers recorded all 40 expected events. All 600 images were saved without frame-ID gaps, writer overruns or unassociated frames.
-The original pixels confirm every qualifying dark and bright frame. The starting sequencer controls and complete receiver maps were restored, while event 101, camera acquisition, pulse outputs and DG645 settings remained unchanged.
+Recording ``20261104T051638Z-3fd293`` completed all 20 LED-qualified sequences. Both receivers recorded the expected codes and order, and every qualifying dark/bright frame was checked against its original pixels.
+The event gap below is measured between two receptions on the same receiver. Receiver difference compares the timestamps recorded by the two devices for the same event.
 
 .. list-table::
    :header-rows: 1
 
    * - Measurement
-     - Observed result
-     - Meaning
-   * - Optical qualification
-     - 20 of 20 requested sequences; 40 source frames verified
-     - Every trigger followed a fresh dark-to-bright pair in the stored images. Only the first 20 accepted transitions triggered sequences; later images were background observations after disarming.
-   * - Reception completeness
-     - 40 of 40 events on each receiver
-     - Both codes arrived in the expected order for every cycle.
-   * - Measured 42 → 43 gap at 10.139.5.195
-     - mean 1,000,000 ns; standard deviation 0 ns; range 1,000,000–1,000,000 ns
-     - This interval is calculated from two hardware reception timestamps on the same receiver.
-   * - Measured 42 → 43 gap at 10.139.5.198
-     - mean 1,000,000 ns; standard deviation 0 ns; range 1,000,000–1,000,000 ns
-     - The independent receiver gives the same measured interval.
+     - Recorded result
+   * - Qualified LED transitions
+     - 20 of 20; all 40 source frames verified
+   * - Events received
+     - 40 of 40 on each receiver
+   * - 42 → 43 gap, 10.139.5.195
+     - Mean 1,000,000 ns; standard deviation 0 ns
+   * - 42 → 43 gap, 10.139.5.198
+     - Mean 1,000,000 ns; standard deviation 0 ns
    * - Receiver B minus A
-     - mean 0 ns; standard deviation 0 ns; range 0–0 ns
-     - All 40 matched events have equal reported timestamps at 8 ns resolution.
-   * - Host detection → command request
-     - mean 3,267,748 ns; standard deviation 336,534 ns; range 2,668,934–3,777,316 ns
-     - Host monotonic time from software qualification to the start of the trigger write; this is not an optical-edge or physical transmit measurement.
-   * - Host detection → run-count confirmation
-     - mean 60,032,252 ns; standard deviation 2,669,866 ns; range 57,292,733–70,288,531 ns
-     - This includes command transport and IOC/readback verification, so it must not be interpreted as hardware actuation latency.
-   * - Image delivery and storage
-     - 600 camera timestamps; 600 saved images; no observed gaps or overruns
-     - All source frames used for qualification are present in the lossless recording.
-   * - Restoration and health
-     - Original controls and full maps matched; bank idle and disarmed; four links/timestamps valid; overflow clear
-     - Fresh readbacks independently confirmed restoration after the trial.
+     - Mean 0 ns; standard deviation 0 ns across 40 events
+   * - Capture and restoration
+     - 600 images saved; no frame-ID gaps or writer overruns. Original settings/maps restored and verified.
 
 .. figure:: ../_static/timing-check/scenarios/led-qualified-images.png
-   :alt: Actual source frames for the first and last qualified cycles, using the same 0–4095 intensity scale. The full-size original arrays remain in the recording.
+   :alt: First and last qualifying LED frame pairs from the active trial, shown on the same intensity scale.
    :width: 100%
 
-   Actual source frames for the first and last qualified cycles, using the same 0–4095 intensity scale. The full-size original arrays remain in the recording.
+   First and last qualifying LED frame pairs from the active trial, shown on the same intensity scale.
 
 .. figure:: ../_static/timing-check/scenarios/led-hardware-timing.svg
-   :alt: Measured receiver intervals and timestamp differences. Each plotted point comes from a stored hardware event record; no transmit timestamps are reconstructed.
+   :alt: Measured event intervals and receiver differences for all 20 cycles.
    :width: 100%
 
-   Measured receiver intervals and timestamp differences. Each plotted point comes from a stored hardware event record; no transmit timestamps are reconstructed.
+   Measured event intervals and receiver differences for all 20 cycles.
 
-.. figure:: ../_static/timing-check/scenarios/led-software-timing.svg
-   :alt: Measured host software milestones for the same 20 cycles. These intervals use the host monotonic clock and remain separate from receiver hardware timing.
-   :width: 100%
+:download:`Cycle data <../_static/timing-check/scenarios/led-sequence-cycles.csv>` · :download:`Source evidence and checks <../_static/timing-check/scenarios/led-sequence-evidence.json>`.
 
-   Measured host software milestones for the same 20 cycles. These intervals use the host monotonic clock and remain separate from receiver hardware timing.
+.. raw:: html
+
+   <details class="experiment-details"><summary>Software processing measurements</summary>
 
 .. list-table::
    :header-rows: 1
 
-   * - Timing point
-     - Recorded clock / evidence
-     - Interpretation
-   * - LED observation
-     - Camera image ID, camera clock and region peak
-     - Confirms the observed light state; a sampled image does not timestamp optical turn-on.
-   * - Software trigger request
-     - Host wall-clock timestamps and monotonic intervals
-     - Records when the application started and completed its write, not when the event left the fiber transmitter.
-   * - Events 42 and 43 received
-     - Receiver POSIX seconds and nanoseconds; 8 ns resolution
-     - Provides the measured event spacing and receiver agreement shown above. Absolute UTC accuracy was not calibrated.
-   * - Follow-up action
-     - Event 43 was emitted by the sequencer after event 42 and logged by both receivers
-     - The sequence does not wait for an EVR acknowledgment, and neither event drives an electrical output in this trial.
+   * - Host interval
+     - Mean / standard deviation / range (ns)
+   * - Detection → request
+     - 3,267,748 / 336,534 / 2,668,934–3,777,316
+   * - Detection → run-count confirmation
+     - 60,032,252 / 2,669,866 / 57,292,733–70,288,531
 
-The 20-second pretrial baseline contained 200 saved images, with 100 bright and 100 dark states and 99 sampled dark-to-bright transitions. It verified optical visibility before arming; the plots above use the active trial rather than substituting baseline images.
-:download:`Cycle measurements <../_static/timing-check/scenarios/led-sequence-cycles.csv>` and :download:`verified source evidence <../_static/timing-check/scenarios/led-sequence-evidence.json>` preserve the clocks, frame IDs, original-image hashes and restoration checks.
+.. figure:: ../_static/timing-check/scenarios/led-software-timing.svg
+   :alt: Host processing intervals for the same 20 cycles; run-count confirmation includes IOC readback.
+   :width: 100%
+
+   Host processing intervals for the same 20 cycles; run-count confirmation includes IOC readback.
+
+.. raw:: html
+
+   </details>
 
 .. raw:: html
 
@@ -619,6 +576,5 @@ The 20-second pretrial baseline contained 200 saved images, with 100 bright and 
 Findings
 --------
 
-The tested path converted 20 observed LED transitions into 20 complete event sequences, and both receivers retained the programmed 1,000,000 ns spacing. Their reported timestamps agreed for all 40 events at the available 8 ns resolution, which supports consistent event identification and timestamp correlation at these settings.
-The host took 3.268 ms on average to start the trigger write after image qualification. Run-count confirmation took 60.032 ms on average, including IOC readback. These software measurements show why control-plane verification must be kept separate from the hardware sequence interval.
-For CXFEL, this result demonstrates an optical-observation-driven timing sequence with repeatable receiver timestamps. It does not establish nanosecond optical response, physical transmit-to-receive delay, an EVR-controlled output pulse or full-rate operation. Those measurements require recorded physical input/output signals; camera frames and command completion cannot supply the missing edge timestamps.
+With a configured gap of 1,000,000 ns, the receivers measured means of 1,000,000 ns and 1,000,000 ns. Their timestamps agreed at 8 ns resolution. A different selected gap requires its own measured trial.
+After image detection, the host took 3.27 ms on average to begin the trigger request. This software interval is separate from the received event gap. Optical turn-on and physical transmit times were not measured, and event 43 was a sequencer follow-up rather than an EVR-controlled output pulse.
