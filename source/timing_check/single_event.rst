@@ -27,8 +27,21 @@ Setup
      - 10.139.5.198
      - EVT:DEV2:40:
 
-The chassis used firmware and IOC release 20261017 with a 125 MHz clock.
-Receiver timestamps have 8 ns resolution; absolute UTC accuracy was not checked. Codes 42 and 43 were used only for logging; no pulse output was assigned.
+.. list-table::
+   :header-rows: 1
+
+   * - Setting
+     - Value
+     - Measurement scope
+   * - Firmware / IOC
+     - 20261017
+     - The same release was used on the participating chassis.
+   * - Reference clock
+     - 125 MHz
+     - Receiver timestamp resolution is 8 ns; absolute UTC accuracy was not checked.
+   * - Test-event actions
+     - Logging only
+     - Codes 42 and 43 were not assigned to pulse outputs.
 
 .. list-table::
    :header-rows: 1
@@ -43,13 +56,30 @@ Receiver timestamps have 8 ns resolution; absolute UTC accuracy was not checked.
 Procedure
 ---------
 
-1. Read receiver status and save the controls and event maps. Require valid links and timestamps, with no FIFO overflow.
-2. Check that the test codes are unused. Select them in spare logging slots 3 and 4 on both receivers.
-3. Load the listed table into sequencer bank 1. Keep timer and external-input trigger masks disabled.
-4. Select Single mode, arm and issue one software trigger.
-   Check the hardware run counter to confirm execution.
-5. Record receiver logs for 10 seconds. Match the event codes, counts and order.
-6. Disarm the bank and restore the controls and maps. Read them again to confirm restoration.
+.. list-table::
+   :header-rows: 1
+
+   * - Stage
+     - Method
+     - Verification
+   * - 1. Establish initial conditions
+     - Read receiver status and save the sequencer controls and complete event maps before applying the reviewed commands.
+     - Both links and timestamps must be valid, and the FIFO-overflow bit must be clear.
+   * - 2. Select event logging
+     - Check that the test codes are unused, then select them in spare logging slots 3 and 4 on both receivers.
+     - The test codes must remain logging-only; no output action is added.
+   * - 3. Load the sequence
+     - Load the table listed above into bank 1 while keeping timer and electrical-input trigger masks disabled.
+     - Read the table and mode back before execution.
+   * - 4. Execute the trial
+     - Select Single mode, arm the bank and issue one software trigger.
+     - Verify that the hardware run counter advances and the bank returns to idle.
+   * - 5. Acquire the evidence
+     - Record the receiver logs for 10 seconds and match the complete event code, count and order on both receivers.
+     - Calculate the event gaps from hardware reception timestamps, independently for each receiver.
+   * - 6. Restore the rack
+     - Disarm the bank and restore the saved controls and logging selections.
+     - Read the controls and full event maps again to confirm that they match the initial snapshot.
 
 Results
 -------
