@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 360" role="img" aria-labelledby="path-title path-desc">
+<title id="path-title">Camera-qualified event sequence</title><desc id="path-desc">The DG645 drives the LED. CAM2 images reach host software, which triggers the generator. Two receivers log events 42 and 43. The configured interval separates the two events, not the LED and receiver.</desc>
+<defs><marker id="path-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="none" stroke="#35618a" stroke-width="1.5"/></marker></defs>
+<rect width="1120" height="360" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#182838">
+<text x="24" y="28" font-size="13" letter-spacing="1.4">CAMERA-QUALIFIED TRIGGER</text>
+<g fill="#f3f6f8" stroke="#aebdca"><rect x="24" y="62" width="144" height="100" rx="4"/><rect x="208" y="62" width="164" height="100" rx="4"/><rect x="412" y="62" width="184" height="100" rx="4"/><rect x="636" y="62" width="178" height="100" rx="4"/><rect x="866" y="48" width="230" height="56" rx="4"/><rect x="866" y="120" width="230" height="56" rx="4"/></g>
+<g font-size="17" font-weight="600"><text x="40" y="91">DG645 → LED</text><text x="224" y="91">CAM2</text><text x="428" y="91">Host software</text><text x="652" y="91">Generator</text><text x="882" y="72" font-size="14">Receiver · 10.139.5.195</text><text x="882" y="144" font-size="14">Receiver · 10.139.5.198</text></g>
+<g font-size="13" fill="#455a6a"><text x="40" y="119">Breadboard light</text><text x="40" y="141">Output untraced</text><text x="224" y="119">192.168.2.1</text><text x="224" y="141">Dark / bright images</text><text x="428" y="119">10.139.4.59</text><text x="428" y="141">Detect → trigger request</text><text x="652" y="119">10.139.5.196</text><text x="652" y="141">42 → 43</text><text x="882" y="92">Record both event timestamps</text><text x="882" y="164">Record both event timestamps</text></g>
+<g fill="none" stroke="#35618a" stroke-width="1.8" marker-end="url(#path-arrow)"><path d="M168 112H204"/><path d="M372 112H408"/><path d="M596 112H632"/><path d="M814 112H839V76H862"/><path d="M839 112V148H862"/></g>
+<path d="M24 204H1096" stroke="#c8d1d9"/>
+<text x="24" y="238" font-size="15" font-weight="600">EVENT INTERVAL</text>
+<text x="24" y="265" font-size="14">On each receiver:</text>
+<path d="M280 275H770" stroke="#35618a" stroke-width="2"/><path d="M330 255V295M720 255V295" stroke="#182838" stroke-width="2"/>
+<text x="330" y="244" font-size="15" text-anchor="middle">Event 42 received</text><text x="720" y="244" font-size="15" text-anchor="middle">Event 43 received</text>
+<path d="M330 306V313H720V306" fill="none" stroke="#35618a" stroke-width="1.5"/>
+<text x="525" y="337" font-size="16" text-anchor="middle" font-weight="600">8 ns configured interval</text>
+<text x="825" y="258" font-size="13">Measured interval =</text><text x="825" y="281" font-size="15">timestamp 43 − timestamp 42</text><text x="825" y="310" font-size="13" fill="#455a6a">Diagram is not to scale.</text>
+</g></svg>
