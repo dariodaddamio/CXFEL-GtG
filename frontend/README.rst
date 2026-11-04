@@ -30,3 +30,10 @@ Scope
 No EPICS client, IOC configuration, hardware-control backend, firmware, acquisition script, credential or recorded run is included. The operational localhost service remains separate. Generated files and installed dependencies are ignored by Git.
 
 The included shadcn UI license is in ``SHADCN-LICENSE.txt``.
+
+Receiver cycle display
+----------------------
+
+``EventTimeline`` accepts ``events`` (receiver IP, event code, seconds and nanoseconds) and ``programmedGapNs`` for a live feed. It can also read an existing recording through the API contract. ``cycle-timing.ts`` uses integer hardware timestamps, pairs each receiver's 42/43 markers, and matches only unique cross-receiver candidates. Missing or ambiguous cycles remain unmatched. The two lanes share the first receiver's event-42 origin so receiver offsets remain visible. Host receipt and polling timestamps are not accepted as plot coordinates.
+
+Run ``npm test`` for the focused pairing and precision checks. These tests use synthetic inputs to exercise edge cases; they are not experiment measurements. The archived-trial browser validation uses actual receiver records separately from this frontend-only preview.

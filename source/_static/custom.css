@@ -166,3 +166,5 @@ pre {
 .led-timestamps td:not(:first-child),.led-timestamps th:not(:first-child){text-align:right;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
 .led-measurements th,.led-measurements td{vertical-align:top}
 .led-measurements td:nth-child(2){white-space:nowrap}
+
+.rx-ns{font:13px ui-monospace,SFMono-Regular,Consolas,monospace;white-space:nowrap}.rx-ns mark{background:#fff0ad;color:#263b4b}.timing-records td{vertical-align:top}
