@@ -1,21 +1,31 @@
 LED-triggered event sequence
 ============================
 
-:doc:`All experiments <scenario_results>`.
-
 Objective
 ---------
 
-This experiment checks whether camera detection of an LED flash can start a two-event sequence that both receivers record with consistent timing. The interval is between the received events, rather than between LED turn-on and reception.
+This experiment checks whether camera detection of an LED flash can start a two-event sequence that both receivers record with consistent timing. The measured interval separates the received events; it does not measure the response from physical LED turn-on.
 
 .. image:: ../_static/timing-check/scenarios/led-experiment-path.svg
    :alt: Camera-qualified trigger path and the definition of the measured interval.
    :width: 100%
 
+Recorded demonstration
+----------------------
+
+The video shows the actual command review, 10-second acquisition and restoration. Its total length includes these steps; camera previews are sampled independently from the lossless image recording.
+
+.. raw:: html
+
+   <video controls playsinline preload="metadata" style="width:100%;max-height:640px" poster="../_static/timing-check/scenarios/led-demo-poster.png">
+     <source src="../_static/timing-check/scenarios/led-demo-10s.mp4" type="video/mp4">
+     <a href="../_static/timing-check/scenarios/led-demo-10s.mp4">Open the experiment recording</a>
+   </video>
+
 Results
 -------
 
-The source images and raw receiver records were checked independently for recording ``20261104T065440Z-9f4ddd``. The comparison below includes a separate 80 ns trial.
+The source images and raw receiver records were checked independently for recording ``20261104T073310Z-044488``. The acquisition lasted 10 seconds.
 
 .. list-table::
    :header-rows: 1
@@ -33,28 +43,7 @@ The source images and raw receiver records were checked independently for record
    * - Receiver B minus A
      - Mean 0 ns; standard deviation 0 ns across 40 events
    * - Capture and restoration
-     - 599 images saved; no frame-ID gaps or writer overruns. Original settings/maps restored and verified.
-
-.. list-table::
-   :header-rows: 1
-
-   * - Requested gap (ns)
-     - Measured mean, A / B (ns)
-     - Standard deviation, A / B (ns)
-     - Events received, A / B
-     - Source
-   * - 80
-     - 80 / 80
-     - 0 / 0
-     - 40 / 40
-     - :download:`Evidence <../_static/timing-check/scenarios/led-80ns-evidence.json>`
-   * - 8
-     - 8 / 8
-     - 0 / 0
-     - 40 / 40
-     - :download:`Evidence <../_static/timing-check/scenarios/led-8ns-evidence.json>`
-
-The 8 ns capture saved 599 contiguous images (IDs 1738106–1738704). Its paired metadata log also contains leading frame 1738105, for which no image was stored. All 40 frames used for trigger qualification are present.
+     - 100 images saved; no frame-ID gaps or writer overruns. Original settings/maps restored and verified.
 
 .. figure:: ../_static/timing-check/scenarios/led-qualified-images.png
    :alt: A common intensity scale preserves the contrast used to qualify the first and last cycles; no brightness adjustment was applied to individual panels.
@@ -81,22 +70,22 @@ Setup
      - Settings used
    * - Generator
      - 10.139.5.196 / EVT:DEV2:20:
-     - Release 20261017; 125 MHz clock; bank 1 in Normal mode. Timer and external-input trigger masks are disabled.
+     - Release 20261017; 125 MHz clock; sequencer bank 1 in Normal mode. Timer and external-input triggers are disabled.
    * - Receivers
      - 10.139.5.195 / EVT:DEV2:10: and 10.139.5.198 / EVT:DEV2:40:
-     - Logging slots 3 and 4 select codes 42 and 43. Timestamp resolution is 8 ns; neither code drives a pulse output.
-   * - CAM2
+     - Spare logging slots 3 and 4 select events 42 and 43. Each timestamp tick is 8 ns; neither event drives a physical output.
+   * - Camera
      - 192.168.2.1 / CAM:DEV2:20:
-     - Existing Line1-triggered stream at approximately 10 frames/s; 1 ms exposure; 1200 × 900 Mono12. Event-101 output on 10.139.5.197 is unchanged.
-   * - LED detection
-     - Breadboard LED connected to a DG645
-     - Use columns 300–699 and rows 550–849, starting at zero. A peak above 1,000 counts is bright. The DG645 unit/output and camera-trigger cable endpoints remain unrecorded.
+     - CAM2 uses its existing Line1-triggered stream at approximately 10 frames/s, with a 1 ms exposure and 1200 × 900 Mono12 images.
+   * - LED
+     - Breadboard connected to a DG645
+     - Detect the peak in columns 300–699 and rows 550–849, starting at zero. A value above 1,000 counts is bright. The exact DG645 output and cable endpoints remain unrecorded.
    * - Sequence
-     - Codes 42, 43 and stop code 255
-     - Offsets: 0, 8 and 1,008 ns. Code 255 ends the table without transmission. Accept 20 fresh dark-to-bright transitions.
-   * - Recording
-     - IOC host 10.139.4.59
-     - The console saves receiver logs, camera metadata, lossless images and command/readback records under timing-check/console/runs/.
+     - Events 42, 43 and stop code 255
+     - Offsets are 0, 8 and 1,008 ns. Stop code 255 is not transmitted. The camera-qualified trigger limit is 20.
+   * - Acquisition
+     - Host 10.139.4.59
+     - 10 seconds of receiver logs, camera metadata and lossless images, with settings and restoration records saved on the acquisition device.
 
 Procedure
 ---------
@@ -105,15 +94,15 @@ Procedure
    :header-rows: 1
 
    * - Stage
-     - Method and check
-   * - 1. Check and review
-     - Confirm visible dark and bright LED states, valid receiver links/timestamps and no FIFO overflow. Save the controls and maps; verify that codes 42/43 and logging slots 3/4 are unused before reviewing the exact commands.
-   * - 2. Configure and record
-     - Load the listed table and logging selections, then start a 60 s lossless recording. Preserve event 101, pulse outputs, camera acquisition and DG645 settings.
-   * - 3. Trigger and measure
-     - Arm once and accept 20 fresh dark-to-bright frame pairs, issuing one software trigger per pair. Check each run-counter increment, including its 15-to-0 wrap, and match 40 events per receiver. Subtract the code-42 reception time from code 43 on each receiver.
-   * - 4. Restore
-     - Disarm and restore the saved controls and logging selections, including after a stop or timeout. Compare fresh controls and full maps with the original snapshot, then confirm receiver health.
+     - Method and verification
+   * - 1. Establish the starting state
+     - Confirm that CAM2 shows both LED states, both receivers have valid links and timestamps, and FIFO overflow is clear. Save the sequencer controls and full event maps, then check that codes 42/43 and logging slots 3/4 are unused.
+   * - 2. Review and record
+     - Set the interval to 8 ns, the threshold to 1,000 counts and the recording duration to 10 seconds. Review the exact apply, trigger and restore commands before starting. Leave event 101, pulse outputs, camera acquisition and DG645 settings unchanged.
+   * - 3. Qualify and measure
+     - Arm the bank once. For each of 20 fresh dark-to-bright frame pairs, issue one software trigger and verify the run-counter increment, including its 15-to-0 wrap. Match the received code order, then subtract event 42’s timestamp from event 43 on each receiver.
+   * - 4. Restore and inspect
+     - Disarm and restore the saved controls and logging selections, including after a stop or timeout. Check fresh readbacks against the original snapshot, verify receiver health, and inspect the saved result.
 
 .. raw:: html
 
@@ -125,9 +114,9 @@ Procedure
    * - Host interval
      - Mean / standard deviation / range (ns)
    * - Detection → request
-     - 3,847,305 / 439,738 / 3,028,904–4,529,596
+     - 3,408,472 / 480,093 / 2,534,414–4,178,936
    * - Detection → run-count confirmation
-     - 61,522,930 / 4,235,463 / 56,985,892–75,918,539
+     - 62,257,284 / 8,289,719 / 56,046,073–93,241,587
 
 .. figure:: ../_static/timing-check/scenarios/led-software-timing.svg
    :alt: Host processing intervals for the same 20 cycles; run-count confirmation includes IOC readback.
@@ -153,203 +142,203 @@ Procedure
      - B minus A (ns)
    * - 1
      - 42
-     - 2026-11-04 06:54:40.966016992
-     - 2026-11-04 06:54:40.966016992
+     - 2026-11-04 07:33:11.264481912
+     - 2026-11-04 07:33:11.264481912
      - 0
    * - 1
      - 43
-     - 2026-11-04 06:54:40.966017000
-     - 2026-11-04 06:54:40.966017000
+     - 2026-11-04 07:33:11.264481920
+     - 2026-11-04 07:33:11.264481920
      - 0
    * - 2
      - 42
-     - 2026-11-04 06:54:41.150545864
-     - 2026-11-04 06:54:41.150545864
+     - 2026-11-04 07:33:11.450214728
+     - 2026-11-04 07:33:11.450214728
      - 0
    * - 2
      - 43
-     - 2026-11-04 06:54:41.150545872
-     - 2026-11-04 06:54:41.150545872
+     - 2026-11-04 07:33:11.450214736
+     - 2026-11-04 07:33:11.450214736
      - 0
    * - 3
      - 42
-     - 2026-11-04 06:54:41.355102808
-     - 2026-11-04 06:54:41.355102808
+     - 2026-11-04 07:33:11.651728232
+     - 2026-11-04 07:33:11.651728232
      - 0
    * - 3
      - 43
-     - 2026-11-04 06:54:41.355102816
-     - 2026-11-04 06:54:41.355102816
+     - 2026-11-04 07:33:11.651728240
+     - 2026-11-04 07:33:11.651728240
      - 0
    * - 4
      - 42
-     - 2026-11-04 06:54:41.559790848
-     - 2026-11-04 06:54:41.559790848
+     - 2026-11-04 07:33:11.856290136
+     - 2026-11-04 07:33:11.856290136
      - 0
    * - 4
      - 43
-     - 2026-11-04 06:54:41.559790856
-     - 2026-11-04 06:54:41.559790856
+     - 2026-11-04 07:33:11.856290144
+     - 2026-11-04 07:33:11.856290144
      - 0
    * - 5
      - 42
-     - 2026-11-04 06:54:41.755896256
-     - 2026-11-04 06:54:41.755896256
+     - 2026-11-04 07:33:12.053296064
+     - 2026-11-04 07:33:12.053296064
      - 0
    * - 5
      - 43
-     - 2026-11-04 06:54:41.755896264
-     - 2026-11-04 06:54:41.755896264
+     - 2026-11-04 07:33:12.053296072
+     - 2026-11-04 07:33:12.053296072
      - 0
    * - 6
      - 42
-     - 2026-11-04 06:54:41.953856392
-     - 2026-11-04 06:54:41.953856392
+     - 2026-11-04 07:33:12.254836216
+     - 2026-11-04 07:33:12.254836216
      - 0
    * - 6
      - 43
-     - 2026-11-04 06:54:41.953856400
-     - 2026-11-04 06:54:41.953856400
+     - 2026-11-04 07:33:12.254836224
+     - 2026-11-04 07:33:12.254836224
      - 0
    * - 7
      - 42
-     - 2026-11-04 06:54:42.156132768
-     - 2026-11-04 06:54:42.156132768
+     - 2026-11-04 07:33:12.451024704
+     - 2026-11-04 07:33:12.451024704
      - 0
    * - 7
      - 43
-     - 2026-11-04 06:54:42.156132776
-     - 2026-11-04 06:54:42.156132776
+     - 2026-11-04 07:33:12.451024712
+     - 2026-11-04 07:33:12.451024712
      - 0
    * - 8
      - 42
-     - 2026-11-04 06:54:42.351914224
-     - 2026-11-04 06:54:42.351914224
+     - 2026-11-04 07:33:12.850953936
+     - 2026-11-04 07:33:12.850953936
      - 0
    * - 8
      - 43
-     - 2026-11-04 06:54:42.351914232
-     - 2026-11-04 06:54:42.351914232
+     - 2026-11-04 07:33:12.850953944
+     - 2026-11-04 07:33:12.850953944
      - 0
    * - 9
      - 42
-     - 2026-11-04 06:54:42.554612064
-     - 2026-11-04 06:54:42.554612064
+     - 2026-11-04 07:33:13.069449376
+     - 2026-11-04 07:33:13.069449376
      - 0
    * - 9
      - 43
-     - 2026-11-04 06:54:42.554612072
-     - 2026-11-04 06:54:42.554612072
+     - 2026-11-04 07:33:13.069449384
+     - 2026-11-04 07:33:13.069449384
      - 0
    * - 10
      - 42
-     - 2026-11-04 06:54:42.759040976
-     - 2026-11-04 06:54:42.759040976
+     - 2026-11-04 07:33:13.254415064
+     - 2026-11-04 07:33:13.254415064
      - 0
    * - 10
      - 43
-     - 2026-11-04 06:54:42.759040984
-     - 2026-11-04 06:54:42.759040984
+     - 2026-11-04 07:33:13.254415072
+     - 2026-11-04 07:33:13.254415072
      - 0
    * - 11
      - 42
-     - 2026-11-04 06:54:42.958117112
-     - 2026-11-04 06:54:42.958117112
+     - 2026-11-04 07:33:13.449862968
+     - 2026-11-04 07:33:13.449862968
      - 0
    * - 11
      - 43
-     - 2026-11-04 06:54:42.958117120
-     - 2026-11-04 06:54:42.958117120
+     - 2026-11-04 07:33:13.449862976
+     - 2026-11-04 07:33:13.449862976
      - 0
    * - 12
      - 42
-     - 2026-11-04 06:54:43.150687072
-     - 2026-11-04 06:54:43.150687072
+     - 2026-11-04 07:33:13.652810704
+     - 2026-11-04 07:33:13.652810704
      - 0
    * - 12
      - 43
-     - 2026-11-04 06:54:43.150687080
-     - 2026-11-04 06:54:43.150687080
+     - 2026-11-04 07:33:13.652810712
+     - 2026-11-04 07:33:13.652810712
      - 0
    * - 13
      - 42
-     - 2026-11-04 06:54:43.357357592
-     - 2026-11-04 06:54:43.357357592
+     - 2026-11-04 07:33:13.850213152
+     - 2026-11-04 07:33:13.850213152
      - 0
    * - 13
      - 43
-     - 2026-11-04 06:54:43.357357600
-     - 2026-11-04 06:54:43.357357600
+     - 2026-11-04 07:33:13.850213160
+     - 2026-11-04 07:33:13.850213160
      - 0
    * - 14
      - 42
-     - 2026-11-04 06:54:43.551123880
-     - 2026-11-04 06:54:43.551123880
+     - 2026-11-04 07:33:14.055736336
+     - 2026-11-04 07:33:14.055736336
      - 0
    * - 14
      - 43
-     - 2026-11-04 06:54:43.551123888
-     - 2026-11-04 06:54:43.551123888
+     - 2026-11-04 07:33:14.055736344
+     - 2026-11-04 07:33:14.055736344
      - 0
    * - 15
      - 42
-     - 2026-11-04 06:54:43.757540512
-     - 2026-11-04 06:54:43.757540512
+     - 2026-11-04 07:33:14.254074184
+     - 2026-11-04 07:33:14.254074184
      - 0
    * - 15
      - 43
-     - 2026-11-04 06:54:43.757540520
-     - 2026-11-04 06:54:43.757540520
+     - 2026-11-04 07:33:14.254074192
+     - 2026-11-04 07:33:14.254074192
      - 0
    * - 16
      - 42
-     - 2026-11-04 06:54:43.952605872
-     - 2026-11-04 06:54:43.952605872
+     - 2026-11-04 07:33:14.455183616
+     - 2026-11-04 07:33:14.455183616
      - 0
    * - 16
      - 43
-     - 2026-11-04 06:54:43.952605880
-     - 2026-11-04 06:54:43.952605880
+     - 2026-11-04 07:33:14.455183624
+     - 2026-11-04 07:33:14.455183624
      - 0
    * - 17
      - 42
-     - 2026-11-04 06:54:44.158616816
-     - 2026-11-04 06:54:44.158616816
+     - 2026-11-04 07:33:14.656155104
+     - 2026-11-04 07:33:14.656155104
      - 0
    * - 17
      - 43
-     - 2026-11-04 06:54:44.158616824
-     - 2026-11-04 06:54:44.158616824
+     - 2026-11-04 07:33:14.656155112
+     - 2026-11-04 07:33:14.656155112
      - 0
    * - 18
      - 42
-     - 2026-11-04 06:54:44.354056032
-     - 2026-11-04 06:54:44.354056032
+     - 2026-11-04 07:33:14.851665312
+     - 2026-11-04 07:33:14.851665312
      - 0
    * - 18
      - 43
-     - 2026-11-04 06:54:44.354056040
-     - 2026-11-04 06:54:44.354056040
+     - 2026-11-04 07:33:14.851665320
+     - 2026-11-04 07:33:14.851665320
      - 0
    * - 19
      - 42
-     - 2026-11-04 06:54:44.550245464
-     - 2026-11-04 06:54:44.550245464
+     - 2026-11-04 07:33:15.056815872
+     - 2026-11-04 07:33:15.056815872
      - 0
    * - 19
      - 43
-     - 2026-11-04 06:54:44.550245472
-     - 2026-11-04 06:54:44.550245472
+     - 2026-11-04 07:33:15.056815880
+     - 2026-11-04 07:33:15.056815880
      - 0
    * - 20
      - 42
-     - 2026-11-04 06:54:44.753730424
-     - 2026-11-04 06:54:44.753730424
+     - 2026-11-04 07:33:15.252282192
+     - 2026-11-04 07:33:15.252282192
      - 0
    * - 20
      - 43
-     - 2026-11-04 06:54:44.753730432
-     - 2026-11-04 06:54:44.753730432
+     - 2026-11-04 07:33:15.252282200
+     - 2026-11-04 07:33:15.252282200
      - 0
 
 .. raw:: html
@@ -372,165 +361,165 @@ Procedure
      - Detection → request (ns)
      - Detection → confirmation (ns)
    * - 1
-     - 1738108 / 1738109
-     - 181 / 4094
-     - 2026-11-04 06:54:40.834020127
-     - 2026-11-04 06:54:40.837192522
-     - 2026-11-04 06:54:40.854802077
-     - 3171244
-     - 70735762
+     - 1761211 / 1761212
+     - 175 / 4094
+     - 2026-11-04 07:33:11.133132173
+     - 2026-11-04 07:33:11.135667527
+     - 2026-11-04 07:33:11.153303173
+     - 2534414
+     - 69501392
    * - 2
-     - 1738110 / 1738111
-     - 181 / 4094
-     - 2026-11-04 06:54:41.029100099
-     - 2026-11-04 06:54:41.032130603
-     - 2026-11-04 06:54:41.039324283
-     - 3028904
-     - 60296247
+     - 1761213 / 1761214
+     - 178 / 4094
+     - 2026-11-04 07:33:11.328788270
+     - 2026-11-04 07:33:11.331788455
+     - 2026-11-04 07:33:11.339019056
+     - 2998225
+     - 59457378
    * - 3
-     - 1738112 / 1738113
-     - 178 / 4094
-     - 2026-11-04 06:54:41.233728764
-     - 2026-11-04 06:54:41.237345069
-     - 2026-11-04 06:54:41.243887389
-     - 3614286
-     - 59874907
+     - 1761215 / 1761216
+     - 179 / 4094
+     - 2026-11-04 07:33:11.534003302
+     - 2026-11-04 07:33:11.536772526
+     - 2026-11-04 07:33:11.540526922
+     - 2767724
+     - 56426063
    * - 4
-     - 1738114 / 1738115
-     - 176 / 4094
-     - 2026-11-04 06:54:41.438058729
-     - 2026-11-04 06:54:41.441374654
-     - 2026-11-04 06:54:41.448568995
-     - 3314585
-     - 60977329
+     - 1761217 / 1761218
+     - 177 / 4094
+     - 2026-11-04 07:33:11.734623257
+     - 2026-11-04 07:33:11.737802172
+     - 2026-11-04 07:33:11.745102033
+     - 3177305
+     - 59563378
    * - 5
-     - 1738116 / 1738117
-     - 180 / 4094
-     - 2026-11-04 06:54:41.633431972
-     - 2026-11-04 06:54:41.637509707
-     - 2026-11-04 06:54:41.644673258
-     - 4076525
-     - 75918539
+     - 1761219 / 1761220
+     - 179 / 4094
+     - 2026-11-04 07:33:11.933450059
+     - 2026-11-04 07:33:11.936353774
+     - 2026-11-04 07:33:11.942112552
+     - 2901925
+     - 58836727
    * - 6
-     - 1738118 / 1738119
-     - 175 / 4094
-     - 2026-11-04 06:54:41.833853471
-     - 2026-11-04 06:54:41.837324256
-     - 2026-11-04 06:54:41.842654564
-     - 3469515
-     - 56985892
-   * - 7
-     - 1738120 / 1738121
-     - 175 / 4094
-     - 2026-11-04 06:54:42.036067303
-     - 2026-11-04 06:54:42.039897159
-     - 2026-11-04 06:54:42.044933826
-     - 3828176
-     - 59246406
-   * - 8
-     - 1738122 / 1738123
-     - 173 / 4094
-     - 2026-11-04 06:54:42.229825623
-     - 2026-11-04 06:54:42.233475178
-     - 2026-11-04 06:54:42.240717649
-     - 3648165
-     - 60131777
-   * - 9
-     - 1738124 / 1738125
-     - 172 / 4094
-     - 2026-11-04 06:54:42.434404049
-     - 2026-11-04 06:54:42.437822324
-     - 2026-11-04 06:54:42.443396832
-     - 3416885
-     - 58464624
-   * - 10
-     - 1738126 / 1738127
+     - 1761221 / 1761222
      - 174 / 4094
-     - 2026-11-04 06:54:42.637652092
-     - 2026-11-04 06:54:42.641467178
-     - 2026-11-04 06:54:42.647829507
-     - 3814006
-     - 60212587
+     - 2026-11-04 07:33:12.136856008
+     - 2026-11-04 07:33:12.139806563
+     - 2026-11-04 07:33:12.143627908
+     - 2949675
+     - 56046073
+   * - 7
+     - 1761223 / 1761224
+     - 177 / 4094
+     - 2026-11-04 07:33:12.329628922
+     - 2026-11-04 07:33:12.332691866
+     - 2026-11-04 07:33:12.339820237
+     - 3060954
+     - 93241587
+   * - 8
+     - 1761227 / 1761228
+     - 179 / 4094
+     - 2026-11-04 07:33:12.729544960
+     - 2026-11-04 07:33:12.732552484
+     - 2026-11-04 07:33:12.739775895
+     - 3005604
+     - 61645330
+   * - 9
+     - 1761229 / 1761230
+     - 172 / 4094
+     - 2026-11-04 07:33:12.946916399
+     - 2026-11-04 07:33:12.951039025
+     - 2026-11-04 07:33:12.958294986
+     - 4122196
+     - 61759341
+   * - 10
+     - 1761231 / 1761232
+     - 177 / 4094
+     - 2026-11-04 07:33:13.132983053
+     - 2026-11-04 07:33:13.136071827
+     - 2026-11-04 07:33:13.143208588
+     - 3087484
+     - 60508339
    * - 11
-     - 1738128 / 1738129
-     - 172 / 4094
-     - 2026-11-04 06:54:42.835335148
-     - 2026-11-04 06:54:42.839705194
-     - 2026-11-04 06:54:42.846925474
-     - 4369446
-     - 61182748
+     - 1761233 / 1761234
+     - 179 / 4094
+     - 2026-11-04 07:33:13.330746373
+     - 2026-11-04 07:33:13.334416979
+     - 2026-11-04 07:33:13.338647145
+     - 3669516
+     - 56980584
    * - 12
-     - 1738130 / 1738131
-     - 173 / 4094
-     - 2026-11-04 06:54:43.030305499
-     - 2026-11-04 06:54:43.033911035
-     - 2026-11-04 06:54:43.039519233
-     - 3603666
-     - 59995467
+     - 1761235 / 1761236
+     - 183 / 4094
+     - 2026-11-04 07:33:13.531951039
+     - 2026-11-04 07:33:13.535416714
+     - 2026-11-04 07:33:13.541603163
+     - 3464405
+     - 61089030
    * - 13
-     - 1738132 / 1738133
-     - 176 / 4094
-     - 2026-11-04 06:54:43.235140775
-     - 2026-11-04 06:54:43.238819731
-     - 2026-11-04 06:54:43.246149151
-     - 3678196
-     - 61628129
+     - 1761237 / 1761238
+     - 185 / 4094
+     - 2026-11-04 07:33:13.728059058
+     - 2026-11-04 07:33:13.731792973
+     - 2026-11-04 07:33:13.739036774
+     - 3734045
+     - 60967699
    * - 14
-     - 1738134 / 1738135
-     - 178 / 4094
-     - 2026-11-04 06:54:43.431732719
-     - 2026-11-04 06:54:43.435734655
-     - 2026-11-04 06:54:43.439906321
-     - 4000376
-     - 57957334
+     - 1761239 / 1761240
+     - 186 / 4094
+     - 2026-11-04 07:33:13.933971140
+     - 2026-11-04 07:33:13.937383295
+     - 2026-11-04 07:33:13.944564396
+     - 3410115
+     - 74733840
    * - 15
-     - 1738136 / 1738137
-     - 172 / 4094
-     - 2026-11-04 06:54:43.634808593
-     - 2026-11-04 06:54:43.639054799
-     - 2026-11-04 06:54:43.646313419
-     - 4244946
-     - 62041099
-   * - 16
-     - 1738138 / 1738139
-     - 178 / 4094
-     - 2026-11-04 06:54:43.830330165
-     - 2026-11-04 06:54:43.834246091
-     - 2026-11-04 06:54:43.841408901
-     - 3914226
-     - 61560589
-   * - 17
-     - 1738140 / 1738141
-     - 181 / 4094
-     - 2026-11-04 06:54:44.035631482
-     - 2026-11-04 06:54:44.040162448
-     - 2026-11-04 06:54:44.047409809
-     - 4529596
-     - 60424507
-   * - 18
-     - 1738142 / 1738143
-     - 184 / 4094
-     - 2026-11-04 06:54:44.231057604
-     - 2026-11-04 06:54:44.235533860
-     - 2026-11-04 06:54:44.242855951
-     - 4475816
-     - 62872801
-   * - 19
-     - 1738144 / 1738145
-     - 187 / 4094
-     - 2026-11-04 06:54:44.429128220
-     - 2026-11-04 06:54:44.433600306
-     - 2026-11-04 06:54:44.439047474
-     - 4472036
-     - 60224327
-   * - 20
-     - 1738146 / 1738147
+     - 1761241 / 1761242
      - 188 / 4094
-     - 2026-11-04 06:54:44.634807767
-     - 2026-11-04 06:54:44.639083603
-     - 2026-11-04 06:54:44.642521418
-     - 4275496
-     - 59727526
+     - 2026-11-04 07:33:14.133863184
+     - 2026-11-04 07:33:14.137541179
+     - 2026-11-04 07:33:14.142898717
+     - 3677465
+     - 57583675
+   * - 16
+     - 1761243 / 1761244
+     - 187 / 4094
+     - 2026-11-04 07:33:14.334399519
+     - 2026-11-04 07:33:14.338410455
+     - 2026-11-04 07:33:14.344006133
+     - 4010496
+     - 57576735
+   * - 17
+     - 1761245 / 1761246
+     - 189 / 4094
+     - 2026-11-04 07:33:14.536790226
+     - 2026-11-04 07:33:14.540843712
+     - 2026-11-04 07:33:14.544974458
+     - 4051885
+     - 58155915
+   * - 18
+     - 1761247 / 1761248
+     - 182 / 4094
+     - 2026-11-04 07:33:14.729709880
+     - 2026-11-04 07:33:14.733195355
+     - 2026-11-04 07:33:14.740504016
+     - 3483625
+     - 61127700
+   * - 19
+     - 1761249 / 1761250
+     - 181 / 4094
+     - 2026-11-04 07:33:14.935986313
+     - 2026-11-04 07:33:14.940167030
+     - 2026-11-04 07:33:14.945640798
+     - 4178936
+     - 59969998
+   * - 20
+     - 1761251 / 1761252
+     - 181 / 4094
+     - 2026-11-04 07:33:15.129772078
+     - 2026-11-04 07:33:15.133656834
+     - 2026-11-04 07:33:15.141145715
+     - 3883456
+     - 59974888
 
 .. raw:: html
 
@@ -600,4 +589,4 @@ Findings
 --------
 
 The measured spacing and receiver agreement support using the timing system to correlate event records across these devices. They do not establish absolute UTC accuracy or variation smaller than one clock tick.
-The camera-qualified trigger also includes host processing: the mean delay from detection to the start of the trigger request was 3.85 ms. This path therefore does not provide an 8 ns optical response. Physical LED turn-on, wire transmit time and a receiver-driven output response remain unmeasured.
+The camera-qualified trigger also includes host processing: the mean delay from detection to the start of the trigger request was 3.41 ms. This path therefore does not provide an 8 ns optical response. Physical LED turn-on, wire transmit time and a receiver-driven output response remain unmeasured.
