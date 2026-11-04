@@ -103,7 +103,7 @@ The fresh baseline, recording ``20261104T045838Z-09f9a3``, contains 200 saved im
      - mean 99,998,630.2 ns; standard deviation 12,424.9 ns
      - The camera clock resolution has not been verified; these are reported frame intervals.
    * - Event-101 receiver comparison
-     - 180 pairs; mean 0 ns; standard deviation 0 ns
+     - 180 complete-second pairs; mean 0 ns; standard deviation 0 ns
      - Both receivers reported equal timestamps at 8 ns resolution for the matched baseline events. This is not an LED-to-event delay.
 
 .. figure:: ../_static/timing-check/scenarios/led-baseline-images.png
@@ -1003,3 +1003,4 @@ Findings
 
 The baseline demonstrates that the current camera stream can distinguish the LED states while both receivers retain consistent event-101 timestamps. It supports proceeding with camera-qualified sequence triggering without changing the working optical source.
 The active trial will establish whether LED detection reliably starts the two-event sequence and whether both receivers retain its measured spacing. A successful result would qualify that software-and-sequencer path; it would not establish optical turn-on latency, physical transmit time, an electrical output response or 1 kHz operation.
+
