@@ -1349,24 +1349,24 @@
     },
     "led_response": {
       "state": "camera-qualified sequence measured; physical edge timing not measured",
-      "recording_id": "20261104T051638Z-3fd293",
-      "raw_sha256": "a14b6ed13c52dbcaa437758007b8250db58089e55e9b34d3c52474cdf588d76c",
+      "recording_id": "20261104T065440Z-9f4ddd",
+      "raw_sha256": "ee8cbb3568ee208e9a4babe7d5e2ea0b63f4823e6fc322a4f4a7bbf850ee8601",
       "qualified_cycles": 20,
       "events_each": 40,
       "measurements": {
         "gap_a_ns": {
           "count": 20,
-          "mean": 1000000,
+          "mean": 8,
           "stddev": 0.0,
-          "min": 1000000,
-          "max": 1000000
+          "min": 8,
+          "max": 8
         },
         "gap_b_ns": {
           "count": 20,
-          "mean": 1000000,
+          "mean": 8,
           "stddev": 0.0,
-          "min": 1000000,
-          "max": 1000000
+          "min": 8,
+          "max": 8
         },
         "receiver_difference_ns": {
           "count": 40,
@@ -1377,17 +1377,17 @@
         },
         "detection_to_request_ns": {
           "count": 20,
-          "mean": 3267748.35,
-          "stddev": 336533.7904626035,
-          "min": 2668934,
-          "max": 3777316
+          "mean": 3847304.55,
+          "stddev": 439737.82374904654,
+          "min": 3028904,
+          "max": 4529596
         },
         "detection_to_confirmation_ns": {
           "count": 20,
-          "mean": 60032252.35,
-          "stddev": 2669865.6689055776,
-          "min": 57292733,
-          "max": 70288531
+          "mean": 61522929.85,
+          "stddev": 4235462.878019264,
+          "min": 56985892,
+          "max": 75918539
         }
       },
       "source_evidence": "led-sequence-evidence.json",

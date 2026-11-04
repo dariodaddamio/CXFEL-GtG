@@ -1,0 +1,4950 @@
+{
+  "recording_id": "20261104T065440Z-9f4ddd",
+  "raw_sha256": "ee8cbb3568ee208e9a4babe7d5e2ea0b63f4823e6fc322a4f4a7bbf850ee8601",
+  "configured_gap_ns": 8,
+  "approved_trial": true,
+  "original_controls_and_maps_restored": {
+    "EVT:DEV2:20:EVG:SEQ:1:codes": true,
+    "EVT:DEV2:20:EVG:SEQ:1:times": true,
+    "EVT:DEV2:20:EVG:SEQ:1:slo": true,
+    "EVT:DEV2:20:EVG:SEQ:1:HWrise": true,
+    "EVT:DEV2:20:EVG:SEQ:1:HWfall": true,
+    "EVT:DEV2:20:EVG:SEQ:1:Tmr": true,
+    "EVT:DEV2:20:EVG:SEQ:1:tModeR": true,
+    "EVT:DEV2:10:EVR:map": true,
+    "EVT:DEV2:20:EVR:map": true,
+    "EVT:DEV2:30:EVR:map": true,
+    "EVT:DEV2:40:EVR:map": true,
+    "EVT:DEV2:20:EVG:TMR:1:event": true,
+    "EVT:DEV2:20:EVG:TMR:2:event": true,
+    "EVT:DEV2:20:EVG:TMR:3:event": true,
+    "EVT:DEV2:20:EVG:TMR:4:event": true,
+    "EVT:DEV2:20:EVG:TMR:5:event": true,
+    "EVT:DEV2:20:EVG:TMR:6:event": true,
+    "EVT:DEV2:20:EVG:TMR:7:event": true,
+    "EVT:DEV2:20:EVG:TMR:8:event": true,
+    "EVT:DEV2:10:EVR:LOG:evt3": true,
+    "EVT:DEV2:10:EVR:LOG:evt4": true,
+    "EVT:DEV2:40:EVR:LOG:evt3": true,
+    "EVT:DEV2:40:EVR:LOG:evt4": true,
+    "EVT:DEV2:20:Ref:Freq": true
+  },
+  "unchanged_optical_controls": {
+    "EVT:DEV2:20:EVG:TMR:1:divisor": true,
+    "EVT:DEV2:30:EVR:OUT:1:source": true,
+    "EVT:DEV2:30:EVR:OUT:1:delay": true,
+    "EVT:DEV2:30:EVR:OUT:1:width": true,
+    "EVT:DEV2:30:EVR:OUT:1:evt1": true,
+    "CAM:DEV2:20:cam1:Acquire_RBV": true,
+    "CAM:DEV2:20:cam1:AcquireTime_RBV": true,
+    "CAM:DEV2:20:cam1:GC_TriggerMode_RBV": true,
+    "CAM:DEV2:20:cam1:GC_TriggerSource_RBV": true,
+    "CAM:DEV2:20:cam1:GC_TriggerSelector_RBV": true,
+    "CAM:DEV2:20:cam1:TimeStampMode_RBV": true,
+    "DGEN:DEV2:20:Label": true,
+    "DGEN:DEV2:20:IdentSI": true,
+    "DGEN:DEV2:20:TriggerSourceMI": true,
+    "DGEN:DEV2:20:TriggerInhibitMI": true,
+    "DGEN:DEV2:20:TriggerPrescaleLI": true,
+    "DGEN:DEV2:20:AReferenceMI": true,
+    "DGEN:DEV2:20:ADelayAI": true,
+    "DGEN:DEV2:20:BReferenceMI": true,
+    "DGEN:DEV2:20:BDelayAI": true,
+    "DGEN:DEV2:20:CReferenceMI": true,
+    "DGEN:DEV2:20:CDelayAI": true,
+    "DGEN:DEV2:20:DReferenceMI": true,
+    "DGEN:DEV2:20:DDelayAI": true,
+    "DGEN:DEV2:20:ABOutputAmpAI": true,
+    "DGEN:DEV2:20:ABOutputOffsetAI": true,
+    "DGEN:DEV2:20:CDOutputAmpAI": true,
+    "DGEN:DEV2:20:CDOutputOffsetAI": true,
+    "DGEN:DEV2:30:Label": true,
+    "DGEN:DEV2:30:IdentSI": true,
+    "DGEN:DEV2:30:TriggerSourceMI": true,
+    "DGEN:DEV2:30:TriggerInhibitMI": true,
+    "DGEN:DEV2:30:TriggerPrescaleLI": true,
+    "DGEN:DEV2:30:AReferenceMI": true,
+    "DGEN:DEV2:30:ADelayAI": true,
+    "DGEN:DEV2:30:BReferenceMI": true,
+    "DGEN:DEV2:30:BDelayAI": true,
+    "DGEN:DEV2:30:CReferenceMI": true,
+    "DGEN:DEV2:30:CDelayAI": true,
+    "DGEN:DEV2:30:DReferenceMI": true,
+    "DGEN:DEV2:30:DDelayAI": true,
+    "DGEN:DEV2:30:ABOutputAmpAI": true,
+    "DGEN:DEV2:30:ABOutputOffsetAI": true,
+    "DGEN:DEV2:30:CDOutputAmpAI": true,
+    "DGEN:DEV2:30:CDOutputOffsetAI": true
+  },
+  "receiver_status": {
+    "10": 8839,
+    "20": 8839,
+    "30": 8839,
+    "40": 8839
+  },
+  "idle_disarmed": true,
+  "qualified_cycles": 20,
+  "measured_events_each": 40,
+  "images_saved": 599,
+  "qualified_frames_verified_against_original_pixels": true,
+  "measurements": {
+    "gap_a_ns": {
+      "count": 20,
+      "mean": 8,
+      "stddev": 0.0,
+      "min": 8,
+      "max": 8
+    },
+    "gap_b_ns": {
+      "count": 20,
+      "mean": 8,
+      "stddev": 0.0,
+      "min": 8,
+      "max": 8
+    },
+    "receiver_difference_ns": {
+      "count": 40,
+      "mean": 0,
+      "stddev": 0.0,
+      "min": 0,
+      "max": 0
+    },
+    "detection_to_request_ns": {
+      "count": 20,
+      "mean": 3847304.55,
+      "stddev": 439737.82374904654,
+      "min": 3028904,
+      "max": 4529596
+    },
+    "detection_to_confirmation_ns": {
+      "count": 20,
+      "mean": 61522929.85,
+      "stddev": 4235462.878019264,
+      "min": 56985892,
+      "max": 75918539
+    }
+  },
+  "cycles": [
+    {
+      "cycle": 1,
+      "host_unix": 1793775280.904754,
+      "run_count": 13,
+      "idle": true,
+      "armed": true,
+      "dark_frame": {
+        "frame_id": 1738108,
+        "camera_time": 12054997.6514777,
+        "ioc_timestamp": 1793775280.725204,
+        "received_unix": 1793775280.7267761,
+        "roi_peak": 181
+      },
+      "bright_frame": {
+        "frame_id": 1738109,
+        "camera_time": 12054997.7514871,
+        "ioc_timestamp": 1793775280.825566,
+        "received_unix": 1793775280.8269522,
+        "roi_peak": 4094
+      },
+      "threshold": 1000,
+      "roi": [
+        300,
+        700,
+        550,
+        850
+      ],
+      "detected_host_ns": "1793775280834020127",
+      "detected_monotonic_ns": 5144602171935673,
+      "write_started_host_ns": "1793775280837192522",
+      "write_completed_host_ns": "1793775280854802077",
+      "detection_to_write_start_ns": 3171244,
+      "detection_to_confirmation_ns": 70735762
+    },
+    {
+      "cycle": 2,
+      "host_unix": 1793775281.0893953,
+      "run_count": 14,
+      "idle": true,
+      "armed": true,
+      "dark_frame": {
+        "frame_id": 1738110,
+        "camera_time": 12054997.8514713,
+        "ioc_timestamp": 1793775280.925218,
+        "received_unix": 1793775280.9268456,
+        "roi_peak": 181
+      },
+      "bright_frame": {
+        "frame_id": 1738111,
+        "camera_time": 12054997.9514807,
+        "ioc_timestamp": 1793775281.025214,
+        "received_unix": 1793775281.0266752,
+        "roi_peak": 4094
+      },
+      "threshold": 1000,
+      "roi": [
+        300,
+        700,
+        550,
+        850
+      ],
+      "detected_host_ns": "1793775281029100099",
+      "detected_monotonic_ns": 5144602367015825,
+      "write_started_host_ns": "1793775281032130603",
+      "write_completed_host_ns": "1793775281039324283",
+      "detection_to_write_start_ns": 3028904,
+      "detection_to_confirmation_ns": 60296247
+    },
+    {
+      "cycle": 3,
+      "host_unix": 1793775281.2936032,
+      "run_count": 15,
+      "idle": true,
+      "armed": true,
+      "dark_frame": {
+        "frame_id": 1738112,
+        "camera_time": 12054998.0514649,
+        "ioc_timestamp": 1793775281.125204,
+        "received_unix": 1793775281.1273437,
+        "roi_peak": 178
+      },
+      "bright_frame": {
+        "frame_id": 1738113,
+        "camera_time": 12054998.1514743,
+        "ioc_timestamp": 1793775281.225159,
+        "received_unix": 1793775281.2263544,
+        "roi_peak": 4094
+      },
+      "threshold": 1000,
+      "roi": [
+        300,
+        700,
+        550,
+        850
+      ],
+      "detected_host_ns": "1793775281233728764",
+      "detected_monotonic_ns": 5144602571644800,
+      "write_started_host_ns": "1793775281237345069",
+      "write_completed_host_ns": "1793775281243887389",
+      "detection_to_write_start_ns": 3614286,
+      "detection_to_confirmation_ns": 59874907
+    },
+    {
+      "cycle": 4,
+      "host_unix": 1793775281.4990346,
+      "run_count": 0,
+      "idle": true,
+      "armed": true,
+      "dark_frame": {
+        "frame_id": 1738114,
+        "camera_time": 12054998.2514585,
+        "ioc_timestamp": 1793775281.325454,
+        "received_unix": 1793775281.3270366,
+        "roi_peak": 176
+      },
+      "bright_frame": {
+        "frame_id": 1738115,
+        "camera_time": 12054998.3514679,
+        "ioc_timestamp": 1793775281.42537,
+        "received_unix": 1793775281.4266796,
+        "roi_peak": 4094
+      },
+      "threshold": 1000,
+      "roi": [
+        300,
+        700,
+        550,
+        850
+      ],
+      "detected_host_ns": "1793775281438058729",
+      "detected_monotonic_ns": 5144602775974045,
+      "write_started_host_ns": "1793775281441374654",
+      "write_completed_host_ns": "1793775281448568995",
+      "detection_to_write_start_ns": 3314585,
+      "detection_to_confirmation_ns": 60977329
+    },
+    {
+      "cycle": 5,
+      "host_unix": 1793775281.7093487,
+      "run_count": 1,
+      "idle": true,
+      "armed": true,
+      "dark_frame": {
+        "frame_id": 1738116,
+        "camera_time": 12054998.4514773,
+        "ioc_timestamp": 1793775281.525155,
+        "received_unix": 1793775281.5267677,
+        "roi_peak": 180
+      },
+      "bright_frame": {
+        "frame_id": 1738117,
+        "camera_time": 12054998.5514615,
+        "ioc_timestamp": 1793775281.625316,
+        "received_unix": 1793775281.6266928,
+        "roi_peak": 4094
+      },
+      "threshold": 1000,
+      "roi": [
+        300,
+        700,
+        550,
+        850
+      ],
+      "detected_host_ns": "1793775281633431972",
+      "detected_monotonic_ns": 5144602971347448,
+      "write_started_host_ns": "1793775281637509707",
+      "write_completed_host_ns": "1793775281644673258",
+      "detection_to_write_start_ns": 4076525,
+      "detection_to_confirmation_ns": 75918539
+    },
+    {
+      "cycle": 6,
+      "host_unix": 1793775281.8908384,
+      "run_count": 2,
+      "idle": true,
+      "armed": true,
+      "dark_frame": {
+        "frame_id": 1738118,
+        "camera_time": 12054998.6514709,
+        "ioc_timestamp": 1793775281.725317,
+        "received_unix": 1793775281.7268255,
+        "roi_peak": 175
+      },
+      "bright_frame": {
+        "frame_id": 1738119,
+        "camera_time": 12054998.7514551,
+        "ioc_timestamp": 1793775281.825077,
+        "received_unix": 1793775281.8265452,
+        "roi_peak": 4094
+      },
+      "threshold": 1000,
+      "roi": [
+        300,
+        700,
+        550,
+        850
+      ],
+      "detected_host_ns": "1793775281833853471",
+      "detected_monotonic_ns": 5144603171768807,
+      "write_started_host_ns": "1793775281837324256",
+      "write_completed_host_ns": "1793775281842654564",
+      "detection_to_write_start_ns": 3469515,
+      "detection_to_confirmation_ns": 56985892
+    },
+    {
+      "cycle": 7,
+      "host_unix": 1793775282.0953133,
+      "run_count": 3,
+      "idle": true,
+      "armed": true,
+      "dark_frame": {
+        "frame_id": 1738120,
+        "camera_time": 12054998.8514644,
+        "ioc_timestamp": 1793775281.925327,
+        "received_unix": 1793775281.9267218,
+        "roi_peak": 175
+      },
+      "bright_frame": {
+        "frame_id": 1738121,
+        "camera_time": 12054998.9514487,
+        "ioc_timestamp": 1793775282.024994,
+        "received_unix": 1793775282.0264406,
+        "roi_peak": 4094
+      },
+      "threshold": 1000,
+      "roi": [
+        300,
+        700,
+        550,
+        850
+      ],
+      "detected_host_ns": "1793775282036067303",
+      "detected_monotonic_ns": 5144603373982919,
+      "write_started_host_ns": "1793775282039897159",
+      "write_completed_host_ns": "1793775282044933826",
+      "detection_to_write_start_ns": 3828176,
+      "detection_to_confirmation_ns": 59246406
+    },
+    {
+      "cycle": 8,
+      "host_unix": 1793775282.289956,
+      "run_count": 4,
+      "idle": true,
+      "armed": true,
+      "dark_frame": {
+        "frame_id": 1738122,
+        "camera_time": 12054999.0514581,
+        "ioc_timestamp": 1793775282.124975,
+        "received_unix": 1793775282.1263766,
+        "roi_peak": 173
+      },
+      "bright_frame": {
+        "frame_id": 1738123,
+        "camera_time": 12054999.1514674,
+        "ioc_timestamp": 1793775282.224986,
+        "received_unix": 1793775282.2263918,
+        "roi_peak": 4094
+      },
+      "threshold": 1000,
+      "roi": [
+        300,
+        700,
+        550,
+        850
+      ],
+      "detected_host_ns": "1793775282229825623",
+      "detected_monotonic_ns": 5144603567741229,
+      "write_started_host_ns": "1793775282233475178",
+      "write_completed_host_ns": "1793775282240717649",
+      "detection_to_write_start_ns": 3648165,
+      "detection_to_confirmation_ns": 60131777
+    },
+    {
+      "cycle": 9,
+      "host_unix": 1793775282.4928675,
+      "run_count": 5,
+      "idle": true,
+      "armed": true,
+      "dark_frame": {
+        "frame_id": 1738124,
+        "camera_time": 12054999.2514517,
+        "ioc_timestamp": 1793775282.325112,
+        "received_unix": 1793775282.3262537,
+        "roi_peak": 172
+      },
+      "bright_frame": {
+        "frame_id": 1738125,
+        "camera_time": 12054999.351461,
+        "ioc_timestamp": 1793775282.425132,
+        "received_unix": 1793775282.426201,
+        "roi_peak": 4094
+      },
+      "threshold": 1000,
+      "roi": [
+        300,
+        700,
+        550,
+        850
+      ],
+      "detected_host_ns": "1793775282434404049",
+      "detected_monotonic_ns": 5144603772319495,
+      "write_started_host_ns": "1793775282437822324",
+      "write_completed_host_ns": "1793775282443396832",
+      "detection_to_write_start_ns": 3416885,
+      "detection_to_confirmation_ns": 58464624
+    },
+    {
+      "cycle": 10,
+      "host_unix": 1793775282.6978624,
+      "run_count": 6,
+      "idle": true,
+      "armed": true,
+      "dark_frame": {
+        "frame_id": 1738126,
+        "camera_time": 12054999.4514452,
+        "ioc_timestamp": 1793775282.524965,
+        "received_unix": 1793775282.5260468,
+        "roi_peak": 174
+      },
+      "bright_frame": {
+        "frame_id": 1738127,
+        "camera_time": 12054999.5514546,
+        "ioc_timestamp": 1793775282.625134,
+        "received_unix": 1793775282.6261659,
+        "roi_peak": 4094
+      },
+      "threshold": 1000,
+      "roi": [
+        300,
+        700,
+        550,
+        850
+      ],
+      "detected_host_ns": "1793775282637652092",
+      "detected_monotonic_ns": 5144603975567408,
+      "write_started_host_ns": "1793775282641467178",
+      "write_completed_host_ns": "1793775282647829507",
+      "detection_to_write_start_ns": 3814006,
+      "detection_to_confirmation_ns": 60212587
+    },
+    {
+      "cycle": 11,
+      "host_unix": 1793775282.8965163,
+      "run_count": 7,
+      "idle": true,
+      "armed": true,
+      "dark_frame": {
+        "frame_id": 1738128,
+        "camera_time": 12054999.6514389,
+        "ioc_timestamp": 1793775282.725022,
+        "received_unix": 1793775282.7261546,
+        "roi_peak": 172
+      },
+      "bright_frame": {
+        "frame_id": 1738129,
+        "camera_time": 12054999.7514482,
+        "ioc_timestamp": 1793775282.824916,
+        "received_unix": 1793775282.826337,
+        "roi_peak": 4094
+      },
+      "threshold": 1000,
+      "roi": [
+        300,
+        700,
+        550,
+        850
+      ],
+      "detected_host_ns": "1793775282835335148",
+      "detected_monotonic_ns": 5144604173250314,
+      "write_started_host_ns": "1793775282839705194",
+      "write_completed_host_ns": "1793775282846925474",
+      "detection_to_write_start_ns": 4369446,
+      "detection_to_confirmation_ns": 61182748
+    },
+    {
+      "cycle": 12,
+      "host_unix": 1793775283.090299,
+      "run_count": 8,
+      "idle": true,
+      "armed": true,
+      "dark_frame": {
+        "frame_id": 1738130,
+        "camera_time": 12054999.8514576,
+        "ioc_timestamp": 1793775282.925067,
+        "received_unix": 1793775282.9262037,
+        "roi_peak": 173
+      },
+      "bright_frame": {
+        "frame_id": 1738131,
+        "camera_time": 12054999.9514418,
+        "ioc_timestamp": 1793775283.025113,
+        "received_unix": 1793775283.026334,
+        "roi_peak": 4094
+      },
+      "threshold": 1000,
+      "roi": [
+        300,
+        700,
+        550,
+        850
+      ],
+      "detected_host_ns": "1793775283030305499",
+      "detected_monotonic_ns": 5144604368221355,
+      "write_started_host_ns": "1793775283033911035",
+      "write_completed_host_ns": "1793775283039519233",
+      "detection_to_write_start_ns": 3603666,
+      "detection_to_confirmation_ns": 59995467
+    },
+    {
+      "cycle": 13,
+      "host_unix": 1793775283.2967672,
+      "run_count": 9,
+      "idle": true,
+      "armed": true,
+      "dark_frame": {
+        "frame_id": 1738132,
+        "camera_time": 12055000.0514512,
+        "ioc_timestamp": 1793775283.124968,
+        "received_unix": 1793775283.126079,
+        "roi_peak": 176
+      },
+      "bright_frame": {
+        "frame_id": 1738133,
+        "camera_time": 12055000.1514354,
+        "ioc_timestamp": 1793775283.22501,
+        "received_unix": 1793775283.226276,
+        "roi_peak": 4094
+      },
+      "threshold": 1000,
+      "roi": [
+        300,
+        700,
+        550,
+        850
+      ],
+      "detected_host_ns": "1793775283235140775",
+      "detected_monotonic_ns": 5144604573056031,
+      "write_started_host_ns": "1793775283238819731",
+      "write_completed_host_ns": "1793775283246149151",
+      "detection_to_write_start_ns": 3678196,
+      "detection_to_confirmation_ns": 61628129
+    },
+    {
+      "cycle": 14,
+      "host_unix": 1793775283.489688,
+      "run_count": 10,
+      "idle": true,
+      "armed": true,
+      "dark_frame": {
+        "frame_id": 1738134,
+        "camera_time": 12055000.2514448,
+        "ioc_timestamp": 1793775283.325147,
+        "received_unix": 1793775283.3263223,
+        "roi_peak": 178
+      },
+      "bright_frame": {
+        "frame_id": 1738135,
+        "camera_time": 12055000.351429,
+        "ioc_timestamp": 1793775283.425338,
+        "received_unix": 1793775283.4267533,
+        "roi_peak": 4094
+      },
+      "threshold": 1000,
+      "roi": [
+        300,
+        700,
+        550,
+        850
+      ],
+      "detected_host_ns": "1793775283431732719",
+      "detected_monotonic_ns": 5144604769648225,
+      "write_started_host_ns": "1793775283435734655",
+      "write_completed_host_ns": "1793775283439906321",
+      "detection_to_write_start_ns": 4000376,
+      "detection_to_confirmation_ns": 57957334
+    },
+    {
+      "cycle": 15,
+      "host_unix": 1793775283.6968484,
+      "run_count": 11,
+      "idle": true,
+      "armed": true,
+      "dark_frame": {
+        "frame_id": 1738136,
+        "camera_time": 12055000.4514384,
+        "ioc_timestamp": 1793775283.525162,
+        "received_unix": 1793775283.5266185,
+        "roi_peak": 172
+      },
+      "bright_frame": {
+        "frame_id": 1738137,
+        "camera_time": 12055000.5514477,
+        "ioc_timestamp": 1793775283.625078,
+        "received_unix": 1793775283.6262856,
+        "roi_peak": 4094
+      },
+      "threshold": 1000,
+      "roi": [
+        300,
+        700,
+        550,
+        850
+      ],
+      "detected_host_ns": "1793775283634808593",
+      "detected_monotonic_ns": 5144604972723789,
+      "write_started_host_ns": "1793775283639054799",
+      "write_completed_host_ns": "1793775283646313419",
+      "detection_to_write_start_ns": 4244946,
+      "detection_to_confirmation_ns": 62041099
+    },
+    {
+      "cycle": 16,
+      "host_unix": 1793775283.8918893,
+      "run_count": 12,
+      "idle": true,
+      "armed": true,
+      "dark_frame": {
+        "frame_id": 1738138,
+        "camera_time": 12055000.651432,
+        "ioc_timestamp": 1793775283.725052,
+        "received_unix": 1793775283.7262826,
+        "roi_peak": 178
+      },
+      "bright_frame": {
+        "frame_id": 1738139,
+        "camera_time": 12055000.7514413,
+        "ioc_timestamp": 1793775283.825112,
+        "received_unix": 1793775283.8264005,
+        "roi_peak": 4094
+      },
+      "threshold": 1000,
+      "roi": [
+        300,
+        700,
+        550,
+        850
+      ],
+      "detected_host_ns": "1793775283830330165",
+      "detected_monotonic_ns": 5144605168245821,
+      "write_started_host_ns": "1793775283834246091",
+      "write_completed_host_ns": "1793775283841408901",
+      "detection_to_write_start_ns": 3914226,
+      "detection_to_confirmation_ns": 61560589
+    },
+    {
+      "cycle": 17,
+      "host_unix": 1793775284.096055,
+      "run_count": 13,
+      "idle": true,
+      "armed": true,
+      "dark_frame": {
+        "frame_id": 1738140,
+        "camera_time": 12055000.8514256,
+        "ioc_timestamp": 1793775283.925414,
+        "received_unix": 1793775283.926734,
+        "roi_peak": 181
+      },
+      "bright_frame": {
+        "frame_id": 1738141,
+        "camera_time": 12055000.9514349,
+        "ioc_timestamp": 1793775284.025383,
+        "received_unix": 1793775284.0271344,
+        "roi_peak": 4094
+      },
+      "threshold": 1000,
+      "roi": [
+        300,
+        700,
+        550,
+        850
+      ],
+      "detected_host_ns": "1793775284035631482",
+      "detected_monotonic_ns": 5144605373547048,
+      "write_started_host_ns": "1793775284040162448",
+      "write_completed_host_ns": "1793775284047409809",
+      "detection_to_write_start_ns": 4529596,
+      "detection_to_confirmation_ns": 60424507
+    },
+    {
+      "cycle": 18,
+      "host_unix": 1793775284.2939281,
+      "run_count": 14,
+      "idle": true,
+      "armed": true,
+      "dark_frame": {
+        "frame_id": 1738142,
+        "camera_time": 12055001.0514192,
+        "ioc_timestamp": 1793775284.124901,
+        "received_unix": 1793775284.1261768,
+        "roi_peak": 184
+      },
+      "bright_frame": {
+        "frame_id": 1738143,
+        "camera_time": 12055001.1514285,
+        "ioc_timestamp": 1793775284.224934,
+        "received_unix": 1793775284.2265275,
+        "roi_peak": 4094
+      },
+      "threshold": 1000,
+      "roi": [
+        300,
+        700,
+        550,
+        850
+      ],
+      "detected_host_ns": "1793775284231057604",
+      "detected_monotonic_ns": 5144605568972620,
+      "write_started_host_ns": "1793775284235533860",
+      "write_completed_host_ns": "1793775284242855951",
+      "detection_to_write_start_ns": 4475816,
+      "detection_to_confirmation_ns": 62872801
+    },
+    {
+      "cycle": 19,
+      "host_unix": 1793775284.4893494,
+      "run_count": 15,
+      "idle": true,
+      "armed": true,
+      "dark_frame": {
+        "frame_id": 1738144,
+        "camera_time": 12055001.2514379,
+        "ioc_timestamp": 1793775284.325051,
+        "received_unix": 1793775284.3263764,
+        "roi_peak": 187
+      },
+      "bright_frame": {
+        "frame_id": 1738145,
+        "camera_time": 12055001.3514221,
+        "ioc_timestamp": 1793775284.425054,
+        "received_unix": 1793775284.4261208,
+        "roi_peak": 4094
+      },
+      "threshold": 1000,
+      "roi": [
+        300,
+        700,
+        550,
+        850
+      ],
+      "detected_host_ns": "1793775284429128220",
+      "detected_monotonic_ns": 5144605767042876,
+      "write_started_host_ns": "1793775284433600306",
+      "write_completed_host_ns": "1793775284439047474",
+      "detection_to_write_start_ns": 4472036,
+      "detection_to_confirmation_ns": 60224327
+    },
+    {
+      "cycle": 20,
+      "host_unix": 1793775284.6945326,
+      "run_count": 0,
+      "idle": true,
+      "armed": true,
+      "dark_frame": {
+        "frame_id": 1738146,
+        "camera_time": 12055001.4514315,
+        "ioc_timestamp": 1793775284.524869,
+        "received_unix": 1793775284.5260012,
+        "roi_peak": 188
+      },
+      "bright_frame": {
+        "frame_id": 1738147,
+        "camera_time": 12055001.5514157,
+        "ioc_timestamp": 1793775284.624972,
+        "received_unix": 1793775284.626377,
+        "roi_peak": 4094
+      },
+      "threshold": 1000,
+      "roi": [
+        300,
+        700,
+        550,
+        850
+      ],
+      "detected_host_ns": "1793775284634807767",
+      "detected_monotonic_ns": 5144605972722353,
+      "write_started_host_ns": "1793775284639083603",
+      "write_completed_host_ns": "1793775284642521418",
+      "detection_to_write_start_ns": 4275496,
+      "detection_to_confirmation_ns": 59727526
+    }
+  ],
+  "receiver_rows": [
+    {
+      "index": 1,
+      "cycle": 1,
+      "event": 42,
+      "requested_relative_ns": 0,
+      "observed_a_ns": 0,
+      "observed_b_ns": 0,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775280.966016992",
+      "timestamp_b": "1793775280.966016992",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 2,
+      "cycle": 1,
+      "event": 43,
+      "requested_relative_ns": 8,
+      "observed_a_ns": 8,
+      "observed_b_ns": 8,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775280.966017000",
+      "timestamp_b": "1793775280.966017000",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 3,
+      "cycle": 2,
+      "event": 42,
+      "requested_relative_ns": 0,
+      "observed_a_ns": 0,
+      "observed_b_ns": 0,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775281.150545864",
+      "timestamp_b": "1793775281.150545864",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 4,
+      "cycle": 2,
+      "event": 43,
+      "requested_relative_ns": 8,
+      "observed_a_ns": 8,
+      "observed_b_ns": 8,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775281.150545872",
+      "timestamp_b": "1793775281.150545872",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 5,
+      "cycle": 3,
+      "event": 42,
+      "requested_relative_ns": 0,
+      "observed_a_ns": 0,
+      "observed_b_ns": 0,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775281.355102808",
+      "timestamp_b": "1793775281.355102808",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 6,
+      "cycle": 3,
+      "event": 43,
+      "requested_relative_ns": 8,
+      "observed_a_ns": 8,
+      "observed_b_ns": 8,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775281.355102816",
+      "timestamp_b": "1793775281.355102816",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 7,
+      "cycle": 4,
+      "event": 42,
+      "requested_relative_ns": 0,
+      "observed_a_ns": 0,
+      "observed_b_ns": 0,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775281.559790848",
+      "timestamp_b": "1793775281.559790848",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 8,
+      "cycle": 4,
+      "event": 43,
+      "requested_relative_ns": 8,
+      "observed_a_ns": 8,
+      "observed_b_ns": 8,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775281.559790856",
+      "timestamp_b": "1793775281.559790856",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 9,
+      "cycle": 5,
+      "event": 42,
+      "requested_relative_ns": 0,
+      "observed_a_ns": 0,
+      "observed_b_ns": 0,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775281.755896256",
+      "timestamp_b": "1793775281.755896256",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 10,
+      "cycle": 5,
+      "event": 43,
+      "requested_relative_ns": 8,
+      "observed_a_ns": 8,
+      "observed_b_ns": 8,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775281.755896264",
+      "timestamp_b": "1793775281.755896264",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 11,
+      "cycle": 6,
+      "event": 42,
+      "requested_relative_ns": 0,
+      "observed_a_ns": 0,
+      "observed_b_ns": 0,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775281.953856392",
+      "timestamp_b": "1793775281.953856392",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 12,
+      "cycle": 6,
+      "event": 43,
+      "requested_relative_ns": 8,
+      "observed_a_ns": 8,
+      "observed_b_ns": 8,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775281.953856400",
+      "timestamp_b": "1793775281.953856400",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 13,
+      "cycle": 7,
+      "event": 42,
+      "requested_relative_ns": 0,
+      "observed_a_ns": 0,
+      "observed_b_ns": 0,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775282.156132768",
+      "timestamp_b": "1793775282.156132768",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 14,
+      "cycle": 7,
+      "event": 43,
+      "requested_relative_ns": 8,
+      "observed_a_ns": 8,
+      "observed_b_ns": 8,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775282.156132776",
+      "timestamp_b": "1793775282.156132776",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 15,
+      "cycle": 8,
+      "event": 42,
+      "requested_relative_ns": 0,
+      "observed_a_ns": 0,
+      "observed_b_ns": 0,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775282.351914224",
+      "timestamp_b": "1793775282.351914224",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 16,
+      "cycle": 8,
+      "event": 43,
+      "requested_relative_ns": 8,
+      "observed_a_ns": 8,
+      "observed_b_ns": 8,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775282.351914232",
+      "timestamp_b": "1793775282.351914232",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 17,
+      "cycle": 9,
+      "event": 42,
+      "requested_relative_ns": 0,
+      "observed_a_ns": 0,
+      "observed_b_ns": 0,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775282.554612064",
+      "timestamp_b": "1793775282.554612064",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 18,
+      "cycle": 9,
+      "event": 43,
+      "requested_relative_ns": 8,
+      "observed_a_ns": 8,
+      "observed_b_ns": 8,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775282.554612072",
+      "timestamp_b": "1793775282.554612072",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 19,
+      "cycle": 10,
+      "event": 42,
+      "requested_relative_ns": 0,
+      "observed_a_ns": 0,
+      "observed_b_ns": 0,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775282.759040976",
+      "timestamp_b": "1793775282.759040976",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 20,
+      "cycle": 10,
+      "event": 43,
+      "requested_relative_ns": 8,
+      "observed_a_ns": 8,
+      "observed_b_ns": 8,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775282.759040984",
+      "timestamp_b": "1793775282.759040984",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 21,
+      "cycle": 11,
+      "event": 42,
+      "requested_relative_ns": 0,
+      "observed_a_ns": 0,
+      "observed_b_ns": 0,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775282.958117112",
+      "timestamp_b": "1793775282.958117112",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 22,
+      "cycle": 11,
+      "event": 43,
+      "requested_relative_ns": 8,
+      "observed_a_ns": 8,
+      "observed_b_ns": 8,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775282.958117120",
+      "timestamp_b": "1793775282.958117120",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 23,
+      "cycle": 12,
+      "event": 42,
+      "requested_relative_ns": 0,
+      "observed_a_ns": 0,
+      "observed_b_ns": 0,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775283.150687072",
+      "timestamp_b": "1793775283.150687072",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 24,
+      "cycle": 12,
+      "event": 43,
+      "requested_relative_ns": 8,
+      "observed_a_ns": 8,
+      "observed_b_ns": 8,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775283.150687080",
+      "timestamp_b": "1793775283.150687080",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 25,
+      "cycle": 13,
+      "event": 42,
+      "requested_relative_ns": 0,
+      "observed_a_ns": 0,
+      "observed_b_ns": 0,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775283.357357592",
+      "timestamp_b": "1793775283.357357592",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 26,
+      "cycle": 13,
+      "event": 43,
+      "requested_relative_ns": 8,
+      "observed_a_ns": 8,
+      "observed_b_ns": 8,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775283.357357600",
+      "timestamp_b": "1793775283.357357600",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 27,
+      "cycle": 14,
+      "event": 42,
+      "requested_relative_ns": 0,
+      "observed_a_ns": 0,
+      "observed_b_ns": 0,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775283.551123880",
+      "timestamp_b": "1793775283.551123880",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 28,
+      "cycle": 14,
+      "event": 43,
+      "requested_relative_ns": 8,
+      "observed_a_ns": 8,
+      "observed_b_ns": 8,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775283.551123888",
+      "timestamp_b": "1793775283.551123888",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 29,
+      "cycle": 15,
+      "event": 42,
+      "requested_relative_ns": 0,
+      "observed_a_ns": 0,
+      "observed_b_ns": 0,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775283.757540512",
+      "timestamp_b": "1793775283.757540512",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 30,
+      "cycle": 15,
+      "event": 43,
+      "requested_relative_ns": 8,
+      "observed_a_ns": 8,
+      "observed_b_ns": 8,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775283.757540520",
+      "timestamp_b": "1793775283.757540520",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 31,
+      "cycle": 16,
+      "event": 42,
+      "requested_relative_ns": 0,
+      "observed_a_ns": 0,
+      "observed_b_ns": 0,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775283.952605872",
+      "timestamp_b": "1793775283.952605872",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 32,
+      "cycle": 16,
+      "event": 43,
+      "requested_relative_ns": 8,
+      "observed_a_ns": 8,
+      "observed_b_ns": 8,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775283.952605880",
+      "timestamp_b": "1793775283.952605880",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 33,
+      "cycle": 17,
+      "event": 42,
+      "requested_relative_ns": 0,
+      "observed_a_ns": 0,
+      "observed_b_ns": 0,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775284.158616816",
+      "timestamp_b": "1793775284.158616816",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 34,
+      "cycle": 17,
+      "event": 43,
+      "requested_relative_ns": 8,
+      "observed_a_ns": 8,
+      "observed_b_ns": 8,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775284.158616824",
+      "timestamp_b": "1793775284.158616824",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 35,
+      "cycle": 18,
+      "event": 42,
+      "requested_relative_ns": 0,
+      "observed_a_ns": 0,
+      "observed_b_ns": 0,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775284.354056032",
+      "timestamp_b": "1793775284.354056032",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 36,
+      "cycle": 18,
+      "event": 43,
+      "requested_relative_ns": 8,
+      "observed_a_ns": 8,
+      "observed_b_ns": 8,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775284.354056040",
+      "timestamp_b": "1793775284.354056040",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 37,
+      "cycle": 19,
+      "event": 42,
+      "requested_relative_ns": 0,
+      "observed_a_ns": 0,
+      "observed_b_ns": 0,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775284.550245464",
+      "timestamp_b": "1793775284.550245464",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 38,
+      "cycle": 19,
+      "event": 43,
+      "requested_relative_ns": 8,
+      "observed_a_ns": 8,
+      "observed_b_ns": 8,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775284.550245472",
+      "timestamp_b": "1793775284.550245472",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 39,
+      "cycle": 20,
+      "event": 42,
+      "requested_relative_ns": 0,
+      "observed_a_ns": 0,
+      "observed_b_ns": 0,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775284.753730424",
+      "timestamp_b": "1793775284.753730424",
+      "receiver_difference_ns": 0
+    },
+    {
+      "index": 40,
+      "cycle": 20,
+      "event": 43,
+      "requested_relative_ns": 8,
+      "observed_a_ns": 8,
+      "observed_b_ns": 8,
+      "error_a_ns": 0,
+      "error_b_ns": 0,
+      "timestamp_a": "1793775284.753730432",
+      "timestamp_b": "1793775284.753730432",
+      "receiver_difference_ns": 0
+    }
+  ],
+  "image_evidence": {
+    "1738106": {
+      "peak": 183,
+      "sha256": "4c1b13ca4e9141dc72b10c42a7eac8c7ed3c125fbc37a84637374626588bc001",
+      "camera_clock_seconds": "12054997.4514841",
+      "file": "frames/frame-000000.npz"
+    },
+    "1738107": {
+      "peak": 4094,
+      "sha256": "d17f840f6b125e7eb52252223928c7e07b39c369fab456c045c16d6714e89c93",
+      "camera_clock_seconds": "12054997.5514684",
+      "file": "frames/frame-000001.npz"
+    },
+    "1738108": {
+      "peak": 181,
+      "sha256": "b3d9a0128be45062e9c5b26db430a6c1338e6472d0c11f436d88ab2ae4519ffb",
+      "camera_clock_seconds": "12054997.6514777",
+      "file": "frames/frame-000002.npz"
+    },
+    "1738109": {
+      "peak": 4094,
+      "sha256": "1d6f827fc54514feda121dba4e11b31f441323f5df50a33c96e0804fb8a0d0c8",
+      "camera_clock_seconds": "12054997.7514871",
+      "file": "frames/frame-000003.npz"
+    },
+    "1738110": {
+      "peak": 181,
+      "sha256": "f3ce24d7aa803cc93434016ecfd62be646072d14b0be46b58a7358da1745080c",
+      "camera_clock_seconds": "12054997.8514713",
+      "file": "frames/frame-000004.npz"
+    },
+    "1738111": {
+      "peak": 4094,
+      "sha256": "5aeda53119e20232609030f20946e9df1b7141675dad1b76bf5a3a81b2d70579",
+      "camera_clock_seconds": "12054997.9514807",
+      "file": "frames/frame-000005.npz"
+    },
+    "1738112": {
+      "peak": 178,
+      "sha256": "75517e2b0a7cb3409a7b8242a5cbb7f149316a879b82cf9395dde7effb6f88ae",
+      "camera_clock_seconds": "12054998.0514649",
+      "file": "frames/frame-000006.npz"
+    },
+    "1738113": {
+      "peak": 4094,
+      "sha256": "198e42249e18f9e3d1a00013e2a76f305d34ca74d4312999a6acb8ecb1ee5546",
+      "camera_clock_seconds": "12054998.1514743",
+      "file": "frames/frame-000007.npz"
+    },
+    "1738114": {
+      "peak": 176,
+      "sha256": "a67f93550082d3ae79c5456de790359fd7b851b1d7b954ee6311280ab95842b2",
+      "camera_clock_seconds": "12054998.2514585",
+      "file": "frames/frame-000008.npz"
+    },
+    "1738115": {
+      "peak": 4094,
+      "sha256": "fd7ab4c1481fb16293bb85a651a07b1321f52688b5ad13cdb0ee2606194ea9b6",
+      "camera_clock_seconds": "12054998.3514679",
+      "file": "frames/frame-000009.npz"
+    },
+    "1738116": {
+      "peak": 180,
+      "sha256": "6dbd33a145890bfb88b77acfed30fdf5f8f6f7b858729a6b57922a56bff6f28b",
+      "camera_clock_seconds": "12054998.4514773",
+      "file": "frames/frame-000010.npz"
+    },
+    "1738117": {
+      "peak": 4094,
+      "sha256": "724d7a08fc7191aff8808eb0a176bca690eabd84b9b590c2d21e48e062078cf6",
+      "camera_clock_seconds": "12054998.5514615",
+      "file": "frames/frame-000011.npz"
+    },
+    "1738118": {
+      "peak": 175,
+      "sha256": "0e514223b08b3b29168b0a943ee14d9ae8e46b7639920a24fd0912c6721fb1ba",
+      "camera_clock_seconds": "12054998.6514709",
+      "file": "frames/frame-000012.npz"
+    },
+    "1738119": {
+      "peak": 4094,
+      "sha256": "b382de2ad44a5a152fb491cd6cba51d2052415cc98c988ff5db526e0a3f60542",
+      "camera_clock_seconds": "12054998.7514551",
+      "file": "frames/frame-000013.npz"
+    },
+    "1738120": {
+      "peak": 175,
+      "sha256": "2588f6e3c586f884fe384a89a9442c08e9d16884736c7206ab732aed2fefbe31",
+      "camera_clock_seconds": "12054998.8514644",
+      "file": "frames/frame-000014.npz"
+    },
+    "1738121": {
+      "peak": 4094,
+      "sha256": "b580040e369ef052ba574b14869255da3c7c7b060df5f6608ad43711673c7c45",
+      "camera_clock_seconds": "12054998.9514487",
+      "file": "frames/frame-000015.npz"
+    },
+    "1738122": {
+      "peak": 173,
+      "sha256": "f984357d738f14e2e8dc6b451af8732565c2369a98a341a52ae7d8220d0c1a86",
+      "camera_clock_seconds": "12054999.0514581",
+      "file": "frames/frame-000016.npz"
+    },
+    "1738123": {
+      "peak": 4094,
+      "sha256": "72c781fbf9aa86e4f1d380c4ac36417751a3d2f2d29c16dbe395b6dc55d77eb7",
+      "camera_clock_seconds": "12054999.1514674",
+      "file": "frames/frame-000017.npz"
+    },
+    "1738124": {
+      "peak": 172,
+      "sha256": "e6cb115734070a64af4069dec15482aa3da9245bec12286fe902393695891d86",
+      "camera_clock_seconds": "12054999.2514517",
+      "file": "frames/frame-000018.npz"
+    },
+    "1738125": {
+      "peak": 4094,
+      "sha256": "3d86b30f8bdfbadd6b82c5af58f3003ceebf7bbc79945282ab95344509dcf3fc",
+      "camera_clock_seconds": "12054999.351461",
+      "file": "frames/frame-000019.npz"
+    },
+    "1738126": {
+      "peak": 174,
+      "sha256": "4cd2ee703e0b663882e5a574184bf0a03cfe79dc1820c16cfd26c28e485022f4",
+      "camera_clock_seconds": "12054999.4514452",
+      "file": "frames/frame-000020.npz"
+    },
+    "1738127": {
+      "peak": 4094,
+      "sha256": "b2edd3e892163c7d0ef30dcb6826f97237abbd8587bf636154269df328436f6d",
+      "camera_clock_seconds": "12054999.5514546",
+      "file": "frames/frame-000021.npz"
+    },
+    "1738128": {
+      "peak": 172,
+      "sha256": "56cae57321b38184bfdb66cd5427a8cc22b55075697ab31fd3cdd822a4b2c5dc",
+      "camera_clock_seconds": "12054999.6514389",
+      "file": "frames/frame-000022.npz"
+    },
+    "1738129": {
+      "peak": 4094,
+      "sha256": "5b5b615a8de7a07f70e733fd228c6e6fd183528159b742cac9eafa942df7960a",
+      "camera_clock_seconds": "12054999.7514482",
+      "file": "frames/frame-000023.npz"
+    },
+    "1738130": {
+      "peak": 173,
+      "sha256": "a2fca19ee9a32a3d4b564f83f9d75849c2e6e131c01ca0588d365988090df2ee",
+      "camera_clock_seconds": "12054999.8514576",
+      "file": "frames/frame-000024.npz"
+    },
+    "1738131": {
+      "peak": 4094,
+      "sha256": "85c9a77c8374555c1a5a3db73ee1434dc993500eb823f764502d1528d9359ca9",
+      "camera_clock_seconds": "12054999.9514418",
+      "file": "frames/frame-000025.npz"
+    },
+    "1738132": {
+      "peak": 176,
+      "sha256": "db2a6a9f40cb337a11381cfa212adb4b265b27ba9645f0aaf2adf50b28faf131",
+      "camera_clock_seconds": "12055000.0514512",
+      "file": "frames/frame-000026.npz"
+    },
+    "1738133": {
+      "peak": 4094,
+      "sha256": "1eea6df1e501b482856ffd75a985045a4c22c62a16b15dc93732020eaf0ffe40",
+      "camera_clock_seconds": "12055000.1514354",
+      "file": "frames/frame-000027.npz"
+    },
+    "1738134": {
+      "peak": 178,
+      "sha256": "c8f36b7f1f04bc431c1102e24015aefe7ff15a8442020d12b260178c68da07f6",
+      "camera_clock_seconds": "12055000.2514448",
+      "file": "frames/frame-000028.npz"
+    },
+    "1738135": {
+      "peak": 4094,
+      "sha256": "0bfa571a12656ef183982accaf65a5acde4ec56d4d1b1eed18f69e6789489e6e",
+      "camera_clock_seconds": "12055000.351429",
+      "file": "frames/frame-000029.npz"
+    },
+    "1738136": {
+      "peak": 172,
+      "sha256": "3492f3b162c7060741e2d60872bb74d11e275a3015c7f8c1f89ceb642af29b36",
+      "camera_clock_seconds": "12055000.4514384",
+      "file": "frames/frame-000030.npz"
+    },
+    "1738137": {
+      "peak": 4094,
+      "sha256": "0bdbf4c3da8b948515bb0a75df0953ce86e9b5fffbeccfc324bddc16e12a7119",
+      "camera_clock_seconds": "12055000.5514477",
+      "file": "frames/frame-000031.npz"
+    },
+    "1738138": {
+      "peak": 178,
+      "sha256": "3db2b4226d65ed268b3ab259f3c9c7ba4eb8c001b8d605a02572af345e175eb2",
+      "camera_clock_seconds": "12055000.651432",
+      "file": "frames/frame-000032.npz"
+    },
+    "1738139": {
+      "peak": 4094,
+      "sha256": "946fa2726a2fae9dd6018c8053f33a1314d027a2a902092208cbf4bda25efb91",
+      "camera_clock_seconds": "12055000.7514413",
+      "file": "frames/frame-000033.npz"
+    },
+    "1738140": {
+      "peak": 181,
+      "sha256": "94fe4c1e26570283406878e3bcfbbab3d9c28119e171e66b2e387bcd383e9863",
+      "camera_clock_seconds": "12055000.8514256",
+      "file": "frames/frame-000034.npz"
+    },
+    "1738141": {
+      "peak": 4094,
+      "sha256": "b4277a74009001693b61e37b66d8b814f5838f7c324c0bc4f65cc92122182984",
+      "camera_clock_seconds": "12055000.9514349",
+      "file": "frames/frame-000035.npz"
+    },
+    "1738142": {
+      "peak": 184,
+      "sha256": "f222badd23a65416caf1a33c210cf81693df554b5fd6bafe20e95f45c703a904",
+      "camera_clock_seconds": "12055001.0514192",
+      "file": "frames/frame-000036.npz"
+    },
+    "1738143": {
+      "peak": 4094,
+      "sha256": "c77c2e361378daca41dd8d61d3e0cef4708e4dce1be2dbf23d3e152b6eef3a4a",
+      "camera_clock_seconds": "12055001.1514285",
+      "file": "frames/frame-000037.npz"
+    },
+    "1738144": {
+      "peak": 187,
+      "sha256": "3ac8a418a6ea189e6f5d49e7a448e371fc7b6344c614d009a96e3c08af679f6b",
+      "camera_clock_seconds": "12055001.2514379",
+      "file": "frames/frame-000038.npz"
+    },
+    "1738145": {
+      "peak": 4094,
+      "sha256": "88c528e8770ba3ee05179d0606d338783711b450f401395da21902d8238caaed",
+      "camera_clock_seconds": "12055001.3514221",
+      "file": "frames/frame-000039.npz"
+    },
+    "1738146": {
+      "peak": 188,
+      "sha256": "973437b55e0fef4d4357a33469a38fa565a420429eb8e512d33596e7b639bb51",
+      "camera_clock_seconds": "12055001.4514315",
+      "file": "frames/frame-000040.npz"
+    },
+    "1738147": {
+      "peak": 4094,
+      "sha256": "b3a586187b0de017844e3f70a784a2082dae218a3ecb9a289a63844c24f37197",
+      "camera_clock_seconds": "12055001.5514157",
+      "file": "frames/frame-000041.npz"
+    },
+    "1738148": {
+      "peak": 188,
+      "sha256": "cc44d2490dd3ea99c3507cdf91dc64c5759e46e5e4e857523ac0fc1b0524519c",
+      "camera_clock_seconds": "12055001.6514251",
+      "file": "frames/frame-000042.npz"
+    },
+    "1738149": {
+      "peak": 4094,
+      "sha256": "f7bb64943f1399057bc2301d602c64d66fc38927808c9478f7fdfebc4a526201",
+      "camera_clock_seconds": "12055001.7514093",
+      "file": "frames/frame-000043.npz"
+    },
+    "1738150": {
+      "peak": 183,
+      "sha256": "60d4dda95e69fcfad0dca3b77f52b97ae013b034891f304dd6719de2b8ebbddf",
+      "camera_clock_seconds": "12055001.8514187",
+      "file": "frames/frame-000044.npz"
+    },
+    "1738151": {
+      "peak": 4094,
+      "sha256": "7b24e4f33955e9887685476679cc3f283c9d875e7ee4c38f399d861e796bae00",
+      "camera_clock_seconds": "12055001.951428",
+      "file": "frames/frame-000045.npz"
+    },
+    "1738152": {
+      "peak": 181,
+      "sha256": "b7671e0cbaba5b799d856d998f53c8ffe7ab197af0090803c600e8f5921ed096",
+      "camera_clock_seconds": "12055002.0514123",
+      "file": "frames/frame-000046.npz"
+    },
+    "1738153": {
+      "peak": 4094,
+      "sha256": "e9b73e9fb26d06d5070caa6f2c4dbb7aa2af62412e84f3f1dc756f16646d7dd8",
+      "camera_clock_seconds": "12055002.1514217",
+      "file": "frames/frame-000047.npz"
+    },
+    "1738154": {
+      "peak": 176,
+      "sha256": "8ba1c32a9b264f158149d25cc6576d216d9541dc46c9a9a2dd7d1aa067e029ab",
+      "camera_clock_seconds": "12055002.2514059",
+      "file": "frames/frame-000048.npz"
+    },
+    "1738155": {
+      "peak": 4094,
+      "sha256": "2a03634f46154eb0ad41db49bf316cb699bbd5688bb2d374f46cde99715d4da3",
+      "camera_clock_seconds": "12055002.3514153",
+      "file": "frames/frame-000049.npz"
+    },
+    "1738156": {
+      "peak": 181,
+      "sha256": "1f2244cac9eaae6a245d3562589b296977fcb1232b21ed854e6c5d0205e979bd",
+      "camera_clock_seconds": "12055002.4513995",
+      "file": "frames/frame-000050.npz"
+    },
+    "1738157": {
+      "peak": 4094,
+      "sha256": "66d565069629b4ef232e2e2abe50446bdae6b715687e3c98843ff4b3e2efb938",
+      "camera_clock_seconds": "12055002.5514088",
+      "file": "frames/frame-000051.npz"
+    },
+    "1738158": {
+      "peak": 177,
+      "sha256": "f17dd3d50732f16c4dd2713c6dca8ed2bbd6344b3b6af707e6685d24ca788a1f",
+      "camera_clock_seconds": "12055002.6513931",
+      "file": "frames/frame-000052.npz"
+    },
+    "1738159": {
+      "peak": 4094,
+      "sha256": "dc098f6dc477ecd24b474d323a4f01d304006c626242067b214b636326447a84",
+      "camera_clock_seconds": "12055002.7514025",
+      "file": "frames/frame-000053.npz"
+    },
+    "1738160": {
+      "peak": 181,
+      "sha256": "c51a87c0cb81fb161a55c0d762a47e7f88823151e69e5f42d8b1e97e0b8230a1",
+      "camera_clock_seconds": "12055002.8514118",
+      "file": "frames/frame-000054.npz"
+    },
+    "1738161": {
+      "peak": 4094,
+      "sha256": "ca33499964af750248785d28384099ecd01ce8d589185aefe993f83027516509",
+      "camera_clock_seconds": "12055002.9513961",
+      "file": "frames/frame-000055.npz"
+    },
+    "1738162": {
+      "peak": 179,
+      "sha256": "3568c00958775c374ff1d2f167a27059f0ebb98c6eb448dbc5383b9e029f5e84",
+      "camera_clock_seconds": "12055003.0514054",
+      "file": "frames/frame-000056.npz"
+    },
+    "1738163": {
+      "peak": 4094,
+      "sha256": "b18a270cd13653d42e0757e05ef2a0e492ddb648779d98dfc0caba597c5af3fd",
+      "camera_clock_seconds": "12055003.1513896",
+      "file": "frames/frame-000057.npz"
+    },
+    "1738164": {
+      "peak": 174,
+      "sha256": "0e68eb3d4898eb5f253109df664b94d564ed4ace52546df1dbf3f54f4ff53a70",
+      "camera_clock_seconds": "12055003.251399",
+      "file": "frames/frame-000058.npz"
+    },
+    "1738165": {
+      "peak": 4094,
+      "sha256": "bcca747338bed7e5709aa3bee7ff793405b632a4eaff22b43e9f577d27241342",
+      "camera_clock_seconds": "12055003.3513833",
+      "file": "frames/frame-000059.npz"
+    },
+    "1738166": {
+      "peak": 174,
+      "sha256": "d83b9d8759819a8a8f962b96607361b570e5d77f7cf02827ae3ee13a8443ab2b",
+      "camera_clock_seconds": "12055003.4513926",
+      "file": "frames/frame-000060.npz"
+    },
+    "1738167": {
+      "peak": 4094,
+      "sha256": "e43cd7ca8df09efb042f84796e6fcb64d68746d9b2d3f67f08be6b8f6cbd0ec5",
+      "camera_clock_seconds": "12055003.551402",
+      "file": "frames/frame-000061.npz"
+    },
+    "1738168": {
+      "peak": 175,
+      "sha256": "03ab45ab43096f9d8aeaad9a4424cd67703227760d4c2f9e59603fa8d1081077",
+      "camera_clock_seconds": "12055003.6513862",
+      "file": "frames/frame-000062.npz"
+    },
+    "1738169": {
+      "peak": 4094,
+      "sha256": "4e80d1fff21b373ebb7bce22fa39d893f3fcce6f392bc744fbfe4cc9d4397161",
+      "camera_clock_seconds": "12055003.7513956",
+      "file": "frames/frame-000063.npz"
+    },
+    "1738170": {
+      "peak": 172,
+      "sha256": "97b41f3a8f5de5951309a357d56b326a99aed51a1587ecd9152a1279940d3839",
+      "camera_clock_seconds": "12055003.8513798",
+      "file": "frames/frame-000064.npz"
+    },
+    "1738171": {
+      "peak": 4094,
+      "sha256": "ba530e22580c4652a07ef5cc70e3ae3079d22b9933d0c369f0700db1fff79f74",
+      "camera_clock_seconds": "12055003.9513892",
+      "file": "frames/frame-000065.npz"
+    },
+    "1738172": {
+      "peak": 180,
+      "sha256": "137b7ba8a6019347a27fdf5ef755e08c05420e65333bd67d480f3b512e0e19c6",
+      "camera_clock_seconds": "12055004.0513734",
+      "file": "frames/frame-000066.npz"
+    },
+    "1738173": {
+      "peak": 4094,
+      "sha256": "0528287829b07bb885e083278450f09921743144f5deb7f7905126d42506b959",
+      "camera_clock_seconds": "12055004.1513828",
+      "file": "frames/frame-000067.npz"
+    },
+    "1738174": {
+      "peak": 172,
+      "sha256": "7bda66be0cf10ed8255f21f08d002ac058080357bdcb8abcb71d3e28e56cd716",
+      "camera_clock_seconds": "12055004.2513921",
+      "file": "frames/frame-000068.npz"
+    },
+    "1738175": {
+      "peak": 4094,
+      "sha256": "281c40ba433c4c331b22708cb7a18b1fc96200fda58621746cda12488fe5b2fd",
+      "camera_clock_seconds": "12055004.3513764",
+      "file": "frames/frame-000069.npz"
+    },
+    "1738176": {
+      "peak": 179,
+      "sha256": "627c81e34773991f8aad79de922fe992dd4a4e2d83357ff8bae40605b712498c",
+      "camera_clock_seconds": "12055004.4513857",
+      "file": "frames/frame-000070.npz"
+    },
+    "1738177": {
+      "peak": 4094,
+      "sha256": "2122fccc26c66d4574d138a6819d1f5852939c00c5874b3e9e48e245ce10cc67",
+      "camera_clock_seconds": "12055004.55137",
+      "file": "frames/frame-000071.npz"
+    },
+    "1738178": {
+      "peak": 174,
+      "sha256": "5a1e057f3655a5f4fa4cd1ca4f8734075e21d50d9875405674371be4f7a34078",
+      "camera_clock_seconds": "12055004.6513793",
+      "file": "frames/frame-000072.npz"
+    },
+    "1738179": {
+      "peak": 4094,
+      "sha256": "201e63743b154238f3769233dffe281561aae927deeda15976d0924a45f89cb5",
+      "camera_clock_seconds": "12055004.7513636",
+      "file": "frames/frame-000073.npz"
+    },
+    "1738180": {
+      "peak": 181,
+      "sha256": "aff2e9c673c45742338d7f732bd4ab53aa6c5c626b840377758f675418f4a494",
+      "camera_clock_seconds": "12055004.8513729",
+      "file": "frames/frame-000074.npz"
+    },
+    "1738181": {
+      "peak": 4094,
+      "sha256": "ff3c7a80514c8f2e8aff35423b51249f7382ef2ba7e1f7f3da8512f2723bd7af",
+      "camera_clock_seconds": "12055004.9513823",
+      "file": "frames/frame-000075.npz"
+    },
+    "1738182": {
+      "peak": 180,
+      "sha256": "b67379699b03145a7eb376caf2bc7bab7e3c1e89e4f438285bd2365dbf837c9c",
+      "camera_clock_seconds": "12055005.0513665",
+      "file": "frames/frame-000076.npz"
+    },
+    "1738183": {
+      "peak": 4094,
+      "sha256": "559a10880758b1357350e47ca4120d962a43309e83bb1d93b6daac9501cc74d2",
+      "camera_clock_seconds": "12055005.1513759",
+      "file": "frames/frame-000077.npz"
+    },
+    "1738184": {
+      "peak": 182,
+      "sha256": "8a05fdd8abe9ad74524565dc88ca1b14fb2a6f4d87126f95cbae1b848857c966",
+      "camera_clock_seconds": "12055005.2513601",
+      "file": "frames/frame-000078.npz"
+    },
+    "1738185": {
+      "peak": 4094,
+      "sha256": "442ddbbf6ffbd920b6c16058b519c3b3a0959111a794ec3492dac0b61d781d59",
+      "camera_clock_seconds": "12055005.3513695",
+      "file": "frames/frame-000079.npz"
+    },
+    "1738186": {
+      "peak": 188,
+      "sha256": "b3f5db508f08252cc399a8d7a89503709a18dc3da6c65e05d1b3eeaec4755bff",
+      "camera_clock_seconds": "12055005.4513537",
+      "file": "frames/frame-000080.npz"
+    },
+    "1738187": {
+      "peak": 4094,
+      "sha256": "45c8cf25b6aac7e73bfe843e2cef906bfcf4a9fbbd5a760220b035ea28d30f0f",
+      "camera_clock_seconds": "12055005.5513631",
+      "file": "frames/frame-000081.npz"
+    },
+    "1738188": {
+      "peak": 188,
+      "sha256": "0851015e758241b10eb693eb66afec43fd90efcb046a99caa736635f370364c3",
+      "camera_clock_seconds": "12055005.6513724",
+      "file": "frames/frame-000082.npz"
+    },
+    "1738189": {
+      "peak": 4094,
+      "sha256": "88b59f0f304eb6c653d77a75a1ca02a13744b2b40d3c03f559b43473dcbb6516",
+      "camera_clock_seconds": "12055005.7513567",
+      "file": "frames/frame-000083.npz"
+    },
+    "1738190": {
+      "peak": 186,
+      "sha256": "9fca5acda1eaa43f7d4ed3a74ac9cba83f3707874685f0f5407671e75795e391",
+      "camera_clock_seconds": "12055005.8513661",
+      "file": "frames/frame-000084.npz"
+    },
+    "1738191": {
+      "peak": 4094,
+      "sha256": "d9b22ed5d631f7d0319d040ae20401178ccd241b129c353b5aec27bfe0470ac3",
+      "camera_clock_seconds": "12055005.9513503",
+      "file": "frames/frame-000085.npz"
+    },
+    "1738192": {
+      "peak": 186,
+      "sha256": "f44bb681e75f2ac699f9de136e018359b40fede242342f78db556295cc8f0a21",
+      "camera_clock_seconds": "12055006.0513597",
+      "file": "frames/frame-000086.npz"
+    },
+    "1738193": {
+      "peak": 4094,
+      "sha256": "453964bdc3b0f2c6d2001bf6d60275e1635dd831587cb4de1ad4fcbad00ed904",
+      "camera_clock_seconds": "12055006.1513439",
+      "file": "frames/frame-000087.npz"
+    },
+    "1738194": {
+      "peak": 187,
+      "sha256": "cbf3c3dc066ee1ea5bd7d0dbd5034c9461da71ae5e5f92e83dced34906330e3b",
+      "camera_clock_seconds": "12055006.2513532",
+      "file": "frames/frame-000088.npz"
+    },
+    "1738195": {
+      "peak": 4094,
+      "sha256": "f7e0bbd05dcf9cbe582ab4955a0ce15ec6bc825e590bbd8550c083465833e1fc",
+      "camera_clock_seconds": "12055006.3513626",
+      "file": "frames/frame-000089.npz"
+    },
+    "1738196": {
+      "peak": 181,
+      "sha256": "e41cf98e1e0b9cec084ace531a4d424650c6a6792cf302eb986dac1621fb4b7a",
+      "camera_clock_seconds": "12055006.4513469",
+      "file": "frames/frame-000090.npz"
+    },
+    "1738197": {
+      "peak": 4094,
+      "sha256": "d332c30780efbd894fde9c0b3b0bd721c36ae476176a9e5c6ea0c6bde0b65828",
+      "camera_clock_seconds": "12055006.5513562",
+      "file": "frames/frame-000091.npz"
+    },
+    "1738198": {
+      "peak": 180,
+      "sha256": "3677fd05329475ad45d70f22701755cab1cc38ed1e6a1c8cf996e34c1ad09651",
+      "camera_clock_seconds": "12055006.6513405",
+      "file": "frames/frame-000092.npz"
+    },
+    "1738199": {
+      "peak": 4094,
+      "sha256": "a5e08396caf1861b2301411bc1850cb709fcfe3fb60b906664f07c5c92516ea2",
+      "camera_clock_seconds": "12055006.7513498",
+      "file": "frames/frame-000093.npz"
+    },
+    "1738200": {
+      "peak": 176,
+      "sha256": "120221f032855507c87e56623f332524a6a99f63a73c19f74575a2a290890d20",
+      "camera_clock_seconds": "12055006.851334",
+      "file": "frames/frame-000094.npz"
+    },
+    "1738201": {
+      "peak": 4094,
+      "sha256": "b3148bf997208acd22f1983e0e9a2bb057bca21f6c2068aa3ca1afb67192c9ef",
+      "camera_clock_seconds": "12055006.9513434",
+      "file": "frames/frame-000095.npz"
+    },
+    "1738202": {
+      "peak": 174,
+      "sha256": "ab577d8d031894802687352e9588cc55f75e327f3290e29e31a7506a4015aac9",
+      "camera_clock_seconds": "12055007.0513528",
+      "file": "frames/frame-000096.npz"
+    },
+    "1738203": {
+      "peak": 4094,
+      "sha256": "0f6c79a1e1cf7da93c945b13f8fb81d7d1f8929c6b7f32965ec3eb75efd23267",
+      "camera_clock_seconds": "12055007.151337",
+      "file": "frames/frame-000097.npz"
+    },
+    "1738204": {
+      "peak": 176,
+      "sha256": "c01fc58136537c99f9caf6f0b5b7d413e82891a0b75f4ab8cdc5d7826cd2c358",
+      "camera_clock_seconds": "12055007.2513464",
+      "file": "frames/frame-000098.npz"
+    },
+    "1738205": {
+      "peak": 4094,
+      "sha256": "16b09b4a64193693d0c40c8e2f7d1e01d81d9538b6f8c1cd93977184c256c56d",
+      "camera_clock_seconds": "12055007.3513306",
+      "file": "frames/frame-000099.npz"
+    },
+    "1738206": {
+      "peak": 179,
+      "sha256": "97cf13600d8d0401822f4c020318822e1a39a4ad32d9ec777c5009134f7c1ad5",
+      "camera_clock_seconds": "12055007.45134",
+      "file": "frames/frame-000100.npz"
+    },
+    "1738207": {
+      "peak": 4094,
+      "sha256": "0ddf29c022af74072feeda377649be19559ab98e7ccae092bc6addb472d2dd2b",
+      "camera_clock_seconds": "12055007.5513242",
+      "file": "frames/frame-000101.npz"
+    },
+    "1738208": {
+      "peak": 176,
+      "sha256": "d7923739228a8604b7caa77a804a4d190ec85464a2e4df49d0b33b600647e1fe",
+      "camera_clock_seconds": "12055007.6513336",
+      "file": "frames/frame-000102.npz"
+    },
+    "1738209": {
+      "peak": 4094,
+      "sha256": "6e3af0fb4169bf74e2b999b4e285798deee52c7f2b14393fee020fb486c96a67",
+      "camera_clock_seconds": "12055007.7513429",
+      "file": "frames/frame-000103.npz"
+    },
+    "1738210": {
+      "peak": 176,
+      "sha256": "00299f44f7343845e39088045198efc3576682e2f7b217a87f92f0fca61a532d",
+      "camera_clock_seconds": "12055007.8513272",
+      "file": "frames/frame-000104.npz"
+    },
+    "1738211": {
+      "peak": 4094,
+      "sha256": "327898244842f4ae6b4d3a5ec2920550c34aad717c8a1dd2bf101e6953663bff",
+      "camera_clock_seconds": "12055007.9513365",
+      "file": "frames/frame-000105.npz"
+    },
+    "1738212": {
+      "peak": 180,
+      "sha256": "0ab1bcd98c5c0404d9b8e644a5a63b16cf6be1a0e4c79e29427ed981c13fb1be",
+      "camera_clock_seconds": "12055008.0513208",
+      "file": "frames/frame-000106.npz"
+    },
+    "1738213": {
+      "peak": 4094,
+      "sha256": "14067a993e7184f6823bb4e6cab93d0d9bc41193ba6be276979ab65c318b0ed6",
+      "camera_clock_seconds": "12055008.1513301",
+      "file": "frames/frame-000107.npz"
+    },
+    "1738214": {
+      "peak": 176,
+      "sha256": "195260fb572ec1d00f56d0f03b3f92d18c99c40bd21913be2b1f268f6af10606",
+      "camera_clock_seconds": "12055008.2513144",
+      "file": "frames/frame-000108.npz"
+    },
+    "1738215": {
+      "peak": 4094,
+      "sha256": "73cf5689f633f806d773ee319df64f974721290ca3afc245fa6f6406c5c1e291",
+      "camera_clock_seconds": "12055008.3513237",
+      "file": "frames/frame-000109.npz"
+    },
+    "1738216": {
+      "peak": 173,
+      "sha256": "6c9d506cf950354e235b4b584d95dc02bea9554b64b6582c239a62de18b6a4c7",
+      "camera_clock_seconds": "12055008.4513331",
+      "file": "frames/frame-000110.npz"
+    },
+    "1738217": {
+      "peak": 4094,
+      "sha256": "307cf06c6d74497761fdc609d1a88ebfb206014adcb2b9bff3739ece56443ba9",
+      "camera_clock_seconds": "12055008.5513173",
+      "file": "frames/frame-000111.npz"
+    },
+    "1738218": {
+      "peak": 176,
+      "sha256": "c2c52104c7bbffb9f9eb8a21654db31ffa19f9d898257e574ddc9a3ab16f2c75",
+      "camera_clock_seconds": "12055008.6513267",
+      "file": "frames/frame-000112.npz"
+    },
+    "1738219": {
+      "peak": 4094,
+      "sha256": "28ae5454542feebe7b098a9e8bcaf03722b65e276019ea4930d4ffecf76cb390",
+      "camera_clock_seconds": "12055008.7513109",
+      "file": "frames/frame-000113.npz"
+    },
+    "1738220": {
+      "peak": 171,
+      "sha256": "1a8e9cb9c0439af63a4dafdf063ef311760e6d585fcb8f245934aad172dacbeb",
+      "camera_clock_seconds": "12055008.8513203",
+      "file": "frames/frame-000114.npz"
+    },
+    "1738221": {
+      "peak": 4094,
+      "sha256": "b9b64cb8075de79d5c6f175a31cc00d5ee52429b2764d69e43b13662ed9998ee",
+      "camera_clock_seconds": "12055008.9513045",
+      "file": "frames/frame-000115.npz"
+    },
+    "1738222": {
+      "peak": 174,
+      "sha256": "22aac7d956b924ecf0596bad8507f70faf089274f06bf6f1de6680dc09b0f605",
+      "camera_clock_seconds": "12055009.0513139",
+      "file": "frames/frame-000116.npz"
+    },
+    "1738223": {
+      "peak": 4094,
+      "sha256": "559bef5fa905d6a6e91190cc3938b648b96e216e4d1789ffe7954d0b054b840f",
+      "camera_clock_seconds": "12055009.1513233",
+      "file": "frames/frame-000117.npz"
+    },
+    "1738224": {
+      "peak": 182,
+      "sha256": "863f7094f055862b40fd289e09c931dbe4ca393aef9d6fe971251bf32f9b638b",
+      "camera_clock_seconds": "12055009.2513075",
+      "file": "frames/frame-000118.npz"
+    },
+    "1738225": {
+      "peak": 4094,
+      "sha256": "04ec90497073af5304aad103968f512609ca88a5ad5609e12d7ce5ad536c2a69",
+      "camera_clock_seconds": "12055009.3513168",
+      "file": "frames/frame-000119.npz"
+    },
+    "1738226": {
+      "peak": 180,
+      "sha256": "c73ccf8d5448b9ab564e1677ad166569f5cd3e7b2883c7ef8741c90bda65dea1",
+      "camera_clock_seconds": "12055009.4513011",
+      "file": "frames/frame-000120.npz"
+    },
+    "1738227": {
+      "peak": 4094,
+      "sha256": "d541805cb194de583a9c7834cb5ff3e7f360d69f781f0b686882f49e42de9dc4",
+      "camera_clock_seconds": "12055009.5513105",
+      "file": "frames/frame-000121.npz"
+    },
+    "1738228": {
+      "peak": 185,
+      "sha256": "8a355f120620efae4258f36ee9147b45f086bf0137f1c07d344291cf14258e9a",
+      "camera_clock_seconds": "12055009.6512947",
+      "file": "frames/frame-000122.npz"
+    },
+    "1738229": {
+      "peak": 4094,
+      "sha256": "ef4494e51b0da9ade2679562d9aa19daa5f350e02f9ac21d20d72a792021b061",
+      "camera_clock_seconds": "12055009.7513041",
+      "file": "frames/frame-000123.npz"
+    },
+    "1738230": {
+      "peak": 188,
+      "sha256": "94f87681d02a472b1cf177c0c154c3ac31bd2dc939aa7a2988cb8d93a89339d9",
+      "camera_clock_seconds": "12055009.8513134",
+      "file": "frames/frame-000124.npz"
+    },
+    "1738231": {
+      "peak": 4094,
+      "sha256": "aa964d737230a1a21e795cf15643794fa9bc330fe7f43deb01fe9a40cdf4da96",
+      "camera_clock_seconds": "12055009.9512976",
+      "file": "frames/frame-000125.npz"
+    },
+    "1738232": {
+      "peak": 186,
+      "sha256": "fed80a0cb922d9b55734118c944b5e952ef50353b044360e2eb34e488ddb6624",
+      "camera_clock_seconds": "12055010.051307",
+      "file": "frames/frame-000126.npz"
+    },
+    "1738233": {
+      "peak": 4094,
+      "sha256": "4a8a2e632c8997daa13b9c5aa8f6aaf875782b24360aca9dffc070aa2e278670",
+      "camera_clock_seconds": "12055010.1512913",
+      "file": "frames/frame-000127.npz"
+    },
+    "1738234": {
+      "peak": 181,
+      "sha256": "5e006c90f55fdf98ff32cd7e35b8bac7bf669f51064b483bd555ee0a6e7de55c",
+      "camera_clock_seconds": "12055010.2513006",
+      "file": "frames/frame-000128.npz"
+    },
+    "1738235": {
+      "peak": 4094,
+      "sha256": "a4559d3a4814d0214c84773dfaab528414177d8655dd62e7f862e28fbd066c43",
+      "camera_clock_seconds": "12055010.3512849",
+      "file": "frames/frame-000129.npz"
+    },
+    "1738236": {
+      "peak": 180,
+      "sha256": "3b6eb09e0956efc76f9df0aeb0b5bde5a9c1bbc813ed20b68694883e99f305da",
+      "camera_clock_seconds": "12055010.4512942",
+      "file": "frames/frame-000130.npz"
+    },
+    "1738237": {
+      "peak": 4094,
+      "sha256": "84c1848270b4bcd780166bb07fe98219de57c7c5985755a1c36d5fc6172fa749",
+      "camera_clock_seconds": "12055010.5513036",
+      "file": "frames/frame-000131.npz"
+    },
+    "1738238": {
+      "peak": 182,
+      "sha256": "774d92a30e185d657e6a13108dc8dbc4313e6308640e3b5fd3328a6cb240036a",
+      "camera_clock_seconds": "12055010.6512878",
+      "file": "frames/frame-000132.npz"
+    },
+    "1738239": {
+      "peak": 4094,
+      "sha256": "6d127dab9c655bd990c261f6dc6aff116b793e45c489b4b6f4b0366915bd4591",
+      "camera_clock_seconds": "12055010.7512972",
+      "file": "frames/frame-000133.npz"
+    },
+    "1738240": {
+      "peak": 177,
+      "sha256": "5f95c11c585616a2d2f12f3b43b486bb229a5e7fcf5aeffc7c5e50e0bc9ba668",
+      "camera_clock_seconds": "12055010.8512814",
+      "file": "frames/frame-000134.npz"
+    },
+    "1738241": {
+      "peak": 4094,
+      "sha256": "6329927f7b324ca746fc5f51cfdbf71a64d5d0bde15324574114be3f58c61fdd",
+      "camera_clock_seconds": "12055010.9512908",
+      "file": "frames/frame-000135.npz"
+    },
+    "1738242": {
+      "peak": 181,
+      "sha256": "cf632c71262856864f64403a7d3348a6156f71626a083d5d923d559c15537c91",
+      "camera_clock_seconds": "12055011.051275",
+      "file": "frames/frame-000136.npz"
+    },
+    "1738243": {
+      "peak": 4094,
+      "sha256": "a6e5994edea78d33eb571e5f57ae46500511072ff5c1126a71e81adef38df277",
+      "camera_clock_seconds": "12055011.1512844",
+      "file": "frames/frame-000137.npz"
+    },
+    "1738244": {
+      "peak": 174,
+      "sha256": "fea7c17b411996b35a7aa8325f41407b453d09c3ae203b89992caf6015cd9ee4",
+      "camera_clock_seconds": "12055011.2512937",
+      "file": "frames/frame-000138.npz"
+    },
+    "1738245": {
+      "peak": 4094,
+      "sha256": "9ffa7a28a8f8df6bd2af84fb2a0e3d101da866eaeca01bc5d1fd5cf8fda7445b",
+      "camera_clock_seconds": "12055011.351278",
+      "file": "frames/frame-000139.npz"
+    },
+    "1738246": {
+      "peak": 173,
+      "sha256": "847dc081dae6356ef6fbdd219a10725db146a86dc9c6418ac2440ce34da551c6",
+      "camera_clock_seconds": "12055011.4512873",
+      "file": "frames/frame-000140.npz"
+    },
+    "1738247": {
+      "peak": 4094,
+      "sha256": "972e2e8760a91054b05b37a37b564b7d46a4ae5ffddafb7258292836de4364ce",
+      "camera_clock_seconds": "12055011.5512716",
+      "file": "frames/frame-000141.npz"
+    },
+    "1738248": {
+      "peak": 180,
+      "sha256": "6ed04079c29f5576b6feab2d565a745dc5113e1bafc6c0850a9aa67738dc3ed5",
+      "camera_clock_seconds": "12055011.6512809",
+      "file": "frames/frame-000142.npz"
+    },
+    "1738249": {
+      "peak": 4094,
+      "sha256": "9bfc0d39994f3987ddb5e06abc42fb98cbd8698c7ae570211e81c8458ed507de",
+      "camera_clock_seconds": "12055011.7512652",
+      "file": "frames/frame-000143.npz"
+    },
+    "1738250": {
+      "peak": 177,
+      "sha256": "a85b26e39e03775606e42dba87098c62c43460833c023358a85687175a7be294",
+      "camera_clock_seconds": "12055011.8512745",
+      "file": "frames/frame-000144.npz"
+    },
+    "1738251": {
+      "peak": 4094,
+      "sha256": "584f15be28e59b49af4f05f7747bfad00f6d2eacf5e10695395290934044f6b2",
+      "camera_clock_seconds": "12055011.9512839",
+      "file": "frames/frame-000145.npz"
+    },
+    "1738252": {
+      "peak": 174,
+      "sha256": "1afc9c362ce8744641daff6d9db83396a4e0b982d7c64c19fc345227a402bbb7",
+      "camera_clock_seconds": "12055012.0512681",
+      "file": "frames/frame-000146.npz"
+    },
+    "1738253": {
+      "peak": 4094,
+      "sha256": "16c2689ab0b203af02bc5b10b5f4c2393af88fa1d64c26136d0eb7ad8a71c23f",
+      "camera_clock_seconds": "12055012.1512775",
+      "file": "frames/frame-000147.npz"
+    },
+    "1738254": {
+      "peak": 174,
+      "sha256": "9e838dd99a6581c000eda42011c6ea75f4125984dd62161d03a2b453f0e61060",
+      "camera_clock_seconds": "12055012.2512617",
+      "file": "frames/frame-000148.npz"
+    },
+    "1738255": {
+      "peak": 4094,
+      "sha256": "00c4851bdae3ce9e1e18e682631fdffe1c7fd5b85bdf7b4a1b05e8e8506c0d45",
+      "camera_clock_seconds": "12055012.3512711",
+      "file": "frames/frame-000149.npz"
+    },
+    "1738256": {
+      "peak": 175,
+      "sha256": "dcae046caf07c602545a004050ade1bf7786aebb002ce893c694b03e46ac15bd",
+      "camera_clock_seconds": "12055012.4512553",
+      "file": "frames/frame-000150.npz"
+    },
+    "1738257": {
+      "peak": 4094,
+      "sha256": "ffa696456e0b969716b62a31337bb4821bf77fecf5a244935cfc8acc1a671184",
+      "camera_clock_seconds": "12055012.5512647",
+      "file": "frames/frame-000151.npz"
+    },
+    "1738258": {
+      "peak": 179,
+      "sha256": "c4a9bd75ed4f29c6d27d0bda43e3d0ec22810c21880e0306a1d2f1a58100dfb7",
+      "camera_clock_seconds": "12055012.6512741",
+      "file": "frames/frame-000152.npz"
+    },
+    "1738259": {
+      "peak": 4094,
+      "sha256": "6633ed25715c148266d46958544b35426a0b0f6b1e1b945e0cf7e414016680d9",
+      "camera_clock_seconds": "12055012.7512583",
+      "file": "frames/frame-000153.npz"
+    },
+    "1738260": {
+      "peak": 174,
+      "sha256": "38e9dfe2fa81c56c565fe821c4060807b6271da450a36f1d6fbf32615b8247dc",
+      "camera_clock_seconds": "12055012.8512677",
+      "file": "frames/frame-000154.npz"
+    },
+    "1738261": {
+      "peak": 4094,
+      "sha256": "f30b96d973e11db7b1bb041b50d53cd6935a4600d5a87dbba101e68f9346bc07",
+      "camera_clock_seconds": "12055012.9512519",
+      "file": "frames/frame-000155.npz"
+    },
+    "1738262": {
+      "peak": 171,
+      "sha256": "a6533b43e903d8e89c22a39d51765af93544d327c89488703c04f36781e05694",
+      "camera_clock_seconds": "12055013.0512612",
+      "file": "frames/frame-000156.npz"
+    },
+    "1738263": {
+      "peak": 4094,
+      "sha256": "5c5909a4851f262d56b48cf8c55d85fd5205d6412cbbe910763f2ed47bd6d2da",
+      "camera_clock_seconds": "12055013.1512455",
+      "file": "frames/frame-000157.npz"
+    },
+    "1738264": {
+      "peak": 172,
+      "sha256": "8e2918d79f26809a07cbf9e75826b3e917e3aad96f88556ca1efa19d5af8abaf",
+      "camera_clock_seconds": "12055013.2512549",
+      "file": "frames/frame-000158.npz"
+    },
+    "1738265": {
+      "peak": 4094,
+      "sha256": "5ae369af347f3e3f989dcbfa581e40e43c9bd064137fd64e9440b38f5990d9eb",
+      "camera_clock_seconds": "12055013.3512642",
+      "file": "frames/frame-000159.npz"
+    },
+    "1738266": {
+      "peak": 178,
+      "sha256": "d6406033a05bb55d7622c13f0c59b31c282b434558293228487e9db5a6e1657d",
+      "camera_clock_seconds": "12055013.4512485",
+      "file": "frames/frame-000160.npz"
+    },
+    "1738267": {
+      "peak": 4094,
+      "sha256": "bba7695ad2a5677e5f2c9819e13f6b0b72432c400009b82cf12c87dc61bb1483",
+      "camera_clock_seconds": "12055013.5512578",
+      "file": "frames/frame-000161.npz"
+    },
+    "1738268": {
+      "peak": 186,
+      "sha256": "b2e746de4d0df604f2336820b32467ce40d755241a1378306fea2c9ea42a3a55",
+      "camera_clock_seconds": "12055013.651242",
+      "file": "frames/frame-000162.npz"
+    },
+    "1738269": {
+      "peak": 4094,
+      "sha256": "590e436e9e1be0787d20ad69a870022e093fa28a45166597b264d936074bb5b7",
+      "camera_clock_seconds": "12055013.7512514",
+      "file": "frames/frame-000163.npz"
+    },
+    "1738270": {
+      "peak": 183,
+      "sha256": "a485efac633aabb0702c9719aba82bc027bc06746c4194cba53d70925f595b19",
+      "camera_clock_seconds": "12055013.8512357",
+      "file": "frames/frame-000164.npz"
+    },
+    "1738271": {
+      "peak": 4094,
+      "sha256": "48553dad8279a4bb1348133386248395c8bb52b38683d5465fb41ed4fbacfc23",
+      "camera_clock_seconds": "12055013.951245",
+      "file": "frames/frame-000165.npz"
+    },
+    "1738272": {
+      "peak": 188,
+      "sha256": "4b5cee579315ffa689f560ea604940de2391908cae0bdc46d9c1ef7fd8ddddf5",
+      "camera_clock_seconds": "12055014.0512544",
+      "file": "frames/frame-000166.npz"
+    },
+    "1738273": {
+      "peak": 4094,
+      "sha256": "b6660235b21781a72b401f65a02d189f35a630647e9ad370514839efd3818eef",
+      "camera_clock_seconds": "12055014.1512386",
+      "file": "frames/frame-000167.npz"
+    },
+    "1738274": {
+      "peak": 182,
+      "sha256": "bb4e9b55adac8ce584da7f135800a378d9820ee141a9ab876a2a5ead2204e3fc",
+      "camera_clock_seconds": "12055014.251248",
+      "file": "frames/frame-000168.npz"
+    },
+    "1738275": {
+      "peak": 4094,
+      "sha256": "7c4fce1d4d767a02bf629d70db1cd3653268d25a1d766536f5e04735047c38d3",
+      "camera_clock_seconds": "12055014.3512322",
+      "file": "frames/frame-000169.npz"
+    },
+    "1738276": {
+      "peak": 184,
+      "sha256": "87169cf2a74f4485e4d1fac9d286a235bd58c159f0c4b513c512c4417877ae88",
+      "camera_clock_seconds": "12055014.4512416",
+      "file": "frames/frame-000170.npz"
+    },
+    "1738277": {
+      "peak": 4094,
+      "sha256": "b4d4eb2fca3db4451ee7b176c7994b8927ea49df1b99204df12f18168dbf47b7",
+      "camera_clock_seconds": "12055014.5512258",
+      "file": "frames/frame-000171.npz"
+    },
+    "1738278": {
+      "peak": 187,
+      "sha256": "9abb9eeb708ba55efaef1362104923874fd690fa28c3aab06ecf15286321d00c",
+      "camera_clock_seconds": "12055014.6512352",
+      "file": "frames/frame-000172.npz"
+    },
+    "1738279": {
+      "peak": 4094,
+      "sha256": "d3f8529ee67b6f1dd758208981796d7b1f6c7897ec21c7e482265bd503aa6bb6",
+      "camera_clock_seconds": "12055014.7512445",
+      "file": "frames/frame-000173.npz"
+    },
+    "1738280": {
+      "peak": 182,
+      "sha256": "fe3a4cd487ec898e42f3686d0fc9df1fa839ad721f1cd831e9fcc170831faabf",
+      "camera_clock_seconds": "12055014.8512288",
+      "file": "frames/frame-000174.npz"
+    },
+    "1738281": {
+      "peak": 4094,
+      "sha256": "c81b95691172028ef44a6a746372ec394a586e92dc7029e40080032a5242ee06",
+      "camera_clock_seconds": "12055014.9512381",
+      "file": "frames/frame-000175.npz"
+    },
+    "1738282": {
+      "peak": 180,
+      "sha256": "98fa5a92ddbf77a32de17957efeb816e84fa60cd97761d414a6255c7c22510fe",
+      "camera_clock_seconds": "12055015.0512224",
+      "file": "frames/frame-000176.npz"
+    },
+    "1738283": {
+      "peak": 4094,
+      "sha256": "5478661500623e68f51978df0a38ce27438684890bf493ea0c0d7925cf579ca8",
+      "camera_clock_seconds": "12055015.1512317",
+      "file": "frames/frame-000177.npz"
+    },
+    "1738284": {
+      "peak": 176,
+      "sha256": "c0094f96a031d597eb2b2f81057dd9f439c378eb0ee23476efb8dafb3b21884a",
+      "camera_clock_seconds": "12055015.251216",
+      "file": "frames/frame-000178.npz"
+    },
+    "1738285": {
+      "peak": 4094,
+      "sha256": "4bd64960f0f77506f740db9963c5cd81b3e2e6155e9229da0b01aa0be983a349",
+      "camera_clock_seconds": "12055015.3512253",
+      "file": "frames/frame-000179.npz"
+    },
+    "1738286": {
+      "peak": 176,
+      "sha256": "18069b5bad41d0a7aafe83b20d7ea847f543d18fa0d10cf29ac3feed7fc3637f",
+      "camera_clock_seconds": "12055015.4512347",
+      "file": "frames/frame-000180.npz"
+    },
+    "1738287": {
+      "peak": 4094,
+      "sha256": "cb77233f4d5b4a1250e013f3acbfc632cff4b4741d92f6dbdabe64aa8ed536db",
+      "camera_clock_seconds": "12055015.5512189",
+      "file": "frames/frame-000181.npz"
+    },
+    "1738288": {
+      "peak": 175,
+      "sha256": "e5927f7304acb1822d6289590df7d01c0db28a34c383e1b1d24c83a9d76f6f73",
+      "camera_clock_seconds": "12055015.6512283",
+      "file": "frames/frame-000182.npz"
+    },
+    "1738289": {
+      "peak": 4094,
+      "sha256": "20c61cf88edec42b2ee71f16b17bc7edc76c247eb1b07518ce0ab3ecd49c83c6",
+      "camera_clock_seconds": "12055015.7512125",
+      "file": "frames/frame-000183.npz"
+    },
+    "1738290": {
+      "peak": 175,
+      "sha256": "090c37cfda5dd77f2cafe44101646c338a89161a396eedd682daaa0544e5a218",
+      "camera_clock_seconds": "12055015.8512219",
+      "file": "frames/frame-000184.npz"
+    },
+    "1738291": {
+      "peak": 4094,
+      "sha256": "f16efc90c9a261c96913654ba664d6627f8f5bcfb959efd7d154409fea58fccc",
+      "camera_clock_seconds": "12055015.9512061",
+      "file": "frames/frame-000185.npz"
+    },
+    "1738292": {
+      "peak": 174,
+      "sha256": "cfdc181e627b16ee7690cf61a861b1f348a7b3f01750d5f1f7e10d43f425d2e9",
+      "camera_clock_seconds": "12055016.0512155",
+      "file": "frames/frame-000186.npz"
+    },
+    "1738293": {
+      "peak": 4094,
+      "sha256": "ada72d963e26ea975f88e4bd9ae390eebdabec330675b8a6c4f6de716d33b3d2",
+      "camera_clock_seconds": "12055016.1512248",
+      "file": "frames/frame-000187.npz"
+    },
+    "1738294": {
+      "peak": 175,
+      "sha256": "5f9aed843e8fb6517385dcbbb6854d983ebb24f5c0df9cdbef4949ac16dd61fa",
+      "camera_clock_seconds": "12055016.2512091",
+      "file": "frames/frame-000188.npz"
+    },
+    "1738295": {
+      "peak": 4094,
+      "sha256": "c0324285581dd94bf801243f93ffff024a337984d1934e420da572d0082c1eea",
+      "camera_clock_seconds": "12055016.3512185",
+      "file": "frames/frame-000189.npz"
+    },
+    "1738296": {
+      "peak": 172,
+      "sha256": "dde26c95ed9341448872e145b654fc438fb7f252536fc7b35e66fe40703e3b0b",
+      "camera_clock_seconds": "12055016.4512027",
+      "file": "frames/frame-000190.npz"
+    },
+    "1738297": {
+      "peak": 4094,
+      "sha256": "640b753331bedfc38b82521818a6dbdcbb7fe6ce8227b3e9381388005fb62c48",
+      "camera_clock_seconds": "12055016.5512121",
+      "file": "frames/frame-000191.npz"
+    },
+    "1738298": {
+      "peak": 172,
+      "sha256": "06294acf0a36dc5c5323821a0e0d597a7b30afa2480a800123f6c3e112f53326",
+      "camera_clock_seconds": "12055016.6511963",
+      "file": "frames/frame-000192.npz"
+    },
+    "1738299": {
+      "peak": 4094,
+      "sha256": "b48df2a713ce8acf8ce06bfe45f39c55e36b5251230b489f7e038f9ded59b0c1",
+      "camera_clock_seconds": "12055016.7512056",
+      "file": "frames/frame-000193.npz"
+    },
+    "1738300": {
+      "peak": 171,
+      "sha256": "2ca4e7458c4c2855090b4b2edf7d3600500170291a00ca4151eff1c476d0a89d",
+      "camera_clock_seconds": "12055016.851215",
+      "file": "frames/frame-000194.npz"
+    },
+    "1738301": {
+      "peak": 4094,
+      "sha256": "a0ffd909935d6464a7807871b03f025bab37f32bddf40b426cc5793924dee464",
+      "camera_clock_seconds": "12055016.9511993",
+      "file": "frames/frame-000195.npz"
+    },
+    "1738302": {
+      "peak": 173,
+      "sha256": "0c14b191e672bcf200b91a054805bdb0a5837b598c53967c33bd866cb9c8f32a",
+      "camera_clock_seconds": "12055017.0512086",
+      "file": "frames/frame-000196.npz"
+    },
+    "1738303": {
+      "peak": 4094,
+      "sha256": "9a69442a31729db7dd13012babc7290b01632dc23259a2d72a2d28edd4c7489d",
+      "camera_clock_seconds": "12055017.1511929",
+      "file": "frames/frame-000197.npz"
+    },
+    "1738304": {
+      "peak": 171,
+      "sha256": "5a8f200119df14bbbcd68d22c13e2de96035f1eabc866709ffbe556e6d857156",
+      "camera_clock_seconds": "12055017.2512022",
+      "file": "frames/frame-000198.npz"
+    },
+    "1738305": {
+      "peak": 4094,
+      "sha256": "41e72b79a74525bacb8dfd79dc2151734f9bb8bf4046b472d818b2a3f9901cdb",
+      "camera_clock_seconds": "12055017.3511864",
+      "file": "frames/frame-000199.npz"
+    },
+    "1738306": {
+      "peak": 176,
+      "sha256": "18afd6a2adbd6bef0bacf878f8dc7df12dda4d151ebb339b639ea379409dc47e",
+      "camera_clock_seconds": "12055017.4511958",
+      "file": "frames/frame-000200.npz"
+    },
+    "1738307": {
+      "peak": 4094,
+      "sha256": "48e29cefde208bea4ed399ccf22fab02de25c961e64ee6231e0d60517e105363",
+      "camera_clock_seconds": "12055017.5512052",
+      "file": "frames/frame-000201.npz"
+    },
+    "1738308": {
+      "peak": 179,
+      "sha256": "8b3116cfb2bf10d84dbee764f0a7a1545174433f910d0e5f1fd77771118ecd15",
+      "camera_clock_seconds": "12055017.6511894",
+      "file": "frames/frame-000202.npz"
+    },
+    "1738309": {
+      "peak": 4094,
+      "sha256": "50a4de43c3c7289e67015d9b22dc2fd86a343ad553e232866d26c032ba1b847c",
+      "camera_clock_seconds": "12055017.7511988",
+      "file": "frames/frame-000203.npz"
+    },
+    "1738310": {
+      "peak": 184,
+      "sha256": "ebb73d6594d453d55d6b78e10c70fa1b97158552c469422b567a3575d1564534",
+      "camera_clock_seconds": "12055017.851183",
+      "file": "frames/frame-000204.npz"
+    },
+    "1738311": {
+      "peak": 4094,
+      "sha256": "38ba90f53fb052773fe7c6437b2f2ba541ee3244ecacabac2bc0f5a16dca6534",
+      "camera_clock_seconds": "12055017.9511924",
+      "file": "frames/frame-000205.npz"
+    },
+    "1738312": {
+      "peak": 185,
+      "sha256": "6ab7cb2e209e165d56abe5149628cdedeb9e5b66a6481604357fa4555f2dad99",
+      "camera_clock_seconds": "12055018.0511766",
+      "file": "frames/frame-000206.npz"
+    },
+    "1738313": {
+      "peak": 4094,
+      "sha256": "66e523c4525fb8a202a60f6743cc8b44b2f014885e2afbc43068204d973ecf90",
+      "camera_clock_seconds": "12055018.151186",
+      "file": "frames/frame-000207.npz"
+    },
+    "1738314": {
+      "peak": 186,
+      "sha256": "1db5b6060fff271887cbe4978d8d809fb05a1ddd8ee80ba2abc561f33a29a1fd",
+      "camera_clock_seconds": "12055018.2511953",
+      "file": "frames/frame-000208.npz"
+    },
+    "1738315": {
+      "peak": 4094,
+      "sha256": "777463f4d4559ef500ddced8209bf564c11f268d7a05d74cc87f96043695239b",
+      "camera_clock_seconds": "12055018.3511796",
+      "file": "frames/frame-000209.npz"
+    },
+    "1738316": {
+      "peak": 188,
+      "sha256": "652b00fe2f7d17c8cc24a1ff732bb07abe0ae2c0b3bcbadd9ccb44fcd4c685ba",
+      "camera_clock_seconds": "12055018.4511889",
+      "file": "frames/frame-000210.npz"
+    },
+    "1738317": {
+      "peak": 4094,
+      "sha256": "5e49745cf460182836c41de602b229b88884063a485ed3154f9042af23497566",
+      "camera_clock_seconds": "12055018.5511732",
+      "file": "frames/frame-000211.npz"
+    },
+    "1738318": {
+      "peak": 186,
+      "sha256": "88fc155512f1e5c59eb8470d0f51f72f6be3d963377a452e166e5b52aff575c6",
+      "camera_clock_seconds": "12055018.6511825",
+      "file": "frames/frame-000212.npz"
+    },
+    "1738319": {
+      "peak": 4094,
+      "sha256": "55812d53f1fe3265d041be4f7d976e341517c20d8d17855dc8499df9a935d7a1",
+      "camera_clock_seconds": "12055018.7511668",
+      "file": "frames/frame-000213.npz"
+    },
+    "1738320": {
+      "peak": 181,
+      "sha256": "acabaa196175a85b2b1897a2b06bbcedf966beea5b5fc3f1f242ec1fa4336a98",
+      "camera_clock_seconds": "12055018.8511761",
+      "file": "frames/frame-000214.npz"
+    },
+    "1738321": {
+      "peak": 4094,
+      "sha256": "a592a78d0c106aef97955bcb13f79c3ed9856c814af4c6cf4a18a1a34d40113d",
+      "camera_clock_seconds": "12055018.9511855",
+      "file": "frames/frame-000215.npz"
+    },
+    "1738322": {
+      "peak": 177,
+      "sha256": "edbc35668dae2864692204d2924e7d2ee4ae260a7963a439e64127244397e1eb",
+      "camera_clock_seconds": "12055019.0511697",
+      "file": "frames/frame-000216.npz"
+    },
+    "1738323": {
+      "peak": 4094,
+      "sha256": "739a7880e8513fc94cf462057be87be9f3322116afcc6b87c031c328036cf51c",
+      "camera_clock_seconds": "12055019.1511791",
+      "file": "frames/frame-000217.npz"
+    },
+    "1738324": {
+      "peak": 178,
+      "sha256": "5656896a77377c28ea019c96bdf55dd7c9f1d6b648ccc8e05a09d0746c8833dc",
+      "camera_clock_seconds": "12055019.2511633",
+      "file": "frames/frame-000218.npz"
+    },
+    "1738325": {
+      "peak": 4094,
+      "sha256": "9b37cfcb853bda52389a3d71c4400113a0f8131c2c208fb93b3c4439182a22a5",
+      "camera_clock_seconds": "12055019.3511727",
+      "file": "frames/frame-000219.npz"
+    },
+    "1738326": {
+      "peak": 179,
+      "sha256": "957dd3a5475a4c5319b3e0ae62c700d1b10a339fcca87c48aa680ad4e328aa86",
+      "camera_clock_seconds": "12055019.4511569",
+      "file": "frames/frame-000220.npz"
+    },
+    "1738327": {
+      "peak": 4094,
+      "sha256": "26e8b302d5d9a424629bc31b103c5fb915404ece638eaef3df5adb0ea762bfe3",
+      "camera_clock_seconds": "12055019.5511663",
+      "file": "frames/frame-000221.npz"
+    },
+    "1738328": {
+      "peak": 174,
+      "sha256": "7ffa50020d7a0af6ed9ba240313532040af2f04dac87157e768ab1487c316eda",
+      "camera_clock_seconds": "12055019.6511757",
+      "file": "frames/frame-000222.npz"
+    },
+    "1738329": {
+      "peak": 4094,
+      "sha256": "4238eb597121e978449d168d8ec96864f6146f5563e3672aa048efb6a64b58ed",
+      "camera_clock_seconds": "12055019.7511599",
+      "file": "frames/frame-000223.npz"
+    },
+    "1738330": {
+      "peak": 174,
+      "sha256": "bca23fd83bbb05ff292822102531ebd9f99f5a43fda362f6e0ac8fb8ab25597e",
+      "camera_clock_seconds": "12055019.8511692",
+      "file": "frames/frame-000224.npz"
+    },
+    "1738331": {
+      "peak": 4094,
+      "sha256": "08f625d78d4ee9cdc8c837eb47e39b899c8d8549a1cbdb69ae06676b7bbe9093",
+      "camera_clock_seconds": "12055019.9511535",
+      "file": "frames/frame-000225.npz"
+    },
+    "1738332": {
+      "peak": 177,
+      "sha256": "05f56e8c3649f42d698567fbe195ca46901c34c4922bb298132633cd7a7eec13",
+      "camera_clock_seconds": "12055020.0511629",
+      "file": "frames/frame-000226.npz"
+    },
+    "1738333": {
+      "peak": 4094,
+      "sha256": "bb8ab6324b446733ac6c4a3f61bc2e1f4281d36507705e51b197b49da4777823",
+      "camera_clock_seconds": "12055020.1511471",
+      "file": "frames/frame-000227.npz"
+    },
+    "1738334": {
+      "peak": 176,
+      "sha256": "9ef7bc253bfed89306fd8df4e6091b1c8d895236992a1346121b495774b31cf5",
+      "camera_clock_seconds": "12055020.2511565",
+      "file": "frames/frame-000228.npz"
+    },
+    "1738335": {
+      "peak": 4094,
+      "sha256": "1510c80bebb6a932d99550f5cadc124a4c60b446eebef2a0022545bd3d69e185",
+      "camera_clock_seconds": "12055020.3511658",
+      "file": "frames/frame-000229.npz"
+    },
+    "1738336": {
+      "peak": 178,
+      "sha256": "572e84d415c0204eb6e650fba3a327a344e23c97663c21cce9fb9ae49bb40d6f",
+      "camera_clock_seconds": "12055020.45115",
+      "file": "frames/frame-000230.npz"
+    },
+    "1738337": {
+      "peak": 4094,
+      "sha256": "ac46ead6470aa64c2f8e303ff6f54fbfb2e751672e8b99ad07dc6641be1310f4",
+      "camera_clock_seconds": "12055020.5511594",
+      "file": "frames/frame-000231.npz"
+    },
+    "1738338": {
+      "peak": 172,
+      "sha256": "db7d1ab787a9868b218f31973a5da85764620d7753192290b52bf45a7c09d094",
+      "camera_clock_seconds": "12055020.6511437",
+      "file": "frames/frame-000232.npz"
+    },
+    "1738339": {
+      "peak": 4094,
+      "sha256": "e5452d0625e7bf5f8f0016d2625ccb1c15cff3c7f9e1abb1bff95f65976f70f0",
+      "camera_clock_seconds": "12055020.751153",
+      "file": "frames/frame-000233.npz"
+    },
+    "1738340": {
+      "peak": 171,
+      "sha256": "780013922dc6c41b5d9cea849d712269941d695152898bf670e832f04313498b",
+      "camera_clock_seconds": "12055020.8511373",
+      "file": "frames/frame-000234.npz"
+    },
+    "1738341": {
+      "peak": 4094,
+      "sha256": "311a66e4d19fcd2042c3ab92a248bcfb6496191742e874b78b1448386dca9222",
+      "camera_clock_seconds": "12055020.9511466",
+      "file": "frames/frame-000235.npz"
+    },
+    "1738342": {
+      "peak": 175,
+      "sha256": "d16591373dd564bd8d9a9552680e1b3c7854e9f262a5268c0798686d4ce276a3",
+      "camera_clock_seconds": "12055021.051156",
+      "file": "frames/frame-000236.npz"
+    },
+    "1738343": {
+      "peak": 4094,
+      "sha256": "0999a3b31756a9f943c03fe28a0e428ecdebc05c47f4c6406c8ea8415598624e",
+      "camera_clock_seconds": "12055021.1511402",
+      "file": "frames/frame-000237.npz"
+    },
+    "1738344": {
+      "peak": 173,
+      "sha256": "e0bf39b5c1ccaf8ecad0806ed9f2c9cd9445f28527e2bbcbbf4f15f9d3e77b5a",
+      "camera_clock_seconds": "12055021.2511496",
+      "file": "frames/frame-000238.npz"
+    },
+    "1738345": {
+      "peak": 4094,
+      "sha256": "2b516b690a2476195ff5286f2853c39f90c345fb50c630262c598310902e93f7",
+      "camera_clock_seconds": "12055021.3511338",
+      "file": "frames/frame-000239.npz"
+    },
+    "1738346": {
+      "peak": 170,
+      "sha256": "845a07f14712b63c4d1a4834776f336fbbd36046e272bcc5725d06d9b8e9cc42",
+      "camera_clock_seconds": "12055021.4511432",
+      "file": "frames/frame-000240.npz"
+    },
+    "1738347": {
+      "peak": 4094,
+      "sha256": "eebf301928f4c1c202de549641aee06f04ff4a1b7506487d8a9694850392ca6d",
+      "camera_clock_seconds": "12055021.5511274",
+      "file": "frames/frame-000241.npz"
+    },
+    "1738348": {
+      "peak": 172,
+      "sha256": "e209872b3db34a860c254b93a5dc8fe4bf2221c1012baf390176abf1d7a10081",
+      "camera_clock_seconds": "12055021.6511368",
+      "file": "frames/frame-000242.npz"
+    },
+    "1738349": {
+      "peak": 4094,
+      "sha256": "1d6b7e77b1421eaa8bf2c4d921d3e1ad45664741b8ea3f9bc82f9b3c6bb0e039",
+      "camera_clock_seconds": "12055021.7511461",
+      "file": "frames/frame-000243.npz"
+    },
+    "1738350": {
+      "peak": 174,
+      "sha256": "41ca5f44910de082d061fb71275de9eca6739f229eb72a8d0f7b2dce1f1399ad",
+      "camera_clock_seconds": "12055021.8511304",
+      "file": "frames/frame-000244.npz"
+    },
+    "1738351": {
+      "peak": 4094,
+      "sha256": "8fe18db07c5d7aa2697790759386ab6399d813f80be5f320942a2fe5c05963ce",
+      "camera_clock_seconds": "12055021.9511397",
+      "file": "frames/frame-000245.npz"
+    },
+    "1738352": {
+      "peak": 180,
+      "sha256": "c0c16876ff8cd682199c0162a942abcf1cbfc00ed607f0d49a01ca1c439777d2",
+      "camera_clock_seconds": "12055022.051124",
+      "file": "frames/frame-000246.npz"
+    },
+    "1738353": {
+      "peak": 4094,
+      "sha256": "2d00db9165781286ac078ba619f68f34c366644e08f7eee24550ecff7d7901ee",
+      "camera_clock_seconds": "12055022.1511333",
+      "file": "frames/frame-000247.npz"
+    },
+    "1738354": {
+      "peak": 189,
+      "sha256": "c0daa6aaced81c357267a284764999e2572df5e722a852716ac91533c7147c67",
+      "camera_clock_seconds": "12055022.2511176",
+      "file": "frames/frame-000248.npz"
+    },
+    "1738355": {
+      "peak": 4094,
+      "sha256": "46f68fe3dd61ab20cdb6fb840a57c77ea9df8916f0fe799e0537aa97ebd0db43",
+      "camera_clock_seconds": "12055022.3511269",
+      "file": "frames/frame-000249.npz"
+    },
+    "1738356": {
+      "peak": 185,
+      "sha256": "ac9710223180fca45fc0981635a51fec97d73441e76bbe3116cf00dfd0169955",
+      "camera_clock_seconds": "12055022.4511363",
+      "file": "frames/frame-000250.npz"
+    },
+    "1738357": {
+      "peak": 4094,
+      "sha256": "8c38c59a7ae0cb1f912634ad1617a14907e50ef7e63f7b296586da17cc73c96f",
+      "camera_clock_seconds": "12055022.5511205",
+      "file": "frames/frame-000251.npz"
+    },
+    "1738358": {
+      "peak": 185,
+      "sha256": "b6d43c021568a703cc8e3e082bb8f66d0dbf8c9248ed89eaff996e38a2f8a298",
+      "camera_clock_seconds": "12055022.6511299",
+      "file": "frames/frame-000252.npz"
+    },
+    "1738359": {
+      "peak": 4094,
+      "sha256": "ec367711608dccfd58a83bbe09975c22c92a34439d0f5eb4c4374495c3214977",
+      "camera_clock_seconds": "12055022.7511141",
+      "file": "frames/frame-000253.npz"
+    },
+    "1738360": {
+      "peak": 184,
+      "sha256": "30e408cd2599dd63dbace615525d092a4ef2cd7b58dddefe9b382918e2bf38a3",
+      "camera_clock_seconds": "12055022.8511235",
+      "file": "frames/frame-000254.npz"
+    },
+    "1738361": {
+      "peak": 4094,
+      "sha256": "9bf66232507df28f2586a50253e419a5a073fec817eaa27d1dca1203b9d81254",
+      "camera_clock_seconds": "12055022.9511077",
+      "file": "frames/frame-000255.npz"
+    },
+    "1738362": {
+      "peak": 183,
+      "sha256": "7b8df0ed71b630f4e14738bf32199f7f575088e6a2df248157c5160d9a92fd66",
+      "camera_clock_seconds": "12055023.0511171",
+      "file": "frames/frame-000256.npz"
+    },
+    "1738363": {
+      "peak": 4094,
+      "sha256": "1b827774fdcf0cf4d998e642eb26b5f7072ccb9fc6cd6f96907808d071a06cf5",
+      "camera_clock_seconds": "12055023.1511265",
+      "file": "frames/frame-000257.npz"
+    },
+    "1738364": {
+      "peak": 185,
+      "sha256": "f5f575cf95e3c6c65bc3018de919150971e144c60e98793471dec1e23024eb01",
+      "camera_clock_seconds": "12055023.2511107",
+      "file": "frames/frame-000258.npz"
+    },
+    "1738365": {
+      "peak": 4094,
+      "sha256": "2bb8bc0ddbe7c9aa240a7750c77452430599d4dd73173c8e9056d72d82df920b",
+      "camera_clock_seconds": "12055023.3511201",
+      "file": "frames/frame-000259.npz"
+    },
+    "1738366": {
+      "peak": 180,
+      "sha256": "6de98ada7e4af9d1ac4a1ee662d18ecfceec014b228492997f1871a980dc5675",
+      "camera_clock_seconds": "12055023.4511043",
+      "file": "frames/frame-000260.npz"
+    },
+    "1738367": {
+      "peak": 4094,
+      "sha256": "ce4a6b7d7bc75cbdf998dd5956b3bb9937da8dc7d6e1f7836c0cf5779c78a60d",
+      "camera_clock_seconds": "12055023.5511136",
+      "file": "frames/frame-000261.npz"
+    },
+    "1738368": {
+      "peak": 178,
+      "sha256": "818285e66e06a44d781966cd2e567612b5018571c99f9c5dc043ff8dbb284528",
+      "camera_clock_seconds": "12055023.6510979",
+      "file": "frames/frame-000262.npz"
+    },
+    "1738369": {
+      "peak": 4094,
+      "sha256": "768f82adf216fbe5179fb7c79f6d4a23a3b610028a08d6c902ebaf310f63e80a",
+      "camera_clock_seconds": "12055023.7511073",
+      "file": "frames/frame-000263.npz"
+    },
+    "1738370": {
+      "peak": 175,
+      "sha256": "d8ef03d6e2a92b3b7212a7b3f2fd45dbc100e3175facc875f6c1acea0df4f0c9",
+      "camera_clock_seconds": "12055023.8511166",
+      "file": "frames/frame-000264.npz"
+    },
+    "1738371": {
+      "peak": 4094,
+      "sha256": "ed73240209e8800335fcaca7c27a36939196910a189be3f01ddc871ddad89d10",
+      "camera_clock_seconds": "12055023.9511009",
+      "file": "frames/frame-000265.npz"
+    },
+    "1738372": {
+      "peak": 178,
+      "sha256": "6e20e807ae8582015101429a65d07d1c4492db48cf95b2a3cb8c06d52fdf4bd3",
+      "camera_clock_seconds": "12055024.0511102",
+      "file": "frames/frame-000266.npz"
+    },
+    "1738373": {
+      "peak": 4094,
+      "sha256": "0a22ad62430a461595623146292b3cfb27c0a11245c3a7576a133aa4f9a2e637",
+      "camera_clock_seconds": "12055024.1510944",
+      "file": "frames/frame-000267.npz"
+    },
+    "1738374": {
+      "peak": 177,
+      "sha256": "63d6a0144612bf0df9124b2fd635a339fe2600230a1614500349379dbca082a9",
+      "camera_clock_seconds": "12055024.2511038",
+      "file": "frames/frame-000268.npz"
+    },
+    "1738375": {
+      "peak": 4094,
+      "sha256": "35bdb17a04deea96552dbc6c3e56e0cd0336f7d5176a3424278112f363737af7",
+      "camera_clock_seconds": "12055024.3510881",
+      "file": "frames/frame-000269.npz"
+    },
+    "1738376": {
+      "peak": 175,
+      "sha256": "9c20be316dfda3ee9c0b4c75d7dc82ba2d65081037c3857b9d41dfd414cffe38",
+      "camera_clock_seconds": "12055024.4510974",
+      "file": "frames/frame-000270.npz"
+    },
+    "1738377": {
+      "peak": 4094,
+      "sha256": "9fe5dfb88c05c131e43a9efe7b8f779af065235c5a275421e6db2293ca371d18",
+      "camera_clock_seconds": "12055024.5511068",
+      "file": "frames/frame-000271.npz"
+    },
+    "1738378": {
+      "peak": 178,
+      "sha256": "6753810a8bbdbfc537d9831e78e1968e79be57f44cad1e755d2157d3eeab677d",
+      "camera_clock_seconds": "12055024.651091",
+      "file": "frames/frame-000272.npz"
+    },
+    "1738379": {
+      "peak": 4094,
+      "sha256": "3b4eafab8f711d925dbc5c5ee6a5b129dd3a3c0fb07380d516faaa5eab0322f6",
+      "camera_clock_seconds": "12055024.7511004",
+      "file": "frames/frame-000273.npz"
+    },
+    "1738380": {
+      "peak": 181,
+      "sha256": "8d74fdf78426aa5104cfc23998f0e6d2787b5a2147d773be1baa06cfb00504a8",
+      "camera_clock_seconds": "12055024.8510846",
+      "file": "frames/frame-000274.npz"
+    },
+    "1738381": {
+      "peak": 4094,
+      "sha256": "cf6b3acacd076be4469dcd8b1ffb68f01b678f9a3545540799dc1da72265b47d",
+      "camera_clock_seconds": "12055024.951094",
+      "file": "frames/frame-000275.npz"
+    },
+    "1738382": {
+      "peak": 173,
+      "sha256": "86cd3470c4a9bf47bbd9e67225ef08a7224b0897d1cc24f2c615c576578b02b4",
+      "camera_clock_seconds": "12055025.0510782",
+      "file": "frames/frame-000276.npz"
+    },
+    "1738383": {
+      "peak": 4094,
+      "sha256": "de4ae806fc952980f8c701f2b2032b3cfbfde1c83733c23421b7801b460a641e",
+      "camera_clock_seconds": "12055025.1510876",
+      "file": "frames/frame-000277.npz"
+    },
+    "1738384": {
+      "peak": 174,
+      "sha256": "557e64ebbb879d676288ad196ba48220aa06c16ec9fec932fa21c2b60440ad4c",
+      "camera_clock_seconds": "12055025.2510969",
+      "file": "frames/frame-000278.npz"
+    },
+    "1738385": {
+      "peak": 4094,
+      "sha256": "cbdd1e3d314712b72f0fd8f3dba5e69e63a5a7fb04bbfbefdd4468ae274a67e7",
+      "camera_clock_seconds": "12055025.3510812",
+      "file": "frames/frame-000279.npz"
+    },
+    "1738386": {
+      "peak": 176,
+      "sha256": "cf9702563f28ef42d94ce62d96cfba0a6aa916d4bd7c56c479afbbf3cc4db3ff",
+      "camera_clock_seconds": "12055025.4510905",
+      "file": "frames/frame-000280.npz"
+    },
+    "1738387": {
+      "peak": 4094,
+      "sha256": "e295edfd3e4222429fecf7b3839c34002accac2294cdf733add4a87a1ed0d79e",
+      "camera_clock_seconds": "12055025.5510748",
+      "file": "frames/frame-000281.npz"
+    },
+    "1738388": {
+      "peak": 173,
+      "sha256": "984d3784236e8d19166ded010854ec3780fbfc811cfcb2be603e0297147aed13",
+      "camera_clock_seconds": "12055025.6510841",
+      "file": "frames/frame-000282.npz"
+    },
+    "1738389": {
+      "peak": 4094,
+      "sha256": "0ecc4d617b63d894a7048382258970f1cf853cd090a3c9fc2b5f253655606952",
+      "camera_clock_seconds": "12055025.7510684",
+      "file": "frames/frame-000283.npz"
+    },
+    "1738390": {
+      "peak": 175,
+      "sha256": "3314b7583f8e59b85a4dbc1a634ef22cf89ebe1781b3a8d8eb40541c8914202f",
+      "camera_clock_seconds": "12055025.8510777",
+      "file": "frames/frame-000284.npz"
+    },
+    "1738391": {
+      "peak": 4094,
+      "sha256": "47191cf22b0902074854ccb18f49fbaadea9ddac4e05e5b9b95bf0559e543bc8",
+      "camera_clock_seconds": "12055025.9510871",
+      "file": "frames/frame-000285.npz"
+    },
+    "1738392": {
+      "peak": 177,
+      "sha256": "0fa3f2cf71113d018b2ce6ba6056dc5368bf6741a4d9c50a423053b084d05f2e",
+      "camera_clock_seconds": "12055026.0510713",
+      "file": "frames/frame-000286.npz"
+    },
+    "1738393": {
+      "peak": 4094,
+      "sha256": "ce455f24decd9a2dc20fd4e2f729f18f80ac87efb730ab163b6aae34647e5d15",
+      "camera_clock_seconds": "12055026.1510807",
+      "file": "frames/frame-000287.npz"
+    },
+    "1738394": {
+      "peak": 175,
+      "sha256": "11276938e902da066c34d20a57927f4da5f9bddc8b493826811809ded3b7591e",
+      "camera_clock_seconds": "12055026.2510649",
+      "file": "frames/frame-000288.npz"
+    },
+    "1738395": {
+      "peak": 4094,
+      "sha256": "c6beb53ea96037e06586a7f6dbf0d707be927dadcae23456a56fe6fe91007dc5",
+      "camera_clock_seconds": "12055026.3510743",
+      "file": "frames/frame-000289.npz"
+    },
+    "1738396": {
+      "peak": 177,
+      "sha256": "22e43f77ce8ecd302ea65d1edfb4bfac607d4c0f7261126b394ca33584a03ab3",
+      "camera_clock_seconds": "12055026.4510585",
+      "file": "frames/frame-000290.npz"
+    },
+    "1738397": {
+      "peak": 4094,
+      "sha256": "00d4a59ffce5629a6a28bf27042733fe42f0b943f8166434d7ae953d972a9fb3",
+      "camera_clock_seconds": "12055026.5510679",
+      "file": "frames/frame-000291.npz"
+    },
+    "1738398": {
+      "peak": 185,
+      "sha256": "a592901063e2db2387e17286c501de096a0ff146c2457012af40d1a71cd1c4e2",
+      "camera_clock_seconds": "12055026.6510772",
+      "file": "frames/frame-000292.npz"
+    },
+    "1738399": {
+      "peak": 4094,
+      "sha256": "fbe2af50146127640316043f76859210e4e696d3f925d75da7343478afbe04e2",
+      "camera_clock_seconds": "12055026.7510615",
+      "file": "frames/frame-000293.npz"
+    },
+    "1738400": {
+      "peak": 190,
+      "sha256": "002ff4df04e16ea8cde16baa57c9d18f4d27a6f38b34afe7273a9fa556201481",
+      "camera_clock_seconds": "12055026.8510709",
+      "file": "frames/frame-000294.npz"
+    },
+    "1738401": {
+      "peak": 4094,
+      "sha256": "23eda1559a4e25943e92eb879ca9c485b2b93dc9f5633cb92bba5d6607ff541a",
+      "camera_clock_seconds": "12055026.9510551",
+      "file": "frames/frame-000295.npz"
+    },
+    "1738402": {
+      "peak": 185,
+      "sha256": "a91c01474e97347ba20ec7f7c81ec4d05b3dd783a368fa3fbe6385dfdf8ef786",
+      "camera_clock_seconds": "12055027.0510645",
+      "file": "frames/frame-000296.npz"
+    },
+    "1738403": {
+      "peak": 4094,
+      "sha256": "c2d890bc4b5e5bef80c489cdfcb8ee00fb3a0ad246f0f4b9f7f77b28c9191092",
+      "camera_clock_seconds": "12055027.1510487",
+      "file": "frames/frame-000297.npz"
+    },
+    "1738404": {
+      "peak": 184,
+      "sha256": "b7adcca36ad9bc1030e939cb8170f1b8b0bc060b1ebdaee7da40629cb8769e3c",
+      "camera_clock_seconds": "12055027.251058",
+      "file": "frames/frame-000298.npz"
+    },
+    "1738405": {
+      "peak": 4094,
+      "sha256": "6fada04d8233c44931e8765a1474b941deb533904d7eafdb239b7151b98b13eb",
+      "camera_clock_seconds": "12055027.3510674",
+      "file": "frames/frame-000299.npz"
+    },
+    "1738406": {
+      "peak": 183,
+      "sha256": "b0d18a3085f52a599e07a9600974353e3b9f0f598592086e18e749d0a73da888",
+      "camera_clock_seconds": "12055027.4510517",
+      "file": "frames/frame-000300.npz"
+    },
+    "1738407": {
+      "peak": 4094,
+      "sha256": "8614171995e48e5c4bc36d3ec573dc270fcbeb666dea4cefba8216174b458c38",
+      "camera_clock_seconds": "12055027.551061",
+      "file": "frames/frame-000301.npz"
+    },
+    "1738408": {
+      "peak": 183,
+      "sha256": "72badc9db34b06b855027321cbf5f22e92566d876c51cf55b233911733e47d4d",
+      "camera_clock_seconds": "12055027.6510453",
+      "file": "frames/frame-000302.npz"
+    },
+    "1738409": {
+      "peak": 4094,
+      "sha256": "814bea7e534eec23bec4b1a3b776d2b7f365bbb5c8074cf7ef954f5ff7743d6b",
+      "camera_clock_seconds": "12055027.7510546",
+      "file": "frames/frame-000303.npz"
+    },
+    "1738410": {
+      "peak": 180,
+      "sha256": "702a3132694e938a38095425efe03e1acd155ccddc5d77ff66e6ecd47b3bcdbc",
+      "camera_clock_seconds": "12055027.8510388",
+      "file": "frames/frame-000304.npz"
+    },
+    "1738411": {
+      "peak": 4094,
+      "sha256": "61971bb8d505a4876ada3a4a5f06df33f4e83c32ede19b2bde515f5d9b66ffde",
+      "camera_clock_seconds": "12055027.9510482",
+      "file": "frames/frame-000305.npz"
+    },
+    "1738412": {
+      "peak": 180,
+      "sha256": "9817d49da326dd5e2a967518d5bf86317ce48fa69dddb8bfa565fe691189b17a",
+      "camera_clock_seconds": "12055028.0510576",
+      "file": "frames/frame-000306.npz"
+    },
+    "1738413": {
+      "peak": 4094,
+      "sha256": "c33d238da4f0e16eb345188d3e6a1d57cc8e2009b551efc5cff21ce99a359b06",
+      "camera_clock_seconds": "12055028.1510418",
+      "file": "frames/frame-000307.npz"
+    },
+    "1738414": {
+      "peak": 183,
+      "sha256": "4e542f2495f4c8b00211265b072721f57203fb60dffce191f7a395eb1bb6b16d",
+      "camera_clock_seconds": "12055028.2510512",
+      "file": "frames/frame-000308.npz"
+    },
+    "1738415": {
+      "peak": 4094,
+      "sha256": "9e8d89132e766b3f8bf2bd6ea8255bc675de7dfd53e2225680d08325c0639fab",
+      "camera_clock_seconds": "12055028.3510354",
+      "file": "frames/frame-000309.npz"
+    },
+    "1738416": {
+      "peak": 175,
+      "sha256": "b56d643c3e2256d6909ccca15aff6520d920c033719bb8c6be8ad66e52ad9765",
+      "camera_clock_seconds": "12055028.4510448",
+      "file": "frames/frame-000310.npz"
+    },
+    "1738417": {
+      "peak": 4094,
+      "sha256": "4bea53f678aebbb2cd84e11a10bab9ac4105730193a6823b7b890a965b2714e5",
+      "camera_clock_seconds": "12055028.551029",
+      "file": "frames/frame-000311.npz"
+    },
+    "1738418": {
+      "peak": 179,
+      "sha256": "6b131dc40d707c0af3a7ed172b39a3852e98439cffd52768b3362fab60752a90",
+      "camera_clock_seconds": "12055028.6510384",
+      "file": "frames/frame-000312.npz"
+    },
+    "1738419": {
+      "peak": 4094,
+      "sha256": "208f59e184d416dd3768faaa2d0013085c5b3061895c786740a6c2be891c8030",
+      "camera_clock_seconds": "12055028.7510477",
+      "file": "frames/frame-000313.npz"
+    },
+    "1738420": {
+      "peak": 175,
+      "sha256": "341d3a1bbf1369a7ef5c9814e7d5dc3aa6863935f9a7f574b584b3286ca425b3",
+      "camera_clock_seconds": "12055028.851032",
+      "file": "frames/frame-000314.npz"
+    },
+    "1738421": {
+      "peak": 4094,
+      "sha256": "f1d738693df3020c6c88fdbe2627b210b32dd2edb7637abdd0b36bf64923ef98",
+      "camera_clock_seconds": "12055028.9510413",
+      "file": "frames/frame-000315.npz"
+    },
+    "1738422": {
+      "peak": 179,
+      "sha256": "2210b8ceacafeaaecfd9fac8fdda4c30e4b89630ba7c6fefa67c56b7a1c0092d",
+      "camera_clock_seconds": "12055029.0510256",
+      "file": "frames/frame-000316.npz"
+    },
+    "1738423": {
+      "peak": 4094,
+      "sha256": "37fdded55fdc21c04fabd2edaebfcc7df830744f1e44a9a011c199169b0b9956",
+      "camera_clock_seconds": "12055029.1510349",
+      "file": "frames/frame-000317.npz"
+    },
+    "1738424": {
+      "peak": 176,
+      "sha256": "7dd5c4c71af07399ed329c3328431425b0f4808e7075320a7f55d0747638a1d0",
+      "camera_clock_seconds": "12055029.2510192",
+      "file": "frames/frame-000318.npz"
+    },
+    "1738425": {
+      "peak": 4094,
+      "sha256": "c56a180b39a3c0dbc27d5dbb8b46b9b922ae3c0cc3adf2eea455c1dca0983b76",
+      "camera_clock_seconds": "12055029.3510285",
+      "file": "frames/frame-000319.npz"
+    },
+    "1738426": {
+      "peak": 175,
+      "sha256": "6f888e75fec1d71edbebc8b167ea00cd4c47fed1250c12687e032f04da08b100",
+      "camera_clock_seconds": "12055029.4510379",
+      "file": "frames/frame-000320.npz"
+    },
+    "1738427": {
+      "peak": 4094,
+      "sha256": "8a58a9e29512ff9c1a66d5aeb6e61e156b7e08e602fe60062459187ad285c4ef",
+      "camera_clock_seconds": "12055029.5510221",
+      "file": "frames/frame-000321.npz"
+    },
+    "1738428": {
+      "peak": 174,
+      "sha256": "b9926ec307d29dd03d290456b3e09227a9c437960448fda6cc1611b16d8a1f45",
+      "camera_clock_seconds": "12055029.6510315",
+      "file": "frames/frame-000322.npz"
+    },
+    "1738429": {
+      "peak": 4094,
+      "sha256": "dcd7ecb14af6db56262168473b8423bbc83d86ed0ab63bc5f80265ec2afe71f4",
+      "camera_clock_seconds": "12055029.7510157",
+      "file": "frames/frame-000323.npz"
+    },
+    "1738430": {
+      "peak": 173,
+      "sha256": "093480b0246a2d013bbbf68242ea342ada57e47314f49c6d074e0f62981e3c0b",
+      "camera_clock_seconds": "12055029.8510251",
+      "file": "frames/frame-000324.npz"
+    },
+    "1738431": {
+      "peak": 4094,
+      "sha256": "068de9a5a09aef51a9a6478695a7f301ad2066721ebc20bb84de3da4eef48eda",
+      "camera_clock_seconds": "12055029.9510093",
+      "file": "frames/frame-000325.npz"
+    },
+    "1738432": {
+      "peak": 180,
+      "sha256": "f455df6d6059170bc74e9b0c70cb53ae74cd12379817131e1ee7831a9501ebe2",
+      "camera_clock_seconds": "12055030.0510187",
+      "file": "frames/frame-000326.npz"
+    },
+    "1738433": {
+      "peak": 4094,
+      "sha256": "6c411cc3af80718975baff57216c781065501e4c1d84d719993952709dc907dd",
+      "camera_clock_seconds": "12055030.1510281",
+      "file": "frames/frame-000327.npz"
+    },
+    "1738434": {
+      "peak": 177,
+      "sha256": "8f51faa589269945be8e65e1f4b77f5a352a17fce79080552bb9d8e1482833bc",
+      "camera_clock_seconds": "12055030.2510123",
+      "file": "frames/frame-000328.npz"
+    },
+    "1738435": {
+      "peak": 4094,
+      "sha256": "eaa22c675adfceb8901dd19e12853ff74073d88cd5b2c7572aad12c3cf96d405",
+      "camera_clock_seconds": "12055030.3510216",
+      "file": "frames/frame-000329.npz"
+    },
+    "1738436": {
+      "peak": 178,
+      "sha256": "0767c7c18c52b398ab018649bc3eb113cccf76b543be82867136f5ec93976a3c",
+      "camera_clock_seconds": "12055030.4510059",
+      "file": "frames/frame-000330.npz"
+    },
+    "1738437": {
+      "peak": 4094,
+      "sha256": "fcc33d70bb47437b0a530f17c9195d7faf60bb2b021cd293bfc0802690a57cb7",
+      "camera_clock_seconds": "12055030.5510153",
+      "file": "frames/frame-000331.npz"
+    },
+    "1738438": {
+      "peak": 179,
+      "sha256": "602c673e51e76b4e858f6d862e73fc7302010f626f16eaf02ef08d1227e8cb25",
+      "camera_clock_seconds": "12055030.6509995",
+      "file": "frames/frame-000332.npz"
+    },
+    "1738439": {
+      "peak": 4094,
+      "sha256": "781e162d781a1a84f8d3fe1ffa18527e204fd2546ff20f1740f94fbf658bd839",
+      "camera_clock_seconds": "12055030.7510089",
+      "file": "frames/frame-000333.npz"
+    },
+    "1738440": {
+      "peak": 190,
+      "sha256": "bd63406883e3cbf3332f4661600134e084b3e78b5aa0b30a67c496d0fa399173",
+      "camera_clock_seconds": "12055030.8510182",
+      "file": "frames/frame-000334.npz"
+    },
+    "1738441": {
+      "peak": 4094,
+      "sha256": "74ded6a820674019b1672874d8462bca2dbe6b9bfde5139cf2f47b5264cc0fed",
+      "camera_clock_seconds": "12055030.9510024",
+      "file": "frames/frame-000335.npz"
+    },
+    "1738442": {
+      "peak": 188,
+      "sha256": "7e324e8cdb167ff762d85bb922901ffacf1a91df1329c0ce3018719f83ebad69",
+      "camera_clock_seconds": "12055031.0510118",
+      "file": "frames/frame-000336.npz"
+    },
+    "1738443": {
+      "peak": 4094,
+      "sha256": "b18034e4dd5906a8686708ae98d0cee6d95c0545fb3aaa30ad2abf3c72818330",
+      "camera_clock_seconds": "12055031.1509961",
+      "file": "frames/frame-000337.npz"
+    },
+    "1738444": {
+      "peak": 191,
+      "sha256": "32f7732006e4c8b07122a9798306c84e68a5ac084b769ba8a8990cb856a9f672",
+      "camera_clock_seconds": "12055031.2510054",
+      "file": "frames/frame-000338.npz"
+    },
+    "1738445": {
+      "peak": 4094,
+      "sha256": "9f95c837f8c7d5acb78e5d41eb7eed4c0806bc09b5c6930d55e976ca6fa2f4e2",
+      "camera_clock_seconds": "12055031.3509897",
+      "file": "frames/frame-000339.npz"
+    },
+    "1738446": {
+      "peak": 187,
+      "sha256": "e95aa7c1931a321254bd704061ac59edee2799b0553d6a542d6450328df0c3d3",
+      "camera_clock_seconds": "12055031.450999",
+      "file": "frames/frame-000340.npz"
+    },
+    "1738447": {
+      "peak": 4094,
+      "sha256": "99a0fd98bf6c3963b0a04ee3c6c964bc8b4df2774679286cacb60278a0e1e3c2",
+      "camera_clock_seconds": "12055031.5510084",
+      "file": "frames/frame-000341.npz"
+    },
+    "1738448": {
+      "peak": 186,
+      "sha256": "a59baeb14d20b7d07b3b02cf7ceb7b105a2c5d882329dc9963a4c71fa776e577",
+      "camera_clock_seconds": "12055031.6509926",
+      "file": "frames/frame-000342.npz"
+    },
+    "1738449": {
+      "peak": 4094,
+      "sha256": "4ff160e70df0ffb4ce9f14e16a7f79ca11d5999157d93d6220e417f9f9bbeace",
+      "camera_clock_seconds": "12055031.751002",
+      "file": "frames/frame-000343.npz"
+    },
+    "1738450": {
+      "peak": 184,
+      "sha256": "47ea34bae473ff4b1663181cadd66d75d6f4d793d96f3960a8b8019ed71724c3",
+      "camera_clock_seconds": "12055031.8509862",
+      "file": "frames/frame-000344.npz"
+    },
+    "1738451": {
+      "peak": 4094,
+      "sha256": "f0ec5e129b57020d4e45f61031c110dad21137e30ded3a611b18b7603489e93e",
+      "camera_clock_seconds": "12055031.9509956",
+      "file": "frames/frame-000345.npz"
+    },
+    "1738452": {
+      "peak": 180,
+      "sha256": "d4aa3aee3f5bb64c7d25725b88b8afb969f7fdb4408a60521f601db5ddb1e662",
+      "camera_clock_seconds": "12055032.0509798",
+      "file": "frames/frame-000346.npz"
+    },
+    "1738453": {
+      "peak": 4094,
+      "sha256": "61b17ec6bb0ce75fee5dcab726de881f6a51e9ac981f597f51ade59475375d7e",
+      "camera_clock_seconds": "12055032.1509892",
+      "file": "frames/frame-000347.npz"
+    },
+    "1738454": {
+      "peak": 181,
+      "sha256": "c4f49b64fa4b17c0a33668296e9a737b7326c22794a604b5ef8eb6acd58819e0",
+      "camera_clock_seconds": "12055032.2509734",
+      "file": "frames/frame-000348.npz"
+    },
+    "1738455": {
+      "peak": 4094,
+      "sha256": "b6efe87d6057501eebf7d1ae4a0aed0fb3b4c35cd23ea4c496d8b1ff3acaca32",
+      "camera_clock_seconds": "12055032.3509828",
+      "file": "frames/frame-000349.npz"
+    },
+    "1738456": {
+      "peak": 182,
+      "sha256": "423389ca3a7e7259fa3f3aad91a5708b469288b84a9f0d82d8e6a17b11f685ea",
+      "camera_clock_seconds": "12055032.4509921",
+      "file": "frames/frame-000350.npz"
+    },
+    "1738457": {
+      "peak": 4094,
+      "sha256": "955ddbff0d74296d704cf9278b8f2d56542b8254092165504407ac104510ddf4",
+      "camera_clock_seconds": "12055032.5509764",
+      "file": "frames/frame-000351.npz"
+    },
+    "1738458": {
+      "peak": 178,
+      "sha256": "d656f919181a6f87d9e511d1da651fd9f03ac9c70f446dde76760933825112b7",
+      "camera_clock_seconds": "12055032.6509857",
+      "file": "frames/frame-000352.npz"
+    },
+    "1738459": {
+      "peak": 4094,
+      "sha256": "6345fdab4fb394abc5d4642fa4c5a6dded87af740076a98ac848476073513ddc",
+      "camera_clock_seconds": "12055032.75097",
+      "file": "frames/frame-000353.npz"
+    },
+    "1738460": {
+      "peak": 180,
+      "sha256": "a4ba71b755efc35a59ad6524cc6163a9303a9c725bc207f213ed63d8c7d67428",
+      "camera_clock_seconds": "12055032.8509793",
+      "file": "frames/frame-000354.npz"
+    },
+    "1738461": {
+      "peak": 4094,
+      "sha256": "4a888706b683cb7289dc4dca91a0292cd022f1f6b574296a6722b1b7320f74e1",
+      "camera_clock_seconds": "12055032.9509636",
+      "file": "frames/frame-000355.npz"
+    },
+    "1738462": {
+      "peak": 176,
+      "sha256": "e21a963f11f5233d00eabaa9e253938d1c9224f84a37e00d69c7daf393201fea",
+      "camera_clock_seconds": "12055033.0509729",
+      "file": "frames/frame-000356.npz"
+    },
+    "1738463": {
+      "peak": 4094,
+      "sha256": "eeb1d6b6cc5a5b4e7a8a40b0ecb18cd5197c65fe73862e3559db497dd864988b",
+      "camera_clock_seconds": "12055033.1509823",
+      "file": "frames/frame-000357.npz"
+    },
+    "1738464": {
+      "peak": 175,
+      "sha256": "a83f9738ae81d2efadb2b21f56568c9c78a891ab0a8f89455f5cd355f5127d83",
+      "camera_clock_seconds": "12055033.2509665",
+      "file": "frames/frame-000358.npz"
+    },
+    "1738465": {
+      "peak": 4094,
+      "sha256": "ad724db46dbe8302ffbc21653f3106c6aa2bd3babf0671bd02dfb2c5bd311abb",
+      "camera_clock_seconds": "12055033.3509759",
+      "file": "frames/frame-000359.npz"
+    },
+    "1738466": {
+      "peak": 174,
+      "sha256": "f1526087aa10f2b3f8d9673988e13b4b8520f88f61ddb1465501495d6efdfda6",
+      "camera_clock_seconds": "12055033.4509601",
+      "file": "frames/frame-000360.npz"
+    },
+    "1738467": {
+      "peak": 4094,
+      "sha256": "cfbb93b1b2840fe39bd6afd6de4cc97c362bb5fbcffba6c99adbff0833c65f8b",
+      "camera_clock_seconds": "12055033.5509695",
+      "file": "frames/frame-000361.npz"
+    },
+    "1738468": {
+      "peak": 177,
+      "sha256": "57789e637afef457dc1a5321eb69c867732bdf49a4319737ddbee77b2a6ef4ad",
+      "camera_clock_seconds": "12055033.6509537",
+      "file": "frames/frame-000362.npz"
+    },
+    "1738469": {
+      "peak": 4094,
+      "sha256": "be0f845b5c07d739c6e0600b25555d0112ccccc0cee6f097bb1e249cb05d075f",
+      "camera_clock_seconds": "12055033.7509631",
+      "file": "frames/frame-000363.npz"
+    },
+    "1738470": {
+      "peak": 179,
+      "sha256": "a30a21f08de5ea555a258697e5f5e6f629845606aa250a4623db75ade20d5490",
+      "camera_clock_seconds": "12055033.8509725",
+      "file": "frames/frame-000364.npz"
+    },
+    "1738471": {
+      "peak": 4094,
+      "sha256": "0640b6baab3029da8a0d944500e1f7d35f0bcc2feada8bf0507ae1ac94447bbf",
+      "camera_clock_seconds": "12055033.9509567",
+      "file": "frames/frame-000365.npz"
+    },
+    "1738472": {
+      "peak": 176,
+      "sha256": "4334090e33a600297cc2a088399a1a3a1536da53aea28fd70f0f01c81684325d",
+      "camera_clock_seconds": "12055034.050966",
+      "file": "frames/frame-000366.npz"
+    },
+    "1738473": {
+      "peak": 4094,
+      "sha256": "de9fe945588f677aa8a8adf097584ca4ded69e90eaa285e9e2ec1d0950fa1fef",
+      "camera_clock_seconds": "12055034.1509503",
+      "file": "frames/frame-000367.npz"
+    },
+    "1738474": {
+      "peak": 171,
+      "sha256": "46a9425ddc6af4d9990d9c276ed299861730756aff2835c79b3ea76b5b115a1e",
+      "camera_clock_seconds": "12055034.2509597",
+      "file": "frames/frame-000368.npz"
+    },
+    "1738475": {
+      "peak": 4094,
+      "sha256": "6092eb07a3966f295595e0d31f96f8e736e47fd1c8810fcb32f6e259b8549079",
+      "camera_clock_seconds": "12055034.3509439",
+      "file": "frames/frame-000369.npz"
+    },
+    "1738476": {
+      "peak": 173,
+      "sha256": "db9fb08c915797bf812d5f9ebe038dc118c4c9c2a2db3e5cbeaf83d2a686d1c6",
+      "camera_clock_seconds": "12055034.4509533",
+      "file": "frames/frame-000370.npz"
+    },
+    "1738477": {
+      "peak": 4094,
+      "sha256": "04f3284a5a4912486b5a6950481a005ca2b9bfbfb0afeb53fd532b79d682ddd8",
+      "camera_clock_seconds": "12055034.5509626",
+      "file": "frames/frame-000371.npz"
+    },
+    "1738478": {
+      "peak": 173,
+      "sha256": "944c7afe8cc8ed2d74c489d740b2b0347c6dc9492d21426476248a7b1f198be8",
+      "camera_clock_seconds": "12055034.6509468",
+      "file": "frames/frame-000372.npz"
+    },
+    "1738479": {
+      "peak": 4094,
+      "sha256": "119f5ea28cca8b4fd84c2c881891c1a152501d57c22e255c87302411c73b2420",
+      "camera_clock_seconds": "12055034.7509562",
+      "file": "frames/frame-000373.npz"
+    },
+    "1738480": {
+      "peak": 175,
+      "sha256": "6c5e750ac653f36de86e3d8fe2cacb7224a68627b7b77a99efb19e71287a0558",
+      "camera_clock_seconds": "12055034.8509405",
+      "file": "frames/frame-000374.npz"
+    },
+    "1738481": {
+      "peak": 4094,
+      "sha256": "29dd10b574b1ea9ce589b1c2210f933da5852aa4c1f181d095a801b9c3ad29eb",
+      "camera_clock_seconds": "12055034.9509498",
+      "file": "frames/frame-000375.npz"
+    },
+    "1738482": {
+      "peak": 183,
+      "sha256": "962f88c74e0f17d0ba3021568c3c65f9ba34bb7c3a1d6d31137bd1d222d9bcad",
+      "camera_clock_seconds": "12055035.0509341",
+      "file": "frames/frame-000376.npz"
+    },
+    "1738483": {
+      "peak": 4094,
+      "sha256": "82f0d24586358ff076bcefda1076bbeb8f8707fdbe0a097d537d99d06269e0b4",
+      "camera_clock_seconds": "12055035.1509434",
+      "file": "frames/frame-000377.npz"
+    },
+    "1738484": {
+      "peak": 193,
+      "sha256": "2738d8a39e8104be06c582a617b3eee3d7d6f17eea7a2b7cb7d0a6655892cdae",
+      "camera_clock_seconds": "12055035.2509528",
+      "file": "frames/frame-000378.npz"
+    },
+    "1738485": {
+      "peak": 4094,
+      "sha256": "632606df27be4b7098a6bc34ba6f41b0d0a9e0c163d77ea707bf96c1d4450273",
+      "camera_clock_seconds": "12055035.350937",
+      "file": "frames/frame-000379.npz"
+    },
+    "1738486": {
+      "peak": 184,
+      "sha256": "d000170bcc06905296d9663bdc669471456d7ca9b1df4a92a602bfeb8444822f",
+      "camera_clock_seconds": "12055035.4509464",
+      "file": "frames/frame-000380.npz"
+    },
+    "1738487": {
+      "peak": 4094,
+      "sha256": "9f6c8fadfc764a378feba5d52cbb3b321b41f2d7f2131f294cf0f0108a52feed",
+      "camera_clock_seconds": "12055035.5509306",
+      "file": "frames/frame-000381.npz"
+    },
+    "1738488": {
+      "peak": 187,
+      "sha256": "ddb5a0a6972c64f8213998dfe7d302f8136d75aaa5079aed13a580164f6aea56",
+      "camera_clock_seconds": "12055035.65094",
+      "file": "frames/frame-000382.npz"
+    },
+    "1738489": {
+      "peak": 4094,
+      "sha256": "2309368e3e2f202c261cb73c2a814a7ed4018b95807f9f758bba4be8ddfd2ceb",
+      "camera_clock_seconds": "12055035.7509242",
+      "file": "frames/frame-000383.npz"
+    },
+    "1738490": {
+      "peak": 186,
+      "sha256": "c7389709d59a19d2e1b60d4413bb758a3a672b898b7a63c2dbe238bc568fc165",
+      "camera_clock_seconds": "12055035.8509336",
+      "file": "frames/frame-000384.npz"
+    },
+    "1738491": {
+      "peak": 4094,
+      "sha256": "407a18df412a103981666896ade967012e155b9298513ed14ef03a041d2dfd5e",
+      "camera_clock_seconds": "12055035.9509429",
+      "file": "frames/frame-000385.npz"
+    },
+    "1738492": {
+      "peak": 182,
+      "sha256": "51336a7599beedf1d1ea82a3464850f7e0fad180396950e02a67d4ca42c987fb",
+      "camera_clock_seconds": "12055036.0509272",
+      "file": "frames/frame-000386.npz"
+    },
+    "1738493": {
+      "peak": 4094,
+      "sha256": "3bc033c03a00a5b48d3c014c6d6d336ce8813125da4fcd515d258112ad03fa51",
+      "camera_clock_seconds": "12055036.1509365",
+      "file": "frames/frame-000387.npz"
+    },
+    "1738494": {
+      "peak": 180,
+      "sha256": "7fa9af9fc8e185f8685549619019257d4c4bdc554183b9b823edcfaf5c6ccded",
+      "camera_clock_seconds": "12055036.2509208",
+      "file": "frames/frame-000388.npz"
+    },
+    "1738495": {
+      "peak": 4094,
+      "sha256": "4d919d5589c82eb28757b5511ce9e28823d7cfefc9adfc6931a3beb86d6bed7e",
+      "camera_clock_seconds": "12055036.3509301",
+      "file": "frames/frame-000389.npz"
+    },
+    "1738496": {
+      "peak": 177,
+      "sha256": "7c0cbf24a6c36155a4ff4fac0b6518832c8970140adf743a13711bef561a94ba",
+      "camera_clock_seconds": "12055036.4509144",
+      "file": "frames/frame-000390.npz"
+    },
+    "1738497": {
+      "peak": 4094,
+      "sha256": "c95e58ae60af8384770c4d87fc6600d0c84410b252c6a8f191dfa0d8a03fb9ea",
+      "camera_clock_seconds": "12055036.5509237",
+      "file": "frames/frame-000391.npz"
+    },
+    "1738498": {
+      "peak": 178,
+      "sha256": "ef4d051a10fa22d5863a412e96de27f1b0b1280164264c7568b61e5f25129e2b",
+      "camera_clock_seconds": "12055036.6509331",
+      "file": "frames/frame-000392.npz"
+    },
+    "1738499": {
+      "peak": 4094,
+      "sha256": "39dcdcd554104f5c8f5d6b8d3c7e9f360b4d46acddb865df4e37815d7bbe5348",
+      "camera_clock_seconds": "12055036.7509173",
+      "file": "frames/frame-000393.npz"
+    },
+    "1738500": {
+      "peak": 176,
+      "sha256": "b8d187997bfe72f5072e5371ca567229d08d451a6a9859d2975943ca3596b758",
+      "camera_clock_seconds": "12055036.8509267",
+      "file": "frames/frame-000394.npz"
+    },
+    "1738501": {
+      "peak": 4094,
+      "sha256": "3a1d689d0c3bcd07ef0bf6449d933704a4e7951b540fb52c3180ce34590355e9",
+      "camera_clock_seconds": "12055036.9509109",
+      "file": "frames/frame-000395.npz"
+    },
+    "1738502": {
+      "peak": 176,
+      "sha256": "9e4b472730c3a2c76b3085a6be397847da711de6d035edff610fa2c94feab7a6",
+      "camera_clock_seconds": "12055037.0509203",
+      "file": "frames/frame-000396.npz"
+    },
+    "1738503": {
+      "peak": 4094,
+      "sha256": "0f8aeecf06197bfce9c9e123d35500cac3067821daed91b9b015d0ff07244bae",
+      "camera_clock_seconds": "12055037.1509045",
+      "file": "frames/frame-000397.npz"
+    },
+    "1738504": {
+      "peak": 174,
+      "sha256": "5a809df885d6ddb718bbc9daeca8af6a6100764fc792d6b58c91b29b0403f8a4",
+      "camera_clock_seconds": "12055037.2509139",
+      "file": "frames/frame-000398.npz"
+    },
+    "1738505": {
+      "peak": 4094,
+      "sha256": "17e494fd54a1a5b9ef17af046d1a2e4195df05bfd74703c18fbbf42d95ccbefb",
+      "camera_clock_seconds": "12055037.3509233",
+      "file": "frames/frame-000399.npz"
+    },
+    "1738506": {
+      "peak": 173,
+      "sha256": "794d26dcb584cd955ab659a364797a55d2903a0150e70632a824321867c55e16",
+      "camera_clock_seconds": "12055037.4509075",
+      "file": "frames/frame-000400.npz"
+    },
+    "1738507": {
+      "peak": 4094,
+      "sha256": "d5f2800a89fc787def7165fa0d0ffa8d7cc157452470150c8c915ee3ec25ec57",
+      "camera_clock_seconds": "12055037.5509169",
+      "file": "frames/frame-000401.npz"
+    },
+    "1738508": {
+      "peak": 172,
+      "sha256": "1f79f071fd2058feb1a6358fc9a68ad1a115505eade9b62fb180bdee0a5a6463",
+      "camera_clock_seconds": "12055037.6509011",
+      "file": "frames/frame-000402.npz"
+    },
+    "1738509": {
+      "peak": 4094,
+      "sha256": "b7b2403f836f526af8e50f0b18f6578755e011d8cb8e46b73d456cabbf9be68b",
+      "camera_clock_seconds": "12055037.7509104",
+      "file": "frames/frame-000403.npz"
+    },
+    "1738510": {
+      "peak": 175,
+      "sha256": "99edccc45e7e34058eb8085d672456527c7d8851cab876be3dfc4ad8da2410df",
+      "camera_clock_seconds": "12055037.8508947",
+      "file": "frames/frame-000404.npz"
+    },
+    "1738511": {
+      "peak": 4094,
+      "sha256": "c77f98ae2c298f7d72b1ac87088d8d6a626bab5e43f9ef3e264320db642b7419",
+      "camera_clock_seconds": "12055037.9509041",
+      "file": "frames/frame-000405.npz"
+    },
+    "1738512": {
+      "peak": 172,
+      "sha256": "6fe9c9e3473c3dd5a19ed24eb6ef32974ecd15c1d707ca8432b93233db1cf307",
+      "camera_clock_seconds": "12055038.0509134",
+      "file": "frames/frame-000406.npz"
+    },
+    "1738513": {
+      "peak": 4094,
+      "sha256": "1a94a13f3630e74159520be5cbbab05e69eba520ca7d2886a52ecd73d2a6944c",
+      "camera_clock_seconds": "12055038.1508977",
+      "file": "frames/frame-000407.npz"
+    },
+    "1738514": {
+      "peak": 172,
+      "sha256": "cf19ea605cd7e7143004aab6ea8325a40bd4e5fd0eaf0846cee735cc81a69d5f",
+      "camera_clock_seconds": "12055038.250907",
+      "file": "frames/frame-000408.npz"
+    },
+    "1738515": {
+      "peak": 4094,
+      "sha256": "769afba52f322179909b2a98c26c844b402b172d952bcd8d9249f6a004a605d3",
+      "camera_clock_seconds": "12055038.3508912",
+      "file": "frames/frame-000409.npz"
+    },
+    "1738516": {
+      "peak": 175,
+      "sha256": "e10599ceec9fa90968a24a34a066f349fa0a31829c43ae902e3649a9183930b1",
+      "camera_clock_seconds": "12055038.4509006",
+      "file": "frames/frame-000410.npz"
+    },
+    "1738517": {
+      "peak": 4094,
+      "sha256": "9062bb12e3e759f1277815c3bc0c95f20b246cfa6036aa1aa36a9e1c116114f2",
+      "camera_clock_seconds": "12055038.5508849",
+      "file": "frames/frame-000411.npz"
+    },
+    "1738518": {
+      "peak": 173,
+      "sha256": "e561ec72b50bf8066790370b041dfd657f6903c6895ff97fd1f40d99e008faed",
+      "camera_clock_seconds": "12055038.6508942",
+      "file": "frames/frame-000412.npz"
+    },
+    "1738519": {
+      "peak": 4094,
+      "sha256": "f4fabf6b404a3795fa5aa9e70c64cb7cc308255f38346d09f6a09d6179ebc90b",
+      "camera_clock_seconds": "12055038.7509036",
+      "file": "frames/frame-000413.npz"
+    },
+    "1738520": {
+      "peak": 176,
+      "sha256": "be4da96243f5582244fbe55ec3d1ec30f9b99ea3ed0e831870708b858f74f537",
+      "camera_clock_seconds": "12055038.8508878",
+      "file": "frames/frame-000414.npz"
+    },
+    "1738521": {
+      "peak": 4094,
+      "sha256": "156777e54419989bae93746502a91b7d67e47870f2c2fc02de6829e1fea3261a",
+      "camera_clock_seconds": "12055038.9508972",
+      "file": "frames/frame-000415.npz"
+    },
+    "1738522": {
+      "peak": 177,
+      "sha256": "0e47c14450050d79caf6e0cc56d8c969782933646ada1fcd6574abe7a3277347",
+      "camera_clock_seconds": "12055039.0508814",
+      "file": "frames/frame-000416.npz"
+    },
+    "1738523": {
+      "peak": 4094,
+      "sha256": "4383b5dab9939cebb874c5b03f01c40399dba9ca1743ad3779efc47adedbf27e",
+      "camera_clock_seconds": "12055039.1508908",
+      "file": "frames/frame-000417.npz"
+    },
+    "1738524": {
+      "peak": 180,
+      "sha256": "76937a610696ba8afe2373beb06cd2d6f87d6d93d8270ad1225ae1e3fb8ea9f1",
+      "camera_clock_seconds": "12055039.250875",
+      "file": "frames/frame-000418.npz"
+    },
+    "1738525": {
+      "peak": 4094,
+      "sha256": "c13761c41ddb677ac713ce2697cd374ab67f36fac19534e74bc662484265d88e",
+      "camera_clock_seconds": "12055039.3508844",
+      "file": "frames/frame-000419.npz"
+    },
+    "1738526": {
+      "peak": 185,
+      "sha256": "4bf37d3dee4bc917dac27ed3b7c9fc5f705f05a465da661cc779a8e50a9e7714",
+      "camera_clock_seconds": "12055039.4508937",
+      "file": "frames/frame-000420.npz"
+    },
+    "1738527": {
+      "peak": 4094,
+      "sha256": "3701550da787c8e7dbbfc9da31c83365c95df505fc6995b529757ac65c0a63ee",
+      "camera_clock_seconds": "12055039.550878",
+      "file": "frames/frame-000421.npz"
+    },
+    "1738528": {
+      "peak": 187,
+      "sha256": "d7ef3b5826b5df804173cf6597b4074f004dc662305875f79c9ee0eb49cdf3ab",
+      "camera_clock_seconds": "12055039.6508873",
+      "file": "frames/frame-000422.npz"
+    },
+    "1738529": {
+      "peak": 4094,
+      "sha256": "3276d40f7142b641a3250f7e71f007fa85049aebedd34297d8d0498de75b32d9",
+      "camera_clock_seconds": "12055039.7508716",
+      "file": "frames/frame-000423.npz"
+    },
+    "1738530": {
+      "peak": 185,
+      "sha256": "8e53a9e85e0014dbaaef6f3248b2839285e72682308acb922d11ae911ab64c57",
+      "camera_clock_seconds": "12055039.8508809",
+      "file": "frames/frame-000424.npz"
+    },
+    "1738531": {
+      "peak": 4094,
+      "sha256": "f7069057e2b8a7594c820642d9fa4edc78f33c5d4ce1a74085848738a94e0298",
+      "camera_clock_seconds": "12055039.9508652",
+      "file": "frames/frame-000425.npz"
+    },
+    "1738532": {
+      "peak": 184,
+      "sha256": "e0775cff595353f5a604b5f3ddeb93c00f653855e60e66603ad5869b6b5296d8",
+      "camera_clock_seconds": "12055040.0508745",
+      "file": "frames/frame-000426.npz"
+    },
+    "1738533": {
+      "peak": 4094,
+      "sha256": "a1599e603f9cddc58c549143c631b9110db1c2f8c5276ae110120dc23eeca8fe",
+      "camera_clock_seconds": "12055040.1508839",
+      "file": "frames/frame-000427.npz"
+    },
+    "1738534": {
+      "peak": 178,
+      "sha256": "40235a6900eae7cc283c85ae57f3353e2b676e21ab65fd0181191e45d76f6003",
+      "camera_clock_seconds": "12055040.2508681",
+      "file": "frames/frame-000428.npz"
+    },
+    "1738535": {
+      "peak": 4094,
+      "sha256": "f359acdad7b4bf484bab207b30bdc2945403af6ebac9a3668ab2807c5b5592b0",
+      "camera_clock_seconds": "12055040.3508775",
+      "file": "frames/frame-000429.npz"
+    },
+    "1738536": {
+      "peak": 178,
+      "sha256": "5d6ea159569e31e2dd3ee54decc08a6180f685f5a1b0efb9e657d3a8f018f517",
+      "camera_clock_seconds": "12055040.4508617",
+      "file": "frames/frame-000430.npz"
+    },
+    "1738537": {
+      "peak": 4094,
+      "sha256": "803a4351918c32ac7d2a15c7020f93a0d11cf995c1428ae17c4eec558e1d490a",
+      "camera_clock_seconds": "12055040.5508711",
+      "file": "frames/frame-000431.npz"
+    },
+    "1738538": {
+      "peak": 177,
+      "sha256": "2c6a7aad12e44c0ed671bed19145aabaf0f32be668228e1bfe86a24b915608cf",
+      "camera_clock_seconds": "12055040.6508553",
+      "file": "frames/frame-000432.npz"
+    },
+    "1738539": {
+      "peak": 4094,
+      "sha256": "ce3b08e87788c26bd2731a6a1b0fd7c20e233c7f9a739d4a513404e9bbd38f7c",
+      "camera_clock_seconds": "12055040.7508647",
+      "file": "frames/frame-000433.npz"
+    },
+    "1738540": {
+      "peak": 175,
+      "sha256": "15d916545f25a6d190ed12710f2af2a3c2941cff423e74a8cf4ca81573139e8d",
+      "camera_clock_seconds": "12055040.850874",
+      "file": "frames/frame-000434.npz"
+    },
+    "1738541": {
+      "peak": 4094,
+      "sha256": "7b5500a3b704c2b60e41541e742c6adf04edb70539c05b5516595c7ab25547b9",
+      "camera_clock_seconds": "12055040.9508583",
+      "file": "frames/frame-000435.npz"
+    },
+    "1738542": {
+      "peak": 179,
+      "sha256": "48423d21f513f8d3183b66c17d2ae24ad33aece9e5c493df8fec68f3c125a5f5",
+      "camera_clock_seconds": "12055041.0508677",
+      "file": "frames/frame-000436.npz"
+    },
+    "1738543": {
+      "peak": 4094,
+      "sha256": "77e5f02350c9cc7d586f74900750fd1824febdd2afbda4b8b58a82e555e42a05",
+      "camera_clock_seconds": "12055041.1508519",
+      "file": "frames/frame-000437.npz"
+    },
+    "1738544": {
+      "peak": 171,
+      "sha256": "696607b8cb5dbbe10fc9cb0f556a77b3dc20cc7d6725ac24bd9b5fe8fcb83e28",
+      "camera_clock_seconds": "12055041.2508613",
+      "file": "frames/frame-000438.npz"
+    },
+    "1738545": {
+      "peak": 4094,
+      "sha256": "455e39d85a0976b9ee529d4fbaad95ed720a3f28a6ed204294a0ea9fc4538793",
+      "camera_clock_seconds": "12055041.3508455",
+      "file": "frames/frame-000439.npz"
+    },
+    "1738546": {
+      "peak": 178,
+      "sha256": "954544c3ef5616b538f152869291a2dd2500530a71c5ebdfd4e325efa8fc5f82",
+      "camera_clock_seconds": "12055041.4508548",
+      "file": "frames/frame-000440.npz"
+    },
+    "1738547": {
+      "peak": 4094,
+      "sha256": "c01c38889260fc6d7326fa1093b5f577c9d75f7c4cfcff96fe72bf465622d815",
+      "camera_clock_seconds": "12055041.5508642",
+      "file": "frames/frame-000441.npz"
+    },
+    "1738548": {
+      "peak": 174,
+      "sha256": "4973c699182ded6e941568f88e2f1078d3cf71e5d3ab720b3c21fbf278d6bd79",
+      "camera_clock_seconds": "12055041.6508485",
+      "file": "frames/frame-000442.npz"
+    },
+    "1738549": {
+      "peak": 4094,
+      "sha256": "fa5f36bfcf6858028d710e0ab9e47928722a9b4252323f8c4e01a25040a292ac",
+      "camera_clock_seconds": "12055041.7508578",
+      "file": "frames/frame-000443.npz"
+    },
+    "1738550": {
+      "peak": 174,
+      "sha256": "b152ce9789a4a57acac4c99cdd607292b70f716f11c447781033a87113f6a9d1",
+      "camera_clock_seconds": "12055041.8508421",
+      "file": "frames/frame-000444.npz"
+    },
+    "1738551": {
+      "peak": 4094,
+      "sha256": "fb4a16f16dd543c4d457965ff3cdf5b30131104a432979b228606595f751ff03",
+      "camera_clock_seconds": "12055041.9508514",
+      "file": "frames/frame-000445.npz"
+    },
+    "1738552": {
+      "peak": 173,
+      "sha256": "12b64e36c6a0430eef7275ee9593db20767c63dcecbaf6e53854de12bd2a72d2",
+      "camera_clock_seconds": "12055042.0508356",
+      "file": "frames/frame-000446.npz"
+    },
+    "1738553": {
+      "peak": 4094,
+      "sha256": "1f6605ec32d9ac4dcf87fd05fe429aa92968ec62f4554ad8c9b96e46370f949d",
+      "camera_clock_seconds": "12055042.150845",
+      "file": "frames/frame-000447.npz"
+    },
+    "1738554": {
+      "peak": 174,
+      "sha256": "9e05774cc0a5e66dd40a605681f395468eb024c98984d1dfc05ac941baf5beda",
+      "camera_clock_seconds": "12055042.2508544",
+      "file": "frames/frame-000448.npz"
+    },
+    "1738555": {
+      "peak": 4094,
+      "sha256": "6e3d5f6ddaa935de31436c119be24abaa08446b174464c519bb09eda7738d54b",
+      "camera_clock_seconds": "12055042.3508386",
+      "file": "frames/frame-000449.npz"
+    },
+    "1738556": {
+      "peak": 174,
+      "sha256": "66de28ee0436998722f6cf6b474d30bf392d596171a6168ce1509765dadbbb59",
+      "camera_clock_seconds": "12055042.450848",
+      "file": "frames/frame-000450.npz"
+    },
+    "1738557": {
+      "peak": 4094,
+      "sha256": "a76be60159c014ddeb9dc649d05bf1a27cb4800277fd808f47980c413c6d8bad",
+      "camera_clock_seconds": "12055042.5508322",
+      "file": "frames/frame-000451.npz"
+    },
+    "1738558": {
+      "peak": 173,
+      "sha256": "6d024c226e1680e9116153fa56ec91550c79fedb541f229b4de526c2f944ec49",
+      "camera_clock_seconds": "12055042.6508416",
+      "file": "frames/frame-000452.npz"
+    },
+    "1738559": {
+      "peak": 4094,
+      "sha256": "491ad56fb475e2ddc6ea97b3d10058994bb409a711ab8f0fa71d88418ed445fb",
+      "camera_clock_seconds": "12055042.7508258",
+      "file": "frames/frame-000453.npz"
+    },
+    "1738560": {
+      "peak": 169,
+      "sha256": "ae8a4be0046c082a58b76d8474461c093cd7549e913eea0197c3174d65695b47",
+      "camera_clock_seconds": "12055042.8508352",
+      "file": "frames/frame-000454.npz"
+    },
+    "1738561": {
+      "peak": 4094,
+      "sha256": "06c01f441ed798f7ea40cdec553bda3171eec001b3224e257c7e68e728bfb299",
+      "camera_clock_seconds": "12055042.9508445",
+      "file": "frames/frame-000455.npz"
+    },
+    "1738562": {
+      "peak": 176,
+      "sha256": "6f1431afc5b5cc684e822c353f1853f3f1dfa5ab05aba780fb1f79a5991b9cdb",
+      "camera_clock_seconds": "12055043.0508288",
+      "file": "frames/frame-000456.npz"
+    },
+    "1738563": {
+      "peak": 4094,
+      "sha256": "9045eb1792202db1b9f0021c4d07f2a028630e045564f52845541a7093b2a443",
+      "camera_clock_seconds": "12055043.1508381",
+      "file": "frames/frame-000457.npz"
+    },
+    "1738564": {
+      "peak": 182,
+      "sha256": "7625bb5b37d1dcad5d0fe5d38b8facba81dce1ba1322f7ad19312e40c826de95",
+      "camera_clock_seconds": "12055043.2508224",
+      "file": "frames/frame-000458.npz"
+    },
+    "1738565": {
+      "peak": 4094,
+      "sha256": "94ca9ba0bb66a4994db4a881e30d56091adf71b7b3c829960f961a4dfd65f035",
+      "camera_clock_seconds": "12055043.3508317",
+      "file": "frames/frame-000459.npz"
+    },
+    "1738566": {
+      "peak": 185,
+      "sha256": "b0b173cde64c01f1466358ebacaf8d752b2cb73dbbfbb815fa201b306b252bd5",
+      "camera_clock_seconds": "12055043.450816",
+      "file": "frames/frame-000460.npz"
+    },
+    "1738567": {
+      "peak": 4094,
+      "sha256": "6fa6f33a6fdfebcd5a7d8865e0c509ad9937be88b72203f8131497f4fdc91a94",
+      "camera_clock_seconds": "12055043.5508253",
+      "file": "frames/frame-000461.npz"
+    },
+    "1738568": {
+      "peak": 193,
+      "sha256": "c8693c1733934ec07ade9e108be852a88a84714174684be0ca3ce6eac217c5e2",
+      "camera_clock_seconds": "12055043.6508347",
+      "file": "frames/frame-000462.npz"
+    },
+    "1738569": {
+      "peak": 4094,
+      "sha256": "2d3895b4b54fb9e35915816545c7fdbf4fa008931bc143ef02d216f5e246e8d3",
+      "camera_clock_seconds": "12055043.7508189",
+      "file": "frames/frame-000463.npz"
+    },
+    "1738570": {
+      "peak": 186,
+      "sha256": "bb3e9367ad98e2fb80c315c52f7290946cd44ba657c25dc58eeb6ef07613e43a",
+      "camera_clock_seconds": "12055043.8508283",
+      "file": "frames/frame-000464.npz"
+    },
+    "1738571": {
+      "peak": 4094,
+      "sha256": "bc500db784fc20157e7d4687dd9f704190b48ac0ac431c7d7525ff083334f4d9",
+      "camera_clock_seconds": "12055043.9508125",
+      "file": "frames/frame-000465.npz"
+    },
+    "1738572": {
+      "peak": 183,
+      "sha256": "289adea9f3da61266b571948d7ecdb1573fdc16988f75b76431573d8a28687f2",
+      "camera_clock_seconds": "12055044.0508219",
+      "file": "frames/frame-000466.npz"
+    },
+    "1738573": {
+      "peak": 4094,
+      "sha256": "668cae9cf20720741759e75b86f8aa658ba3dcfbb28f13214866ba74101ee8ac",
+      "camera_clock_seconds": "12055044.1508061",
+      "file": "frames/frame-000467.npz"
+    },
+    "1738574": {
+      "peak": 183,
+      "sha256": "ee13302ce29daf0ed20c5af2c8edd0ff4acb90bdd84e65d2f2fdee9caf7de1b4",
+      "camera_clock_seconds": "12055044.2508155",
+      "file": "frames/frame-000468.npz"
+    },
+    "1738575": {
+      "peak": 4094,
+      "sha256": "dce6f54f57115e3ff9f69634b2ebc04719adf146eac2958742e8a40344c008f2",
+      "camera_clock_seconds": "12055044.3508249",
+      "file": "frames/frame-000469.npz"
+    },
+    "1738576": {
+      "peak": 179,
+      "sha256": "ce4b4995e2d4727e2b0ab9c0a8b21cb16e28f20313062b7f29b894c163dbbfea",
+      "camera_clock_seconds": "12055044.4508091",
+      "file": "frames/frame-000470.npz"
+    },
+    "1738577": {
+      "peak": 4094,
+      "sha256": "ca533d0f812fab41411417089fc72b8028bd95e53dbb9601e9c727f40b990672",
+      "camera_clock_seconds": "12055044.5508184",
+      "file": "frames/frame-000471.npz"
+    },
+    "1738578": {
+      "peak": 174,
+      "sha256": "4f18633b08484e85ae4643e3e4d099e39536add0bc2a40642c1e299d939ea175",
+      "camera_clock_seconds": "12055044.6508027",
+      "file": "frames/frame-000472.npz"
+    },
+    "1738579": {
+      "peak": 4094,
+      "sha256": "d275ac721bd9f648788ae2121b9ff96a23b331996e9b73111ee42296353dc7eb",
+      "camera_clock_seconds": "12055044.7508121",
+      "file": "frames/frame-000473.npz"
+    },
+    "1738580": {
+      "peak": 177,
+      "sha256": "dcf3810ac08a142cbadd824bd8463cc94f947124470881366221ff7240c378a1",
+      "camera_clock_seconds": "12055044.8507963",
+      "file": "frames/frame-000474.npz"
+    },
+    "1738581": {
+      "peak": 4094,
+      "sha256": "bd1c5f4eb42248149d374e11d2be70d28b023e943c772f850e946d2afc16744d",
+      "camera_clock_seconds": "12055044.9508057",
+      "file": "frames/frame-000475.npz"
+    },
+    "1738582": {
+      "peak": 180,
+      "sha256": "cc25a1c9503e3de442593f64a3e64588b7d4a6e092022e2cc21ccea142b65153",
+      "camera_clock_seconds": "12055045.050815",
+      "file": "frames/frame-000476.npz"
+    },
+    "1738583": {
+      "peak": 4094,
+      "sha256": "f622a4292e629cc556949e769931f41c71674a7b3980051154c9f3e71bc08ab8",
+      "camera_clock_seconds": "12055045.1507992",
+      "file": "frames/frame-000477.npz"
+    },
+    "1738584": {
+      "peak": 178,
+      "sha256": "4b41150b0c4d81f2a6151a60e372ffb987139c4941b35783e318097fd0bb12f0",
+      "camera_clock_seconds": "12055045.2508086",
+      "file": "frames/frame-000478.npz"
+    },
+    "1738585": {
+      "peak": 4094,
+      "sha256": "a0514d735d2868758e6344aa90fd88d03c67a57e2d557c805008038ca0632793",
+      "camera_clock_seconds": "12055045.3507929",
+      "file": "frames/frame-000479.npz"
+    },
+    "1738586": {
+      "peak": 176,
+      "sha256": "789be1b6383b55e84247ed15691af4a939dba307ae6e475440b6a4e94d07657d",
+      "camera_clock_seconds": "12055045.4508022",
+      "file": "frames/frame-000480.npz"
+    },
+    "1738587": {
+      "peak": 4094,
+      "sha256": "9327a683b469ccdeb6ff1fa5f9e73d5e684d86d9413cdd1e85b14d52e4001cf7",
+      "camera_clock_seconds": "12055045.5507865",
+      "file": "frames/frame-000481.npz"
+    },
+    "1738588": {
+      "peak": 171,
+      "sha256": "2265f08d33b5b9e35a79c294c91a661ba4e25306fb871730b92cbb97526dfc49",
+      "camera_clock_seconds": "12055045.6507958",
+      "file": "frames/frame-000482.npz"
+    },
+    "1738589": {
+      "peak": 4094,
+      "sha256": "15dbbfc00b8c0fd65a7a372e514697ab25a1770bdef8c3243f6318a5db30f051",
+      "camera_clock_seconds": "12055045.7508052",
+      "file": "frames/frame-000483.npz"
+    },
+    "1738590": {
+      "peak": 173,
+      "sha256": "7a278321053dc0294e8b6155de6b8676c9cbbd5bea0c28a49c1ca2362f3c73f6",
+      "camera_clock_seconds": "12055045.8507894",
+      "file": "frames/frame-000484.npz"
+    },
+    "1738591": {
+      "peak": 4094,
+      "sha256": "7d513e20e2bb2be487f0dcab141060b13b04250b62076123abfd109612523d58",
+      "camera_clock_seconds": "12055045.9507988",
+      "file": "frames/frame-000485.npz"
+    },
+    "1738592": {
+      "peak": 173,
+      "sha256": "566e61721df220c3641ee832f561d845fbda8763351d37a543595730ce1d48e8",
+      "camera_clock_seconds": "12055046.050783",
+      "file": "frames/frame-000486.npz"
+    },
+    "1738593": {
+      "peak": 4094,
+      "sha256": "80a843118351b7d57b3bb795ce2ed1447c0929adda235aec61095cc5a073a84e",
+      "camera_clock_seconds": "12055046.1507924",
+      "file": "frames/frame-000487.npz"
+    },
+    "1738594": {
+      "peak": 174,
+      "sha256": "04a3a2764756620ceedf23c7f125f13d933712cbc983a13b3072430a54a603af",
+      "camera_clock_seconds": "12055046.2507766",
+      "file": "frames/frame-000488.npz"
+    },
+    "1738595": {
+      "peak": 4094,
+      "sha256": "00051c8b3d07589597047b4f708c99c54b8ce97d99eacd39abee6483dc312ff2",
+      "camera_clock_seconds": "12055046.350786",
+      "file": "frames/frame-000489.npz"
+    },
+    "1738596": {
+      "peak": 171,
+      "sha256": "2de61d9aefb070f5cd4490ee7b226c8eb1985458107b57ff6cc1a655193706ab",
+      "camera_clock_seconds": "12055046.4507953",
+      "file": "frames/frame-000490.npz"
+    },
+    "1738597": {
+      "peak": 4094,
+      "sha256": "dcb27be8cad29f466248a223448676b0fd1aa48fe8165435fa7d5de2c14bf50b",
+      "camera_clock_seconds": "12055046.5507796",
+      "file": "frames/frame-000491.npz"
+    },
+    "1738598": {
+      "peak": 175,
+      "sha256": "43deed0ab5655a2406c8fb4e70071b704b3ba9d260addc7c8e70803fb8b500d0",
+      "camera_clock_seconds": "12055046.6507889",
+      "file": "frames/frame-000492.npz"
+    },
+    "1738599": {
+      "peak": 4094,
+      "sha256": "aa3d94bcbe98a5f0966bc8394d0bf44fef1c7125f59fa80709e86c1a5c9904e7",
+      "camera_clock_seconds": "12055046.7507732",
+      "file": "frames/frame-000493.npz"
+    },
+    "1738600": {
+      "peak": 175,
+      "sha256": "c25dde5f5cc67b844c60bf848e1b449d70a4070bc8dfcb885cdc8a54d8b2c843",
+      "camera_clock_seconds": "12055046.8507825",
+      "file": "frames/frame-000494.npz"
+    },
+    "1738601": {
+      "peak": 4094,
+      "sha256": "12ed7b88e5fd080dd5fc11237f2ce23f77bcbbadac6771cb82efe98246626b2f",
+      "camera_clock_seconds": "12055046.9507668",
+      "file": "frames/frame-000495.npz"
+    },
+    "1738602": {
+      "peak": 174,
+      "sha256": "6a4ce86539a4166c4bda67d6552f40a9eaa42ab06b293e9c02e5c1f52656b486",
+      "camera_clock_seconds": "12055047.0507761",
+      "file": "frames/frame-000496.npz"
+    },
+    "1738603": {
+      "peak": 4094,
+      "sha256": "10bbf16f4e4f346b485fd282d857eca65d56c24854cca459217f77cc528b0269",
+      "camera_clock_seconds": "12055047.1507855",
+      "file": "frames/frame-000497.npz"
+    },
+    "1738604": {
+      "peak": 177,
+      "sha256": "ce65dcdfbd66bee376a32e21bf1c9850789ed0f17e1c8cb92b528c66291b328d",
+      "camera_clock_seconds": "12055047.2507697",
+      "file": "frames/frame-000498.npz"
+    },
+    "1738605": {
+      "peak": 4094,
+      "sha256": "d69f90732061bd90c2e02833d6bca28b96f76e23beae2f39165a786bb7708a4c",
+      "camera_clock_seconds": "12055047.3507791",
+      "file": "frames/frame-000499.npz"
+    },
+    "1738606": {
+      "peak": 182,
+      "sha256": "487564fa090f9e005eb99f2fcd683acfe830696fde5114d20a623e62c41d1c1c",
+      "camera_clock_seconds": "12055047.4507633",
+      "file": "frames/frame-000500.npz"
+    },
+    "1738607": {
+      "peak": 4094,
+      "sha256": "25406b6ab0f21374c5ed734f3ff5db44d48bbcd84f006494b207649d1c062e3f",
+      "camera_clock_seconds": "12055047.5507727",
+      "file": "frames/frame-000501.npz"
+    },
+    "1738608": {
+      "peak": 183,
+      "sha256": "c691068fcf1f9bfcdddeead1a8d36153ca0a0bf7a251c886ea3224869a2b807f",
+      "camera_clock_seconds": "12055047.6507569",
+      "file": "frames/frame-000502.npz"
+    },
+    "1738609": {
+      "peak": 4094,
+      "sha256": "2e5ac6f9a526645e10376dbe97e9f18d1d4231e5acb608403c6c64599b8b8f51",
+      "camera_clock_seconds": "12055047.7507663",
+      "file": "frames/frame-000503.npz"
+    },
+    "1738610": {
+      "peak": 194,
+      "sha256": "a1566389a755e3346a9bd9443702e97b0e0d85c58d3bd0fcf485070eabfc2d2c",
+      "camera_clock_seconds": "12055047.8507757",
+      "file": "frames/frame-000504.npz"
+    },
+    "1738611": {
+      "peak": 4094,
+      "sha256": "d2b9aebdb7329b876c0914411168c7a4afeec95a7560958d0730c3a0851ebc0a",
+      "camera_clock_seconds": "12055047.9507599",
+      "file": "frames/frame-000505.npz"
+    },
+    "1738612": {
+      "peak": 183,
+      "sha256": "4da2a084fdba09ad34adb4d2060940adfe4ea1fde5b9291db1bfac4b116def64",
+      "camera_clock_seconds": "12055048.0507693",
+      "file": "frames/frame-000506.npz"
+    },
+    "1738613": {
+      "peak": 4094,
+      "sha256": "f2c45e12e7617123ac0b3e15f4fec8ed29d67b902df45786c43ee8e81f1baddf",
+      "camera_clock_seconds": "12055048.1507535",
+      "file": "frames/frame-000507.npz"
+    },
+    "1738614": {
+      "peak": 186,
+      "sha256": "45de6ebab5735c8972af16d25827b4a25cf45a7519676f41ea3de773ae3532c6",
+      "camera_clock_seconds": "12055048.2507628",
+      "file": "frames/frame-000508.npz"
+    },
+    "1738615": {
+      "peak": 4094,
+      "sha256": "c3518a9b4f0c1690576a545627f32b1a26cadd8c19b6bdc63441d2ea6dd87058",
+      "camera_clock_seconds": "12055048.3507471",
+      "file": "frames/frame-000509.npz"
+    },
+    "1738616": {
+      "peak": 178,
+      "sha256": "eb49083c63bc65b6fb8417775f8f2bd89ba0350a4c843bab6d4944fbea3adaa4",
+      "camera_clock_seconds": "12055048.4507565",
+      "file": "frames/frame-000510.npz"
+    },
+    "1738617": {
+      "peak": 4094,
+      "sha256": "4620b5db4c1ee2cc731cc050dbf8e4a4e336083226d293f8ac425dc57494b305",
+      "camera_clock_seconds": "12055048.5507658",
+      "file": "frames/frame-000511.npz"
+    },
+    "1738618": {
+      "peak": 181,
+      "sha256": "fa71aac7edeb62a8c5ac3a5237421ff3c0e1ffd41acca698861977bb7c937d3e",
+      "camera_clock_seconds": "12055048.6507501",
+      "file": "frames/frame-000512.npz"
+    },
+    "1738619": {
+      "peak": 4094,
+      "sha256": "04327940e2aedb2bc016a6e475b0594ce0795b2bf0972cedf930bf876f3cb9c6",
+      "camera_clock_seconds": "12055048.7507594",
+      "file": "frames/frame-000513.npz"
+    },
+    "1738620": {
+      "peak": 175,
+      "sha256": "079719ebde71aeedd70f488d1743272382dcf04fc4c2e34af6a3b6461b515a20",
+      "camera_clock_seconds": "12055048.8507436",
+      "file": "frames/frame-000514.npz"
+    },
+    "1738621": {
+      "peak": 4094,
+      "sha256": "24b5c8a62eacb404233d75940dfacd035c02131a878b25a20ae643b9c95261be",
+      "camera_clock_seconds": "12055048.950753",
+      "file": "frames/frame-000515.npz"
+    },
+    "1738622": {
+      "peak": 185,
+      "sha256": "111304382881028e74f415f8f13577a831669941f205106ca369c9285d980e4a",
+      "camera_clock_seconds": "12055049.0507373",
+      "file": "frames/frame-000516.npz"
+    },
+    "1738623": {
+      "peak": 4094,
+      "sha256": "5efbaa5b52529d327e45c0bc07d76937800caf731f2942093ca38c06b2633a28",
+      "camera_clock_seconds": "12055049.1507466",
+      "file": "frames/frame-000517.npz"
+    },
+    "1738624": {
+      "peak": 181,
+      "sha256": "b9ae9e4f354df2688444278891989184c4c800a8929a32c5e409c58efcfb346d",
+      "camera_clock_seconds": "12055049.250756",
+      "file": "frames/frame-000518.npz"
+    },
+    "1738625": {
+      "peak": 4094,
+      "sha256": "3a09c366686451c6a5b00d6f98c039ebf69e8a00b5ba6ecb4dbf9f94bdbc54dc",
+      "camera_clock_seconds": "12055049.3507402",
+      "file": "frames/frame-000519.npz"
+    },
+    "1738626": {
+      "peak": 173,
+      "sha256": "f53945891d34d2e99aa1dc22ebcdee49090116dfdc956201fba45f728abe5a0c",
+      "camera_clock_seconds": "12055049.4507496",
+      "file": "frames/frame-000520.npz"
+    },
+    "1738627": {
+      "peak": 4094,
+      "sha256": "92a7b2d54d6b35083f241aacd69fcf889ab32ca5181d12369299bf29181be7ca",
+      "camera_clock_seconds": "12055049.5507338",
+      "file": "frames/frame-000521.npz"
+    },
+    "1738628": {
+      "peak": 177,
+      "sha256": "0b2a1b8e72c36e0025984f44ab4ca43e0b891d8252ff1fd4b2af56b1674f6c38",
+      "camera_clock_seconds": "12055049.6507432",
+      "file": "frames/frame-000522.npz"
+    },
+    "1738629": {
+      "peak": 4094,
+      "sha256": "b6fe6dd15ea8a8f26cda5a785b77eb34d74a8a30de3f44c22d04e984f84f5840",
+      "camera_clock_seconds": "12055049.7507274",
+      "file": "frames/frame-000523.npz"
+    },
+    "1738630": {
+      "peak": 172,
+      "sha256": "a90183fd6ef705cd7381fdfdf27c72dc0c0afb2314e6f4bd4911e7bf34df8d23",
+      "camera_clock_seconds": "12055049.8507368",
+      "file": "frames/frame-000524.npz"
+    },
+    "1738631": {
+      "peak": 4094,
+      "sha256": "e7895c91cbfac79a1cf70f4cb50d90a2953005190dba156f544b1275e2fb4503",
+      "camera_clock_seconds": "12055049.9507461",
+      "file": "frames/frame-000525.npz"
+    },
+    "1738632": {
+      "peak": 175,
+      "sha256": "89d79ac57d3a072880803da2b03c9710b6b056fb76094d75bbbb901f44bc07c6",
+      "camera_clock_seconds": "12055050.0507304",
+      "file": "frames/frame-000526.npz"
+    },
+    "1738633": {
+      "peak": 4094,
+      "sha256": "520df4f19e075d18422a970452511e46e31555f6adab8057937ca0822302241a",
+      "camera_clock_seconds": "12055050.1507397",
+      "file": "frames/frame-000527.npz"
+    },
+    "1738634": {
+      "peak": 173,
+      "sha256": "2f331457e88d541051ec8c02835d0e72d3f5ba1c08b6782e33603f0125823251",
+      "camera_clock_seconds": "12055050.250724",
+      "file": "frames/frame-000528.npz"
+    },
+    "1738635": {
+      "peak": 4094,
+      "sha256": "5e533d177ea9c7a450def68a65afc719ba151b78fd673a7de6544135817f978a",
+      "camera_clock_seconds": "12055050.3507333",
+      "file": "frames/frame-000529.npz"
+    },
+    "1738636": {
+      "peak": 176,
+      "sha256": "db1cfe8b2975f7e3c4ac652c3e40dbce86090248f66a6fec55cfedb99cfeb3c6",
+      "camera_clock_seconds": "12055050.4507176",
+      "file": "frames/frame-000530.npz"
+    },
+    "1738637": {
+      "peak": 4094,
+      "sha256": "420dcc6e8fb2f6f47375291b43aaeb684738e761ab30f83476d80c62eff20aea",
+      "camera_clock_seconds": "12055050.5507269",
+      "file": "frames/frame-000531.npz"
+    },
+    "1738638": {
+      "peak": 174,
+      "sha256": "fd29a4a754f94e9ad1b52efb3f007f050e25ed219996c82ce26c99535b8a337a",
+      "camera_clock_seconds": "12055050.6507363",
+      "file": "frames/frame-000532.npz"
+    },
+    "1738639": {
+      "peak": 4094,
+      "sha256": "c0308922ad75505b2e26961a22a01c545b3c5f4bacc0a17648d2058fb2417158",
+      "camera_clock_seconds": "12055050.7507205",
+      "file": "frames/frame-000533.npz"
+    },
+    "1738640": {
+      "peak": 177,
+      "sha256": "b6e6c5e810d3f5b9e991b67c1aa3a1513d709f25d49a7e3419530e71ff4937f7",
+      "camera_clock_seconds": "12055050.8507299",
+      "file": "frames/frame-000534.npz"
+    },
+    "1738641": {
+      "peak": 4094,
+      "sha256": "54b5ec0e92e53b1a565ea48f10044b15311b727c3f6058d614190a10afafc3ab",
+      "camera_clock_seconds": "12055050.9507141",
+      "file": "frames/frame-000535.npz"
+    },
+    "1738642": {
+      "peak": 178,
+      "sha256": "922c510981650e45423d8abc4c3fb220df0e68c9975c1523fe6ceb5f28b8e163",
+      "camera_clock_seconds": "12055051.0507235",
+      "file": "frames/frame-000536.npz"
+    },
+    "1738643": {
+      "peak": 4094,
+      "sha256": "fc7dedd27787d21a9ed6080ac70bc4fbe441eeb5b70cf9dc0734fb3b8acd679e",
+      "camera_clock_seconds": "12055051.1507077",
+      "file": "frames/frame-000537.npz"
+    },
+    "1738644": {
+      "peak": 173,
+      "sha256": "6675c8b8c95d8dd96930820d019ed8792584aa40e5cdb03e479aad1f5724283a",
+      "camera_clock_seconds": "12055051.2507171",
+      "file": "frames/frame-000538.npz"
+    },
+    "1738645": {
+      "peak": 4094,
+      "sha256": "df2ca4f0708908e903d7756e2399f330601a46e4a0ed26769552a006ed543d2b",
+      "camera_clock_seconds": "12055051.3507264",
+      "file": "frames/frame-000539.npz"
+    },
+    "1738646": {
+      "peak": 185,
+      "sha256": "4de54b21a6b35ab5426cddf2e70633647fd0d39c7fdcdc4caf3fa7682cd8dd7b",
+      "camera_clock_seconds": "12055051.4507107",
+      "file": "frames/frame-000540.npz"
+    },
+    "1738647": {
+      "peak": 4094,
+      "sha256": "c74060b65264a0fbd98b23e3e724a503b3fc03f9e3afc1f66ff450f763d3cd77",
+      "camera_clock_seconds": "12055051.5507201",
+      "file": "frames/frame-000541.npz"
+    },
+    "1738648": {
+      "peak": 181,
+      "sha256": "1153874ab3ed2379a31c9086c926e707be4de9d1fdb193808f746558be1cbc71",
+      "camera_clock_seconds": "12055051.6507043",
+      "file": "frames/frame-000542.npz"
+    },
+    "1738649": {
+      "peak": 4094,
+      "sha256": "7f434c0dd2a9049ee24a87786c8ac37b14e128159299ea5f8f25656685c7182f",
+      "camera_clock_seconds": "12055051.7507137",
+      "file": "frames/frame-000543.npz"
+    },
+    "1738650": {
+      "peak": 187,
+      "sha256": "f064d6b3fbdc42118c9b647efedb105a00c157ccf6e7a0f8135cdb383551787d",
+      "camera_clock_seconds": "12055051.8506979",
+      "file": "frames/frame-000544.npz"
+    },
+    "1738651": {
+      "peak": 4094,
+      "sha256": "b84f0703d3b47467f0bac6810bbc7bcc193e689a031ec0611433b800b0e31bb2",
+      "camera_clock_seconds": "12055051.9507072",
+      "file": "frames/frame-000545.npz"
+    },
+    "1738652": {
+      "peak": 188,
+      "sha256": "103b4d4ff55765765484f61e4315d5735da10ea0757e55e3a375ef33c114ddd9",
+      "camera_clock_seconds": "12055052.0507166",
+      "file": "frames/frame-000546.npz"
+    },
+    "1738653": {
+      "peak": 4094,
+      "sha256": "dbc156bc31bfbcbfe7f4fa86469fc419fea19b0d28fd1cfce3b6d3fd5f47fa38",
+      "camera_clock_seconds": "12055052.1507009",
+      "file": "frames/frame-000547.npz"
+    },
+    "1738654": {
+      "peak": 196,
+      "sha256": "245f7d431f10cb045cc227cd8ea2502bd462dc99c8b696f6c012a84b7354cb95",
+      "camera_clock_seconds": "12055052.2507102",
+      "file": "frames/frame-000548.npz"
+    },
+    "1738655": {
+      "peak": 4094,
+      "sha256": "77c04242475188875fecfbf295ddf335ae1486dff3a79fe26b56c40feedb346a",
+      "camera_clock_seconds": "12055052.3506945",
+      "file": "frames/frame-000549.npz"
+    },
+    "1738656": {
+      "peak": 188,
+      "sha256": "9fdc12288425e51661e35538636b8b03b71fc8447dd7ce9ccb7445438bc08d8a",
+      "camera_clock_seconds": "12055052.4507038",
+      "file": "frames/frame-000550.npz"
+    },
+    "1738657": {
+      "peak": 4094,
+      "sha256": "0a8a01af077e47412d61a1fcdcc1c1424b8fb0f47d55c2eaae60d011e753c666",
+      "camera_clock_seconds": "12055052.550688",
+      "file": "frames/frame-000551.npz"
+    },
+    "1738658": {
+      "peak": 184,
+      "sha256": "8d5c06318c26c51a381328537e94d46969ddb8d8f98406508a7627a2136bcb88",
+      "camera_clock_seconds": "12055052.6506974",
+      "file": "frames/frame-000552.npz"
+    },
+    "1738659": {
+      "peak": 4094,
+      "sha256": "0c2f4eca7b858f86dd0847c5a6dc3df76960ed58e9c02cf784e3c36d9297c59d",
+      "camera_clock_seconds": "12055052.7507068",
+      "file": "frames/frame-000553.npz"
+    },
+    "1738660": {
+      "peak": 178,
+      "sha256": "1ddbaf3737d9996ffad5922b2083940ed1488cf2992b825c8678b4b21bf1f1e4",
+      "camera_clock_seconds": "12055052.850691",
+      "file": "frames/frame-000554.npz"
+    },
+    "1738661": {
+      "peak": 4094,
+      "sha256": "b32c60e57fbacade5e7eac6ab12164a14abdf158cbce077534faca2cbc441f23",
+      "camera_clock_seconds": "12055052.9507004",
+      "file": "frames/frame-000555.npz"
+    },
+    "1738662": {
+      "peak": 184,
+      "sha256": "84c17a492c581c271456a781e777e3ad530bdec600cb28eadcb807f8d046b9c7",
+      "camera_clock_seconds": "12055053.0506846",
+      "file": "frames/frame-000556.npz"
+    },
+    "1738663": {
+      "peak": 4094,
+      "sha256": "a3628814714cc66d45c2e0e95ab17723433dbd1055dc60242c72ebc8d08ad72b",
+      "camera_clock_seconds": "12055053.150694",
+      "file": "frames/frame-000557.npz"
+    },
+    "1738664": {
+      "peak": 175,
+      "sha256": "89ee20d8c283b223556866d458bdf68f257bac87c9609b771cef30e8338f1021",
+      "camera_clock_seconds": "12055053.2506782",
+      "file": "frames/frame-000558.npz"
+    },
+    "1738665": {
+      "peak": 4094,
+      "sha256": "bf837a0e3c4f7b2b5f1c43ae86d817baf37dacc5c6240a81a841bb1dfc1d1733",
+      "camera_clock_seconds": "12055053.3506876",
+      "file": "frames/frame-000559.npz"
+    },
+    "1738666": {
+      "peak": 174,
+      "sha256": "0be7caabbf3a0b3d3e16e722e9704cb420128c9c8207b7b89a5b3858caca2857",
+      "camera_clock_seconds": "12055053.4506969",
+      "file": "frames/frame-000560.npz"
+    },
+    "1738667": {
+      "peak": 4094,
+      "sha256": "632a79a8ab6c4dd173dbc578cf9e4ae979b945a3be554e7dcbda82c64907899c",
+      "camera_clock_seconds": "12055053.5506812",
+      "file": "frames/frame-000561.npz"
+    },
+    "1738668": {
+      "peak": 177,
+      "sha256": "7124bec2a5ead34cda58aec45e723f9e9cee90db9617eac9be1e13dcda0097d5",
+      "camera_clock_seconds": "12055053.6506905",
+      "file": "frames/frame-000562.npz"
+    },
+    "1738669": {
+      "peak": 4094,
+      "sha256": "c10c26c08826aee8fe0b1b32b2d72a7069839afdea0aa347b1699d022f67be4e",
+      "camera_clock_seconds": "12055053.7506748",
+      "file": "frames/frame-000563.npz"
+    },
+    "1738670": {
+      "peak": 173,
+      "sha256": "81771c2f0a75166f96f9ac647ac536fc2ecf07bd4bd4a8c68c7184a750fcd703",
+      "camera_clock_seconds": "12055053.8506841",
+      "file": "frames/frame-000564.npz"
+    },
+    "1738671": {
+      "peak": 4094,
+      "sha256": "b209a344be43e3e66ca127b38101f3cd8f10f905bcc65bf04b3b8c520b66a8b4",
+      "camera_clock_seconds": "12055053.9506684",
+      "file": "frames/frame-000565.npz"
+    },
+    "1738672": {
+      "peak": 175,
+      "sha256": "f386877e76fa1347ca37e4925bb391399ed51c3e96da3f8e13c0ef52b1bb70de",
+      "camera_clock_seconds": "12055054.0506777",
+      "file": "frames/frame-000566.npz"
+    },
+    "1738673": {
+      "peak": 4094,
+      "sha256": "79e81ca0fe603879662cf1f0997a34b0d884433485d7ced199bedcaa149b4112",
+      "camera_clock_seconds": "12055054.1506871",
+      "file": "frames/frame-000567.npz"
+    },
+    "1738674": {
+      "peak": 176,
+      "sha256": "96835d06ee14b3061b232e4de45d8101da3d500f425c3233fa65a64ec97e6e5c",
+      "camera_clock_seconds": "12055054.2506713",
+      "file": "frames/frame-000568.npz"
+    },
+    "1738675": {
+      "peak": 4094,
+      "sha256": "e4274f54467375a72d3027624985f8051d1edd126a3fca559e51dd51c2899e90",
+      "camera_clock_seconds": "12055054.3506807",
+      "file": "frames/frame-000569.npz"
+    },
+    "1738676": {
+      "peak": 175,
+      "sha256": "5979b428a2a0b3d2d75c621a98ae120506256834c5a24e68d235b35a02f05b8e",
+      "camera_clock_seconds": "12055054.4506649",
+      "file": "frames/frame-000570.npz"
+    },
+    "1738677": {
+      "peak": 4094,
+      "sha256": "35dc8f8d147e49dd1b9995323e5d6b92f04b338f0b29b878cb003752ffee956c",
+      "camera_clock_seconds": "12055054.5506743",
+      "file": "frames/frame-000571.npz"
+    },
+    "1738678": {
+      "peak": 173,
+      "sha256": "3fcb0bb5eb316a5b3e653ab1dcbc081dfa6046626a574aca3471e4d6db008d48",
+      "camera_clock_seconds": "12055054.6506585",
+      "file": "frames/frame-000572.npz"
+    },
+    "1738679": {
+      "peak": 4094,
+      "sha256": "3f8fe8c6e8e8665c1cb54f31189d200b630c5c54701e3a6b8e4cf3dd0cb702cd",
+      "camera_clock_seconds": "12055054.7506679",
+      "file": "frames/frame-000573.npz"
+    },
+    "1738680": {
+      "peak": 171,
+      "sha256": "d12be9e4e851c853d2cfa0f646638438c48d7264d6a6b89b5084fa02a6999496",
+      "camera_clock_seconds": "12055054.8506773",
+      "file": "frames/frame-000574.npz"
+    },
+    "1738681": {
+      "peak": 4094,
+      "sha256": "10c85c8332b60e6d95a9b360bc362561ec3d0df110657c24f8815fc3c9d77d10",
+      "camera_clock_seconds": "12055054.9506615",
+      "file": "frames/frame-000575.npz"
+    },
+    "1738682": {
+      "peak": 175,
+      "sha256": "8219ae93b7a67e3150bcd2abb5acf34066049c5c542b55125e6514987ef66e96",
+      "camera_clock_seconds": "12055055.0506708",
+      "file": "frames/frame-000576.npz"
+    },
+    "1738683": {
+      "peak": 4094,
+      "sha256": "2e9de35f1f5a0bb0c747af13559c65199bc1f86d48d7ccc3c8111a5f679d4679",
+      "camera_clock_seconds": "12055055.1506551",
+      "file": "frames/frame-000577.npz"
+    },
+    "1738684": {
+      "peak": 177,
+      "sha256": "1766cb86227d6fb36592a30ebc63baa00246588d6d75b186e0084bf28a133748",
+      "camera_clock_seconds": "12055055.2506645",
+      "file": "frames/frame-000578.npz"
+    },
+    "1738685": {
+      "peak": 4094,
+      "sha256": "5794a990c2723973c5d02266a04d8fcd478a8514f413bfecb351dc62a8af9e36",
+      "camera_clock_seconds": "12055055.3506487",
+      "file": "frames/frame-000579.npz"
+    },
+    "1738686": {
+      "peak": 176,
+      "sha256": "f4e73570e3048351adee23dbcf94c6db106a2d73e0f17231f7bba8a3f0ccbb71",
+      "camera_clock_seconds": "12055055.4506581",
+      "file": "frames/frame-000580.npz"
+    },
+    "1738687": {
+      "peak": 4094,
+      "sha256": "e2229b8f287e66083b9014309045a459aea8022b83bf47a80f75ad24f4a89ba3",
+      "camera_clock_seconds": "12055055.5506674",
+      "file": "frames/frame-000581.npz"
+    },
+    "1738688": {
+      "peak": 179,
+      "sha256": "6bbe3538be06aa4788e6a58867b4abcb2bfa8d40ad621ff6d7958365d485bc38",
+      "camera_clock_seconds": "12055055.6506516",
+      "file": "frames/frame-000582.npz"
+    },
+    "1738689": {
+      "peak": 4094,
+      "sha256": "259fb5ef561f6f6f033524f4eef8cd552a134c90634ccab34e35f67ca5fc70e5",
+      "camera_clock_seconds": "12055055.750661",
+      "file": "frames/frame-000583.npz"
+    },
+    "1738690": {
+      "peak": 181,
+      "sha256": "53353d1eb9ad9236637f42ca2bf47f0c4591ff7cf2780c077251066b924290d7",
+      "camera_clock_seconds": "12055055.8506453",
+      "file": "frames/frame-000584.npz"
+    },
+    "1738691": {
+      "peak": 4094,
+      "sha256": "dc6f5e0b34d743f26bcbcf2ca69240cba8a649537b256996a33eb59c070ad9e5",
+      "camera_clock_seconds": "12055055.9506546",
+      "file": "frames/frame-000585.npz"
+    },
+    "1738692": {
+      "peak": 183,
+      "sha256": "b1f67407c332e623f295809af099cd6a6b10f70bfd01e513e41841f65a85d519",
+      "camera_clock_seconds": "12055056.0506389",
+      "file": "frames/frame-000586.npz"
+    },
+    "1738693": {
+      "peak": 4094,
+      "sha256": "cabd6935330861edbdf0f67e212bcd226a1dac5c1a44b689fcf8d12c93d680cd",
+      "camera_clock_seconds": "12055056.1506482",
+      "file": "frames/frame-000587.npz"
+    },
+    "1738694": {
+      "peak": 187,
+      "sha256": "73fb080132753d1e275e7c0975bdf5fcbeeb5df748d371ac1ee4be3fa8e1ba77",
+      "camera_clock_seconds": "12055056.2506576",
+      "file": "frames/frame-000588.npz"
+    },
+    "1738695": {
+      "peak": 4094,
+      "sha256": "1393f02390752a7a46d01ba0414443623f7c0176f553a7fcbefe554af9544720",
+      "camera_clock_seconds": "12055056.3506418",
+      "file": "frames/frame-000589.npz"
+    },
+    "1738696": {
+      "peak": 189,
+      "sha256": "b1bf579efbbee5c1d256be89d510b1f6cc740eb282f6a8fb644c84d4ae947d0b",
+      "camera_clock_seconds": "12055056.4506512",
+      "file": "frames/frame-000590.npz"
+    },
+    "1738697": {
+      "peak": 4094,
+      "sha256": "7dc9e6c585720833619a49af36ca817679ac04385efe3a2f3fac1cf82abbda3e",
+      "camera_clock_seconds": "12055056.5506354",
+      "file": "frames/frame-000591.npz"
+    },
+    "1738698": {
+      "peak": 185,
+      "sha256": "65f720833126e58dbdbf1916d51a362550029564af1ab0d2e762663b3ffc11e2",
+      "camera_clock_seconds": "12055056.6506448",
+      "file": "frames/frame-000592.npz"
+    },
+    "1738699": {
+      "peak": 4094,
+      "sha256": "15428d4ab3e5fb69134baa28483edadc3cb8ebd5eadde1709dda90f8945a4131",
+      "camera_clock_seconds": "12055056.750629",
+      "file": "frames/frame-000593.npz"
+    },
+    "1738700": {
+      "peak": 182,
+      "sha256": "a4e86de0198eca3c0dd744056577695133f219bf4a14bc5c4851ee46cb6a57af",
+      "camera_clock_seconds": "12055056.8506384",
+      "file": "frames/frame-000594.npz"
+    },
+    "1738701": {
+      "peak": 4094,
+      "sha256": "f9f7644ee13edb2091b18eb76a138ca4cd85a8d90867e9108ee733fe10aa5505",
+      "camera_clock_seconds": "12055056.9506477",
+      "file": "frames/frame-000595.npz"
+    },
+    "1738702": {
+      "peak": 185,
+      "sha256": "1eb26ab4181ed065890885d3267e726c5d63c1c5c103270c55a11c4486cf25ae",
+      "camera_clock_seconds": "12055057.050632",
+      "file": "frames/frame-000596.npz"
+    },
+    "1738703": {
+      "peak": 4094,
+      "sha256": "e50a1bb84d2cc915c34ac1d2c19429bbbf66720e34145ab093a3789fa6b08def",
+      "camera_clock_seconds": "12055057.1506413",
+      "file": "frames/frame-000597.npz"
+    },
+    "1738704": {
+      "peak": 180,
+      "sha256": "f10d78f5a432cb76b132061047da50dd58ec98de5da1ae8373e57bc886dc6d3a",
+      "camera_clock_seconds": "12055057.2506256",
+      "file": "frames/frame-000598.npz"
+    }
+  },
+  "camera": {
+    "clock_samples": 601,
+    "interval_ms": {
+      "count": 600,
+      "mean": 99.9986001693954,
+      "stddev": 0.012430226003653153,
+      "min": 99.98419880867004,
+      "max": 100.00940039753914
+    },
+    "id_gaps": 0,
+    "backwards": 0
+  },
+  "physical_transmit_and_optical_edge_times_measured": false,
+  "frame_boundary_check": {
+    "paired_metadata_records": 600,
+    "saved_images": 599,
+    "saved_id_first": 1738106,
+    "saved_id_last": 1738704,
+    "saved_internal_id_gaps": 0,
+    "metadata_without_saved_image": [
+      1738105
+    ]
+  }
+}
