@@ -1,108 +1,122 @@
-LED-triggered event sequence
-============================
+LED detection and receiver timing
+=================================
 
-Objective
----------
-
-This experiment checks whether camera detection of an LED flash can start a two-event sequence that both receivers record with consistent timing. The measured interval separates the received events; it does not measure the response from physical LED turn-on.
+This experiment tests whether an LED flash detected in a camera image can start a programmed event sequence and produce consistent timestamps at two receivers. The 10-second reference trial used the event-table sequencer in release 20261017.
 
 .. image:: ../_static/timing-check/scenarios/led-experiment-path.svg
-   :alt: Camera-qualified trigger path and the definition of the measured interval.
+   :alt: An LED flash is detected in CAM2, software triggers the generator, and both receivers timestamp events 42 and 43. The measured interval is between received events.
    :width: 100%
 
-Event codes
------------
-
-.. list-table::
-   :header-rows: 1
-
-   * - Code
-     - Purpose in this rack
-   * - 42
-     - First test event, sent after software qualifies a dark-to-bright change in CAM2. Receivers log its timestamp.
-   * - 43
-     - Follow-up test event, configured 8 ns after 42. Comparing their received timestamps measures this interval.
-   * - 101
-     - Existing camera-trigger configuration. It remains unchanged during the LED sequence.
-   * - 125
-     - The one-second marker (PPS) establishes the second boundary used by receiver timestamps.
-
-Recorded demonstration
-----------------------
-
-The video shows the bounded 20-trigger reference trial, including command review, 10-second acquisition and restoration. Its total length includes these steps; camera previews are sampled independently from the lossless image recording.
-
-.. raw:: html
-
-   <video controls playsinline preload="metadata" style="width:100%;max-height:640px" poster="../_static/timing-check/scenarios/led-demo-poster.png">
-     <source src="../_static/timing-check/scenarios/led-demo-10s.mp4" type="video/mp4">
-     <a href="../_static/timing-check/scenarios/led-demo-10s.mp4">Open the experiment recording</a>
-   </video>
+This interval tests the sequence executed after detection. It does not measure how quickly the hardware responds to the LED flash.
 
 Results
 -------
 
-The source images and raw receiver records were checked independently for recording ``20261104T073310Z-044488``. The acquisition lasted 10 seconds.
+Recording ``20261104T073310Z-044488`` saved 100 original images. Software accepted 20 LED transitions, then stopped issuing triggers while the 10-second acquisition continued.
 
 .. list-table::
    :header-rows: 1
+   :class: led-measurements
 
    * - Measurement
-     - Recorded result
-   * - Qualified LED transitions
-     - 20 of 20; all 40 source frames verified
+     - Result
+     - Sample
    * - Events received
      - 40 of 40 on each receiver
-   * - Time between events, 10.139.5.195
-     - Mean 8 ns; standard deviation 0 ns
-   * - Time between events, 10.139.5.198
-     - Mean 8 ns; standard deviation 0 ns
-   * - Receiver B minus A
-     - Mean 0 ns; standard deviation 0 ns across 40 events
-   * - Capture and restoration
-     - 100 images saved; no frame-ID gaps or writer overruns. Original settings/maps restored and verified.
-
-.. figure:: ../_static/timing-check/scenarios/led-qualified-images.png
-   :alt: A common intensity scale preserves the contrast used to qualify the first and last cycles; no brightness adjustment was applied to individual panels.
-   :width: 100%
-
-   A common intensity scale preserves the contrast used to qualify the first and last cycles; no brightness adjustment was applied to individual panels.
+     - 20 accepted transitions
+   * - 42 → 43 spacing on both receivers
+     - 8 ns; standard deviation 0 ns
+     - 20 pairs per receiver
+   * - Receiver timestamp difference
+     - 0 ns; standard deviation 0 ns
+     - 40 matched events
 
 .. figure:: ../_static/timing-check/scenarios/led-hardware-timing.svg
-   :alt: The vertical tick spacing is one hardware clock period, so variation below a tick cannot be resolved.
+   :alt: The vertical tick spacing is 8 ns, which is one hardware clock period. Variation below that resolution cannot be resolved.
    :width: 100%
 
-   The vertical tick spacing is one hardware clock period, so variation below a tick cannot be resolved.
+   The vertical tick spacing is 8 ns, which is one hardware clock period. Variation below that resolution cannot be resolved.
 
-:download:`Cycle data <../_static/timing-check/scenarios/led-sequence-cycles.csv>` · :download:`Source evidence and checks <../_static/timing-check/scenarios/led-sequence-evidence.json>`.
+The first event pair shows how the interval was calculated. All times below share the UTC second **2026-11-04 07:33:11**; the remaining nine digits are integer nanoseconds within that second.
+
+.. list-table::
+   :header-rows: 1
+   :class: led-timestamps
+
+   * - Receiver
+     - Event 42 (ns)
+     - Event 43 (ns)
+     - 43 − 42 (ns)
+   * - 10.139.5.195
+     - 264481912
+     - 264481920
+     - 8
+   * - 10.139.5.198
+     - 264481912
+     - 264481920
+     - 8
+
+Recorded demonstration
+----------------------
+
+The recording includes review, acquisition and restoration, so the video lasts longer than the 10-second capture. The images below are the first accepted dark/bright pair from the saved camera data.
+
+.. raw:: html
+
+   <video class="timing-experiment-video" controls playsinline preload="metadata" poster="../_static/timing-check/scenarios/led-demo-poster.png">
+     <source src="../_static/timing-check/scenarios/led-demo-10s.mp4" type="video/mp4">
+     <a href="../_static/timing-check/scenarios/led-demo-10s.mp4">Open the experiment recording</a>
+   </video>
+
+.. figure:: ../_static/timing-check/scenarios/led-qualified-images.png
+   :alt: Both full camera images use the same intensity scale. They establish a sampled dark-to-bright change, not the exact time when the LED switched on.
+   :width: 100%
+
+   Both full camera images use the same intensity scale. They establish a sampled dark-to-bright change, not the exact time when the LED switched on.
 
 Setup
 -----
+
+These are the settings used for the reference recording. They describe the measured trial, rather than the current live configuration.
 
 .. list-table::
    :header-rows: 1
 
    * - Component
      - Address / PV prefix
-     - Settings used
+     - Recorded setup
    * - Generator
-     - 10.139.5.196 / EVT:DEV2:20:
-     - Release 20261017; 125 MHz clock; sequencer bank 1 in Normal mode. Timer and external-input triggers are disabled.
+     - 10.139.5.196 / ``EVT:DEV2:20:``
+     - Release 20261017; 125 MHz clock; bank 1 in Normal mode. Timer and external-input triggers disabled.
    * - Receivers
-     - 10.139.5.195 / EVT:DEV2:10: and 10.139.5.198 / EVT:DEV2:40:
-     - Spare logging slots 3 and 4 select events 42 and 43. Each timestamp tick is 8 ns; neither event drives a physical output.
+     - 10.139.5.195 / ``EVT:DEV2:10:``; 10.139.5.198 / ``EVT:DEV2:40:``
+     - Logging slots 3 and 4 select events 42 and 43. Both receivers use the common generator stream. These events drive no physical outputs.
    * - Camera
-     - 192.168.2.1 / CAM:DEV2:20:
-     - CAM2 uses its existing Line1-triggered stream at approximately 10 frames/s, with a 1 ms exposure and 1200 × 900 Mono12 images.
-   * - LED
-     - Breadboard connected to a DG645
-     - Detect the peak in columns 300–699 and rows 550–849, starting at zero. A value above 1,000 counts is bright. The exact DG645 output and cable endpoints remain unrecorded.
+     - 192.168.2.1 / ``CAM:DEV2:20:``
+     - CAM2; external Line1 trigger; approximately 10 frames/s; 1 ms exposure; 1200 × 900 Mono12 images.
+   * - LED detection
+     - Breadboard LED driven by a DG645
+     - Peak intensity above 1,000 counts in columns 300–699 and rows 550–849. Coordinates start at zero. The exact DG645 output and cable endpoints were not recorded.
    * - Sequence
-     - Events 42, 43 and stop code 255
-     - Offsets are 0, 8 and 1,008 ns. Stop code 255 is not transmitted. The camera-qualified trigger limit is 20.
+     - Bank 1 on 10.139.5.196
+     - Event 42 at 0 ns, event 43 at 8 ns, and stop code 255 at 1,008 ns. Code 255 ends the table and is not transmitted.
    * - Acquisition
      - Host 10.139.4.59
-     - 10 seconds of receiver logs, camera metadata and lossless images, with settings and restoration records saved on the acquisition device.
+     - 10 seconds; at most 20 camera-qualified software triggers. Save receiver rows, original images, frame metadata and device settings.
+
+.. list-table::
+   :header-rows: 1
+
+   * - Code
+     - Role
+   * - 42
+     - First test event after software detects a fresh dark-to-bright camera transition.
+   * - 43
+     - Follow-up test event, programmed 8 ns after event 42.
+   * - 101
+     - Existing camera-trigger event; its configuration stays unchanged.
+   * - 125
+     - One-second marker (PPS), used to establish receiver timestamp seconds.
 
 Procedure
 ---------
@@ -110,57 +124,23 @@ Procedure
 .. list-table::
    :header-rows: 1
 
-   * - Stage
-     - Method and verification
-   * - 1. Establish the starting state
-     - Confirm that CAM2 shows both LED states, both receivers have valid links and timestamps, and FIFO overflow is clear. Save the sequencer controls and full event maps, then check that codes 42/43 and logging slots 3/4 are unused.
-   * - 2. Review and record
-     - Set the interval to 8 ns, the threshold to 1,000 counts and the recording duration to 10 seconds. Review the exact apply, trigger and restore commands before starting. Leave event 101, pulse outputs, camera acquisition and DG645 settings unchanged.
-   * - 3. Qualify and measure
-     - The recorded reference uses a 20-trigger cap; continuous Live/Record now accepts transitions until its owners stop. For the bounded reference, arm the bank once. For each of 20 fresh dark-to-bright frame pairs, issue one software trigger and verify the run-counter increment, including its 15-to-0 wrap. Match the received code order, then subtract event 42’s timestamp from event 43 on each receiver.
-   * - 4. Restore and inspect
-     - Disarm and restore the saved controls and logging selections, including after a stop or timeout. Check fresh readbacks against the original snapshot, verify receiver health, and inspect the saved result.
+   * - Step
+     - Action and verification
+   * - 1. Check and save
+     - Confirm that CAM2 shows the LED switching between dark and bright. Check receiver link and timestamp validity, with FIFO overflow clear. Save the sequencer settings and event maps, and confirm that events 42/43 and logging slots 3/4 are available.
+   * - 2. Configure
+     - Select the sequence and detection settings in the setup table. Review the apply, trigger and restore commands below. Keep event 101, physical pulse outputs, camera acquisition settings and DG645 settings unchanged.
+   * - 3. Acquire
+     - Start the 10-second image and event recording, then arm the sequence once. For each accepted dark-to-bright frame pair, issue one software trigger and check the sequencer run-counter increment. Stop issuing triggers after 20 accepted transitions.
+   * - 4. Compare and restore
+     - Match event order within each second on both receivers, inspect PPS rollovers, and calculate the event spacing and receiver difference. Disarm the bank and restore the saved settings and maps, including after a stop or timeout. Read them back and confirm receiver health.
 
-Live display and recording
---------------------------
+Evidence
+--------
 
-.. list-table::
-   :header-rows: 1
+All 40 camera frames used to accept the 20 transitions were checked against the original pixels. The capture had no frame-ID gaps or image-writer overruns. Settings and event maps were restored and verified; the sequencer was inactive and disarmed.
 
-   * - Control
-     - Behavior
-   * - Live
-     - Starts the camera/event display and LED check without creating capture files. Stop Live leaves a timed recording running.
-   * - Memory window
-     - Retains event timestamps and JPEG previews in RAM for up to three hours, with an estimated 4 GiB limit. Old entries expire; the oldest are removed first if the limit is reached. Event history is paged and camera history can be reviewed.
-   * - Record
-     - Saves original images, timestamps and settings for its selected duration, whether Live is on or off. Hardware settings stay locked until saving finishes.
-   * - Timing display
-     - Uses the latest ten seconds for responsive measurements. Event-42 to event-43 spacing is distinct from the period between successive event-42 receptions.
-
-.. raw:: html
-
-   <details class="experiment-details"><summary>Software processing measurements</summary>
-
-.. list-table::
-   :header-rows: 1
-
-   * - Host interval
-     - Mean / standard deviation / range (ns)
-   * - Detection → request
-     - 3,408,472 / 480,093 / 2,534,414–4,178,936
-   * - Detection → run-count confirmation
-     - 62,257,284 / 8,289,719 / 56,046,073–93,241,587
-
-.. figure:: ../_static/timing-check/scenarios/led-software-timing.svg
-   :alt: Host processing intervals for the same 20 cycles; run-count confirmation includes IOC readback.
-   :width: 100%
-
-   Host processing intervals for the same 20 cycles; run-count confirmation includes IOC readback.
-
-.. raw:: html
-
-   </details>
+:download:`Cycle data (CSV) <../_static/timing-check/scenarios/led-sequence-cycles.csv>` · :download:`Measurements and verification (JSON) <../_static/timing-check/scenarios/led-sequence-evidence.json>`
 
 .. raw:: html
 
@@ -622,5 +602,8 @@ Live display and recording
 Findings
 --------
 
-The measured spacing and receiver agreement support using the timing system to correlate event records across these devices. They do not establish absolute UTC accuracy or variation smaller than one clock tick.
-The camera-qualified trigger also includes host processing: the mean delay from detection to the start of the trigger request was 3.41 ms. This path therefore does not provide an 8 ns optical response. Physical LED turn-on, wire transmit time and a receiver-driven output response remain unmeasured.
+On this test link, the receivers agreed on event timestamps and preserved the programmed event spacing. This supports correlating data that carry the same timing events at CXFEL. Zero reported variation is limited by the 8 ns clock resolution; this trial does not establish absolute UTC accuracy or performance at 1 kHz.
+
+The LED detection path includes software processing. Detection to the start of the trigger request averaged 3.41 ms, with a 2.53–4.18 ms range. Thus, the 8 ns result applies to the two sequenced events, not to the response from light to hardware. A receiver-driven device response remains to be measured.
+
+A later camera-view mismatch is still unresolved. The measurements above remain tied to the saved reference images and logs. A repeat optical trial must first recover a clear view of the LED and confirm both image states.
