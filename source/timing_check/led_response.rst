@@ -42,6 +42,9 @@ Setup
    * - Camera trigger source
      - 10.139.5.197 / EVT:DEV2:30:
      - Existing event-101 output settings are preserved. The cable destination is not independently verified.
+   * - Acquisition software
+     - /home/cxfeldev/Desktop/dario/timing-check/console
+     - The primary LED feedback configuration implements the protocol. run_led_sequence.py prepares a reviewed bundle and executes it only with an explicit matching approval; verify_led_sequence.py recalculates the result from saved data.
    * - Data acquisition
      - IOC host 10.139.4.59
      - The trial records receiver rows, camera metadata, original image arrays, qualified frame IDs, host command times, run-counter checks and restoration readbacks.
@@ -79,860 +82,295 @@ Procedure
 Results
 -------
 
-The fresh baseline, recording ``20261104T045838Z-09f9a3``, contains 200 saved images over 20 seconds. It is an optical-readiness measurement rather than a completed LED-triggered sequence trial.
+The active recording ``20261104T051638Z-3fd293`` completed 20 camera-qualified sequences during a 60-second acquisition. Each accepted LED transition generated event 42 followed by event 43; both receivers recorded all 40 expected events. All 600 images were saved without frame-ID gaps, writer overruns or unassociated frames.
+The original pixels confirm every qualifying dark and bright frame. The starting sequencer controls and complete receiver maps were restored, while event 101, camera acquisition, pulse outputs and DG645 settings remained unchanged.
 
 .. list-table::
    :header-rows: 1
 
-   * - Baseline measurement
-     - Observed value
+   * - Measurement
+     - Observed result
+     - Meaning
+   * - Optical qualification
+     - 20 of 20 requested sequences; 40 source frames verified
+     - Every trigger followed a fresh dark-to-bright pair in the stored images. Only the first 20 accepted transitions triggered sequences; later images were background observations after disarming.
+   * - Reception completeness
+     - 40 of 40 events on each receiver
+     - Both codes arrived in the expected order for every cycle.
+   * - Measured 42 → 43 gap at 10.139.5.195
+     - mean 1,000,000 ns; standard deviation 0 ns; range 1,000,000–1,000,000 ns
+     - This interval is calculated from two hardware reception timestamps on the same receiver.
+   * - Measured 42 → 43 gap at 10.139.5.198
+     - mean 1,000,000 ns; standard deviation 0 ns; range 1,000,000–1,000,000 ns
+     - The independent receiver gives the same measured interval.
+   * - Receiver B minus A
+     - mean 0 ns; standard deviation 0 ns; range 0–0 ns
+     - All 40 matched events have equal reported timestamps at 8 ns resolution.
+   * - Host detection → command request
+     - mean 3,267,748 ns; standard deviation 336,534 ns; range 2,668,934–3,777,316 ns
+     - Host monotonic time from software qualification to the start of the trigger write; this is not an optical-edge or physical transmit measurement.
+   * - Host detection → run-count confirmation
+     - mean 60,032,252 ns; standard deviation 2,669,866 ns; range 57,292,733–70,288,531 ns
+     - This includes command transport and IOC/readback verification, so it must not be interpreted as hardware actuation latency.
+   * - Image delivery and storage
+     - 600 camera timestamps; 600 saved images; no observed gaps or overruns
+     - All source frames used for qualification are present in the lossless recording.
+   * - Restoration and health
+     - Original controls and full maps matched; bank idle and disarmed; four links/timestamps valid; overflow clear
+     - Fresh readbacks independently confirmed restoration after the trial.
+
+.. figure:: ../_static/timing-check/scenarios/led-qualified-images.png
+   :alt: Actual source frames for the first and last qualified cycles, using the same 0–4095 intensity scale. The full-size original arrays remain in the recording.
+   :width: 100%
+
+   Actual source frames for the first and last qualified cycles, using the same 0–4095 intensity scale. The full-size original arrays remain in the recording.
+
+.. figure:: ../_static/timing-check/scenarios/led-hardware-timing.svg
+   :alt: Measured receiver intervals and timestamp differences. Each plotted point comes from a stored hardware event record; no transmit timestamps are reconstructed.
+   :width: 100%
+
+   Measured receiver intervals and timestamp differences. Each plotted point comes from a stored hardware event record; no transmit timestamps are reconstructed.
+
+.. figure:: ../_static/timing-check/scenarios/led-software-timing.svg
+   :alt: Measured host software milestones for the same 20 cycles. These intervals use the host monotonic clock and remain separate from receiver hardware timing.
+   :width: 100%
+
+   Measured host software milestones for the same 20 cycles. These intervals use the host monotonic clock and remain separate from receiver hardware timing.
+
+.. list-table::
+   :header-rows: 1
+
+   * - Timing point
+     - Recorded clock / evidence
      - Interpretation
-   * - Saved images / camera metadata
-     - 200 / 200
-     - Every recorded camera timestamp has a stored image.
-   * - Bright / dark images
-     - 100 / 100
-     - Both states exceed the separation needed for the selected threshold.
-   * - Observed dark-to-bright transitions
-     - 99
-     - Transitions are identified between sampled images; they are not optical edge timestamps.
-   * - Frame-ID gaps / writer overruns
-     - 0 / 0
-     - These checks describe delivery and storage during the baseline.
-   * - Camera-clock interval
-     - mean 99,998,630.2 ns; standard deviation 12,424.9 ns
-     - The camera clock resolution has not been verified; these are reported frame intervals.
-   * - Event-101 receiver comparison
-     - 180 complete-second pairs; mean 0 ns; standard deviation 0 ns
-     - Both receivers reported equal timestamps at 8 ns resolution for the matched baseline events. This is not an LED-to-event delay.
+   * - LED observation
+     - Camera image ID, camera clock and region peak
+     - Confirms the observed light state; a sampled image does not timestamp optical turn-on.
+   * - Software trigger request
+     - Host wall-clock timestamps and monotonic intervals
+     - Records when the application started and completed its write, not when the event left the fiber transmitter.
+   * - Events 42 and 43 received
+     - Receiver POSIX seconds and nanoseconds; 8 ns resolution
+     - Provides the measured event spacing and receiver agreement shown above. Absolute UTC accuracy was not calibrated.
+   * - Follow-up action
+     - Event 43 was emitted by the sequencer after event 42 and logged by both receivers
+     - The sequence does not wait for an EVR acknowledgment, and neither event drives an electrical output in this trial.
 
-.. figure:: ../_static/timing-check/scenarios/led-baseline-images.png
-   :alt: Original pixel values from the fresh baseline, shown with the same 0–4095 intensity scale. Both panels use the defined LED region.
-   :width: 100%
-
-   Original pixel values from the fresh baseline, shown with the same 0–4095 intensity scale. Both panels use the defined LED region.
-
-.. figure:: ../_static/timing-check/scenarios/led-baseline-detection.svg
-   :alt: Measured region peaks for all baseline images. The threshold separates the recorded bright and dark samples.
-   :width: 100%
-
-   Measured region peaks for all baseline images. The threshold separates the recorded bright and dark samples.
-
-The 20-cycle active trial is prepared but has not run. Its event counts, reception gaps and software response intervals therefore have no measured values yet.
-
-:download:`Baseline frame records <../_static/timing-check/scenarios/led-baseline-frames.csv>` and :download:`image hashes and measurements <../_static/timing-check/scenarios/led-baseline-evidence.json>` preserve the source evidence.
+The 20-second pretrial baseline contained 200 saved images, with 100 bright and 100 dark states and 99 sampled dark-to-bright transitions. It verified optical visibility before arming; the plots above use the active trial rather than substituting baseline images.
+:download:`Cycle measurements <../_static/timing-check/scenarios/led-sequence-cycles.csv>` and :download:`verified source evidence <../_static/timing-check/scenarios/led-sequence-evidence.json>` preserve the clocks, frame IDs, original-image hashes and restoration checks.
 
 .. raw:: html
 
-   <details class="experiment-details"><summary>Baseline frame log</summary>
+   <details class="experiment-details"><summary>Hardware event records</summary>
 
 .. list-table::
    :header-rows: 1
 
-   * - Frame ID
-     - Camera clock (s)
-     - Region peak
-     - State
-   * - 1668483
-     - 12048035.2501975
-     - 4094
-     - Bright
-   * - 1668484
-     - 12048035.3502069
-     - 183
-     - Dark
-   * - 1668485
-     - 12048035.4502162
-     - 4094
-     - Bright
-   * - 1668486
-     - 12048035.5502005
-     - 187
-     - Dark
-   * - 1668487
-     - 12048035.6502098
-     - 4094
-     - Bright
-   * - 1668488
-     - 12048035.750194
-     - 184
-     - Dark
-   * - 1668489
-     - 12048035.8502034
-     - 4094
-     - Bright
-   * - 1668490
-     - 12048035.9501877
-     - 184
-     - Dark
-   * - 1668491
-     - 12048036.050197
-     - 4094
-     - Bright
-   * - 1668492
-     - 12048036.1502064
-     - 180
-     - Dark
-   * - 1668493
-     - 12048036.2501906
-     - 4094
-     - Bright
-   * - 1668494
-     - 12048036.3502
-     - 182
-     - Dark
-   * - 1668495
-     - 12048036.4501842
-     - 4094
-     - Bright
-   * - 1668496
-     - 12048036.5501936
-     - 180
-     - Dark
-   * - 1668497
-     - 12048036.6501778
-     - 4094
-     - Bright
-   * - 1668498
-     - 12048036.7501872
-     - 175
-     - Dark
-   * - 1668499
-     - 12048036.8501965
-     - 4094
-     - Bright
-   * - 1668500
-     - 12048036.9501808
-     - 184
-     - Dark
-   * - 1668501
-     - 12048037.0501901
-     - 4094
-     - Bright
-   * - 1668502
-     - 12048037.1501744
-     - 175
-     - Dark
-   * - 1668503
-     - 12048037.2501837
-     - 4094
-     - Bright
-   * - 1668504
-     - 12048037.350168
-     - 174
-     - Dark
-   * - 1668505
-     - 12048037.4501773
-     - 4094
-     - Bright
-   * - 1668506
-     - 12048037.5501867
-     - 177
-     - Dark
-   * - 1668507
-     - 12048037.6501709
-     - 4094
-     - Bright
-   * - 1668508
-     - 12048037.7501803
-     - 175
-     - Dark
-   * - 1668509
-     - 12048037.8501645
-     - 4094
-     - Bright
-   * - 1668510
-     - 12048037.9501739
-     - 173
-     - Dark
-   * - 1668511
-     - 12048038.0501581
-     - 4094
-     - Bright
-   * - 1668512
-     - 12048038.1501675
-     - 175
-     - Dark
-   * - 1668513
-     - 12048038.2501768
-     - 4094
-     - Bright
-   * - 1668514
-     - 12048038.3501611
-     - 176
-     - Dark
-   * - 1668515
-     - 12048038.4501705
-     - 4094
-     - Bright
-   * - 1668516
-     - 12048038.5501547
-     - 174
-     - Dark
-   * - 1668517
-     - 12048038.6501641
-     - 4094
-     - Bright
-   * - 1668518
-     - 12048038.7501483
-     - 178
-     - Dark
-   * - 1668519
-     - 12048038.8501576
-     - 4094
-     - Bright
-   * - 1668520
-     - 12048038.950167
-     - 176
-     - Dark
-   * - 1668521
-     - 12048039.0501513
-     - 4094
-     - Bright
-   * - 1668522
-     - 12048039.1501606
-     - 181
-     - Dark
-   * - 1668523
-     - 12048039.2501449
-     - 4094
-     - Bright
-   * - 1668524
-     - 12048039.3501542
-     - 186
-     - Dark
-   * - 1668525
-     - 12048039.4501384
-     - 4094
-     - Bright
-   * - 1668526
-     - 12048039.5501478
-     - 190
-     - Dark
-   * - 1668527
-     - 12048039.6501572
-     - 4094
-     - Bright
-   * - 1668528
-     - 12048039.7501414
-     - 190
-     - Dark
-   * - 1668529
-     - 12048039.8501508
-     - 4094
-     - Bright
-   * - 1668530
-     - 12048039.950135
-     - 189
-     - Dark
-   * - 1668531
-     - 12048040.0501444
-     - 4094
-     - Bright
-   * - 1668532
-     - 12048040.1501286
-     - 180
-     - Dark
-   * - 1668533
-     - 12048040.250138
-     - 4094
-     - Bright
-   * - 1668534
-     - 12048040.3501473
-     - 177
-     - Dark
-   * - 1668535
-     - 12048040.4501316
-     - 4094
-     - Bright
-   * - 1668536
-     - 12048040.5501409
-     - 181
-     - Dark
-   * - 1668537
-     - 12048040.6501252
-     - 4094
-     - Bright
-   * - 1668538
-     - 12048040.7501345
-     - 176
-     - Dark
-   * - 1668539
-     - 12048040.8501188
-     - 4094
-     - Bright
-   * - 1668540
-     - 12048040.9501281
-     - 176
-     - Dark
-   * - 1668541
-     - 12048041.0501375
-     - 4094
-     - Bright
-   * - 1668542
-     - 12048041.1501217
-     - 176
-     - Dark
-   * - 1668543
-     - 12048041.2501311
-     - 4094
-     - Bright
-   * - 1668544
-     - 12048041.3501153
-     - 175
-     - Dark
-   * - 1668545
-     - 12048041.4501247
-     - 4094
-     - Bright
-   * - 1668546
-     - 12048041.5501089
-     - 176
-     - Dark
-   * - 1668547
-     - 12048041.6501183
-     - 4094
-     - Bright
-   * - 1668548
-     - 12048041.7501277
-     - 178
-     - Dark
-   * - 1668549
-     - 12048041.8501119
-     - 4094
-     - Bright
-   * - 1668550
-     - 12048041.9501212
-     - 174
-     - Dark
-   * - 1668551
-     - 12048042.0501055
-     - 4094
-     - Bright
-   * - 1668552
-     - 12048042.1501149
-     - 174
-     - Dark
-   * - 1668553
-     - 12048042.2500991
-     - 4094
-     - Bright
-   * - 1668554
-     - 12048042.3501085
-     - 178
-     - Dark
-   * - 1668555
-     - 12048042.4501178
-     - 4094
-     - Bright
-   * - 1668556
-     - 12048042.550102
-     - 173
-     - Dark
-   * - 1668557
-     - 12048042.6501114
-     - 4094
-     - Bright
-   * - 1668558
-     - 12048042.7500957
-     - 174
-     - Dark
-   * - 1668559
-     - 12048042.850105
-     - 4094
-     - Bright
-   * - 1668560
-     - 12048042.9500893
-     - 182
-     - Dark
-   * - 1668561
-     - 12048043.0500986
-     - 4094
-     - Bright
-   * - 1668562
-     - 12048043.150108
-     - 189
-     - Dark
-   * - 1668563
-     - 12048043.2500922
-     - 4094
-     - Bright
-   * - 1668564
-     - 12048043.3501016
-     - 188
-     - Dark
-   * - 1668565
-     - 12048043.4500858
-     - 4094
-     - Bright
-   * - 1668566
-     - 12048043.5500952
-     - 182
-     - Dark
-   * - 1668567
-     - 12048043.6500794
-     - 4094
-     - Bright
-   * - 1668568
-     - 12048043.7500888
-     - 185
-     - Dark
-   * - 1668569
-     - 12048043.8500981
-     - 4094
-     - Bright
-   * - 1668570
-     - 12048043.9500824
-     - 178
-     - Dark
-   * - 1668571
-     - 12048044.0500917
-     - 4094
-     - Bright
-   * - 1668572
-     - 12048044.150076
-     - 176
-     - Dark
-   * - 1668573
-     - 12048044.2500853
-     - 4094
-     - Bright
-   * - 1668574
-     - 12048044.3500696
-     - 173
-     - Dark
-   * - 1668575
-     - 12048044.4500789
-     - 4094
-     - Bright
-   * - 1668576
-     - 12048044.5500883
-     - 178
-     - Dark
-   * - 1668577
-     - 12048044.6500725
-     - 4094
-     - Bright
-   * - 1668578
-     - 12048044.7500819
-     - 175
-     - Dark
-   * - 1668579
-     - 12048044.8500661
-     - 4094
-     - Bright
-   * - 1668580
-     - 12048044.9500755
-     - 175
-     - Dark
-   * - 1668581
-     - 12048045.0500597
-     - 4094
-     - Bright
-   * - 1668582
-     - 12048045.1500691
-     - 172
-     - Dark
-   * - 1668583
-     - 12048045.2500533
-     - 4094
-     - Bright
-   * - 1668584
-     - 12048045.3500627
-     - 172
-     - Dark
-   * - 1668585
-     - 12048045.4500721
-     - 4094
-     - Bright
-   * - 1668586
-     - 12048045.5500563
-     - 173
-     - Dark
-   * - 1668587
-     - 12048045.6500656
-     - 4094
-     - Bright
-   * - 1668588
-     - 12048045.7500499
-     - 172
-     - Dark
-   * - 1668589
-     - 12048045.8500593
-     - 4094
-     - Bright
-   * - 1668590
-     - 12048045.9500435
-     - 172
-     - Dark
-   * - 1668591
-     - 12048046.0500529
-     - 4094
-     - Bright
-   * - 1668592
-     - 12048046.1500622
-     - 170
-     - Dark
-   * - 1668593
-     - 12048046.2500464
-     - 4094
-     - Bright
-   * - 1668594
-     - 12048046.3500558
-     - 174
-     - Dark
-   * - 1668595
-     - 12048046.4500401
-     - 4094
-     - Bright
-   * - 1668596
-     - 12048046.5500494
-     - 174
-     - Dark
-   * - 1668597
-     - 12048046.6500337
-     - 4094
-     - Bright
-   * - 1668598
-     - 12048046.750043
-     - 181
-     - Dark
-   * - 1668599
-     - 12048046.8500524
-     - 4094
-     - Bright
-   * - 1668600
-     - 12048046.9500366
-     - 182
-     - Dark
-   * - 1668601
-     - 12048047.050046
-     - 4094
-     - Bright
-   * - 1668602
-     - 12048047.1500302
-     - 187
-     - Dark
-   * - 1668603
-     - 12048047.2500396
-     - 4094
-     - Bright
-   * - 1668604
-     - 12048047.3500238
-     - 187
-     - Dark
-   * - 1668605
-     - 12048047.4500332
-     - 4094
-     - Bright
-   * - 1668606
-     - 12048047.5500425
-     - 183
-     - Dark
-   * - 1668607
-     - 12048047.6500268
-     - 4094
-     - Bright
-   * - 1668608
-     - 12048047.7500361
-     - 180
-     - Dark
-   * - 1668609
-     - 12048047.8500204
-     - 4094
-     - Bright
-   * - 1668610
-     - 12048047.9500297
-     - 179
-     - Dark
-   * - 1668611
-     - 12048048.050014
-     - 4094
-     - Bright
-   * - 1668612
-     - 12048048.1500233
-     - 174
-     - Dark
-   * - 1668613
-     - 12048048.2500327
-     - 4094
-     - Bright
-   * - 1668614
-     - 12048048.3500169
-     - 179
-     - Dark
-   * - 1668615
-     - 12048048.4500263
-     - 4094
-     - Bright
-   * - 1668616
-     - 12048048.5500105
-     - 176
-     - Dark
-   * - 1668617
-     - 12048048.6500199
-     - 4094
-     - Bright
-   * - 1668618
-     - 12048048.7500041
-     - 176
-     - Dark
-   * - 1668619
-     - 12048048.8500135
-     - 4094
-     - Bright
-   * - 1668620
-     - 12048048.9500229
-     - 178
-     - Dark
-   * - 1668621
-     - 12048049.0500071
-     - 4094
-     - Bright
-   * - 1668622
-     - 12048049.1500165
-     - 171
-     - Dark
-   * - 1668623
-     - 12048049.2500007
-     - 4094
-     - Bright
-   * - 1668624
-     - 12048049.35001
-     - 170
-     - Dark
-   * - 1668625
-     - 12048049.4499943
-     - 4094
-     - Bright
-   * - 1668626
-     - 12048049.5500037
-     - 172
-     - Dark
-   * - 1668627
-     - 12048049.650013
-     - 4094
-     - Bright
-   * - 1668628
-     - 12048049.7499973
-     - 173
-     - Dark
-   * - 1668629
-     - 12048049.8500066
-     - 4094
-     - Bright
-   * - 1668630
-     - 12048049.9499908
-     - 173
-     - Dark
-   * - 1668631
-     - 12048050.0500002
-     - 4094
-     - Bright
-   * - 1668632
-     - 12048050.1499845
-     - 176
-     - Dark
-   * - 1668633
-     - 12048050.2499938
-     - 4094
-     - Bright
-   * - 1668634
-     - 12048050.3500032
-     - 178
-     - Dark
-   * - 1668635
-     - 12048050.4499874
-     - 4094
-     - Bright
-   * - 1668636
-     - 12048050.5499968
-     - 183
-     - Dark
-   * - 1668637
-     - 12048050.649981
-     - 4094
-     - Bright
-   * - 1668638
-     - 12048050.7499904
-     - 188
-     - Dark
-   * - 1668639
-     - 12048050.8499746
-     - 4094
-     - Bright
-   * - 1668640
-     - 12048050.949984
-     - 187
-     - Dark
-   * - 1668641
-     - 12048051.0499933
-     - 4094
-     - Bright
-   * - 1668642
-     - 12048051.1499776
-     - 182
-     - Dark
-   * - 1668643
-     - 12048051.2499869
-     - 4094
-     - Bright
-   * - 1668644
-     - 12048051.3499712
-     - 181
-     - Dark
-   * - 1668645
-     - 12048051.4499805
-     - 4094
-     - Bright
-   * - 1668646
-     - 12048051.5499648
-     - 178
-     - Dark
-   * - 1668647
-     - 12048051.6499741
-     - 4094
-     - Bright
-   * - 1668648
-     - 12048051.7499835
-     - 174
-     - Dark
-   * - 1668649
-     - 12048051.8499677
-     - 4094
-     - Bright
-   * - 1668650
-     - 12048051.9499771
-     - 173
-     - Dark
-   * - 1668651
-     - 12048052.0499613
-     - 4094
-     - Bright
-   * - 1668652
-     - 12048052.1499707
-     - 174
-     - Dark
-   * - 1668653
-     - 12048052.2499549
-     - 4094
-     - Bright
-   * - 1668654
-     - 12048052.3499643
-     - 174
-     - Dark
-   * - 1668655
-     - 12048052.4499736
-     - 4094
-     - Bright
-   * - 1668656
-     - 12048052.5499579
-     - 174
-     - Dark
-   * - 1668657
-     - 12048052.6499673
-     - 4094
-     - Bright
-   * - 1668658
-     - 12048052.7499515
-     - 176
-     - Dark
-   * - 1668659
-     - 12048052.8499609
-     - 4094
-     - Bright
-   * - 1668660
-     - 12048052.9499451
-     - 172
-     - Dark
-   * - 1668661
-     - 12048053.0499544
-     - 4094
-     - Bright
-   * - 1668662
-     - 12048053.1499638
-     - 173
-     - Dark
-   * - 1668663
-     - 12048053.2499481
-     - 4094
-     - Bright
-   * - 1668664
-     - 12048053.3499574
-     - 175
-     - Dark
-   * - 1668665
-     - 12048053.4499417
-     - 4094
-     - Bright
-   * - 1668666
-     - 12048053.549951
-     - 177
-     - Dark
-   * - 1668667
-     - 12048053.6499352
-     - 4094
-     - Bright
-   * - 1668668
-     - 12048053.7499446
-     - 173
-     - Dark
-   * - 1668669
-     - 12048053.849954
-     - 4094
-     - Bright
-   * - 1668670
-     - 12048053.9499382
-     - 174
-     - Dark
-   * - 1668671
-     - 12048054.0499476
-     - 4094
-     - Bright
-   * - 1668672
-     - 12048054.1499318
-     - 180
-     - Dark
-   * - 1668673
-     - 12048054.2499412
-     - 4094
-     - Bright
-   * - 1668674
-     - 12048054.3499254
-     - 185
-     - Dark
-   * - 1668675
-     - 12048054.4499348
-     - 4094
-     - Bright
-   * - 1668676
-     - 12048054.5499441
-     - 186
-     - Dark
-   * - 1668677
-     - 12048054.6499284
-     - 4094
-     - Bright
-   * - 1668678
-     - 12048054.7499377
-     - 193
-     - Dark
-   * - 1668679
-     - 12048054.849922
-     - 4094
-     - Bright
-   * - 1668680
-     - 12048054.9499313
-     - 183
-     - Dark
-   * - 1668681
-     - 12048055.0499156
-     - 4094
-     - Bright
-   * - 1668682
-     - 12048055.1499249
-     - 180
-     - Dark
+   * - Cycle
+     - Code
+     - 10.139.5.195 reported UTC
+     - 10.139.5.198 reported UTC
+     - B minus A (ns)
+   * - 1
+     - 42
+     - 2026-11-04 05:16:38.966633888
+     - 2026-11-04 05:16:38.966633888
+     - 0
+   * - 1
+     - 43
+     - 2026-11-04 05:16:38.967633888
+     - 2026-11-04 05:16:38.967633888
+     - 0
+   * - 2
+     - 42
+     - 2026-11-04 05:16:39.158820376
+     - 2026-11-04 05:16:39.158820376
+     - 0
+   * - 2
+     - 43
+     - 2026-11-04 05:16:39.159820376
+     - 2026-11-04 05:16:39.159820376
+     - 0
+   * - 3
+     - 42
+     - 2026-11-04 05:16:39.348352232
+     - 2026-11-04 05:16:39.348352232
+     - 0
+   * - 3
+     - 43
+     - 2026-11-04 05:16:39.349352232
+     - 2026-11-04 05:16:39.349352232
+     - 0
+   * - 4
+     - 42
+     - 2026-11-04 05:16:39.552895544
+     - 2026-11-04 05:16:39.552895544
+     - 0
+   * - 4
+     - 43
+     - 2026-11-04 05:16:39.553895544
+     - 2026-11-04 05:16:39.553895544
+     - 0
+   * - 5
+     - 42
+     - 2026-11-04 05:16:39.755218008
+     - 2026-11-04 05:16:39.755218008
+     - 0
+   * - 5
+     - 43
+     - 2026-11-04 05:16:39.756218008
+     - 2026-11-04 05:16:39.756218008
+     - 0
+   * - 6
+     - 42
+     - 2026-11-04 05:16:39.959588328
+     - 2026-11-04 05:16:39.959588328
+     - 0
+   * - 6
+     - 43
+     - 2026-11-04 05:16:39.960588328
+     - 2026-11-04 05:16:39.960588328
+     - 0
+   * - 7
+     - 42
+     - 2026-11-04 05:16:40.153020392
+     - 2026-11-04 05:16:40.153020392
+     - 0
+   * - 7
+     - 43
+     - 2026-11-04 05:16:40.154020392
+     - 2026-11-04 05:16:40.154020392
+     - 0
+   * - 8
+     - 42
+     - 2026-11-04 05:16:40.354367904
+     - 2026-11-04 05:16:40.354367904
+     - 0
+   * - 8
+     - 43
+     - 2026-11-04 05:16:40.355367904
+     - 2026-11-04 05:16:40.355367904
+     - 0
+   * - 9
+     - 42
+     - 2026-11-04 05:16:40.555127976
+     - 2026-11-04 05:16:40.555127976
+     - 0
+   * - 9
+     - 43
+     - 2026-11-04 05:16:40.556127976
+     - 2026-11-04 05:16:40.556127976
+     - 0
+   * - 10
+     - 42
+     - 2026-11-04 05:16:40.759335544
+     - 2026-11-04 05:16:40.759335544
+     - 0
+   * - 10
+     - 43
+     - 2026-11-04 05:16:40.760335544
+     - 2026-11-04 05:16:40.760335544
+     - 0
+   * - 11
+     - 42
+     - 2026-11-04 05:16:40.954778488
+     - 2026-11-04 05:16:40.954778488
+     - 0
+   * - 11
+     - 43
+     - 2026-11-04 05:16:40.955778488
+     - 2026-11-04 05:16:40.955778488
+     - 0
+   * - 12
+     - 42
+     - 2026-11-04 05:16:41.154232616
+     - 2026-11-04 05:16:41.154232616
+     - 0
+   * - 12
+     - 43
+     - 2026-11-04 05:16:41.155232616
+     - 2026-11-04 05:16:41.155232616
+     - 0
+   * - 13
+     - 42
+     - 2026-11-04 05:16:41.360269496
+     - 2026-11-04 05:16:41.360269496
+     - 0
+   * - 13
+     - 43
+     - 2026-11-04 05:16:41.361269496
+     - 2026-11-04 05:16:41.361269496
+     - 0
+   * - 14
+     - 42
+     - 2026-11-04 05:16:41.556156816
+     - 2026-11-04 05:16:41.556156816
+     - 0
+   * - 14
+     - 43
+     - 2026-11-04 05:16:41.557156816
+     - 2026-11-04 05:16:41.557156816
+     - 0
+   * - 15
+     - 42
+     - 2026-11-04 05:16:41.749541040
+     - 2026-11-04 05:16:41.749541040
+     - 0
+   * - 15
+     - 43
+     - 2026-11-04 05:16:41.750541040
+     - 2026-11-04 05:16:41.750541040
+     - 0
+   * - 16
+     - 42
+     - 2026-11-04 05:16:41.954662184
+     - 2026-11-04 05:16:41.954662184
+     - 0
+   * - 16
+     - 43
+     - 2026-11-04 05:16:41.955662184
+     - 2026-11-04 05:16:41.955662184
+     - 0
+   * - 17
+     - 42
+     - 2026-11-04 05:16:42.156873456
+     - 2026-11-04 05:16:42.156873456
+     - 0
+   * - 17
+     - 43
+     - 2026-11-04 05:16:42.157873456
+     - 2026-11-04 05:16:42.157873456
+     - 0
+   * - 18
+     - 42
+     - 2026-11-04 05:16:42.357292208
+     - 2026-11-04 05:16:42.357292208
+     - 0
+   * - 18
+     - 43
+     - 2026-11-04 05:16:42.358292208
+     - 2026-11-04 05:16:42.358292208
+     - 0
+   * - 19
+     - 42
+     - 2026-11-04 05:16:42.550379248
+     - 2026-11-04 05:16:42.550379248
+     - 0
+   * - 19
+     - 43
+     - 2026-11-04 05:16:42.551379248
+     - 2026-11-04 05:16:42.551379248
+     - 0
+   * - 20
+     - 42
+     - 2026-11-04 05:16:42.756191064
+     - 2026-11-04 05:16:42.756191064
+     - 0
+   * - 20
+     - 43
+     - 2026-11-04 05:16:42.757191064
+     - 2026-11-04 05:16:42.757191064
+     - 0
 
 .. raw:: html
 
@@ -940,7 +378,124 @@ The 20-cycle active trial is prepared but has not run. Its event counts, recepti
 
 .. raw:: html
 
-   <details class="experiment-details"><summary>Exact active-trial commands; not executed</summary><pre>Apply
+   <details class="experiment-details"><summary>Optical qualification and host processing records</summary>
+
+.. list-table::
+   :header-rows: 1
+
+   * - Cycle
+     - Dark / bright frame ID
+     - Dark / bright peak
+     - Detection → request (ns)
+     - Detection → confirmation (ns)
+   * - 1
+     - 1679288 / 1679289
+     - 180 / 4094
+     - 2668934
+     - 70288531
+   * - 2
+     - 1679290 / 1679291
+     - 175 / 4094
+     - 2829684
+     - 57891383
+   * - 3
+     - 1679292 / 1679293
+     - 174 / 4094
+     - 2775824
+     - 57367422
+   * - 4
+     - 1679294 / 1679295
+     - 173 / 4094
+     - 3652366
+     - 59897747
+   * - 5
+     - 1679296 / 1679297
+     - 175 / 4094
+     - 3471105
+     - 59816886
+   * - 6
+     - 1679298 / 1679299
+     - 175 / 4094
+     - 2883354
+     - 59026075
+   * - 7
+     - 1679300 / 1679301
+     - 176 / 4094
+     - 3063115
+     - 59385456
+   * - 8
+     - 1679302 / 1679303
+     - 177 / 4094
+     - 2914924
+     - 59531615
+   * - 9
+     - 1679304 / 1679305
+     - 171 / 4094
+     - 3097775
+     - 57292733
+   * - 10
+     - 1679306 / 1679307
+     - 172 / 4094
+     - 3178755
+     - 61154488
+   * - 11
+     - 1679308 / 1679309
+     - 174 / 4094
+     - 3279495
+     - 60337897
+   * - 12
+     - 1679310 / 1679311
+     - 173 / 4094
+     - 3426305
+     - 59855186
+   * - 13
+     - 1679312 / 1679313
+     - 178 / 4094
+     - 3279255
+     - 61858459
+   * - 14
+     - 1679314 / 1679315
+     - 181 / 4094
+     - 3282315
+     - 61490179
+   * - 15
+     - 1679316 / 1679317
+     - 186 / 4094
+     - 3277795
+     - 57765303
+   * - 16
+     - 1679318 / 1679319
+     - 185 / 4094
+     - 3306245
+     - 60119536
+   * - 17
+     - 1679320 / 1679321
+     - 183 / 4094
+     - 3677585
+     - 58001464
+   * - 18
+     - 1679322 / 1679323
+     - 183 / 4094
+     - 3754735
+     - 60099796
+   * - 19
+     - 1679324 / 1679325
+     - 186 / 4094
+     - 3758085
+     - 59470655
+   * - 20
+     - 1679326 / 1679327
+     - 179 / 4094
+     - 3777316
+     - 59994236
+
+.. raw:: html
+
+   </details>
+
+.. raw:: html
+
+   <details class="experiment-details"><summary>Executed command log</summary><pre>Apply
    pvput -w 3 EVT:DEV2:10:EVR:LOG:evt3 42
    pvput -w 3 EVT:DEV2:10:EVR:LOG:evt4 43
    pvput -w 3 EVT:DEV2:40:EVR:LOG:evt3 42
@@ -979,7 +534,7 @@ The 20-cycle active trial is prepared but has not run. Its event counts, recepti
    pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:trig 1
    pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:disarm 1
 
-   Stop
+   Disarm
    pvput -w 3 EVT:DEV2:20:EVG:SEQ:1:disarm 1
 
    Restore
@@ -1001,6 +556,6 @@ The 20-cycle active trial is prepared but has not run. Its event counts, recepti
 Findings
 --------
 
-The baseline demonstrates that the current camera stream can distinguish the LED states while both receivers retain consistent event-101 timestamps. It supports proceeding with camera-qualified sequence triggering without changing the working optical source.
-The active trial will establish whether LED detection reliably starts the two-event sequence and whether both receivers retain its measured spacing. A successful result would qualify that software-and-sequencer path; it would not establish optical turn-on latency, physical transmit time, an electrical output response or 1 kHz operation.
-
+The tested path converted 20 observed LED transitions into 20 complete event sequences, and both receivers retained the programmed 1,000,000 ns spacing. Their reported timestamps agreed for all 40 events at the available 8 ns resolution, which supports consistent event identification and timestamp correlation at these settings.
+The host took 3.268 ms on average to start the trigger write after image qualification. Run-count confirmation took 60.032 ms on average, including IOC readback. These software measurements show why control-plane verification must be kept separate from the hardware sequence interval.
+For CXFEL, this result demonstrates an optical-observation-driven timing sequence with repeatable receiver timestamps. It does not establish nanosecond optical response, physical transmit-to-receive delay, an EVR-controlled output pulse or full-rate operation. Those measurements require recorded physical input/output signals; camera frames and command completion cannot supply the missing edge timestamps.

@@ -2,7 +2,7 @@ Timing experiments
 ==================
 
 These experiments check the functions available with firmware and IOC release 20261017. Each page gives the setup, procedure, recorded results and findings.
-The LED-response experiment is first because it tests a timing sequence started by an observed optical transition. A fresh baseline is complete; the active sequence awaits approval of its exact PV commands.
+The LED-response experiment is first because it tests a timing sequence started by an observed optical transition. The completed LED trial links 20 observed transitions to identified event sequences and independent receiver timestamps.
 
 .. list-table::
    :header-rows: 1
@@ -12,7 +12,7 @@ The LED-response experiment is first because it tests a timing sequence started 
      - Recorded status
    * - :doc:`LED-triggered event sequence <led_response>`
      - Observed LED transition starts codes 42 and 43
-     - 200-image baseline complete; active trial awaits approval
+     - 20 LED-qualified sequences; 40 events on each receiver
    * - :doc:`Single-event reception <single_event>`
      - One event reaches two receivers
      - 1 of 1 on each; receiver difference 0 ns

@@ -1348,117 +1348,50 @@
       "physical_output_edge_timestamp": null
     },
     "led_response": {
-      "state": "complete chain not measured",
-      "pv_writes": 0,
-      "input_configuration_read_utc": "2026-11-04T04:45:52.220851+00:00",
-      "input_event_codes": {
-        "1": {
-          "rise": 0,
-          "fall": 0
+      "state": "camera-qualified sequence measured; physical edge timing not measured",
+      "recording_id": "20261104T051638Z-3fd293",
+      "raw_sha256": "a14b6ed13c52dbcaa437758007b8250db58089e55e9b34d3c52474cdf588d76c",
+      "qualified_cycles": 20,
+      "events_each": 40,
+      "measurements": {
+        "gap_a_ns": {
+          "count": 20,
+          "mean": 1000000,
+          "stddev": 0.0,
+          "min": 1000000,
+          "max": 1000000
         },
-        "2": {
-          "rise": 0,
-          "fall": 0
+        "gap_b_ns": {
+          "count": 20,
+          "mean": 1000000,
+          "stddev": 0.0,
+          "min": 1000000,
+          "max": 1000000
         },
-        "3": {
-          "rise": 0,
-          "fall": 0
+        "receiver_difference_ns": {
+          "count": 40,
+          "mean": 0,
+          "stddev": 0.0,
+          "min": 0,
+          "max": 0
         },
-        "4": {
-          "rise": 0,
-          "fall": 0
+        "detection_to_request_ns": {
+          "count": 20,
+          "mean": 3267748.35,
+          "stddev": 336533.7904626035,
+          "min": 2668934,
+          "max": 3777316
         },
-        "5": {
-          "rise": 0,
-          "fall": 0
-        },
-        "6": {
-          "rise": 0,
-          "fall": 0
-        },
-        "7": {
-          "rise": 0,
-          "fall": 0
-        },
-        "8": {
-          "rise": 0,
-          "fall": 0
-        },
-        "9": {
-          "rise": 0,
-          "fall": 0
-        },
-        "10": {
-          "rise": 0,
-          "fall": 0
-        },
-        "11": {
-          "rise": 0,
-          "fall": 0
-        },
-        "12": {
-          "rise": 0,
-          "fall": 0
-        },
-        "13": {
-          "rise": 0,
-          "fall": 0
-        },
-        "14": {
-          "rise": 0,
-          "fall": 0
-        },
-        "15": {
-          "rise": 0,
-          "fall": 0
-        },
-        "16": {
-          "rise": 0,
-          "fall": 0
+        "detection_to_confirmation_ns": {
+          "count": 20,
+          "mean": 60032252.35,
+          "stddev": 2669865.6689055776,
+          "min": 57292733,
+          "max": 70288531
         }
       },
-      "hardware_transmit_timestamp_available": false,
-      "input1_passive_counts": {
-        "samples": [
-          {
-            "host_unix": 1793767569.7257118,
-            "rising": 159,
-            "falling": 159
-          },
-          {
-            "host_unix": 1793767571.7421215,
-            "rising": 161,
-            "falling": 161
-          },
-          {
-            "host_unix": 1793767573.759476,
-            "rising": 163,
-            "falling": 163
-          },
-          {
-            "host_unix": 1793767575.7757974,
-            "rising": 165,
-            "falling": 165
-          },
-          {
-            "host_unix": 1793767577.7931142,
-            "rising": 167,
-            "falling": 167
-          },
-          {
-            "host_unix": 1793767579.8093028,
-            "rising": 169,
-            "falling": 169
-          }
-        ],
-        "elapsed_host_seconds": 10.083590984344482,
-        "edges": {
-          "rising": 10,
-          "falling": 10
-        },
-        "signal_source_identified": false,
-        "hardware_edge_timestamps_available": false
-      }
+      "source_evidence": "led-sequence-evidence.json",
+      "physical_transmit_and_optical_edge_times_measured": false
     },
     "camera_response": {
       "recording_id": "20261104T013636Z-7f8d4f",
