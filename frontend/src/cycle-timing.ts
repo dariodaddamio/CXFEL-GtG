@@ -21,13 +21,20 @@ export function cycleTiming(events:ReceiverEvent[],windowNs=1_000_000n){
   }
   if(pending)result.push(pending);return result
  })
- const distance=(a:bigint,b:bigint)=>a>b?a-b:b-a
- // Pair only unique, mutual candidates. Missing or ambiguous cycles stay unmatched.
- const ab=pairs[0].map(a=>pairs[1].map((b,i)=>distance(a.first,b.first)<=windowNs?i:-1).filter(i=>i>=0))
- const ba=pairs[1].map(b=>pairs[0].map((a,i)=>distance(a.first,b.first)<=windowNs?i:-1).filter(i=>i>=0))
+ // Sorted sliding windows count candidates without allocating an N x M matrix.
+ const uniqueCandidates=(left:Pair[],right:Pair[])=>{
+  let start=0,end=0
+  return left.map(p=>{
+   while(start<right.length&&right[start].first<p.first-windowNs)start++
+   end=Math.max(start,end)
+   while(end<right.length&&right[end].first<=p.first+windowNs)end++
+   return end-start===1?start:undefined
+  })
+ }
+ const ab=uniqueCandidates(pairs[0],pairs[1]),ba=uniqueCandidates(pairs[1],pairs[0])
  const used=new Set<number>();const cycles:Cycle[]=pairs[0].map((a,i)=>{
-  const j=ab[i].length===1?ab[i][0]:undefined
-  const b=j!==undefined&&ba[j].length===1?pairs[1][j]:undefined
+  const j=ab[i]
+  const b=j!==undefined&&ba[j]===i?pairs[1][j]:undefined
   if(b&&j!==undefined)used.add(j)
   return {id:'a:'+a.first,a,b}
  })

@@ -1,4 +1,4 @@
-import {useEffect,useMemo,useState} from 'react'
+import {memo,useEffect,useMemo,useState} from 'react'
 import {api,format} from './api'
 import {cycleTiming,gap,difference,RECEIVERS,type ReceiverEvent,type Cycle} from './cycle-timing'
 
@@ -60,8 +60,8 @@ function CycleZoom({cycle,target}:{cycle:Cycle;target:number|null}){
  </svg>
 }
 
-export default function EventTimeline({recordingId,events,programmedGapNs,replayLabel}:{recordingId?:string;events?:ReceiverEvent[];programmedGapNs?:number|null;replayLabel?:string}){
- const [data,setData]=useState<Timeline|null>(null),[error,setError]=useState(''),[pick,setPick]=useState<string|null>(null)
+function EventTimeline({recordingId,events,programmedGapNs,replayLabel}:{recordingId?:string;events?:ReceiverEvent[];programmedGapNs?:number|null;replayLabel?:string}){
+ const [data,setData]=useState<Timeline|null>(null),[error,setError]=useState(''),[pick,setPick]=useState<string|null>(null),[historyOpen,setHistoryOpen]=useState(false)
  useEffect(()=>{if(events!==undefined||!recordingId)return;let stopped=false,timer:ReturnType<typeof setTimeout>;const controller=new AbortController()
   async function read(){try{const d=await api<Timeline>('/api/runs/'+recordingId+'/timeline.json',undefined,controller.signal);if(!stopped){setData(d);setError('');if(['recording','finishing'].includes(d.state))timer=setTimeout(read,1000)}}catch(e){if(!stopped)setError((e as Error).message)}}
   setData(null);read();return()=>{stopped=true;controller.abort();clearTimeout(timer)}
@@ -88,9 +88,16 @@ export default function EventTimeline({recordingId,events,programmedGapNs,replay
     <CycleZoom cycle={selected} target={target}/>
     <div className="instrument-scroll"><table className="rt-stamps"><thead><tr><th>Receiver</th><th><i className="rt-key rt-k42"/>Event 42 logged at</th><th><i className="rt-key rt-k43"/>Event 43 logged at</th><th>43 − 42</th></tr></thead><tbody>{RECEIVERS.map((ip,i)=>{const p=i===0?selected.a:selected.b;return <tr key={ip}><td>{ip}</td><td><Digits value={p?.first}/> <small>ns</small></td><td><Digits value={p?.second} base={p?.first}/> <small>ns</small></td><td className="num">{spacing(gap(p))}</td></tr>})}</tbody></table>
     <p className="rt-note">Nanoseconds within UTC second {utcSecond(origin(selected))}. Highlighted digits change from 42 to 43.</p></div></div>
-   <details className="rt-history"><summary>All {result.cycles.length} cycles, newest first</summary><div className="instrument-scroll rt-history-scroll"><table><thead><tr><th>UTC</th><th>Spacing {SHORT[0]}</th><th>Spacing {SHORT[1]}</th><th>{SHORT[1]} − {SHORT[0]}, 42 / 43</th><th>Result</th></tr></thead><tbody>{[...result.cycles].reverse().map(c=><tr key={c.id} className={c===selected?'selected':''} onClick={()=>setPick(c.id)}><td>{utcTime(origin(c))}</td><td className="num">{spacing(gap(c.a))}</td><td className="num">{spacing(gap(c.b))}</td><td className="num">{format(difference(c.a?.first,c.b?.first),0)} / {format(difference(c.a?.second,c.b?.second),0)} ns</td><td>{cycleOk(c,target)?'Match':'Check'}</td></tr>)}</tbody></table></div></details>
+   <details className="rt-history" onToggle={e=>setHistoryOpen(e.currentTarget.open)}><summary>All {result.cycles.length} cycles, newest first</summary>{historyOpen&&<div className="instrument-scroll rt-history-scroll"><table><thead><tr><th>UTC</th><th>Spacing {SHORT[0]}</th><th>Spacing {SHORT[1]}</th><th>{SHORT[1]} − {SHORT[0]}, 42 / 43</th><th>Result</th></tr></thead><tbody>{[...result.cycles].reverse().map(c=><tr key={c.id} className={c===selected?'selected':''} onClick={()=>setPick(c.id)}><td>{utcTime(origin(c))}</td><td className="num">{spacing(gap(c.a))}</td><td className="num">{spacing(gap(c.b))}</td><td className="num">{format(difference(c.a?.first,c.b?.first),0)} / {format(difference(c.a?.second,c.b?.second),0)} ns</td><td>{cycleOk(c,target)?'Match':'Check'}</td></tr>)}</tbody></table></div>}</details>
   </>}
   {(result.incomplete>0||result.orphans>0||result.invalid>0)&&<p className="count-note">Some records could not be paired: {result.incomplete} cycles are incomplete, {result.orphans} event-43 records have no preceding 42, and {result.invalid} timestamps are invalid.</p>}
   <details className="rt-basis"><summary>How cycles are paired</summary><p>On each receiver, each event 43 is paired with the event 42 just before it. The two receivers' copies of a cycle are matched only when exactly one candidate lies within 1 ms; ambiguous or missing copies stay unmatched instead of being guessed. A cycle "matches" when both receivers logged the programmed spacing and agree on both timestamps. Receiver timestamps resolve 8 ns.</p></details>
  </section>
 }
+
+// Poll responses allocate fresh arrays even when no receiver timestamp changed.
+export default memo(EventTimeline,(a,b)=>a.recordingId===b.recordingId&&a.programmedGapNs===b.programmedGapNs&&a.replayLabel===b.replayLabel&&(
+ a.events===b.events||!!a.events&&!!b.events&&a.events.length===b.events.length&&a.events.every((r,i)=>{
+  const t=b.events![i];return r.ip===t.ip&&r.event===t.event&&r.sec===t.sec&&r.ns===t.ns
+ })
+))

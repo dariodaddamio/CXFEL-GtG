@@ -24,4 +24,10 @@ export async function api<T>(_path:string,_body?:unknown,_signal?:AbortSignal):P
 }
 export function numeric(data:Record<string,Reading>|undefined,key:string){const item=data?.[key];return item&&item.error===undefined&&typeof item.value==='number'?item.value:undefined}
 export function text(data:Record<string,Reading>|undefined,key:string){const item=data?.[key];if(!item||item.error!==undefined)return 'Unavailable';return String(item.label??item.value??'Unavailable')}
-export function format(value:number|null|undefined,digits=3){return value==null||!Number.isFinite(value)?'—':new Intl.NumberFormat('en-US',{maximumFractionDigits:digits}).format(value)}
+const numberFormats=new Map<number,Intl.NumberFormat>()
+export function format(value:number|null|undefined,digits=3){
+ if(value==null||!Number.isFinite(value))return '—'
+ let formatter=numberFormats.get(digits)
+ if(!formatter){formatter=new Intl.NumberFormat('en-US',{maximumFractionDigits:digits});numberFormats.set(digits,formatter)}
+ return formatter.format(value)
+}
