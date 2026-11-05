@@ -124,7 +124,7 @@ To install the release, use the `Program Application Firmware`_ procedure.
 Recordings
 ----------
 
-Each run is one saved recording. The video shows the 8 ns repeat run in the timing console.
+The video shows both receivers recording all 50 cycles during a new 10-second demonstration with an 8 ns event gap, a full-sensor camera view and a brightness cutoff of 4,000 counts. The tables and records below describe the earlier trials.
 
 .. list-table::
    :header-rows: 1
