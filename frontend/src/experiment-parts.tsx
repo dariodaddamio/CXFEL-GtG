@@ -19,16 +19,41 @@ function CameraView({active,live,retained=true,threshold=1000,historyFrames=0,fi
  const [historyIndex,setHistoryIndex]=useState<number|null>(null);
  const preview=true;const [frame,setFrame]=useState<{url:string;id:string|null;stamp:number;peak:number|null;bright:boolean|null;cutoff:number;roi:number[]}|null>(null),[failure,setFailure]=useState('');
  const url=useRef<string|undefined>(undefined);
+ const cutoffRef=useRef(threshold);cutoffRef.current=threshold;
+ const retired=useRef<string[]>([]);
+ const releaseOldFrames=()=>{retired.current.splice(0).forEach(value=>URL.revokeObjectURL(value))};
  const deliveries=useRef<number[]>([]),lastId=useRef<string|null>(null);
  const [previewFps,setPreviewFps]=useState<number|null>(null);
  const [latency,setLatency]=useState<number|null>(null);
  useEffect(()=>{if(FRONTEND_ONLY)return;if((!active&&historyIndex==null)||!preview)return;let stopped=false,timer:ReturnType<typeof setTimeout>;const controller=new AbortController();
- const read=async()=>{const started=performance.now();if(document.hidden){timer=setTimeout(read,1000);return}try{const response=await fetch(historyIndex!=null?'/api/session/frame?index='+historyIndex:'/api/frame'+(lastId.current?'?after='+encodeURIComponent(lastId.current):''),{signal:controller.signal});if(response.status===204)return;if(!response.ok)throw new Error('Frame unavailable; retrying');const blob=await response.blob();if(stopped)return;const next=URL.createObjectURL(blob);if(url.current)URL.revokeObjectURL(url.current);url.current=next;
- const id=response.headers.get('X-Frame-Id');if(id!==lastId.current){const now=performance.now();deliveries.current=deliveries.current.filter(t=>now-t<5000);deliveries.current.push(now);lastId.current=id;const values=deliveries.current;if(values.length>1)setPreviewFps((values.length-1)*1000/(values[values.length-1]-values[0]));}
- setLatency(Math.max(0,Date.now()-Number(response.headers.get('X-IOC-Timestamp'))*1000));
- const peak=response.headers.get('X-ROI-Peak');setFrame({url:next,id:response.headers.get('X-Frame-Id'),stamp:Number(response.headers.get('X-IOC-Timestamp')),peak:peak?Number(peak):null,bright:response.headers.get('X-LED-Bright')==='true',roi:JSON.parse(response.headers.get('X-LED-ROI')??'[300,700,550,850]'),cutoff:historyIndex!=null?Number(response.headers.get('X-LED-Cutoff')??threshold):threshold});setFailure('');}catch(error){if(!stopped)setFailure((error as Error).message)}finally{if(!stopped&&historyIndex==null)timer=setTimeout(read,Math.max(0,50-(performance.now()-started)))}};read();return()=>{stopped=true;controller.abort();clearTimeout(timer)};
- },[active,preview,historyIndex,threshold]);
- useEffect(()=>()=>{if(url.current)URL.revokeObjectURL(url.current)},[]);
+ const read=async()=>{
+  const started=performance.now();if(document.hidden){timer=setTimeout(read,1000);return}
+  let pending:string|undefined
+  try{
+   const response=await fetch(historyIndex!=null?'/api/session/frame?index='+historyIndex:'/api/frame'+(lastId.current?'?after='+encodeURIComponent(lastId.current):''),{signal:controller.signal})
+   if(response.status===204)return
+   if(!response.ok)throw new Error('Frame unavailable; retrying')
+   const blob=await response.blob();if(stopped)return
+   pending=URL.createObjectURL(blob)
+   const decoded=new Image();decoded.src=pending;await decoded.decode()
+   if(stopped)return
+   const previous=url.current;url.current=pending;pending=undefined
+   if(previous)retired.current.push(previous)
+   const id=response.headers.get('X-Frame-Id')
+   if(id!==lastId.current){const now=performance.now();deliveries.current=deliveries.current.filter(t=>now-t<5000);deliveries.current.push(now);lastId.current=id;const values=deliveries.current;if(values.length>1)setPreviewFps((values.length-1)*1000/(values[values.length-1]-values[0]))}
+   const stamp=Number(response.headers.get('X-IOC-Timestamp'));setLatency(Math.max(0,Date.now()-stamp*1000))
+   const peak=response.headers.get('X-ROI-Peak')
+   setFrame({url:url.current!,id,stamp,peak:peak?Number(peak):null,bright:response.headers.get('X-LED-Bright')==='true',roi:JSON.parse(response.headers.get('X-LED-ROI')??'[]'),cutoff:Number(response.headers.get('X-LED-Cutoff')??cutoffRef.current)})
+   setFailure('')
+  }catch(error){if(!stopped)setFailure((error as Error).message)}finally{
+   if(pending)URL.revokeObjectURL(pending)
+   // One request/decode at a time, paced to this rack's 10 fps camera feed.
+   if(!stopped&&historyIndex==null)timer=setTimeout(read,Math.max(0,100-(performance.now()-started)))
+  }
+ };read();return()=>{stopped=true;controller.abort();clearTimeout(timer)};
+ },[active,preview,historyIndex]);
+
+ useEffect(()=>()=>{if(url.current)URL.revokeObjectURL(url.current);releaseOldFrames()},[]);
  const ca=live?.status.ca,stale=frame&&Date.now()/1000-frame.stamp>3;
  const recentIntervals=(live?.metrics.camera.interval_series??[]).slice(-10);
  const recentPeriod=recentIntervals.length?recentIntervals.reduce((sum,p)=>sum+p.interval_ms,0)/recentIntervals.length:null;
@@ -36,10 +61,10 @@ function CameraView({active,live,retained=true,threshold=1000,historyFrames=0,fi
  useEffect(()=>{if(historyIndex!=null&&frame?.id&&firstFrameId!=null&&Number(frame.id)<firstFrameId){setFrame(null);if(url.current)URL.revokeObjectURL(url.current);url.current=undefined;setHistoryIndex(active?null:0)}},[firstFrameId,frame?.id,active,historyIndex]);
  useEffect(()=>{if(active)setHistoryIndex(null)},[active]);
  useEffect(()=>{if(!active&&historyFrames>0&&!frame&&historyIndex==null)setHistoryIndex(historyFrames-1)},[active,historyFrames,frame,historyIndex]);
- const effectiveCutoff=frame?.cutoff??threshold;
+ const effectiveCutoff=historyIndex==null?threshold:frame?.cutoff??threshold;
  const bright=frame?.peak!=null&&frame.peak>effectiveCutoff;
  return <Panel title="Live camera" icon={<Camera size={16}/>}>
- <div className="camera-stage">{frame?<img src={frame.url} alt="Live LED breadboard view from camera 192.168.2.1"/>:<div className="camera-empty"><ScanLine size={24}/>{FRONTEND_ONLY?'No camera connected':active?(failure||'Waiting for camera…'):'Live is stopped'}</div>}
+ <div className="camera-stage">{frame?<img src={frame.url} decoding="async" onLoad={releaseOldFrames} alt="Live LED breadboard view from camera 192.168.2.1"/>:<div className="camera-empty"><ScanLine size={24}/>{FRONTEND_ONLY?'No camera connected':active?(failure||'Waiting for camera…'):'Live is stopped'}</div>}
 
  {frame&&<div className="image-meta"><span><i className={'led-dot '+(bright?'bright':'')}/>{bright?'LED bright':'LED dim'}</span><span>{historyIndex!=null?'Buffered frame':stale&&active?'Camera image stale':active?'Live image':'Last live image'}</span></div>}</div>
  <div className="camera-caption"><span>CAM2 (192.168.2.1){frame?.id?', frame '+frame.id:''}</span><span>{active?format(recentPeriod?1000/recentPeriod:null,2)+' frames/s received':'Stopped'}</span></div>
